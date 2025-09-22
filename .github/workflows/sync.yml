@@ -25,7 +25,7 @@ jobs:
       # 3. Merge main dans chaque branche listée
       - name: Sync branches
         run: |
-          for branch in salle_1, salle_2, salle_3, salle_4, salle_5, salle_6, salle_accueil; do
+          for branch in salle_1 salle_2 salle_3 salle_4 salle_5 salle_6 salle_accueil; do
             git checkout $branch
             git merge origin/main --no-edit || true
             git push origin $branch || true
