@@ -23,7 +23,7 @@ use CodeIgniter\Exceptions\InvalidArgumentException;
 class DotEnv
 {
     /**
-     * The directory where the ..env file can be located.
+     * The directory where the .env file can be located.
      *
      * @var string
      */
@@ -32,7 +32,7 @@ class DotEnv
     /**
      * Builds the path to our file.
      */
-    public function __construct(string $path, string $file = '..env')
+    public function __construct(string $path, string $file = '.env')
     {
         $this->path = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $file;
     }
