@@ -7,29 +7,13 @@
 </head>
 <body>
 <h1>Menu Principal</h1>
-
-<a href="<?= base_url('Salle1') ?>">
-    <button>Salle 1</button>
-</a>
-
-<a href="<?= base_url('Salle2') ?>">
-    <button>Salle 2</button>
-</a>
-
-<a href="<?= base_url('Salle3') ?>">
-    <button>Salle 3</button>
-</a>
-
-<a href="<?= base_url('Salle4') ?>">
-    <button>Salle 4</button>
-</a>
-
-<a href="<?= base_url('Salle5') ?>">
-    <button>Salle 5</button>
-</a>
-
-<a href="<?= base_url('Salle6') ?>">
-    <button>Salle 6</button>
-</a>
+<nav>
+    <?= anchor(base_url().'public/Salle1', '<button>Salle 1</button>'); ?>
+    <?= anchor(base_url().'public/Salle2', '<button>Salle 2</button>'); ?>
+    <?= anchor(base_url().'public/Salle3', '<button>Salle 3</button>'); ?>
+    <?= anchor(base_url().'public/Salle4', '<button>Salle 4</button>'); ?>
+    <?= anchor(base_url().'public/Salle5', '<button>Salle 5</button>'); ?>
+    <?= anchor(base_url().'public/Salle6', '<button>Salle 6</button>'); ?>
+</nav>
 </body>
 </html>
