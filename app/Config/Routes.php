@@ -15,3 +15,5 @@ $routes->get('/Salle3', 'accueil\AccueilController::Salle3');
 $routes->get('/Salle4', 'accueil\AccueilController::Salle4');
 $routes->get('/Salle5', 'accueil\AccueilController::Salle5');
 $routes->get('/Salle6', 'accueil\AccueilController::Salle6');
+
+$routes->get('/Salle4', 'salle_4\Salle4Controller::index');
