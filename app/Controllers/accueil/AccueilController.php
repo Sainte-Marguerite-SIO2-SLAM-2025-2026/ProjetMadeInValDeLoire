@@ -4,7 +4,7 @@ class AccueilController extends \App\Controllers\BaseController
 {
     public function index() : string
     {
-        return view('menu_principal');
+        return view('Accueil');
     }
 
     public function Salle1() : string
