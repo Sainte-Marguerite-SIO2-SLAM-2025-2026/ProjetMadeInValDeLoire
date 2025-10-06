@@ -5,51 +5,41 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="<?= base_url('public/styles/salle2.css') ?>">
-    <script src="public/js/salle2.js"></script>
-    <!--<title>Salle 2 - Phishing</title> -->
+    <?= link_tag('/public/styles/salle2.css'); ?>
+    <script src="<?= base_url('/public/js/salle2.js') ?>" defer></script>
+    <title>Salle 2 - Phishing</title>
 </head>
+
 <body>
 
-<div id="home-screen" class="screen">
+<div class="game-container">
+    <h1>Tri des mails - Phishing</h1>
+    <p>Clique sur les enveloppes pour examiner les messages et décide s’ils sont légitimes ou non.</p>
 
-    <img src="<?= base_url('public/images_temp/bg_temporaire.jpg') ?>" id="bg" alt="background">
-    <div class="content">
-        <h1>Phishing</h1>
-        <p class="subtitle">Cliquez sur le PC pour commencer.</p>
+        <div class="envelopes">
+            <!-- Généré dynamiquement par JS -->
+        </div>
 
-        <div class="pc-wrapper" aria-label="Allumer le PC.">
-            <img src="<?= base_url('public/images_temp/pc_temp.png') ?>" id="pc" alt="PC">
-            <div class="pc-shadow"></div>
+    <button id="validate-btn" disabled>Valider mes choix</button>
+
+</div>
+
+<!-- Modal pour afficher le mail -->
+<div id="mail-modal" class="modal hidden">
+    <div class="modal-content">
+        <span id="close-modal">&times;</span>
+        <img id="mail-image" src="" alt="Mail affiché">
+        <div class="choices">
+            <button id="btn-legit" class="legit">Légitime</button>
+            <button id="btn-phish" class="phish">Phishing</button>
         </div>
     </div>
 </div>
 
-<!-- <div id="game-screen" class="screen hidden">
-    <div class="game-modal">
-        <header class="game-header">
-            <h2 id="game-title">Triez les messages</h2>
-            <button id="close-game" class="close-btn" aria-label="Fermer">X</button>
-        </header>
+</div>
 
-        <main class="game-body">
-            <div id="message-container" class="message-card"></div>
+<?= anchor(base_url().'public/', '<button>Retour</button>'); ?>
 
-            <div class="controls">
-                <button id="legit" class="btn btn-yes">Légitime</button>
-                <button id="phish" class="btn btn-no">Phishing</button>
-            </div>
-
-            <p id="feedback" class="feedback"></p>
-        </main>
-
-        <footer class="game-footer">
-           <div id="progress">0 </div>
-        </footer>
-    </div>
-</div> -->
-
-    <?= anchor(base_url().'public/', '<button>Retour</button>'); ?>
 </body>
 </html>
 
