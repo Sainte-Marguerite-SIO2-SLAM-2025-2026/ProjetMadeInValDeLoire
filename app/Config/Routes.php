@@ -5,6 +5,10 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+
+// Routes communes
+$routes->get('/MentionLegale', 'commun\CommunController::MentionLegale');
+
 // Route pour la page d'accueil
 $routes->get('/', 'accueil\AccueilController::index');
 
