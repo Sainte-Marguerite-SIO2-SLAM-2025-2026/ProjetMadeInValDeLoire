@@ -27,14 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const env = document.createElement("div");
         env.classList.add("envelope");
         env.dataset.id = mail.id;
-        env.innerHTML = `<img class="env-closed" src="/public/images_temp/enveloppe_temp.jpg" alt="Enveloppe"/>`
+        env.innerHTML = `<img class="env-closed" src="${window.BASE_URL}public/images_temp/enveloppe_temp.jpg" alt="Enveloppe"/>`
         env.addEventListener("click", () => openMail(mail));
         container.appendChild(env);
     });
 
     function openMail(mail) {
         currentMail = mail;
-        mailImg.src = `/public/images_temp/${mail.img}`;
+        mailImg.src = `${window.BASE_URL}public/images_temp/${mail.img}`;
         modal.classList.remove("hidden");
     }
 

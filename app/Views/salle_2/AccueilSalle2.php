@@ -6,7 +6,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?= link_tag('/public/styles/salle2.css'); ?>
-    <script src="<?= base_url('/public/js/salle2.js') ?>" defer></script>
+    <script>
+        window.BASE_URL = "<?= base_url() ?>";
+    </script>
+        <script defer src="<?= base_url('/public/js/salle2.js') ?>"></script>
     <title>Salle 2 - Phishing</title>
 </head>
 

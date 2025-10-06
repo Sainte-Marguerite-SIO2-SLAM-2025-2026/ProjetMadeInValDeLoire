@@ -44,6 +44,58 @@ body {
     background-color: rgba(255, 0, 0, 0.3);
 }
 
+.env-closed {
+    width: 70%;              /* prend 70% de la largeur du bloc enveloppe */
+    max-width: 110px;        /* ne dépasse pas ceci */
+    height: auto;            /* conserve le ratio */
+    display: block;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* vignette du mail (miniature) : petite et nette */
+.env-thumb {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 44px;             /* taille de la vignette (ajuste si tu veux plus grand) */
+    height: 34px;
+    object-fit: cover;       /* recadre sans déformer */
+    border-radius: 4px;
+    border: 2px solid rgba(255,255,255,0.95);
+    background: #fff;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* petit titre (optionnel) */
+.env-title {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    right: 60px;
+    font-size: 11px;
+    color: #fff;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* badge */
+.env-badge {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    z-index: 4;
+    width: 26px;
+    height: 26px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    font-weight:700;
+    color:#fff;
+}
+
 button#validate-btn {
     margin-top: 20px;
     padding: 12px 24px;
