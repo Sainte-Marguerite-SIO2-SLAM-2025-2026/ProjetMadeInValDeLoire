@@ -11,4 +11,3 @@
     <?= anchor(base_url().'public/', '<button>retour</button>'); ?>
 </nav>
 </body>
-</html>
