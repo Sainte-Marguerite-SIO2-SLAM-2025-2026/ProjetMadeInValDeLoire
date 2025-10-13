@@ -109,7 +109,7 @@ if (! function_exists('img')) {
             $src['alt'] = $attributes['alt'] ?? '';
         }
 
-        $img = '<images';
+        $img = '<img';
 
         // Check for a relative URI
         if (preg_match('#^([a-z]+:)?//#i', $src['src']) !== 1 && ! str_starts_with($src['src'], 'data:')) {
