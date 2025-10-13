@@ -3,20 +3,21 @@ html, body {
     padding: 0;
 }
 
-H1 {
+.titre-temp {
     color: white;
     text-align: center;
     font-size: clamp(1.5rem, 4vw, 3rem);
 }
 
-p {
+.texte-bulle {
     color: black;
     text-align: center;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive;
 }
 
 .container {
     position: relative;
-    background-image: url("../images/salle_6/fond_grenier_v0.5.jpg");
+    background-image: url("../../images/salle_6/fond_grenier_v1.jpg");
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -29,34 +30,36 @@ p {
 .zone-cliquable {
     position:   absolute;
     top:        70%;        /* position verticale */
-    left:       29%;        /* position horizontale */
-    width:      15vw;       /* largeur du hotspot */
-    height:     24vh;       /* hauteur du hotspot */
+    left:       23%;        /* position horizontale */
+    width:      30vw;       /* largeur du hotspot */
+    height:     25vh;       /* hauteur du hotspot */
     /*max-width:  600px;   /* limite la largeur sur grand écran */
     /*max-height: 600px;  /* limite la hauteur sur grand écran */
     cursor:     pointer;
     background: transparent;
-    /*border: 2px solid red;*/ /* utile pour voir où elle est pendant les tests */
+    /*border: 2px solid red; /* utile pour voir où elle est pendant les tests */
 }
 
 .bulle {
     position: absolute;
+    bottom: calc(12% + 200px + 1rem); /* 5% (position mascotte) + 200px (hauteur mascotte) + 10px (espacement) */
+    left: 72%; /* aligné avec la mascotte */
     display: inline-block;
     background: white;
     color: black;
     padding: 1rem 1.5rem;
     border-radius: 20px;
     font-family: sans-serif;
-    max-width: 250px;
+    max-width: min(250px,40vw);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* petite flèche en bas à gauche */
+/* Flèche pointant vers la mascotte (en bas à gauche de la bulle) */
 .bulle::after {
     content: "";
     position: absolute;
-    bottom: -15px; /* distance sous la bulle */
-    left: 30px; /* position horizontale de la flèche */
+    bottom: -15px;
+    left: 45px;
     border-width: 15px 15px 0;
     border-style: solid;
     border-color: white transparent transparent transparent;
@@ -64,14 +67,23 @@ p {
 
 .mascotte {
     position: absolute;
-    bottom: 5%; /* distance par rapport au bas de l’écran */
-    left: 50%;   /* centre horizontal */
-    transform: translateX(-50%); /* centre exact */
-    max-width: 150px; /* adapte selon la taille de l’écran */
+    bottom: 12%; /* distance par rapport au bas de l'écran */
+    left: 72%;   /* distance par rapport à la gauche (au lieu de 50% centré) */
+    transform: none; /* retire le centrage */
+    max-width: 150px;
     height: 200px;
     width: 200px;
-    border : 1px solid red;
+    /*border: 1px solid red;*/ /*Pour test*/
     z-index: 1; /* derrière la bulle */
+}
+
+.retour {
+    position: absolute;
+    bottom: 2%;
+    left: 1%;
+    transform: none;
+    max-width: 150px;
+    height: 200px;
 }
 
 @media (max-width: 990px) {
