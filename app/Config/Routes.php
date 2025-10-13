@@ -29,6 +29,8 @@ $routes->get('/Salle4', 'salle_4\Salle4Controller::index');
 $routes->get('/Salle5', 'accueil\AccueilController::Salle5');
 
 // Routes pour la salle 6
-$routes->get('/Salle6', 'accueil\AccueilController::Salle6');
+$routes->get('/Salle6', 'salle_6\Salle6Controller::Index');
+$routes->get('/Salle6/Wifi', 'salle_6\Salle6Controller::Wifi');
+$routes->get('/Salle6/VPN', 'salle_6\Salle6Controller::Vpn');
 
 
