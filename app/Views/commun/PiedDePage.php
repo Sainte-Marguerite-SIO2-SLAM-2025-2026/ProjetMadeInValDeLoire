@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <?= link_tag('/public/styles/commun.css'); ?>
-</head>
-<body>
+<!--<!DOCTYPE html>-->
+<!--<html lang="fr">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title></title>-->
+<!--    -->
+<!--</head>-->
+<!--<body>-->
 <footer>
+    <?= link_tag('/public/styles/commun.css'); ?>
     <div class="footer-section">
         <h4>Mentions légales</h4>
 <!--        <p><a href="MentionsLegales.php">Consulter les mentions légales</a></p>-->
@@ -37,6 +38,6 @@
         &copy; 2025 Hova team - Tous droits réservés
     </div>
 </footer>
-
-</body>
-</html>
+<!---->
+<!--</body>-->
+<!--</html>-->
