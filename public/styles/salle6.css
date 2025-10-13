@@ -1,0 +1,84 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+H1 {
+    color: white;
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+p {
+    color: black;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    background-image: url("../images/salle_6/fond_grenier_v0.5.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 1px;
+}
+
+
+/* zone cliquable */
+.zone-cliquable {
+    position:   absolute;
+    top:        70%;        /* position verticale */
+    left:       29%;        /* position horizontale */
+    width:      15vw;       /* largeur du hotspot */
+    height:     24vh;       /* hauteur du hotspot */
+    /*max-width:  600px;   /* limite la largeur sur grand écran */
+    /*max-height: 600px;  /* limite la hauteur sur grand écran */
+    cursor:     pointer;
+    background: transparent;
+    /*border: 2px solid red;*/ /* utile pour voir où elle est pendant les tests */
+}
+
+.bulle {
+    position: absolute;
+    display: inline-block;
+    background: white;
+    color: black;
+    padding: 1rem 1.5rem;
+    border-radius: 20px;
+    font-family: sans-serif;
+    max-width: 250px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* petite flèche en bas à gauche */
+.bulle::after {
+    content: "";
+    position: absolute;
+    bottom: -15px; /* distance sous la bulle */
+    left: 30px; /* position horizontale de la flèche */
+    border-width: 15px 15px 0;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+.mascotte {
+    position: absolute;
+    bottom: 5%; /* distance par rapport au bas de l’écran */
+    left: 50%;   /* centre horizontal */
+    transform: translateX(-50%); /* centre exact */
+    max-width: 150px; /* adapte selon la taille de l’écran */
+    height: 200px;
+    width: 200px;
+    border : 1px solid red;
+    z-index: 1; /* derrière la bulle */
+}
+
+@media (max-width: 990px) {
+    .zone-cliquable {
+        top: 75%;
+        left: 15%;
+        width: 25vw;
+        height: 15vh;
+    }
+}

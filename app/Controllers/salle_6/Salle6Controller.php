@@ -1,10 +1,25 @@
 <?php
 
-namespace salle_6;
+namespace App\Controllers\salle_6;
 
 use App\Controllers\BaseController;
 
 class Salle6Controller extends BaseController
 {
+    public function Index() : string
+    {
+        $data['intitule'] = "Ouah ce train à l'aire étrange cliquez dessus pour en savoir plus";
+        return view('salle_6\AccueilSalle6',$data).
+            view('commun\footer');
+    }
 
+    public function Wifi():string
+    {
+        return view('salle_6\Wifi');
+    }
+
+    public function Vpn():string
+    {
+        return view('salle_6\Vpn');
+    }
 }
