@@ -6,5 +6,8 @@ use App\Controllers\BaseController;
 
 class Salle4Controller extends BaseController
 {
-
+    public function index():string
+    {
+        return view('accueil\Accueil');
+    }
 }
