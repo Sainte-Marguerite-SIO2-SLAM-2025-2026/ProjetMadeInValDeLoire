@@ -41,9 +41,4 @@ class AccueilController extends BaseController
             view('commun\footer');
     }
 
-    public function Salle6() : string
-    {
-        return view('salle_6\AccueilSalle6').
-            view('commun\footer');
-    }
 }
