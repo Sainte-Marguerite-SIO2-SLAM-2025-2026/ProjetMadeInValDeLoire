@@ -1,0 +1,96 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.titre-temp {
+    color: white;
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+.texte-bulle {
+    color: black;
+    text-align: center;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive;
+}
+
+.container {
+    position: relative;
+    background-image: url("../../images/salle_6/fond_wifi.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 1px;
+}
+
+
+/* zone cliquable */
+.zone-cliquable {
+    position:   absolute;
+    top:        70%;        /* position verticale */
+    left:       23%;        /* position horizontale */
+    width:      30vw;       /* largeur du hotspot */
+    height:     25vh;       /* hauteur du hotspot */
+    /*max-width:  600px;   /* limite la largeur sur grand écran */
+    /*max-height: 600px;  /* limite la hauteur sur grand écran */
+    cursor:     pointer;
+    background: transparent;
+    border: 2px solid red; /* utile pour voir où elle est pendant les tests */
+}
+
+.bulle {
+    position: absolute;
+    bottom: calc(12% + 200px + 1rem); /* 5% (position mascotte) + 200px (hauteur mascotte) + 10px (espacement) */
+    left: 72%; /* aligné avec la mascotte */
+    display: inline-block;
+    background: white;
+    color: black;
+    padding: 1rem 1.5rem;
+    border-radius: 20px;
+    font-family: sans-serif;
+    max-width: min(250px,40vw);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Flèche pointant vers la mascotte (en bas à gauche de la bulle) */
+.bulle::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 45px;
+    border-width: 15px 15px 0;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+.mascotte {
+    position: absolute;
+    bottom: 12%; /* distance par rapport au bas de l'écran */
+    left: 72%;   /* distance par rapport à la gauche (au lieu de 50% centré) */
+    transform: none; /* retire le centrage */
+    max-width: 150px;
+    height: 200px;
+    width: 200px;
+    /*border: 1px solid red;*/ /*Pour test*/
+    z-index: 1; /* derrière la bulle */
+}
+
+.retour {
+    position: absolute;
+    bottom: 2%;
+    left: 1%;
+    transform: none;
+    max-width: 150px;
+    height: 200px;
+}
+
+@media (max-width: 990px) {
+    .zone-cliquable {
+        top: 75%;
+        left: 15%;
+        width: 25vw;
+        height: 15vh;
+    }
+}
