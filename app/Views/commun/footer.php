@@ -1,10 +1,10 @@
 
 <footer>
-    <?= link_tag('/public/styles/commun/footer.css'); ?>
+    <?= link_tag('styles/commun/footer.css'); ?>
     <div class="footer-section">
         <h4>Mentions légales</h4>
 <!--        <p><a href="MentionsLegales.php">Consulter les mentions légales</a></p>-->
-        <?= anchor(base_url().'public/MentionLegale', '<p>Consulter les mentions légales</p>'); ?>
+        <?= anchor(base_url().'MentionLegale', '<p>Consulter les mentions légales</p>'); ?>
     </div>
 
     <div class="footer-section">
