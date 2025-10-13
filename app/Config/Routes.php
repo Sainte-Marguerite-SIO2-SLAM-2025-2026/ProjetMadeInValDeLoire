@@ -31,4 +31,6 @@ $routes->get('/Salle5', 'accueil\AccueilController::Salle5');
 // Routes pour la salle 6
 $routes->get('/Salle6', 'accueil\AccueilController::Salle6');
 
+$routes->post("/Salle2/submit", 'salle_2\Salle2Controller::submit');
+
 

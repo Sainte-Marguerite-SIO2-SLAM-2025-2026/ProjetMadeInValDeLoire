@@ -1,77 +1,136 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const mails = [
-        { id: 1, img: "mail_temp.png", type: "phishing", userChoice: null },
-        { id: 2, img: "mail_temp.png", type: "legit", userChoice: null },
-        { id: 3, img: "mail_temp.png", type: "phishing", userChoice: null },
-        { id: 4, img: "mail_temp.png", type: "phishing", userChoice: null },
-        { id: 5, img: "mail_temp.png", type: "legit", userChoice: null },
-        { id: 6, img: "mail_temp.png", type: "phishing", userChoice: null },
-        { id: 7, img: "mail_temp.png", type: "phishing", userChoice: null },
-        { id: 8, img: "mail_temp.png", type: "legit", userChoice: null },
-        { id: 9, img: "mail_temp.png", type: "phishing", userChoice: null },
-        { id: 10, img: "mail_temp.png", type: "phishing", userChoice: null },
-    ];
 
-    const container = document.querySelector(".envelopes");
+    const envelopesContainer = document.querySelector(".envelopes");
     const modal = document.getElementById("mail-modal");
-    const mailImg = document.getElementById("mail-image");
+    const mailContent = document.getElementById("mail-content");
     const closeModal = document.getElementById("close-modal");
     const btnLegit = document.getElementById("btn-legit");
     const btnPhish = document.getElementById("btn-phish");
-    const validateBtn = document.getElementById("validate-btn");
+    const btnValider = document.getElementById("validate-btn");
 
-    let currentMail = null;
+    const mails = window.MAILS || [];
+    const choices = Array(mails.length).fill(null);
+    let currentIndex = null;
 
-    // Générer les enveloppes
-    mails.forEach(mail => {
-        const env = document.createElement("div");
-        env.classList.add("envelope");
-        env.dataset.id = mail.id;
-        env.innerHTML = `<img class="env-closed" src="${window.BASE_URL}public/images_temp/enveloppe_temp.jpg" alt="Enveloppe"/>`
-        env.addEventListener("click", () => openMail(mail));
-        container.appendChild(env);
-    });
-
-    function openMail(mail) {
-        currentMail = mail;
-        mailImg.src = `${window.BASE_URL}public/images_temp/${mail.img}`;
-        modal.classList.remove("hidden");
+    function creerEnveloppe(index) {
+        const env = document.createElement('div');
+        env.className = 'enveloppe';
+        env.dataset.index = index;
+        env.innerHTML = `<div class="env-front"><span class="env-number">${index + 1}</span></div>`;
+        env.addEventListener('click', () => openModal(index));
+        return env;
     }
 
-    closeModal.addEventListener("click", () => {
-        modal.classList.add("hidden");
-    });
-
-    btnLegit.addEventListener("click", () => classify("legit"));
-    btnPhish.addEventListener("click", () => classify("phishing"));
-
-    function classify(choice) {
-        if (!currentMail) return;
-        currentMail.userChoice = choice;
-        modal.classList.add("hidden");
-
-        const env = document.querySelector(`.envelope[data-id="${currentMail.id}"]`);
-        env.classList.remove("legit", "phish");
-        env.classList.add(choice === "legit" ? "legit" : "phish");
-
-        // Activer le bouton si tout est choisi
-        if (mails.every(m => m.userChoice !== null)) {
-            validateBtn.classList.add("active");
-            validateBtn.disabled = false;
+    function initEnveloppes() {
+        envelopesContainer.innerHTML = '';
+        if (mails.length === 0) {
+            envelopesContainer.innerHTML = '<p>Aucun mail à trier.</p>';
+            return;
         }
+        mails.forEach((_, i) => envelopesContainer.appendChild(creerEnveloppe(i)));
+        updateValiderButton();
     }
 
-    validateBtn.addEventListener("click", () => {
-        if (!mails.every(m => m.userChoice !== null)) return;
+    function openModal(index) {
+        currentIndex = index;
+        const m = mails[index];
 
-        let correct = 0;
-        mails.forEach(m => {
-            if (m.type === m.userChoice || (m.type === "smishing" && m.userChoice === "phishing")) {
-                correct++;
-            }
-        });
+        mailContent.innerHTML = `
+            <p><strong>Expéditeur :</strong> ${escapeHtml(m.expediteur ?? '')}</p>
+            <p><strong>Objet :</strong> ${escapeHtml(m.objet ?? '')}</p>
+            <p>${escapeHtml(m.contenu1 ?? "")}<br>${escapeHtml(m.contenu2 ?? '')}</p>
+        `;
 
-        const score = `${correct} / ${mails.length}`;
-        alert(`Énigme terminée !\nTon score : ${score}`);
+        btnLegit.classList.toggle('selected', choices[index] === 'legit');
+        btnPhish.classList.toggle('selected', choices[index] === 'phish');
+
+        modal.classList.remove('hidden');
+    }
+
+    closeModal.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        currentIndex = null;
     });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+            currentIndex = null;
+        }
+    });
+
+    btnLegit.addEventListener('click', () => {
+        markCurrent('legit');
+        modal.classList.add('hidden');
+        currentIndex = null;
+    });
+
+    btnPhish.addEventListener('click', () => {
+        markCurrent('phish');
+        modal.classList.add('hidden');
+        currentIndex = null;
+    });
+
+    function markCurrent(choice) {
+        if (currentIndex === null) return;
+        choices[currentIndex] = choice;
+
+        const env = document.querySelector(`.enveloppe[data-index="${currentIndex}"]`);
+        if (env) {
+            env.classList.remove('mark-legit', 'mark-phish');
+            if (choice === 'legit') env.classList.add('mark-legit');
+            if (choice === 'phish') env.classList.add('mark-phish');
+        }
+
+        btnLegit.classList.toggle('selected', choice === 'legit');
+        btnPhish.classList.toggle('selected', choice === 'phish');
+
+        updateValiderButton();
+    }
+
+    function updateValiderButton() {
+        const allMarked = choices.every(c => c === 'legit' || c === 'phish');
+        btnValider.disabled = !allMarked;
+        btnValider.classList.toggle('ready', allMarked);
+    }
+
+    btnValider.addEventListener('click', async () => {
+        const payload = mails.map((m, i) => ({
+            id: m.id ?? i,
+            choix: choices[i]
+        }));
+
+        try {
+            btnValider.disabled = true;
+            btnValider.textContent = 'Envoi...';
+
+            const res = await fetch(window.BASE_URL + '/Salle2/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ resultat: payload })
+            });
+
+            if (!res.ok) throw new Error(`Erreur serveur: ${res.status}`);
+
+            const json = await res.json();
+            alert(json.message || 'Résultats enregistrés. Bravo !');
+        } catch (err) {
+            console.error(err);
+            alert('Erreur lors de l\'envoi — réessaie plus tard.');
+        } finally {
+            btnValider.textContent = 'Valider mes choix';
+            btnValider.disabled = false;
+        }
+    });
+
+    function escapeHtml(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    }
+
+    initEnveloppes();
 });

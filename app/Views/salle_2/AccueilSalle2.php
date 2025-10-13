@@ -8,6 +8,7 @@
     <?= link_tag('/public/styles/salle2.css'); ?>
     <script>
         window.BASE_URL = "<?= base_url() ?>";
+        window.MAILS = <?= json_encode($mail ?? [], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP) ?>;
     </script>
         <script defer src="<?= base_url('/public/js/salle2.js') ?>"></script>
     <title>Salle 2 - Phishing</title>
@@ -15,8 +16,9 @@
 
 <body>
 
+
 <div class="game-container">
-    <h1>Tri des mails - Phishing</h1>
+    <h1>Phishing</h1>
     <p>Clique sur les enveloppes pour examiner les messages et décide s’ils sont légitimes ou non.</p>
 
         <div class="envelopes">
@@ -31,7 +33,15 @@
 <div id="mail-modal" class="modal hidden">
     <div class="modal-content">
         <span id="close-modal">&times;</span>
-        <img id="mail-image" src="" alt="Mail affiché">
+
+        <div id="mail-content">
+            <?php
+            if ($mail == false):
+                echo 'ERREUR -> aucun mail trouvé';
+            endif;
+            ?>
+        </div>
+
         <div class="choices">
             <button id="btn-legit" class="legit">Légitime</button>
             <button id="btn-phish" class="phish">Phishing</button>
@@ -39,9 +49,7 @@
     </div>
 </div>
 
-</div>
-
-<?= anchor(base_url().'public/', '<button>Retour</button>'); ?>
+<?= anchor(base_url().'public/', '<button class="btn-accueil">Accueil</button>'); ?>
 
 </body>
 </html>
