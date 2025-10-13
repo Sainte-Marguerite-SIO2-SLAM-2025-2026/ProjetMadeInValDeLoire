@@ -8,6 +8,6 @@ class communController extends BaseController
     public function MentionLegale():string
     {
         return view('commun\MentionsLegales').
-            view('commun\PiedDePage');
+            view('commun\footer');
     }
 }
