@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mentions légales</title>
-    <?= link_tag('/public/styles/commun.css'); ?>
+    <?= link_tag('/public/styles/commun/mentions.css'); ?>
 </head>
 <body>
 <main class="container">
@@ -59,4 +59,3 @@
         </p>
     </section>
 </main>
-</body>

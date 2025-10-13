@@ -659,7 +659,7 @@ var ciDebugBar = {
 
     setHotReloadState: function () {
         var btn = document.getElementById("debug-hot-reload").parentNode;
-        var btnImg = btn.getElementsByTagName("img")[0];
+        var btnImg = btn.getElementsByTagName("images")[0];
         var eventSource;
 
         // If the Hot Reload Collector is inactive stops here

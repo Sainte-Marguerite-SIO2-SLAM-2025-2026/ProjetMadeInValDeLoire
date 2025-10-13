@@ -89,8 +89,8 @@ if (! function_exists('strip_image_tags')) {
     {
         return preg_replace(
             [
-                '#<img[\s/]+.*?src\s*=\s*(["\'])([^\\1]+?)\\1.*?\>#i',
-                '#<img[\s/]+.*?src\s*=\s*?(([^\s"\'=<>`]+)).*?\>#i',
+                '#<images[\s/]+.*?src\s*=\s*(["\'])([^\\1]+?)\\1.*?\>#i',
+                '#<images[\s/]+.*?src\s*=\s*?(([^\s"\'=<>`]+)).*?\>#i',
             ],
             '\\2',
             $str,
