@@ -54,3 +54,27 @@ in APPPATH\Views\salle_6\AccueilSalle6.php on line 14.
  9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 13:54:53 --> ParseError: syntax error, unexpected token ";", expecting ")"
+[Method: GET, Route: Salle6]
+in APPPATH\Views\salle_6\AccueilSalle6.php on line 9.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\AccueilSalle6', [], true)
+ 3 APPPATH\Controllers\salle_6\Salle6Controller.php(12): view('salle_6\\AccueilSalle6', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\Salle6Controller->Index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\Salle6Controller))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 14:25:04 --> ParseError: Unmatched ')'
+[Method: GET, Route: Salle6/Wifi]
+in APPPATH\Views\salle_6\Wifi.php on line 18.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\Wifi', [], true)
+ 3 APPPATH\Controllers\salle_6\Salle6Controller.php(18): view('salle_6\\Wifi')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\Salle6Controller->Wifi()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\Salle6Controller))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

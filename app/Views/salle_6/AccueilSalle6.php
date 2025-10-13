@@ -1,7 +1,27 @@
     <title>Salle n°6</title>
+    <?=link_tag(base_url()."styles/salle6/accueilSalle6.css")?>
 </head>
 <body>
-    <h1>Salle n°6</h1>
-</body>
-</html>
-<?=anchor(base_url() . 'public/', '<button>Retour</button>');?>
+<div class="container">
+    <h1 class="titre-temp">Salle n°6</h1>
+    <!-- Bulle de dialogue -->
+    <div class="bulle">
+        <p class="texte-bulle"><?= $intitule ?></p>
+    </div>
+    <!-- Mascotte avec helper img() -->
+    <?= img([
+            'src'   => 'images/salle_6/mascotte_test.png',
+            'alt'   => 'Mascotte',
+            'class' => 'mascotte'
+    ]) ?>
+    <?= anchor(base_url() . '/Salle6/Wifi', ' ', [ 'class' => 'zone-cliquable' ] );?>
+
+    <?=anchor(base_url() . '/', img([
+                'src'   => 'images/commun/retour.png',
+                'alt'   => 'FlecheRetour',
+                'class' => 'retour'
+        ]));?>
+
+</div>
+
+
