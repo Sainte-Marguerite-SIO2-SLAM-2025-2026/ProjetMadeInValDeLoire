@@ -1,15 +1,33 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>salle 5</title>
+    <?= link_tag('styles/salle_5/salle5.css') ?>
+    <title>Salle 5</title>
 </head>
 <body>
 <div class="fond-image">
-    <?php echo anchor(base_url().'public/', '<button>Retour</button>'); ?>
+    <h1 class="titre-salle"><?=$salle['nom_salle']?></h1>
+
+    <!-- Bouton retour -->
+    <div class="retour">
+        <?= anchor(base_url('public/'), '<button>Retour</button>'); ?>
+    </div>
+
+    <!-- Mascotte -->
+    <div class="mascotte">
+        <?= img(["src" => $mascotte['image'], "class" => "mascotte-img", "alt" => "Mascotte"]) ?>
+    </div>
 </div>
-</body>
-</html>
+<div id="transition-overlay"></div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const mascotte = document.querySelector(".mascotte");
+        const overlay = document.getElementById("transition-overlay");
+
+        mascotte.addEventListener("click", function () {
+            overlay.style.opacity = "1";
+            overlay.style.pointerEvents = "auto";
+
+            setTimeout(() => {
+                window.location.href = "<?= base_url('mascotte') ?>";
+            }, 800); // durée identique à la transition CSS
+        });
+    });
+</script>

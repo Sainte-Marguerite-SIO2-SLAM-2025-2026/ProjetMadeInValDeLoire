@@ -41,8 +41,14 @@ class AccueilController extends BaseController
 
     public function Salle5() : string
     {
+        $data['salle'] = [
+            "image" => "/images/salle_5/OIP.png",
+            "nom_salle" => "Salle sécurité physique et matérielle",
+        ];
+        $data['mascotte'] = [
+            "image" => "images/salle_5/mascot.webp"];
         return view('commun\header').
-            view('salle_5\AccueilSalle5').
+            view('salle_5\AccueilSalle5', $data).
             view('commun\footer');
     }
 
