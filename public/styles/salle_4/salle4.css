@@ -1,0 +1,31 @@
+/*html, body {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #2c3e50;
+}
+
+.fond {
+    background-image: url("../../images/salle4/img_chambre.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 1px;
+}
+
+#info {
+    margin: 10px 0;
+    padding: 15px 30px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    font-weight: bold;
+    color: #2c3e50;
+}
