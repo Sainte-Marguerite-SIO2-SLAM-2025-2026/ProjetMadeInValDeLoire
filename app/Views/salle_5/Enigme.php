@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <?= link_tag('styles/salle_5/enigme.css') ?>
     <title>La clé USB abandonnée</title>
 </head>
@@ -12,24 +8,34 @@
     <p class="consigne"><?=$enigme['instruction']?></p>
 
     <div class="usb-zone">
-        <div class="usb" data-cle="A">
+        <?php $cles = [
+        '<div class="usb" data-cle="A">
             <span class="etiquette">Finance</span>
-            <?= img(["src" => $enigme['image_cle'], "alt" => "Clé A"]) ?>
-        </div>
-        <div class="usb" data-cle="B">
+            ' . img(["src" => $enigme['image_cle'], "alt" => "Clé A"]) . '
+        </div>',
+        '<div class="usb" data-cle="B">
             <span class="etiquette">??</span>
-            <?= img(["src" => $enigme['image_cle'], "alt" => "Clé B"]) ?>
-        </div>
-        <div class="usb" data-cle="C">
+            ' . img(["src" => $enigme['image_cle'], "alt" => "Clé B"]) . '
+        </div>',
+        '<div class="usb" data-cle="C">
             <span class="etiquette">Service RH</span>
-            <?= img(["src" => $enigme['image_cle'], "alt" => "Clé C"]) ?>
-        </div>
+            ' . img(["src" => $enigme['image_cle'], "alt" => "Clé C"]) . '
+        </div>'
+        ];
+
+        shuffle($cles);
+        echo '<div class="usb-zone">';
+foreach ($cles as $cle) {
+    echo $cle;
+}
+echo '</div>';
+?>
     </div>
 
     <div class="feedback" id="feedback"></div>
 
     <div class="retour">
-        <?= anchor(base_url('salle5'), '<button>Retour</button>'); ?>
+        <?= anchor(base_url('Salle5'), '<button>Retour</button>'); ?>
     </div>
 
     <div class="mascotte">
@@ -39,24 +45,4 @@
 
 <div id="transition-overlay"></div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const feedback = document.getElementById("feedback");
-        const usbKeys = document.querySelectorAll(".usb");
-
-        usbKeys.forEach(key => {
-            key.addEventListener("click", () => {
-                const cle = key.dataset.cle;
-                if (cle === "B") {
-                    feedback.innerHTML = "<strong>Bonne réponse !</strong> Cette clé peut contenir un malware (attaque BadUSB).";
-                    feedback.classList.add("success");
-                } else {
-                    feedback.innerHTML = "Mauvaise réponse. Cette clé appartient à l’entreprise.";
-                    feedback.classList.remove("success");
-                }
-            });
-        });
-    });
-</script>
-</body>
-</html>
+<?= script_tag('js/salle_5/enigme.js') ?>

@@ -2,6 +2,8 @@
 namespace App\Controllers\accueil;
 
 use App\Controllers\BaseController;
+use App\Models\salle_5\MascotteModel;
+use App\Models\salle_5\SalleModel;
 
 class AccueilController extends BaseController
 {
@@ -41,12 +43,10 @@ class AccueilController extends BaseController
 
     public function Salle5() : string
     {
-        $data['salle'] = [
-            "image" => "/images/salle_5/OIP.png",
-            "nom_salle" => "Salle sécurité physique et matérielle",
-        ];
-        $data['mascotte'] = [
-            "image" => "images/salle_5/mascot.webp"];
+        $salleModel = new SalleModel();
+        $mascotteModel = new MascotteModel();
+        $data['salle'] = $salleModel->getSalle(5);
+        $data['mascotte'] = $mascotteModel->getMascotte(5);
         return view('commun\header').
             view('salle_5\AccueilSalle5', $data).
             view('commun\footer');

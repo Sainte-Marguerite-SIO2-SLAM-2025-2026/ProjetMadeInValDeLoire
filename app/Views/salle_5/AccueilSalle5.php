@@ -3,31 +3,23 @@
 </head>
 <body>
 <div class="fond-image">
-    <h1 class="titre-salle"><?=$salle['nom_salle']?></h1>
+    <h1 class="titre-salle"><?=$salle->libelle?></h1>
 
     <!-- Bouton retour -->
     <div class="retour">
-        <?= anchor(base_url('public/'), '<button>Retour</button>'); ?>
-    </div>
+        <?= anchor(base_url('/'), '<button>' . img([
+                        "src" => $salle->bouton,
+                        "alt" => "bouton de retour",
+                        "class" => "retour-img",
+                    "style" => "width:50px;height:50px;"
+                ]) . '</button>'); ?>    </div>
+
 
     <!-- Mascotte -->
-    <div class="mascotte">
-        <?= img(["src" => $mascotte['image'], "class" => "mascotte-img", "alt" => "Mascotte"]) ?>
+    <div class="mascotte" data-url="<?= base_url('mascotte') ?>">
+       <?= img(["src" => $mascotte->image, "class" => "mascotte-img", "alt" => "Mascotte"]) ?>
     </div>
 </div>
 <div id="transition-overlay"></div>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const mascotte = document.querySelector(".mascotte");
-        const overlay = document.getElementById("transition-overlay");
 
-        mascotte.addEventListener("click", function () {
-            overlay.style.opacity = "1";
-            overlay.style.pointerEvents = "auto";
-
-            setTimeout(() => {
-                window.location.href = "<?= base_url('mascotte') ?>";
-            }, 800); // durée identique à la transition CSS
-        });
-    });
-</script>
+<?= script_tag('js/salle_5/salle5.js') ?>

@@ -44,7 +44,6 @@ body, html {
 }
 
 .retour button {
-    padding: 12px 24px;
     font-size: 1em;
     background-color: #ffffff;
     color: #121212;
@@ -100,6 +99,9 @@ body, html {
     transition: opacity 0.8s ease;
     z-index: 9999;
 }
+
+
+
 
 /* Animations */
 @keyframes fadeInDown {
