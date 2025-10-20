@@ -1,0 +1,70 @@
+CRITICAL - 2025-10-20 07:17:02 --> ErrorException: Attempt to read property "image" on false
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 20.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "image" on false', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 20)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(51): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 07:18:12 --> ErrorException: Attempt to read property "image" on false
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 20.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "image" on false', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 20)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(51): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 08:39:12 --> ErrorException: Undefined variable $explication
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 21.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $explication', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 21)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(51): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 08:40:45 --> ErrorException: Undefined variable $explication
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 21.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $explication', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 21)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(51): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 08:41:15 --> ErrorException: Undefined variable $explication
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 21.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $explication', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 21)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(51): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

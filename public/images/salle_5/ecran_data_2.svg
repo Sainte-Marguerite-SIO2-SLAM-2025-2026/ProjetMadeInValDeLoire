@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="security_room" data-name="security room" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 259.01 192.93">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1d0422;
+      }
+
+      .cls-2 {
+        fill: #290c34;
+      }
+
+      .cls-3 {
+        fill: #584278;
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <polygon class="cls-4" points="252.98 141.92 3.72 141.92 3.72 11.19 245.41 11.19 252.98 141.92"/>
+    </clipPath>
+  </defs>
+  <polygon class="cls-1" points="60.38 185.76 56.09 192.93 188.43 191.75 183.63 185.76 60.38 185.76"/>
+  <polygon class="cls-2" points="60.38 185.76 82.47 179.88 156.36 179.88 183.63 185.76 60.38 185.76"/>
+  <polygon class="cls-1" points="90.32 146.12 90.32 183.57 154.2 183.57 150.41 147.94 90.32 146.12"/>
+  <polygon class="cls-2" points="95.33 166.55 151.99 162.86 154.2 183.57 90.32 183.57 95.33 166.55"/>
+  <polygon class="cls-2" points="0 149.22 0 7.75 249.01 7.75 259.01 149.22 0 149.22"/>
+  <polygon class="cls-1" points="259.01 149.22 252.98 153.02 3.72 153.02 0 149.22 259.01 149.22"/>
+  <polygon class="cls-3" points="73.54 192.78 77.6 185.76 117.39 185.76 119.01 192.78 73.54 192.78"/>
+  <g class="cls-5">
+    <image width="1024" height="708" transform="translate(3.72) scale(.25)" xlink:href="../../tableau-dashboard-sheet-rearrange-01-1-1024x708.png"/>
+  </g>
+</svg>

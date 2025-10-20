@@ -2,6 +2,7 @@
 namespace App\Controllers\accueil;
 
 use App\Controllers\BaseController;
+use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\MascotteModel;
 use App\Models\salle_5\SalleModel;
 
@@ -45,8 +46,10 @@ class AccueilController extends BaseController
     {
         $salleModel = new SalleModel();
         $mascotteModel = new MascotteModel();
+        $explicationModel = new ExplicationModel();
         $data['salle'] = $salleModel->getSalle(5);
         $data['mascotte'] = $mascotteModel->getMascotte(5);
+        $data['explication'] = $explicationModel->getExplication(5);
         return view('commun\header').
             view('salle_5\AccueilSalle5', $data).
             view('commun\footer');
