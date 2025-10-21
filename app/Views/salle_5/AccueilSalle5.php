@@ -74,9 +74,9 @@
 
 
     <!-- Mascotte -->
-    <!--  <div class="mascotte" data-url="<?= base_url('mascotte') ?>">
-       <?php // img(["src" => $mascotte->image, "class" => "mascotte-img", "alt" => "Mascotte"]) ?>
-    </div>  -->
+    <div class="mascotte" data-url="<?= base_url('mascotte') ?>">
+       <?= img(["src" => $mascotte->image, "class" => "mascotte-img", "alt" => "Mascotte"]) ?>
+    </div>
 </div>
 <div id="transition-overlay"></div>
 

@@ -1,0 +1,113 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* Reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    overflow-x: hidden; /* ← conserve le scroll vertical */
+    min-height: 100vh;  /* ← permet à la page de grandir si besoin */
+}
+
+
+/* Fond image plein écran */
+.fond-image {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../images/salle_5/bureau_porte_fenetre.svg'); /* remplace par ton image si besoin */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* Objets USB */
+.fond-image img {
+    position: absolute;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Exemple de positionnement dynamique (à adapter si tu veux X/Y en BDD) */
+.fond-image img:nth-child(1) { visibility: hidden}
+.fond-image img:nth-child(2) { visibility: hidden}
+.fond-image img:nth-child(3) { visibility: hidden;}
+.fond-image img:nth-child(4) { top: 5vh; left: 0; height: 10vh;}
+.fond-image img:nth-child(5) { top: 83vh; left: 18vw; height: 5vh;}
+.fond-image img:nth-child(6) { visibility: hidden;}
+.fond-image img:nth-child(7) { Visibility: hidden;}
+.fond-image img:nth-child(8) { top: 65vh; left: 65vw; height: 1vh;}
+.fond-image img:nth-child(9) {top: 57vh; left: 50vw; height: 8vh;}
+.fond-image img:nth-child(10) {visibility: hidden;}
+.fond-image img:nth-child(11) { visibility:hidden;}
+.fond-image img:nth-child(12) {visibility:hidden;}
+.fond-image img:nth-child(13) { top: 46.5vh; left: 66vw; height: 19vh;}
+.fond-image img:nth-child(14) { top: 20vh; left: 20vw; height: 25vh;}
+.fond-image img:nth-child(15) { top: 22vh; left: 40vw; height: 23vh;}
+.fond-image img:nth-child(16) { top: 20vh; left: 62vw; height: 25vh;}
+.fond-image img:nth-child(17)  { visibility:hidden; top: 46vh; left: 48vw; height: 19vh;}
+.fond-image img:nth-child(18) { visibility:hidden; top: 46.5vh; left: 33vw; height: 19vh;}
+.fond-image img:nth-child(19) { top: 46.5vh; left: 18vw; height: 19vh;}
+.fond-image img:nth-child(20) { top: 47vh; left: 33vw; height: 18vh;}
+.fond-image img:nth-child(21) {top: 47vh; left: 50vw; height: 18vh;}
+.fond-image img:nth-child(22) { top: 20vh; left: 85vw; height: 51vh;}
+.fond-image img:nth-child(23) {visibility: hidden; top: 20vh; left: 85vw; height: 51vh;}
+.fond-image img:nth-child(24) {top: 21vh; left: 2vw; height: 80vh;}
+.fond-image img:nth-child(25) {visibility: hidden; top: 21vh; left: 2vw; height: 80vh;}
+.fond-image img:nth-child(26) { visibility: hidden; top: 47vh; left: 58vw; height: 6vh;}
+.fond-image img:nth-child(27) { visibility: hidden; top: 47vh; left: 58vw; height: 6vh;}
+.fond-image img:nth-child(28) { visibility: hidden;}
+.fond-image img:nth-child(29) { visibility: hidden;}
+.fond-image img:nth-child(30) { visibility: hidden;}
+
+.retour {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1000;
+}
+.retour-img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.retour-img:hover {
+    transform: scale(1.1);
+}
+
+.mascotte {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+.mascotte-img {
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.mascotte-img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Voile noir de transition */
+#transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    z-index: 9999;
+}
+

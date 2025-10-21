@@ -11,17 +11,6 @@ body, html {
     overflow-x: hidden;
 }
 
-/* Image de fond plein écran */
-.fond-image {
-    position: relative;
-    height: 100vh;
-    background-image: url('../../images/salle_5/OIP.png'); /* adapte le chemin */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 /* Titre centré avec animation */
 .titre-salle {
