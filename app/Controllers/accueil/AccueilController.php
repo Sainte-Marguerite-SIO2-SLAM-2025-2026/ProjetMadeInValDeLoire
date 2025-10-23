@@ -13,7 +13,19 @@ class AccueilController extends BaseController
 
     public function Salle1() : string
     {
-        return view('salle_1\AccueilSalle1').
+        $data = [
+            'auteur'  => 'Mario Rossi',
+            'fonction' => 'Ingénieur Social',
+            'message' => [
+                'Bonjour, je suis ravi de te rencontrer dans cette salle d\'initiation.',
+                'Peux-tu repérer les mots suspects dans cette phrase ?',
+                'Clique sur les mots étranges ou douteux pour les marquer.'
+            ],
+            // liste des mots suspects pour les barrer après clic
+            'suspects' => ['suspects', 'étranges', 'douteux']
+        ];
+
+        return view('salle_1\AccueilSalle1', $data).
             view('commun\PiedDePage');
     }
 

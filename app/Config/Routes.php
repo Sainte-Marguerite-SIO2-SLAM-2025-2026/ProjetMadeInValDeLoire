@@ -10,6 +10,7 @@ $routes->get('/', 'accueil\AccueilController::index');
 
 // Routes pour la salle 1
 $routes->get('/Salle1', 'accueil\AccueilController::Salle1');
+$routes->get('/Salle1/Discussion', 'salle_1\Salle1Controller::AccesMessage');
 
 // Routes pour la salle 2
 $routes->get('/Salle2', 'accueil\AccueilController::Salle2');

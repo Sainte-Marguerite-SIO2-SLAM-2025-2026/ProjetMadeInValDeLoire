@@ -2,38 +2,34 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
     <title>Salle 1 - Ingénierie sociale</title>
 
-    <?= link_tag('styles/salle1.css') ?>
+    <?= link_tag('css/salle1.css'); ?>
     <script>
         // On exporte les mots suspects vers le JS
         const motsSuspects = <?= json_encode($suspects ?? []); ?>;
     </script>
-    <script src="<?= base_url('js/salle1.js') ?>" defer></script>
+    <script src="<?= base_url('public/js/salle1.js') ?>" defer></script>
+    <?= script_tag('js/salle1.js'); ?>
 </head>
 <body>
 <div class="background-container">
-    <?= img([
-            'src'   => base_url('images/mario.png'),
-            'alt'   => 'Mario',
-            'class' => 'perso-img'
-    ]); ?>
-
-    <!-- Zone de dialogue façon Ace Attorney -->
-    <div class="dialogue-box">
-        <div class="speaker-info">
-            <h3><?= esc($auteur) ?></h3>
-            <p><?= esc($fonction) ?></p>
-        </div>
+    <div class="content">
+        <?= img([
+                'src'   => base_url("public/images/mario.png"),
+                'alt'   => "Mario",
+                'class' => "perso-img"
+        ]); ?>
 
         <div class="text-zone">
             <?php foreach ($message as $ligne): ?>
                 <p>
                     <?php
+                    // Découpe chaque mot et l’entoure d’un span cliquable
                     $mots = explode(' ', $ligne);
                     foreach ($mots as $mot) {
-                        // chaque mot devient cliquable
                         echo '<span class="mot-cliquable">' . esc($mot) . '</span> ';
                     }
                     ?>
@@ -43,7 +39,7 @@
     </div>
 
     <div class="buttons">
-        <?= anchor(base_url(), '<button>Retour au menu</button>'); ?>
+        <?= anchor(base_url().'public/', '<button>Retour au menu</button>'); ?>
     </div>
 </div>
 </body>
