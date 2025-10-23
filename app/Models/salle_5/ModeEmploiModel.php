@@ -6,15 +6,9 @@ use CodeIgniter\Model;
 
 class ModeEmploiModel extends Model
 {
-    function getModeEmploi(int $numActivite){
-        $result = false;
-        $db = db_connect();
-        $query = $db->table('mode_emploi')
-            ->where('activite_numero', $numActivite)
-            ->get();
-        if($query->getNumRows() > 0){
-            $result = $query->getRow();
-        }
-        return $result;
-    }
+    protected $table = 'mode_emploi';
+    protected $primaryKey = 'numero';
+    protected $returnType = 'object';
+    protected $allowedFields = ['explication_1', 'explication_2', 'explication_3', 'activite_numero'];
+
 }

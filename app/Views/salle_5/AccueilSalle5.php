@@ -7,12 +7,6 @@
     <h1 class="titre-salle"><?=$salle->libelle?></h1>
     <?= img(["src" => $salle->image, "class" => "salle-img", "alt" => "Salle 5"])?>
 
-
-
-
-
-
-
     <div id="popup-explication" class="popup">
         <div class="popup-content">
             <span class="close-btn" onclick="closePopup()">&times;</span>
@@ -20,27 +14,6 @@
             <p><?= $explication->libelle ?></p>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- Bouton retour -->
@@ -51,27 +24,6 @@
                         "class" => "retour-img",
                     "style" => "width:50px;height:50px;"
                 ]) . '</button>'); ?>    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- Mascotte -->
     <div class="mascotte" data-url="<?= base_url('mascotte') ?>">

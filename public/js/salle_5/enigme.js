@@ -1,48 +1,46 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // 🔹 Voile noir désactivé au chargement
-    const overlay = document.getElementById("transition-overlay");
-    if (overlay) {
-        overlay.style.opacity = "0";
-        overlay.style.pointerEvents = "none";
-        overlay.style.transition = "opacity 0.8s ease";
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    const usbElements = document.querySelectorAll('.usb');
+    const feedback = document.getElementById('feedback');
 
-    // 🔹 Clés USB : feedback
-    const feedback = document.getElementById("feedback");
-    const usbKeys = document.querySelectorAll(".usb");
+    usbElements.forEach(usb => {
+        usb.addEventListener('click', function() {
+            const cle = this.getAttribute('data-cle');
 
-    usbKeys.forEach((key) => {
-        key.addEventListener("click", () => {
-            const cle = key.dataset.cle;
-            if (!feedback) return;
+            // Désactiver tous les clics
+            usbElements.forEach(u => u.style.pointerEvents = 'none');
 
-            if (cle === "B") {
-                feedback.innerHTML = "<strong>Bonne réponse !</strong> Cette clé peut contenir un malware (attaque BadUSB).";
-                feedback.classList.add("success");
+            if (cle === 'B') {
+                // Bonne réponse (USB anonyme)
+                feedback.textContent = '❌ Correct ! Cette clé USB anonyme est suspecte.';
+                feedback.style.color = '#4caf50';
+
+                // Envoyer la validation au serveur
+                fetch(base_url + 'validerEnigme', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        'activite_numero': activite_numero,
+                        'reponse': cle
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            setTimeout(() => {
+                                window.location.href = base_url + 'accueilEnigme';
+                            }, 2000);
+                        }
+                    });
             } else {
-                if (cle === "A"){
-                    feedback.innerHTML = "Mauvaise réponse. La clé Finance appartient à l’entreprise.";
-                    feedback.classList.remove("success");
-                }else {
-                        feedback.innerHTML = "Mauvaise réponse. La clé RH appartient à l’entreprise.";
-                        feedback.classList.remove("success");
-                    }
-
+                feedback.textContent = '❌ Cette clé semble légitime. Réessayez !';
+                feedback.style.color = '#f44336';
+                setTimeout(() => {
+                    usbElements.forEach(u => u.style.pointerEvents = 'all');
+                    feedback.textContent = '';
+                }, 2000);
             }
         });
     });
-
-    // 🔹 Mascotte : transition + redirection
-    const mascotte = document.querySelector(".mascotte");
-    if (mascotte && overlay) {
-        mascotte.addEventListener("click", () => {
-            overlay.style.opacity = "1";
-            overlay.style.pointerEvents = "auto";
-
-            const redirectUrl = mascotte.dataset.url || "/";
-            setTimeout(() => {
-                window.location.href = redirectUrl;
-            }, 800);
-        });
-    }
 });

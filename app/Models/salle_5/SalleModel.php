@@ -6,15 +6,8 @@ use CodeIgniter\Model;
 
 class SalleModel extends Model
 {
-    function getSalle(int $idSalle){
-        $result = false;
-        $db = db_connect();
-        $query = $db->table('salle')
-        ->where('numero', $idSalle)
-        ->get();
-        if($query->getNumRows() > 0){
-            $result = $query->getRow();
-        }
-        return $result;
-    }
+    protected $table = 'salle';
+    protected $primaryKey = 'numero';
+    protected $returnType = 'object';
+    protected $allowedFields = ['libelle', 'bouton', 'image', 'intro_salle'];
 }

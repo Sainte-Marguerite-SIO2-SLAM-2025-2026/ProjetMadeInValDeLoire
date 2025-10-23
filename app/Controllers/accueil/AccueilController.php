@@ -47,9 +47,11 @@ class AccueilController extends BaseController
         $salleModel = new SalleModel();
         $mascotteModel = new MascotteModel();
         $explicationModel = new ExplicationModel();
-        $data['salle'] = $salleModel->getSalle(5);
-        $data['mascotte'] = $mascotteModel->getMascotte(5);
-        $data['explication'] = $explicationModel->getExplication(5);
+
+        $data['salle'] = $salleModel->find(5);  // ⬅️ Utilise find() au lieu de getSalle()
+        $data['mascotte'] = $mascotteModel->where('salle_numero', 5)->first();  // ⬅️ Utilise where()->first()
+        $data['explication'] = $explicationModel->find(5);  // ⬅️ Utilise find()
+
         return view('commun\header').
             view('salle_5\AccueilSalle5', $data).
             view('commun\footer');
