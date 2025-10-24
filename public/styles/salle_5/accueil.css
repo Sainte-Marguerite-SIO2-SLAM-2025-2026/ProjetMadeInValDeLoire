@@ -33,87 +33,136 @@ html, body {
     height: 100%;
 }
 
+/* ===========================
+   Comportement par défaut
+   =========================== */
 
-
-/* Objets de base */
-.objet-img {
-    position: absolute;
-    transition: transform 0.3s ease;
-    width: auto;
-}
-
-/* Objets cliquables */
+/* On positionne les ancres : elles définissent l'emplacement */
 .objet-clickable {
+    position: absolute;    /* position sur la scène */
+    display: block;        /* permet width/height */
+    cursor: pointer;
+    text-decoration: none;
+    background: transparent;
+    pointer-events: none;  /* désactivé par défaut, activé pour les actifs */
+    overflow: visible;
+    z-index: 50;
+}
+
+/* L'image interne : relative pour que le parent prenne sa taille */
+.objet-clickable img,
+img.objet-img {
     position: absolute;
-    display: inline-block;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.objet-clickable img{
-    height: 100%;
-    width: auto;
     display: block;
+    width: auto;
+    height: 100%;          /* remplit la hauteur définie sur le parent */
+    max-width: none;
+    transition: opacity 0.35s ease, transform 0.25s ease;
+    transform-origin: center center;
+    z-index: 11;
 }
 
-.objet-actif {
-    cursor: pointer;
-    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+/* Cas où l'image est seule (classe posée sur l'image) :
+   on veut que les règles de position s'appliquent aussi si nécessaire */
+img.objet-img {
+    /* si aucune hauteur parent, laisser height auto ; mais la plupart des règles
+       de position définiront height via .objet-clickable.objet-N ou img.objet-N */
+}
+
+/* ===========================
+   Activation : rendre visible si actif
+   =========================== */
+
+/* Si l'image elle-même a la classe actif -> visible */
+img.objet-img.objet-actif {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.85));
+}
+
+/* Si le parent anchor a la classe actif -> afficher l'image enfant */
+.objet-clickable.objet-actif img,
+.objet-clickable.objet-actif > img.objet-img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.85));
+}
+
+/* Le parent anchor actif doit aussi accepter les événements */
+.objet-clickable.objet-actif {
+    pointer-events: auto !important;
+    z-index: 20;
+}
+
+/* Hover / animation pour les objets actifs */
+.objet-clickable.objet-actif img,
+img.objet-img.objet-actif {
     animation: pulse 2s ease-in-out infinite;
 }
 
-.objet-actif:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1));
+.objet-clickable.objet-actif img:hover,
+img.objet-img.objet-actif:hover {
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 15px rgba(255,0,0,1));
 }
 
 @keyframes pulse {
-    0%, 100% {
-        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
-    }
-    50% {
-        filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1));
-    }
+    0%,100% { filter: drop-shadow(0 0 8px rgba(255,0,0,0.8)); }
+    50%    { filter: drop-shadow(0 0 18px rgba(255,0,0,1)); }
 }
 
-/* --- Positionnements et tailles comme avant --- */
-.objet-1 { visibility: hidden; }
-.objet-2 { visibility: hidden; }
-.objet-3 { visibility: hidden; }
-.objet-4 { top: 5vh; left: 0; height: 10vh; }
-.objet-5 { top: 83vh; left: 18vw; height: 5vh; }
-.objet-6 { visibility: hidden; }
-.objet-7 { visibility: hidden; }
-.objet-8 { top: 65vh; left: 65vw; height: 1vh; }
-.objet-9 { top: 57vh; left: 50vw; height: 8vh; }
-.objet-10 { visibility: hidden; }
-.objet-11 { visibility: hidden; }
-.objet-12 { visibility: hidden; }
-.objet-13 { top: 46.5vh; left: 66vw; height: 19vh; }
-.objet-14 { top: 20vh; left: 20vw; height: 25vh; }
-.objet-15 { top: 22vh; left: 40vw; height: 23vh; }
-.objet-16 { top: 20vh; left: 62vw; height: 25vh; }
-.objet-17 { visibility: hidden; }
-.objet-18 { visibility: hidden; }
-.objet-19 { top: 46.5vh; left: 18vw; height: 19vh; }
-.objet-20 { top: 47vh; left: 33vw; height: 18vh; }
-.objet-21 { top: 47vh; left: 50vw; height: 18vh; }
-.objet-22 { top: 20vh; left: 85vw; height: 51vh; }
-.objet-23 { visibility: hidden; }
-.objet-24 { top: 21vh; left: 2vw; height: 80vh; }
-.objet-25 { visibility: hidden; }
-.objet-26 { visibility: hidden; }
-.objet-27 { visibility: hidden; }
-.objet-28 { visibility: hidden; }
-.objet-29 { visibility: hidden; }
-.objet-30 { visibility: hidden; }
+/* ===========================
+   Positionnements & tailles
+   (On applique les règles aux deux : ancres et images,
+    afin d'être compatible avec la façon dont ton PHP pose les classes)
+   =========================== */
 
-/* Les imgs à l'intérieur des liens cliquables héritent la position */
-.objet-clickable img {
-    position: relative;
-}
+/* Hidden placeholders: si tu veux qu'un emplacement n'apparaisse jamais, tu peux
+   laisser visibility:hidden sur l'ancre. Mais comme on s'appuie sur .objet-actif,
+   même une ancre cachée sera réactivée par .objet-clickable.objet-actif (override). */
 
-/* --- Reste du CSS (retour, mascotte, transition) --- */
+/* Exemple : (on applique top/left/height aux deux sélecteurs) */
+.objet-clickable.objet-1, img.objet-1 { visibility: hidden}
+.objet-clickable.objet-2, img.objet-2 { visibility: hidden}
+.objet-clickable.objet-3, img.objet-3 { visibility: hidden;}
+.objet-clickable.objet-4, img.objet-4 { top: 5vh; left: 0; height: 10vh;}
+.objet-clickable.objet-5, img.objet-5 { top: 83vh; left: 18vw; height: 5vh;}
+.objet-clickable.objet-6, img.objet-6 { visibility: hidden; top: 83vh; left: 18vw; height: 5vh;}
+.objet-clickable.objet-7, img.objet-7 { Visibility: hidden;}
+.objet-clickable.objet-8, img.objet-8 { Visibility: visible; top: 65vh; left: 65vw; height: 1vh;}
+.objet-clickable.objet-9, img.objet-9 {top: 57vh; left: 50vw; height: 8vh;}
+.objet-clickable.objet-10, img.objet-10 {visibility: hidden;}
+.objet-clickable.objet-11, img.objet-11 { visibility:hidden;}
+.objet-clickable.objet-12, img.objet-12 {visibility:hidden;}
+.objet-clickable.objet-13, img.objet-13 { top: 46.5vh; left: 66vw; height: 19vh;}
+.objet-clickable.objet-14, img.objet-14 { top: 20vh; left: 20vw; height: 25vh;}
+.objet-clickable.objet-15, img.objet-15 { top: 22vh; left: 40vw; height: 23vh;}
+.objet-clickable.objet-16, img.objet-16 { top: 20vh; left: 62vw; height: 25vh;}
+.objet-clickable.objet-17, img.objet-17  { visibility:hidden; top: 46vh; left: 48vw; height: 19vh;}
+.objet-clickable.objet-18, img.objet-18 { visibility:hidden; top: 46.5vh; left: 33vw; height: 19vh;}
+.objet-clickable.objet-19, img.objet-19 { top: 46.5vh; left: 18vw; height: 19vh;}
+.objet-clickable.objet-20, img.objet-20 { top: 47vh; left: 33vw; height: 18vh;}
+.objet-clickable.objet-21, img.objet-21 {top: 47vh; left: 50vw; height: 18vh;}
+.objet-clickable.objet-22, img.objet-22 { top: 20vh; left: 85vw; height: 51vh;}
+.objet-clickable.objet-23, img.objet-23 {visibility: hidden; top: 20vh; left: 85vw; height: 51vh;}
+.objet-clickable.objet-24, img.objet-24 {top: 21vh; left: 2vw; height: 80vh;}
+.objet-clickable.objet-25, img.objet-25 {visibility: hidden; top: 21vh; left: 2vw; height: 80vh;}
+.objet-clickable.objet-26, img.objet-26 { visibility: hidden; top: 47vh; left: 58vw; height: 6vh;}
+.objet-clickable.objet-27, img.objet-27 { visibility: hidden; top: 47vh; left: 58vw; height: 6vh;}
+.objet-clickable.objet-28, img.objet-28 { visibility: hidden; top: 65vh; left: 28vw; height: 1.5vh;}
+.objet-clickable.objet-29, img.objet-29 { visibility: hidden;}
+.objet-clickable.objet-30, img.objet-30 { visibility: hidden;}
+
+/* Remarques :
+   - Si un emplacement doit être totalement absent, laisse height:0 ; sinon définis la hauteur désirée.
+   - Les règles ci-dessus appliquent le top/left/height à la fois à l'ancre et à l'image
+     afin que, peu importe où ton PHP pose la classe 'objet-N', l'élément se place correctement. */
+
+/* ---------- BOUTON RETOUR ---------- */
 .retour {
     position: fixed;
     bottom: 30px;
@@ -128,10 +177,9 @@ html, body {
     transition: transform 0.3s ease;
 }
 
-.retour-img:hover {
-    transform: scale(1.1);
-}
+.retour-img:hover { transform: scale(1.1); }
 
+/* ---------- MASCOTTE ---------- */
 .mascotte {
     position: fixed;
     bottom: 30px;
@@ -146,10 +194,9 @@ html, body {
     transition: transform 0.3s ease;
 }
 
-.mascotte-img:hover {
-    transform: scale(1.1);
-}
+.mascotte-img:hover { transform: scale(1.1); }
 
+/* ---------- TRANSITION ---------- */
 #transition-overlay {
     position: fixed;
     top: 0;

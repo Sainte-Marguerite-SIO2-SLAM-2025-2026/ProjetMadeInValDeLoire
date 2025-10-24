@@ -19,15 +19,17 @@
                     }
                 }
 
-                // Ajout d'une classe unique par index
+                // Classe unique par index
                 $classe_objet = "objet-$index";
                 ?>
                 <?php if ($clickable): ?>
-                <a href="<?= base_url('enigme/' . $activite_id) ?>" class="objet-clickable <?= $classe_objet ?>">
-                    <?= img(["src" => base_url($objets->image), "class" => "objet-img objet-actif"]) ?>
-                </a>
+                <?= anchor(
+                        'enigme/' . $activite_id,
+                        img(["src" => $objets->image, "class" => "objet-img objet-actif"]),
+                        ['class' => "objet-clickable $classe_objet"]
+                ) ?>
             <?php else: ?>
-                <?= img(["src" => base_url($objets->image), "class" => "objet-img $classe_objet"]) ?>
+                <?= img(["src" => $objets->image, "class" => "objet-img $classe_objet"]) ?>
             <?php endif; ?>
                 <?php
                 $index++;
@@ -36,10 +38,10 @@
         <?php endif; ?>
     </div>
 </div>
-
+<?php echo $activite->libelle ?>
 <!-- Bouton retour -->
 <div class="retour">
-    <?= anchor(base_url('Salle5'), '<button>' . img([
+    <?= anchor(base_url('Salle5/resetSalle'), '<button>' . img([
                     "src" => $salle->bouton,
                     "alt" => "bouton de retour",
                     "class" => "retour-img",
@@ -48,7 +50,7 @@
 </div>
 
 <div class="mascotte">
-    <?= img(["src" => base_url($mascotte->image), "class" => "mascotte-img", "alt" => "Mascotte"]) ?>
+    <?= img(["src" => $mascotte->image, "class" => "mascotte-img", "alt" => "Mascotte"]) ?>
 </div>
 
 <div id="transition-overlay"></div>

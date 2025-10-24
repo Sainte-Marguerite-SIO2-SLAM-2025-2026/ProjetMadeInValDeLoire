@@ -110,4 +110,11 @@ class Salle5Controller extends BaseController
 
         return $this->response->setJSON(['success' => false, 'message' => 'Mauvaise réponse']);
     }
+
+    public function resetSalle()
+    {
+        session()->remove(['activites_salle5', 'activites_reussies']);
+        return redirect()->to(base_url('Salle5'));
+    }
+
 }

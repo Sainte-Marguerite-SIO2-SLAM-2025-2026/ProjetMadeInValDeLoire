@@ -11,7 +11,7 @@
         <div class="popup-content">
             <span class="close-btn" onclick="closePopup()">&times;</span>
             <h2>Explication</h2>
-            <p><?= $explication->libelle ?></p>
+            <p><?= $salle->intro_salle ?></p>
         </div>
     </div>
 

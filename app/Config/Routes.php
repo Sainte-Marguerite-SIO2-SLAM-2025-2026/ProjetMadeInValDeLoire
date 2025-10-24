@@ -30,6 +30,7 @@ $routes->get('/Salle5', 'accueil\AccueilController::Salle5');
 $routes->get('/enigmeRetour', 'accueil\AccueilController::Salle5');
 $routes->get('/mascotte', 'salle_5\Salle5Controller::accueilEnigme');
 $routes->get('salle5/enigme/(:num)', 'salle_5\Salle5Controller::enigme/$1');
+$routes->get('Salle5/resetSalle', 'salle_5\Salle5Controller::resetSalle');
 
 
 // Routes pour la salle 6
