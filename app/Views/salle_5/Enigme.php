@@ -3,7 +3,9 @@
     <title>La clé USB abandonnée</title>
 </head>
 <body>
-<div class="scene-enigme">
+<div id="scene-enigme"
+     data-activite="<?= (int) $enigme->numero ?>"
+     data-baseurl="<?= base_url() ?>">
     <h1 class="titre-enigme"><?=$enigme->libelle?></h1>
     <p class="consigne"><?=$mode_emploi->explication_2?></p>
 

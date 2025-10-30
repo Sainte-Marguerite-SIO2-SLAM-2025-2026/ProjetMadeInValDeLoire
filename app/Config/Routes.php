@@ -29,9 +29,9 @@ $routes->get('/Salle4', 'salle_4\Salle4Controller::index');
 $routes->get('/Salle5', 'accueil\AccueilController::Salle5');
 $routes->get('/enigmeRetour', 'accueil\AccueilController::Salle5');
 $routes->get('/mascotte', 'salle_5\Salle5Controller::accueilEnigme');
-$routes->get('salle5/enigme/(:num)', 'salle_5\Salle5Controller::enigme/$1');
+$routes->get('enigme/(:num)', 'salle_5\Salle5Controller::enigme/$1');
 $routes->get('Salle5/resetSalle', 'salle_5\Salle5Controller::resetSalle');
-
+$routes->post('Salle5/validerEnigme', 'salle_5\Salle5Controller::validerEnigme');
 
 // Routes pour la salle 6
 $routes->get('/Salle6', 'salle_6\Salle6Controller::Index');

@@ -45,7 +45,9 @@ class Salle5Controller extends BaseController
             'mascotte' => $mascotteModel->where('salle_numero', 5)->first(),
         ];
 
-        return view('salle_5/AccueilEnigme', $data);
+        return view('commun\header').
+            view('salle_5/AccueilEnigme', $data).
+            view('commun\footer');
     }
 
     public function enigme($activite_numero)
@@ -59,13 +61,13 @@ class Salle5Controller extends BaseController
         // Vérifier que l'activité fait partie des activités sélectionnées
         $activites_ids = session()->get('activites_salle5');
         if (!in_array($activite_numero, $activites_ids)) {
-            return redirect()->to(base_url('AccueilEnigme'));
+            return redirect()->to(base_url('enigmeRetour'));
         }
 
         $activite = $activiteModel->find($activite_numero);
 
         if (!$activite) {
-            return redirect()->to(base_url('AccueilEnigme'))->with('error', 'Activité introuvable');
+            return redirect()->to(base_url('enigmeRetour'))->with('error', 'Activité introuvable');
         }
 
         // Récupérer le mode d'emploi
@@ -86,7 +88,7 @@ class Salle5Controller extends BaseController
             'usb_rh' => $usb_rh,
         ];
 
-        return view('salle_5/enigme', $data);
+        return view('salle_5/Enigme', $data);
     }
 
     public function validerEnigme()

@@ -24,7 +24,7 @@
                 ?>
                 <?php if ($clickable): ?>
                 <?= anchor(
-                        'enigme/' . $activite_id,
+                        base_url('enigme/' . $activite_id),
                         img(["src" => $objets->image, "class" => "objet-img objet-actif"]),
                         ['class' => "objet-clickable $classe_objet"]
                 ) ?>
