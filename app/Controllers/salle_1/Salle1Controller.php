@@ -1,12 +1,12 @@
 <?php
 
-namespace salle_1;
+namespace App\Controllers\salle_1;
 
 use App\Controllers\BaseController;
 
 class Salle1Controller extends BaseController
 {
-    public function AccesMessage() : string
+    public function accesMessage() : string
     {
         $data['message'] = [
                 'personne' => 'Mario',
@@ -16,6 +16,12 @@ class Salle1Controller extends BaseController
         ];
 
         return view('salle_1\DiscussionSalle1', $data).
+            view('commun\PiedDePage');
+    }
+
+    public function accesCode() : string
+    {
+        return view('salle_1\CodeSalle1').
             view('commun\PiedDePage');
     }
 }

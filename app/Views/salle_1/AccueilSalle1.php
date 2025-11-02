@@ -3,48 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salle 1 - Ingénierie sociale</title>
+    <title>Salle 1 - Accueil</title>
+    <?= link_tag(base_url().'styles/salle1Accueil.css') ?>
+    <?= script_tag(base_url().'js/salle1Accueil.js') ?>
 
-    <?= link_tag('styles/salle1.css') ?>
-    <script>
-        // On exporte les mots suspects vers le JS
-        const motsSuspects = <?= json_encode($suspects ?? []); ?>;
-    </script>
-    <script src="<?= base_url('js/salle1.js') ?>" defer></script>
 </head>
 <body>
 <div class="background-container">
-    <?= img([
-            'src'   => base_url('images/mario.png'),
-            'alt'   => 'Mario',
-            'class' => 'perso-img'
-    ]); ?>
 
-    <!-- Zone de dialogue façon Ace Attorney -->
-    <div class="dialogue-box">
-        <div class="speaker-info">
-            <h3><?= esc($auteur) ?></h3>
-            <p><?= esc($fonction) ?></p>
-        </div>
-
-        <div class="text-zone">
-            <?php foreach ($message as $ligne): ?>
-                <p>
-                    <?php
-                    $mots = explode(' ', $ligne);
-                    foreach ($mots as $mot) {
-                        // chaque mot devient cliquable
-                        echo '<span class="mot-cliquable">' . esc($mot) . '</span> ';
-                    }
-                    ?>
-                </p>
-            <?php endforeach; ?>
+    <!-- POPUP d’explication -->
+    <div class="popup">
+        <div class="popup-content">
+            <h2>Bienvenue dans la salle hantée de l'ingénierie sociale !</h2>
+            <p>
+                Le but du jeu est de repérer les <strong>mots suspects</strong> dans le dialogue du fantôme.<br>
+                Clique sur les mots qui te semblent étranges pour avancer dans ton enquête...<br><br>
+                Une fois que tu les auras tous trouver, tu receveras un code pour ouvrir la porte en face de toi.
+            </p>
         </div>
     </div>
 
+    <div class="content-container">
+        <?= anchor(base_url().'Salle1/accesMessage',
+                img([
+                    'src' => base_url('salle_1/images/personnages/fantome_1.webp'),
+                    'alt' => 'Fantôme',
+                    'class' => 'perso-accueil',
+                    'id'   => 'fantome'
+        ])
+        ); ?>
+    </div>
+
+    <!-- Bouton retour -->
     <div class="buttons">
-        <?= anchor(base_url(), '<button>Retour au menu</button>'); ?>
+        <?= anchor(
+                base_url().'/',
+                '<div class="retour-wrapper">'
+                .img([
+                        'src' => base_url('salle_1/images/boutons/retour-et-indice_blanc.webp'),
+                        'alt' => 'Retour',
+                        'class' => 'button-image'
+                ])
+                .'<span class="retour-texte">Retour au menu</span>'
+                .'</div>'
+        ); ?>
+
     </div>
+
 </div>
 </body>
 </html>
+
