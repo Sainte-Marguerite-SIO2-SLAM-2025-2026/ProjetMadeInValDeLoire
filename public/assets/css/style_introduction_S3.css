@@ -1,0 +1,131 @@
+
+:root{
+    --ink:#000000;
+    --ink-dim:#000000;
+    --gold:#c8a96a;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;          /* pas de scroll */
+    overscroll-behavior: none;
+}
+
+body{
+    margin:0;
+    font-family:"Cinzel",serif;
+    color:var(--ink);
+    background:#000;
+}
+
+/* Fond plein écran (image) */
+.accueil-bg{
+    position:fixed;
+    inset:0;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    z-index:0;
+}
+.accueil-bg::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(10,8,6,.08), rgba(10,8,6,.12));
+}
+
+/* Zone du livre */
+.book{
+    position:relative;
+    min-height:100dvh;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:6vh 4vw;
+}
+
+/* Texte sur les deux pages — plus petit + remonté */
+.book-text{
+    width:min(1000px, 82vw);
+    max-width:1000px;
+
+    column-count:2;
+    column-gap:clamp(28px, 4vw, 64px);
+
+    /* Taille plus petite */
+    font-size:clamp(0.82rem, 1.05vw, 0.96rem);
+    line-height:1.54;
+    letter-spacing:.006em;
+    font-weight:500;
+    color:var(--ink);
+    text-shadow:none;
+
+    padding:clamp(10px,1.2vw,16px) clamp(10px,1.6vw,18px);
+    background:transparent;
+
+    /* Remonte le bloc texte (ajuste la valeur si besoin) */
+    margin-top:-6vh;
+
+    hyphens:auto;
+    overflow-wrap:break-word;
+}
+
+.book-text p{
+    margin:0 0 1.05em 0;
+    orphan:2; widows:2;
+    color:var(--ink-dim);
+}
+
+/* Styles communs aux boutons */
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    cursor:pointer;
+    user-select:none;
+}
+.btn--xl{
+    padding:16px 28px;
+    font-size:1.15rem;
+    border-radius:12px;
+    font-weight:600;
+    letter-spacing:.06em;
+}
+.btn--ghost{
+    color:#e7e1c6;
+    background:rgba(18,17,16,.45);
+    border:1.5px solid rgba(200,169,106,.55);
+    box-shadow:0 8px 20px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+    backdrop-filter:saturate(110%) blur(1px);
+}
+.btn--ghost:hover{ background:rgba(200,169,106,.10) }
+
+.btn-retour {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 2;
+}
+
+.btn-passe{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:2;
+}
+
+
+/* Responsive */
+@media (max-width: 900px){
+    .book-text{
+        column-count:1;
+        width:min(760px, 92vw);
+        /* un peu plus petit aussi en mobile */
+        font-size:clamp(0.86rem, 3vw, 0.98rem);
+        /* remonte un peu moins en mobile */
+        margin-top:-3vh;
+    }
+}
+@media (max-width: 480px){
+    .btn--xl{ padding:12px 18px; font-size:1.02rem; }
+    .book{ padding:4vh 4vw; }
+}

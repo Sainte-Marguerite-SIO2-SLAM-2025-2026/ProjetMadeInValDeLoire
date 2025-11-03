@@ -1,0 +1,605 @@
+/* --- IMPORTATION DE LA POLICE (ESSENTIEL) --- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+    margin: 0;
+    font-family: "Cinzel", serif;
+    background: #000;
+}
+
+.accueil-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    /* pointer-events: none; */
+}
+
+.center-container {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+}
+
+.code-contour {
+    position: absolute;
+    bottom: 42%;
+    right: 28%;
+    width: 130px;
+    height: 140px;
+    transform: translate(50%, 50%);
+}
+
+.livre-contour {
+    position: absolute;
+    bottom: 18%;
+    right: 13.5%;
+    width: 220px;
+    height: 40px;
+    transform: translate(50%, 50%);
+}
+
+.poignier-contour {
+    position: absolute;
+    bottom: 9.5%;
+    right: 41.4%;
+    width: 60px;
+    height: 60px;
+    transform: translate(50%, 50%);
+    cursor: pointer;
+    display: block;
+}
+
+.label-contour {
+    position: absolute;
+    bottom: 54%;
+    right: 74%;
+    width: 830px;
+    height: 250px;
+    border: 4px solid #ee00ff;
+    transform: translate(50%, 50%);
+}
+
+.valide-contour {
+    position: absolute;
+    bottom: 33%;
+    right: 25.5%;
+    width: 224px;
+    height: 125px;
+    border: 4px solid #5eff00;
+    transform: translate(50%, 50%);
+}
+
+.reset-contour {
+    position: absolute;
+    bottom: 48%;
+    right: 17%;
+    width: 154px;
+    height: 75px;
+    border: 4px solid #ffcc00;
+    transform: translate(50%, 50%);
+}
+
+.tip-panel {
+    position: fixed;
+    bottom: clamp(12px, 4vh, 48px);
+    left: clamp(12px, 4vw, 21px);
+    z-index: 9999;
+
+    max-width: min(90vw, 460px);
+    padding: clamp(12px, 2vw, 18px);
+    border-radius: 12px;
+
+    background: rgba(10,10,10,0.52);
+    border: 1px solid rgba(200,169,106,0.22);
+    box-shadow:
+            0 10px 25px rgba(0,0,0,0.45),
+            0 0 0 1px rgba(200,169,106,0.08);
+    backdrop-filter: blur(2px) saturate(110%);
+}
+
+.tip-desc {
+    margin: 0;
+    color: #cfc8ae;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    line-height: 1.45;
+    text-shadow: 0 1px 0 rgba(0,0,0,.6);
+}
+
+.tip-panel--top {
+    top: clamp(40px, 10vh, 150px); /* Correction des bornes */
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: min(92vw, 720px);
+    pointer-events: none;
+}
+
+.tip-panel--autohide {
+    opacity: 1;
+    will-change: opacity, visibility;
+    animation: tipAutoHide 30s linear forwards !important;
+}
+
+@keyframes tipAutoHide {
+    0%, 96% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tip-panel--autohide {
+        animation: tipAutoHide 30s linear forwards !important;
+    }
+}
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.poignier-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    place-items: center;
+    background: rgba(5,5,8,0.55);
+    z-index: 10000;
+}
+
+#poignier-toggle:checked ~ #poignier-overlay {
+    display: grid;
+}
+
+.poignier-panel {
+    max-width: min(92vw, 560px);
+    margin: 0 16px;
+    padding: clamp(12px, 2vw, 18px);
+    border-radius: 12px;
+
+    background: rgba(10,10,10,0.52);
+    border: 1px solid rgba(200,169,106,0.22);
+    box-shadow:
+            0 10px 25px rgba(0,0,0,0.45),
+            0 0 0 1px rgba(200,169,106,0.08);
+    backdrop-filter: blur(2px) saturate(110%);
+}
+
+.tip-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 12px 22px;
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    color: #e7e1c6;
+    background: linear-gradient(180deg, #2a2824, #121110);
+    border: 1.5px solid #5e4a1f;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.08),
+            0 10px 25px rgba(0,0,0,0.45),
+            0 0 0 1px rgba(200,169,106,0.08);
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .2s ease, color .2s ease, background .2s ease, border-color .2s ease;
+}
+.tip-btn:hover {
+    transform: translateY(-1px);
+    color: #f7f1db;
+    border-color: #c8a96a;
+    box-shadow:
+            0 12px 28px rgba(0,0,0,.55),
+            0 0 14px rgba(140,180,255,.25);
+}
+.tip-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 16px rgba(0,0,0,.5), inset 0 2px 6px rgba(0,0,0,.4);
+}
+
+.hero-buttons {
+    position: relative;
+    z-index: 3;
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button, .btn, a.button, .btn-primary {
+    display: inline-block;
+    padding: 14px 28px;
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    color: #e7e1c6;
+    background: linear-gradient(180deg, #2a2824, #121110);
+    border: 1.5px solid #5e4a1f;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.08),
+            0 10px 25px rgba(0,0,0,0.45),
+            0 0 0 1px rgba(200,169,106,0.08);
+    transition: transform .12s ease, box-shadow .2s ease, color .2s ease, background .2s ease, border-color .2s ease;
+    cursor: pointer;
+}
+button:hover, .btn:hover, a.button:hover, .btn-primary:hover {
+    transform: translateY(-1px);
+    color: #f7f1db;
+    border-color: #c8a96a;
+    box-shadow:
+            0 12px 28px rgba(0,0,0,.55),
+            0 0 14px rgba(140,180,255,.25);
+}
+button:active, .btn:active, a.button:active, .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 16px rgba(0,0,0,.5), inset 0 2px 6px rgba(0,0,0,.4);
+}
+.btn--ghost { background: transparent; border-color: rgba(200,169,106,0.5); }
+.btn--ghost:hover { background: rgba(200,169,106,0.08); }
+.btn--xl { padding: 18px 36px; font-size: 1.15rem; border-radius: 12px; }
+
+@media (max-width: 480px) {
+    .tip-panel {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        max-width: none;
+    }
+    .btn, .btn--xl { width: 100%; text-align: center; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .poignier-panel {
+        opacity: 0;
+        transform: translateY(6px);
+        transition: opacity .35s ease, transform .35s ease;
+    }
+    #poignier-toggle:checked ~ #poignier-overlay .poignier-panel {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.retour-buttons {
+    position: fixed;
+    bottom: clamp(12px, 4vh, 32px);
+    left: clamp(12px, 4vw, 32px);
+    transform: none;
+    z-index: 10001;
+    margin: 0;
+}
+
+/* Masquer complètement l'intro si déjà vue (pour CET onglet) */
+.hide-intro #intro-tip {
+    display: none !important;
+}
+
+/* Forcer l'affichage au-dessus du background */
+.label-contour,
+.reset-contour,
+.valide-contour{
+    z-index: 2 !important; /* > .accueil-bg (z-index:1) */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Etape 2 */
+.postit-1 {
+    position: absolute;
+    bottom: 40%;
+    right: 12.4%;
+    width: 187px;
+    height: 169px;
+    border: 4px solid #ee00ff;
+    transform: translate(50%, 50%);
+    z-index: 10;
+}
+
+.postit-2 {
+    position: absolute;
+    bottom: 31%;
+    right: 35.5%;
+    width: 194px;
+    height: 189px;
+    border: 4px solid #5eff00;
+    transform: translate(50%, 50%);
+    z-index: 10;
+}
+
+.postit-3 {
+    position: absolute;
+    bottom: 70%;
+    right: 42.5%;
+    width: 194px;
+    height: 185px;
+    border: 4px solid #00ffa6;
+    transform: translate(50%, 50%) rotate(5deg);
+    z-index: 10;
+}
+
+.code-label {
+    position: absolute;
+    bottom: 64%;
+    right: 77.6%;
+    width: 262px;
+    height: 77px;
+    border: 4px solid #ff0026;
+    transform: translate(50%, 50%);
+    z-index: 10;
+}
+
+.reset-code {
+    position: absolute;
+    bottom: 38.4%;
+    right: 73.8%;
+    width: 63px;
+    height: 30px;
+    border: 4px solid #2200ff;
+    transform: translate(50%, 50%);
+    z-index: 10;
+}
+
+.valide-code {
+    position: absolute;
+    bottom: 31.5%;
+    right: 77.6%;
+    width: 85px;
+    height: 49px;
+    border: 4px solid #00ffd9;
+    transform: translate(50%, 50%);
+    z-index: 10;
+}
+/* Etape 2a */
+.carton-contour {
+    position: absolute;
+    bottom: 65.5%;
+    right: 77%;
+    width: 195px;
+    height: 63px;
+    border: 4px solid #7300ff;
+    transform: translate(50%, 50%);
+    z-index: 10;
+}
+
+/* Etape 2a */
+.malette-contour {
+    position: absolute;
+    bottom: 24.5%;
+    right: 71%;
+    width: 595px;
+    height: 153px;
+    border: 4px solid #00ffa6;
+    transform: translate(50%, 50%);
+    z-index: 10;
+}
+
+/*Etape 3 */
+.valide-malette {
+    position: absolute;
+    bottom: 19.5%;
+    right: 38.7%;
+    width: 90px;
+    height: 35px;
+    border: 4px solid #00ffa6;
+    transform: translate(50%, 50%);
+    z-index: 10;
+}
+
+.reset-malette {
+    position: absolute;
+    bottom: 19.5%;
+    right: 50%;
+    width: 245px;
+    height: 35px;
+    border: 4px solid #ff0000;
+    transform: translate(50%, 50%);
+    z-index: 10;
+}
+
+/* Etape 4 */
+.valide-telephone {
+    position: absolute;
+    bottom: 42%;
+    right: 33.5%;
+    width: 196px;
+    height: 75px;
+    border: 4px solid #ff0000;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+
+/* Etape 5 */
+.astuce-postit {
+    position: absolute;
+    bottom: 56.2%;
+    right: 34.2%;
+    width: 196px;
+    height: 253px;
+    border: 4px solid #ff0000;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+.corbeil-postit {
+    position: absolute;
+    bottom: 10%;
+    right: 17.2%;
+    width: 416px;
+    height: 183px;
+    border: 4px solid #1324df;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+.bougie-postit {
+    position: absolute;
+    bottom: 36%;
+    right: 51.8%;
+    width: 118px;
+    height: 182px;
+    border: 4px solid #6d0d83;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+.postit-ep5-10 {
+    position: absolute;
+    bottom: 57.2%;
+    right: 48.5%;
+    width: 122px;
+    height: 122px;
+    border: 4px solid #5eff00;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+.postit-ep5-9 {
+    position: absolute;
+    bottom:80.2%;
+    right: 49.5%;
+    width: 108px;
+    height: 103px;
+    border: 4px solid #ff0000;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+.postit-ep5-8 {
+    position: absolute;
+    bottom:40.2%;
+    right: 49.5%;
+    width: 108px;
+    height: 103px;
+    border: 4px solid #6d0d83;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+.postit-ep5-4 {
+    position: absolute;
+    bottom: 36%;
+    right: 51.8%;
+    width: 118px;
+    height: 182px;
+    border: 4px solid #6d0d83;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+.postit-ep5-5 {
+    position: absolute;
+    bottom: 36%;
+    right: 51.8%;
+    width: 118px;
+    height: 182px;
+    border: 4px solid #6d0d83;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+.postit-ep5-6 {
+    position: absolute;
+    bottom: 36%;
+    right: 51.8%;
+    width: 118px;
+    height: 182px;
+    border: 4px solid #6d0d83;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+.postit-ep5-7 {
+    position: absolute;
+    bottom: 36%;
+    right: 51.8%;
+    width: 118px;
+    height: 182px;
+    border: 4px solid #6d0d83;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+.postit-ep5-8 {
+    position: absolute;
+    bottom: 36%;
+    right: 51.8%;
+    width: 118px;
+    height: 182px;
+    border: 4px solid #6d0d83;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+.postit-ep5-1 {
+    position: absolute;
+    bottom: 36%;
+    right: 51.8%;
+    width: 118px;
+    height: 182px;
+    border: 4px solid #6d0d83;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+.postit-ep5-2 {
+    position: absolute;
+    bottom: 36%;
+    right: 51.8%;
+    width: 118px;
+    height: 182px;
+    border: 4px solid #6d0d83;
+    transform: translate(50%, 50%);
+    z-index: 10;
+
+}
+
