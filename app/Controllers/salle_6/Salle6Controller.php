@@ -13,12 +13,7 @@ class Salle6Controller extends BaseController
             view('commun\footer');
     }
 
-    public function Wifi():string
-    {
-        return view('commun\header').
-            view('salle_6\Wifi').
-            view('commun\footer');
-    }
+
 
     public function Vpn():string
     {
@@ -26,4 +21,5 @@ class Salle6Controller extends BaseController
             view('salle_6\Vpn').
             view('commun\footer');
     }
+
 }
