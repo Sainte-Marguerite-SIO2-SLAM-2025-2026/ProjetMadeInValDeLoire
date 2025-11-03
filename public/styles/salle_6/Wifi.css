@@ -103,14 +103,12 @@ html, body {
     left: 50%;
     transform: translate(-50%, -50%);
     display: none; /* Caché par défaut */
-    flex-direction: row;
-    gap: 6rem; /* Écart entre les cartes */
+    flex-direction: column; /* Changé de row à column */
+    gap: 2rem; /* Réduit l'écart */
     align-items: center;
     justify-content: center;
     z-index: 100;
     padding: 2rem;
-    /*background: rgba(0, 0, 0, 0.7);*/
-    /*border-radius: 15px;*/
 }
 
 .wifi-card {
@@ -396,3 +394,69 @@ a.btn-valider {
 a.btn-valider:hover {
     text-decoration: none;
 }
+
+.resultat-container {
+    width: 100%;
+    max-width: 900px; /* Limite la largeur */
+    padding: 20px;
+    margin-top: 20px;
+    background-image: url("../../images/salle_6/bandeRouge.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    bottom: 30px;
+}
+
+#messageResultat {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-suivant {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.btn-suivant:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Conteneur des cartes (pour les mettre en ligne) */
+.cartes-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 6rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.resultat-container {
+    width: 100%;
+    max-width: 900px; /* Limite la largeur */
+    padding: 20px;
+    background-image: url("../../images/salle_6/bandeRouge.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    position: relative; /* Changé de absolute */
+    margin-top: 20px;)/*
