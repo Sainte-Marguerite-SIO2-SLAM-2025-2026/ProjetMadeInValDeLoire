@@ -4,67 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relier des cartes</title>
-    <?= link_tag('public/styles/salle_4/style_3.css'); ?>
+    <?= link_tag('styles/salle_4/style_3.css') ?>
 </head>
 <body>
-<h1> Relier les cartes</h1>
 
-<div id="info">
-    Cliquez sur deux cartes pour les relier avec une ligne rouge
+<!--uniquement via css si pas interaction avec image de fond-->
+<div class="fond">
+
+<!--    --><?php //= anchor(base_url().'Salle4', '<button>Retour</button>') ?>
+
+    <div id="gameContainer">
+
+        <canvas id="canvas" width="1500" height="975"></canvas>
+
+        <!--#region cartes  -->
+        <!-- 🃏 Cartes -->
+        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_01.png',
+                'class' => 'carte carte1',
+                'id' => 'carte1',
+                'data-id' => '1',
+                'alt' => 'Carte 1',
+                'style' => 'left:20%;top:14%;']); ?>
+
+        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_02.png',
+                'class' => 'carte carte2',
+                'id' => 'carte2',
+                'data-id' => '2',
+                'alt' => 'Carte 2',
+                'style' => 'left:41%;top:22%;']); ?>
+
+        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_03.png',
+                'class' => 'carte carte3',
+                'id' => 'carte3',
+                'data-id' => '3',
+                'alt' => 'Carte 3',
+                'style' => 'left:71%;top:19%;']); ?>
+
+        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_04.png',
+                'class' => 'carte carte4',
+                'id' => 'carte4',
+                'data-id' => '4',
+                'alt' => 'Carte 4',
+                'style' => 'left:32%;top:65%;']); ?>
+
+        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_05.png',
+                'class' => 'carte carte5',
+                'id' => 'carte5',
+                'data-id' => '5',
+                'alt' => 'Carte 5',
+                'style' => 'left:15%;top:40%;']); ?>
+
+        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_06.png',
+                'class' => 'carte carte6',
+                'id' => 'carte6',
+                'data-id' => '6',
+                'alt' => 'Carte 6',
+                'style' => 'left:52%;top:51%;']); ?>
+
+        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_07.png',
+                'class' => 'carte carte7',
+                'id' => 'carte7',
+                'data-id' => '7',
+                'alt' => 'Carte 7',
+                'style' => 'left:55%;top:73%;']); ?>
+
+        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_08.png',
+                'class' => 'carte carte8',
+                'id' => 'carte8',
+                'data-id' => '8',
+                'alt' => 'Carte 8',
+                'style' => 'left:74%;top:47%;']); ?>
+        <!--#endregion -->
+
+    </div>
+
+    <?=anchor(base_url().'Salle4', img([
+            'src'   => 'images/salle_4/boutton/WEB/boutons-08 (2).webp',
+            'alt'   => 'retour',
+            'class' => 'retour'
+    ]));?>
+
+    <h1>Relier les cartes</h1>
+
+    <div id="info">
+        Cliquez sur deux cartes pour les relier avec une ligne rouge
+    </div>
+
+    <div class="controls">
+        <?= form_button(['id' => 'resetBtn', 'content' => '🔄 Réinitialiser']) ?>
+        <?= form_button(['id' => 'undoBtn', 'content' => '↶ Annuler la dernière ligne']) ?>
+    </div>
 </div>
 
-<div class="controls">
-    <button id="resetBtn">🔄 Réinitialiser</button>
-    <button id="undoBtn">↶ Annuler la dernière ligne</button>
-</div>
 
-<div id="gameContainer">
-    <!-- L'image de fond sera remplacée par votre fond.png -->
-    <img id="fondImage" src="<?= base_url()?>public/images/salle4/img_chambre.png
-    width='800' height='600'%3E%3Cdefs%3E%3Cpattern id='grid'
-    width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 40 0 L 0 0 0 40'
-    fill='none' stroke='%23ffffff' stroke-width='0.5'
-    opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='800' height='600'
-     fill='%2334495e'/%3E%3Crect width='800' height='600' fill='url(%23grid)'/%3E%3C/svg%3E" alt="Fond">
-    <canvas id="canvas" width="800" height="600"></canvas>
 
-    <!-- Les 4 cartes avec vos images -->
-<!--<img class="carte" id="carte1" data-id="1" src="--><?php //= base_url()?><!--public/images/salle4/carte.png" alt="Carte 1" style="left: 100px; top: 100px;">-->
-    <?= img(['src' => 'public/images/salle4/carte2.png',
-        'alt' => 'Carte 1',
-        'class' => 'carte',
-        'id' => 'carte1',
-//        'data-id'=>'1',
-        'style'=>'left: 100px; top: 100px;'
-    ]) ?>
-<!--    --><?php //= img(['src' => 'public/images/salle4/carte.png',
-//        'alt' => 'Carte 2',
-//        'class' => 'carte',
-//        'id' => 'carte2',
-//        'data-id'=>'2',
-//        'style'=>'left: 100px; top: 100px;'
-//    ]) ?>
-<!--    --><?php //= img(['src' => 'public/images/salle4/carte.png',
-//        'alt' => 'Carte 3',
-//        'class' => 'carte',
-//        'id' => 'carte3',
-//        'data-id'=>'3',
-//        'style'=>'left: 100px; top: 400px;'
-//    ]) ?>
-<!--    --><?php //= img(['src' => 'public/images/salle4/carte.png',
-//        'alt' => 'Carte 4',
-//        'class' => 'carte',
-//        'id' => 'carte4',
-//        'data-id'=>'4',
-//        'style'=>'left: 600px; top: 400px;'
-//    ]) ?>
-    <img class="carte" id="carte2" data-id="2" src="/public/images/salle4/carte.png" alt="Carte 2" style="left: 600px; top: 100px;">
-    <img class="carte" id="carte3" data-id="3" src="/public/images/salle4/carte.png" alt="Carte 3" style="left: 100px; top: 400px;">
-    <img class="carte" id="carte4" data-id="4" src="/public/images/salle4/carte.png" alt="Carte 4" style="left: 600px; top: 400px;">
-</div>
-
-<script>
-
-</script>
+<?= script_tag('js/salle4.js') ?>
 </body>
 </html>

@@ -1,18 +1,11 @@
-/*html, body {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background: #2c3e50;
+html, body {
+    margin: 0;
+    padding: 0;
 }
 
-.fond {
-    background-image: url("../../images/salle4/img_chambre.png");
+.fond_accueil {
+    position: relative;
+    background-image: url("../../images/salle_4/chambre/WEB/chambre.webp");
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -20,12 +13,38 @@ body {
     padding-top: 1px;
 }
 
-#info {
-    margin: 10px 0;
-    padding: 15px 30px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    font-weight: bold;
-    color: #2c3e50;
+.clic_frise {
+    position: absolute;
+    top: 5%;
+    left: 35%;
+    width: 32%;
+    height: 31%;
+    cursor: pointer;
+    background: transparent;
+    display: block;
+    /*border: 3px solid red;*/
+
 }
+
+.quizFin {
+    position: absolute;
+    top: 89%;
+    left: 74%;
+    width: 9%;
+    height: 10%;
+    cursor: pointer;
+    background: transparent;
+    display: block;
+    /*border: 3px solid red;*/
+}
+
+.retour {
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    transform: none;
+    max-width: 250px;
+    height: 75px;
+}
+
+

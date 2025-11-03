@@ -7,6 +7,7 @@
     <?= link_tag('styles/salle_4/style_3.css') ?>
 </head>
 <body>
+<?= anchor(base_url().'Salle4', '<button>Retour</button>') ?>
 <h1>Relier les cartes</h1>
 
 <div id="info">
@@ -23,28 +24,28 @@
     <canvas id="canvas" width="800" height="600"></canvas>
 
     <!-- 🃏 Cartes -->
-    <?= img(['src' => 'images/salle4/carte1.png',
+    <?= img(['src' => 'images/salle_4/carte1.png',
         'class' => 'carte',
         'id' => 'carte1',
         'data-id' => '1',
         'alt' => 'Carte 1',
-        'style' => 'left:100px;top:100px;']); ?>
+        'style' => 'left:300px;top:100px;']); ?>
 
-    <?= img(['src' => 'images/salle4/carte2.png',
+    <?= img(['src' => 'images/salle_4/carte2.png',
         'class' => 'carte',
         'id' => 'carte2',
         'data-id' => '2',
         'alt' => 'Carte 2',
         'style' => 'left:600px;top:100px;']); ?>
 
-    <?= img(['src' => 'images/salle4/carte3.png',
+    <?= img(['src' => 'images/salle_4/carte3.png',
         'class' => 'carte',
         'id' => 'carte3',
         'data-id' => '3',
         'alt' => 'Carte 3',
         'style' => 'left:100px;top:400px;']); ?>
 
-    <?= img(['src' => 'images/salle4/carte4.png',
+    <?= img(['src' => 'images/salle_4/carte4.png',
         'class' => 'carte',
         'id' => 'carte4',
         'data-id' => '4',
@@ -52,6 +53,6 @@
         'style' => 'left:600px;top:400px;']); ?>
 </div>
 
-<?= script_tag('js/salle4.js') ?>
+<?= script_tag('js/salle_4.js') ?>
 </body>
 </html>
