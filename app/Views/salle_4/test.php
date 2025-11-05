@@ -27,64 +27,157 @@
 
         <canvas id="canvas" width="1500" height="975"></canvas>
 
-        <!--#region cartes  -->
-        <!-- 🃏 Cartes -->
-        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_01.png',
-                'class' => 'carte carte1',
-                'id' => 'carte1',
-                'data-id' => '1',
-                'alt' => 'Carte 1',
-                'style' => 'left:20%;top:14%;']); ?>
+<!--        <!--#region 🃏 Cartes  -->-->
+<!---->
+<!--        --><?php //= img([
+//                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_01.png',
+//                'class'    => 'carte carte1',
+//                'id'       => 'carte1',
+//                'data-id'  => '1',
+//                'alt'      => 'Carte 1',
+//                'style'    => 'left:6%; top:10%;'
+//        ]); ?>
+<!---->
+<!--        --><?php //= img([
+//                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_02.png',
+//                'class'    => 'carte carte2',
+//                'id'       => 'carte2',
+//                'data-id'  => '2',
+//                'alt'      => 'Carte 2',
+//                'style'    => 'left:10%; top:45%;'
+//        ]); ?>
+<!---->
+<!--        --><?php //= img([
+//                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_03.png',
+//                'class'    => 'carte carte3',
+//                'id'       => 'carte3',
+//                'data-id'  => '3',
+//                'alt'      => 'Carte 3',
+//                'style'    => 'left:38%; top:6%;'
+//        ]); ?>
+<!---->
+<!--        --><?php //= img([
+//                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_04.png',
+//                'class'    => 'carte carte4',
+//                'id'       => 'carte4',
+//                'data-id'  => '4',
+//                'alt'      => 'Carte 4',
+//                'style'    => 'left:47%; top:42%;'
+//        ]); ?>
+<!---->
+<!--        --><?php //= img([
+//                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_05.png',
+//                'class'    => 'carte carte5',
+//                'id'       => 'carte5',
+//                'data-id'  => '5',
+//                'alt'      => 'Carte 5',
+//                'style'    => 'left:83%; top:28%;'
+//        ]); ?>
+<!---->
+<!--        --><?php //= img([
+//                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_06.png',
+//                'class'    => 'carte carte6',
+//                'id'       => 'carte6',
+//                'data-id'  => '6',
+//                'alt'      => 'Carte 6',
+//                'style'    => 'left:60%; top:12%;'
+//        ]); ?>
+<!---->
+<!--        --><?php //= img([
+//                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_07.png',
+//                'class'    => 'carte carte7',
+//                'id'       => 'carte7',
+//                'data-id'  => '7',
+//                'alt'      => 'Carte 7',
+//                'style'    => 'left:40%; top:65%;'
+//        ]); ?>
+<!---->
+<!--        --><?php //= img([
+//                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_08.png',
+//                'class'    => 'carte carte8',
+//                'id'       => 'carte8',
+//                'data-id'  => '8',
+//                'alt'      => 'Carte 8',
+//                'style'    => 'left:73%; top:68%;'
+//        ]); ?>
+<!---->
+<!--        <!--#endregion -->-->
 
-        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_02.png',
-                'class' => 'carte carte2',
-                'id' => 'carte2',
-                'data-id' => '2',
-                'alt' => 'Carte 2',
-                'style' => 'left:41%;top:22%;']); ?>
+        <!--#region 🃏 Cartes 2 -->
+        <?= img([
+                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_01.png',
+                'class'    => 'carte carte1',
+                'id'       => 'carte1',
+                'data-id'  => '1',
+                'alt'      => 'Carte 1',
+                'style'    => 'left:5%; top:8%;'
+        ]); ?>
 
-        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_03.png',
-                'class' => 'carte carte3',
-                'id' => 'carte3',
-                'data-id' => '3',
-                'alt' => 'Carte 3',
-                'style' => 'left:71%;top:19%;']); ?>
+        <?= img([
+                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_02.png',
+                'class'    => 'carte carte2',
+                'id'       => 'carte2',
+                'data-id'  => '2',
+                'alt'      => 'Carte 2',
+                'style'    => 'left:32%; top:6%;'
+        ]); ?>
 
-        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_04.png',
-                'class' => 'carte carte4',
-                'id' => 'carte4',
-                'data-id' => '4',
-                'alt' => 'Carte 4',
-                'style' => 'left:32%;top:65%;']); ?>
+        <?= img([
+                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_03.png',
+                'class'    => 'carte carte3',
+                'id'       => 'carte3',
+                'data-id'  => '3',
+                'alt'      => 'Carte 3',
+                'style'    => 'left:70%; top:7%;'
+        ]); ?>
 
-        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_05.png',
-                'class' => 'carte carte5',
-                'id' => 'carte5',
-                'data-id' => '5',
-                'alt' => 'Carte 5',
-                'style' => 'left:15%;top:40%;']); ?>
+        <?= img([
+                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_04.png',
+                'class'    => 'carte carte4',
+                'id'       => 'carte4',
+                'data-id'  => '4',
+                'alt'      => 'Carte 4',
+                'style'    => 'left:12%; top:38%;'
+        ]); ?>
 
-        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_06.png',
-                'class' => 'carte carte6',
-                'id' => 'carte6',
-                'data-id' => '6',
-                'alt' => 'Carte 6',
-                'style' => 'left:52%;top:51%;']); ?>
+        <?= img([
+                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_05.png',
+                'class'    => 'carte carte5',
+                'id'       => 'carte5',
+                'data-id'  => '5',
+                'alt'      => 'Carte 5',
+                'style'    => 'left:45%; top:34%;'
+        ]); ?>
 
-        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_07.png',
-                'class' => 'carte carte7',
-                'id' => 'carte7',
-                'data-id' => '7',
-                'alt' => 'Carte 7',
-                'style' => 'left:55%;top:73%;']); ?>
+        <?= img([
+                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_06.png',
+                'class'    => 'carte carte6',
+                'id'       => 'carte6',
+                'data-id'  => '6',
+                'alt'      => 'Carte 6',
+                'style'    => 'left:78%; top:40%;'
+        ]); ?>
 
-        <?= img(['src' => 'images/salle_4/carte02/WEBP/carte_pins_08.png',
-                'class' => 'carte carte8',
-                'id' => 'carte8',
-                'data-id' => '8',
-                'alt' => 'Carte 8',
-                'style' => 'left:74%;top:47%;']); ?>
+        <?= img([
+                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_07.png',
+                'class'    => 'carte carte7',
+                'id'       => 'carte7',
+                'data-id'  => '7',
+                'alt'      => 'Carte 7',
+                'style'    => 'left:25%; top:72%;'
+        ]); ?>
+
+        <?= img([
+                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_08.png',
+                'class'    => 'carte carte8',
+                'id'       => 'carte8',
+                'data-id'  => '8',
+                'alt'      => 'Carte 8',
+                'style'    => 'left:65%; top:74%;'
+        ]); ?>
+
         <!--#endregion -->
+
 
     </div>
 
