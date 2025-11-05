@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 06 oct. 2025 à 09:18
+-- Généré le : lun. 03 nov. 2025 à 07:53
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.2.0
 
@@ -367,25 +367,6 @@ ALTER TABLE `proposer_wifi`
   ADD CONSTRAINT `activite_ibfk_5` FOREIGN KEY (`activite_numero`) REFERENCES `activite` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE,
   ADD CONSTRAINT `wifi_ibfk_1` FOREIGN KEY (`wifi_numero`) REFERENCES `wifi` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE;
 COMMIT;
-
---
--- Création du user de la BDD
---
-
-CREATE USER 'userProjetMIVDL'@'localhost' IDENTIFIED BY 'Projet@MIVDL!user';
-GRANT USAGE ON *.* TO 'userProjetMIVDL'@'localhost';
-
-GRANT SELECT ON `made\_in\_val\_de\_loire`.* TO `userProjetMIVDL`@`localhost`;
-
---
--- Création de l'admin de la BDD
---
-
-CREATE USER 'adminProjetMIVDL'@'localhost' IDENTIFIED BY 'Projet@MIDVL!admin';
-
-GRANT USAGE ON *.* TO 'adminProjetMIVDL'@'localhost';
-
-GRANT ALL PRIVILEGES ON `made\_in\_val\_de\_loire`.* TO `adminProjetMIVDL`@`localhost`;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
