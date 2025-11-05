@@ -17,6 +17,7 @@ $routes->get('/Salle1', 'accueil\AccueilController::Salle1');
 
 // Routes pour la salle 2
 $routes->get('/Salle2', 'accueil\AccueilController::Salle2');
+$routes->get('/Salle2/Enigme', 'salle_2\Salle2Controller::index');
 
 // Routes pour la salle 3
 $routes->get('/Salle3', 'accueil\AccueilController::Salle3');
@@ -31,7 +32,6 @@ $routes->get('/Salle5', 'accueil\AccueilController::Salle5');
 // Routes pour la salle 6
 $routes->get('/Salle6', 'accueil\AccueilController::Salle6');
 
-$routes->post("salle2/submit", 'salle_2\Salle2Controller::submit');
-$routes->get('/Salle2/enigme', 'salle_2\Salle2Controller::enigme');
+
 
 
