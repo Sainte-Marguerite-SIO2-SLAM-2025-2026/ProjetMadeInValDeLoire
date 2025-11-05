@@ -14,27 +14,37 @@
     <div class="zone-cliquable" id="zoneCliquable"></div>
 
     <!-- Formulaire pour envoyer le choix -->
-    <?= form_open(base_url().'Salle6/wifi/resultat', ['id' => 'formWifi']) ?>
+    <?= form_open(base_url().'wifi/validerCarte', ['id' => 'formWifi']) ?>
     <?= csrf_field() ?>
     <?= form_input([ "type" => "hidden",
-            "name" => "wifi_id",
+            "name" => "wifi_numero",
             "id" => "wifiIdInput",
-            "value" => "'' " ])?>
-
-    <!--     Conteneur des cartes WiFi (caché par défaut) -->
-    <!--    <div class="cartes-container" id="cartesContainer">-->
-    <!--        --><?php //foreach($wifis as $wifi): ?>
-    <!--            <div class="CarteWifi" data-wifi-id="--><?php //= esc($wifi['id']) ?><!--">-->
-    <!--                <div class="carte-contenu">-->
-    <!--                    <h3 class="wifi-nom">--><?php //= esc($wifi['nom']) ?><!--</h3>-->
-    <!--                    <p class="wifi-type">--><?php //= esc($wifi['type']) ?><!--</p>-->
-    <!--                    <p class="wifi-chiffrement">--><?php //= esc($wifi['chiffrement']) ?><!--</p>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        --><?php //endforeach; ?>
-    <!--    </div>-->
+            "value" => "" ])?>
 
     <!-- Conteneur des cartes WiFi (caché par défaut) -->
+    <div class="cartes-container" id="cartesContainer">
+        <div class="cartes-wrapper">
+            <?php if(isset($wifis) && !empty($wifis)): ?>
+                <?php foreach($wifis as $wifi): ?>
+                    <div class="CarteWifi"
+                         data-wifi-numero="<?= esc($wifi['wifi_numero']) ?>"
+                         data-est-correct="<?= esc($wifi['bonne_reponse']) ?>">
+                        <div class="carte-contenu">
+                            <h3 class="wifi-nom info-selectionnable" data-info="nom">
+                                WiFi-<?= esc($wifi['wifi_numero']) ?>
+                            </h3>
+                            <p class="wifi-type info-selectionnable" data-info="type">
+                                <?= $wifi['public'] == 1 ? 'Public' : 'Privé' ?>
+                            </p>
+                            <p class="wifi-chiffrement info-selectionnable" data-info="chiffrement">
+                                <?= esc($wifi['chiffrement']) ?>
+                            </p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+
+        <!-- Version statique si pas de données -->
     <div class="cartes-container" id="cartesContainer">
         <div class="cartes-wrapper">
             <div class="CarteWifi" data-wifi-id="1">
@@ -58,6 +68,8 @@
                     <p class="wifi-chiffrement info-selectionnable" data-info="chiffrement">WPA2-PSK</p>
                 </div>
             </div>
+        </div>
+            <?php endif; ?>
         </div>
         <!-- Div de résultat (cachée par défaut) -->
         <div class="resultat-container" id="resultatContainer" style="display: none;">
@@ -91,4 +103,4 @@
         "class" => "btn-valider"
 ]) ?>
 
-<?= script_tag('js/salle6.js') ?>
+<?= script_tag('js/salle_6/wifiCartes.js') ?>
