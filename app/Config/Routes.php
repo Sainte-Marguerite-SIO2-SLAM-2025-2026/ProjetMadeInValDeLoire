@@ -19,6 +19,7 @@ $routes->get('Salle1/Code', 'salle_1\Salle1Controller::accesCode');
 
 // Routes pour la salle 2
 $routes->get('/Salle2', 'accueil\AccueilController::Salle2');
+$routes->get('/Salle2/Enigme', 'salle_2\Salle2Controller::index');
 
 // Routes pour la salle 3
 $routes->get('/Salle3', 'accueil\AccueilController::Salle3');
@@ -45,6 +46,8 @@ $routes->get('/Salle6/wifi', 'salle_6\WifiController::index');
 $routes->post('/wifi/validerCarte', 'salle_6\WifiController::validerCarte');
 $routes->get('/Salle6/wifi/resultat', 'salle_6\WifiController::Resultat');
 $routes->get('/Salle6/VPN/pleinEcran', 'salle_6\Salle6Controller::Vpn');
+
+
 
 
 

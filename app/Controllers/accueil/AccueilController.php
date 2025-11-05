@@ -2,6 +2,7 @@
 namespace App\Controllers\accueil;
 
 use App\Controllers\BaseController;
+use App\Models\accueil\AccueilModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\MascotteModel;
