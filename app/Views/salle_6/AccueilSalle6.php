@@ -1,5 +1,5 @@
     <title>Salle n°6</title>
-    <?=link_tag(base_url()."styles/salle6/accueilSalle6.css")?>
+    <?=link_tag(base_url()."styles/salle_6/accueilSalle6.css")?>
 </head>
 <body>
 <div class="container">
@@ -8,20 +8,19 @@
     <div class="bulle">
         <p class="texte-bulle"><?= $intitule ?></p>
     </div>
-    <!-- Mascotte avec helper img() -->
+    <!-- Mascotte -->
     <?= img([
             'src'   => 'images/salle_6/mascotte_test.png',
             'alt'   => 'Mascotte',
             'class' => 'mascotte'
     ]) ?>
+
+    <!-- zone train -->
     <?= anchor(base_url() . '/Salle6/Wifi', ' ', [ 'class' => 'zone-cliquable' ] );?>
 
-    <?=anchor(base_url() . '/', img([
-                'src'   => 'images/commun/retour.png',
-                'alt'   => 'FlecheRetour',
-                'class' => 'retour'
-        ]));?>
+    <!-- Bouton retour -->
+    <?= anchor(base_url() . '/',"Projet Made in Val de Loire", [
+            'class' => 'retour'
+    ]);?>
 
 </div>
-
-
