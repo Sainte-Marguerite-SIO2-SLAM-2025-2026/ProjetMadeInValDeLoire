@@ -63,3 +63,17 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.retour {
+    position: absolute;
+    top: 2%;
+    left: 1%;
+    transform: none;
+    width: 200px;
+    text-decoration: none;
+    color : black;
+    text-align: center;
+    font-size: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; /* A changer */
+    /*border: 2px solid red; !* utile pour voir où elle est pendant les tests *!*/
+}
