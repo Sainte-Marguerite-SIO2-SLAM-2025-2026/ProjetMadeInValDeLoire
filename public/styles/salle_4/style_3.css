@@ -18,12 +18,13 @@ h1 {
 
 .fond{
     position: relative;
-    background-image: url('../../images/salle_4/SVG/fond_tableau.svg');
+    background-image: url('../../images/salle_4/new/fond_tableau_mini.svg');
+    /*background-image: url('../../images/salle_4/fond.png');*/
     background-size: cover;
     background-position: center;
-    /*height: 100vh;*/
-    /*width: 100vw;*/
-    /*padding-top: 1px;*/
+    height: 100vh;
+    width: 100vw;
+    padding-top: 1px;
 }
 
 
@@ -104,7 +105,7 @@ h1 {
 
 .carte6 {
     position: absolute;
-    width: 220px;
+    width: 230px;
     height: 180px;
     cursor: pointer;
     transition: all 0.3s;
