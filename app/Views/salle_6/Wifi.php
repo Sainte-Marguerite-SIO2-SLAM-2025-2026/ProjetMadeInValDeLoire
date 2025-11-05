@@ -14,7 +14,7 @@
     <div class="zone-cliquable" id="zoneCliquable"></div>
 
     <!-- Formulaire pour envoyer le choix -->
-    <?= form_open('wifi/validerCarte', ['id' => 'formWifi']) ?>
+    <?= form_open(base_url().'Salle6/wifi/resultat', ['id' => 'formWifi']) ?>
     <?= csrf_field() ?>
     <?= form_input([ "type" => "hidden",
             "name" => "wifi_id",
@@ -64,31 +64,26 @@
             <p id="messageResultat"></p>
         </div>
         <!-- Bouton suivant (caché par défaut) -->
-        <?= anchor(base_url().'Salle6/wifi/resultat', 'Suivant', [
+        <?= form_submit("btnSuivant","Suivant",[
                 'id' => 'btnSuivant',
                 'class' => 'btn-suivant',
-                'style' => 'display: none;'
+                'style' => 'display: none;',
+                "content" => "Suivant"
         ]) ?>
     </div>
 
 
     <!-- Bouton valider -->
-    <?= form_input([
-            "type" => "submit",
+    <?= form_button([
+            "content" => "Valider",
             "id" => "btnValider",
             "class" => "btn-valider",
-            "style" => "display: none;",
-            "value" => "Valider"
+            "style" => "display: none;"
     ]) ?>
 
     <?= form_close() ?>
 
-
-
-
-
 </div>
-
 
 <!-- Bouton d'accueil (caché par défaut, affiché en cas d'échec) -->
 <?= anchor(base_url()."/", "Revenir à l'accueil", [
