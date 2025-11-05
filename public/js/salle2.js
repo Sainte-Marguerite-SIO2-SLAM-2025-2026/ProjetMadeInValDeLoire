@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
 
     const envelopesContainer = document.querySelector(".envelopes");
     const modal = document.getElementById("mail-modal");
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btnValider.disabled = true;
             btnValider.textContent = 'Envoi...';
 
-            const res = await fetch(window.BASE_URL + '/Salle2/submit', {
+            const res = await fetch(window.BASE_URL + '/salle2/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ resultat: payload })
@@ -133,4 +133,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     initEnveloppes();
+});*/
+
+document.getElementById('bureau').addEventListener('click', function() {
+    // Redirection vers la page de l'énigme
+    window.location.href = '/Salle2/enigme';
+
 });

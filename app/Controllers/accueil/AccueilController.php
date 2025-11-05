@@ -19,10 +19,7 @@ class AccueilController extends BaseController
 
     public function Salle2() : string
     {
-        $model = new AccueilModel();
-        $data['mail'] = $model->getMail();
-
-        return view('salle_2\AccueilSalle2', $data).
+        return view('salle_2\AccueilSalle2').
             view('commun\PiedDePage');
     }
 

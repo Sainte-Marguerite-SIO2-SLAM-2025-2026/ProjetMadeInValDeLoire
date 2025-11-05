@@ -15,6 +15,11 @@ class Salle2Controller extends BaseController
             view('commum/PiedDePage');
     }
 
+    public function enigme(){
+        return view('salle_2/EnigmeSalle2').
+            view('commum/PiedDePage');
+    }
+
     public function submit()
     {
         $request = service('request');
