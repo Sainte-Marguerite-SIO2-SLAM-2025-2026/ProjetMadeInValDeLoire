@@ -17,7 +17,7 @@ html, body {
 
 .container {
     position: relative;
-    background-image: url("../../images/salle_6/accueil-salle-6.webp");
+    background-image: url("../../images/salle_6/accueil-salle-6.svg");
     background-size: cover;
     background-position: center;
     height: 100vh;
