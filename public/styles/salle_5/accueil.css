@@ -129,31 +129,31 @@ img.objet-img.objet-actif:hover {
 .objet-clickable.objet-1, img.objet-1 { visibility: hidden}
 .objet-clickable.objet-2, img.objet-2 { visibility: hidden}
 .objet-clickable.objet-3, img.objet-3 { visibility: hidden;}
-.objet-clickable.objet-4, img.objet-4 { top: 5vh; left: 0; height: 10vh;}
-.objet-clickable.objet-5, img.objet-5 { top: 83vh; left: 18vw; height: 5vh;}
-.objet-clickable.objet-6, img.objet-6 { visibility: hidden; top: 83vh; left: 18vw; height: 5vh;}
+.objet-clickable.objet-4, img.objet-4 { top: 7vh; left: 0; height: 10vh;}
+.objet-clickable.objet-5, img.objet-5 { top: 85vh; left: 18vw; height: 5vh;}
+.objet-clickable.objet-6, img.objet-6 {  top: 85vh; left: 18vw; height: 5vh;}
 .objet-clickable.objet-7, img.objet-7 { Visibility: hidden;}
-.objet-clickable.objet-8, img.objet-8 { Visibility: visible; top: 65vh; left: 65vw; height: 1vh;}
-.objet-clickable.objet-9, img.objet-9 {top: 57vh; left: 50vw; height: 8vh;}
+.objet-clickable.objet-8, img.objet-8 {  top: 67vh; left: 65vw; height: 1vh;}
+.objet-clickable.objet-9, img.objet-9 {top: 59vh; left: 50vw; height: 8vh;}
 .objet-clickable.objet-10, img.objet-10 {visibility: hidden;}
 .objet-clickable.objet-11, img.objet-11 { visibility:hidden;}
 .objet-clickable.objet-12, img.objet-12 {visibility:hidden;}
-.objet-clickable.objet-13, img.objet-13 { top: 46.5vh; left: 66vw; height: 19vh;}
-.objet-clickable.objet-14, img.objet-14 { top: 20vh; left: 20vw; height: 25vh;}
-.objet-clickable.objet-15, img.objet-15 { top: 22vh; left: 40vw; height: 23vh;}
-.objet-clickable.objet-16, img.objet-16 { top: 20vh; left: 62vw; height: 25vh;}
-.objet-clickable.objet-17, img.objet-17  { visibility:hidden; top: 46vh; left: 48vw; height: 19vh;}
-.objet-clickable.objet-18, img.objet-18 { visibility:hidden; top: 46.5vh; left: 33vw; height: 19vh;}
-.objet-clickable.objet-19, img.objet-19 { top: 46.5vh; left: 18vw; height: 19vh;}
-.objet-clickable.objet-20, img.objet-20 { top: 47vh; left: 33vw; height: 18vh;}
-.objet-clickable.objet-21, img.objet-21 {top: 47vh; left: 50vw; height: 18vh;}
-.objet-clickable.objet-22, img.objet-22 { top: 20vh; left: 85vw; height: 51vh;}
-.objet-clickable.objet-23, img.objet-23 {visibility: hidden; top: 20vh; left: 85vw; height: 51vh;}
-.objet-clickable.objet-24, img.objet-24 {top: 21vh; left: 2vw; height: 80vh;}
-.objet-clickable.objet-25, img.objet-25 {visibility: hidden; top: 21vh; left: 2vw; height: 80vh;}
-.objet-clickable.objet-26, img.objet-26 { visibility: hidden; top: 47vh; left: 58vw; height: 6vh;}
-.objet-clickable.objet-27, img.objet-27 { visibility: hidden; top: 47vh; left: 58vw; height: 6vh;}
-.objet-clickable.objet-28, img.objet-28 { visibility: hidden; top: 65vh; left: 28vw; height: 1.5vh;}
+.objet-clickable.objet-13, img.objet-13 { top: 48.5vh; left: 66vw; height: 19vh;}
+.objet-clickable.objet-14, img.objet-14 { top: 22vh; left: 20vw; height: 25vh;}
+.objet-clickable.objet-15, img.objet-15 { top: 24vh; left: 40vw; height: 23vh;}
+.objet-clickable.objet-16, img.objet-16 { top: 22vh; left: 62vw; height: 25vh;}
+.objet-clickable.objet-17, img.objet-17  {  top: 48vh; left: 48vw; height: 19vh;}
+.objet-clickable.objet-18, img.objet-18 {  top: 48.5vh; left: 33vw; height: 19vh;}
+.objet-clickable.objet-19, img.objet-19 { top: 48.5vh; left: 18vw; height: 19vh;}
+.objet-clickable.objet-20, img.objet-20 { top: 49vh; left: 33vw; height: 18vh;}
+.objet-clickable.objet-21, img.objet-21 {top: 49vh; left: 50vw; height: 18vh;}
+.objet-clickable.objet-22, img.objet-22 { top: 22vh; left: 85vw; height: 51vh;}
+.objet-clickable.objet-23, img.objet-23 { top: 22vh; left: 85vw; height: 51vh;}
+.objet-clickable.objet-24, img.objet-24 {top: 23vh; left: 2vw; height: 80vh;}
+.objet-clickable.objet-25, img.objet-25 { top: 23vh; left: 2vw; height: 80vh;}
+.objet-clickable.objet-26, img.objet-26 {  top: 49vh; left: 58vw; height: 6vh;}
+.objet-clickable.objet-27, img.objet-27 {  top: 49vh; left: 58vw; height: 6vh;}
+.objet-clickable.objet-28, img.objet-28 { top: 67vh; left: 28vw; height: 1.5vh;}
 .objet-clickable.objet-29, img.objet-29 { visibility: hidden;}
 .objet-clickable.objet-30, img.objet-30 { visibility: hidden;}
 

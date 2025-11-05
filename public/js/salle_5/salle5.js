@@ -24,20 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
             popup.style.display = "none";
         };
     }
-
-    // 🔹 Mascotte : transition + redirection
-    const mascotte = document.querySelector(".mascotte");
-    if (mascotte && overlay) {
-        mascotte.addEventListener("click", () => {
-            overlay.style.opacity = "1";
-            overlay.style.pointerEvents = "auto";
-
-            const redirectUrl = mascotte.dataset.url || "/";
-            setTimeout(() => {
-                window.location.href = redirectUrl;
-            }, 800);
-        });
-    }
 });
 
 // 🔁 Correction du retour navigateur (pageshow = même si cache)

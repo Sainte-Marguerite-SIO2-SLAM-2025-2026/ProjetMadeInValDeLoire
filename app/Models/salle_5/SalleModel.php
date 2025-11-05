@@ -10,4 +10,12 @@ class SalleModel extends Model
     protected $primaryKey = 'numero';
     protected $returnType = 'object';
     protected $allowedFields = ['libelle', 'bouton', 'image', 'intro_salle'];
+
+    /**
+     * Récupérer une salle par son numéro
+     */
+    public function getSalle($numero)
+    {
+        return $this->find($numero);
+    }
 }

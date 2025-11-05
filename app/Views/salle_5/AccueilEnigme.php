@@ -38,7 +38,6 @@
         <?php endif; ?>
     </div>
 </div>
-<?php echo $activite->libelle ?>
 <!-- Bouton retour -->
 <div class="retour">
     <?= anchor(base_url('Salle5/resetSalle'), '<button>' . img([

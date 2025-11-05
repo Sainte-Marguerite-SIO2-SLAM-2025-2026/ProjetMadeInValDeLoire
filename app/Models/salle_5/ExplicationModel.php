@@ -10,4 +10,12 @@ class ExplicationModel extends Model
     protected $primaryKey = 'numero';
     protected $returnType = 'object';
     protected $allowedFields = ['libelle'];
+
+    /**
+     * Récupérer une explication par son numéro
+     */
+    public function getExplication($numero)
+    {
+        return $this->find($numero);
+    }
 }

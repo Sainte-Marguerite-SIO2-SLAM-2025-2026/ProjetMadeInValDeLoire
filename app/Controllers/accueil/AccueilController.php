@@ -2,6 +2,7 @@
 namespace App\Controllers\accueil;
 
 use App\Controllers\BaseController;
+use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\MascotteModel;
 use App\Models\salle_5\SalleModel;
@@ -44,16 +45,53 @@ class AccueilController extends BaseController
 
     public function Salle5() : string
     {
+        // Instancier les models
         $salleModel = new SalleModel();
         $mascotteModel = new MascotteModel();
         $explicationModel = new ExplicationModel();
+        $activiteModel = new ActiviteModel();
 
-        $data['salle'] = $salleModel->find(5);  // ⬅️ Utilise find() au lieu de getSalle()
-        $data['mascotte'] = $mascotteModel->where('salle_numero', 5)->first();  // ⬅️ Utilise where()->first()
-        $data['explication'] = $explicationModel->find(5);  // ⬅️ Utilise find()
+        // Initialiser les activités en session si nécessaire
+        if (!session()->has('activites_salle5')) {
+            $activites = $activiteModel->getActivitesAleatoires(5, 2);
+
+            if (count($activites) >= 2) {
+                $activites_ids = array_column($activites, 'numero');
+                session()->set('activites_salle5', $activites_ids);
+                session()->set('activites_reussies', []);
+            }
+        }
+
+        // Vérifier si toutes les énigmes sont terminées
+        $activites_ids = session()->get('activites_salle5') ?? [];
+        $activites_reussies = session()->get('activites_reussies') ?? [];
+
+        $message_success = null;
+        if (count($activites_reussies) === 2 && count($activites_ids) === 2) {
+            $message_success = 'Félicitations ! Vous avez terminé les 2 énigmes de la salle !';
+            // Réinitialiser pour une nouvelle partie
+            session()->remove('activites_salle5');
+            session()->remove('activites_reussies');
+        }
+
+        // Récupérer les données via les models
+        $data = [
+            'salle' => $salleModel->getSalle(5),
+            'mascotte' => $mascotteModel->getMascotteBySalle(5),
+            'explication' => $explicationModel->getExplication(1),
+            'activites_selectionnees' => $activites_ids,
+            'message_success' => $message_success
+        ];
 
         return view('commun\header').
             view('salle_5\AccueilSalle5', $data).
+            view('commun\footer');
+    }
+
+    public function Salle6() : string
+    {
+        return view('commun\header').
+            view('salle_6\AccueilSalle6').
             view('commun\footer');
     }
 
