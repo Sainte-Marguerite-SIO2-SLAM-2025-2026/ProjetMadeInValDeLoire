@@ -5,6 +5,7 @@ html, body {
 
 .fond_accueil {
     position: relative;
+    /*background-image: url("../../images/salle_4/SVG/chambre_emplacement 1.svg");*/
     background-image: url("../../images/salle_4/chambre/WEB/chambre.webp");
     background-size: cover;
     background-position: center;
@@ -23,7 +24,6 @@ html, body {
     background: transparent;
     display: block;
     /*border: 3px solid red;*/
-
 }
 
 .quizFin {

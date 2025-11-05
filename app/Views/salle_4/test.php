@@ -10,6 +10,16 @@
 
 <!--uniquement via css si pas interaction avec image de fond-->
 <div class="fond">
+<!--        <h1>Relier les cartes</h1>-->
+
+    <div id="info">
+        Cliquez sur deux cartes pour les relier avec une ligne rouge
+    </div>
+
+    <div class="controls">
+        <?= form_button(['id' => 'resetBtn', 'content' => '🔄 Réinitialiser']) ?>
+        <?= form_button(['id' => 'undoBtn', 'content' => '↶ Annuler la dernière ligne']) ?>
+    </div>
 
 <!--    --><?php //= anchor(base_url().'Salle4', '<button>Retour</button>') ?>
 
@@ -84,16 +94,7 @@
             'class' => 'retour'
     ]));?>
 
-    <h1>Relier les cartes</h1>
 
-    <div id="info">
-        Cliquez sur deux cartes pour les relier avec une ligne rouge
-    </div>
-
-    <div class="controls">
-        <?= form_button(['id' => 'resetBtn', 'content' => '🔄 Réinitialiser']) ?>
-        <?= form_button(['id' => 'undoBtn', 'content' => '↶ Annuler la dernière ligne']) ?>
-    </div>
 </div>
 
 
