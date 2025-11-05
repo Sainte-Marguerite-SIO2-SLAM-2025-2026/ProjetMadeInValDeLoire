@@ -18,7 +18,7 @@
         <img src="<?= base_url("public/images/bureau/bureau_orange.webp")?>" alt="Bureau hover" class="bureau-svg bureau-hover">
     </div>
 
-<?= anchor(base_url().'public/', '<span>Accueil</span>', ['class' => 'btn-accueil']); ?>
+<?= anchor(base_url().'public/', 'Accueil', ['class' => 'btn-accueil']); ?>
 
 </div>
 </body>
