@@ -14,6 +14,8 @@ $routes->get('/', 'accueil\AccueilController::index');
 
 // Routes pour la salle 1
 $routes->get('/Salle1', 'accueil\AccueilController::Salle1');
+$routes->get('Salle1/accesMessage', 'salle_1\Salle1Controller::accesMessage');
+$routes->get('Salle1/Code', 'salle_1\Salle1Controller::accesCode');
 
 // Routes pour la salle 2
 $routes->get('/Salle2', 'accueil\AccueilController::Salle2');
