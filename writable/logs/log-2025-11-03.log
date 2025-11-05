@@ -1,0 +1,12 @@
+CRITICAL - 2025-11-03 10:14:32 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "salle_1\salle1Discussion.php"
+[Method: GET, Route: Salle1/accesMessage]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('salle_1\\salle1Discussion.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\salle1Discussion', [], true)
+ 3 APPPATH\Controllers\salle_1\Salle1Controller.php(35): view('salle_1\\salle1Discussion', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->accesMessage()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

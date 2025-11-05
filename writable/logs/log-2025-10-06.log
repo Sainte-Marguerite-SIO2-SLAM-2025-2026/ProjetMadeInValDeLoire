@@ -1,0 +1,57 @@
+CRITICAL - 2025-10-06 07:47:27 --> ErrorException: Undefined variable $targetUrl
+[Method: GET, Route: Salle1]
+in APPPATH\Views\salle_1\AccueilSalle1.php on line 21.
+ 1 APPPATH\Views\salle_1\AccueilSalle1.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $targetUrl', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 21)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(16): view('salle_1\\AccueilSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 07:57:58 --> ErrorException: Undefined variable $targetUrl
+[Method: GET, Route: Salle1]
+in APPPATH\Views\salle_1\AccueilSalle1.php on line 22.
+ 1 APPPATH\Views\salle_1\AccueilSalle1.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $targetUrl', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 22)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(16): view('salle_1\\AccueilSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 08:27:39 --> ErrorException: Undefined variable $cible
+[Method: GET, Route: Salle1]
+in APPPATH\Views\salle_1\AccueilSalle1.php on line 13.
+ 1 APPPATH\Views\salle_1\AccueilSalle1.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cible', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 13)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(16): view('salle_1\\AccueilSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-06 08:28:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-06 08:28:27 --> ErrorException: Undefined variable $cible
+[Method: GET, Route: Salle1]
+in APPPATH\Views\salle_1\AccueilSalle1.php on line 65.
+ 1 APPPATH\Views\salle_1\AccueilSalle1.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cible', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 65)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(16): view('salle_1\\AccueilSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
