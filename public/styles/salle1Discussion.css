@@ -1,18 +1,3 @@
-@font-face {
-    font-family: "IrishGrover";
-    src: url("../salle_1/fonts/IrishGrover-Regular.ttf");
-    font-family: "InriaSans";
-    src: url("../salle_1/fonts/InriaSans-Regular.ttf");
-}
-/* === Style global === */
-body {
-    margin: 0;
-    overflow: hidden;
-    height: 100vh;
-    color: white;
-    font-family: "IrishGrover", sans-serif;
-}
-
 /* === Arrière-plan === */
 .background-container {
     background-image: url("../salle_1/images/fonds/fond_page2.webp");
@@ -32,88 +17,125 @@ body {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 60px;
-    width: 80%;
+    gap: 30px;
+    width: 90%;
     position: relative;
 }
 
 /* === Fantôme (monstre) === */
 .perso-discussion {
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    left: 5%;
-    width: 300px; /* Ajuste la taille du fantôme */
+    left: 1%;
+    width: clamp(200px, 25vw, 400px);
     height: auto;
     transition: transform 0.3s ease, filter 0.3s ease;
+    z-index: 2;
 }
 
 /* === Zone de texte (bulle) === */
 .text-zone {
-    font-family: "IrishGrover";
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
+    position: fixed;
+    bottom: 0;
+    left: 60%;
     transform: translateX(-50%);
+    width: 75%;
+    height: 230px;             /* Hauteur réduite ici */
     background-image: url("../salle_1/images/bulle/bulle.webp");
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    padding: 60px 100px;
-    width: 70%;
-    min-height: 250px;
+    background-position: bottom center;
+    background-size: 100% 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
+    padding: 18px 60px 12px 60px; /* Espace réduit */
     color: black;
-    text-align: center;
-    z-index: 2;
+    font-size: 1.1rem;         /* Police réduite */
+    z-index: 3;
+    line-height: 1.4;          /* Espacement naturel */
+    align-items: flex-start;
+
+
 }
 
+/* === Nom du personnage dans la bulle === */
+.text-zone .nom-personnage-bulle {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #3a3a3a;
+    text-shadow: 0 0 8px #fff, 0 0 3px #fff;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-bottom: 4px;
+    align-self: flex-start;
+}
 
-/* === Mots cliquables === */
-.mot-cliquable {
+/* === Mots interactifs === */
+.text-zone span {
+    margin: 0 4px;
     cursor: pointer;
-    transition: color 0.2s ease, text-shadow 0.3s ease;
-    color: black;
+    transition: color 0.2s, transform 0.1s;
+}
+.text-zone span:hover {
+    color: #e6c700;
+    text-shadow: 0 0 10px black;
+    transform: scale(1.08);
 }
 
-.mot-cliquable:hover {
-    color: yellow;
-    text-shadow: 0 0 8px yellow;
+
+/* === Nom du personnage === */
+#nom-personnage {
+    position: fixed;
+    bottom: 22%;
+    left: 25%;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    color: #111;
+    text-shadow: 0 0 10px #fff, 0 0 4px #fff;
+    font-weight: bold;
+    z-index: 20;
+    padding: 6px 24px;
+    border-radius: 17px;
 }
 
-/* === Affichage des vies === */
+/* === Vies === */
 #vies {
-    position: absolute;
+    position: fixed;
     top: 20px;
-    left: 30px;
-    font-size: 1.8rem;
-    text-shadow: 0 0 10px red;
-    letter-spacing: 3px;
+    left: 20px;
     display: flex;
+    flex-direction: row;
     gap: 10px;
     align-items: center;
+    z-index: 20;
+    background: rgba(255,255,255, 0.07);
+    padding: 8px 14px;
+    border-radius: 18px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+}
+#vies img.coeur {
+    width: clamp(30px, 4vw, 42px);
+    filter: drop-shadow(0 0 5px gold);
+    transition: transform 0.13s ease;
+}
+#vies img.coeur:hover {
+    transform: scale(1.07) rotate(-13deg);
+    filter: drop-shadow(0 0 12px orange);
 }
 
 /* === Serrure === */
 .serrure {
     position: absolute;
-    bottom: 30.5%;
-    right: 46.4%;
+    bottom: 28.5%;
+    right: 46.5%;
 }
 
 .serrure-image {
-    transition: transform 0.3s ease, filter 0.3s ease;
     cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
-
 .serrure-image:hover {
     content: url("../salle_1/images/serrure/serrure_jaune.webp");
     transform: scale(1.1);
     filter: drop-shadow(0 0 10px yellow);
 }
-
 
 /* === Popup === */
 .popup {
@@ -138,8 +160,9 @@ body {
     border-radius: 15px;
     text-align: center;
     color: #fff;
-    max-width: 500px;
+    max-width: 90%;
     animation: popupEnter 0.4s ease;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
 }
 
 @keyframes fadeIn {
@@ -167,57 +190,4 @@ body {
 #popup button:hover {
     transform: scale(1.05);
     filter: drop-shadow(0 0 10px yellow);
-}
-
-/* === Code affiché === */
-#zone-code {
-    position: absolute;
-    bottom: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 15px 30px;
-    text-align: center;
-    color: yellow;
-    text-shadow: 0 0 10px yellow;
-}
-
-/* === Boutons retour === */
-.buttons {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.retour-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.button-image {
-    transition: transform 0.3s ease, filter 0.3s ease;
-    cursor: pointer;
-}
-
-.button-image:hover {
-    content: url("../salle_1/images/boutons/retour-et-indice_jaune.webp");
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 10px yellow);
-}
-
-.retour-texte {
-    font-family: "IrishGrover";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: black;
-    font-weight: bold;
-    text-shadow: 0 0 8px white;
-    font-size: 1rem;
-    pointer-events: none;
 }

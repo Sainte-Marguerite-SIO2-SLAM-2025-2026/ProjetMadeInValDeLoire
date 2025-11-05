@@ -1,18 +1,3 @@
-@font-face {
-    font-family: "IrishGrover";
-    src: url("../salle_1/fonts/IrishGrover-Regular.ttf");
-    font-family: "InriaSans";
-    src: url("../salle_1/fonts/InriaSans-Regular.ttf");
-}
-/* === Fond général === */
-body {
-    margin: 0;
-    overflow: hidden;
-    height: 100vh;
-    color: white;
-    font-family: "IrishGrover", sans-serif;
-}
-
 /* === Arrière-plan === */
 .background-container {
     background-image: url("../salle_1/images/fonds/fond_page1.webp");
@@ -29,7 +14,6 @@ body {
 
 /* === POPUP === */
 .popup {
-    font-family: IrishGrover;
     color: whitesmoke;
     position: fixed;
     top: 0;
@@ -50,7 +34,6 @@ body {
 }
 
 .popup-content {
-    font-family: IrishGrover;
     text-decoration-color: whitesmoke;
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid rgba(255, 255, 255, 0.15);
@@ -95,7 +78,7 @@ body {
 /* === Fantôme === */
 .content-container {
     position: absolute;
-    bottom: 10%;
+    bottom: 4%;
     left: 17%;
 }
 
@@ -111,43 +94,3 @@ body {
     filter: drop-shadow(0 0 25px yellow);
 }
 
-/* === Bouton retour === */
-.buttons {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.button-image {
-    transition: transform 0.3s ease, filter 0.3s ease;
-    cursor: pointer;
-    display: block;
-}
-
-.button-image:hover {
-    content: url("../salle_1/images/boutons/retour-et-indice_jaune.webp");
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 10px #fff);
-}
-
-/* === Bouton retour avec texte === */
-.retour-wrapper {
-    font-family: IrishGrover;
-    position: relative;
-    display: inline-block;
-}
-
-.retour-texte {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: black;
-    font-weight: bold;
-    text-shadow: 0 0 8px white;
-    font-size: 1rem;
-    pointer-events: none; /* le texte ne gêne pas le clic */
-}

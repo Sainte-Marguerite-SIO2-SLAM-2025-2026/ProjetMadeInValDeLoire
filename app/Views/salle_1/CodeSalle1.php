@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salle 1 - Code</title>
-
-    <!-- CSS -->
+    <?= link_tag(base_url().'styles/salle1Global.css') ?>
     <?= link_tag(base_url('styles/salle1Code.css')) ?>
-
-    <!-- JS -->
     <?= script_tag(base_url('js/salle1Code.js')) ?>
+    <?= script_tag(base_url('js/salle1Timer.js')) ?>
 </head>
 <body>
 <div class="background-container">
-
+    <div id="timer" class="timer"></div>
     <div class="content-container">
         <h1 class="titre">Entrez le code pour ouvrir la porte</h1>
 

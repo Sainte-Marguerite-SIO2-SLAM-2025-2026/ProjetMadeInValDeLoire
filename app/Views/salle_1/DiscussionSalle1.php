@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salle 1 - Discussion</title>
-
-    <!-- CSS -->
+    <?= link_tag(base_url().'styles/salle1Global.css') ?>
     <?= link_tag(base_url('styles/salle1Discussion.css')) ?>
-
-    <!-- JS externe -->
     <?= script_tag(base_url('js/salle1Discussion.js')) ?>
+    <?= script_tag(base_url('js/salle1Timer.js')) ?>
 </head>
 <body>
 <div class="background-container">
+    <!-- Timer -->
+    <div id="timer" class="timer"></div>
+
+    <!-- Nom du personnage (positionné indépendamment) -->
+    <div id="nom-personnage"><?= esc($nom_personnage) ?></div>
+
+    <!-- Barres de vies (positionnée en haut à gauche) -->
+    <div id="vies"></div>
 
     <div class="content-container">
-        <!-- Image du personnage -->
         <?= img([
                 'src' => base_url('salle_1/images/personnages/monstre1.webp'),
                 'alt' => 'Fantôme',
@@ -24,16 +29,12 @@
         ]); ?>
 
         <!-- Zone de texte -->
-        <div class="text-zone" id="text-zone">
-            <p>
-                Bonjour aventurier... Je t’envoie un <span class="mot-cliquable">email</span>
-                étrange contenant un <span class="mot-cliquable">lien</span> suspect.
-                Peut-être veux-tu <span class="mot-cliquable">cliquer</span> dessus ?
-            </p>
+        <div id="text-zone"
+             class="text-zone"
+             data-mots='<?= json_encode(explode(" ", $message), JSON_UNESCAPED_UNICODE) ?>'
+             data-suspects='<?= json_encode($mots_suspects ?? [], JSON_UNESCAPED_UNICODE) ?>'>
+            <span class="nom-personnage-bulle"><?= esc($nom_personnage) ?></span>
         </div>
-
-        <!-- Indicateur de vies -->
-        <div id="vies">❤️❤️❤️</div>
     </div>
 
     <!-- Serrure (vers la suite du jeu) -->
@@ -69,6 +70,18 @@
                         'class' => 'button-image'
                 ])
                 .'<span class="retour-texte">Retour au menu</span>'
+                .'</div>'
+        ); ?>
+
+        <?= anchor(
+                base_url('Salle1/accesMessage'),
+                '<div class="retour-wrapper">'
+                .img([
+                        'src' => base_url('salle_1/images/boutons/retour-et-indice_blanc.webp'),
+                        'alt' => 'Indice',
+                        'class' => 'button-image'
+                ])
+                .'<span class="retour-texte">Indice</span>'
                 .'</div>'
         ); ?>
     </div>

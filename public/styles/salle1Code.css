@@ -1,21 +1,3 @@
-@font-face {
-    font-family: "IrishGrover";
-    src: url("../salle_1/fonts/IrishGrover-Regular.ttf");
-}
-@font-face {
-    font-family: "InriaSans";
-    src: url("../salle_1/fonts/InriaSans-Regular.ttf");
-}
-
-/* === Global === */
-body {
-    margin: 0;
-    overflow: hidden;
-    height: 100vh;
-    color: white;
-    font-family: "IrishGrover", sans-serif;
-}
-
 /* === Fond === */
 .background-container {
     background-image: url("../salle_1/images/fonds/fond_page3.webp");
@@ -44,12 +26,14 @@ body {
     text-align: center;
 }
 
+
+
 /* === Titre === */
 .titre {
     font-size: 2rem;
     margin-bottom: 30px;
-    color: yellow;
-    text-shadow: 0 0 15px yellow;
+    color: white;
+    text-shadow: 0 0 15px whitesmoke;
 }
 
 /* === Zone du code === */
@@ -87,7 +71,6 @@ body {
     padding: 15px 30px;
     border-radius: 10px;
     cursor: pointer;
-    font-family: "IrishGrover";
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -98,7 +81,6 @@ body {
 
 /* === Message d’erreur === */
 #message {
-    font-family: "InriaSans";
     margin-top: 25px;
     font-size: 1.3rem;
     text-shadow: 0 0 8px red;
@@ -158,41 +140,4 @@ body {
     filter: drop-shadow(0 0 10px yellow);
 }
 
-/* === Boutons retour === */
-.buttons {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
 
-.retour-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.button-image {
-    transition: transform 0.3s ease, filter 0.3s ease;
-    cursor: pointer;
-}
-
-.button-image:hover {
-    content: url("../salle_1/images/boutons/retour-et-indice_jaune.webp");
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 10px yellow);
-}
-
-.retour-texte {
-    font-family: "IrishGrover";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: black;
-    font-weight: bold;
-    text-shadow: 0 0 8px white;
-    font-size: 1rem;
-    pointer-events: none;
-}
