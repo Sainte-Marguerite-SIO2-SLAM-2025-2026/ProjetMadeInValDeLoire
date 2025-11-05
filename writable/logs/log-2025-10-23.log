@@ -1,0 +1,234 @@
+ERROR - 2025-10-23 10:23:38 --> mysqli_sql_exception: La table 'made_in_val_de_loire.enigmes' n'existe pas in C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\ProjetMadeInValDeLoire\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\ProjetMadeInValDeLoire\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\wamp64\www\ProjetMadeInValDeLoire\app\Controllers\salle_5\Salle5Controller.php(26): CodeIgniter\BaseModel->findAll()
+#7 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->accueilEnigme()
+#8 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+#9 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\ProjetMadeInValDeLoire\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\wamp64\www\ProjetMadeInValDeLoire\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\wamp64\www\ProjetMadeInValDeLoire\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-10-23 10:23:38 --> CodeIgniter\Database\Exceptions\DatabaseException: La table 'made_in_val_de_loire.enigmes' n'existe pas
+[Method: GET, Route: mascotte]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `enigmes`
+WHERE `salle_id` = :salle_id:
+ORDER BY RAND()
+ LIMIT 2', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\salle_5\Salle5Controller.php(26): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->accueilEnigme()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-23 10:23:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: La table 'made_in_val_de_loire.enigmes' n'existe pas
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `enigmes`
+WHERE `salle_id` = 5
+ORDER BY RAND()
+ LIMIT 2')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `enigmes`
+WHERE `salle_id` = 5
+ORDER BY RAND()
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `enigmes`
+WHERE `salle_id` = :salle_id:
+ORDER BY RAND()
+ LIMIT 2', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\salle_5\Salle5Controller.php(26): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->accueilEnigme()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-23 10:23:38 --> [Caused by] mysqli_sql_exception: La table 'made_in_val_de_loire.enigmes' n'existe pas
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `enigmes`
+WHERE `salle_id` = 5
+ORDER BY RAND()
+ LIMIT 2', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `enigmes`
+WHERE `salle_id` = 5
+ORDER BY RAND()
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `enigmes`
+WHERE `salle_id` = 5
+ORDER BY RAND()
+ LIMIT 2')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `enigmes`
+WHERE `salle_id` = :salle_id:
+ORDER BY RAND()
+ LIMIT 2', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\salle_5\Salle5Controller.php(26): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->accueilEnigme()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-23 10:55:18 --> CodeIgniter\Database\Exceptions\DatabaseException: You must set the database table to be used with your query.
+[Method: GET, Route: mascotte]
+in SYSTEMPATH\Database\BaseConnection.php on line 944.
+ 1 SYSTEMPATH\Model.php(713): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(917): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\salle_5\Salle5Controller.php(47): CodeIgniter\Model->__call('where', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->accueilEnigme()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-23 10:57:38 --> CodeIgniter\Database\Exceptions\DatabaseException: You must set the database table to be used with your query.
+[Method: GET, Route: mascotte]
+in SYSTEMPATH\Database\BaseConnection.php on line 944.
+ 1 SYSTEMPATH\Model.php(713): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(189): CodeIgniter\Model->builder()
+ 3 SYSTEMPATH\BaseModel.php(611): CodeIgniter\Model->doFind(true, 5)
+ 4 APPPATH\Controllers\salle_5\Salle5Controller.php(52): CodeIgniter\BaseModel->find(5)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->accueilEnigme()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-23 10:58:04 --> CodeIgniter\Database\Exceptions\DatabaseException: You must set the database table to be used with your query.
+[Method: GET, Route: mascotte]
+in SYSTEMPATH\Database\BaseConnection.php on line 944.
+ 1 SYSTEMPATH\Model.php(713): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(189): CodeIgniter\Model->builder()
+ 3 SYSTEMPATH\BaseModel.php(611): CodeIgniter\Model->doFind(true, 5)
+ 4 APPPATH\Controllers\salle_5\Salle5Controller.php(52): CodeIgniter\BaseModel->find(5)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->accueilEnigme()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-23 11:00:46 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "salle_5/accueil_enigme.php"
+[Method: GET, Route: mascotte]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('salle_5/accueil_enigme.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5/accueil_enigme', [], true)
+ 3 APPPATH\Controllers\salle_5\Salle5Controller.php(56): view('salle_5/accueil_enigme', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->accueilEnigme()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-23 11:02:02 --> ErrorException: Attempt to read property "image" on array
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\AccueilEnigme.php on line 9.
+ 1 APPPATH\Views\salle_5\AccueilEnigme.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "image" on array', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilEnigme.php', 9)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilEnigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5/AccueilEnigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(56): view('salle_5/AccueilEnigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->accueilEnigme()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-23 11:05:07 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\salle_5\SalleModel::getSalle
+[Method: GET, Route: Salle5]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\accueil\AccueilController.php(50): CodeIgniter\Model->__call('getSalle', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-23 11:05:13 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\salle_5\SalleModel::getSalle
+[Method: GET, Route: Salle5]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\accueil\AccueilController.php(50): CodeIgniter\Model->__call('getSalle', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-23 11:06:35 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\salle_5\SalleModel::getSalle
+[Method: GET, Route: Salle5]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\accueil\AccueilController.php(50): CodeIgniter\Model->__call('getSalle', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-23 15:27:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-23 15:27:58 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "salle_5/accueil_enigme.php"
+[Method: GET, Route: mascotte]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('salle_5/accueil_enigme.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5/accueil_enigme', [], true)
+ 3 APPPATH\Controllers\salle_5\Salle5Controller.php(48): view('salle_5/accueil_enigme', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->accueilEnigme()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-23 15:29:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 15:30:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 15:30:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 15:31:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 15:39:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 15:45:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-23 15:45:35 --> Error: Object of class stdClass could not be converted to string
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\AccueilEnigme.php on line 16.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5/AccueilEnigme', [], true)
+ 4 APPPATH\Controllers\salle_5\Salle5Controller.php(48): view('salle_5/AccueilEnigme', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->accueilEnigme()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-23 15:45:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 15:46:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 15:46:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 15:50:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 16:20:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 16:20:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 16:22:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 16:22:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 16:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 16:28:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 16:29:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 16:30:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 16:33:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 16:35:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 16:57:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 16:58:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 16:59:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-23 17:00:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

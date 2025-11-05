@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="security_room" data-name="security room" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351.73 260.26">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1d0422;
+      }
+
+      .cls-2 {
+        fill: #290c34;
+      }
+
+      .cls-3 {
+        fill: #1d1d1b;
+      }
+
+      .cls-4 {
+        fill: #584278;
+      }
+
+      .cls-5 {
+        fill: #ff1717;
+      }
+    </style>
+  </defs>
+  <polygon class="cls-2" points="344.56 0 344.56 260.26 0 260.26 0 18.99 344.56 0"/>
+  <polygon class="cls-1" points="344.56 260.26 349.48 260.26 351.73 3.12 344.56 0 344.56 260.26"/>
+  <polygon class="cls-3" points="8.19 248.51 338.93 248.51 338.93 6.01 4.95 23.27 8.19 248.51"/>
+  <rect class="cls-5" x="321.34" y="250.52" width="15.35" height="5.66"/>
+  <polygon class="cls-4" points="4.95 257.17 7.99 250.34 99.94 250.34 93.45 257.17 4.95 257.17"/>
+</svg>
