@@ -1,6 +1,6 @@
-
+<?= link_tag('styles/commun/footer.css'); ?>
 <footer>
-    <?= link_tag('styles/commun/footer.css'); ?>
+
     <div class="footer-section">
         <h4>Mentions légales</h4>
 <!--        <p><a href="MentionsLegales.php">Consulter les mentions légales</a></p>-->

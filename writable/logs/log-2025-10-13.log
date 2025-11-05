@@ -1,80 +1,194 @@
-CRITICAL - 2025-10-13 09:35:14 --> ErrorException: Undefined variable $intitule
-[Method: GET, Route: Salle6]
-in APPPATH\Views\salle_6\AccueilSalle6.php on line 14.
- 1 APPPATH\Views\salle_6\AccueilSalle6.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $intitule', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_6\\AccueilSalle6.php', 14)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_6\\AccueilSalle6.php')
- 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\AccueilSalle6', [], true)
- 5 APPPATH\Controllers\salle_6\Salle6Controller.php(11): view('salle_6\\AccueilSalle6')
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\Salle6Controller->Index()
- 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\Salle6Controller))
- 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
-11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 09:35:26 --> ErrorException: Undefined variable $intitule
-[Method: GET, Route: Salle6]
-in APPPATH\Views\salle_6\AccueilSalle6.php on line 14.
- 1 APPPATH\Views\salle_6\AccueilSalle6.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $intitule', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_6\\AccueilSalle6.php', 14)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_6\\AccueilSalle6.php')
- 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\AccueilSalle6', [], true)
- 5 APPPATH\Controllers\salle_6\Salle6Controller.php(11): view('salle_6\\AccueilSalle6')
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\Salle6Controller->Index()
- 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\Salle6Controller))
- 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
-11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 09:35:29 --> ErrorException: Undefined variable $intitule
-[Method: GET, Route: Salle6]
-in APPPATH\Views\salle_6\AccueilSalle6.php on line 14.
- 1 APPPATH\Views\salle_6\AccueilSalle6.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $intitule', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_6\\AccueilSalle6.php', 14)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_6\\AccueilSalle6.php')
- 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\AccueilSalle6', [], true)
- 5 APPPATH\Controllers\salle_6\Salle6Controller.php(11): view('salle_6\\AccueilSalle6')
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\Salle6Controller->Index()
- 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\Salle6Controller))
- 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
-11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 09:35:35 --> ErrorException: Undefined variable $intitule
-[Method: GET, Route: Salle6]
-in APPPATH\Views\salle_6\AccueilSalle6.php on line 14.
- 1 APPPATH\Views\salle_6\AccueilSalle6.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $intitule', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_6\\AccueilSalle6.php', 14)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_6\\AccueilSalle6.php')
- 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\AccueilSalle6', [], true)
- 5 APPPATH\Controllers\salle_6\Salle6Controller.php(11): view('salle_6\\AccueilSalle6')
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\Salle6Controller->Index()
- 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\Salle6Controller))
- 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
-11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 13:54:53 --> ParseError: syntax error, unexpected token ";", expecting ")"
-[Method: GET, Route: Salle6]
-in APPPATH\Views\salle_6\AccueilSalle6.php on line 9.
- 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\AccueilSalle6', [], true)
- 3 APPPATH\Controllers\salle_6\Salle6Controller.php(12): view('salle_6\\AccueilSalle6', [...])
- 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\Salle6Controller->Index()
- 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\Salle6Controller))
+CRITICAL - 2025-10-13 09:39:29 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 09:41:44 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 09:42:23 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 09:50:54 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 09:50:54 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: ".'"
+[Method: GET, Route: .%27/public/images/salle_4/carte.png%27]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('.\'/public/images/salle_4/carte.png\'')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('.\'/public/images/salle_4/carte.png\'')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 09:52:10 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 09:52:48 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 09:55:55 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 09:58:36 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 09:59:20 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 10:00:34 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 10:01:47 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 10:03:26 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 10:03:27 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 10:04:22 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 10:05:03 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle_4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle_4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 10:09:38 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "salle4\test.php"
+[Method: GET, Route: Salle4]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('salle4\\test.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle4\\test.php', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(34): view('salle4\\test.php')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle4()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 14:25:04 --> ParseError: Unmatched ')'
-[Method: GET, Route: Salle6/Wifi]
-in APPPATH\Views\salle_6\Wifi.php on line 18.
- 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\Wifi', [], true)
- 3 APPPATH\Controllers\salle_6\Salle6Controller.php(18): view('salle_6\\Wifi')
- 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\Salle6Controller->Wifi()
- 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\Salle6Controller))
+CRITICAL - 2025-10-13 10:09:58 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "salle4\test.php"
+[Method: GET, Route: Salle4]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('salle4\\test.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle4\\test.php', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(34): view('salle4\\test.php')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle4()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 15:03:45 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "img_chambre.png    width='800' height='600'><defs><pattern id='grid'    width='40' height='40' patternUnits='userSpaceOnUse'><path d='M 40 0 L 0 0 0 40'    fill='none' stroke='#ffffff' stroke-width='0.5'    opacity='0.1'"
+[Method: GET, Route: public/images/salle4/img_chambre.png%20%20%20%20width=%27800%27%20height=%27600%27%3E%3Cdefs%3E%3Cpattern%20id=%27grid%27%20%20%20%20width=%2740%27%20height=%2740%27%20patternUnits=%27userSpaceOnUse%27%3E%3Cpath%20d=%27M%2040%200%20L%200%200%200%2040%27%20%20%20%20fill=%27none%27%20stroke=%27%23ffffff%27%20stroke-width=%270.5%27%20%20%20%20opacity=%270.1%27/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width=%27800%27%20height=%27600%27%20%20%20%20%20fill=%27%2334495e%27/%3E%3Crect%20width=%27800%27%20height=%27600%27%20fill=%27url%28%23grid%29%27/%3E%3C/svg%3E]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('public/images/salle4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('public/images/salle4/img_chambre.png    width=\'800\' height=\'600\'><defs><pattern id=\'grid\'    width=\'40\' height=\'40\' patternUnits=\'userSpaceOnUse\'><path d=\'M 40 0 L 0 0 0 40\'    fill=\'none\' stroke=\'#ffffff\' stroke-width=\'0.5\'    opacity=\'0.1\'/></pattern></defs><rect width=\'800\' height=\'600\'     fill=\'#34495e\'/><rect width=\'800\' height=\'600\' fill=\'url(#grid)\'/></svg>')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

@@ -13,37 +13,37 @@ class AccueilController extends BaseController
 
     public function Salle1() : string
     {
-        return view('commun\header').
-            view('salle_1\AccueilSalle1').
+        return view('salle_1\AccueilSalle1').
             view('commun\footer');
     }
 
     public function Salle2() : string
     {
-        return view('commun\header').
-            view('salle_2\AccueilSalle2').
+        return view('salle_2\AccueilSalle2').
             view('commun\footer');
     }
 
     public function Salle3() : string
     {
-        return view('commun\header').
-            view('salle_3\AccueilSalle3').
+        return view('salle_3\AccueilSalle3').
             view('commun\footer');
     }
 
     public function Salle4() : string
     {
-        return view('commun\header').
-            view('salle_4\AccueilSalle4').
+        return view('salle_4\AccueilSalle4').
             view('commun\footer');
     }
 
     public function Salle5() : string
     {
-        return view('commun\header').
-            view('salle_5\AccueilSalle5').
+        return view('salle_5\AccueilSalle5').
             view('commun\footer');
     }
 
+    public function Salle6() : string
+    {
+        return view('salle_6\AccueilSalle6').
+            view('commun\footer');
+    }
 }

@@ -23,7 +23,8 @@ $routes->get('/Salle3', 'accueil\AccueilController::Salle3');
 
 // Routes pour la salle 4
 $routes->get('/Salle4', 'accueil\AccueilController::Salle4');
-$routes->get('/pageTest', 'salle_4\Salle4Controller::pageTest');
+$routes->get('/pageFrise', 'salle_4\Salle4Controller::pageFrise');
+$routes->get('/quizFin', 'salle_4\Salle4Controller::quizFinal');
 $routes->get('/Salle4', 'salle_4\Salle4Controller::index');
 
 
