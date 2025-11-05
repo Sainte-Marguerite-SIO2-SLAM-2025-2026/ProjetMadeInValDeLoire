@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Principal</title>
 </head>
 <body>
@@ -15,5 +10,3 @@
     <?= anchor(base_url().'Salle5', '<button>Salle 5</button>'); ?>
     <?= anchor(base_url().'Salle6', '<button>Salle 6</button>'); ?>
 </nav>
-</body>
-</html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 29 sep. 2025 à 11:29
+-- Généré le : lun. 03 nov. 2025 à 07:53
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.2.0
 
@@ -20,7 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `made_in_val_de_loire`
 --
-
 CREATE DATABASE IF NOT EXISTS `made_in_val_de_loire` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 USE `made_in_val_de_loire`;
 
@@ -37,17 +36,17 @@ CREATE TABLE IF NOT EXISTS `activite` (
   `verrouillage` tinyint DEFAULT NULL,
   `image` varchar(50) NOT NULL,
   `malveillant` tinyint DEFAULT NULL,
-  `difficulte_numero` int NOT NULL,
-  `salle_numero` int NOT NULL,
-  `auteur_numero` int NOT NULL,
-  `type_numero` int NOT NULL,
-  `explication_numero` int NOT NULL,
+  `difficulte_numero` int DEFAULT NULL,
+  `salle_numero` int DEFAULT NULL,
+  `auteur_numero` int DEFAULT NULL,
+  `type_numero` int DEFAULT NULL,
+  `explication_numero` int DEFAULT NULL,
   PRIMARY KEY (`numero`),
   KEY `auteur_ibfk_1` (`auteur_numero`),
   KEY `difficulte_ibfk_1` (`difficulte_numero`),
+  KEY `explication_ibfk_1` (`explication_numero`),
   KEY `salle_ibfk_2` (`salle_numero`),
-  KEY `type_ibfk_1` (`type_numero`),
-  KEY `explication_ibfk_1` (`explication_numero`)
+  KEY `type_ibfk_1` (`type_numero`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -59,9 +58,9 @@ CREATE TABLE IF NOT EXISTS `activite` (
 DROP TABLE IF EXISTS `auteur`;
 CREATE TABLE IF NOT EXISTS `auteur` (
   `numero` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(20) NOT NULL,
-  `prenom` varchar(20) NOT NULL,
-  `fonction_role` varchar(20) NOT NULL,
+  `nom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `prenom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `fonction_role` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`numero`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -76,7 +75,8 @@ CREATE TABLE IF NOT EXISTS `avoir_indice` (
   `activite_numero` int NOT NULL,
   `indice_numero` int NOT NULL,
   PRIMARY KEY (`activite_numero`,`indice_numero`),
-  KEY `indice_ibfk_1` (`indice_numero`)
+  KEY `indice_ibfk_1` (`indice_numero`),
+  KEY `activite_numero` (`activite_numero`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -90,7 +90,8 @@ CREATE TABLE IF NOT EXISTS `avoir_zone` (
   `zone_numero` int NOT NULL,
   `activite_numero` int NOT NULL,
   PRIMARY KEY (`zone_numero`,`activite_numero`),
-  KEY `activite_ibfk_7` (`activite_numero`)
+  KEY `activite_ibfk_7` (`activite_numero`),
+  KEY `zone_numero` (`zone_numero`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -104,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `carte` (
   `numero` int NOT NULL AUTO_INCREMENT,
   `image` varchar(50) NOT NULL,
   `explication` text NOT NULL,
-  `activite_numero` int NOT NULL,
+  `activite_numero` int DEFAULT NULL,
   PRIMARY KEY (`numero`),
   KEY `activite_ibfk_1` (`activite_numero`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -133,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `erreur` (
   `numero` int NOT NULL AUTO_INCREMENT,
   `mot_incorrect` varchar(50) NOT NULL,
   `explication` text NOT NULL,
-  `activite_numero` int NOT NULL,
+  `activite_numero` int DEFAULT NULL,
   PRIMARY KEY (`numero`),
   KEY `activite_ibfk_3` (`activite_numero`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -175,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `mascotte` (
   `numero` int NOT NULL AUTO_INCREMENT,
   `image` varchar(50) NOT NULL,
   `humeur` varchar(20) NOT NULL,
-  `salle_numero` int NOT NULL,
+  `salle_numero` int DEFAULT NULL,
   PRIMARY KEY (`numero`),
   KEY `salle_ibfk_3` (`salle_numero`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -190,9 +191,9 @@ DROP TABLE IF EXISTS `mode_emploi`;
 CREATE TABLE IF NOT EXISTS `mode_emploi` (
   `numero` int NOT NULL AUTO_INCREMENT,
   `explication_1` text NOT NULL,
-  `explication_2` text NOT NULL,
-  `explication_3` text NOT NULL,
-  `activite_numero` int NOT NULL,
+  `explication_2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `explication_3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `activite_numero` int DEFAULT NULL,
   PRIMARY KEY (`numero`),
   KEY `activite_ibfk_2` (`activite_numero`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -209,7 +210,8 @@ CREATE TABLE IF NOT EXISTS `proposer_vpn` (
   `activite_numero` int NOT NULL,
   `bonne_reponse` tinyint NOT NULL COMMENT '1 = true et 0 = false',
   PRIMARY KEY (`vpn_numero`,`activite_numero`),
-  KEY `activite_ibfk_4` (`activite_numero`)
+  KEY `activite_ibfk_4` (`activite_numero`),
+  KEY `vpn_numero` (`vpn_numero`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -225,7 +227,8 @@ CREATE TABLE IF NOT EXISTS `proposer_wifi` (
   `bonne_reponse` tinyint NOT NULL,
   `zone_clique` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`wifi_numero`,`activite_numero`),
-  KEY `activite_ibfk_5` (`activite_numero`)
+  KEY `activite_ibfk_5` (`activite_numero`),
+  KEY `wifi_numero` (`wifi_numero`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -306,11 +309,11 @@ CREATE TABLE IF NOT EXISTS `zone` (
 -- Contraintes pour la table `activite`
 --
 ALTER TABLE `activite`
-  ADD CONSTRAINT `auteur_ibfk_1` FOREIGN KEY (`auteur_numero`) REFERENCES `auteur` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  ADD CONSTRAINT `difficulte_ibfk_1` FOREIGN KEY (`difficulte_numero`) REFERENCES `difficulte` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  ADD CONSTRAINT `explication_ibfk_1` FOREIGN KEY (`explication_numero`) REFERENCES `explication` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  ADD CONSTRAINT `salle_ibfk_2` FOREIGN KEY (`salle_numero`) REFERENCES `salle` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  ADD CONSTRAINT `type_ibfk_1` FOREIGN KEY (`type_numero`) REFERENCES `type` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE;
+  ADD CONSTRAINT `auteur_ibfk_1` FOREIGN KEY (`auteur_numero`) REFERENCES `auteur` (`numero`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `difficulte_ibfk_1` FOREIGN KEY (`difficulte_numero`) REFERENCES `difficulte` (`numero`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `explication_ibfk_1` FOREIGN KEY (`explication_numero`) REFERENCES `explication` (`numero`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `salle_ibfk_2` FOREIGN KEY (`salle_numero`) REFERENCES `salle` (`numero`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `type_ibfk_1` FOREIGN KEY (`type_numero`) REFERENCES `type` (`numero`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `avoir_indice`
@@ -330,25 +333,25 @@ ALTER TABLE `avoir_zone`
 -- Contraintes pour la table `carte`
 --
 ALTER TABLE `carte`
-  ADD CONSTRAINT `activite_ibfk_1` FOREIGN KEY (`activite_numero`) REFERENCES `activite` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE;
+  ADD CONSTRAINT `activite_ibfk_1` FOREIGN KEY (`activite_numero`) REFERENCES `activite` (`numero`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `erreur`
 --
 ALTER TABLE `erreur`
-  ADD CONSTRAINT `activite_ibfk_3` FOREIGN KEY (`activite_numero`) REFERENCES `activite` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE;
+  ADD CONSTRAINT `activite_ibfk_3` FOREIGN KEY (`activite_numero`) REFERENCES `activite` (`numero`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `mascotte`
 --
 ALTER TABLE `mascotte`
-  ADD CONSTRAINT `salle_ibfk_3` FOREIGN KEY (`salle_numero`) REFERENCES `salle` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE;
+  ADD CONSTRAINT `salle_ibfk_3` FOREIGN KEY (`salle_numero`) REFERENCES `salle` (`numero`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `mode_emploi`
 --
 ALTER TABLE `mode_emploi`
-  ADD CONSTRAINT `activite_ibfk_2` FOREIGN KEY (`activite_numero`) REFERENCES `activite` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE;
+  ADD CONSTRAINT `activite_ibfk_2` FOREIGN KEY (`activite_numero`) REFERENCES `activite` (`numero`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `proposer_vpn`
@@ -365,25 +368,6 @@ ALTER TABLE `proposer_wifi`
   ADD CONSTRAINT `wifi_ibfk_1` FOREIGN KEY (`wifi_numero`) REFERENCES `wifi` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE;
 COMMIT;
 
---
--- Création du user de la BDD
---
-
-CREATE USER 'userProjetMIVDL'@'localhost' IDENTIFIED BY 'Projet@MIVDL!user';
-GRANT USAGE ON *.* TO 'userProjetMIVDL'@'localhost';
-
-GRANT SELECT ON `made\_in\_val\_de\_loire`.* TO `userProjetMIVDL`@`localhost`;
-
---
--- Création de l'admin de la BDD
---
-
-CREATE USER 'adminProjetMIVDL'@'localhost' IDENTIFIED BY 'Projet@MIDVL!admin';
-
-GRANT USAGE ON *.* TO 'adminProjetMIVDL'@'localhost';
-
-GRANT ALL PRIVILEGES ON `made\_in\_val\_de\_loire`.* TO `adminProjetMIVDL`@`localhost`;
- 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
