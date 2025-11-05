@@ -52,8 +52,6 @@
     z-index: 3;
     line-height: 1.4;          /* Espacement naturel */
     align-items: flex-start;
-
-
 }
 
 /* === Nom du personnage dans la bulle === */
@@ -98,8 +96,8 @@
 /* === Vies === */
 #vies {
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 60px;
+    left: 60px;
     display: flex;
     flex-direction: row;
     gap: 10px;

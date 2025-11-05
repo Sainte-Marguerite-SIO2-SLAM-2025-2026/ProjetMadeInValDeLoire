@@ -18,7 +18,24 @@
     <div id="nom-personnage"><?= esc($nom_personnage) ?></div>
 
     <!-- Barres de vies (positionnée en haut à gauche) -->
-    <div id="vies"></div>
+    <div id="vies">
+        <?= img([
+                'src' => base_url() . 'salle_1/images/coeur_jaune.webp',
+                'alt' => 'Coeur',
+                'class' => 'coeur'
+        ]);
+        img([
+                'src' => base_url() . 'salle_1/images/coeur_jaune.webp',
+                'alt' => 'Coeur',
+                'class' => 'coeur'
+        ]);
+        img([
+                'src' => base_url() . 'salle_1/images/coeur_jaune.webp',
+                'alt' => 'Coeur',
+                'class' => 'coeur'
+        ]);
+        ?>
+    </div>
 
     <div class="content-container">
         <?= img([
