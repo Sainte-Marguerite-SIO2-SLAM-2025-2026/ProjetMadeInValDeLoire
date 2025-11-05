@@ -61,10 +61,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (estCorrect) {
             messageResultat.textContent = '✓ Bonne réponse ! Le Livebox-A3F2 est le WiFi sécurisé.';
-            resultatContainer.style.backgroundImage = 'url("' + '<?= base_url("images/bandeVerte.svg") ?>' + '")';
+            resultatContainer.style.backgroundImage = 'url("' + '<?= base_url("images/salle6/bandeRouge.svg") ?>' + '")';
         } else {
             messageResultat.textContent = '✗ Mauvaise réponse. Le WiFi correct est le Livebox-A3F2 (Privé, WPA3).';
-            resultatContainer.style.backgroundImage = 'url("' + '<?= base_url("images/bandeRouge.svg") ?>' + '")';
+            resultatContainer.style.backgroundImage = 'url("' + '<?= base_url("images/salle6/bandeRouge.svg") ?>' + '")';   //a revérif
         }
 
         // Masquer le bouton valider et afficher le bouton suivant

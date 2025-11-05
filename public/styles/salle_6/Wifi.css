@@ -17,7 +17,7 @@ html, body {
 
 .container {
     position: relative;
-    background-image: url("../../images/salle_6/salle1.webp");
+    background-image: url("../../images/salle_6/salle1-carte_copie.svg");
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -224,7 +224,7 @@ html, body {
 /* Carte WiFi */
 .CarteWifi {
     background-image: url("../../images/salle_6/carte-grande.png");
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 74vh;
@@ -279,7 +279,7 @@ html, body {
     align-items: center;
     padding: 1.5rem;
     text-align: center;
-    gap: 10rem;
+    gap: clamp(2rem, 5vw, 6rem);
 }
 
 .wifi-nom {
@@ -412,26 +412,27 @@ a.btn-valider:hover {
 
 #messageResultat {
     color: white;
-    font-size: 1.5em;
+    font-size: clamp(1rem, 3vw, 1.5em);
     font-weight: bold;
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .btn-suivant {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
     padding: 15px 30px;
     background-color: #4CAF50;
     color: white;
     text-decoration: none;
     border-radius: 8px;
-    font-size: 1.1em;
+    font-size: clamp(0.9rem, 2vw, 1.1em);
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     z-index: 1000;
+    display: block;
+    margin: 20px auto 30px;
+    width: fit-content;
+    cursor : pointer;
 }
 
 .btn-suivant:hover {
@@ -444,19 +445,25 @@ a.btn-valider:hover {
 .cartes-wrapper {
     display: flex;
     flex-direction: row;
-    gap: 6rem;
+    gap: clamp(2rem, 5vw, 6rem);
     align-items: center;
     justify-content: center;
 }
 
 .resultat-container {
     width: 100%;
-    max-width: 900px; /* Limite la largeur */
+    max-width: 900px;
     padding: 20px;
     background-image: url("../../images/salle_6/bandeRouge.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 10px;
-    position: relative; /* Changé de absolute */
-    margin-top: 20px;)/*
+    position: relative;
+    text-align: center;
+    margin: 30px auto 0;
+}
+
+@media (max-height: 700px) {
+
+}
