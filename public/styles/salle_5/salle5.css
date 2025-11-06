@@ -166,4 +166,15 @@ body, html {
     pointer-events: auto; /* important pour garder les interactions */
 }
 
+svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.piece-zone {
+    fill: transparent;
+    cursor: pointer;
+}
+
 

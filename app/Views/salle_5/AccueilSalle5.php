@@ -2,6 +2,16 @@
     <title>Salle 5</title>
 </head>
 <body>
+<?php
+// On détermine l'image à afficher AVANT d'entrer dans le SVG
+$imageEcranMilieuGauche = null;
+
+if (in_array("1", $activites_selectionnees)) {
+    $imageEcranMilieuGauche = base_url('images/salle_5/ecran_mail_2.svg');
+} elseif (in_array("6", $activites_selectionnees)) {
+    $imageEcranMilieuGauche = base_url('images/salle_5/ecran_data_2.svg');
+}
+?>
 <div class="fond-image">
     <div class="svg-wrapper">
         <!-- Created with Inkscape (http://www.inkscape.org/) -->
@@ -5707,14 +5717,20 @@ Ysb/B5x6T4BNH6v7AAAAAElFTkSuQmCC
 
             <g id="ecran_milieu_gauche">
                 <!-- 🖼️ Image affichée -->
-                <image id="image_ecran_milieu_gauche"
-                       clip-path="url(#clip_ecran_milieu_gauche)"
-                       preserveAspectRatio="none"/>
+                    <image id="image_ecran_milieu_gauche"
+                           clip-path="url(#clip_ecran_milieu_gauche)"
+                           preserveAspectRatio="none"
+                           x="724.84"
+                           y="521.63"
+                           width="250"
+                           height="135"
+                <?php if ($imageEcranMilieuGauche): ?>
+                    xlink:href="<?= $imageEcranMilieuGauche ?>"
+                <?php endif; ?>/>
 
                 <!-- 🖱️ Zone cliquable -->
                 <path class="piece-zone"
-                      d="m724.84 521.63 242.48 0.43145 8.1976 134.18-250.68-1.2944z"
-                      fill="transparent"
+                      d="m724.84 521.63 242.48 0.43145 8.1976 134.18-250.68-1.2944z"                      fill="transparent"
                       style="cursor:pointer;" />
             </g>
 
@@ -5833,6 +5849,7 @@ Ysb/B5x6T4BNH6v7AAAAAElFTkSuQmCC
                       style="cursor:pointer;" />
             </g>
             </svg>
+        <?php echo var_dump($activites_selectionnees)?>
 
         <script>
             document.addEventListener('DOMContentLoaded', () => {
@@ -5899,7 +5916,7 @@ Ysb/B5x6T4BNH6v7AAAAAElFTkSuQmCC
 
     <!-- Bouton retour -->
     <div class="retour">
-        <?= anchor(base_url('/'), '<button>' . img([
+        <?= anchor(base_url('/resetSalle5'), '<button>' . img([
                         "src" => $salle->bouton,
                         "alt" => "bouton de retour",
                         "class" => "retour-img",

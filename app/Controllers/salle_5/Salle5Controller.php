@@ -6,7 +6,6 @@ use App\Controllers\BaseController;
 use App\Models\salle_5\MascotteModel;
 use App\Models\salle_5\ModeEmploiModel;
 use App\Models\salle_5\ActiviteModel;
-use App\Models\salle_5\ObjetModel;
 use App\Models\salle_5\SalleModel;
 use App\Models\salle_5\ExplicationModel;
 
