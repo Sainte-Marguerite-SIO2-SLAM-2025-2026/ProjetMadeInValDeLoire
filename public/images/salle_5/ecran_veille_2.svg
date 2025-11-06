@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 259.01 185.19">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1d0422;
+      }
+
+      .cls-2 {
+        fill: #290c34;
+      }
+
+      .cls-3 {
+        fill: #5049ce;
+      }
+
+      .cls-4 {
+        fill: url(#_ÂÁ_Ï_ÌÌ_È_ËÂÌÚ_52-2);
+      }
+
+      .cls-4, .cls-5 {
+        mix-blend-mode: color-dodge;
+        opacity: .5;
+      }
+
+      .cls-6 {
+        fill: url(#_ÂÁ_Ï_ÌÌ_È_ËÂÌÚ_72);
+      }
+
+      .cls-7 {
+        fill: #584278;
+      }
+
+      .cls-8 {
+        isolation: isolate;
+      }
+
+      .cls-9 {
+        mix-blend-mode: overlay;
+      }
+
+      .cls-5 {
+        fill: url(#_ÂÁ_Ï_ÌÌ_È_ËÂÌÚ_52);
+      }
+
+      .cls-10 {
+        fill: #1c13bf;
+      }
+
+      .cls-11 {
+        fill: url(#_ÂÁ_Ï_ÌÌ_È_ËÂÌÚ_3);
+      }
+
+      .cls-12 {
+        fill: #e0bdc7;
+      }
+    </style>
+    <radialGradient id="_ÂÁ_Ï_ÌÌ_È_ËÂÌÚ_72" data-name="¡ÂÁ˚ÏˇÌÌ˚È „‡‰ËÂÌÚ 72" cx="128.35" cy="68.81" fx="128.35" fy="68.81" r="99.51" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1fb8b4"/>
+      <stop offset="1" stop-color="#57f6c9"/>
+    </radialGradient>
+    <linearGradient id="_ÂÁ_Ï_ÌÌ_È_ËÂÌÚ_3" data-name="¡ÂÁ˚ÏˇÌÌ˚È „‡‰ËÂÌÚ 3" x1="3.72" y1="69.62" x2="252.21" y2="69.62" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffd1"/>
+      <stop offset="1" stop-color="#ffdac0"/>
+    </linearGradient>
+    <linearGradient id="_ÂÁ_Ï_ÌÌ_È_ËÂÌÚ_52" data-name="¡ÂÁ˚ÏˇÌÌ˚È „‡‰ËÂÌÚ 52" x1="114.67" y1="130.98" x2="114.67" y2="8.53" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000"/>
+      <stop offset="1" stop-color="#d9ff5e"/>
+    </linearGradient>
+    <linearGradient id="_ÂÁ_Ï_ÌÌ_È_ËÂÌÚ_52-2" data-name="¡ÂÁ˚ÏˇÌÌ˚È „‡‰ËÂÌÚ 52" x1="138.79" y1="125.79" x2="138.79" y2="9.53" xlink:href="#_ÂÁ_Ï_ÌÌ_È_ËÂÌÚ_52"/>
+  </defs>
+  <g class="cls-8">
+    <g id="security_room" data-name="security room">
+      <g>
+        <polygon class="cls-1" points="60.38 178.01 56.09 185.19 188.43 184.01 183.63 178.01 60.38 178.01"/>
+        <polygon class="cls-2" points="60.38 178.01 82.47 172.13 156.36 172.13 183.63 178.01 60.38 178.01"/>
+        <polygon class="cls-1" points="90.32 138.37 90.32 175.83 154.2 175.83 150.41 140.19 90.32 138.37"/>
+        <polygon class="cls-2" points="95.33 158.8 151.99 155.11 154.2 175.83 90.32 175.83 95.33 158.8"/>
+        <polygon class="cls-2" points="0 141.47 0 0 249.01 0 259.01 141.47 0 141.47"/>
+        <polygon class="cls-6" points="252.98 134.17 3.72 134.17 3.72 3.45 245.41 3.45 252.98 134.17"/>
+        <polygon class="cls-1" points="259.01 141.47 252.98 145.27 3.72 145.27 0 141.47 259.01 141.47"/>
+        <g class="cls-9">
+          <polygon class="cls-10" points="252.21 120.87 3.72 99.53 3.72 134.17 252.98 134.17 252.21 120.87"/>
+          <polygon class="cls-11" points="3.72 36.74 246.27 18.37 252.21 120.87 3.72 99.53 3.72 36.74"/>
+          <polygon class="cls-12" points="3.72 3.45 3.72 36.74 246.27 18.37 245.41 3.45 3.72 3.45"/>
+          <polygon class="cls-10" points="44.7 103.05 44.7 53.52 70.57 51.35 70.57 105.27 44.7 103.05"/>
+          <polygon class="cls-10" points="162.37 113.16 162.37 51.35 194.93 46.48 194.93 116.85 162.37 113.16"/>
+          <polygon class="cls-3" points="194.93 114.28 165.9 111.64 165.9 52.77 194.93 48.1 194.93 114.28"/>
+          <polygon class="cls-3" points="70.57 103.32 47.36 101.49 47.36 55.41 70.57 52.98 70.57 103.32"/>
+        </g>
+        <polygon class="cls-5" points="123.94 8.53 38.51 130.5 46.76 130.98 190.83 9.49 123.94 8.53"/>
+        <polygon class="cls-4" points="196.73 9.53 220.51 9.66 66.4 125.79 57.07 124.91 196.73 9.53"/>
+        <polygon class="cls-7" points="73.54 185.03 77.6 178.01 117.39 178.01 119.01 185.03 73.54 185.03"/>
+      </g>
+    </g>
+  </g>
+</svg>

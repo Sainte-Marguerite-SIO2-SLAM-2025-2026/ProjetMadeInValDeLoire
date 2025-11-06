@@ -1,27 +1,97 @@
-CRITICAL - 2025-10-31 23:39:10 --> ErrorException: Undefined variable $salle
-[Method: GET, Route: Salle5]
-in APPPATH\Views\salle_5\AccueilSalle5.php on line 6.
- 1 APPPATH\Views\salle_5\AccueilSalle5.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $salle', 'C:\\wamp\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 6)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+CRITICAL - 2025-10-31 19:35:01 --> TypeError: explode(): Argument #2 ($string) must be of type string, array given
+[Method: GET, Route: Salle1/accesMessage]
+in APPPATH\Views\salle_1\DiscussionSalle1.php on line 31.
+ 1 APPPATH\Views\salle_1\DiscussionSalle1.php(31): explode(' ', [...])
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\DiscussionSalle1.php')
  3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
- 5 APPPATH\Controllers\accueil\AccueilController.php(40): view('salle_5\\AccueilSalle5')
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
- 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\DiscussionSalle1', [], true)
+ 5 APPPATH\Controllers\salle_1\Salle1Controller.php(18): view('salle_1\\DiscussionSalle1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->accesMessage()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
  8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-31 23:44:41 --> ErrorException: Undefined variable $intitule
-[Method: GET, Route: Salle4]
-in APPPATH\Views\salle_4\AccueilSalle4.php on line 9.
- 1 APPPATH\Views\salle_4\AccueilSalle4.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $intitule', 'C:\\wamp\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_4\\AccueilSalle4.php', 9)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_4\\AccueilSalle4.php')
+CRITICAL - 2025-10-31 19:52:03 --> TypeError: preg_split(): Argument #2 ($subject) must be of type string, array given
+[Method: GET, Route: Salle1/accesMessage]
+in APPPATH\Views\salle_1\DiscussionSalle1.php on line 36.
+ 1 APPPATH\Views\salle_1\DiscussionSalle1.php(36): preg_split('/(\\s+)/u', [...], -1, 2)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\DiscussionSalle1.php')
  3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_4\\AccueilSalle4', [], true)
- 5 APPPATH\Controllers\accueil\AccueilController.php(35): view('salle_4\\AccueilSalle4')
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle4()
- 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\DiscussionSalle1', [], true)
+ 5 APPPATH\Controllers\salle_1\Salle1Controller.php(18): view('salle_1\\DiscussionSalle1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->accesMessage()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-31 19:53:01 --> TypeError: preg_split(): Argument #2 ($subject) must be of type string, array given
+[Method: GET, Route: Salle1/accesMessage]
+in APPPATH\Views\salle_1\DiscussionSalle1.php on line 36.
+ 1 APPPATH\Views\salle_1\DiscussionSalle1.php(36): preg_split('/(\\s+)/u', [...], -1, 2)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\DiscussionSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\DiscussionSalle1', [], true)
+ 5 APPPATH\Controllers\salle_1\Salle1Controller.php(18): view('salle_1\\DiscussionSalle1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->accesMessage()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-31 19:59:50 --> TypeError: preg_split(): Argument #2 ($subject) must be of type string, array given
+[Method: GET, Route: Salle1/accesMessage]
+in APPPATH\Views\salle_1\DiscussionSalle1.php on line 36.
+ 1 APPPATH\Views\salle_1\DiscussionSalle1.php(36): preg_split('/(\\s+)/u', [...], -1, 2)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\DiscussionSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\DiscussionSalle1', [], true)
+ 5 APPPATH\Controllers\salle_1\Salle1Controller.php(18): view('salle_1\\DiscussionSalle1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->accesMessage()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-31 20:03:56 --> TypeError: preg_split(): Argument #2 ($subject) must be of type string, array given
+[Method: GET, Route: Salle1/accesMessage]
+in APPPATH\Views\salle_1\DiscussionSalle1.php on line 36.
+ 1 APPPATH\Views\salle_1\DiscussionSalle1.php(36): preg_split('/(\\s+)/u', [...], -1, 2)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\DiscussionSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\DiscussionSalle1', [], true)
+ 5 APPPATH\Controllers\salle_1\Salle1Controller.php(18): view('salle_1\\DiscussionSalle1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->accesMessage()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-31 20:17:33 --> TypeError: preg_split(): Argument #2 ($subject) must be of type string, array given
+[Method: GET, Route: Salle1/accesMessage]
+in APPPATH\Views\salle_1\DiscussionSalle1.php on line 38.
+ 1 APPPATH\Views\salle_1\DiscussionSalle1.php(38): preg_split('/(\\s+)/u', [...], -1, 2)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\DiscussionSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\DiscussionSalle1', [], true)
+ 5 APPPATH\Controllers\salle_1\Salle1Controller.php(18): view('salle_1\\DiscussionSalle1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->accesMessage()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-31 20:45:48 --> ErrorException: Array to string conversion
+[Method: GET, Route: Salle1/accesMessage]
+in APPPATH\Views\salle_1\DiscussionSalle1.php on line 39.
+ 1 APPPATH\Views\salle_1\DiscussionSalle1.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\DiscussionSalle1.php', 39)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\DiscussionSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\DiscussionSalle1', [], true)
+ 5 APPPATH\Controllers\salle_1\Salle1Controller.php(18): view('salle_1\\DiscussionSalle1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->accesMessage()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
  8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))

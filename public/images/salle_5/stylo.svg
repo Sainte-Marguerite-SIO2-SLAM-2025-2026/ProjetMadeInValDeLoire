@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.07 20.6">
+  <defs>
+    <style>
+      .cls-1 {
+        mix-blend-mode: screen;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: #223e19;
+      }
+
+      .cls-4 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        mix-blend-mode: multiply;
+      }
+    </style>
+  </defs>
+  <g class="cls-4">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <rect class="cls-3" x="6.41" y="3.6" width="84.72" height="17"/>
+        <path class="cls-3" d="M6.41,5.69c-3.55,0-6.41,2.87-6.41,6.42s2.87,6.41,6.41,6.41V5.69Z"/>
+        <rect class="cls-3" x="91.13" y="4.64" width="61.95" height="14.92"/>
+        <rect class="cls-3" x="153.08" y="5.33" width="49.57" height="13.55"/>
+        <rect class="cls-1" x="6.41" y="5.41" width="84.72" height="6.69"/>
+        <rect class="cls-1" x="91.13" y="6.23" width="61.95" height="5.87"/>
+        <rect class="cls-1" x="153.08" y="6.77" width="49.57" height="5.33"/>
+        <polygon class="cls-3" points="217.49 13.91 202.65 18.87 202.65 5.33 217.49 10.3 217.49 13.91"/>
+        <polygon class="cls-3" points="221.05 10.3 217.49 10.3 217.49 13.91 221.05 13.91 224.07 12.77 224.07 11.44 221.05 10.3"/>
+        <path class="cls-3" d="M11.17,0c-2,0-3.6,1.61-3.6,3.6h1.69c0-1.05.85-1.91,1.91-1.91h56.05c0,1.05.85,1.91,1.91,1.91h3.82c1.06,0,1.91-.85,1.91-1.91V0H11.17Z"/>
+        <path class="cls-3" d="M1.18,12.1h5.23v-5.22c-2.89,0-5.23,2.34-5.23,5.22Z"/>
+        <rect class="cls-2" x="91.13" y="4.64" width="1.5" height="14.92"/>
+        <rect class="cls-2" x="153.08" y="5.33" width="1.5" height="13.55"/>
+        <polygon class="cls-1" points="217.49 12.1 202.65 12.1 202.65 6.77 217.49 10.71 217.49 12.1"/>
+        <polygon class="cls-2" points="204.14 5.83 202.65 5.33 202.65 18.87 204.14 18.38 204.14 5.83"/>
+        <rect class="cls-1" x="217.49" y="10.71" width="3.56" height="1.39"/>
+        <polygon class="cls-1" points="224.07 11.44 221.05 10.71 221.05 12.1 224.07 12.1 224.07 11.44"/>
+        <path class="cls-1" d="M9.18.67h65.67v-.67H11.17c-.75,0-1.41.28-1.99.67Z"/>
+        <path class="cls-2" d="M67.49,2.62h7.08c.17-.28.28-.59.28-.93h-7.64c0,.34.11.65.28.93Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

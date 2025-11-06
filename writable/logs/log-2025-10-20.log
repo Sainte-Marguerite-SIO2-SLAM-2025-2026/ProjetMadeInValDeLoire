@@ -1,0 +1,435 @@
+CRITICAL - 2025-10-20 07:17:02 --> ErrorException: Attempt to read property "image" on false
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 20.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "image" on false', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 20)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(51): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 07:18:12 --> ErrorException: Attempt to read property "image" on false
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 20.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "image" on false', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 20)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(51): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 08:39:12 --> ErrorException: Undefined variable $explication
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 21.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $explication', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 21)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(51): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 08:40:45 --> ErrorException: Undefined variable $explication
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 21.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $explication', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 21)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(51): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 08:41:15 --> ErrorException: Undefined variable $explication
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 21.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $explication', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 21)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(51): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 12:59:12 --> Error: Call to undefined function App\Controllers\salle_5\getActivite()
+[Method: GET, Route: mascotte]
+in APPPATH\Controllers\salle_5\Salle5Controller.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 12:59:32 --> Error: Call to undefined function App\Controllers\salle_5\getActivite()
+[Method: GET, Route: mascotte]
+in APPPATH\Controllers\salle_5\Salle5Controller.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 12:59:54 --> Error: Call to undefined function App\Controllers\salle_5\getActivite()
+[Method: GET, Route: mascotte]
+in APPPATH\Controllers\salle_5\Salle5Controller.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 13:29:52 --> Error: Call to undefined function App\Controllers\salle_5\getActivite()
+[Method: GET, Route: mascotte]
+in APPPATH\Controllers\salle_5\Salle5Controller.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 13:30:36 --> Error: Call to undefined function App\Controllers\salle_5\getActivite()
+[Method: GET, Route: mascotte]
+in APPPATH\Controllers\salle_5\Salle5Controller.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 14:15:36 --> Error: Call to undefined function App\Controllers\salle_5\getActivite()
+[Method: GET, Route: mascotte]
+in APPPATH\Controllers\salle_5\Salle5Controller.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 14:17:43 --> Error: Class "App\salle_5\ActiviteModel" not found
+[Method: GET, Route: mascotte]
+in APPPATH\Controllers\salle_5\Salle5Controller.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 14:18:49 --> ErrorException: Undefined variable $enigme
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 7.
+ 1 APPPATH\Views\salle_5\Enigme.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $enigme', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 7)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(22): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 14:19:35 --> ErrorException: Undefined array key "nom"
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 7.
+ 1 APPPATH\Views\salle_5\Enigme.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nom"', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 7)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(22): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 14:19:40 --> ErrorException: Undefined array key "nom"
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 7.
+ 1 APPPATH\Views\salle_5\Enigme.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nom"', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 7)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(22): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 14:26:51 --> ErrorException: Attempt to read property "libelle" on array
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 7.
+ 1 APPPATH\Views\salle_5\Enigme.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "libelle" on array', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 7)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(27): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 14:27:49 --> ErrorException: Undefined property: stdClass::$explication2
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 8.
+ 1 APPPATH\Views\salle_5\Enigme.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$explication2', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 8)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(27): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 14:28:50 --> Error: Cannot use object of type stdClass as array
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 14.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 4 APPPATH\Controllers\salle_5\Salle5Controller.php(27): view('salle_5\\Enigme', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 14:31:09 --> Error: Cannot use object of type stdClass as array
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 14.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 4 APPPATH\Controllers\salle_5\Salle5Controller.php(24): view('salle_5\\Enigme', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 14:31:39 --> Error: Cannot use object of type stdClass as array
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 14.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 4 APPPATH\Controllers\salle_5\Salle5Controller.php(24): view('salle_5\\Enigme', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 14:36:41 --> Error: Cannot use object of type stdClass as array
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 14.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 4 APPPATH\Controllers\salle_5\Salle5Controller.php(24): view('salle_5\\Enigme', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 15:19:35 --> ErrorException: Attempt to read property "libelle" on false
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 7.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "libelle" on false', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 7)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(54): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 15:32:20 --> ErrorException: Attempt to read property "libelle" on false
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 20.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "libelle" on false', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 20)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(54): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 15:45:04 --> ErrorException: Attempt to read property "explication_2" on false
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 8.
+ 1 APPPATH\Views\salle_5\Enigme.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "explication_2" on false', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 8)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(24): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 15:47:12 --> ErrorException: Attempt to read property "explication_2" on false
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 8.
+ 1 APPPATH\Views\salle_5\Enigme.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "explication_2" on false', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 8)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(24): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 16:25:47 --> ErrorException: Attempt to read property "explication_2" on false
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 8.
+ 1 APPPATH\Views\salle_5\Enigme.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "explication_2" on false', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 8)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(27): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 16:27:22 --> ErrorException: Undefined array key "usb_finance"
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 14.
+ 1 APPPATH\Views\salle_5\Enigme.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "usb_finance"', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 14)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(27): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 16:29:41 --> ErrorException: Attempt to read property "usb_finance" on array
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 14.
+ 1 APPPATH\Views\salle_5\Enigme.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "usb_finance" on array', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 14)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(27): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 16:30:20 --> ErrorException: Undefined array key "usb_finance"
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 14.
+ 1 APPPATH\Views\salle_5\Enigme.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "usb_finance"', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 14)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(27): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 16:31:55 --> ErrorException: Undefined array key "usb_finance"
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 14.
+ 1 APPPATH\Views\salle_5\Enigme.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "usb_finance"', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 14)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(27): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 16:32:01 --> ErrorException: Undefined array key "usb_finance"
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 14.
+ 1 APPPATH\Views\salle_5\Enigme.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "usb_finance"', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 14)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(27): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 16:32:52 --> ErrorException: Undefined array key "usb_finance"
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 14.
+ 1 APPPATH\Views\salle_5\Enigme.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "usb_finance"', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 14)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(27): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 16:33:00 --> ErrorException: Undefined array key "usb_finance"
+[Method: GET, Route: mascotte]
+in APPPATH\Views\salle_5\Enigme.php on line 14.
+ 1 APPPATH\Views\salle_5\Enigme.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "usb_finance"', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php', 14)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\Enigme.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\Enigme', [], true)
+ 5 APPPATH\Controllers\salle_5\Salle5Controller.php(27): view('salle_5\\Enigme', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-20 16:38:43 --> CodeIgniter\Database\Exceptions\DatabaseException: You must set the database table to be used with your query.
+[Method: GET, Route: mascotte]
+in SYSTEMPATH\Database\BaseConnection.php on line 944.
+ 1 SYSTEMPATH\Model.php(713): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(917): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\salle_5\Salle5Controller.php(25): CodeIgniter\Model->__call('getObjet', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_5\Salle5Controller->index()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_5\Salle5Controller))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

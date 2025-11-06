@@ -1,10 +1,112 @@
-CRITICAL - 2025-10-06 06:57:52 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "commun\footer.php"
-[Method: GET, Route: Salle4]
+CRITICAL - 2025-10-06 09:22:07 --> TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 47.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 4 APPPATH\Controllers\accueil\AccueilController.php(20): view('salle_2\\AccueilSalle2')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 09:22:07 --> [Caused by] ErrorException: Undefined variable $message
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 47.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 47)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(20): view('salle_2\\AccueilSalle2')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 11:25:32 --> ErrorException: Undefined variable $messages
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 43.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $messages', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 43)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(20): view('salle_2\\AccueilSalle2')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 11:56:05 --> ErrorException: Undefined variable $messages
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 42.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $messages', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 42)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(20): view('salle_2\\AccueilSalle2')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 14:09:01 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "footer\PiedDePage.php"
+[Method: GET, Route: Salle2]
 in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
- 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('commun\\footer.php')
- 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('commun\\footer', [], true)
- 3 APPPATH\Controllers\accueil\AccueilController.php(31): view('commun\\footer')
- 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle4()
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('footer\\PiedDePage.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('footer\\PiedDePage', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(21): view('footer\\PiedDePage')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 14:09:34 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "commum\PiedDePage.php"
+[Method: GET, Route: Salle2]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('commum\\PiedDePage.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('commum\\PiedDePage', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(21): view('commum\\PiedDePage')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 14:16:09 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "commum\MentionsLegales.php"
+[Method: GET, Route: Salle2]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('commum\\MentionsLegales.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('commum\\MentionsLegales', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(21): view('commum\\MentionsLegales')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 14:22:24 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "commum\PiedDePage.php"
+[Method: GET, Route: Salle2]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('commum\\PiedDePage.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('commum\\PiedDePage', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(21): view('commum\\PiedDePage')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 14:23:21 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "commum\PiedDePage.php"
+[Method: GET, Route: Salle2]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('commum\\PiedDePage.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('commum\\PiedDePage', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(21): view('commum\\PiedDePage')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
  5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
