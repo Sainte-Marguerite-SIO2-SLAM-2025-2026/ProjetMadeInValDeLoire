@@ -9,10 +9,18 @@
 }
 
 .retour {
+    /*position: absolute;*/
+    /*bottom: -5%;*/
+    /*left: 0;*/
+    /*transform: none;*/
+    /*max-width: 300px;*/
+    /*height: 200px;*/
+
     position: absolute;
-    bottom: -5%;
+    bottom: 2%;
     left: 0;
     transform: none;
-    max-width: 300px;
-    height: 200px;
+    max-width: 250px;
+    height: 75px;
 }
+
