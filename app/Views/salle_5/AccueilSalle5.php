@@ -57,6 +57,7 @@ if (in_array("1", $activites_selectionnees)) {
 
                 <g id="ecran_milieu_droit">
                     <!-- 🖼️ Image affichée -->
+                    <?php if ($imageEcranMilieuDroite): ?>
                     <image id="image_ecran_milieu_droit"
                            clip-path="url(#clip_ecran_milieu_droit)"
                            preserveAspectRatio="none"
@@ -64,19 +65,20 @@ if (in_array("1", $activites_selectionnees)) {
                            y = "523.13"
                            width = "234.28"
                            height = "132.24"
-                            <?php if ($imageEcranMilieuDroite): ?>
+
                         xlink:href="<?= $imageEcranMilieuDroite ?>"
                     <?php endif; ?>/>
 
                     <!-- 🖱️ Zone cliquable -->
                     <path class="piece-zone"
                           d="m1018.8 523.13h233.84l0.4386 132.24-233.84-3.1168z"
-                          fill="transparent"
-                          style="cursor:pointer;" />
+                          fill="none"
+                           />
                 </g>
 
             <g id="ecran_milieu_gauche">
                 <!-- 🖼️ Image affichée -->
+                <?php if ($imageEcranMilieuGauche): ?>
                     <image id="image_ecran_milieu_gauche"
                            clip-path="url(#clip_ecran_milieu_gauche)"
                            preserveAspectRatio="none"
@@ -84,15 +86,14 @@ if (in_array("1", $activites_selectionnees)) {
                            y="521.63"
                            width="250"
                            height="134"
-                <?php if ($imageEcranMilieuGauche): ?>
                     xlink:href="<?= $imageEcranMilieuGauche ?>"
                 <?php endif; ?>/>
 
                 <!-- 🖱️ Zone cliquable -->
                 <path class="piece-zone"
                       d="m724.2 521.63 243.77-0.21573 7.9819 133.97-250.89-0.43145z"
-                      fill="transparent"
-                      style="cursor:pointer;" />
+                      fill="none"
+                      />
             </g>
 
             <g id="porte">
@@ -111,8 +112,8 @@ if (in_array("1", $activites_selectionnees)) {
                 <!-- 🖱️ Zone cliquable -->
                 <rect class="piece-zone"
                       x="1592.5" y="237.97" width="257.49" height="838.37"
-                      fill="transparent"
-                      style="cursor:pointer;" />
+                      fill="none"
+                      />
             </g>
 
             <g id="fenetre">
@@ -132,8 +133,8 @@ if (in_array("1", $activites_selectionnees)) {
                 <!-- 🖱️ Zone cliquable -->
                 <path class="piece-zone"
                       d="m68.949 182.44 213.56 48.814-2.4407 340.47-216 68.949h0.61017z"
-                      fill="transparent"
-                      style="cursor:pointer;" />
+                      fill="none"
+                       />
             </g>
 
 
@@ -148,8 +149,8 @@ if (in_array("1", $activites_selectionnees)) {
                 <!-- 🖱️ Zone cliquable -->
                 <rect class="piece-zone"
                       x="1577.1" y="89.952" width="232.99" height="113.9"
-                      fill="transparent"
-                      style="cursor:pointer;" />
+                      fill="none"
+                      />
             </g>
 
             <g id="post_it_conf">
@@ -165,8 +166,8 @@ if (in_array("1", $activites_selectionnees)) {
                 <!-- 🖱️ Zone cliquable -->
                 <rect class="piece-zone"
                       x="1144.7" y="518.82" width="73.347" height="84.566"
-                      fill="transparent"
-                      style="cursor:pointer;" />
+                      fill="none"
+                      />
             </g>
 
             <g id="cle_usb">
@@ -182,8 +183,8 @@ if (in_array("1", $activites_selectionnees)) {
                 <!-- 🖱️ Zone cliquable -->
                 <rect class="piece-zone"
                       x="1228.4" y="701.76" width="63.855" height="21.573"
-                      fill="transparent"
-                      style="cursor:pointer;" />
+                      fill="none"
+                      />
             </g>
 
             <g id="cle">
@@ -199,8 +200,8 @@ if (in_array("1", $activites_selectionnees)) {
                 <!-- 🖱️ Zone cliquable -->
                 <rect class="piece-zone"
                       x="1507.2" y="702.62" width="69.895" height="23.299"
-                      fill="transparent"
-                      style="cursor:pointer;" />
+                      fill="none"
+                      />
             </g>
 
             <g id="dossier">
@@ -216,8 +217,8 @@ if (in_array("1", $activites_selectionnees)) {
                 <!-- 🖱️ Zone cliquable -->
                 <rect class="piece-zone"
                       x="620.95" y="610.29" width="68.17" height="95.783"
-                      fill="transparent"
-                      style="cursor:pointer;" />
+                      fill="none"
+                      />
             </g>
             <g id="carnet_mdp">
                 <!-- 🖼️ Image affichée -->
@@ -232,8 +233,8 @@ if (in_array("1", $activites_selectionnees)) {
                 <!-- 🖱️ Zone cliquable -->
                 <rect class="piece-zone"
                       x="328.13" y="825.2" width="115.93" height="106.17"
-                      fill="transparent"
-                      style="cursor:pointer;" />
+                      fill="none"
+                      />
             </g>
             </svg>
         <?php echo var_dump($activites_selectionnees)?>

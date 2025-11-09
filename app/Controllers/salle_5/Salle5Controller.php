@@ -63,7 +63,7 @@ class Salle5Controller extends BaseController
         if ($activite_numero == 2) {
             // Énigme des clés USB
             return view('commun\header') .
-                view('salle_5/enigmes/ClesUsb', $data) .
+                view('salle_5/ClesUsb', $data) .
                 view('commun\footer');
         }
 
