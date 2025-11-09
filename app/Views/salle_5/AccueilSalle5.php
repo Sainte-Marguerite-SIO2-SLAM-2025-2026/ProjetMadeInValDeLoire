@@ -56,14 +56,14 @@ if (in_array("1", $activites_selectionnees)) {
                 </defs>
 
             <!-- Écran milieu droit (Activité 1) -->
-            <?php if (in_array(1, $activites_selectionnees)): ?>
-                <g id="ecran_milieu_droit" class="objet-enigme" data-activite="1">
+            <?php if ($imageEcranMilieuDroite): ?>
+                <g id="ecran_milieu_droit">
                     <image id="image_ecran_milieu_droit"
                            clip-path="url(#clip_ecran_milieu_droit)"
                            preserveAspectRatio="none"
                            x="1018.8" y="523.13"
                            width="234.28" height="132.24"
-                           xlink:href="<?= base_url('images/salle_5/ecran_login_2_1.svg') ?>" />
+                           xlink:href="<?= $imageEcranMilieuDroite ?>" />
                     <path class="piece-zone"
                           d="m1018.8 523.13h233.84l0.4386 132.24-233.84-3.1168z"
                           fill="transparent"
@@ -72,14 +72,14 @@ if (in_array("1", $activites_selectionnees)) {
             <?php endif; ?>
 
             <!-- Écran milieu gauche (Activité 6) -->
-            <?php if (in_array(6, $activites_selectionnees)): ?>
+            <?php if ($imageEcranMilieuGauche): ?>
                 <g id="ecran_milieu_gauche" class="objet-enigme" data-activite="6">
                     <image id="image_ecran_milieu_gauche"
                            clip-path="url(#clip_ecran_milieu_gauche)"
                            preserveAspectRatio="none"
                            x="724.84" y="521.63"
                            width="250" height="134"
-                           xlink:href="<?= base_url('images/salle_5/ecran_mail_2.svg') ?>" />
+                           xlink:href="<?= $imageEcranMilieuGauche ?>" />
                     <path class="piece-zone"
                           d="m724.2 521.63 243.77-0.21573 7.9819 133.97-250.89-0.43145z"
                           fill="transparent"
