@@ -17,6 +17,7 @@ body, html {
     font-size: 3em;
     font-weight: 600;
     color: #ffffff;
+    pointer-events: none;
     text-shadow: 2px 2px 8px #000;
     animation: fadeInDown 1s ease;
 }
@@ -173,9 +174,9 @@ svg {
     }
 }
 
-g {
-    animation: neonPulse 1.5s infinite ease-in-out;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+.objet-enigme:hover {
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 1))
+    drop-shadow(0 0 15px rgba(255, 0, 0, 1))
+    drop-shadow(0 0 20px rgba(255, 0, 0, 0.8)) !important;
 }
 

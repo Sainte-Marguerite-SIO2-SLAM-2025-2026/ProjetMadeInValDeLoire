@@ -55,189 +55,202 @@ if (in_array("1", $activites_selectionnees)) {
                     </clipPath>
                 </defs>
 
-                <g id="ecran_milieu_droit">
-                    <!-- 🖼️ Image affichée -->
-                    <?php if ($imageEcranMilieuDroite): ?>
+            <!-- Écran milieu droit (Activité 1) -->
+            <?php if (in_array(1, $activites_selectionnees)): ?>
+                <g id="ecran_milieu_droit" class="objet-enigme" data-activite="1">
                     <image id="image_ecran_milieu_droit"
                            clip-path="url(#clip_ecran_milieu_droit)"
                            preserveAspectRatio="none"
-                           x = "1018.8"
-                           y = "523.13"
-                           width = "234.28"
-                           height = "132.24"
-
-                        xlink:href="<?= $imageEcranMilieuDroite ?>"
-                    <?php endif; ?>/>
-
-                    <!-- 🖱️ Zone cliquable -->
+                           x="1018.8" y="523.13"
+                           width="234.28" height="132.24"
+                           xlink:href="<?= base_url('images/salle_5/ecran_login_2_1.svg') ?>" />
                     <path class="piece-zone"
                           d="m1018.8 523.13h233.84l0.4386 132.24-233.84-3.1168z"
-                          fill="none"
-                           />
+                          fill="transparent"
+                          style="cursor:pointer;" />
                 </g>
+            <?php endif; ?>
 
-            <g id="ecran_milieu_gauche">
-                <!-- 🖼️ Image affichée -->
-                <?php if ($imageEcranMilieuGauche): ?>
+            <!-- Écran milieu gauche (Activité 6) -->
+            <?php if (in_array(6, $activites_selectionnees)): ?>
+                <g id="ecran_milieu_gauche" class="objet-enigme" data-activite="6">
                     <image id="image_ecran_milieu_gauche"
                            clip-path="url(#clip_ecran_milieu_gauche)"
                            preserveAspectRatio="none"
-                           x="724.84"
-                           y="521.63"
-                           width="250"
-                           height="134"
-                    xlink:href="<?= $imageEcranMilieuGauche ?>"
-                <?php endif; ?>/>
+                           x="724.84" y="521.63"
+                           width="250" height="134"
+                           xlink:href="<?= base_url('images/salle_5/ecran_mail_2.svg') ?>" />
+                    <path class="piece-zone"
+                          d="m724.2 521.63 243.77-0.21573 7.9819 133.97-250.89-0.43145z"
+                          fill="transparent"
+                          style="cursor:pointer;" />
+                </g>
+            <?php endif; ?>
 
-                <!-- 🖱️ Zone cliquable -->
-                <path class="piece-zone"
-                      d="m724.2 521.63 243.77-0.21573 7.9819 133.97-250.89-0.43145z"
-                      fill="none"
-                      />
-            </g>
+            <!-- Porte (Activité 5) -->
+            <?php if (in_array(5, $activites_selectionnees)): ?>
+                <g id="porte" class="objet-enigme" data-activite="5">
+                    <image id="image_porte"
+                           x="1592.5" y="237.97"
+                           width="257.49" height="838.37"
+                           clip-path="url(#clip_porte)"
+                           preserveAspectRatio="none"
+                           xlink:href="<?= base_url('images/salle_5/porte_ouverte.svg') ?>" />
+                    <rect class="piece-zone"
+                          x="1592.5" y="237.97" width="257.49" height="838.37"
+                          fill="transparent"
+                          style="cursor:pointer;" />
+                </g>
+            <?php endif; ?>
 
-            <g id="porte">
-                <!-- 🖼️ Image affichée -->
-                <?php if (in_array("5", $activites_selectionnees)): ?>
-                <image id="image_porte"
-                       x="1592.5"
-                       y="237.97"
-                       width="257.49"
-                       height="838.37"
-                       clip-path="url(#clip_porte)"
-                       preserveAspectRatio="none"
-                       xlink:href="<?= base_url('images/salle_5/porte_ouverte.svg') ?>" />
-                <?php endif; ?>
+            <!-- Fenêtre (Activité 7) -->
+            <?php if (in_array(7, $activites_selectionnees)): ?>
+                <g id="fenetre" class="objet-enigme" data-activite="7">
+                    <image id="image_fenetre"
+                           x="64" y="182"
+                           width="218" height="458"
+                           clip-path="url(#clip_fenetre)"
+                           preserveAspectRatio="none"
+                           xlink:href="<?= base_url('images/salle_5/fenetre_ouverte.svg') ?>" />
+                    <path class="piece-zone"
+                          d="m68.949 182.44 213.56 48.814-2.4407 340.47-216 68.949h0.61017z"
+                          fill="transparent"
+                          style="cursor:pointer;" />
+                </g>
+            <?php endif; ?>
 
-                <!-- 🖱️ Zone cliquable -->
-                <rect class="piece-zone"
-                      x="1592.5" y="237.97" width="257.49" height="838.37"
-                      fill="none"
-                      />
-            </g>
+            <!-- Caméra (Activité 10) -->
+            <?php if (in_array(10, $activites_selectionnees)): ?>
+                <g id="camera" class="objet-enigme" data-activite="10">
+                    <image id="image_camera"
+                           clip-path="url(#clip_camera)"
+                           preserveAspectRatio="none"
+                           x="1577.1" y="89.952" width="232.99" height="113.9"
+                           xlink:href="<?= base_url('images/salle_5/camera.svg') ?>" />
+                    <rect class="piece-zone"
+                          x="1577.1" y="89.952" width="232.99" height="113.9"
+                          fill="transparent"
+                          style="cursor:pointer;" />
+                </g>
+            <?php endif; ?>
 
-            <g id="fenetre">
-                <!-- 🖼️ Image affichée -->
-                <?php if (in_array("7", $activites_selectionnees)): ?>
-                    <image
-                            id="image_fenetre"
-                            x="64"
-                            y="182"
-                            width="218"
-                            height="458"
-                            clip-path="url(#clip_fenetre)"
-                            preserveAspectRatio="none"
-                            xlink:href="<?= base_url('images/salle_5/fenetre_ouverte.svg') ?>" />
-                <?php endif; ?>
+            <!-- Post-it confidentiel (Activité 4) -->
+            <?php if (in_array(4, $activites_selectionnees)): ?>
+                <g id="post_it_conf" class="objet-enigme" data-activite="4">
+                    <image id="image_post_it_conf"
+                           clip-path="url(#clip_post_it_conf)"
+                           preserveAspectRatio="none"
+                           x="1144.7" y="518.82" width="73.347" height="84.566"
+                           xlink:href="<?= base_url('images/salle_5/post_it_confidentiel.svg') ?>" />
+                    <rect class="piece-zone"
+                          x="1144.7" y="518.82" width="73.347" height="84.566"
+                          fill="transparent"
+                          style="cursor:pointer;" />
+                </g>
+            <?php endif; ?>
 
-                <!-- 🖱️ Zone cliquable -->
-                <path class="piece-zone"
-                      d="m68.949 182.44 213.56 48.814-2.4407 340.47-216 68.949h0.61017z"
-                      fill="none"
-                       />
-            </g>
+            <!-- Clé USB (Activité 2) -->
+            <?php if (in_array(2, $activites_selectionnees)): ?>
+                <g id="cle_usb" class="objet-enigme" data-activite="2">
+                    <image id="image_cle_usb"
+                           clip-path="url(#clip_cle_usb)"
+                           preserveAspectRatio="none"
+                           x="1228.4" y="701.76" width="63.855" height="21.573"
+                           xlink:href="<?= base_url('images/salle_5/usb_anonyme.svg') ?>" />
+                    <rect class="piece-zone"
+                          x="1228.4" y="701.76" width="63.855" height="21.573"
+                          fill="transparent"
+                          style="cursor:pointer;" />
+                </g>
+            <?php endif; ?>
 
+            <!-- Clé (Activité 3) -->
+            <?php if (in_array(3, $activites_selectionnees)): ?>
+                <g id="cle" class="objet-enigme" data-activite="3">
+                    <image id="image_cle"
+                           clip-path="url(#clip_cle)"
+                           preserveAspectRatio="none"
+                           x="1507.2" y="702.62" width="69.895" height="23.299"
+                           xlink:href="<?= base_url('images/salle_5/cle.svg') ?>" />
+                    <rect class="piece-zone"
+                          x="1507.2" y="702.62" width="69.895" height="23.299"
+                          fill="transparent"
+                          style="cursor:pointer;" />
+                </g>
+            <?php endif; ?>
 
-            <g id="camera">
-                <!-- 🖼️ Image affichée -->
-                <image id="image_camera"
-                       clip-path="url(#clip_camera)"
-                       preserveAspectRatio="none"
-                       x="1577.1" y="89.952" width="232.99" height="113.9"
-                       xlink:href="<?= base_url('images/salle_5/camera.svg') ?>" />
+            <!-- Dossier (Activité 8) -->
+            <?php if (in_array(8, $activites_selectionnees)): ?>
+                <g id="dossier" class="objet-enigme" data-activite="8">
+                    <image id="image_dossier"
+                           clip-path="url(#clip_dossier)"
+                           preserveAspectRatio="none"
+                           x="620.95" y="610.29" width="68.17" height="95.783"
+                           xlink:href="<?= base_url('images/salle_5/dossier.svg') ?>" />
+                    <rect class="piece-zone"
+                          x="620.95" y="610.29" width="68.17" height="95.783"
+                          fill="transparent"
+                          style="cursor:pointer;" />
+                </g>
+            <?php endif; ?>
 
-                <!-- 🖱️ Zone cliquable -->
-                <rect class="piece-zone"
-                      x="1577.1" y="89.952" width="232.99" height="113.9"
-                      fill="none"
-                      />
-            </g>
-
-            <g id="post_it_conf">
-                <!-- 🖼️ Image affichée -->
-                <?php if (in_array("4", $activites_selectionnees)): ?>
-                <image id="image_post_it_conf"
-                       clip-path="url(#clip_post_it_conf)"
-                       preserveAspectRatio="none"
-                       x="1144.7" y="518.82" width="73.347" height="84.566"
-                       xlink:href="<?= base_url('images/salle_5/post_it_confidentiel.svg') ?>" />
-                <?php endif; ?>
-
-                <!-- 🖱️ Zone cliquable -->
-                <rect class="piece-zone"
-                      x="1144.7" y="518.82" width="73.347" height="84.566"
-                      fill="none"
-                      />
-            </g>
-
-            <g id="cle_usb">
-                <!-- 🖼️ Image affichée -->
-                <?php if (in_array("2", $activites_selectionnees)): ?>
-                <image id="image_cle_usb"
-                       clip-path="url(#clip_cle_usb)"
-                       preserveAspectRatio="none"
-                       x="1228.4" y="701.76" width="63.855" height="21.573"
-                       xlink:href="<?= base_url('images/salle_5/usb_anonyme.svg') ?>" />
-                <?php endif; ?>
-
-                <!-- 🖱️ Zone cliquable -->
-                <rect class="piece-zone"
-                      x="1228.4" y="701.76" width="63.855" height="21.573"
-                      fill="none"
-                      />
-            </g>
-
-            <g id="cle">
-                <!-- 🖼️ Image affichée -->
-                <?php if (in_array("3", $activites_selectionnees)): ?>
-                <image id="image_cle"
-                       clip-path="url(#clip_cle)"
-                       preserveAspectRatio="none"
-                       x="1507.2" y="702.62" width="69.895" height="23.299"
-                       xlink:href="<?= base_url('images/salle_5/cle.svg') ?>" />
-                <?php endif; ?>
-
-                <!-- 🖱️ Zone cliquable -->
-                <rect class="piece-zone"
-                      x="1507.2" y="702.62" width="69.895" height="23.299"
-                      fill="none"
-                      />
-            </g>
-
-            <g id="dossier">
-                <!-- 🖼️ Image affichée -->
-                <?php if (in_array("8", $activites_selectionnees)): ?>
-                <image id="image_dossier"
-                       clip-path="url(#clip_dossier)"
-                       preserveAspectRatio="none"
-                       x="620.95" y="610.29" width="68.17" height="95.783"
-                       xlink:href="<?= base_url('images/salle_5/dossier.svg') ?>" />
-                <?php endif; ?>
-
-                <!-- 🖱️ Zone cliquable -->
-                <rect class="piece-zone"
-                      x="620.95" y="610.29" width="68.17" height="95.783"
-                      fill="none"
-                      />
-            </g>
-            <g id="carnet_mdp">
-                <!-- 🖼️ Image affichée -->
-                <?php if (in_array("9", $activites_selectionnees)): ?>
-                <image id="image_carnet_mdp"
-                       clip-path="url(#clip_carnet_mdp)"
-                       preserveAspectRatio="none"
-                       x="328.13" y="825.2" width="115.93" height="106.17"
-                       xlink:href="<?= base_url('images/salle_5/carnet_mdp.svg') ?>" />
-                <?php endif; ?>
-
-                <!-- 🖱️ Zone cliquable -->
-                <rect class="piece-zone"
-                      x="328.13" y="825.2" width="115.93" height="106.17"
-                      fill="none"
-                      />
-            </g>
+            <!-- Carnet MDP (Activité 9) -->
+            <?php if (in_array(9, $activites_selectionnees)): ?>
+                <g id="carnet_mdp" class="objet-enigme" data-activite="9">
+                    <image id="image_carnet_mdp"
+                           clip-path="url(#clip_carnet_mdp)"
+                           preserveAspectRatio="none"
+                           x="328.13" y="825.2" width="115.93" height="106.17"
+                           xlink:href="<?= base_url('images/salle_5/carnet_mdp.svg') ?>" />
+                    <rect class="piece-zone"
+                          x="328.13" y="825.2" width="115.93" height="106.17"
+                          fill="transparent"
+                          style="cursor:pointer;" />
+                </g>
+            <?php endif; ?>
             </svg>
         <?php echo var_dump($activites_selectionnees)?>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const baseUrl = '<?= base_url() ?>';
+                const overlay = document.getElementById('transition-overlay');
+
+                // Récupérer tous les groupes d'objets énigmes
+                const objetsEnigmes = document.querySelectorAll('.objet-enigme');
+
+                objetsEnigmes.forEach(objet => {
+                    const activiteNum = objet.getAttribute('data-activite');
+                    const zone = objet.querySelector('.piece-zone');
+
+                    if (!zone) return;
+
+                    // Appliquer l'effet néon rouge
+                    objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
+                    objet.style.animation = 'neonPulse 2s ease-in-out infinite';
+
+                    // Hover effect
+                    zone.addEventListener('mouseenter', () => {
+                        objet.style.filter = 'drop-shadow(0 0 15px rgba(255, 0, 0, 1)) drop-shadow(0 0 25px rgba(255, 0, 0, 0.8))';
+                    });
+
+                    zone.addEventListener('mouseleave', () => {
+                        objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
+                    });
+
+                    // Redirection au clic
+                    zone.addEventListener('click', () => {
+                        if (overlay) {
+                            overlay.style.opacity = '1';
+                            overlay.style.pointerEvents = 'all';
+                        }
+
+                        setTimeout(() => {
+                            window.location.href = baseUrl + '/enigme/' + activiteNum;
+                        }, 800);
+                    });
+                });
+            });
+        </script>
     </div>
 
     <h1 class="titre-salle"><?=$salle->libelle?></h1>
