@@ -209,7 +209,6 @@ if (in_array("1", $activites_selectionnees)) {
                 </g>
             <?php endif; ?>
             </svg>
-        <?php echo var_dump($activites_selectionnees)?>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const baseUrl = '<?= base_url() ?>';
@@ -251,6 +250,20 @@ if (in_array("1", $activites_selectionnees)) {
                 });
             });
         </script>
+        <!-- Bouton retour -->
+        <div class="retour">
+            <?= anchor(base_url('/resetSalle5'), '<button>' . img([
+                            "src" => $salle->bouton,
+                            "alt" => "bouton de retour",
+                            "class" => "retour-img",
+                            "style" => "width:50px;height:50px;"
+                    ]) . '</button>'); ?>
+        </div>
+
+        <!-- Mascotte -->
+        <div class="mascotte">
+            <?= img(["src" => $mascotte->image, "class" => "mascotte-img", "alt" => "Mascotte"]) ?>
+        </div>
     </div>
 
     <h1 class="titre-salle"><?=$salle->libelle?></h1>
@@ -269,20 +282,7 @@ if (in_array("1", $activites_selectionnees)) {
         </div>
     </div>
 
-    <!-- Bouton retour -->
-    <div class="retour">
-        <?= anchor(base_url('/resetSalle5'), '<button>' . img([
-                        "src" => $salle->bouton,
-                        "alt" => "bouton de retour",
-                        "class" => "retour-img",
-                        "style" => "width:50px;height:50px;"
-                ]) . '</button>'); ?>
-    </div>
 
-    <!-- Mascotte -->
-    <div class="mascotte">
-        <?= img(["src" => $mascotte->image, "class" => "mascotte-img", "alt" => "Mascotte"]) ?>
-    </div>
 </div>
 
 <div id="transition-overlay"></div>

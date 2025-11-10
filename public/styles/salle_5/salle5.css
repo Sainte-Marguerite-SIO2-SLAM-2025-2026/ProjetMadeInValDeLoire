@@ -180,3 +180,41 @@ svg {
     drop-shadow(0 0 20px rgba(255, 0, 0, 0.8)) !important;
 }
 
+.fond-image {
+    position: relative;
+    overflow: visible;
+}
+
+/* SVG = fond */
+.svg-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+/* Mascotte et bouton = superposés AU-DESSUS du SVG, mais dans le même flux */
+.retour, .mascotte {
+    position: absolute;
+    z-index: 2; /* au-dessus du SVG */
+}
+
+.retour {
+    bottom: 30px;
+    left: 30px;
+}
+
+.mascotte {
+    bottom: 30px;
+    right: 30px;
+}
+
+.mascotte-img {
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.mascotte-img:hover {
+    transform: scale(1.1);
+}
+
