@@ -1,51 +1,94 @@
-
-    <?= link_tag('styles/salle_5/enigme.css') ?>
-    <title>La clé USB abandonnée</title>
+<?= link_tag('styles/salle_5/enigme.css') ?>
+<title><?= esc($enigme->libelle) ?></title>
 </head>
 <body>
-<div id="scene-enigme"
-     data-activite="<?= (int) $enigme->numero ?>"
-     data-baseurl="<?= base_url() ?>">
-    <h1 class="titre-enigme"><?=$enigme->libelle?></h1>
-    <p class="consigne"><?=$mode_emploi->explication_2?></p>
+<div class="scene-enigme">
+    <!-- Bouton retour -->
+    <div class="retour-top">
+        <?= anchor('Salle5',
+                form_button([
+                        'content' => 'RETOUR',
+                        'type' => 'button',
+                        'class' => 'btn-retour'
+                ])
+        ) ?>
+    </div>
 
-        <?php $cles = [
-        '<div class="usb" data-cle="A">
-            ' . img(["src" => $usb_finance->image, "alt" => "Clé A"]) . '
-        </div>',
-        '<div class="usb" data-cle="B">
-           
-            ' . img(["src" => $usb_ano->image, "alt" => "Clé B"]) . '
-        </div>',
-        '<div class="usb" data-cle="C">
-            ' . img(["src" => $usb_rh->image, "alt" => "Clé C"]) . '
-        </div>'
+    <!-- Question -->
+    <div class="question-box">
+        <h2 class="question-titre">
+            <?php if ($mode_emploi): ?>
+                <?= esc($mode_emploi->explication_2) ?>
+            <?php else: ?>
+                Quelle clé ne doit surtout pas être branchée ?
+            <?php endif; ?>
+        </h2>
+    </div>
+
+    <!-- Fond de bureau avec SVG -->
+    <div class="bureau-fond">
+        <?= img([
+                "src" => "images/salle_5/bureau.svg",
+                "alt" => "Bureau",
+                "class" => "bureau-bg"
+        ]) ?>
+    </div>
+
+    <!-- Conteneur des clés USB -->
+    <div class="usb-container">
+        <?php
+        $cles = [
+                [
+                        'id' => 'A',
+                        'image' => 'images/salle_5/usb_finance.svg',
+                        'label' => 'Finance',
+                        'position' => 'left'
+                ],
+                [
+                        'id' => 'B',
+                        'image' => 'images/salle_5/usb_anonyme.svg',
+                        'label' => '',
+                        'position' => 'bottom'
+                ],
+                [
+                        'id' => 'C',
+                        'image' => 'images/salle_5/usb_rh.svg',
+                        'label' => 'Service RH',
+                        'position' => 'right'
+                ]
         ];
 
         shuffle($cles);
-        echo '<div class="usb-zone">';
-foreach ($cles as $cle) {
-    echo $cle;
-}
-echo '</div>';
-?>
 
+        foreach ($cles as $cle):
+            ?>
+            <div class="usb-item usb-<?= $cle['position'] ?>" data-cle="<?= $cle['id'] ?>">
+                <?= img([
+                        "src" => $cle['image'],
+                        "alt" => "Clé USB " . esc($cle['label']),
+                        "class" => "usb-img"
+                ]) ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <!-- Feedback -->
     <div class="feedback" id="feedback"></div>
 
-    <!-- Bouton retour -->
-    <div class="retour">
-        <?= anchor(base_url('/enigmeRetour'), '<button>' . img([
-                        "src" => $salle->bouton,
-                        "alt" => "bouton de retour",
-                        "class" => "retour-img",
-                        "style" => "width:50px;height:50px;"
-                ]) . '</button>'); ?>    </div>
-
+    <!-- Mascotte -->
     <div class="mascotte">
-        <?= img(["src" => $mascotte->image, "class" => "mascotte-img", "alt" => "Mascotte"]) ?>
+        <?= img([
+                "src" => $mascotte->image,
+                "class" => "mascotte-img",
+                "alt" => "Mascotte"
+        ]) ?>
     </div>
 </div>
 
 <div id="transition-overlay"></div>
 
+<script>
+    const activite_numero = <?= $enigme->numero ?>;
+    const base_url = '<?= base_url() ?>';
+</script>
 <?= script_tag('js/salle_5/enigme.js') ?>
