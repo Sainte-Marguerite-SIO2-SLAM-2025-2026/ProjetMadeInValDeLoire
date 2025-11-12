@@ -20,6 +20,7 @@ body, html {
     pointer-events: none;
     text-shadow: 2px 2px 8px #000;
     animation: fadeInDown 1s ease;
+    z-index: 1;
 }
 
 .retour {

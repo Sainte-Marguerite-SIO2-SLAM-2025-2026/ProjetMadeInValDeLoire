@@ -76,7 +76,8 @@ class AccueilController extends BaseController
             'mascotte' => $mascotteModel->getMascotteBySalle(5),
             'explication' => $explicationModel->getExplication(1),
             'activites_selectionnees' => $activites_ids,
-            'message_success' => $message_success
+            'message_success' => $message_success,
+            'activites_reussies' => $activites_reussies
         ];
 
         return view('commun\header').

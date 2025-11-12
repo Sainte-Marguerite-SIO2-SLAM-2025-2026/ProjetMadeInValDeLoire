@@ -8,10 +8,10 @@ $imageEcranMilieuGauche = null;
 // On détermine l'image à afficher AVANT d'entrer dans le SVG
 $imageEcranMilieuDroite = null;
 
-if (in_array("1", $activites_selectionnees)) {
+if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies)) {
     $imageEcranMilieuGauche = base_url('images/salle_5/ecran_mail_2.svg');
     $imageEcranMilieuDroite = base_url('images/salle_5/ecran_login_2_1.svg');
-} elseif (in_array("6", $activites_selectionnees)) {
+} elseif (in_array("6", $activites_selectionnees)&& !in_array(2, $activites_reussies)){
     $imageEcranMilieuGauche = base_url('images/salle_5/ecran_data_2.svg');
 }
 ?>
@@ -88,7 +88,7 @@ if (in_array("1", $activites_selectionnees)) {
             <?php endif; ?>
 
             <!-- Porte (Activité 5) -->
-            <?php if (in_array(5, $activites_selectionnees)): ?>
+            <?php if (in_array(5, $activites_selectionnees)&& !in_array(5, $activites_reussies)): ?>
                 <g id="porte" class="objet-enigme" data-activite="5">
                     <image id="image_porte"
                            x="1592.5" y="237.97"
@@ -104,7 +104,7 @@ if (in_array("1", $activites_selectionnees)) {
             <?php endif; ?>
 
             <!-- Fenêtre (Activité 7) -->
-            <?php if (in_array(7, $activites_selectionnees)): ?>
+            <?php if (in_array(7, $activites_selectionnees)&& !in_array(7, $activites_reussies)): ?>
                 <g id="fenetre" class="objet-enigme" data-activite="7">
                     <image id="image_fenetre"
                            x="64" y="182"
@@ -120,7 +120,7 @@ if (in_array("1", $activites_selectionnees)) {
             <?php endif; ?>
 
             <!-- Caméra (Activité 10) -->
-            <?php if (in_array(10, $activites_selectionnees)): ?>
+            <?php if (in_array(10, $activites_selectionnees)&& !in_array(10, $activites_reussies)): ?>
                 <g id="camera" class="objet-enigme" data-activite="10">
                     <image id="image_camera"
                            clip-path="url(#clip_camera)"
@@ -135,7 +135,7 @@ if (in_array("1", $activites_selectionnees)) {
             <?php endif; ?>
 
             <!-- Post-it confidentiel (Activité 4) -->
-            <?php if (in_array(4, $activites_selectionnees)): ?>
+            <?php if (in_array(4, $activites_selectionnees)&& !in_array(4, $activites_reussies)): ?>
                 <g id="post_it_conf" class="objet-enigme" data-activite="4">
                     <image id="image_post_it_conf"
                            clip-path="url(#clip_post_it_conf)"
@@ -150,7 +150,7 @@ if (in_array("1", $activites_selectionnees)) {
             <?php endif; ?>
 
             <!-- Clé USB (Activité 2) -->
-            <?php if (in_array(2, $activites_selectionnees)): ?>
+            <?php if (in_array(2, $activites_selectionnees)&& !in_array(2, $activites_reussies)): ?>
                 <g id="cle_usb" class="objet-enigme" data-activite="2">
                     <image id="image_cle_usb"
                            clip-path="url(#clip_cle_usb)"
@@ -165,7 +165,7 @@ if (in_array("1", $activites_selectionnees)) {
             <?php endif; ?>
 
             <!-- Clé (Activité 3) -->
-            <?php if (in_array(3, $activites_selectionnees)): ?>
+            <?php if (in_array(3, $activites_selectionnees)&& !in_array(3, $activites_reussies)): ?>
                 <g id="cle" class="objet-enigme" data-activite="3">
                     <image id="image_cle"
                            clip-path="url(#clip_cle)"
@@ -180,7 +180,7 @@ if (in_array("1", $activites_selectionnees)) {
             <?php endif; ?>
 
             <!-- Dossier (Activité 8) -->
-            <?php if (in_array(8, $activites_selectionnees)): ?>
+            <?php if (in_array(8, $activites_selectionnees)&& !in_array(8, $activites_reussies)): ?>
                 <g id="dossier" class="objet-enigme" data-activite="8">
                     <image id="image_dossier"
                            clip-path="url(#clip_dossier)"
@@ -195,7 +195,7 @@ if (in_array("1", $activites_selectionnees)) {
             <?php endif; ?>
 
             <!-- Carnet MDP (Activité 9) -->
-            <?php if (in_array(9, $activites_selectionnees)): ?>
+            <?php if (in_array(9, $activites_selectionnees)&& !in_array(9, $activites_reussies)): ?>
                 <g id="carnet_mdp" class="objet-enigme" data-activite="9">
                     <image id="image_carnet_mdp"
                            clip-path="url(#clip_carnet_mdp)"
@@ -218,12 +218,12 @@ if (in_array("1", $activites_selectionnees)) {
                 const objetsEnigmes = document.querySelectorAll('.objet-enigme');
 
                 objetsEnigmes.forEach(objet => {
-                    const activiteNum = objet.getAttribute('data-activite');
+                    const activiteNum = parseInt(objet.getAttribute('data-activite'));
                     const zone = objet.querySelector('.piece-zone');
 
                     if (!zone) return;
 
-                    // Appliquer l'effet néon rouge
+                    // Appliquer l'effet néon rouge pour les énigmes non réussies
                     objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
                     objet.style.animation = 'neonPulse 2s ease-in-out infinite';
 

@@ -289,3 +289,39 @@ html, body {
         padding: 20px 30px;
     }
 }
+
+.bureau-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1400px;
+    z-index: 1;
+}
+
+.bureau-wrapper svg {
+    width: 100%;
+    height: auto;
+}
+
+.objet-cliquable {
+    cursor: pointer;
+}
+
+.objet-cliquable.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.objet-cliquable.selected {
+    transform: scale(1.1);
+}
+
+.objet-cliquable.correct {
+    animation: bounce-correct 0.6s ease !important;
+}
+
+.objet-cliquable.incorrect {
+    animation: shake 0.5s ease !important;
+}

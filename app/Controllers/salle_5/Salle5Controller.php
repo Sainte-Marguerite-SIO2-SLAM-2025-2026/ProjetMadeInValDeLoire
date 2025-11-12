@@ -11,6 +11,8 @@ use App\Models\salle_5\ExplicationModel;
 
 class Salle5Controller extends BaseController
 {
+    // Liste des énigmes qui utilisent le fond de bureau
+    private $enigmes_bureau = [2, 3, 4, 8, 9];
 
     public function enigme($activite_numero)
     {
@@ -59,15 +61,15 @@ class Salle5Controller extends BaseController
             'explication' => $explication,
         ];
 
-        // Charger la vue selon l'activité
-        if ($activite_numero == 2) {
-            // Énigme des clés USB
+        // Charger la vue selon si c'est une énigme bureau ou pas
+        if (in_array($activite_numero, $this->enigmes_bureau)) {
+            // Énigmes sur fond de bureau (2, 3, 4, 8, 9)
             return view('commun\header') .
-                view('salle_5/ClesUsb', $data) .
+                view('salle_5/EnigmeBureau', $data) .
                 view('commun\footer');
         }
 
-        // Vue par défaut
+        // Vue par défaut pour les autres énigmes
         return view('commun\header') .
             view('salle_5/Enigme', $data) .
             view('commun\footer');
@@ -110,6 +112,7 @@ class Salle5Controller extends BaseController
                 'success' => false,
                 'message' => 'Énigme déjà réussie'
             ]);
+
         }
 
         // Vérifier la réponse via le model
@@ -140,5 +143,4 @@ class Salle5Controller extends BaseController
         session()->remove('activites_reussies');
         return redirect()->to(base_url('Salle5'));
     }
-
 }
