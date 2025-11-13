@@ -8,19 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (!zone) return;
 
-        // Effet néon rouge pulsant
-        objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
-        objet.style.animation = 'pulse-neon 2s ease-in-out infinite';
-
-        // Hover
-        zone.addEventListener('mouseenter', () => {
-            objet.style.filter = 'drop-shadow(0 0 15px rgba(255, 0, 0, 1)) drop-shadow(0 0 25px rgba(255, 0, 0, 0.8))';
-        });
-
-        zone.addEventListener('mouseleave', () => {
-            objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
-        });
-
         // Clic
         zone.addEventListener('click', function() {
             if (objet.classList.contains('disabled')) return;
