@@ -1,7 +1,7 @@
     <?= link_tag('styles/salle_5/salle5.css') ?>
     <title>Salle 5</title>
 </head>
-<body>
+<body data-baseurl="<?= base_url() ?>">
 <?php
 // On détermine l'image à afficher AVANT d'entrer dans le SVG
 $imageEcranMilieuGauche = null;
@@ -209,47 +209,9 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
                 </g>
             <?php endif; ?>
             </svg>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const baseUrl = '<?= base_url() ?>';
-                const overlay = document.getElementById('transition-overlay');
 
-                // Récupérer tous les groupes d'objets énigmes
-                const objetsEnigmes = document.querySelectorAll('.objet-enigme');
 
-                objetsEnigmes.forEach(objet => {
-                    const activiteNum = parseInt(objet.getAttribute('data-activite'));
-                    const zone = objet.querySelector('.piece-zone');
 
-                    if (!zone) return;
-
-                    // Appliquer l'effet néon rouge pour les énigmes non réussies
-                    objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
-                    objet.style.animation = 'neonPulse 2s ease-in-out infinite';
-
-                    // Hover effect
-                    zone.addEventListener('mouseenter', () => {
-                        objet.style.filter = 'drop-shadow(0 0 15px rgba(255, 0, 0, 1)) drop-shadow(0 0 25px rgba(255, 0, 0, 0.8))';
-                    });
-
-                    zone.addEventListener('mouseleave', () => {
-                        objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
-                    });
-
-                    // Redirection au clic
-                    zone.addEventListener('click', () => {
-                        if (overlay) {
-                            overlay.style.opacity = '1';
-                            overlay.style.pointerEvents = 'all';
-                        }
-
-                        setTimeout(() => {
-                            window.location.href = baseUrl + '/enigme/' + activiteNum;
-                        }, 800);
-                    });
-                });
-            });
-        </script>
         <!-- Bouton retour -->
         <div class="retour">
             <?= anchor(base_url('/resetSalle5'), '<button>' . img([
@@ -274,13 +236,15 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
         </div>
     <?php endif; ?>
 
-    <div id="popup-explication" class="popup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="closePopup()">&times;</span>
-            <h2>Explication</h2>
-            <p><?= $salle->intro_salle ?></p>
+    <?php if ($afficher_popup): ?>
+        <div id="popup-explication" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup()">&times;</span>
+                <h2>Explication</h2>
+                <p><?= $salle->intro_salle ?></p>
+            </div>
         </div>
-    </div>
+    <?php endif; ?>
 
 
 </div>

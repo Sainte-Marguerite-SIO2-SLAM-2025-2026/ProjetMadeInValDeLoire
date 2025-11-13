@@ -55,6 +55,7 @@ class AccueilController extends BaseController
                 $activites_ids = array_column($activites, 'numero');
                 session()->set('activites_salle5', $activites_ids);
                 session()->set('activites_reussies', []);
+                session()->remove('popup_salle5_vue');
             }
         }
 
@@ -68,6 +69,15 @@ class AccueilController extends BaseController
             // Réinitialiser pour une nouvelle partie
             session()->remove('activites_salle5');
             session()->remove('activites_reussies');
+            session()->remove('popup_salle5_vue');
+        }
+
+        // 🆕 Vérifier si la popup a déjà été vue
+        $afficher_popup = !session()->has('popup_salle5_vue');
+
+        // 🆕 Marquer la popup comme vue
+        if ($afficher_popup) {
+            session()->set('popup_salle5_vue', true);
         }
 
         // Récupérer les données via les models
@@ -77,7 +87,8 @@ class AccueilController extends BaseController
             'explication' => $explicationModel->getExplication(1),
             'activites_selectionnees' => $activites_ids,
             'message_success' => $message_success,
-            'activites_reussies' => $activites_reussies
+            'activites_reussies' => $activites_reussies,
+            'afficher_popup' => $afficher_popup
         ];
 
         return view('commun\header').

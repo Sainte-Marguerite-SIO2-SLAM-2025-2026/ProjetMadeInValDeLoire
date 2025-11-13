@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         setTimeout(() => {
                             overlay.style.opacity = '1';
                             overlay.style.pointerEvents = 'all';
+
                             setTimeout(() => {
                                 window.location.href = base_url + '/Salle5';
                             }, 800);
