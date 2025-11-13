@@ -917,15 +917,20 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                           style="cursor:pointer;"/>
                 </g>
 
-                <g id="usb_right" class="objet-cliquable" data-reponse="C">
-                    <image
-                            x="1097" y="292" width="155" height="78"
-                            transform="rotate(20, 1174, 331)"
-                            xlink:href="<?= base_url('images/salle_5/usb_rh.svg') ?>" />
-                    <rect class="zone-click"
-                          x="1097" y="292" width="155" height="78"
-                          transform="rotate(20, 1174, 331)"
-                          fill="transparent" style="cursor:pointer;" />
+                <g id="dossier" class="objet-cliquable" data-reponse="A">
+                    <image clip-path="url(#clip_dossier)"
+                           x="940.62" y="410.42" width="288.54" height="387.5"
+                           xlink:href="<?= base_url('images/salle_5/dossier.svg') ?>"/>
+                    <rect class="zone-click" x="940.62" y="410.42" width="288.54" height="387.5" fill="transparent"
+                          style="cursor:pointer;"/>
+                </g>
+
+                <g id="carnet" class="objet-cliquable" data-reponse="A">
+                    <image clip-path="url(#clip_carnet)"
+                           x="40.625" y="271.88" width="408.33" height="275"
+                           xlink:href="<?= base_url('images/salle_5/carnet.svg') ?>"/>
+                    <rect class="zone-click" x="40.625" y="271.88" width="408.33" height="275" fill="transparent"
+                          style="cursor:pointer;"/>
                 </g>
             <?php endif; ?>
 
@@ -945,6 +950,17 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                            xlink:href="<?= base_url('images/salle_5/carnet_mdp.svg') ?>"/>
                     <rect class="zone-click" x="40.625" y="271.88" width="408.33" height="275" fill="transparent"
                           style="cursor:pointer;"/>
+                </g>
+
+                <g id="usb_right" class="objet-cliquable" data-reponse="C">
+                    <image
+                            x="1097" y="292" width="155" height="78"
+                            transform="rotate(20, 1174, 331)"
+                            xlink:href="<?= base_url('images/salle_5/usb_rh.svg') ?>" />
+                    <rect class="zone-click"
+                          x="1097" y="292" width="155" height="78"
+                          transform="rotate(20, 1174, 331)"
+                          fill="transparent" style="cursor:pointer;" />
                 </g>
             <?php endif; ?>
 
@@ -967,7 +983,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                 </g>
             <?php endif; ?>
 
-            <?php if ($enigme->numero != 8): ?>
+            <?php if ($enigme->numero != 8 && $enigme->numero != 4): ?>
             <g id="carnet" class="objet-cliquable" data-reponse="A">
                 <image clip-path="url(#clip_carnet)"
                        x="963.54" y="519.79" width="345.83" height="277.08"
