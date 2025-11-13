@@ -842,5 +842,17 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
   <rect id="post_it_code" x="103.12" y="418.75" width="120.83" height="117.71">
    <title>post_it_code</title>
   </rect>
+  <rect x="987" y="263" width="533" height="72" ry="0">
+   <title>choix_2</title>
+  </rect>
+  <rect x="987" y="143" width="533" height="72" ry="0">
+   <title>choix_1</title>
+  </rect>
+  <rect x="987" y="383" width="533" height="72" ry="0">
+   <title>choix_3</title>
+  </rect>
+  <rect x="987" y="503" width="533" height="72" ry="0">
+   <title>choix_4</title>
+  </rect>
  </g>
 </svg>

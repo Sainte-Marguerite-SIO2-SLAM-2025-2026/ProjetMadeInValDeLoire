@@ -942,6 +942,16 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                            xlink:href="<?= base_url('images/salle_5/dossier.svg') ?>"/>
                     <rect class="zone-click" x="940.62" y="410.42" width="288.54" height="387.5" fill="transparent"
                           style="cursor:pointer;"/>
+                    <text
+                            x="1084.89"  <!-- 940.62 + (288.54 / 2) -->
+                    y="604.17"   <!-- 410.42 + (387.5 / 2) -->
+                    font-size="24"
+                    fill="black"
+                    font-family="Arial"
+                    text-anchor="middle"
+                    dominant-baseline="middle">
+                    Mon texte sur le dossier
+                    </text>
                 </g>
 
                 <g id="carnet_mdp" class="objet-cliquable" data-reponse="A">
@@ -976,11 +986,44 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
 
                 <g id="post_it_code" class="objet-cliquable" data-reponse="A">
                     <image clip-path="url(#clip_post_it_code)"
-                           x="103.12" y="418.75" width="120.83" height="117.71""
+                           x="103.12" y="418.75" width="120.83" height="117.71"
                     xlink:href="<?= base_url('images/salle_5/post_it_confidentiel.svg') ?>"/>
                     <rect class="zone-click" x="103.12" y="418.75" width="120.83" height="117.71" fill="transparent"
                           style="cursor:pointer;"/>
                 </g>
+
+                <g id="choix_1" class="objet-cliquable" data-reponse="B">
+                    <image clip-path="url(#clip_carte_pass)"
+                           x="987" y="143" width="533" height="72"
+                           xlink:href="<?= base_url('images/salle_5/choix.svg') ?>"/>
+                    <rect class="zone-click" x="987" y="143" width="533" height="72" fill="transparent"
+                          style="cursor:pointer;"/>
+                </g>
+
+                <g id="choix_2" class="objet-cliquable" data-reponse="B">
+                    <image clip-path="url(#clip_carte_pass)"
+                           x="987" y="263" width="533" height="72"
+                           xlink:href="<?= base_url('images/salle_5/choix.svg') ?>"/>
+                    <rect class="zone-click" x="987" y="263" width="533" height="72" fill="transparent"
+                          style="cursor:pointer;"/>
+                </g>
+
+                <g id="choix_3" class="objet-cliquable" data-reponse="B">
+                    <image clip-path="url(#clip_carte_pass)"
+                           x="987" y="383" width="533" height="72"
+                           xlink:href="<?= base_url('images/salle_5/choix.svg') ?>"/>
+                    <rect class="zone-click" x="987" y="383" width="533" height="72" fill="transparent"
+                          style="cursor:pointer;"/>
+                </g>
+
+                <g id="choix_4" class="objet-cliquable" data-reponse="B">
+                    <image clip-path="url(#clip_carte_pass)"
+                           x="987" y="503" width="533" height="72"
+                           xlink:href="<?= base_url('images/salle_5/choix.svg') ?>"/>
+                    <rect class="zone-click" x="987" y="503" width="533" height="72" fill="transparent"
+                          style="cursor:pointer;"/>
+                </g>
+
             <?php endif; ?>
 
             <?php if ($enigme->numero != 8 && $enigme->numero != 4): ?>
