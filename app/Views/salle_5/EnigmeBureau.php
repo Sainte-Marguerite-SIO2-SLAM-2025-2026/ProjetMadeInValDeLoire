@@ -838,7 +838,17 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
 "/>
 
 
-
+            <?php if ($enigme->numero != 8 && $enigme->numero != 4): ?>
+                <g id="carnet" <?php if ($enigme->numero != 9): ?>class="objet-cliquable"<?php endif; ?> data-reponse="A">
+                    <image clip-path="url(#clip_carnet)"
+                           x="963.54" y="519.79" width="345.83" height="277.08"
+                           xlink:href="<?= base_url('images/salle_5/carnet.svg') ?>"/>
+                    <rect class="zone-click" x="963.54" y="519.79" width="345.83" height="277.08" fill="transparent"
+                            <?php if ($enigme->numero == 9): ?>
+                          style="cursor:default;"
+                    <?php endif; ?>/>
+                </g>
+            <?php endif; ?>
 
             <!-- Énigme 2 : Clés USB -->
             <?php if ($enigme->numero == 2): ?>
@@ -1026,15 +1036,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
 
             <?php endif; ?>
 
-            <?php if ($enigme->numero != 8 && $enigme->numero != 4): ?>
-            <g id="carnet" class="objet-cliquable" data-reponse="A">
-                <image clip-path="url(#clip_carnet)"
-                       x="963.54" y="519.79" width="345.83" height="277.08"
-                       xlink:href="<?= base_url('images/salle_5/carnet.svg') ?>"/>
-                <rect class="zone-click" x="963.54" y="519.79" width="345.83" height="277.08" fill="transparent"
-                      style="cursor:pointer;"/>
-            </g>
-            <?php endif; ?>
+
         </svg>
     </div>
 
