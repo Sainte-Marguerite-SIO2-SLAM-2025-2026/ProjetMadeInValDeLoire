@@ -8,6 +8,7 @@ use App\Models\salle_5\ModeEmploiModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\SalleModel;
 use App\Models\salle_5\ExplicationModel;
+use App\Models\salle_5\ZoneModel;
 
 class Salle5Controller extends BaseController
 {
@@ -112,28 +113,40 @@ class Salle5Controller extends BaseController
                 'success' => false,
                 'message' => 'Énigme déjà réussie'
             ]);
-
         }
 
-        // Vérifier la réponse via le model
-        $activiteModel = new ActiviteModel();
-        $resultat = $activiteModel->verifierReponse($activite_numero, $reponse);
+        // Vérifier la réponse via les zones de la BDD
+        $zoneModel = new ZoneModel();
+        $resultat = $zoneModel->verifierZone($activite_numero, $reponse);
 
         if ($resultat['valid']) {
             // Ajouter aux activités réussies
             $activites_reussies[] = $activite_numero;
             session()->set('activites_reussies', $activites_reussies);
 
+            // Messages personnalisés par activité
+            $messages = [
+                2 => 'Excellent ! Une clé USB inconnue est un risque majeur. Elle pourrait contenir un malware (attaque BadUSB).',
+                3 => 'Bravo ! Un badge d\'entreprise ne doit jamais être laissé sans surveillance.',
+                4 => 'Bien vu ! Les informations confidentielles ne doivent jamais être visibles.',
+                5 => 'Parfait ! Les portes doivent toujours être fermées pour éviter les intrusions.',
+                6 => 'Très bien ! Les écrans non verrouillés sont une faille de sécurité.',
+                7 => 'Exact ! Les fenêtres ouvertes facilitent les vols et intrusions.',
+                8 => 'Félicitations ! La politique "clean desk" est essentielle.',
+                9 => 'Super ! Les mots de passe ne doivent jamais être notés.',
+                10 => 'Bravo ! Les caméras internes doivent être utilisées avec proportionnalité.'
+            ];
+
             return $this->response->setJSON([
                 'success' => true,
-                'message' => $resultat['message'],
+                'message' => $messages[$activite_numero] ?? 'Bonne réponse !',
                 'enigmes_restantes' => 2 - count($activites_reussies)
             ]);
         }
 
         return $this->response->setJSON([
             'success' => false,
-            'message' => $resultat['message']
+            'message' => 'Mauvaise réponse, réessayez !'
         ]);
     }
 
