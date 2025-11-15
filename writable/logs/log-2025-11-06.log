@@ -1,0 +1,55 @@
+DEBUG - 2025-11-06 10:38:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-06 10:38:03 --> Error connecting to the database: mysqli_sql_exception: Base 'made_in_val_de_loire' inconnue in C:\wamp\www\ProjetMadeInValDeLoire\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\wamp\www\ProjetMadeInValDeLoire\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'made_in_val_de_...', 3306, '', 0)
+#1 C:\wamp\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\wamp\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\wamp\www\ProjetMadeInValDeLoire\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp\www\ProjetMadeInValDeLoire\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp\www\ProjetMadeInValDeLoire\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\wamp\www\ProjetMadeInValDeLoire\app\Models\salle_5\ActiviteModel.php(28): CodeIgniter\BaseModel->findAll()
+#7 C:\wamp\www\ProjetMadeInValDeLoire\app\Controllers\accueil\AccueilController.php(53): App\Models\salle_5\ActiviteModel->getActivitesAleatoires(5, 2)
+#8 C:\wamp\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+#9 C:\wamp\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+#10 C:\wamp\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\wamp\www\ProjetMadeInValDeLoire\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\wamp\www\ProjetMadeInValDeLoire\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\wamp\www\ProjetMadeInValDeLoire\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Base 'made_in_val_de_loire' inconnue in C:\wamp\www\ProjetMadeInValDeLoire\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\wamp\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\wamp\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\wamp\www\ProjetMadeInValDeLoire\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\wamp\www\ProjetMadeInValDeLoire\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\wamp\www\ProjetMadeInValDeLoire\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\wamp\www\ProjetMadeInValDeLoire\app\Models\salle_5\ActiviteModel.php(28): CodeIgniter\BaseModel->findAll()
+#6 C:\wamp\www\ProjetMadeInValDeLoire\app\Controllers\accueil\AccueilController.php(53): App\Models\salle_5\ActiviteModel->getActivitesAleatoires(5, 2)
+#7 C:\wamp\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+#8 C:\wamp\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+#9 C:\wamp\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp\www\ProjetMadeInValDeLoire\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\wamp\www\ProjetMadeInValDeLoire\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\wamp\www\ProjetMadeInValDeLoire\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-11-06 10:38:03 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Base 'made_in_val_de_loire' inconnue
+[Method: GET, Route: Salle5]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `activite`
+WHERE `salle_numero` = :salle_numero:
+ORDER BY RAND()
+ LIMIT 2', [...], false)
+ 3 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\salle_5\ActiviteModel.php(28): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\accueil\AccueilController.php(53): App\Models\salle_5\ActiviteModel->getActivitesAleatoires(5, 2)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
