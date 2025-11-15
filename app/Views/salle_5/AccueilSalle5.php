@@ -215,10 +215,11 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
                 <h2>🎉 Félicitations !</h2>
                 <p>Vous avez terminé les 2 énigmes de la salle !</p>
                 <p>Vous avez démontré votre vigilance et votre compréhension des enjeux de la sécurité physique et matérielle.</p>
+                <p>Vous pouvez accéder à la salle suivante !</p>
                 <div class="popup-actions">
                     <?= anchor(base_url('/finSalle5'),
                             form_button([
-                                    'content' => 'Retour à l\'accueil',
+                                    'content' => 'Continuer le périple',
                                     'type' => 'button',
                                     'class' => 'btn-accueil'
                             ])

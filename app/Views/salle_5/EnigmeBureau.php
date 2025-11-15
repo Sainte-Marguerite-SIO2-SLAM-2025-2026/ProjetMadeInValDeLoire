@@ -962,7 +962,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                           style="cursor:pointer;"/>
                 </g>
 
-                <g id="usb_right" class="objet-cliquable" data-reponse="C">
+                <g id="usb_right" class="objet-cliquable" data-reponse="cle_usb_droite_bonne">
                     <image
                             x="1097" y="292" width="155" height="78"
                             transform="rotate(20, 1174, 331)"
@@ -996,6 +996,14 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                     <image clip-path="url(#clip_carte_pass)"
                            x="987" y="143" width="533" height="72"
                            xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
+                    <text x="1253" y="188"
+                          text-anchor="middle"
+                          font-size="32"
+                          font-weight="600"
+                          fill="black"
+                          pointer-events="none">
+                        Le bureau est mal rangé
+                    </text>
                     <rect class="zone-click" x="987" y="143" width="533" height="72" fill="transparent"
                           style="cursor:pointer;"/>
                 </g>
@@ -1004,6 +1012,16 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                     <image clip-path="url(#clip_carte_pass)"
                            x="987" y="263" width="533" height="72"
                            xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
+
+                    <text x="1253" y="308"
+                          text-anchor="middle"
+                          font-size="32"
+                          font-weight="600"
+                          fill="black"
+                          pointer-events="none">
+                        Le code est trop simple
+                    </text>
+
                     <rect class="zone-click" x="987" y="263" width="533" height="72" fill="transparent"
                           style="cursor:pointer;"/>
                 </g>
@@ -1012,6 +1030,16 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                     <image clip-path="url(#clip_carte_pass)"
                            x="987" y="383" width="533" height="72"
                            xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
+
+                    <text x="1253" y="428"
+                          text-anchor="middle"
+                          font-size="32"
+                          font-weight="600"
+                          fill="black"
+                          pointer-events="none">
+                        Badge non porté/abandonné
+                    </text>
+
                     <rect class="zone-click" x="987" y="383" width="533" height="72" fill="transparent"
                           style="cursor:pointer;"/>
                 </g>
@@ -1020,6 +1048,16 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                     <image clip-path="url(#clip_carte_pass)"
                            x="987" y="503" width="533" height="72"
                            xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
+
+                    <text x="1253" y="548"
+                          text-anchor="middle"
+                          font-size="32"
+                          font-weight="600"
+                          fill="black"
+                          pointer-events="none">
+                        Code d'accès écrit et visible
+                    </text>
+
                     <rect class="zone-click" x="987" y="503" width="533" height="72" fill="transparent"
                           style="cursor:pointer;"/>
                 </g>
