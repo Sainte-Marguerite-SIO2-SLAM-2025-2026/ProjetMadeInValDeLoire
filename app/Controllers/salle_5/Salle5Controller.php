@@ -72,7 +72,7 @@ class Salle5Controller extends BaseController
 
         // Vue par défaut pour les autres énigmes
         return view('commun\header') .
-            view('salle_5/Enigme', $data) .
+            view('salle_5/EnigmeSalle', $data) .
             view('commun\footer');
     }
 
