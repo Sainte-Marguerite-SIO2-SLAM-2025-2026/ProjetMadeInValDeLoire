@@ -25,7 +25,33 @@ class ZoneModel extends Model
     }
 
     /**
-     * Vérifier si une zone cliquée est la bonne réponse
+     * Récupérer toutes les bonnes réponses d'une activité
+     */
+    public function getBonnesReponsesByActivite($activite_numero)
+    {
+        return $this->db->table('zone')
+            ->select('zone.nom')
+            ->join('avoir_zone', 'avoir_zone.zone_numero = zone.numero')
+            ->where('avoir_zone.activite_numero', $activite_numero)
+            ->where('zone.bonne_reponse', 1)
+            ->get()
+            ->getResult();
+    }
+
+    /**
+     * Compter le nombre de bonnes réponses attendues pour une activité
+     */
+    public function countBonnesReponses($activite_numero)
+    {
+        return $this->db->table('zone')
+            ->join('avoir_zone', 'avoir_zone.zone_numero = zone.numero')
+            ->where('avoir_zone.activite_numero', $activite_numero)
+            ->where('zone.bonne_reponse', 1)
+            ->countAllResults();
+    }
+
+    /**
+     * Vérifier si une zone cliquée est une bonne réponse
      */
     public function verifierZone($activite_numero, $zone_nom)
     {

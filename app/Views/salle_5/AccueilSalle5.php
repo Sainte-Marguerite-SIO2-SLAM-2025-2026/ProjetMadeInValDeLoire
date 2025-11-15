@@ -198,12 +198,6 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
 
     <h1 class="titre-salle"><?=$salle->libelle?></h1>
 
-    <?php if (isset($message_success)): ?>
-        <div class="message-success">
-            <?= $message_success ?>
-        </div>
-    <?php endif; ?>
-
     <?php if ($afficher_popup): ?>
         <div id="popup-explication" class="popup">
             <div class="popup-content">
@@ -213,6 +207,28 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
             </div>
         </div>
     <?php endif; ?>
+
+    <!-- 🎉 Popup de succès (quand les 2 énigmes sont réussies) -->
+    <?php if ($afficher_popup_succes): ?>
+        <div id="popup-succes" class="popup popup-succes" style="display: flex;">
+            <div class="popup-content popup-succes-content">
+                <h2>🎉 Félicitations !</h2>
+                <p>Vous avez terminé les 2 énigmes de la salle !</p>
+                <p>Vous avez démontré votre vigilance et votre compréhension des enjeux de la sécurité physique et matérielle.</p>
+                <div class="popup-actions">
+                    <?= anchor(base_url('/finSalle5'),
+                            form_button([
+                                    'content' => 'Retour à l\'accueil',
+                                    'type' => 'button',
+                                    'class' => 'btn-accueil'
+                            ])
+                    ) ?>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+</div>
 
 
 </div>

@@ -115,38 +115,65 @@ class Salle5Controller extends BaseController
             ]);
         }
 
+        // Récupérer ou initialiser les réponses de l'utilisateur pour cette activité
+        $reponses_utilisateur = session()->get('reponses_activite_' . $activite_numero) ?? [];
+
         // Vérifier la réponse via les zones de la BDD
         $zoneModel = new ZoneModel();
         $resultat = $zoneModel->verifierZone($activite_numero, $reponse);
 
-        if ($resultat['valid']) {
-            // Ajouter aux activités réussies
+        if (!$resultat['valid']) {
+            // Mauvaise réponse
+            return $this->response->setJSON([
+                'success' => false,
+                'is_correct' => false,
+                'message' => 'Mauvaise réponse, réessayez !'
+            ]);
+        }
+
+        // Bonne réponse : l'ajouter aux réponses de l'utilisateur
+        if (!in_array($reponse, $reponses_utilisateur)) {
+            $reponses_utilisateur[] = $reponse;
+            session()->set('reponses_activite_' . $activite_numero, $reponses_utilisateur);
+        }
+
+        // Compter le nombre de bonnes réponses attendues
+        $nb_bonnes_reponses_attendues = $zoneModel->countBonnesReponses($activite_numero);
+        $nb_reponses_trouvees = count($reponses_utilisateur);
+
+        // Vérifier si toutes les bonnes réponses ont été trouvées
+        if ($nb_reponses_trouvees >= $nb_bonnes_reponses_attendues) {
+            // Activité complétée !
             $activites_reussies[] = $activite_numero;
             session()->set('activites_reussies', $activites_reussies);
+            session()->remove('reponses_activite_' . $activite_numero);
 
             // Messages personnalisés par activité
             $messages = [
                 2 => 'Excellent ! Une clé USB inconnue est un risque majeur. Elle pourrait contenir un malware (attaque BadUSB).',
                 3 => 'Bravo ! Un badge d\'entreprise ne doit jamais être laissé sans surveillance.',
                 4 => 'Bien vu ! Les informations confidentielles ne doivent jamais être visibles.',
-                5 => 'Parfait ! Les portes doivent toujours être fermées pour éviter les intrusions.',
-                6 => 'Très bien ! Les écrans non verrouillés sont une faille de sécurité.',
-                7 => 'Exact ! Les fenêtres ouvertes facilitent les vols et intrusions.',
                 8 => 'Félicitations ! La politique "clean desk" est essentielle.',
-                9 => 'Super ! Les mots de passe ne doivent jamais être notés.',
-                10 => 'Bravo ! Les caméras internes doivent être utilisées avec proportionnalité.'
+                9 => 'Super ! Les mots de passe ne doivent jamais être notés et il faut toujours choisir des MDP forts.',
             ];
 
             return $this->response->setJSON([
                 'success' => true,
-                'message' => $messages[$activite_numero] ?? 'Bonne réponse !',
+                'is_correct' => true,
+                'completed' => true,
+                'message' => $messages[$activite_numero] ?? 'Félicitations ! Énigme réussie !',
                 'enigmes_restantes' => 2 - count($activites_reussies)
             ]);
         }
 
+        // Bonne réponse mais il en reste d'autres à trouver
         return $this->response->setJSON([
-            'success' => false,
-            'message' => 'Mauvaise réponse, réessayez !'
+            'success' => true,
+            'is_correct' => true,
+            'completed' => false,
+            'message' => 'Bonne réponse ! Continuez, il en reste d\'autres.',
+            'reponses_trouvees' => $nb_reponses_trouvees,
+            'total_attendu' => $nb_bonnes_reponses_attendues
         ]);
     }
 
@@ -155,5 +182,22 @@ class Salle5Controller extends BaseController
         session()->remove('activites_salle5');
         session()->remove('activites_reussies');
         return redirect()->to(base_url('Salle5'));
+    }
+
+
+    public function finSalle()
+    {
+        // Réinitialiser toutes les sessions de la salle 5
+        session()->remove('activites_salle5');
+        session()->remove('activites_reussies');
+        session()->remove('popup_salle5_vue');
+
+        // Supprimer les réponses temporaires de toutes les activités
+        for ($i = 1; $i <= 10; $i++) {
+            session()->remove('reponses_activite_' . $i);
+        }
+
+        // Rediriger vers la page d'accueil du site
+        return redirect()->to(base_url('/'));
     }
 }

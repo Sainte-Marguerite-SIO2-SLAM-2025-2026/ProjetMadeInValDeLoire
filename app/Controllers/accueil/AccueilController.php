@@ -55,6 +55,7 @@ class AccueilController extends BaseController
                 $activites_ids = array_column($activites, 'numero');
                 session()->set('activites_salle5', $activites_ids);
                 session()->set('activites_reussies', []);
+                // 🆕 Réinitialiser l'état de la popup lors d'une nouvelle partie
                 session()->remove('popup_salle5_vue');
             }
         }
@@ -63,13 +64,10 @@ class AccueilController extends BaseController
         $activites_ids = session()->get('activites_salle5') ?? [];
         $activites_reussies = session()->get('activites_reussies') ?? [];
 
-        $message_success = null;
+        $afficher_popup_succes = false;
         if (count($activites_reussies) === 2 && count($activites_ids) === 2) {
-            $message_success = 'Félicitations ! Vous avez terminé les 2 énigmes de la salle !';
-            // Réinitialiser pour une nouvelle partie
-            session()->remove('activites_salle5');
-            session()->remove('activites_reussies');
-            session()->remove('popup_salle5_vue');
+            $afficher_popup_succes = true;
+            // NE PAS réinitialiser ici, on le fera après validation du popup
         }
 
         // 🆕 Vérifier si la popup a déjà été vue
@@ -86,9 +84,10 @@ class AccueilController extends BaseController
             'mascotte' => $mascotteModel->getMascotteBySalle(5),
             'explication' => $explicationModel->getExplication(1),
             'activites_selectionnees' => $activites_ids,
-            'message_success' => $message_success,
             'activites_reussies' => $activites_reussies,
-            'afficher_popup' => $afficher_popup
+            'afficher_popup' => $afficher_popup, // 🆕 Passer l'info à la vue
+            'afficher_popup_succes' => $afficher_popup_succes
+
         ];
 
         return view('commun\header').
