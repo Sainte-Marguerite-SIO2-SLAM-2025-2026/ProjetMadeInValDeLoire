@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relier des cartes</title>
+<!--    --><?php //= link_tag('styles/salle_4/friseSalle4.css') ?>
     <?= link_tag('styles/salle_4/style_3.css') ?>
 </head>
 <body>
@@ -27,7 +28,7 @@
 
         <canvas id="canvas" width="1500" height="975"></canvas>
 
-<!--        <!--#region 🃏 Cartes  -->-->
+<!--        #region 🃏 Cartes  -->
 <!---->
 <!--        --><?php //= img([
 //                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_01.png',
@@ -101,88 +102,30 @@
 //                'style'    => 'left:73%; top:68%;'
 //        ]); ?>
 <!---->
-<!--        <!--#endregion -->-->
+<!--        <#endregion -->
 
-        <!--#region 🃏 Cartes 2 -->
-        <?= img([
-                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_01.png',
-                'class'    => 'carte carte1',
-                'id'       => 'carte1',
-                'data-id'  => '1',
-                'alt'      => 'Carte 1',
-                'style'    => 'left:5%; top:8%;'
-        ]); ?>
-
-        <?= img([
-                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_02.png',
-                'class'    => 'carte carte2',
-                'id'       => 'carte2',
-                'data-id'  => '2',
-                'alt'      => 'Carte 2',
-                'style'    => 'left:32%; top:6%;'
-        ]); ?>
-
-        <?= img([
-                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_03.png',
-                'class'    => 'carte carte3',
-                'id'       => 'carte3',
-                'data-id'  => '3',
-                'alt'      => 'Carte 3',
-                'style'    => 'left:70%; top:7%;'
-        ]); ?>
-
-        <?= img([
-                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_04.png',
-                'class'    => 'carte carte4',
-                'id'       => 'carte4',
-                'data-id'  => '4',
-                'alt'      => 'Carte 4',
-                'style'    => 'left:12%; top:38%;'
-        ]); ?>
-
-        <?= img([
-                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_05.png',
-                'class'    => 'carte carte5',
-                'id'       => 'carte5',
-                'data-id'  => '5',
-                'alt'      => 'Carte 5',
-                'style'    => 'left:45%; top:34%;'
-        ]); ?>
-
-        <?= img([
-                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_06.png',
-                'class'    => 'carte carte6',
-                'id'       => 'carte6',
-                'data-id'  => '6',
-                'alt'      => 'Carte 6',
-                'style'    => 'left:78%; top:40%;'
-        ]); ?>
-
-        <?= img([
-                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_07.png',
-                'class'    => 'carte carte7',
-                'id'       => 'carte7',
-                'data-id'  => '7',
-                'alt'      => 'Carte 7',
-                'style'    => 'left:25%; top:72%;'
-        ]); ?>
-
-        <?= img([
-                'src'      => 'images/salle_4/carte02/WEBP/carte_pins_08.png',
-                'class'    => 'carte carte8',
-                'id'       => 'carte8',
-                'data-id'  => '8',
-                'alt'      => 'Carte 8',
-                'style'    => 'left:65%; top:74%;'
-        ]); ?>
-
-        <!--#endregion -->
+        <?php if (!empty($cartes)): ?>
+            <?php foreach ($cartes as $index => $carte): ?>
+                <div class="carte-container carte<?= ($index + 1) ?>">
+                    <?= img([
+                            'src'      => base_url('images/salle_4/images_finales/' . esc($carte['image'])),
+                            'class'    => 'carte',
+                            'id'       => 'carte' . ($index + 1),
+                            'data-id'  => ($index + 1),
+                            'alt'      => 'Carte ' . ($index + 1)
+                    ]); ?>
+                    <div class="explication"><?= esc($carte['explication']) ?></div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Aucune carte trouvée pour cette activité.</p>
+        <?php endif; ?>
 
 
     </div>
 
     <?=anchor(base_url().'Salle4', img([
-            'src'   => 'images/salle_4/boutton/WEB/boutons-08 (2).webp',
+            'src'   => 'images/commun/retour.webp',
             'alt'   => 'retour',
             'class' => 'retour'
     ]));?>

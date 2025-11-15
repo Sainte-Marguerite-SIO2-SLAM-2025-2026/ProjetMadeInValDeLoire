@@ -1,3 +1,5 @@
+
+
 /*body {*/
 /*    font-family: Arial, sans-serif;*/
 /*    display: flex;*/
@@ -18,7 +20,7 @@ h1 {
 
 .fond{
     position: relative;
-    background-image: url('../../images/salle_4/new/fond_tableau_mini.svg');
+    background-image: url('../../images/salle_4/images_finales/fond_tableau_mini.svg');
     /*background-image: url('../../images/salle_4/fond.png');*/
     background-size: cover;
     background-position: center;
@@ -60,8 +62,6 @@ h1 {
     pointer-events: none;
     background-size: cover;
 }
-
-
 /* region Cartes */
 .carte1 {
     position: absolute;
@@ -69,6 +69,7 @@ h1 {
     height: 180px;
     cursor: pointer;
     transition: all 0.3s;
+    left:6%; top:10%;
 }
 
 .carte2 {
@@ -77,6 +78,7 @@ h1 {
     height: 180px;
     cursor: pointer;
     transition: all 0.3s;
+    left:10%; top:45%;
 }
 
 .carte3 {
@@ -85,6 +87,7 @@ h1 {
     height: 190px;
     cursor: pointer;
     transition: all 0.3s;
+    left:38%; top:6%;
 }
 
 .carte4 {
@@ -93,6 +96,7 @@ h1 {
     height: 170px;
     cursor: pointer;
     transition: all 0.3s;
+    left:47%; top:42%;
 }
 
 .carte5 {
@@ -101,6 +105,7 @@ h1 {
     height: 180px;
     cursor: pointer;
     transition: all 0.3s;
+    left:83%; top:28%;
 }
 
 .carte6 {
@@ -109,6 +114,7 @@ h1 {
     height: 180px;
     cursor: pointer;
     transition: all 0.3s;
+    left:60%; top:12%;
 }
 
 .carte7 {
@@ -117,6 +123,7 @@ h1 {
     height: 166px;
     cursor: pointer;
     transition: all 0.3s;
+    left:40%; top:65%;
 }
 
 .carte8 {
@@ -125,9 +132,13 @@ h1 {
     height: 170px;
     cursor: pointer;
     transition: all 0.3s;
+    left:73%; top:68%;
 }
 
 /*endregion*/
+
+
+
 
 
 .carte:hover:not(.locked) {
@@ -193,4 +204,36 @@ button:hover {
     transform: none;
     max-width: 250px;
     height: 75px;
+}
+
+
+
+/* Positionne correctement les explications sur chaque carte */
+.carte-container {
+    position: absolute;
+}
+
+/* force l'image à remplir totalement sa zone existante */
+.carte-container .carte {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* l’explication est collée à la carte correspondante */
+.carte-container .explication {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 0.85em;
+    padding: 4px 6px;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 90%;
+    pointer-events: none;
+    z-index: 10;
 }

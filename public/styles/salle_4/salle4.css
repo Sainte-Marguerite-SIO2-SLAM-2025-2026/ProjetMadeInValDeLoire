@@ -9,7 +9,7 @@ html, body {
     width: 100%;              /* prend toute la largeur du parent */
     max-width: 1920px;        /* largeur originale de l'image */
     aspect-ratio: 1920 / 1080; /* hauteur proportionnelle à la largeur */
-    background-image: url('../../images/salle_4/chambre/WEB/chambre.webp');
+    background-image: url('../../images/salle_4/images_finales/chambre.webp');
     background-size: cover;   /* ajuste l'image à la div */
     background-position: center;
 }

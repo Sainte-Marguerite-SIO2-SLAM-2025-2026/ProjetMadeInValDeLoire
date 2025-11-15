@@ -17,9 +17,15 @@
     <?= anchor(base_url().'quizFin', ' ', [ 'class' => 'clickable-zone zone2' ] );?>
 
     <?=anchor(base_url(), img([
-        'src'   => 'images/salle_4/boutton/WEB/boutons-08 (2).webp',
+        'src'   => 'images/commun/retour.webp',
         'alt'   => 'retour',
         'class' => 'retour'
+    ]));?>
+
+    <?=anchor(base_url(), img([
+            'src'   => 'images/commun/retour.webp',
+            'alt'   => 'mascotte',
+            'class' => 'mascotte'
     ]));?>
 
 </div>
