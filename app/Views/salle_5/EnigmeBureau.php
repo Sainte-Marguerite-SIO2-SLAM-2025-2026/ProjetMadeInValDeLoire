@@ -26,7 +26,7 @@
     <!-- Fond de bureau avec SVG -->
     <div class="bureau-wrapper">
         <!-- Created with Inkscape (http://www.inkscape.org/) -->
-        <svg width="1700" height="917" version="1.1" viewBox="0 0 1375 917" xmlns="http://www.w3.org/2000/svg"
+        <svg width="1920" height="1080" version="1.1" viewBox="0 0 1375 917" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink">
             <image width="1375" height="917" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABV8AAAOVCAYAAAB+gJD4AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA
 GXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAIABJREFUeNrs3XecZWd95/nvc8LN

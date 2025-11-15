@@ -11,14 +11,11 @@ html, body {
     background: linear-gradient(135deg, #3d2b2b 0%, #5a4545 100%);
     color: #f0f0f0;
     min-height: 100vh;
-    overflow: hidden;
 }
 
 .scene-enigme {
     position: relative;
-    width: 100vw;
     height: 100vh;
-    overflow: hidden;
 }
 
 /* Bouton retour en haut à gauche */
@@ -302,7 +299,7 @@ html, body {
 
 .bureau-wrapper svg {
     width: 100%;
-    height: auto;
+    overflow: visible;
 }
 
 .objet-cliquable {
@@ -349,6 +346,6 @@ html, body {
         transform: translateX(8px);
     }
 }
- svg image{
+ svg, svg image{
      overflow: visible;
  }
