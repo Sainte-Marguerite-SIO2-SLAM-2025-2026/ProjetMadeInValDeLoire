@@ -150,11 +150,16 @@ class Salle5Controller extends BaseController
 
             // Messages personnalisés par activité
             $messages = [
-                2 => 'Excellent ! Une clé USB inconnue est un risque majeur. Elle pourrait contenir un malware (attaque BadUSB).',
-                3 => 'Bravo ! Un badge d\'entreprise ne doit jamais être laissé sans surveillance.',
+                1 => 'Excellent ! Laisser un poste ouvert permet l\'accès aux données sensibles. Toujours verrouiller (Win+L) !',
+                2 => 'Bravo ! Une clé USB inconnue peut contenir un malware (attaque BadUSB).',
+                3 => 'Parfait ! Un badge d\'entreprise ne doit jamais être laissé sans surveillance.',
                 4 => 'Bien vu ! Les informations confidentielles ne doivent jamais être visibles.',
-                8 => 'Félicitations ! La politique "clean desk" est essentielle.',
-                9 => 'Super ! Les mots de passe ne doivent jamais être notés et il faut toujours choisir des MDP forts.',
+                5 => 'Excellent ! Les portes doivent être fermées pour éviter les intrusions (tailgating).',
+                6 => 'Bravo ! L\'épaule-surfing est un risque physique simple à exploiter.',
+                7 => 'Parfait ! La sécurité physique inclut aussi les ouvrants (risque de vol).',
+                8 => 'Félicitations ! La politique "clean desk" réduit le risque de perte/vol d\'infos.',
+                9 => 'Super ! Les secrets physiques ne doivent jamais être affichés et les MDP doivent être forts.',
+                10 => 'Bien vu ! Sûreté ≠ espionnage interne ; respecter le principe de proportionnalité.'
             ];
 
             return $this->response->setJSON([

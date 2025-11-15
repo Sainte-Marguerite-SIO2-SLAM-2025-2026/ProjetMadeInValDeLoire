@@ -26,7 +26,7 @@
     <!-- Fond de bureau avec SVG -->
     <div class="bureau-wrapper">
         <!-- Created with Inkscape (http://www.inkscape.org/) -->
-        <svg width="1375" height="917" version="1.1" viewBox="0 0 1375 917" xmlns="http://www.w3.org/2000/svg"
+        <svg width="1700" height="917" version="1.1" viewBox="0 0 1375 917" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink">
             <image width="1375" height="917" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABV8AAAOVCAYAAAB+gJD4AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA
 GXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAIABJREFUeNrs3XecZWd95/nvc8LN
@@ -952,16 +952,6 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                            xlink:href="<?= base_url('images/salle_5/dossier.svg') ?>"/>
                     <rect class="zone-click" x="940.62" y="410.42" width="288.54" height="387.5" fill="transparent"
                           style="cursor:pointer;"/>
-                    <text
-                            x="1084.89"  <!-- 940.62 + (288.54 / 2) -->
-                    y="604.17"   <!-- 410.42 + (387.5 / 2) -->
-                    font-size="24"
-                    fill="black"
-                    font-family="Arial"
-                    text-anchor="middle"
-                    dominant-baseline="middle">
-                    Mon texte sur le dossier
-                    </text>
                 </g>
 
                 <g id="carnet_mdp" class="objet-cliquable" data-reponse="carnet_mdp">
@@ -1005,7 +995,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                 <g id="choix_1" class="objet-cliquable" data-reponse="choix_1">
                     <image clip-path="url(#clip_carte_pass)"
                            x="987" y="143" width="533" height="72"
-                           xlink:href="<?= base_url('images/salle_5/choix.svg') ?>"/>
+                           xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
                     <rect class="zone-click" x="987" y="143" width="533" height="72" fill="transparent"
                           style="cursor:pointer;"/>
                 </g>
@@ -1013,7 +1003,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                 <g id="choix_2" class="objet-cliquable" data-reponse="choix_2">
                     <image clip-path="url(#clip_carte_pass)"
                            x="987" y="263" width="533" height="72"
-                           xlink:href="<?= base_url('images/salle_5/choix.svg') ?>"/>
+                           xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
                     <rect class="zone-click" x="987" y="263" width="533" height="72" fill="transparent"
                           style="cursor:pointer;"/>
                 </g>
@@ -1021,7 +1011,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                 <g id="choix_3" class="objet-cliquable" data-reponse="choix_3">
                     <image clip-path="url(#clip_carte_pass)"
                            x="987" y="383" width="533" height="72"
-                           xlink:href="<?= base_url('images/salle_5/choix.svg') ?>"/>
+                           xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
                     <rect class="zone-click" x="987" y="383" width="533" height="72" fill="transparent"
                           style="cursor:pointer;"/>
                 </g>
@@ -1029,7 +1019,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                 <g id="choix_4" class="objet-cliquable" data-reponse="choix_4">
                     <image clip-path="url(#clip_carte_pass)"
                            x="987" y="503" width="533" height="72"
-                           xlink:href="<?= base_url('images/salle_5/choix.svg') ?>"/>
+                           xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
                     <rect class="zone-click" x="987" y="503" width="533" height="72" fill="transparent"
                           style="cursor:pointer;"/>
                 </g>

@@ -349,3 +349,6 @@ html, body {
         transform: translateX(8px);
     }
 }
+ svg image{
+     overflow: visible;
+ }
