@@ -428,7 +428,6 @@ svg {
 }
 
 .objet-drag:hover {
-    transform: scale(1.05);
     border-color: #4caf50;
     box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
 }
@@ -543,6 +542,7 @@ svg {
     background: rgba(0, 255, 0, 0.2) !important;
     pointer-events: none;
 }
+
 
 /* ========================================
    RESPONSIVE

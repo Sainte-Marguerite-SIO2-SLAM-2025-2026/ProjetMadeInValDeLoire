@@ -9,7 +9,6 @@ $imageEcranMilieuGauche = null;
 $imageEcranMilieuDroite = null;
 
 if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies)) {
-    $imageEcranMilieuGauche = base_url('images/salle_5/ecran_mail_2.svg');
     $imageEcranMilieuDroite = base_url('images/salle_5/ecran_login_2_1.svg');
 } elseif (in_array("6", $activites_selectionnees)&& !in_array(2, $activites_reussies)){
     $imageEcranMilieuGauche = base_url('images/salle_5/ecran_data_2.svg');
@@ -25,7 +24,7 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
 
             <!-- Écran milieu droit (Activité 1) -->
             <?php if ($imageEcranMilieuDroite): ?>
-                <g id="ecran_milieu_droit">
+                <g id="ecran_milieu_droit" class="objet-enigme" data-activite="1">
                     <image id="image_ecran_milieu_droit"
                            clip-path="url(#clip_ecran_milieu_droit)"
                            preserveAspectRatio="none"
@@ -178,7 +177,7 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
             <?php endif; ?>
             </svg>
 
-
+<?= var_dump($activites_selectionnees)?>
 
         <!-- Bouton retour -->
         <div class="retour">
