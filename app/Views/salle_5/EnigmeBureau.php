@@ -865,7 +865,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                 </g>
 
                 <!-- Clé USB bas -->
-                <g id="usb_bottom" class="objet-cliquable" data-reponse="cle_usb_bas">
+                <g id="usb_bottom" class="objet-cliquable" data-reponse="cle1">
                     <image
                             x="104" y="756" width="123" height="84"
                             transform="rotate(12, 165, 798)"
@@ -900,7 +900,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                           style="cursor:pointer;"/>
                 </g>
 
-                <g id="carte_pass" class="objet-cliquable" data-reponse="badge">
+                <g id="carte_pass" class="objet-cliquable" data-reponse="carte_pass">
                     <image clip-path="url(#clip_carte_pass)"
                            x="106.25" y="332.29" width="152.08" height="110.42"
                            xlink:href="<?= base_url('images/salle_5/badge.svg') ?>"/>
@@ -919,7 +919,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
 
             <!-- Énigme 4 : Post-it confidentiel -->
             <?php if ($enigme->numero == 4): ?>
-                <g id="post_it" class="objet-cliquable" data-reponse="post_it">
+                <g id="post_it" class="objet-cliquable" data-reponse="post_it_conf_2">
                     <image clip-path="url(#clip_post_it)"
                            x="1145.8" y="143.75" width="146.87" height="142.71"
                            xlink:href="<?= base_url('images/salle_5/post_it_confidentiel.svg') ?>"/>
@@ -927,7 +927,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                           style="cursor:pointer;"/>
                 </g>
 
-                <g id="dossier" class="objet-cliquable" data-reponse="dossier">
+                <g id="dossier" class="objet-cliquable" data-reponse="dossier_conf">
                     <image clip-path="url(#clip_dossier)"
                            x="940.62" y="410.42" width="288.54" height="387.5"
                            xlink:href="<?= base_url('images/salle_5/dossier.svg') ?>"/>
@@ -946,7 +946,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
 
             <!-- Énigme 8 : Dossier -->
             <?php if ($enigme->numero == 8): ?>
-                <g id="dossier" class="objet-cliquable" data-reponse="dossier_enigme8">
+                <g id="dossier" class="objet-cliquable" data-reponse="dossier_conf">
                     <image clip-path="url(#clip_dossier)"
                            x="940.62" y="410.42" width="288.54" height="387.5"
                            xlink:href="<?= base_url('images/salle_5/dossier.svg') ?>"/>
@@ -954,7 +954,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                           style="cursor:pointer;"/>
                 </g>
 
-                <g id="carnet_mdp" class="objet-cliquable" data-reponse="carnet_mdp">
+                <g id="carnet_mdp" class="objet-cliquable" data-reponse="carnet_mdp_2">
                     <image clip-path="url(#clip_carnet_mdp)"
                            x="40.625" y="271.88" width="408.33" height="275"
                            xlink:href="<?= base_url('images/salle_5/carnet_mdp.svg') ?>"/>
@@ -962,7 +962,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                           style="cursor:pointer;"/>
                 </g>
 
-                <g id="usb_right" class="objet-cliquable" data-reponse="cle_usb_droite_bonne">
+                <g id="usb_right" class="objet-cliquable" data-reponse="cle3">
                     <image
                             x="1097" y="292" width="155" height="78"
                             transform="rotate(20, 1174, 331)"

@@ -44,8 +44,7 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
                     <image id="image_ecran_milieu_gauche"
                            clip-path="url(#clip_ecran_milieu_gauche)"
                            preserveAspectRatio="none"
-                           x="724.84" y="521.63"
-                           width="250" height="134"
+                           x="724.84" y="521.63" width="250" height="134"
                            xlink:href="<?= $imageEcranMilieuGauche ?>" />
                     <path class="piece-zone"
                           d="m724.2 521.63 243.77-0.21573 7.9819 133.97-250.89-0.43145z"
@@ -74,8 +73,7 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
             <?php if (in_array(7, $activites_selectionnees)&& !in_array(7, $activites_reussies)): ?>
                 <g id="fenetre" class="objet-enigme" data-activite="7">
                     <image id="image_fenetre"
-                           x="64" y="182"
-                           width="218" height="458"
+                           x="64" y="182" width="218" height="458"
                            clip-path="url(#clip_fenetre)"
                            preserveAspectRatio="none"
                            xlink:href="<?= base_url('images/salle_5/fenetre_ouverte.svg') ?>" />
@@ -176,8 +174,6 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
                 </g>
             <?php endif; ?>
             </svg>
-
-<?= var_dump($activites_selectionnees)?>
 
         <!-- Bouton retour -->
         <div class="retour">

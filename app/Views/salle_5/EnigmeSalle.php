@@ -61,7 +61,7 @@
             ======================================== -->
             <?php if ($enigme->numero == 1): ?> //v
                 <!-- Écran gauche - mail ouvert -->
-                <g id="ecran_mail" class="objet-cliquable" data-reponse="ecran_mail">
+                <g id="ecran_mail" class="objet-cliquable" data-reponse="ecran_milieu_gauche">
                     <image clip-path="url(#clip_ecran_milieu_gauche)"
                            preserveAspectRatio="none"
                            x="724.84" y="521.63"
@@ -91,7 +91,7 @@
                  ÉNIGME 5 : Porte entrouverte
             ======================================== -->
             <?php if ($enigme->numero == 5): ?> //v
-                <g id="porte" class="objet-cliquable" data-reponse="porte_ouverte">
+                <g id="porte" class="objet-cliquable" data-reponse="porte">
                     <image clip-path="url(#clip_porte)"
                            x="1592.5" y="237.97"
                            width="257.49" height="838.37"
@@ -109,7 +109,7 @@
                  ÉNIGME 6 : Écrans non sécurisés
             ======================================== -->
             <?php if ($enigme->numero == 6): ?> //v
-                <g id="ecran_milieu_gauche" class="objet-enigme" data-activite="6">
+                <g id="ecran_milieu_gauche" class="objet-enigme" data-reponse="ecran">
                     <image id="image_ecran_milieu_gauche"
                            clip-path="url(#clip_ecran_milieu_gauche)"
                            preserveAspectRatio="none"
@@ -214,7 +214,7 @@
                 </g>
 
                 <!-- CHOIX 1 -->
-                <g id="choix_1" class="objet-cliquable" data-reponse="fermer_fenetre">
+                <g id="choix_1" class="objet-cliquable" data-reponse="choix1">
                     <image width="594" height="105" x="1270" y="388"
                            xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
                     <text x="1567" y="450"
@@ -262,7 +262,7 @@
                 </g>
 
                 <!-- CHOIX 4 -->
-                <g id="choix_4" class="objet-cliquable" data-reponse="eloigner_materiel">
+                <g id="choix_4" class="objet-cliquable" data-reponse="choix4">
                     <image width="594" height="105" x="1270" y="748"
                            xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
                     <text x="1567" y="810"
@@ -282,7 +282,7 @@
                  ÉNIGME 10 : Caméra interne
             ======================================== -->
             <?php if ($enigme->numero == 10): ?> //v
-                <g id="camera" class="objet-cliquable" data-reponse="camera_interne">
+                <g id="camera" class="objet-cliquable" data-reponse="camera">
                     <image clip-path="url(#clip_camera)"
                            x="1577.1" y="89.952" width="232.99" height="113.9"
                            xlink:href="<?= base_url('images/salle_5/camera.svg') ?>"/>
