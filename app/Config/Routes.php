@@ -24,11 +24,27 @@ $routes->get('/Salle2/Enigme', 'salle_2\Salle2Controller::index');
 // Routes pour la salle 3
 $routes->get('/Salle3', 'accueil\AccueilController::Salle3');
 
-// Routes pour la salle 4
+//// Routes pour la salle 4
+//$routes->get('/Salle4', 'accueil\AccueilController::Salle4');
+//$routes->get('/pageFrise', 'salle_4\Salle4Controller::pageFrise');
+//$routes->get('/quizFin', 'salle_4\Salle4Controller::quizFinal');
+//$routes->get('/Salle4', 'salle_4\Salle4Controller::index');
+
+// Routes Salle 4
+//$routes->get('Salle4', 'accueil\AccueilController::Salle4');
+//$routes->get('/pageFrise', 'salle_4\Salle4Controller::pageFrise');
+//$routes->post('/verifierOrdre', 'salle_4\Salle4Controller::verifierOrdre');
+//$routes->get('/quizFin', 'salle_4\Salle4Controller::quizFinal');
+//$routes->post('/verifierReponseQuiz', 'salle_4\Salle4Controller::verifierReponseQuiz');
+//$routes->get('/resetQuiz', 'salle_4\Salle4Controller::resetQuiz');
+
+// Routes Salle 4
 $routes->get('/Salle4', 'accueil\AccueilController::Salle4');
 $routes->get('/pageFrise', 'salle_4\Salle4Controller::pageFrise');
+$routes->post('/verifierOrdre', 'salle_4\Salle4Controller::verifierOrdre');
 $routes->get('/quizFin', 'salle_4\Salle4Controller::quizFinal');
-$routes->get('/Salle4', 'salle_4\Salle4Controller::index');
+$routes->post('/verifierReponseQuiz', 'salle_4\Salle4Controller::verifierReponseQuiz');
+$routes->get('/resetQuiz', 'salle_4\Salle4Controller::resetQuiz');
 
 
 // Routes pour la salle 5

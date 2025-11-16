@@ -17,13 +17,13 @@
     <?= anchor(base_url().'quizFin', ' ', [ 'class' => 'clickable-zone zone2' ] );?>
 
     <?=anchor(base_url(), img([
-        'src'   => 'images/commun/retour.webp',
+        'src'   => 'images/commun/retour.png',
         'alt'   => 'retour',
         'class' => 'retour'
     ]));?>
 
     <?=anchor(base_url(), img([
-            'src'   => 'images/commun/retour.webp',
+            'src'   => 'images/commun/mascotte/mascotte_face.svg',
             'alt'   => 'mascotte',
             'class' => 'mascotte'
     ]));?>
