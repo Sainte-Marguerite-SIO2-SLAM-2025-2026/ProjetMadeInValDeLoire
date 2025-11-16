@@ -9,18 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const objetsValides = [];
 
     objetsCliquables.forEach(objet => {
-        // Effet néon rouge
-        objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
+        // ❌ SUPPRESSION de l'effet néon rouge initial
+        // objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
 
         objet.addEventListener('mouseenter', () => {
             if (!objetsValides.includes(objet)) {
-                objet.style.filter = 'drop-shadow(0 0 15px rgba(255, 0, 0, 1)) drop-shadow(0 0 25px rgba(255, 0, 0, 0.8))';
+                objet.style.filter = 'drop-shadow(0 0 15px rgba(255, 255, 255, 1)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.8))';
             }
         });
 
         objet.addEventListener('mouseleave', () => {
             if (!objetsValides.includes(objet)) {
-                objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
+                objet.style.filter = 'none'; // Retirer tout effet
             }
         });
 
@@ -72,18 +72,12 @@ document.addEventListener('DOMContentLoaded', function() {
                             }, 800);
                         }, 3000);
                     } else {
-                        // Bonne réponse mais il en reste
-                        feedback.textContent = '✅ ' + data.message + ' (' + data.reponses_trouvees + '/' + data.total_attendu + ')';
-                        feedback.className = 'feedback success show';
-
-                        setTimeout(() => {
-                            objetsCliquables.forEach(o => {
-                                if (!objetsValides.includes(o)) {
-                                    o.classList.remove('disabled');
-                                }
-                            });
-                            feedback.classList.remove('show');
-                        }, 2000);
+                        // 🔹 BONNE RÉPONSE mais il en reste - NE PAS AFFICHER DE MESSAGE
+                        objetsCliquables.forEach(o => {
+                            if (!objetsValides.includes(o)) {
+                                o.classList.remove('disabled');
+                            }
+                        });
                     }
                 } else {
                     // Mauvaise réponse

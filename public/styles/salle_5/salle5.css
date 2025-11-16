@@ -144,6 +144,10 @@ body, html {
     cursor: pointer;
 }
 
+#ecran_milieu_gauche image {
+    overflow: hidden;
+}
+
 /* Animations */
 @keyframes fadeInDown {
     from {

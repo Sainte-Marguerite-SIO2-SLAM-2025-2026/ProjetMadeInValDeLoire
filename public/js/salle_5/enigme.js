@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (!zone) return;
 
-
         // Hover
         zone.addEventListener('mouseenter', () => {
             if (!objetsValides.includes(objet)) {
@@ -48,18 +47,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(data => {
                     if (data.success && data.is_correct) {
                         // ✅ BONNE RÉPONSE
-
-                        // Néon VERT au lieu de rouge
                         objet.style.filter = 'drop-shadow(0 0 12px rgba(0, 255, 0, 1)) drop-shadow(0 0 25px rgba(0, 255, 0, 0.8))';
                         objet.classList.add('correct');
-                        objetsValides.push(objet); // Marquer comme validé
+                        objetsValides.push(objet);
 
                         if (data.completed) {
                             // ÉNIGME TERMINÉE
                             feedback.textContent = '✅ ' + data.message;
                             feedback.className = 'feedback success show';
 
-                            // Attendre 3 secondes avant redirection
                             setTimeout(() => {
                                 overlay.style.opacity = '1';
                                 overlay.style.pointerEvents = 'all';
@@ -67,21 +63,15 @@ document.addEventListener('DOMContentLoaded', function() {
                                 setTimeout(() => {
                                     window.location.href = base_url + '/Salle5';
                                 }, 800);
-                            }, 3000); // ⏱️ 3 secondes au lieu de 2.5
+                            }, 3000);
                         } else {
-                            // BONNE RÉPONSE mais il en reste
-                            feedback.textContent = '✅ ' + data.message + ' (' + data.reponses_trouvees + '/' + data.total_attendu + ')';
-                            feedback.className = 'feedback success show';
-
-                            setTimeout(() => {
-                                // Réactiver les autres objets non validés
-                                objetsCliquables.forEach(o => {
-                                    if (!objetsValides.includes(o)) {
-                                        o.classList.remove('disabled');
-                                    }
-                                });
-                                feedback.classList.remove('show');
-                            }, 2000);
+                            // 🔹 BONNE RÉPONSE mais il en reste - NE PAS AFFICHER DE MESSAGE
+                            // Juste réactiver les objets non validés
+                            objetsCliquables.forEach(o => {
+                                if (!objetsValides.includes(o)) {
+                                    o.classList.remove('disabled');
+                                }
+                            });
                         }
                     } else {
                         // ❌ MAUVAISE RÉPONSE

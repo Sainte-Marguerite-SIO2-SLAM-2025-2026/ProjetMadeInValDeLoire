@@ -59,7 +59,7 @@
             <!-- ========================================
                  ÉNIGME 1 : Poste risqué
             ======================================== -->
-            <?php if ($enigme->numero == 1): ?> //v
+            <?php if ($enigme->numero == 1): ?>
                 <!-- Écran gauche - mail ouvert -->
                 <g id="ecran_mail" class="objet-cliquable" data-reponse="ecran_milieu_gauche">
                     <image clip-path="url(#clip_ecran_milieu_gauche)"
@@ -90,7 +90,7 @@
             <!-- ========================================
                  ÉNIGME 5 : Porte entrouverte
             ======================================== -->
-            <?php if ($enigme->numero == 5): ?> //v
+            <?php if ($enigme->numero == 5): ?>
                 <g id="porte" class="objet-cliquable" data-reponse="porte">
                     <image clip-path="url(#clip_porte)"
                            x="1592.5" y="237.97"
@@ -106,9 +106,9 @@
             <?php endif; ?>
 
             <!-- ========================================
-                 ÉNIGME 6 : Écrans non sécurisés
+                 ÉNIGME 6 : Écrans non sécurisés + DRAG & DROP
             ======================================== -->
-            <?php if ($enigme->numero == 6): ?> //v
+            <?php if ($enigme->numero == 6): ?>
                 <g id="ecran_milieu_gauche" class="objet-enigme" data-reponse="ecran">
                     <image id="image_ecran_milieu_gauche"
                            clip-path="url(#clip_ecran_milieu_gauche)"
@@ -122,90 +122,18 @@
                           style="cursor:pointer;" />
                 </g>
 
-                <g id="dragdrop" class="objet-cliquable">
-                    <image
-                           x="27.613" y="260.6" width="517.75" height="491.86"
-                           preserveAspectRatio="none"
-                           xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
-                    <rect class="zone-click"
-                          x="27.613" y="260.6" width="517.75" height="491.86"
-                          fill="transparent"
-                          style="cursor:pointer;"/>
-                </g>
-
-                <!-- Badge -->
-                <g id="cb" class="objet-cliquable" data-reponse="cb">
-                    <image
-                            x="56.952" y="289.94" width="195.02" height="93.194"
-                            preserveAspectRatio="none"
-                            xlink:href="<?= base_url('images/salle_5/cb.svg') ?>"/>
-                    <rect class="zone-click"
-                          x="56.952" y="289.94" width="195.02" height="93.194"
-                          fill="transparent"
-                          style="cursor:pointer;"/>
-                </g>
-
-                <!-- Clé -->
-                <g id="cle" class="objet-cliquable" data-reponse="cle">
-                    <image
-                            x="317.55" y="281.31" width="210.55" height="124.26"
-                            preserveAspectRatio="none"
-                            xlink:href="<?= base_url('images/salle_5/cle.svg') ?>"/>
-                    <rect class="zone-click"
-                          x="317.55" y="281.31" width="210.55" height="124.26"
-                          fill="transparent"
-                          style="cursor:pointer;"/>
-                </g>
-
-                <!-- Post-it -->
-                <g id="post-it" class="objet-cliquable" data-reponse="post-it">
-                    <image
-                            x="86.291" y="455.62" width="165.68" height="120.81"
-                            preserveAspectRatio="none"
-                            xlink:href="<?= base_url('images/salle_5/post_it_confidentiel.svg') ?>"/>
-                    <rect class="zone-click"
-                          x="86.291" y="455.62" width="165.68" height="120.81"
-                          fill="transparent"
-                          style="cursor:pointer;"/>
-                </g>
-
-                <!-- USB -->
-                <g id="usb" class="objet-cliquable" data-reponse="usb">
-                    <image
-                            x="317.55" y="453.89" width="207.1" height="107"
-                            preserveAspectRatio="none"
-                            xlink:href="<?= base_url('images/salle_5/usb_rh.svg') ?>"/>
-                    <rect class="zone-click"
-                          x="317.55" y="453.89" width="207.1" height="107"
-                          fill="transparent"
-                          style="cursor:pointer;"/>
-                </g>
-
-                <!-- Dossier -->
-                <g id="filtre" class="objet-cliquable" data-reponse="filtre">
-                    <image
-                            x="141.52" y="562.62" width="264.05" height="132.89"
-                            preserveAspectRatio="none"
-                            xlink:href="<?= base_url('images/salle_5/filtre_ecran.svg') ?>"/>
-                    <rect class="zone-click"
-                          x="141.52" y="562.62" width="264.05" height="132.89"
-                          fill="transparent"
-                          style="cursor:pointer;"/>
-                </g>
-
-                <!-- Zone de dépôt (rectangle gris en bas) -->
-                <g id="zone_depot_container">
-                    <rect id="zone_depot" x="724.84" y="521.63"
-                          width="250" height="134"
-                          fill="transparent"  rx="10"
-                          style="cursor:pointer;"/>
-                </g>
+                <!-- Zone de dépôt pour le drag & drop -->
+                <foreignObject x="724.84" y="521.63" width="250" height="134">
+                    <div xmlns="http://www.w3.org/1999/xhtml" id="zone_depot"
+                         style="width: 100%; height: 100%; border: 3px dashed #4caf50; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 5px;">
+                    </div>
+                </foreignObject>
             <?php endif; ?>
 
             <!-- ========================================
                  ÉNIGME 7 : Fenêtre ouverte (QCM en SVG)
             ======================================== -->
-            <?php if ($enigme->numero == 7): ?> //v
+            <?php if ($enigme->numero == 7): ?>
                 <!-- Fenêtre ouverte (visuel) -->
                 <g id="fenetre_visuel">
                     <image clip-path="url(#clip_fenetre)"
@@ -281,7 +209,7 @@
             <!-- ========================================
                  ÉNIGME 10 : Caméra interne
             ======================================== -->
-            <?php if ($enigme->numero == 10): ?> //v
+            <?php if ($enigme->numero == 10): ?>
                 <g id="camera" class="objet-cliquable" data-reponse="camera">
                     <image clip-path="url(#clip_camera)"
                            x="1577.1" y="89.952" width="232.99" height="113.9"
@@ -296,23 +224,74 @@
         </svg>
     </div>
 
-            <!-- Feedback -->
-            <div class="feedback" id="feedback"></div>
-
-            <!-- Mascotte -->
-            <div class="mascotte">
+    <!-- ✅ OBJETS DRAGGABLES POUR ÉNIGME 6 (avec helpers CI4) -->
+    <?php if ($enigme->numero == 6): ?>
+        <div class="objets-draggables">
+            <div class="objet-drag" draggable="true" data-objet="filtre">
                 <?= img([
-                    "src" => $mascotte->image,
-                    "class" => "mascotte-img",
-                    "alt" => "Mascotte"
+                        'src' => 'images/salle_5/filtre_ecran.svg',
+                        'alt' => 'Filtre écran',
+                        'class' => 'objet-img'
                 ]) ?>
+                <p style="font-size: 0.9em; margin-top: 5px;">Filtre</p>
             </div>
+            <div class="objet-drag" draggable="true" data-objet="cb">
+                <?= img([
+                        'src' => 'images/salle_5/cb.svg',
+                        'alt' => 'CB',
+                        'class' => 'objet-img'
+                ]) ?>
+                <p style="font-size: 0.9em; margin-top: 5px;">CB</p>
+            </div>
+            <div class="objet-drag" draggable="true" data-objet="cle">
+                <?= img([
+                        'src' => 'images/salle_5/cle.svg',
+                        'alt' => 'Clé',
+                        'class' => 'objet-img'
+                ]) ?>
+                <p style="font-size: 0.9em; margin-top: 5px;">Clé</p>
+            </div>
+            <div class="objet-drag" draggable="true" data-objet="post-it">
+                <?= img([
+                        'src' => 'images/salle_5/post_it_confidentiel.svg',
+                        'alt' => 'Post-it',
+                        'class' => 'objet-img'
+                ]) ?>
+                <p style="font-size: 0.9em; margin-top: 5px;">Post-it</p>
+            </div>
+            <div class="objet-drag" draggable="true" data-objet="usb">
+                <?= img([
+                        'src' => 'images/salle_5/usb_rh.svg',
+                        'alt' => 'USB',
+                        'class' => 'objet-img'
+                ]) ?>
+                <p style="font-size: 0.9em; margin-top: 5px;">USB</p>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <!-- Feedback -->
+    <div class="feedback" id="feedback"></div>
+
+
+
+    <!-- Mascotte -->
+    <div class="mascotte">
+        <?= img([
+                "src" => $mascotte->image,
+                "class" => "mascotte-img",
+                "alt" => "Mascotte"
+        ]) ?>
     </div>
+</div>
 
-    <div id="transition-overlay"></div>
+<div id="transition-overlay"></div>
 
-    <script>
-        const activite_numero = <?= $enigme->numero ?>;
-        const base_url = '<?= base_url() ?>';
-    </script>
+<script>
+    const activite_numero = <?= $enigme->numero ?>;
+    const base_url = '<?= base_url() ?>';
+</script>
 <?= script_tag('js/salle_5/enigmeSalle.js') ?>
+<?php if ($enigme->numero == 6): ?>
+    <?= script_tag('js/salle_5/enigme6.js') ?>
+<?php endif; ?>

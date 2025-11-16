@@ -10,7 +10,7 @@ $imageEcranMilieuDroite = null;
 
 if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies)) {
     $imageEcranMilieuDroite = base_url('images/salle_5/ecran_login_2_1.svg');
-} elseif (in_array("6", $activites_selectionnees)&& !in_array(2, $activites_reussies)){
+} elseif (in_array("6", $activites_selectionnees)&& !in_array(6, $activites_reussies)){
     $imageEcranMilieuGauche = base_url('images/salle_5/ecran_data_2.svg');
 }
 ?>
