@@ -228,3 +228,516 @@ DEBUG - 2025-11-17 07:54:59 --> VPN récupérés: Array
 
 )
 
+DEBUG - 2025-11-17 08:28:28 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 4
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Les VPN sont illégaux en France
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 5
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN ralentit toujours votre connexion de 80%
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 8
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN peuvent protéger sur les WiFi publics
+        )
+
+)
+
+CRITICAL - 2025-11-17 08:28:45 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "salle_6\VpnInfos.php"
+[Method: POST, Route: vpn/validerCarte]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('salle_6\\VpnInfos.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\VpnInfos', [], true)
+ 3 APPPATH\Controllers\salle_6\VpnController.php(90): view('salle_6\\VpnInfos', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\VpnController->validerCarte()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\VpnController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-17 08:28:48 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 4
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Les VPN sont illégaux en France
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 8
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN peuvent protéger sur les WiFi publics
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 9
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN supprime tous les virus de votre ordinateur
+        )
+
+)
+
+DEBUG - 2025-11-17 08:34:12 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 6
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Tous les VPN gratuits sont aussi sûrs que les payants
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 3
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN vous rend totalement anonyme sur internet
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 10
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN empêchent votre FAI de voir votre trafic
+        )
+
+)
+
+DEBUG - 2025-11-17 08:37:41 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 8
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN peuvent protéger sur les WiFi publics
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 4
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Les VPN sont illégaux en France
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 9
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN supprime tous les virus de votre ordinateur
+        )
+
+)
+
+DEBUG - 2025-11-17 08:38:35 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 4
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Les VPN sont illégaux en France
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 6
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Tous les VPN gratuits sont aussi sûrs que les payants
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 10
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN empêchent votre FAI de voir votre trafic
+        )
+
+)
+
+CRITICAL - 2025-11-17 08:38:46 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "salle_6\VpnInfos.php"
+[Method: POST, Route: vpn/validerCarte]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('salle_6\\VpnInfos.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\VpnInfos', [], true)
+ 3 APPPATH\Controllers\salle_6\VpnController.php(90): view('salle_6\\VpnInfos', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\VpnController->validerCarte()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\VpnController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-17 08:38:48 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 10
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN empêchent votre FAI de voir votre trafic
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 9
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN supprime tous les virus de votre ordinateur
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 5
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN ralentit toujours votre connexion de 80%
+        )
+
+)
+
+DEBUG - 2025-11-17 10:05:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:05:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:05:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:05:49 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 3
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN vous rend totalement anonyme sur internet
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 9
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN supprime tous les virus de votre ordinateur
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 7
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Un VPN permet d'accéder à des contenus géo-bloqués
+        )
+
+)
+
+DEBUG - 2025-11-17 10:06:23 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 1
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Un VPN chiffre votre connexion internet pour la sécuriser
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 9
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN supprime tous les virus de votre ordinateur
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 3
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN vous rend totalement anonyme sur internet
+        )
+
+)
+
+DEBUG - 2025-11-17 10:08:31 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 2
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN masquent votre adresse IP réelle
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 3
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN vous rend totalement anonyme sur internet
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 9
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN supprime tous les virus de votre ordinateur
+        )
+
+)
+
+DEBUG - 2025-11-17 10:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:09:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:09:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:09:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:09:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:09:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:09:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:09:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:09:25 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 7
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Un VPN permet d'accéder à des contenus géo-bloqués
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 5
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN ralentit toujours votre connexion de 80%
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 4
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Les VPN sont illégaux en France
+        )
+
+)
+
+DEBUG - 2025-11-17 10:09:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:10:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:10:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 10:13:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:42:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:42:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:42:26 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 6
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Tous les VPN gratuits sont aussi sûrs que les payants
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 8
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN peuvent protéger sur les WiFi publics
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 9
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN supprime tous les virus de votre ordinateur
+        )
+
+)
+
+DEBUG - 2025-11-17 12:42:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:42:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:42:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:43:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:43:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:43:08 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 2
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN masquent votre adresse IP réelle
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 6
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Tous les VPN gratuits sont aussi sûrs que les payants
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 5
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN ralentit toujours votre connexion de 80%
+        )
+
+)
+
+DEBUG - 2025-11-17 12:43:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:43:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:49:33 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 6
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Tous les VPN gratuits sont aussi sûrs que les payants
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 10
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN empêchent votre FAI de voir votre trafic
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 5
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN ralentit toujours votre connexion de 80%
+        )
+
+)
+
+DEBUG - 2025-11-17 12:49:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:49:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:49:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:50:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:50:04 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 2
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN masquent votre adresse IP réelle
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 4
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Les VPN sont illégaux en France
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 3
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN vous rend totalement anonyme sur internet
+        )
+
+)
+
+DEBUG - 2025-11-17 12:50:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:50:57 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 5
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN ralentit toujours votre connexion de 80%
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 10
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN empêchent votre FAI de voir votre trafic
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 3
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN vous rend totalement anonyme sur internet
+        )
+
+)
+
+DEBUG - 2025-11-17 12:57:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:57:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:57:56 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 6
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Tous les VPN gratuits sont aussi sûrs que les payants
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 8
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN peuvent protéger sur les WiFi publics
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 9
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN supprime tous les virus de votre ordinateur
+        )
+
+)
+
+DEBUG - 2025-11-17 12:58:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 12:58:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 13:07:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 13:08:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 13:08:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 13:08:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 13:08:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 13:08:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-17 13:26:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
