@@ -123,9 +123,9 @@ class Salle5Controller extends BaseController
         $resultat = $zoneModel->verifierZone($activite_numero, $reponse);
 
         $messages_echec = [
-            1 => ' Échec ! Ce n\'était pas le bon écran à risque. Réfléchissez : quel poste permet à quelqu\'un d\'accéder facilement à des données sensibles ?',
-            2 => ' Raté ! Cette clé USB n\'est pas la plus dangereuse. Une clé USB anonyme trouvée par terre peut contenir un malware (attaque BadUSB) !',
-            3 => ' Incorrect ! Cet objet ne compromet pas directement la sécurité physique. Pensez à un objet qui permet l\'accès aux locaux...',
+            1 => ' Échec ! Ce n\'était pas le bon écran à risque, cet écran est vérouillé',
+            2 => ' Raté ! Vous ne pouvez pas être sur que cette clé USB est sûre. Elle peut contenir un malware (attaque BadUSB) !',
+            3 => ' Incorrect ! Cet objet ne compromet pas directement la sécurité physique.',
             4 => ' Dommage ! Cette zone ne présente pas d\'information confidentielle visible. Cherchez des post-it ou documents sensibles !',
             5 => ' Mauvaise réponse ! La porte entrouverte permet le tailgating (intrusion par filature). Une porte doit toujours être fermée !',
             6 => ' Échec ! Ce n\'est pas la bonne protection contre l\'épaule-surfing (shoulder surfing). Un filtre de confidentialité est nécessaire !',

@@ -222,8 +222,8 @@ html, body {
 }
 
 .mascotte-img {
-    width: 100px;
-    height: auto;
+    width: 180px;
+    height: 180px;
     filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
     animation: float 3s ease-in-out infinite;
 }

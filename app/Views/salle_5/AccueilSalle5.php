@@ -243,65 +243,12 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
             </div>
         </div>
 
-        <script>
-            function closePopupEchec() {
-                document.getElementById('popup-echec').style.display = 'none';
-            }
-        </script>
+
     <?php endif; ?>
 
 </div>
 
 <div id="transition-overlay"></div>
-
-<style>
-    /* Popup d'échec */
-    .popup-echec {
-        z-index: 10000 !important;
-        background-color: rgba(0, 0, 0, 0.9);
-        pointer-events: all !important;
-    }
-
-    .popup-echec-content {
-        background: linear-gradient(135deg, #3a1e1e, #5a2d2d);
-        border: 3px solid #f44336;
-        box-shadow: 0 0 30px rgba(244, 67, 54, 0.5);
-        animation: popupBounce 0.6s ease;
-    }
-
-    .popup-echec-content h2 {
-        color: #f44336;
-        font-size: 2.5em;
-        margin-bottom: 20px;
-        text-shadow: 0 0 10px rgba(244, 67, 54, 0.8);
-    }
-
-    .popup-echec-content p {
-        font-size: 1.3em;
-        line-height: 1.6;
-        margin-bottom: 15px;
-        color: #f0f0f0;
-    }
-
-    .btn-echec {
-        background: linear-gradient(135deg, #f44336, #e57373);
-        color: white;
-        border: none;
-        border-radius: 10px;
-        padding: 15px 40px;
-        font-size: 1.3em;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
-    }
-
-    .btn-echec:hover {
-        background: linear-gradient(135deg, #e57373, #f44336);
-        transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(244, 67, 54, 0.6);
-    }
-</style>
 
 <?= script_tag('js/salle_5/salle5.js') ?>
 
