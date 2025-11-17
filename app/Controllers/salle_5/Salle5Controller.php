@@ -6,12 +6,14 @@ use App\Controllers\BaseController;
 use App\Models\salle_5\MascotteModel;
 use App\Models\salle_5\ModeEmploiModel;
 use App\Models\salle_5\ActiviteModel;
-use App\Models\salle_5\ObjetModel;
 use App\Models\salle_5\SalleModel;
 use App\Models\salle_5\ExplicationModel;
+use App\Models\salle_5\ZoneModel;
 
 class Salle5Controller extends BaseController
 {
+    // Liste des énigmes qui utilisent le fond de bureau
+    private $enigmes_bureau = [2, 3, 4, 8, 9];
 
     public function enigme($activite_numero)
     {
@@ -60,17 +62,17 @@ class Salle5Controller extends BaseController
             'explication' => $explication,
         ];
 
-        // Charger la vue selon l'activité
-        if ($activite_numero == 2) {
-            // Énigme des clés USB
+        // Charger la vue selon si c'est une énigme bureau ou pas
+        if (in_array($activite_numero, $this->enigmes_bureau)) {
+            // Énigmes sur fond de bureau (2, 3, 4, 8, 9)
             return view('commun\header') .
-                view('salle_5/enigmes/ClesUsb', $data) .
+                view('salle_5/EnigmeBureau', $data) .
                 view('commun\footer');
         }
 
-        // Vue par défaut
+        // Vue par défaut pour les autres énigmes
         return view('commun\header') .
-            view('salle_5/Enigme', $data) .
+            view('salle_5/EnigmeSalle', $data) .
             view('commun\footer');
     }
 
@@ -113,25 +115,70 @@ class Salle5Controller extends BaseController
             ]);
         }
 
-        // Vérifier la réponse via le model
-        $activiteModel = new ActiviteModel();
-        $resultat = $activiteModel->verifierReponse($activite_numero, $reponse);
+        // Récupérer ou initialiser les réponses de l'utilisateur pour cette activité
+        $reponses_utilisateur = session()->get('reponses_activite_' . $activite_numero) ?? [];
 
-        if ($resultat['valid']) {
-            // Ajouter aux activités réussies
+        // Vérifier la réponse via les zones de la BDD
+        $zoneModel = new ZoneModel();
+        $resultat = $zoneModel->verifierZone($activite_numero, $reponse);
+
+        if (!$resultat['valid']) {
+            // Mauvaise réponse
+            return $this->response->setJSON([
+                'success' => false,
+                'is_correct' => false,
+                'message' => 'Mauvaise réponse, réessayez !'
+            ]);
+        }
+
+        // Bonne réponse : l'ajouter aux réponses de l'utilisateur
+        if (!in_array($reponse, $reponses_utilisateur)) {
+            $reponses_utilisateur[] = $reponse;
+            session()->set('reponses_activite_' . $activite_numero, $reponses_utilisateur);
+        }
+
+        // Compter le nombre de bonnes réponses attendues
+        $nb_bonnes_reponses_attendues = $zoneModel->countBonnesReponses($activite_numero);
+        $nb_reponses_trouvees = count($reponses_utilisateur);
+
+        // Vérifier si toutes les bonnes réponses ont été trouvées
+        if ($nb_reponses_trouvees >= $nb_bonnes_reponses_attendues) {
+            // Activité complétée !
             $activites_reussies[] = $activite_numero;
             session()->set('activites_reussies', $activites_reussies);
+            session()->remove('reponses_activite_' . $activite_numero);
+
+            // Messages personnalisés par activité
+            $messages = [
+                1 => 'Excellent ! Laisser un poste ouvert permet l\'accès aux données sensibles. Toujours verrouiller (Win+L) !',
+                2 => 'Bravo ! Une clé USB inconnue peut contenir un malware (attaque BadUSB).',
+                3 => 'Parfait ! Un badge d\'entreprise ne doit jamais être laissé sans surveillance.',
+                4 => 'Bien vu ! Les informations confidentielles ne doivent jamais être visibles.',
+                5 => 'Excellent ! Les portes doivent être fermées pour éviter les intrusions (tailgating).',
+                6 => 'Bravo ! L\'épaule-surfing est un risque physique simple à exploiter.',
+                7 => 'Parfait ! La sécurité physique inclut aussi les ouvrants (risque de vol).',
+                8 => 'Félicitations ! La politique "clean desk" réduit le risque de perte/vol d\'infos.',
+                9 => 'Super ! Les secrets physiques ne doivent jamais être affichés et les MDP doivent être forts.',
+                10 => 'Bien vu ! Sûreté ≠ espionnage interne ; respecter le principe de proportionnalité.'
+            ];
 
             return $this->response->setJSON([
                 'success' => true,
-                'message' => $resultat['message'],
+                'is_correct' => true,
+                'completed' => true,
+                'message' => $messages[$activite_numero] ?? 'Félicitations ! Énigme réussie !',
                 'enigmes_restantes' => 2 - count($activites_reussies)
             ]);
         }
 
+        // Bonne réponse mais il en reste d'autres à trouver
         return $this->response->setJSON([
-            'success' => false,
-            'message' => $resultat['message']
+            'success' => true,
+            'is_correct' => true,
+            'completed' => false,
+            'message' => 'Bonne réponse ! Continuez, il en reste d\'autres.',
+            'reponses_trouvees' => $nb_reponses_trouvees,
+            'total_attendu' => $nb_bonnes_reponses_attendues
         ]);
     }
 
@@ -142,4 +189,20 @@ class Salle5Controller extends BaseController
         return redirect()->to(base_url('Salle5'));
     }
 
+
+    public function finSalle()
+    {
+        // Réinitialiser toutes les sessions de la salle 5
+        session()->remove('activites_salle5');
+        session()->remove('activites_reussies');
+        session()->remove('popup_salle5_vue');
+
+        // Supprimer les réponses temporaires de toutes les activités
+        for ($i = 1; $i <= 10; $i++) {
+            session()->remove('reponses_activite_' . $i);
+        }
+
+        // Rediriger vers la page d'accueil du site
+        return redirect()->to(base_url('/'));
+    }
 }
