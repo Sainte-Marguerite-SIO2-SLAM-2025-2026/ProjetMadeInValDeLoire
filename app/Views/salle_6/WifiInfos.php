@@ -47,7 +47,7 @@
             </div>
 
             <!-- Bouton suivant (caché par défaut) -->
-            <?= anchor(base_url() . '/Salle6/VPN', "Suivant", [
+            <?= anchor(base_url() . 'Salle6/CompleteWifi', "Suivant", [
                     'id' => 'btnSuivant',
                     'class' => 'btn-suivant',
                     'style' => 'display: none;',

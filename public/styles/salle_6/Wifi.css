@@ -17,7 +17,7 @@ html, body {
 
 .container {
     position: relative;
-    background-image: url("../../images/salle_6/salle1-carte_copie.svg");
+    background-image: url("../../images/salle_6/salle1-carte.svg");
     background-size: cover;
     background-position: center;
     height: 100vh;
