@@ -1,7 +1,7 @@
 <?= link_tag('styles/salle_5/enigmeSalle.css') ?>
     <title><?= esc($enigme->libelle) ?></title>
     </head>
-    <body>
+    <body data-baseurl="<?= base_url() ?>">
 <div class="scene-enigme">
     <!-- Bouton retour -->
     <div class="retour-top">
@@ -265,7 +265,7 @@
     <!-- Mascotte -->
     <div class="mascotte">
         <?= img([
-                "src" => $mascotte->image,
+                "src" => base_url('images/commun/mascotte/mascotte_face.svg'),
                 "class" => "mascotte-img",
                 "alt" => "Mascotte"
         ]) ?>
@@ -278,6 +278,7 @@
     const activite_numero = <?= $enigme->numero ?>;
     const base_url = '<?= base_url() ?>';
 </script>
+<?= script_tag('js/salle_5/mascotte.js') ?>
 <?= script_tag('js/salle_5/enigmeSalle.js') ?>
 <?php if ($enigme->numero == 6): ?>
     <?= script_tag('js/salle_5/enigme6.js') ?>

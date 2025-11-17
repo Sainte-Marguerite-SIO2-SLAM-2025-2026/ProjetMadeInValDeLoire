@@ -187,7 +187,11 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
 
         <!-- Mascotte -->
         <div class="mascotte">
-            <?= img(["src" => $mascotte->image, "class" => "mascotte-img", "alt" => "Mascotte"]) ?>
+            <?= img([
+                    "src" => base_url('images/commun/mascotte/mascotte_face.svg'),
+                    "class" => "mascotte-img",
+                    "alt" => "Mascotte"
+            ]) ?>
         </div>
     </div>
 
@@ -203,7 +207,6 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
         </div>
     <?php endif; ?>
 
-    <!-- 🎉 Popup de succès (quand les 2 énigmes sont réussies) -->
     <?php if ($afficher_popup_succes): ?>
         <div id="popup-succes" class="popup popup-succes" style="display: flex;">
             <div class="popup-content popup-succes-content">
@@ -222,9 +225,15 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
                 </div>
             </div>
         </div>
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                if (window.changerMascotte) {
+                    window.changerMascotte('contente');
+                }
+            });
+        </script>
     <?php endif; ?>
 
-    <!-- ❌ Popup d'échec (mauvaise réponse) -->
     <?php if ($afficher_popup_echec): ?>
         <div id="popup-echec" class="popup popup-echec" style="display: flex;">
             <div class="popup-content popup-echec-content">
@@ -234,22 +243,31 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
                 <div class="popup-actions">
                     <?= anchor(base_url('/finSalle5'),
                             form_button([
-                            'content' => 'Fermer',
-                            'type' => 'button',
-                            'class' => 'btn-echec',
-                            'onclick' => 'closePopupEchec()'
-                    ])) ?>
+                                    'content' => 'Fermer',
+                                    'type' => 'button',
+                                    'class' => 'btn-echec',
+                                    'onclick' => 'closePopupEchec()'
+                            ])) ?>
                 </div>
             </div>
         </div>
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                if (window.changerMascotte) {
+                    window.changerMascotte('saoulee');
+                }
+            });
 
-
+            function closePopupEchec() {
+                document.getElementById('popup-echec').style.display = 'none';
+            }
+        </script>
     <?php endif; ?>
 
 </div>
 
 <div id="transition-overlay"></div>
-
+<?= script_tag('js/salle_5/mascotte.js') ?>
 <?= script_tag('js/salle_5/salle5.js') ?>
 
 

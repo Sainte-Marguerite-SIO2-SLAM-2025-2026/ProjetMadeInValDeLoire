@@ -1,7 +1,7 @@
 <?= link_tag('styles/salle_5/enigme.css') ?>
 <title><?= esc($enigme->libelle) ?></title>
 </head>
-<body>
+<body data-baseurl="<?= base_url() ?>">
 <div class="scene-enigme">
     <!-- Bouton retour -->
     <div class="retour-top">
@@ -1073,7 +1073,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
     <!-- Mascotte -->
     <div class="mascotte">
         <?= img([
-                "src" => $mascotte->image,
+                "src" => base_url('images/commun/mascotte/mascotte_face.svg'),
                 "class" => "mascotte-img",
                 "alt" => "Mascotte"
         ]) ?>
@@ -1086,5 +1086,5 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
     const activite_numero = <?= $enigme->numero ?>;
     const base_url = '<?= base_url() ?>';
 </script>
+<?= script_tag('js/salle_5/mascotte.js') ?>
 <?= script_tag('js/salle_5/enigme.js') ?>
-
