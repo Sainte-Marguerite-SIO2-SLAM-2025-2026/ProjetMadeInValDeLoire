@@ -131,7 +131,7 @@
     <!--        </div>-->
     <!--    </div>-->
 
-    <!-- Mascotte interactive -->
+    <!-- Mascotte -->
     <div class="mascotte-zone" id="mascotteHelp">
         <img src="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>"
              class="mascotte-img mascotte-default"
@@ -143,46 +143,12 @@
     </div>
 
 
-
-    <!-- Modal des règles (le tien, inchangé) -->
-    <!--    <div id="rulesModal" class="modal">-->
-    <!--        <div class="modal-content rules-modal-content">-->
-    <!--            <span class="close-rules">&times;</span>-->
-    <!--            <h2>📋 Règles du jeu</h2>-->
-    <!--            <div class="rules-content">-->
-    <!--                <h3>🎯 Objectif</h3>-->
-    <!--                <p>Reconstituer la procédure correcte en reliant les cartes dans le bon ordre chronologique.</p>-->
-    <!---->
-    <!--                <h3>🎮 Comment jouer ?</h3>-->
-    <!--                <ol>-->
-    <!--                    <li><strong>Cliquez sur une première carte</strong> pour la sélectionner</li>-->
-    <!--                    <li><strong>Cliquez sur une deuxième carte</strong> pour les relier</li>-->
-    <!--                    <li>La première carte se verrouille, mais la deuxième reste active</li>-->
-    <!--                    <li><strong>Continuez à relier</strong> toutes les cartes dans l'ordre</li>-->
-    <!--                    <li><strong>Validez</strong> votre ordre avec le bouton "Valider"</li>-->
-    <!--                </ol>-->
-    <!---->
-    <!--                <h3>🔧 Outils disponibles</h3>-->
-    <!--                <ul>-->
-    <!--                    <li><strong>🔄 Réinitialiser :</strong> Tout recommencer</li>-->
-    <!--                    <li><strong>↶ Annuler :</strong> Annuler la dernière liaison</li>-->
-    <!--                    <li><strong>✓ Valider :</strong> Vérifier si l'ordre est correct</li>-->
-    <!--                </ul>-->
-    <!---->
-    <!--                <h3>💡 Astuce</h3>-->
-    <!--                <p>Lisez attentivement les descriptions sur chaque carte pour trouver l'ordre logique !</p>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
     <div class="modal" id="rulesModal">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
 
                 <div class="modal-header bg-dark text-white">
                     <h5 class="modal-title">Lumi – C'est quoi l'idée ?</h5>
-
-                    <!-- BOUTON DE FERMETURE Fonctionne avec notre JS -->
                     <span class="close-rules btn-close btn-close-white"></span>
                 </div>
 
@@ -200,7 +166,6 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary close-rules">Fermer</button>
                 </div>
-
             </div>
         </div>
     </div>
@@ -208,9 +173,6 @@
 </div>
 
 <script>
-
-
-
     const baseUrl = '<?= base_url() ?>';
 </script>
 <?= script_tag('js/salle_4/friseSalle4.js') ?>
