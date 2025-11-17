@@ -20,6 +20,8 @@ html, body {
     display: block;
 }
 
+
+
 /* zone 1 (rectangle) */
 .zone1 {
     top: 61px;       /* y1 */
@@ -54,6 +56,15 @@ html, body {
     transform: none;
     max-width: 250px;
     height: 75px;
+}
+
+.mascotte {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: none;
+    max-width: 150px;
+    height: 200px;
 }
 /*.retour {*/
 /*    position: absolute;*/

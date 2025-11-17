@@ -17,10 +17,10 @@
         Cliquez sur deux cartes pour les relier avec une ligne rouge
     </div>
 
-    <div class="controls">
-        <?= form_button(['id' => 'resetBtn', 'content' => '🔄 Réinitialiser']) ?>
-        <?= form_button(['id' => 'undoBtn', 'content' => '↶ Annuler la dernière ligne']) ?>
-    </div>
+<!--    <div class="controls">-->
+<!--        --><?php //= form_button(['id' => 'resetBtn', 'content' => '🔄 Réinitialiser']) ?>
+<!--        --><?php //= form_button(['id' => 'undoBtn', 'content' => '↶ Annuler la dernière ligne']) ?>
+<!--    </div>-->
 
 <!--    --><?php //= anchor(base_url().'Salle4', '<button>Retour</button>') ?>
 
@@ -125,9 +125,15 @@
     </div>
 
     <?=anchor(base_url().'Salle4', img([
-            'src'   => 'images/commun/retour.webp',
+            'src'   => 'images/commun/retour.png',
             'alt'   => 'retour',
             'class' => 'retour'
+    ]));?>
+
+    <?=anchor(base_url(), img([
+            'src'   => 'images/commun/mascotte/mascotte_face.svg',
+            'alt'   => 'mascotte',
+            'class' => 'mascotte'
     ]));?>
 
 
