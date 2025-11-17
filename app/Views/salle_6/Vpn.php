@@ -1,9 +1,9 @@
-<title>Wifi</title>
-<?= link_tag(base_url() . "styles/salle_6/Wifi.css") ?>
+<title>VPN</title>
+<?= link_tag(base_url() . "styles/salle_6/Vpn.css") ?>
 </head>
 <body>
 <div class="container">
-    <h1 class="titre-temp">Wifi</h1>
+    <h1 class="titre-temp">Sélectionnez l'affirmation vraie sur les VPN</h1>
 
     <!-- Bouton retour -->
     <?= anchor(base_url() . '/', "Projet Made in Val de Loire", [
@@ -14,93 +14,89 @@
     <div class="zone-cliquable" id="zoneCliquable"></div>
 
     <!-- Formulaire pour envoyer le choix -->
-    <?= form_open(base_url() . 'wifi/validerCarte', ['id' => 'formWifi']) ?>
+    <?= form_open(base_url() . 'vpn/validerCarte', ['id' => 'formVpn']) ?>
     <?= csrf_field() ?>
     <?= form_input(["type" => "hidden",
-            "name" => "wifi_numero",
-            "id" => "wifiIdInput",
+            "name" => "vpn_numero",
+            "id" => "vpnIdInput",
             "value" => ""]) ?>
+    <?= form_input(["type" => "hidden",
+            "name" => "activite_numero",
+            "value" => "2"]) ?>
 
-    <!-- Conteneur des cartes WiFi (caché par défaut) -->
+    <!-- Conteneur des cartes VPN (caché par défaut) -->
     <div class="cartes-container" id="cartesContainer">
         <div class="cartes-wrapper">
-            <?php if (isset($wifis) && !empty($wifis)): ?>
-                <?php foreach ($wifis as $wifi): ?>
-                    <div class="CarteWifi"
-                         data-wifi-numero="<?= esc($wifi['wifi_numero']) ?>"
-                         data-est-correct="<?= esc($wifi['bonne_reponse']) ?>">
+            <?php if (isset($vpns) && !empty($vpns)): ?>
+                <?php foreach ($vpns as $vpn): ?>
+                    <div class="CarteVpn"
+                         data-vpn-numero="<?= esc($vpn['vpn_numero']) ?>"
+                         data-est-correct="<?= esc($vpn['bonne_reponse']) ?>">
                         <div class="carte-contenu">
-                            <h3 class="wifi-nom info-selectionnable" data-info="nom">
-                                WiFi-<?= esc($wifi['wifi_numero']) ?>
-                            </h3>
-                            <p class="wifi-type info-selectionnable" data-info="type">
-                                <?= $wifi['public'] == 1 ? 'Public' : 'Privé' ?>
-                            </p>
-                            <p class="wifi-chiffrement info-selectionnable" data-info="chiffrement">
-                                <?= esc($wifi['chiffrement']) ?>
-                            </p>
+                            <div class="texte-overlay">
+                                <p class="vpn-libelle">
+                                    <?= esc($vpn['libelle']) ?>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-
-            <!-- Version statique si pas de données -->
-            <div class="cartes-container" id="cartesContainer">
-                <div class="cartes-wrapper">
-                    <div class="CarteWifi" data-wifi-id="1">
-                        <div class="carte-contenu">
-                            <h3 class="wifi-nom info-selectionnable" data-info="nom">FreeWifi</h3>
-                            <p class="wifi-type info-selectionnable" data-info="type">Public</p>
-                            <p class="wifi-chiffrement info-selectionnable" data-info="chiffrement">WPA2</p>
-                        </div>
-                    </div>
-                    <div class="CarteWifi" data-wifi-id="2">
-                        <div class="carte-contenu">
-                            <h3 class="wifi-nom info-selectionnable" data-info="nom">Livebox-A3F2</h3>
-                            <p class="wifi-type info-selectionnable" data-info="type">Privé</p>
-                            <p class="wifi-chiffrement info-selectionnable" data-info="chiffrement">WPA3</p>
-                        </div>
-                    </div>
-                    <div class="CarteWifi" data-wifi-id="3">
-                        <div class="carte-contenu">
-                            <h3 class="wifi-nom info-selectionnable" data-info="nom">SFR-Guest</h3>
-                            <p class="wifi-type info-selectionnable" data-info="type">Public</p>
-                            <p class="wifi-chiffrement info-selectionnable" data-info="chiffrement">WPA2-PSK</p>
+                <!-- Version statique si pas de données -->
+                <div class="CarteVpn" data-vpn-numero="1" data-est-correct="1">
+                    <div class="carte-contenu">
+                        <div class="texte-overlay">
+                            <p class="vpn-libelle">Un VPN chiffre votre connexion internet</p>
                         </div>
                     </div>
                 </div>
-                <?php endif; ?>
-            </div>
-            <!-- Div de résultat (cachée par défaut) -->
-            <div class="resultat-container" id="resultatContainer" style="display: none;">
-                <p id="messageResultat"></p>
-            </div>
-            <!-- Bouton suivant (caché par défaut) -->
-            <?= form_submit("btnSuivant", "Suivant", [
-                    'id' => 'btnSuivant',
-                    'class' => 'btn-suivant',
-                    'style' => 'display: none;',
-                    "content" => "Suivant"
-            ]) ?>
+                <div class="CarteVpn" data-vpn-numero="2" data-est-correct="0">
+                    <div class="carte-contenu">
+                        <div class="texte-overlay">
+                            <p class="vpn-libelle">Un VPN ralentit toujours votre connexion de 80%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="CarteVpn" data-vpn-numero="3" data-est-correct="0">
+                    <div class="carte-contenu">
+                        <div class="texte-overlay">
+                            <p class="vpn-libelle">Les VPN sont illégaux en France</p>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
 
+        <!-- Div de résultat (cachée par défaut) -->
+        <div class="resultat-container" id="resultatContainer" style="display: none;">
+            <p id="messageResultat"></p>
+        </div>
 
-        <!-- Bouton valider -->
-        <?= form_button([
-                "content" => "Valider",
-                "id" => "btnValider",
-                "class" => "btn-valider",
-                "style" => "display: none;"
+        <!-- Bouton suivant (caché par défaut) -->
+        <?= form_submit("btnSuivant", "Suivant", [
+                'id' => 'btnSuivant',
+                'class' => 'btn-suivant',
+                'style' => 'display: none;',
+                "content" => "Suivant"
         ]) ?>
-
-        <?= form_close() ?>
-
     </div>
 
-    <!-- Bouton d'accueil (caché par défaut, affiché en cas d'échec) -->
-    <?= anchor(base_url() . "/", "Revenir à l'accueil", [
-            "id" => "btnAccueil",
-            "class" => "btn-valider"
+    <!-- Bouton valider -->
+    <?= form_button([
+            "content" => "Valider",
+            "id" => "btnValider",
+            "class" => "btn-valider",
+            "style" => "display: none;"
     ]) ?>
 
-<?= script_tag('js/salle_6/wifiCartes.js') ?>
+    <?= form_close() ?>
+</div>
+
+<!-- Bouton d'accueil (caché par défaut, affiché en cas d'échec) -->
+<?= anchor(base_url() . "/", "Revenir à l'accueil", [
+        "id" => "btnAccueil",
+        "class" => "btn-valider",
+        "style" => "display: none;"
+]) ?>
+
+<?= script_tag('js/salle_6/Vpn.js') ?>
