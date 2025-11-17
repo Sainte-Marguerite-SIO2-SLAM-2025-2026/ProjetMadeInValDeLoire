@@ -1,0 +1,230 @@
+CRITICAL - 2025-11-17 06:30:38 --> ErrorException: Undefined variable $vpns
+[Method: GET, Route: Salle6/Enigme]
+in APPPATH\Views\salle_6\Vpn.php on line 30.
+ 1 APPPATH\Views\salle_6\Vpn.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $vpns', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_6\\Vpn.php', 30)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_6\\Vpn.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\Vpn', [], true)
+ 5 APPPATH\Controllers\salle_6\Salle6Controller.php(57): view('salle_6\\Vpn')
+ 6 APPPATH\Controllers\salle_6\Salle6Controller.php(65): App\Controllers\salle_6\Salle6Controller->Vpn()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\Salle6Controller->Enigme()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\Salle6Controller))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 06:36:55 --> Error: Class "App\Models\salle_6\ProposerVpnModel" not found
+[Method: GET, Route: Salle6/Enigme]
+in APPPATH\Controllers\salle_6\VpnController.php on line 16.
+ 1 APPPATH\Controllers\salle_6\Salle6Controller.php(18): App\Controllers\salle_6\VpnController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\salle_6\Salle6Controller->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 06:39:46 --> Error: Class "App\Models\salle_6\ProposerVpnModel" not found
+[Method: GET, Route: Salle6/Enigme]
+in APPPATH\Controllers\salle_6\VpnController.php on line 16.
+ 1 APPPATH\Controllers\salle_6\Salle6Controller.php(18): App\Controllers\salle_6\VpnController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\salle_6\Salle6Controller->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 06:39:49 --> Error: Class "App\Models\salle_6\ProposerVpnModel" not found
+[Method: GET, Route: Salle6]
+in APPPATH\Controllers\salle_6\VpnController.php on line 16.
+ 1 APPPATH\Controllers\salle_6\Salle6Controller.php(18): App\Controllers\salle_6\VpnController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\salle_6\Salle6Controller->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 06:39:56 --> Error: Class "App\Models\salle_6\ProposerVpnModel" not found
+[Method: GET, Route: Salle6]
+in APPPATH\Controllers\salle_6\VpnController.php on line 16.
+ 1 APPPATH\Controllers\salle_6\Salle6Controller.php(18): App\Controllers\salle_6\VpnController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\salle_6\Salle6Controller->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 06:40:16 --> Error: Class "App\Models\salle_6\ProposerVpnModel" not found
+[Method: GET, Route: Salle6]
+in APPPATH\Controllers\salle_6\VpnController.php on line 16.
+ 1 APPPATH\Controllers\salle_6\Salle6Controller.php(18): App\Controllers\salle_6\VpnController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\salle_6\Salle6Controller->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 06:40:21 --> Error: Class "App\Models\salle_6\ProposerVpnModel" not found
+[Method: GET, Route: Salle6]
+in APPPATH\Controllers\salle_6\VpnController.php on line 16.
+ 1 APPPATH\Controllers\salle_6\Salle6Controller.php(18): App\Controllers\salle_6\VpnController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\salle_6\Salle6Controller->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-17 06:40:38 --> VPN récupérés: Array
+(
+)
+
+WARNING - 2025-11-17 06:40:38 --> Aucun VPN trouvé en base, utilisation des données de test
+CRITICAL - 2025-11-17 06:40:38 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "salle_6\VpnCartes.php"
+[Method: GET, Route: Salle6/Enigme]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('salle_6\\VpnCartes.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\VpnCartes', [], true)
+ 3 APPPATH\Controllers\salle_6\VpnController.php(57): view('salle_6\\VpnCartes', [...])
+ 4 APPPATH\Controllers\salle_6\Salle6Controller.php(60): App\Controllers\salle_6\VpnController->Index()
+ 5 APPPATH\Controllers\salle_6\Salle6Controller.php(67): App\Controllers\salle_6\Salle6Controller->Vpn()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\Salle6Controller->Enigme()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\Salle6Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-17 06:41:39 --> VPN récupérés: Array
+(
+)
+
+WARNING - 2025-11-17 06:41:39 --> Aucun VPN trouvé en base, utilisation des données de test
+DEBUG - 2025-11-17 06:41:56 --> VPN récupérés: Array
+(
+)
+
+WARNING - 2025-11-17 06:41:56 --> Aucun VPN trouvé en base, utilisation des données de test
+DEBUG - 2025-11-17 07:39:59 --> VPN récupérés: Array
+(
+)
+
+WARNING - 2025-11-17 07:39:59 --> Aucun VPN trouvé en base, utilisation des données de test
+DEBUG - 2025-11-17 07:48:05 --> VPN récupérés: Array
+(
+    [bon] => 
+    [mauvais] => Array
+        (
+        )
+
+)
+
+CRITICAL - 2025-11-17 07:48:05 --> ErrorException: Trying to access array offset on null
+[Method: GET, Route: Salle6/Enigme]
+in APPPATH\Views\salle_6\Vpn.php on line 33.
+ 1 APPPATH\Views\salle_6\Vpn.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on null', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_6\\Vpn.php', 33)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_6\\Vpn.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\Vpn', [], true)
+ 5 APPPATH\Controllers\salle_6\VpnController.php(57): view('salle_6\\Vpn', [...])
+ 6 APPPATH\Controllers\salle_6\Salle6Controller.php(31): App\Controllers\salle_6\VpnController->Index()
+ 7 APPPATH\Controllers\salle_6\Salle6Controller.php(38): App\Controllers\salle_6\Salle6Controller->Vpn()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\Salle6Controller->Enigme()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\Salle6Controller))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-17 07:52:08 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 2
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN masquent votre adresse IP réelle
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 5
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN ralentit toujours votre connexion de 80%
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 3
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN vous rend totalement anonyme sur internet
+        )
+
+)
+
+CRITICAL - 2025-11-17 07:54:29 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "salle_6\VpnInfos.php"
+[Method: POST, Route: vpn/validerCarte]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('salle_6\\VpnInfos.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_6\\VpnInfos', [], true)
+ 3 APPPATH\Controllers\salle_6\VpnController.php(90): view('salle_6\\VpnInfos', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_6\VpnController->validerCarte()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_6\VpnController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-17 07:54:32 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 5
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN ralentit toujours votre connexion de 80%
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 4
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Les VPN sont illégaux en France
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 8
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN peuvent protéger sur les WiFi publics
+        )
+
+)
+
+DEBUG - 2025-11-17 07:54:59 --> VPN récupérés: Array
+(
+    [0] => Array
+        (
+            [vpn_numero] => 3
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN vous rend totalement anonyme sur internet
+        )
+
+    [1] => Array
+        (
+            [vpn_numero] => 9
+            [activite_numero] => 2
+            [bonne_reponse] => 0
+            [libelle] => Un VPN supprime tous les virus de votre ordinateur
+        )
+
+    [2] => Array
+        (
+            [vpn_numero] => 10
+            [activite_numero] => 2
+            [bonne_reponse] => 1
+            [libelle] => Les VPN empêchent votre FAI de voir votre trafic
+        )
+
+)
+

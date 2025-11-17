@@ -27,8 +27,8 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => 'root',
-        'password'     => '',
+        'username'     => 'MadeInValDeLoire',
+        'password'     => '9L/1CuY8/*uWxE(0',
         'database'     => 'made_in_val_de_loire',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
