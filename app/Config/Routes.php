@@ -35,6 +35,7 @@ $routes->get('/enigmeRetour', 'accueil\AccueilController::Salle5');
 
 // Routes pour la salle 6
 $routes->get('/Salle6', 'salle_6\Salle6Controller::Index');
+$routes->get('/Salle6/Enigme', 'salle_6\Salle6Controller::Enigme');
 $routes->get('/Salle6/VPN', 'salle_6\Salle6Controller::Vpn');
 $routes->get('/Salle6/Wifi', 'salle_6\WifiController::index');
 $routes->post('/wifi/validerCarte', 'salle_6\WifiController::validerCarte');
