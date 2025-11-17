@@ -58,4 +58,8 @@
             ou de dommages directs ou indirects résultant de son utilisation.
         </p>
     </section>
+
+    <?= anchor(base_url() . '/',"Projet Made in Val de Loire", [
+            'class' => 'retour'
+    ]);?>
 </main>

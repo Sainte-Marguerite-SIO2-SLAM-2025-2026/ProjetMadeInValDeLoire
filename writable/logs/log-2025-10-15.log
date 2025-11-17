@@ -1,0 +1,166 @@
+CRITICAL - 2025-10-15 15:57:50 --> Error: Class "App\salle_5\SalleModel" not found
+[Method: GET, Route: Salle5]
+in APPPATH\Controllers\accueil\AccueilController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-15 15:58:55 --> Error: Class "App\Models\salle_5\SalleModel" not found
+[Method: GET, Route: Salle5]
+in APPPATH\Controllers\accueil\AccueilController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-15 16:01:36 --> Error: Class "App\Models\SalleModel" not found
+[Method: GET, Route: Salle5]
+in APPPATH\Controllers\accueil\AccueilController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-15 16:01:38 --> Error: Class "App\Models\SalleModel" not found
+[Method: GET, Route: Salle5]
+in APPPATH\Controllers\accueil\AccueilController.php on line 45.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-10-15 16:02:21 --> Error connecting to the database: mysqli_sql_exception: Accès refusé pour l'utilisateur: ''@'@localhost' (mot de passe: OUI) in C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', '', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\ProjetMadeInValDeLoire\app\Models\salle_5\SalleModel.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\ProjetMadeInValDeLoire\app\Controllers\accueil\AccueilController.php(46): App\Models\salle_5\SalleModel->getSalle(5)
+#6 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+#7 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+#8 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\ProjetMadeInValDeLoire\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\wamp64\www\ProjetMadeInValDeLoire\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\wamp64\www\ProjetMadeInValDeLoire\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Accès refusé pour l'utilisateur: ''@'@localhost' (mot de passe: OUI) in C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\wamp64\www\ProjetMadeInValDeLoire\app\Models\salle_5\SalleModel.php(14): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\wamp64\www\ProjetMadeInValDeLoire\app\Controllers\accueil\AccueilController.php(46): App\Models\salle_5\SalleModel->getSalle(5)
+#5 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+#6 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+#7 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\wamp64\www\ProjetMadeInValDeLoire\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\wamp64\www\ProjetMadeInValDeLoire\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\wamp64\www\ProjetMadeInValDeLoire\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-10-15 16:02:21 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Accès refusé pour l'utilisateur: ''@'@localhost' (mot de passe: OUI)
+[Method: GET, Route: Salle5]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `salle`
+WHERE `numero` = :numero:', [...], false)
+ 3 APPPATH\Models\salle_5\SalleModel.php(14): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\accueil\AccueilController.php(46): App\Models\salle_5\SalleModel->getSalle(5)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-15 16:07:31 --> ErrorException: Undefined variable $data
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 6.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 6)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(48): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-15 16:08:44 --> ErrorException: Attempt to read property "libelle" on array
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 6.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "libelle" on array', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 6)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(48): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-15 16:09:49 --> ErrorException: Undefined array key "libelle"
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 6.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "libelle"', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 6)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(48): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-15 16:14:28 --> ErrorException: Attempt to read property "libelle" on array
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 6.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "libelle" on array', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 6)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(48): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-15 16:14:36 --> ErrorException: Attempt to read property "libelle" on array
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 6.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "libelle" on array', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 6)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(48): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-15 16:15:48 --> ErrorException: Undefined variable $mascotte
+[Method: GET, Route: Salle5]
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 15.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $mascotte', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 15)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(48): view('salle_5\\AccueilSalle5', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

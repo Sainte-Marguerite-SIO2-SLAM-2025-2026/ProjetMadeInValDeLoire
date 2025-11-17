@@ -3,41 +3,50 @@ html, body {
     padding: 0;
 }
 
-.fond_accueil {
+.image-container {
     position: relative;
-    background-image: url("../../images/salle_4/chambre/WEB/chambre.webp");
-    background-size: cover;
+    height: 100%;
+    width: 100%;              /* prend toute la largeur du parent */
+    max-width: 1920px;        /* largeur originale de l'image */
+    aspect-ratio: 1920 / 1080; /* hauteur proportionnelle à la largeur */
+    background-image: url('../../images/salle_4/images_finales/chambre.webp');
+    background-size: cover;   /* ajuste l'image à la div */
     background-position: center;
-    height: 100vh;
-    width: 100vw;
-    padding-top: 1px;
 }
 
-.clic_frise {
+/* toutes les zones cliquables */
+.clickable-zone {
     position: absolute;
-    top: 5%;
-    left: 35%;
-    width: 32%;
-    height: 31%;
-    cursor: pointer;
-    background: transparent;
     display: block;
-    /*border: 3px solid red;*/
-
 }
 
-.quizFin {
-    position: absolute;
-    top: 89%;
-    left: 74%;
-    width: 9%;
-    height: 10%;
-    cursor: pointer;
-    background: transparent;
-    display: block;
-    /*border: 3px solid red;*/
+/* zone 1 (rectangle) */
+.zone1 {
+    top: 61px;       /* y1 */
+    left: 670px;     /* x1 */
+    width: 619px;    /* x2 - x1 = 1289 - 670 */
+    height: 337px;   /* y2 - y1 = 398 - 61 */
+
+    /* version responsive en % */
+    top: calc(61 / 1080 * 100%);
+    left: calc(670 / 1920 * 100%);
+    width: calc(619 / 1920 * 100%);
+    height: calc(337 / 1080 * 100%);
 }
 
+/* zone 2 (polygone approximé avec rectangle) */
+.zone2 {
+    top: 961px;      /* y min */
+    left: 1413px;    /* x min */
+    width: 192px;    /* x max - x min = 1605 - 1413 */
+    height: 104px;   /* y max - y min = 1065 - 961 */
+
+    /* version responsive en % */
+    top: calc(961 / 1080 * 100%);
+    left: calc(1413 / 1920 * 100%);
+    width: calc(192 / 1920 * 100%);
+    height: calc(104 / 1080 * 100%);
+}
 .retour {
     position: absolute;
     bottom: 2%;
@@ -46,5 +55,53 @@ html, body {
     max-width: 250px;
     height: 75px;
 }
+/*.retour {*/
+/*    position: absolute;*/
+/*    bottom: -5%;*/
+/*    left: 0;*/
+/*    transform: none;*/
+/*    max-width: 300px;*/
+/*    height: 200px;*/
+/*}*/
+
+/* region Ancien */
+
+/*.fond_accueil {*/
+/*    position: relative;*/
+/*    !*background-image: url("../../images/salle_4/chambre/WEB/chambre.webp");*!*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    height: 100vh;*/
+/*    width: 100vw;*/
+/*    padding-top: 1px;*/
+/*}*/
+
+/*.clic_frise {*/
+/*    position: absolute;*/
+/*    top: 5%;*/
+/*    left: 35%;*/
+/*    width: 32%;*/
+/*    height: 31%;*/
+/*    cursor: pointer;*/
+/*    background: transparent;*/
+/*    display: block;*/
+/*    !*border: 3px solid red;*!*/
+/*}*/
+
+/*.quizFin {*/
+/*    position: absolute;*/
+/*    top: 89%;*/
+/*    left: 74%;*/
+/*    width: 9%;*/
+/*    height: 10%;*/
+/*    cursor: pointer;*/
+/*    background: transparent;*/
+/*    display: block;*/
+/*    !*border: 3px solid red;*!*/
+/*}*/
+
+/*endregion*/
+
+
 
 

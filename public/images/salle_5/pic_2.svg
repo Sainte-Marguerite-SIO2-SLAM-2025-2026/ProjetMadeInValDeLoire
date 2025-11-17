@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.57 25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #bababa;
+      }
+
+      .cls-2 {
+        fill: #1aa80d;
+      }
+
+      .cls-3 {
+        isolation: isolate;
+      }
+
+      .cls-4 {
+        fill: #168c0b;
+      }
+
+      .cls-5 {
+        fill: #cfcfcf;
+        mix-blend-mode: multiply;
+      }
+
+      .cls-6 {
+        fill: #d6d6d6;
+      }
+    </style>
+  </defs>
+  <g class="cls-3">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <rect class="cls-4" x="9.56" y="-.07" width="10.25" height="19.92" transform="translate(1.81 22.04) rotate(-77.29)"/>
+        <path class="cls-2" d="M18.6,10.77c-1.45,6.41,2.57,12.78,8.98,14.23L32.82,1.79c-6.41-1.45-12.78,2.57-14.22,8.98Z"/>
+        <path class="cls-2" d="M1.7,3.25L.1,10.3c-.51,2.24.9,4.47,3.15,4.98l.92-4.06,1.59-7.05L6.68.1C4.43-.4,2.2,1.01,1.7,3.25Z"/>
+        <polygon class="cls-1" points="48.27 15.58 30.61 11.59 29.8 15.19 47.46 19.18 55.57 19.12 48.27 15.58"/>
+        <polygon class="cls-6" points="30.4 12.49 30.2 13.39 55.57 19.12 51.92 17.35 30.4 12.49"/>
+        <path class="cls-5" d="M.9,6.78L.1,10.3c-.51,2.24.9,4.47,3.15,4.98l.58-2.59,14.78,3.33c.99,4.32,4.36,7.93,8.97,8.97l2.22-9.81,17.66,3.99,8.11-.06L.9,6.78Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

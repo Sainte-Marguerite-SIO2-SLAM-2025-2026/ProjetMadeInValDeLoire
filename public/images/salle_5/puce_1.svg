@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.29 58.78">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #4d4d4d;
+      }
+
+      .cls-2 {
+        fill: #dedede;
+      }
+
+      .cls-3 {
+        fill: #b3b3b3;
+      }
+
+      .cls-4 {
+        fill: #adadad;
+      }
+
+      .cls-5 {
+        fill: #3d3d3d;
+      }
+
+      .cls-6 {
+        fill: #242424;
+      }
+
+      .cls-7 {
+        fill: #7a7a7a;
+      }
+    </style>
+  </defs>
+  <rect class="cls-6" x="8.49" y="31.66" width="52.39" height="4.24" transform="translate(-9.8 52.88) rotate(-67.48)"/>
+  <polygon class="cls-1" points="41.78 11.1 23.65 54.82 1.54 48.39 21.61 0 41.78 11.1"/>
+  <polygon class="cls-3" points="21.61 0 18.13 1.29 0 45.02 1.54 48.39 21.61 0"/>
+  <path class="cls-2" d="M74.61,50.54c-1.89,4.56-7.15,6.74-11.72,4.85-3.01-1.25-5.09-4.04-5.47-7.22l-26.1-4.17-2.42,5.85c-.17.42-.65.62-1.06.45-.41-.17-.61-.65-.45-1.07l2.92-7.04,28.67,4.58.02.66c.11,2.87,1.84,5.34,4.52,6.45,3.74,1.55,8.04-.23,9.59-3.96,1.55-3.74-.23-8.03-3.96-9.58-2.68-1.11-5.65-.59-7.76,1.36l-.49.46-23.49-17.05,2.92-7.04c.17-.42.65-.61,1.06-.44.41.17.61.65.44,1.07l-2.43,5.85,21.39,15.52c2.54-2.02,5.92-2.49,8.97-1.23,4.56,1.89,6.74,7.15,4.85,11.71Z"/>
+  <rect class="cls-4" x="20.4" y="49.49" width="13.78" height="4.24" transform="translate(-30.84 57.06) rotate(-67.49)"/>
+  <rect class="cls-4" x="35.18" y="13.82" width="13.78" height="4.24" transform="translate(11.23 48.7) rotate(-67.48)"/>
+  <rect class="cls-4" x="27.72" y="31.84" width="13.77" height="4.24" transform="translate(-10.02 52.9) rotate(-67.46)"/>
+  <rect class="cls-1" x="21.38" y="50.95" width="13.77" height="2.12" transform="translate(-30.61 58.21) rotate(-67.49)"/>
+  <polygon class="cls-1" points="46.67 10.39 41.39 23.12 39.43 22.31 44.71 9.58 46.67 10.39"/>
+  <rect class="cls-1" x="28.7" y="33.3" width="13.77" height="2.12" transform="translate(-9.79 54.06) rotate(-67.46)"/>
+  <polygon class="cls-5" points="19.16 53.52 23.65 54.82 41.78 11.1 37.68 8.85 19.16 53.52"/>
+  <polygon class="cls-7" points="5.29 49.48 25.03 1.88 21.61 0 1.54 48.39 5.29 49.48"/>
+</svg>
