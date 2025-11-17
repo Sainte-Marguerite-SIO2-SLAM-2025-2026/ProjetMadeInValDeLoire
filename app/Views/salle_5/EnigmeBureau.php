@@ -987,7 +987,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
                 <g id="post_it_code" class="objet-cliquable" data-reponse="A">
                     <image clip-path="url(#clip_post_it_code)"
                            x="103.12" y="418.75" width="120.83" height="117.71"
-                    xlink:href="<?= base_url('images/salle_5/post_it_confidentiel.svg') ?>"/>
+                    xlink:href="<?= base_url('images/salle_5/post_it_code.svg') ?>"/>
                     <rect class="zone-click" x="103.12" y="418.75" width="120.83" height="117.71" fill="transparent"
                           style="cursor:pointer;"/>
                 </g>
