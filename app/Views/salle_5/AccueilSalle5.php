@@ -9,7 +9,7 @@ $imageEcranMilieuGauche = null;
 $imageEcranMilieuDroite = null;
 
 if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies)) {
-    $imageEcranMilieuDroite = base_url('images/salle_5/ecran_login_2_1.svg');
+    $imageEcranMilieuDroite = base_url('images/salle_5/ecran_login_2_v2.webp');
 } elseif (in_array("6", $activites_selectionnees)&& !in_array(6, $activites_reussies)){
     $imageEcranMilieuGauche = base_url('images/salle_5/ecran_data_2.svg');
 }
@@ -175,13 +175,14 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
         </svg>
 
         <!-- Bouton retour -->
-        <div class="retour">
-            <?= anchor(base_url('/resetSalle5'), '<button>' . img([
-                            "src" => $salle->bouton,
-                            "alt" => "bouton de retour",
-                            "class" => "retour-img",
-                            "style" => "width:50px;height:50px;"
-                    ]) . '</button>'); ?>
+        <div class="retour-top">
+            <?= anchor('Salle5',
+                    form_button([
+                            'content' => 'RETOUR',
+                            'type' => 'button',
+                            'class' => 'btn-retour'
+                    ])
+            ) ?>
         </div>
 
         <!-- Mascotte -->
@@ -228,8 +229,8 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
         <div id="popup-echec" class="popup popup-echec" style="display: flex;">
             <div class="popup-content popup-echec-content">
                 <h2>❌ Échec !</h2>
-                <p><?= esc($message_echec) ?></p>
-                <p>Vous devez recommencer cette énigme pour progresser.</p>
+                <p>❌ Malheureusement vous n'avez pas réussi les énigmes de la salle</p>
+                <p>Vous devez recommencer cette salle pour progresser.</p>
                 <div class="popup-actions">
                     <?= anchor(base_url('/finSalle5'),
                             form_button([
