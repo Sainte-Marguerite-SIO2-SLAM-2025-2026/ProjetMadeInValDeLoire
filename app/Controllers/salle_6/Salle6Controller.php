@@ -31,13 +31,14 @@ class Salle6Controller extends BaseController
         return $this->VpnController->Index();
     }
 
-    public function Enigme() : string
+    public function Enigme()
     {
         $numeroEnigme = random_int(1, 2);
+
         if ($numeroEnigme == 1) {
-            return $this->Vpn();
+            return redirect()->to('/Salle6/VPN');
         } else {
-            return $this->WifiController->Index();
+            return redirect()->to('/Salle6/Wifi');
         }
     }
 
