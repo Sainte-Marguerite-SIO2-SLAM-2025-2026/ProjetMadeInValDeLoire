@@ -217,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `proposer_vpn` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `proposer_wifi`
+-- Structure de la table `proposer_wifiModel`
 --
 
 DROP TABLE IF EXISTS `proposer_wifi`;
@@ -361,7 +361,7 @@ ALTER TABLE `proposer_vpn`
   ADD CONSTRAINT `vpn_ibfk_1` FOREIGN KEY (`vpn_numero`) REFERENCES `vpn` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `proposer_wifi`
+-- Contraintes pour la table `proposer_wifiModel`
 --
 ALTER TABLE `proposer_wifi`
   ADD CONSTRAINT `activite_ibfk_5` FOREIGN KEY (`activite_numero`) REFERENCES `activite` (`numero`) ON DELETE RESTRICT ON UPDATE CASCADE,

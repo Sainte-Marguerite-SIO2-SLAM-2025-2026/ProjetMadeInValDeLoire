@@ -1,0 +1,57 @@
+/* === Fond général === */
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: "IrishGrover", sans-serif;
+}
+
+.timer {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    font-size: 3rem;
+    color: yellow;
+    font-family: "IrishGrover", sans-serif;
+    text-shadow: 0 0 8px black;
+    z-index: 999;
+}
+
+/* === Boutons retour === */
+.buttons {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.retour-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.button-image {
+    width: 200px;
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+.button-image:hover {
+    content: url("../salle_1/images/boutons/retour-et-indice_jaune.webp");
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px yellow);
+}
+
+.retour-texte {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-weight: bold;
+    text-shadow: 0 0 8px white;
+    font-size: 1rem;
+    pointer-events: none;
+}
