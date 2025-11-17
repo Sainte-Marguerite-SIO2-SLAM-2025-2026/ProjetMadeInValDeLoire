@@ -16,7 +16,7 @@
     ]) ?>
 
     <!-- zone train -->
-    <?= anchor(base_url() . '/Salle6/Wifi', ' ', [ 'class' => 'zone-cliquable' ] );?>
+    <?= anchor(base_url() . 'Salle6/Enigme', ' ', [ 'class' => 'zone-cliquable' ] );?>
 
     <!-- Bouton retour -->
     <?= anchor(base_url() . '/',"Projet Made in Val de Loire", [

@@ -1,12 +1,11 @@
-DEBUG - 2025-11-06 10:40:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
-CRITICAL - 2025-11-06 10:40:05 --> ErrorException: Attempt to read property "libelle" on null
+CRITICAL - 2025-11-08 16:02:22 --> ErrorException: Undefined variable $salle
 [Method: GET, Route: Salle5]
-in APPPATH\Views\salle_5\AccueilSalle5.php on line 5884.
- 1 APPPATH\Views\salle_5\AccueilSalle5.php(5884): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "libelle" on null', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 5884)
+in APPPATH\Views\salle_5\AccueilSalle5.php on line 6.
+ 1 APPPATH\Views\salle_5\AccueilSalle5.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $salle', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php', 6)
  2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_5\\AccueilSalle5.php')
  3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
  4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_5\\AccueilSalle5', [], true)
- 5 APPPATH\Controllers\accueil\AccueilController.php(84): view('salle_5\\AccueilSalle5', [...])
+ 5 APPPATH\Controllers\accueil\AccueilController.php(40): view('salle_5\\AccueilSalle5')
  6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle5()
  7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
