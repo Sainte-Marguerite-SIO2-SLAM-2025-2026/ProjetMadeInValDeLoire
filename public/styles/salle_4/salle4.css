@@ -59,7 +59,7 @@ html, body {
 /* ===== Mascotte interactive ===== */
 .mascotte-zone {
     position: absolute;
-    top: 20px;
+    bottom: 20px;
     right: 40px;
     width: 150px;
     height: 180px;
@@ -69,7 +69,7 @@ html, body {
 
 .mascotte-img {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 150px;
     height: 180px;
@@ -214,4 +214,42 @@ html, body {
 
 .rules-modal-content::-webkit-scrollbar-thumb:hover {
     background: #16a085;
+}
+
+
+
+
+
+
+
+
+
+/* Zones bloquées */
+.zone-bloquee {
+    cursor: not-allowed;
+    position: relative;
+}
+
+.overlay-bloque {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.zone1.zone-bloquee .overlay-bloque {
+    /*background: rgba(39, 174, 96, 0.9);*/
+}
+
+.zone2.zone-bloquee .overlay-bloque {
+    background: transparent;
 }
