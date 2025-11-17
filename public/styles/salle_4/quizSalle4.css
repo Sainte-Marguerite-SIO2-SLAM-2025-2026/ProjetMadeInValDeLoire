@@ -9,7 +9,6 @@
 html, body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 /* ===== Fond de la page ===== */
@@ -171,11 +170,12 @@ html, body {
 
 .modal-content {
     background-color: white;
-    margin: 10% auto;
+    margin: 5% auto;
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     animation: slideDown 0.3s;
+    position: relative;
 }
 
 @keyframes slideDown {
@@ -301,10 +301,10 @@ html, body {
     color: #7f8c8d;
 }
 
-#countdown {
-    font-weight: bold;
-    color: #e74c3c;
-}
+/*#countdown {*/
+/*    font-weight: bold;*/
+/*    color: #e74c3c;*/
+/*}*/
 
 /* ===== Bouton retour ===== */
 .retour {
@@ -320,43 +320,35 @@ html, body {
     transform: scale(1.1);
 }
 
-/* ===== Mascotte ===== */
-#mascotte-container {
+/* ===== Mascotte interactive ===== */
+.mascotte-zone {
     position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 200;
+    top: 20px;
+    right: 40px;
+    width: 150px;
+    height: 180px;
     cursor: pointer;
+    z-index: 200;
 }
 
-.mascotte-image {
+.mascotte-img {
     position: absolute;
     top: 0;
-    right: 0;
-    opacity: 0;
-    transition: opacity var(--transition-fast);
+    left: 0;
+    width: 150px;
+    height: 180px;
+    object-fit: contain;
+    transition: opacity 0.2s ease-in-out;
     pointer-events: none;
-    max-width: 150px;
-    height: 200px;
 }
 
-.mascotte-image.default {
-    opacity: 1;
-}
+.mascotte-default { opacity: 1; }
+.mascotte-hover  { opacity: 0; }
 
-#mascotte-container:hover .mascotte-image.default {
-    opacity: 0;
-}
+.mascotte-zone:hover .mascotte-default { opacity: 0; }
+.mascotte-zone:hover .mascotte-hover  { opacity: 1; }
 
-#mascotte-container:hover .mascotte-image.hover {
-    opacity: 1;
-}
-
-#mascotte-container:hover {
-    transform: scale(1.15) rotate(5deg);
-}
-
-/* ===== Modal des règles ===== */
+/* ===== Modal des règles (style amélioré) ===== */
 .rules-modal-content {
     max-width: 700px;
     max-height: 80vh;

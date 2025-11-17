@@ -97,6 +97,8 @@ class Salle4Controller extends BaseController
     public function quizFinal(): string
     {
         $session = session();
+        $session->destroy(); // Reset total de la session
+        $session = session(); // On redémarre une session propre
         $quizModel = new QuizModel();
 
         // Récupérer ou générer 6 questions aléatoires
@@ -115,7 +117,8 @@ class Salle4Controller extends BaseController
             'reponses' => $reponses
         ];
 
-        return view('salle_4/QuizSalle4', $data) . view('commun/footer');
+        return view('salle_4/QuizSalle4', $data).
+            view('commun/footer');
     }
 
     public function verifierReponseQuiz()

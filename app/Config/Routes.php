@@ -30,7 +30,7 @@ $routes->get('/pageFrise', 'salle_4\Salle4Controller::pageFrise');
 $routes->post('/verifierOrdre', 'salle_4\Salle4Controller::verifierOrdre');
 $routes->get('/quizFin', 'salle_4\Salle4Controller::quizFinal');
 $routes->post('/verifierReponseQuiz', 'salle_4\Salle4Controller::verifierReponseQuiz');
-$routes->get('/resetQuiz', 'salle_4\Salle4Controller::resetQuiz');
+$routes->get('/resetQuiz', 'accueil\AccueilController::index');
 
 
 // Routes pour la salle 5
