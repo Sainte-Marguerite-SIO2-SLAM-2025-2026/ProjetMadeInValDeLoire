@@ -57,7 +57,7 @@ cartesQuiz.forEach(carte => {
             carteGrandeImg.src = baseUrl + 'images/salle_4/images_finales/' + imageCarte;
 
             // Afficher la question
-            questionText.textContent = question.question;
+            questionText.textContent = question.libelle;
 
             // Ouvrir la modal
             questionModal.style.display = 'block';

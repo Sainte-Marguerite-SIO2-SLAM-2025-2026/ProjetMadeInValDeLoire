@@ -8,7 +8,7 @@ class QuizModel extends Model
 {
     protected $table = 'question';
     protected $primaryKey = 'numero';
-    protected $allowedFields = ['question', 'reponse', 'activite_numero'];
+    protected $allowedFields = ['libelle', 'reponse', 'activite_numero'];
 
     /**
      * Récupère 6 questions aléatoires pour une activité
@@ -35,13 +35,17 @@ class QuizModel extends Model
             ];
         }
 
-        $correct = (strtolower($question['reponse']) === strtolower($reponse));
+        // Convertir la réponse utilisateur en tinyint (vrai = 1, faux = 0)
+        $reponseInt = (strtolower($reponse) === 'vrai') ? 1 : 0;
+
+        // Comparer avec la réponse en BDD (qui est déjà un tinyint)
+        $correct = ($question['reponse'] == $reponseInt);
 
         return [
             'success' => true,
             'correct' => $correct,
-            'bonne_reponse' => $question['reponse'],
-            'question' => $question['question']
+            'bonne_reponse' => ($question['reponse'] == 1) ? 'vrai' : 'faux',
+            'libelle' => $question['libelle']
         ];
     }
 }
