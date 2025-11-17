@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
                     }
                 } else {
-                    // Mauvaise réponse
+                    // ❌ Mauvaise réponse - Redirection vers salle avec échec
                     feedback.textContent = '❌ ' + data.message;
                     feedback.className = 'feedback error show';
 
@@ -90,7 +90,13 @@ document.addEventListener('DOMContentLoaded', function() {
                                 o.classList.remove('disabled');
                             }
                         });
-                        feedback.classList.remove('show');
+
+                        overlay.style.opacity = '1';
+                        overlay.style.pointerEvents = 'all';
+
+                        setTimeout(() => {
+                            window.location.href = base_url + '/Salle5?echec=1&activite=' + activite_numero;
+                        }, 800);
                     }, 2000);
                 }
             })

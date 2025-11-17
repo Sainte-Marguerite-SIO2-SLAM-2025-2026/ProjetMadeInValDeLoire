@@ -22,7 +22,6 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
 
 
 
-            <!-- Écran milieu droit (Activité 1) -->
             <?php if ($imageEcranMilieuDroite): ?>
                 <g id="ecran_milieu_droit" class="objet-enigme" data-activite="1">
                     <image id="image_ecran_milieu_droit"
@@ -54,7 +53,7 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
             <?php endif; ?>
 
             <!-- Porte (Activité 5) -->
-            <?php if (in_array(5, $activites_selectionnees)&& !in_array(5, $activites_reussies)): ?>
+            <?php if (in_array(5, $activites_selectionnees) && !in_array(5, $activites_reussies)): ?>
                 <g id="porte" class="objet-enigme" data-activite="5">
                     <image id="image_porte"
                            x="1592.5" y="237.97"
@@ -70,7 +69,7 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
             <?php endif; ?>
 
             <!-- Fenêtre (Activité 7) -->
-            <?php if (in_array(7, $activites_selectionnees)&& !in_array(7, $activites_reussies)): ?>
+            <?php if (in_array(7, $activites_selectionnees) && !in_array(7, $activites_reussies)): ?>
                 <g id="fenetre" class="objet-enigme" data-activite="7">
                     <image id="image_fenetre"
                            x="64" y="182" width="218" height="458"
@@ -85,7 +84,7 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
             <?php endif; ?>
 
             <!-- Caméra (Activité 10) -->
-            <?php if (in_array(10, $activites_selectionnees)&& !in_array(10, $activites_reussies)): ?>
+            <?php if (in_array(10, $activites_selectionnees) && !in_array(10, $activites_reussies)): ?>
                 <g id="camera" class="objet-enigme" data-activite="10">
                     <image id="image_camera"
                            clip-path="url(#clip_camera)"
@@ -100,7 +99,7 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
             <?php endif; ?>
 
             <!-- Post-it confidentiel (Activité 4) -->
-            <?php if (in_array(4, $activites_selectionnees)&& !in_array(4, $activites_reussies)): ?>
+            <?php if (in_array(4, $activites_selectionnees) && !in_array(4, $activites_reussies)): ?>
                 <g id="post_it_conf" class="objet-enigme" data-activite="4">
                     <image id="image_post_it_conf"
                            clip-path="url(#clip_post_it_conf)"
@@ -115,7 +114,7 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
             <?php endif; ?>
 
             <!-- Clé USB (Activité 2) -->
-            <?php if (in_array(2, $activites_selectionnees)&& !in_array(2, $activites_reussies)): ?>
+            <?php if (in_array(2, $activites_selectionnees) && !in_array(2, $activites_reussies)): ?>
                 <g id="cle_usb" class="objet-enigme" data-activite="2">
                     <image id="image_cle_usb"
                            clip-path="url(#clip_cle_usb)"
@@ -130,7 +129,7 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
             <?php endif; ?>
 
             <!-- Clé (Activité 3) -->
-            <?php if (in_array(3, $activites_selectionnees)&& !in_array(3, $activites_reussies)): ?>
+            <?php if (in_array(3, $activites_selectionnees) && !in_array(3, $activites_reussies)): ?>
                 <g id="cle" class="objet-enigme" data-activite="3">
                     <image id="image_cle"
                            clip-path="url(#clip_cle)"
@@ -145,7 +144,7 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
             <?php endif; ?>
 
             <!-- Dossier (Activité 8) -->
-            <?php if (in_array(8, $activites_selectionnees)&& !in_array(8, $activites_reussies)): ?>
+            <?php if (in_array(8, $activites_selectionnees) && !in_array(8, $activites_reussies)): ?>
                 <g id="dossier" class="objet-enigme" data-activite="8">
                     <image id="image_dossier"
                            clip-path="url(#clip_dossier)"
@@ -160,7 +159,7 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
             <?php endif; ?>
 
             <!-- Carnet MDP (Activité 9) -->
-            <?php if (in_array(9, $activites_selectionnees)&& !in_array(9, $activites_reussies)): ?>
+            <?php if (in_array(9, $activites_selectionnees) && !in_array(9, $activites_reussies)): ?>
                 <g id="carnet_mdp" class="objet-enigme" data-activite="9">
                     <image id="image_carnet_mdp"
                            clip-path="url(#clip_carnet_mdp)"
@@ -173,7 +172,7 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
                           style="cursor:pointer;" />
                 </g>
             <?php endif; ?>
-            </svg>
+        </svg>
 
         <!-- Bouton retour -->
         <div class="retour">
@@ -224,12 +223,84 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
         </div>
     <?php endif; ?>
 
-</div>
+    <!-- ❌ Popup d'échec (mauvaise réponse) -->
+    <?php if ($afficher_popup_echec): ?>
+        <div id="popup-echec" class="popup popup-echec" style="display: flex;">
+            <div class="popup-content popup-echec-content">
+                <h2>❌ Échec !</h2>
+                <p><?= esc($message_echec) ?></p>
+                <p>Vous devez recommencer cette énigme pour progresser.</p>
+                <div class="popup-actions">
+                    <?= anchor(base_url('/finSalle5'),
+                            form_button([
+                            'content' => 'Fermer',
+                            'type' => 'button',
+                            'class' => 'btn-echec',
+                            'onclick' => 'closePopupEchec()'
+                    ])) ?>
+                </div>
+            </div>
+        </div>
 
+        <script>
+            function closePopupEchec() {
+                document.getElementById('popup-echec').style.display = 'none';
+            }
+        </script>
+    <?php endif; ?>
 
 </div>
 
 <div id="transition-overlay"></div>
+
+<style>
+    /* Popup d'échec */
+    .popup-echec {
+        z-index: 10000 !important;
+        background-color: rgba(0, 0, 0, 0.9);
+        pointer-events: all !important;
+    }
+
+    .popup-echec-content {
+        background: linear-gradient(135deg, #3a1e1e, #5a2d2d);
+        border: 3px solid #f44336;
+        box-shadow: 0 0 30px rgba(244, 67, 54, 0.5);
+        animation: popupBounce 0.6s ease;
+    }
+
+    .popup-echec-content h2 {
+        color: #f44336;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        text-shadow: 0 0 10px rgba(244, 67, 54, 0.8);
+    }
+
+    .popup-echec-content p {
+        font-size: 1.3em;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        color: #f0f0f0;
+    }
+
+    .btn-echec {
+        background: linear-gradient(135deg, #f44336, #e57373);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 15px 40px;
+        font-size: 1.3em;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
+    }
+
+    .btn-echec:hover {
+        background: linear-gradient(135deg, #e57373, #f44336);
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(244, 67, 54, 0.6);
+    }
+</style>
 
 <?= script_tag('js/salle_5/salle5.js') ?>
 

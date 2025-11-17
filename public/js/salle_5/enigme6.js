@@ -90,16 +90,17 @@ document.addEventListener('DOMContentLoaded', function() {
                             }, 3000);
                         }
                     } else {
-                        // Mauvaise réponse
+                        // ❌ Mauvaise réponse - Redirection vers salle avec échec
                         feedback.textContent = '❌ ' + data.message;
                         feedback.className = 'feedback error show';
 
-                        // Retirer l'objet de la zone
-                        zoneDepot.innerHTML = '';
-                        objetElement.style.visibility = 'visible';
-
                         setTimeout(() => {
-                            feedback.classList.remove('show');
+                            overlay.style.opacity = '1';
+                            overlay.style.pointerEvents = 'all';
+
+                            setTimeout(() => {
+                                window.location.href = base_url + '/Salle5?echec=1&activite=' + activite_numero;
+                            }, 800);
                         }, 2000);
                     }
                 })

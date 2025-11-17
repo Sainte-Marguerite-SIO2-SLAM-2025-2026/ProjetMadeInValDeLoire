@@ -202,9 +202,31 @@ svg {
     z-index: 2; /* au-dessus du SVG */
 }
 
-.retour {
-    bottom: 30px;
-    left: 30px;
+/* Bouton retour en haut à gauche */
+.retour-top {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+}
+
+.btn-retour {
+    background: linear-gradient(135deg, #d4af37, #f4d03f);
+    color: #2c1810;
+    border: 3px solid #8b6914;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-retour:hover {
+    background: linear-gradient(135deg, #f4d03f, #d4af37);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(212, 175, 55, 0.5);
 }
 
 .mascotte {

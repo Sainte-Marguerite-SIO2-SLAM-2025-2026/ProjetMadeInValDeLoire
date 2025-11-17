@@ -74,18 +74,17 @@ document.addEventListener('DOMContentLoaded', function() {
                             });
                         }
                     } else {
-                        // ❌ MAUVAISE RÉPONSE
+                        // ❌ MAUVAISE RÉPONSE - Redirection vers salle avec échec
                         feedback.textContent = '❌ ' + data.message;
                         feedback.className = 'feedback error show';
-                        objet.classList.add('incorrect');
 
                         setTimeout(() => {
-                            objetsCliquables.forEach(o => {
-                                if (!objetsValides.includes(o)) {
-                                    o.classList.remove('disabled', 'incorrect');
-                                }
-                            });
-                            feedback.classList.remove('show');
+                            overlay.style.opacity = '1';
+                            overlay.style.pointerEvents = 'all';
+
+                            setTimeout(() => {
+                                window.location.href = base_url + '/Salle5?echec=1&activite=' + activite_numero;
+                            }, 800);
                         }, 2000);
                     }
                 })
