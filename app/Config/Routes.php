@@ -27,8 +27,10 @@ $routes->get('/Salle3', 'accueil\AccueilController::Salle3');
 // Routes pour la salle 4
 $routes->get('/Salle4', 'accueil\AccueilController::Salle4');
 $routes->get('/pageFrise', 'salle_4\Salle4Controller::pageFrise');
+$routes->post('/verifierOrdre', 'salle_4\Salle4Controller::verifierOrdre');
 $routes->get('/quizFin', 'salle_4\Salle4Controller::quizFinal');
-$routes->get('/Salle4', 'salle_4\Salle4Controller::index');
+$routes->post('/verifierReponseQuiz', 'salle_4\Salle4Controller::verifierReponseQuiz');
+$routes->get('/resetQuiz', 'accueil\AccueilController::index');
 
 
 // Routes pour la salle 5
@@ -37,6 +39,7 @@ $routes->get('/Salle5', 'accueil\AccueilController::Salle5');
 $routes->get('/enigme/(:num)', 'salle_5\Salle5Controller::enigme/$1');
 $routes->post('/validerEnigme', 'salle_5\Salle5Controller::validerEnigme');
 $routes->get('/resetSalle5', 'salle_5\Salle5Controller::resetSalle');
+$routes->get('/finSalle5', 'salle_5\Salle5Controller::finSalle');
 
 // Routes pour la salle 6
 $routes->get('/Salle6', 'salle_6\Salle6Controller::Index');
