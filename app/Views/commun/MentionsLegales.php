@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mentions légales</title>
-    <?= link_tag('/public/styles/commun.css'); ?>
+    <?= link_tag('styles/commun/mentions.css'); ?>
 </head>
 <body>
 <main class="container">
@@ -29,7 +29,7 @@
     <section>
         <h2>2. Hébergement</h2>
         <p>
-            Le site est hébergé par <strong>c'est nous les réseaux</strong> – 1 rue Horizon Vert, 37130 Chambray-lès-Tours, France<br>
+            Le site est hébergé en local – 1 rue Horizon Vert, 37130 Chambray-lès-Tours, France<br>
             Téléphone : None
         </p>
     </section>
@@ -58,5 +58,8 @@
             ou de dommages directs ou indirects résultant de son utilisation.
         </p>
     </section>
+
+    <?= anchor(base_url() . '/',"Projet Made in Val de Loire", [
+            'class' => 'retour'
+    ]);?>
 </main>
-</body>

@@ -42,7 +42,7 @@ class ContentSecurityPolicy
         'form-action'     => 'formAction',
         'frame-ancestors' => 'frameAncestors',
         'frame-src'       => 'frameSrc',
-        'img-src'         => 'imageSrc',
+        'images-src'         => 'imageSrc',
         'media-src'       => 'mediaSrc',
         'object-src'      => 'objectSrc',
         'plugin-types'    => 'pluginTypes',

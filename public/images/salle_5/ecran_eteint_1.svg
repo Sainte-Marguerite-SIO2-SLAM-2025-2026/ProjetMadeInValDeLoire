@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="security_room" data-name="security room" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 233.56 195.68">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1d0422;
+      }
+
+      .cls-2 {
+        fill: #290c34;
+      }
+
+      .cls-3 {
+        fill: #1d1d1b;
+      }
+
+      .cls-4 {
+        fill: #ffc217;
+      }
+
+      .cls-5 {
+        fill: #584278;
+      }
+    </style>
+  </defs>
+  <polygon class="cls-1" points="47.83 184.24 78.35 192.15 185.74 188.72 152.39 180.7 47.83 184.24"/>
+  <polygon class="cls-1" points="152.98 186.43 89.96 188.63 68.34 183.74 73.32 148.97 150.33 148.97 152.98 186.43"/>
+  <polygon class="cls-2" points="1.89 0 22.64 158.6 233.56 150.14 200.4 5.28 1.89 0"/>
+  <polygon class="cls-2" points="89.96 188.63 92.98 168.8 151.16 160.64 152.98 186.43 89.96 188.63"/>
+  <polygon class="cls-2" points="185.74 188.72 185.74 192.15 80.41 195.68 78.35 192.15 185.74 188.72"/>
+  <polygon class="cls-1" points="47.9 184.24 45.23 188.72 80.48 195.68 78.43 192.15 47.9 184.24"/>
+  <polygon class="cls-1" points="1.89 0 0 4.72 20.61 161.26 229.54 152.99 233.56 150.14 24.6 156.47 1.89 0"/>
+  <polygon class="cls-3" points="27.22 146.99 223.75 144.47 197.12 10.12 7.86 5.52 27.22 146.99"/>
+  <rect class="cls-4" x="30.77" y="149.22" width="5.76" height="3.52" transform="translate(-9.7 2.49) rotate(-3.71)"/>
+  <polygon class="cls-5" points="106.38 194.91 104.75 191.31 134.5 190.36 136 193.82 106.38 194.91"/>
+</svg>
