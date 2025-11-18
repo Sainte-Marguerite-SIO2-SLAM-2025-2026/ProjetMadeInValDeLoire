@@ -8,31 +8,27 @@
     <?= link_tag(base_url().'styles/salle1Accueil.css') ?>
     <?= script_tag(base_url().'js/salle1Accueil.js') ?>
     <?= script_tag(base_url('js/salle1Timer.js')) ?>
-
 </head>
 <body>
 <div class="background-container">
-    <!-- POPUP d’explication -->
+    <!-- POPUP d'explication -->
     <div class="popup">
         <div class="popup-content">
             <h2>Bienvenue dans la salle de l'ingénierie sociale !</h2>
-            <p>
-                Le but du jeu est de repérer les <strong>mots suspects</strong> dans le dialogue du fantôme.<br>
-                Clique sur les mots qui te semblent étranges pour avancer.<br>
-                Attention ! Tu es limité en temps.<br><br>
-                Une fois que tu les auras tous trouver, tu receveras un code pour ouvrir la porte en face de toi.
-            </p>
+            <?php if (isset($explication) && !empty($explication)): ?>
+                <p><?= esc($explication) ?></p>
+            <?php endif; ?>
         </div>
     </div>
 
     <div class="content-container">
         <?= anchor(base_url().'Salle1/accesMessage',
                 img([
-                    'src' => base_url('salle_1/images/personnages/fantome_1.webp'),
-                    'alt' => 'Fantôme',
-                    'class' => 'perso-accueil',
-                    'id'   => 'fantome'
-        ])
+                        'src' => base_url('salle_1/images/personnages/fantome_1.webp'),
+                        'alt' => 'Fantôme',
+                        'class' => 'perso-accueil',
+                        'id'   => 'fantome'
+                ])
         ); ?>
     </div>
 
@@ -49,10 +45,7 @@
                 .'<span class="retour-texte">Retour au menu</span>'
                 .'</div>'
         ); ?>
-
     </div>
-
 </div>
 </body>
 </html>
-

@@ -2,6 +2,7 @@
 namespace App\Controllers\accueil;
 
 use App\Controllers\BaseController;
+use App\Models\salle_1\Salle1ExplicationModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\MascotteModel;
@@ -17,7 +18,18 @@ class AccueilController extends BaseController
 
     public function Salle1() : string
     {
-        return view('salle_1\AccueilSalle1').
+        // Instancier le modèle de la salle 1
+        $salle1ExplicationModel = new Salle1ExplicationModel();
+
+        // Récupérer l'explication depuis la base de données
+        $explication = $salle1ExplicationModel->getExplicationSalle1();
+
+        // Préparer les données pour la vue
+        $data = [
+            'explication' => $explication
+        ];
+
+        return view('salle_1\AccueilSalle1', $data).
             view('commun\footer');
     }
 

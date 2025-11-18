@@ -17,26 +17,6 @@
     <!-- Nom du personnage (positionné indépendamment) -->
     <div id="nom-personnage"><?= esc($nom_personnage) ?></div>
 
-    <!-- Barres de vies (positionnée en haut à gauche) -->
-    <div id="vies">
-        <?= img([
-                'src' => base_url() . 'salle_1/images/coeur_jaune.webp',
-                'alt' => 'Coeur',
-                'class' => 'coeur'
-        ]);
-        img([
-                'src' => base_url() . 'salle_1/images/coeur_jaune.webp',
-                'alt' => 'Coeur',
-                'class' => 'coeur'
-        ]);
-        img([
-                'src' => base_url() . 'salle_1/images/coeur_jaune.webp',
-                'alt' => 'Coeur',
-                'class' => 'coeur'
-        ]);
-        ?>
-    </div>
-
     <div class="content-container">
         <?= img([
                 'src' => base_url('salle_1/images/personnages/monstre1.webp'),
@@ -48,9 +28,8 @@
         <!-- Zone de texte -->
         <div id="text-zone"
              class="text-zone"
-             data-mots='<?= json_encode(explode(" ", $message), JSON_UNESCAPED_UNICODE) ?>'
+             data-mots='<?= json_encode(explode(" ", esc($message)), JSON_UNESCAPED_UNICODE) ?>'
              data-suspects='<?= json_encode($mots_suspects ?? [], JSON_UNESCAPED_UNICODE) ?>'>
-            <span class="nom-personnage-bulle"><?= esc($nom_personnage) ?></span>
         </div>
     </div>
 
@@ -87,18 +66,6 @@
                         'class' => 'button-image'
                 ])
                 .'<span class="retour-texte">Retour au menu</span>'
-                .'</div>'
-        ); ?>
-
-        <?= anchor(
-                base_url('Salle1/accesMessage'),
-                '<div class="retour-wrapper">'
-                .img([
-                        'src' => base_url('salle_1/images/boutons/retour-et-indice_blanc.webp'),
-                        'alt' => 'Indice',
-                        'class' => 'button-image'
-                ])
-                .'<span class="retour-texte">Indice</span>'
                 .'</div>'
         ); ?>
     </div>
