@@ -1,0 +1,231 @@
+CRITICAL - 2025-11-17 15:00:45 --> Error: Class "App\salle_2\Salle2Model" not found
+[Method: GET, Route: Salle2/Enigme]
+in APPPATH\Controllers\salle_2\Salle2Controller.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 15:02:04 --> Error: Class "App\salle_2\Salle2Model" not found
+[Method: GET, Route: Salle2/Enigme]
+in APPPATH\Controllers\salle_2\Salle2Controller.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 15:02:05 --> Error: Class "App\salle_2\Salle2Model" not found
+[Method: GET, Route: Salle2/Enigme]
+in APPPATH\Controllers\salle_2\Salle2Controller.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 15:02:06 --> Error: Class "App\salle_2\Salle2Model" not found
+[Method: GET, Route: Salle2/Enigme]
+in APPPATH\Controllers\salle_2\Salle2Controller.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 15:02:06 --> Error: Class "App\salle_2\Salle2Model" not found
+[Method: GET, Route: Salle2/Enigme]
+in APPPATH\Controllers\salle_2\Salle2Controller.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 15:02:06 --> Error: Class "App\salle_2\Salle2Model" not found
+[Method: GET, Route: Salle2/Enigme]
+in APPPATH\Controllers\salle_2\Salle2Controller.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 15:02:06 --> Error: Class "App\salle_2\Salle2Model" not found
+[Method: GET, Route: Salle2/Enigme]
+in APPPATH\Controllers\salle_2\Salle2Controller.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 15:02:07 --> Error: Class "App\salle_2\Salle2Model" not found
+[Method: GET, Route: Salle2/Enigme]
+in APPPATH\Controllers\salle_2\Salle2Controller.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 15:02:07 --> Error: Class "App\salle_2\Salle2Model" not found
+[Method: GET, Route: Salle2/Enigme]
+in APPPATH\Controllers\salle_2\Salle2Controller.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 15:02:08 --> Error: Class "App\salle_2\Salle2Model" not found
+[Method: GET, Route: Salle2/Enigme]
+in APPPATH\Controllers\salle_2\Salle2Controller.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 15:02:08 --> Error: Class "App\salle_2\Salle2Model" not found
+[Method: GET, Route: Salle2/Enigme]
+in APPPATH\Controllers\salle_2\Salle2Controller.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-17 15:04:38 --> mysqli_sql_exception: Aucune base n'a été sélectionnée in C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\ProjetMadeInValDeLoire\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\ProjetMadeInValDeLoire\system\BaseModel.php(611): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\wamp64\www\ProjetMadeInValDeLoire\app\Controllers\salle_2\Salle2Controller.php(14): CodeIgniter\BaseModel->find()
+#7 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+#8 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+#9 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\ProjetMadeInValDeLoire\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\wamp64\www\ProjetMadeInValDeLoire\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\wamp64\www\ProjetMadeInValDeLoire\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-11-17 15:04:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Aucune base n'a été sélectionnée
+[Method: GET, Route: Salle2/Enigme]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `mail`
+ORDER BY RAND()
+ LIMIT 10', [], false)
+ 2 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(611): CodeIgniter\Model->doFind(false, null)
+ 4 APPPATH\Controllers\salle_2\Salle2Controller.php(14): CodeIgniter\BaseModel->find()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 15:04:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Aucune base n'a été sélectionnée
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `mail`
+ORDER BY RAND()
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `mail`
+ORDER BY RAND()
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `mail`
+ORDER BY RAND()
+ LIMIT 10', [], false)
+ 4 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(611): CodeIgniter\Model->doFind(false, null)
+ 6 APPPATH\Controllers\salle_2\Salle2Controller.php(14): CodeIgniter\BaseModel->find()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-17 15:04:38 --> [Caused by] mysqli_sql_exception: Aucune base n'a été sélectionnée
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `mail`
+ORDER BY RAND()
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `mail`
+ORDER BY RAND()
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `mail`
+ORDER BY RAND()
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `mail`
+ORDER BY RAND()
+ LIMIT 10', [], false)
+ 5 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(611): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\salle_2\Salle2Controller.php(14): CodeIgniter\BaseModel->find()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-17 15:05:57 --> Error connecting to the database: mysqli_sql_exception: Accès refusé pour l'utilisateur: 'userProjetMIVDL'@'@localhost' (mot de passe: OUI) in C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'userProjetMIVDL', Object(SensitiveParameterValue), 'made_in_val_de_...', 3306, '', 0)
+#1 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\wamp64\www\ProjetMadeInValDeLoire\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\wamp64\www\ProjetMadeInValDeLoire\system\BaseModel.php(611): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\wamp64\www\ProjetMadeInValDeLoire\app\Controllers\salle_2\Salle2Controller.php(14): CodeIgniter\BaseModel->find()
+#7 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+#8 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+#9 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\wamp64\www\ProjetMadeInValDeLoire\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\wamp64\www\ProjetMadeInValDeLoire\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\wamp64\www\ProjetMadeInValDeLoire\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Accès refusé pour l'utilisateur: '****'@'@localhost' (mot de passe: OUI) in C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\wamp64\www\ProjetMadeInValDeLoire\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\wamp64\www\ProjetMadeInValDeLoire\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\wamp64\www\ProjetMadeInValDeLoire\system\BaseModel.php(611): CodeIgniter\Model->doFind(false, NULL)
+#5 C:\wamp64\www\ProjetMadeInValDeLoire\app\Controllers\salle_2\Salle2Controller.php(14): CodeIgniter\BaseModel->find()
+#6 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+#7 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+#8 C:\wamp64\www\ProjetMadeInValDeLoire\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\wamp64\www\ProjetMadeInValDeLoire\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\wamp64\www\ProjetMadeInValDeLoire\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\wamp64\www\ProjetMadeInValDeLoire\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-17 15:05:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Accès refusé pour l'utilisateur: '****'@'@localhost' (mot de passe: OUI)
+[Method: GET, Route: Salle2/Enigme]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `mail`
+ORDER BY RAND()
+ LIMIT 10', [], false)
+ 3 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(611): CodeIgniter\Model->doFind(false, null)
+ 5 APPPATH\Controllers\salle_2\Salle2Controller.php(14): CodeIgniter\BaseModel->find()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_2\Salle2Controller->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_2\Salle2Controller))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
