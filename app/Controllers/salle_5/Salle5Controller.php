@@ -122,12 +122,25 @@ class Salle5Controller extends BaseController
         $zoneModel = new ZoneModel();
         $resultat = $zoneModel->verifierZone($activite_numero, $reponse);
 
+        $messages_echec = [
+            1 => ' Échec ! Ce n\'était pas le bon écran à risque, cet écran est vérouillé',
+            2 => ' Raté ! Vous ne pouvez pas être sur que cette clé USB est sûre. Elle peut contenir un malware (attaque BadUSB) !',
+            3 => ' Incorrect ! Cet objet ne compromet pas directement la sécurité physique.',
+            4 => ' Dommage ! Cette zone ne présente pas d\'information confidentielle visible. Cherchez des post-it ou documents sensibles !',
+            5 => ' Mauvaise réponse ! La porte entrouverte permet le tailgating (intrusion par filature). Une porte doit toujours être fermée !',
+            6 => ' Échec ! Ce n\'est pas la bonne protection contre l\'épaule-surfing (shoulder surfing). Un filtre de confidentialité est nécessaire !',
+            7 => ' Raté ! Cette action n\'est pas une contre-mesure efficace. Pensez à fermer/sécuriser la fenêtre et éloigner le matériel sensible.',
+            8 => ' Incorrect ! Ce n\'est pas une violation de la politique "clean desk". Un bureau propre ne doit avoir AUCUN document, carnet de mots de passe ou clé USB visible.',
+            9 => ' Échec ! Vous n\'avez pas identifié les bonnes erreurs. Les secrets physiques (codes, badges) ne doivent JAMAIS être notés ou affichés, et les mots de passe doivent être forts !',
+            10 => ' Mauvaise réponse ! Une caméra de surveillance interne peut poser des problèmes de conformité RGPD. Sûreté ≠ espionnage ; respectez la proportionnalité !'
+        ];
+
         if (!$resultat['valid']) {
             // Mauvaise réponse
             return $this->response->setJSON([
                 'success' => false,
                 'is_correct' => false,
-                'message' => 'Mauvaise réponse, réessayez !'
+                'message' => $messages_echec[$activite_numero] ?? 'Mauvaise réponse ! Echec de la salle !'
             ]);
         }
 

@@ -1,5 +1,7 @@
 /* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'); /* Reset */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* Reset */
 body, html {
     margin: 0;
     padding: 0;
@@ -46,20 +48,33 @@ body, html {
 
 /* 🐧 Mascotte */
 .mascotte {
-    position: absolute;
+    position: fixed;
     bottom: 30px;
     right: 30px;
+    z-index: 1000;
+    pointer-events: all;
 }
 
 .mascotte-img {
-    width: 70px;
-    height: auto;
+    width: 150px;
+    height: 150px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+    animation: float 3s ease-in-out infinite;
 }
 
 .mascotte-img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+}
+
+.mascotte-img.locked {
+    pointer-events: none;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 /* Footer en bas de page */
@@ -93,7 +108,7 @@ body, html {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Centrage avec Flexbox */
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -190,33 +205,6 @@ svg {
 .svg-wrapper {
     position: relative;
     z-index: 1;
-}
-
-/* Mascotte et bouton = superposés AU-DESSUS du SVG, mais dans le même flux */
-.retour, .mascotte {
-    position: absolute;
-    z-index: 2; /* au-dessus du SVG */
-}
-
-.retour {
-    bottom: 30px;
-    left: 30px;
-}
-
-.mascotte {
-    bottom: 30px;
-    right: 30px;
-}
-
-.mascotte-img {
-    width: 70px;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.mascotte-img:hover {
-    transform: scale(1.1);
 }
 
 /* Popup de succès */
@@ -338,9 +326,7 @@ svg {
     margin: 0;
 }
 
-/* ========================================
-   SALLE COMPLÈTE (fond d'image)
-======================================== */
+/* SALLE COMPLÈTE (fond d'image) */
 .salle-complete {
     position: absolute;
     top: 0;
@@ -352,9 +338,7 @@ svg {
     background-repeat: no-repeat;
 }
 
-/* ========================================
-   EXPLICATION EN BAS (énigmes 1 et 7)
-======================================== */
+/* EXPLICATION EN BAS (énigmes 1 et 7) */
 .explication-box {
     position: fixed;
     bottom: 20px;
@@ -397,9 +381,7 @@ svg {
     transform: scale(1.1);
 }
 
-/* ========================================
-   DRAG & DROP (Énigme 4)
-======================================== */
+/* DRAG & DROP (Énigme 6) */
 .objets-draggables {
     position: absolute;
     left: 20px;
@@ -452,9 +434,7 @@ svg {
     padding: 10px;
 }
 
-/* ========================================
-   QCM (Énigme 7)
-======================================== */
+/* QCM (Énigme 7) */
 .qcm-container {
     position: absolute;
     left: 50px;
@@ -527,9 +507,7 @@ svg {
     box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
 }
 
-/* ========================================
-   ZONES CLIQUABLES (Énigmes 1 et 6)
-======================================== */
+/* ZONES CLIQUABLES (Énigmes 1 et 6) */
 .zone-ecran {
     transition: all 0.3s ease;
 }
@@ -577,11 +555,13 @@ svg {
     border: 3px solid #c62828;
 }
 
-
-/* ========================================
-   RESPONSIVE
-======================================== */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
+    .mascotte-img {
+        width: 100px;
+        height: 100px;
+    }
+
     .objets-draggables {
         width: 80px;
         padding: 10px;
@@ -610,5 +590,17 @@ svg {
 
     .explication-box p {
         font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .mascotte {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .mascotte-img {
+        width: 80px;
+        height: 80px;
     }
 }
