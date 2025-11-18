@@ -10,10 +10,9 @@ body {
 }
 
 .content{
-    position: relative;
     height: 950px;
     width: 1920px;
-    background-image: url("../images/fond/fond.webp");
+    background-image: url("../images/salle_2/fond/fond.webp");
     background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
@@ -81,7 +80,7 @@ body {
     margin-left: 10px;
     width: 200px;
     height: 100px;
-    background-image: url('../images/boutons/bouton_1.webp');
+    background-image: url('../images/salle_2/boutons/bouton_1.webp');
     background-size: cover;
     background-position: center;
     color: black;

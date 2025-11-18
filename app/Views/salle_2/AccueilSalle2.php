@@ -15,8 +15,8 @@
 
 <div class="content">
     <div class="bureau-wrapper" id="bureau">
-        <img src="<?= base_url("public/images/bureau/bureau_sepia.webp")?>" alt="Bureau" class="bureau-svg bureau-normal">
-        <img src="<?= base_url("public/images/bureau/bureau_orange.webp")?>" alt="Bureau hover" class="bureau-svg bureau-hover">
+        <img src="<?= base_url("/public/images/salle_2/bureau/bureau_sepia.webp")?>" alt="Bureau" class="bureau-svg bureau-normal">
+        <img src="<?= base_url("/public/images/salle_2/bureau/bureau_orange.webp")?>" alt="Bureau hover" class="bureau-svg bureau-hover">
     </div>
 
 <?= anchor(base_url().'public/', 'Accueil', ['class' => 'btn-accueil']); ?>
