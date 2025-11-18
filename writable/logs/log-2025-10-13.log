@@ -1,186 +1,192 @@
-CRITICAL - 2025-10-13 09:32:24 --> ErrorException: Array to string conversion
-[Method: GET, Route: Salle1]
-in APPPATH\Controllers\accueil\AccueilController.php on line 24.
- 1 APPPATH\Controllers\accueil\AccueilController.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Controllers\\accueil\\AccueilController.php', 24)
- 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
- 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
- 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
- 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 09:33:16 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "salle_1\AccueilSalle1Bienvenue dans la salle d'ingénierie sociale.
-                Ici, vous allez découvrir comment les manipulations psychologiques peuvent tromper même les utilisateurs les plus avertis.
-                Observez attentivement les interactions et les indices présents dans le message affiché.mario.png"
-[Method: GET, Route: Salle1]
-in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
- 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('salle_1\\AccueilSalle1Bienvenue dans la salle d\'ingénierie sociale.
-                Ici, vous allez découvrir comment les manipulations psychologiques peuvent tromper même les utilisateurs les plus avertis.
-                Observez attentivement les interactions et les indices présents dans le message affiché.mario.png')
- 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1Bienvenue dans la salle d\'ingénierie sociale.
-                Ici, vous allez découvrir comment les manipulations psychologiques peuvent tromper même les utilisateurs les plus avertis.
-                Observez attentivement les interactions et les indices présents dans le message affiché.mario.png', [], true)
- 3 APPPATH\Controllers\accueil\AccueilController.php(24): view('salle_1\\AccueilSalle1Bienvenue dans la salle d\'ingénierie sociale.
-                Ici, vous allez découvrir comment les manipulations psychologiques peuvent tromper même les utilisateurs les plus avertis.
-                Observez attentivement les interactions et les indices présents dans le message affiché.mario.png')
- 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+CRITICAL - 2025-10-13 09:39:06 --> ParseError: syntax error, unexpected end of file, expecting "elseif" or "else" or "endif"
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 54.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(21): view('salle_2\\AccueilSalle2')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
  5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 09:36:52 --> ErrorException: Array to string conversion
-[Method: GET, Route: Salle1]
+CRITICAL - 2025-10-13 09:39:33 --> ErrorException: Undefined variable $mail
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 35.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $mail', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 35)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(21): view('salle_2\\AccueilSalle2')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 09:49:18 --> ErrorException: Undefined variable $unMail
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 35.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unMail', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 35)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(21): view('salle_2\\AccueilSalle2')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 09:57:56 --> Error: Class "App\Models\AccueilModel" not found
+[Method: GET, Route: Salle2]
 in APPPATH\Controllers\accueil\AccueilController.php on line 22.
- 1 APPPATH\Controllers\accueil\AccueilController.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Controllers\\accueil\\AccueilController.php', 22)
- 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
- 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
- 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
- 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
- 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 09:38:22 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "salle_1\AccueilSalle1Bienvenue dans la salle d'ingénierie sociale.
-                Ici, vous allez découvrir comment les manipulations psychologiques peuvent tromper même les utilisateurs les plus avertis.
-                Observez attentivement les interactions et les indices présents dans le message affiché..php"
-[Method: GET, Route: Salle1]
-in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
- 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('salle_1\\AccueilSalle1Bienvenue dans la salle d\'ingénierie sociale.
-                Ici, vous allez découvrir comment les manipulations psychologiques peuvent tromper même les utilisateurs les plus avertis.
-                Observez attentivement les interactions et les indices présents dans le message affiché..php')
- 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1Bienvenue dans la salle d\'ingénierie sociale.
-                Ici, vous allez découvrir comment les manipulations psychologiques peuvent tromper même les utilisateurs les plus avertis.
-                Observez attentivement les interactions et les indices présents dans le message affiché.', [], true)
- 3 APPPATH\Controllers\accueil\AccueilController.php(22): view('salle_1\\AccueilSalle1Bienvenue dans la salle d\'ingénierie sociale.
-                Ici, vous allez découvrir comment les manipulations psychologiques peuvent tromper même les utilisateurs les plus avertis.
-                Observez attentivement les interactions et les indices présents dans le message affiché.')
- 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 10:02:16 --> Error: Class "App\Models\AccueilModel" not found
+[Method: GET, Route: Salle2]
+in APPPATH\Controllers\accueil\AccueilController.php on line 22.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 10:03:52 --> ErrorException: Array to string conversion
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 39.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 39)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(25): view('salle_2\\AccueilSalle2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 10:03:53 --> ErrorException: Array to string conversion
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 39.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 39)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(25): view('salle_2\\AccueilSalle2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 10:03:54 --> ErrorException: Array to string conversion
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 39.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 39)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(25): view('salle_2\\AccueilSalle2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 10:07:43 --> ParseError: syntax error, unexpected end of file
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 62.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(25): view('salle_2\\AccueilSalle2', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
  5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 09:41:08 --> ErrorException: Undefined variable $data
-[Method: GET, Route: Salle1]
-in APPPATH\Views\salle_1\AccueilSalle1.php on line 20.
- 1 APPPATH\Views\salle_1\AccueilSalle1.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 20)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
+CRITICAL - 2025-10-13 10:08:18 --> ErrorException: Attempt to read property "expediteur" on array
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 41.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "expediteur" on array', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 41)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
  3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
- 5 APPPATH\Controllers\accueil\AccueilController.php(22): view('salle_1\\AccueilSalle1', [...])
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(25): view('salle_2\\AccueilSalle2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
  7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 09:42:41 --> ErrorException: foreach() argument must be of type array|object, string given
-[Method: GET, Route: Salle1]
-in APPPATH\Views\salle_1\AccueilSalle1.php on line 20.
- 1 APPPATH\Views\salle_1\AccueilSalle1.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, string given', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 20)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
+CRITICAL - 2025-10-13 11:14:52 --> ErrorException: Attempt to read property "expediteur" on array
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 41.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "expediteur" on array', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 41)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
  3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
- 5 APPPATH\Controllers\accueil\AccueilController.php(22): view('salle_1\\AccueilSalle1', [...])
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(25): view('salle_2\\AccueilSalle2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
  7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 09:44:53 --> ErrorException: foreach() argument must be of type array|object, string given
-[Method: GET, Route: Salle1]
-in APPPATH\Views\salle_1\AccueilSalle1.php on line 20.
- 1 APPPATH\Views\salle_1\AccueilSalle1.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, string given', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 20)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
+CRITICAL - 2025-10-13 11:15:05 --> ErrorException: Attempt to read property "expediteur" on array
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 41.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "expediteur" on array', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 41)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
  3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
- 5 APPPATH\Controllers\accueil\AccueilController.php(20): view('salle_1\\AccueilSalle1', [...])
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(25): view('salle_2\\AccueilSalle2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
  7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 11:26:23 --> ErrorException: foreach() argument must be of type array|object, string given
-[Method: GET, Route: Salle1]
-in APPPATH\Views\salle_1\AccueilSalle1.php on line 23.
- 1 APPPATH\Views\salle_1\AccueilSalle1.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, string given', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 23)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
+CRITICAL - 2025-10-13 11:15:30 --> ErrorException: Attempt to read property "expediteur" on array
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 41.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "expediteur" on array', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 41)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
  3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
- 5 APPPATH\Controllers\salle_1\Salle1Controller.php(17): view('salle_1\\AccueilSalle1', [...])
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->Salle1()
- 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(25): view('salle_2\\AccueilSalle2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 11:27:24 --> ErrorException: Undefined array key "image"
-[Method: GET, Route: Salle1]
-in APPPATH\Views\salle_1\AccueilSalle1.php on line 16.
- 1 APPPATH\Views\salle_1\AccueilSalle1.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "image"', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 16)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
+CRITICAL - 2025-10-13 11:16:53 --> ErrorException: Attempt to read property "id" on array
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 41.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on array', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 41)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
  3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
- 5 APPPATH\Controllers\salle_1\Salle1Controller.php(17): view('salle_1\\AccueilSalle1', [...])
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->Salle1()
- 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(25): view('salle_2\\AccueilSalle2', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 11:27:50 --> ErrorException: Undefined array key "message"
-[Method: GET, Route: Salle1]
-in APPPATH\Views\salle_1\AccueilSalle1.php on line 22.
- 1 APPPATH\Views\salle_1\AccueilSalle1.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "message"', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 22)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
- 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
- 5 APPPATH\Controllers\salle_1\Salle1Controller.php(17): view('salle_1\\AccueilSalle1', [...])
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->Salle1()
- 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
- 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
-11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 11:29:55 --> ErrorException: foreach() argument must be of type array|object, string given
-[Method: GET, Route: Salle1]
-in APPPATH\Views\salle_1\AccueilSalle1.php on line 22.
- 1 APPPATH\Views\salle_1\AccueilSalle1.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, string given', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 22)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
- 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
- 5 APPPATH\Controllers\salle_1\Salle1Controller.php(17): view('salle_1\\AccueilSalle1', [...])
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->Salle1()
- 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
- 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
-11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 11:30:24 --> ErrorException: Undefined array key "message"
-[Method: GET, Route: Salle1]
-in APPPATH\Views\salle_1\AccueilSalle1.php on line 22.
- 1 APPPATH\Views\salle_1\AccueilSalle1.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "message"', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 22)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
- 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
- 5 APPPATH\Controllers\salle_1\Salle1Controller.php(17): view('salle_1\\AccueilSalle1', [...])
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->Salle1()
- 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
- 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
-11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-13 11:31:23 --> ErrorException: Attempt to read property "message" on array
-[Method: GET, Route: Salle1]
-in APPPATH\Views\salle_1\AccueilSalle1.php on line 22.
- 1 APPPATH\Views\salle_1\AccueilSalle1.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "message" on array', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 22)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
- 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
- 5 APPPATH\Controllers\salle_1\Salle1Controller.php(17): view('salle_1\\AccueilSalle1', [...])
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\salle_1\Salle1Controller->Salle1()
- 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\salle_1\Salle1Controller))
- 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
-11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-13 13:48:15 --> Error: Cannot access uninitialized non-nullable property App\Models\accueil\AccueilModel::$mails by reference
+[Method: GET, Route: Salle2]
+in APPPATH\Models\accueil\AccueilModel.php on line 60.
+ 1 APPPATH\Controllers\accueil\AccueilController.php(23): App\Models\accueil\AccueilModel->getMail()
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

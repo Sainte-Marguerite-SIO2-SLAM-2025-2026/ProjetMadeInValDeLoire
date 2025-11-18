@@ -1,57 +1,114 @@
-CRITICAL - 2025-10-06 07:47:27 --> ErrorException: Undefined variable $targetUrl
-[Method: GET, Route: Salle1]
-in APPPATH\Views\salle_1\AccueilSalle1.php on line 21.
- 1 APPPATH\Views\salle_1\AccueilSalle1.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $targetUrl', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 21)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
+CRITICAL - 2025-10-06 09:22:07 --> TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 47.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 4 APPPATH\Controllers\accueil\AccueilController.php(20): view('salle_2\\AccueilSalle2')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 09:22:07 --> [Caused by] ErrorException: Undefined variable $message
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 47.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $message', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 47)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
  3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
- 5 APPPATH\Controllers\accueil\AccueilController.php(16): view('salle_1\\AccueilSalle1')
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(20): view('salle_2\\AccueilSalle2')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
  7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-06 07:57:58 --> ErrorException: Undefined variable $targetUrl
-[Method: GET, Route: Salle1]
-in APPPATH\Views\salle_1\AccueilSalle1.php on line 22.
- 1 APPPATH\Views\salle_1\AccueilSalle1.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $targetUrl', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 22)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
+CRITICAL - 2025-10-06 11:25:32 --> ErrorException: Undefined variable $messages
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 43.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $messages', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 43)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
  3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
- 5 APPPATH\Controllers\accueil\AccueilController.php(16): view('salle_1\\AccueilSalle1')
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(20): view('salle_2\\AccueilSalle2')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
  7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-CRITICAL - 2025-10-06 08:27:39 --> ErrorException: Undefined variable $cible
-[Method: GET, Route: Salle1]
-in APPPATH\Views\salle_1\AccueilSalle1.php on line 13.
- 1 APPPATH\Views\salle_1\AccueilSalle1.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cible', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 13)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
+CRITICAL - 2025-10-06 11:56:05 --> ErrorException: Undefined variable $messages
+[Method: GET, Route: Salle2]
+in APPPATH\Views\salle_2\AccueilSalle2.php on line 42.
+ 1 APPPATH\Views\salle_2\AccueilSalle2.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $messages', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php', 42)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_2\\AccueilSalle2.php')
  3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
- 5 APPPATH\Controllers\accueil\AccueilController.php(16): view('salle_1\\AccueilSalle1')
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_2\\AccueilSalle2', [], true)
+ 5 APPPATH\Controllers\accueil\AccueilController.php(20): view('salle_2\\AccueilSalle2')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
  7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
  8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
-DEBUG - 2025-10-06 08:28:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
-CRITICAL - 2025-10-06 08:28:27 --> ErrorException: Undefined variable $cible
-[Method: GET, Route: Salle1]
-in APPPATH\Views\salle_1\AccueilSalle1.php on line 65.
- 1 APPPATH\Views\salle_1\AccueilSalle1.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cible', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php', 65)
- 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\salle_1\\AccueilSalle1.php')
- 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
- 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('salle_1\\AccueilSalle1', [], true)
- 5 APPPATH\Controllers\accueil\AccueilController.php(16): view('salle_1\\AccueilSalle1')
- 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
- 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
- 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
-10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
-11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 14:09:01 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "footer\PiedDePage.php"
+[Method: GET, Route: Salle2]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('footer\\PiedDePage.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('footer\\PiedDePage', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(21): view('footer\\PiedDePage')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 14:09:34 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "commum\PiedDePage.php"
+[Method: GET, Route: Salle2]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('commum\\PiedDePage.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('commum\\PiedDePage', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(21): view('commum\\PiedDePage')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 14:16:09 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "commum\MentionsLegales.php"
+[Method: GET, Route: Salle2]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('commum\\MentionsLegales.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('commum\\MentionsLegales', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(21): view('commum\\MentionsLegales')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 14:22:24 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "commum\PiedDePage.php"
+[Method: GET, Route: Salle2]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('commum\\PiedDePage.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('commum\\PiedDePage', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(21): view('commum\\PiedDePage')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-06 14:23:21 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "commum\PiedDePage.php"
+[Method: GET, Route: Salle2]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('commum\\PiedDePage.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('commum\\PiedDePage', [], true)
+ 3 APPPATH\Controllers\accueil\AccueilController.php(21): view('commum\\PiedDePage')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle2()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
