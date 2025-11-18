@@ -13,6 +13,7 @@
     <!-- Dossier ouvert (container) -->
     <div id="dossier-container">
         <?= img([
+//                'src'   => 'images/salle_4/images_finales/PNG/dossier_ouvert_plein.png',
                 'src'   => 'images/salle_4/images_finales/dossier-interieur-vide.webp',
                 'alt'   => 'Dossier ouvert',
                 'class' => 'dossier-fond'
@@ -89,7 +90,7 @@
             <h2 id="resultTitle"></h2>
             <p id="resultMessage"></p>
             <p id="scoreMessage"></p>
-            <p class="redirect-message">Vous allez être redirigé vers l'accueil dans <span id="countdown">5</span> secondes...</p>
+            <button id="btnRetourAccueil" class="btn-retour-accueil">Retour à l'accueil</button>
         </div>
     </div>
 
@@ -100,18 +101,15 @@
             'class' => 'retour'
     ])); ?>
 
-    <!-- Mascotte avec règles -->
-    <div id="mascotte-container">
-        <?= img([
-                'src'   => 'images/commun/mascotte/mascotte_face.svg',
-                'alt'   => 'mascotte',
-                'class' => 'mascotte-image default'
-        ]); ?>
-        <?= img([
-                'src'   => 'images/commun/mascotte/mascotte_face.svg',
-                'alt'   => 'mascotte hover',
-                'class' => 'mascotte-image hover'
-        ]); ?>
+    <!-- Mascotte interactive -->
+    <div class="mascotte-zone" id="mascotte-container">
+        <img src="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>"
+             class="mascotte-img mascotte-default"
+             alt="Mascotte">
+
+        <img src="<?= base_url('images/commun/mascotte/mascotte_exclamee.svg') ?>"
+             class="mascotte-img mascotte-hover"
+             alt="Mascotte hover">
     </div>
 
     <!-- Modal des règles -->

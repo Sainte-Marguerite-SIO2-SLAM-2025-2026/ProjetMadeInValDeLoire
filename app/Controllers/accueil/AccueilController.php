@@ -36,8 +36,14 @@ class AccueilController extends BaseController
 
     public function Salle4() : string
     {
-        return view('salle_4\AccueilSalle4').
-            view('commun\footer');
+        $session = session();
+
+        $data = [
+            'frise_validee' => $session->get('frise_validee') ?? false,
+            'quiz_disponible' => $session->get('frise_validee') ?? false
+        ];
+
+        return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
     }
 
     public function Salle5() : string

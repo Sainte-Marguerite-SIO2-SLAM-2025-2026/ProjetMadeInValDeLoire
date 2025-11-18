@@ -6,49 +6,42 @@ html, body {
 .image-container {
     position: relative;
     height: 100%;
-    width: 100%;              /* prend toute la largeur du parent */
-    max-width: 1920px;        /* largeur originale de l'image */
-    aspect-ratio: 1920 / 1080; /* hauteur proportionnelle à la largeur */
+    width: 100%;
+    max-width: 1920px;
+    aspect-ratio: 1920 / 1080;
     background-image: url('../../images/salle_4/images_finales/chambre.webp');
-    background-size: cover;   /* ajuste l'image à la div */
+    background-size: cover;
     background-position: center;
 }
 
-/* toutes les zones cliquables */
+/* Toutes les zones cliquables */
 .clickable-zone {
     position: absolute;
     display: block;
+    transition: transform 0.3s ease;
 }
 
+.clickable-zone:hover {
+    transform: scale(1.05);
+}
 
-
-/* zone 1 (rectangle) */
+/* Zone 1 (rectangle - tableau) */
 .zone1 {
-    top: 61px;       /* y1 */
-    left: 670px;     /* x1 */
-    width: 619px;    /* x2 - x1 = 1289 - 670 */
-    height: 337px;   /* y2 - y1 = 398 - 61 */
-
-    /* version responsive en % */
     top: calc(61 / 1080 * 100%);
     left: calc(670 / 1920 * 100%);
     width: calc(619 / 1920 * 100%);
     height: calc(337 / 1080 * 100%);
 }
 
-/* zone 2 (polygone approximé avec rectangle) */
+/* Zone 2 (polygone - dossier) */
 .zone2 {
-    top: 961px;      /* y min */
-    left: 1413px;    /* x min */
-    width: 192px;    /* x max - x min = 1605 - 1413 */
-    height: 104px;   /* y max - y min = 1065 - 961 */
-
-    /* version responsive en % */
     top: calc(961 / 1080 * 100%);
     left: calc(1413 / 1920 * 100%);
     width: calc(192 / 1920 * 100%);
     height: calc(104 / 1080 * 100%);
 }
+
+/* Bouton retour */
 .retour {
     position: absolute;
     bottom: 2%;
@@ -56,63 +49,207 @@ html, body {
     transform: none;
     max-width: 250px;
     height: 75px;
+    transition: transform 0.3s;
 }
 
-.mascotte {
+.retour:hover {
+    transform: scale(1.1);
+}
+
+/* ===== Mascotte interactive ===== */
+.mascotte-zone {
     position: absolute;
-    top: 0;
-    right: 0;
-    transform: none;
-    max-width: 150px;
-    height: 200px;
+    bottom: 20px;
+    right: 40px;
+    width: 150px;
+    height: 180px;
+    cursor: pointer;
+    z-index: 200;
 }
-/*.retour {*/
-/*    position: absolute;*/
-/*    bottom: -5%;*/
-/*    left: 0;*/
-/*    transform: none;*/
-/*    max-width: 300px;*/
-/*    height: 200px;*/
-/*}*/
 
-/* region Ancien */
+.mascotte-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    height: 180px;
+    object-fit: contain;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+}
 
-/*.fond_accueil {*/
-/*    position: relative;*/
-/*    !*background-image: url("../../images/salle_4/chambre/WEB/chambre.webp");*!*/
-/*    background-size: cover;*/
-/*    background-position: center;*/
-/*    height: 100vh;*/
-/*    width: 100vw;*/
-/*    padding-top: 1px;*/
-/*}*/
+.mascotte-default {
+    opacity: 1;
+}
 
-/*.clic_frise {*/
-/*    position: absolute;*/
-/*    top: 5%;*/
-/*    left: 35%;*/
-/*    width: 32%;*/
-/*    height: 31%;*/
-/*    cursor: pointer;*/
-/*    background: transparent;*/
-/*    display: block;*/
-/*    !*border: 3px solid red;*!*/
-/*}*/
+.mascotte-hover {
+    opacity: 0;
+}
 
-/*.quizFin {*/
-/*    position: absolute;*/
-/*    top: 89%;*/
-/*    left: 74%;*/
-/*    width: 9%;*/
-/*    height: 10%;*/
-/*    cursor: pointer;*/
-/*    background: transparent;*/
-/*    display: block;*/
-/*    !*border: 3px solid red;*!*/
-/*}*/
+.mascotte-zone:hover .mascotte-default {
+    opacity: 0;
+}
 
-/*endregion*/
+.mascotte-zone:hover .mascotte-hover {
+    opacity: 1;
+}
+
+/* ===== Modal ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.3s;
+    position: relative;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== Modal des règles ===== */
+.rules-modal-content {
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.rules-modal-content h2 {
+    color: #2c3e50;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 3px solid #1abc9c;
+    padding-bottom: 10px;
+}
+
+.rules-modal-content h3 {
+    color: #1abc9c;
+    font-size: 1.4em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.rules-content {
+    text-align: left;
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.rules-content p {
+    margin: 10px 0;
+}
+
+.rules-content ol,
+.rules-content ul {
+    margin: 15px 0;
+    padding-left: 30px;
+}
+
+.rules-content li {
+    margin: 8px 0;
+}
+
+.rules-content strong {
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.close-rules {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #aaa;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-rules:hover {
+    color: #e74c3c;
+}
+
+/* Scrollbar personnalisée */
+.rules-modal-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.rules-modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.rules-modal-content::-webkit-scrollbar-thumb {
+    background: #1abc9c;
+    border-radius: 5px;
+}
+
+.rules-modal-content::-webkit-scrollbar-thumb:hover {
+    background: #16a085;
+}
 
 
 
 
+
+
+
+
+
+/* Zones bloquées */
+.zone-bloquee {
+    cursor: not-allowed;
+    position: relative;
+}
+
+.overlay-bloque {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.zone1.zone-bloquee .overlay-bloque {
+    /*background: rgba(39, 174, 96, 0.9);*/
+}
+
+.zone2.zone-bloquee .overlay-bloque {
+    background: transparent;
+}

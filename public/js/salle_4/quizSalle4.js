@@ -15,6 +15,8 @@ const btnFaux = document.getElementById('btn-faux');
 const closeQuestion = document.querySelector('.close-question');
 const scoreDisplay = document.getElementById('score');
 const resultModal = document.getElementById('resultModal');
+const mascotteDefault = document.querySelector('.mascotte-default');
+const mascotteHover = document.querySelector('.mascotte-hover');
 
 let currentQuestionId = null;
 let currentCarteElement = null;
@@ -23,6 +25,22 @@ let score = 0;
 
 console.log('Bouton Vrai:', btnVrai);
 console.log('Bouton Faux:', btnFaux);
+
+// =====================================================
+// Fonction pour mettre à jour la mascotte selon le score
+// =====================================================
+function updateMascotte(finalScore) {
+    if (finalScore >= 4) {
+        // 4+ bonnes réponses : mascotte contente
+        mascotteDefault.src = baseUrl + 'images/commun/mascotte/mascotte_contente.svg';
+        mascotteHover.src = baseUrl + 'images/commun/mascotte/mascotte_contente.svg';
+    } else if (finalScore <= 2) {
+        // 2 ou moins : mascotte choquée
+        mascotteDefault.src = baseUrl + 'images/commun/mascotte/mascotte_choquee.svg';
+        mascotteHover.src = baseUrl + 'images/commun/mascotte/mascotte_choquee.svg';
+    }
+    // Entre 3 et 3 : mascotte normale (pas de changement)
+}
 
 // =====================================================
 // Gestion des cartes quiz
@@ -191,6 +209,9 @@ function afficherResultatFinal() {
     const resultMessage = document.getElementById('resultMessage');
     const scoreMessage = document.getElementById('scoreMessage');
 
+    // Mettre à jour la mascotte selon le score
+    updateMascotte(score);
+
     if (score >= 5) {
         resultTitle.textContent = '🎉 Excellent !';
         resultMessage.textContent = 'Vous maîtrisez bien le sujet des ransomwares !';
@@ -206,19 +227,13 @@ function afficherResultatFinal() {
 
     resultModal.style.display = 'block';
 
-    // Compte à rebours de redirection
-    let countdown = 5;
-    const countdownEl = document.getElementById('countdown');
-
-    const interval = setInterval(() => {
-        countdown--;
-        countdownEl.textContent = countdown;
-
-        if (countdown <= 0) {
-            clearInterval(interval);
+    // Gestion du bouton retour
+    const btnRetourAccueil = document.getElementById('btnRetourAccueil');
+    if (btnRetourAccueil) {
+        btnRetourAccueil.addEventListener('click', function() {
             window.location.href = baseUrl + 'resetQuiz';
-        }
-    }, 1000);
+        });
+    }
 }
 
 // =====================================================
