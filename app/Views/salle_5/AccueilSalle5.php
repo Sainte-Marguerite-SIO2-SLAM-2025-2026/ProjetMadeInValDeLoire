@@ -176,9 +176,9 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
 
         <!-- Bouton retour -->
         <div class="retour-top">
-            <?= anchor('Salle5',
+            <?= anchor('/',
                     form_button([
-                            'content' => 'RETOUR',
+                            'content' => 'HOME',
                             'type' => 'button',
                             'class' => 'btn-retour'
                     ])
