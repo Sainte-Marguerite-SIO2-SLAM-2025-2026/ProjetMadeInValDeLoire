@@ -14,7 +14,7 @@
     <div class="zone-cliquable" id="zoneCliquable"></div>
 
     <!-- Formulaire pour envoyer le choix -->
-    <?= form_open(base_url() . 'vpn/validerCarte', ['id' => 'formVpn']) ?>
+    <?= form_open(base_url() . 'Salle6/CompleteVpn', ['id' => 'formVpn']) ?>
     <?= csrf_field() ?>
     <?= form_input(["type" => "hidden",
             "name" => "vpn_numero",
