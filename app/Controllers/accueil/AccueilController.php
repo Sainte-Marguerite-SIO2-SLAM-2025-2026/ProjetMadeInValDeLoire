@@ -2,7 +2,7 @@
 namespace App\Controllers\accueil;
 
 use App\Controllers\BaseController;
-use App\Models\salle_1\Salle1ExplicationModel;
+use App\Models\accueil\AccueilModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\MascotteModel;
@@ -18,18 +18,7 @@ class AccueilController extends BaseController
 
     public function Salle1() : string
     {
-        // Instancier le modèle de la salle 1
-        $salle1ExplicationModel = new Salle1ExplicationModel();
-
-        // Récupérer l'explication depuis la base de données
-        $explication = $salle1ExplicationModel->getExplicationSalle1();
-
-        // Préparer les données pour la vue
-        $data = [
-            'explication' => $explication
-        ];
-
-        return view('salle_1\AccueilSalle1', $data).
+        return view('salle_1\AccueilSalle1').
             view('commun\footer');
     }
 
@@ -47,8 +36,14 @@ class AccueilController extends BaseController
 
     public function Salle4() : string
     {
-        return view('salle_4\AccueilSalle4').
-            view('commun\footer');
+        $session = session();
+
+        $data = [
+            'frise_validee' => $session->get('frise_validee') ?? false,
+            'quiz_disponible' => $session->get('frise_validee') ?? false
+        ];
+
+        return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
     }
 
     public function Salle5() : string
@@ -59,6 +54,22 @@ class AccueilController extends BaseController
         $explicationModel = new ExplicationModel();
         $activiteModel = new ActiviteModel();
 
+        // 🔥 Vérifier si on arrive avec un échec
+        $echec = $this->request->getGet('echec');
+        $activite_echec = $this->request->getGet('activite');
+
+        if ($echec == 1 && $activite_echec) {
+            // ❌ ÉCHEC : Réinitialiser la progression de cette énigme
+            $activites_reussies = session()->get('activites_reussies') ?? [];
+
+            // Retirer l'activité des réussies si elle y était
+            $activites_reussies = array_diff($activites_reussies, [$activite_echec]);
+            session()->set('activites_reussies', $activites_reussies);
+
+            // Supprimer les réponses temporaires de cette activité
+            session()->remove('reponses_activite_' . $activite_echec);
+        }
+
         // Initialiser les activités en session si nécessaire
         if (!session()->has('activites_salle5')) {
             $activites = $activiteModel->getActivitesAleatoires(5, 2);
@@ -67,6 +78,7 @@ class AccueilController extends BaseController
                 $activites_ids = array_column($activites, 'numero');
                 session()->set('activites_salle5', $activites_ids);
                 session()->set('activites_reussies', []);
+                session()->remove('popup_salle5_vue');
             }
         }
 
@@ -74,13 +86,21 @@ class AccueilController extends BaseController
         $activites_ids = session()->get('activites_salle5') ?? [];
         $activites_reussies = session()->get('activites_reussies') ?? [];
 
-        $message_success = null;
+        $afficher_popup_succes = false;
         if (count($activites_reussies) === 2 && count($activites_ids) === 2) {
-            $message_success = 'Félicitations ! Vous avez terminé les 2 énigmes de la salle !';
-            // Réinitialiser pour une nouvelle partie
-            session()->remove('activites_salle5');
-            session()->remove('activites_reussies');
+            $afficher_popup_succes = true;
         }
+
+        // Vérifier si la popup a déjà été vue
+        $afficher_popup = !session()->has('popup_salle5_vue');
+
+        // Marquer la popup comme vue
+        if ($afficher_popup) {
+            session()->set('popup_salle5_vue', true);
+        }
+
+        // 🔥 Popup d'échec si paramètre présent
+        $afficher_popup_echec = ($echec == 1 && $activite_echec);
 
         // Récupérer les données via les models
         $data = [
@@ -88,7 +108,10 @@ class AccueilController extends BaseController
             'mascotte' => $mascotteModel->getMascotteBySalle(5),
             'explication' => $explicationModel->getExplication(1),
             'activites_selectionnees' => $activites_ids,
-            'message_success' => $message_success
+            'activites_reussies' => $activites_reussies,
+            'afficher_popup' => $afficher_popup,
+            'afficher_popup_succes' => $afficher_popup_succes,
+            'afficher_popup_echec' => $afficher_popup_echec,
         ];
 
         return view('commun\header').
@@ -102,5 +125,4 @@ class AccueilController extends BaseController
             view('salle_6\AccueilSalle6').
             view('commun\footer');
     }
-
 }
