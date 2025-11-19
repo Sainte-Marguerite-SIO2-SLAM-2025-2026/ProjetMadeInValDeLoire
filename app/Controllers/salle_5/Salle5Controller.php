@@ -203,19 +203,5 @@ class Salle5Controller extends BaseController
     }
 
 
-    public function finSalle()
-    {
-        // Réinitialiser toutes les sessions de la salle 5
-        session()->remove('activites_salle5');
-        session()->remove('activites_reussies');
-        session()->remove('popup_salle5_vue');
 
-        // Supprimer les réponses temporaires de toutes les activités
-        for ($i = 1; $i <= 10; $i++) {
-            session()->remove('reponses_activite_' . $i);
-        }
-
-        // Rediriger vers la page d'accueil du site
-        return redirect()->to(base_url('/'));
-    }
 }

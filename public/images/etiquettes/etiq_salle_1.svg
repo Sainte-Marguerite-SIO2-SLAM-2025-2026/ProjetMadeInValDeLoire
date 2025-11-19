@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="a" data-name="typo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 326.7 110.4">
+  <defs>
+    <style>
+      .b {
+        font-family: IrishGrover-Regular, 'Irish Grover';
+        font-size: 39.4px;
+      }
+
+      .c {
+        fill: #f9de3e;
+      }
+
+      .d {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <polygon class="c" points="18.7 110.4 313.6 89 326.7 0 0 56.5 18.7 110.4"/>
+  <text class="b" transform="translate(67.9 91.5) rotate(-8) scale(.9 1)"><tspan x="0" y="0">Human </tspan><tspan class="d" x="135.2" y="0">F</tspan><tspan x="154.8" y="0">actor</tspan></text>
+</svg>
