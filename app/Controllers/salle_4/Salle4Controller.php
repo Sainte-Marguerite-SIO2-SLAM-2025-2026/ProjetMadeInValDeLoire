@@ -240,9 +240,12 @@ class Salle4Controller extends BaseController
 
         $resultat = $salle4Model->verifierOrdre($activiteChoisie, $ordreUtilisateur);
 
+        $details = $resultat['details'];
+
         // Si correct, débloquer le quiz et bloquer la frise
         if ($resultat['correct']) {
             $session->set('frise_validee', true);
+            $session->set('quiz_disponible', true);
             $session->remove('activite_choisie');
             $session->remove('positions_cartes_frise');
         }
@@ -253,11 +256,6 @@ class Salle4Controller extends BaseController
     public function quizFinal(): string
     {
         $session = session();
-
-        // Vérifier si la frise a été validée
-        if (!$session->get('frise_validee')) {
-            return view('salle_4/QuizSalle4') . view('commun/footer');
-        }
 
         $quizModel = new QuizModel();
 
