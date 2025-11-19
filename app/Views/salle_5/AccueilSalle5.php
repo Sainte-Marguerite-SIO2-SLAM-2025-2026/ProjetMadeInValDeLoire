@@ -175,15 +175,23 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
         </svg>
 
         <!-- Bouton retour -->
-        <div class="retour-top">
-            <?= anchor('/',
-                    form_button([
-                            'content' => 'HOME',
-                            'type' => 'button',
-                            'class' => 'btn-retour'
-                    ])
-            ) ?>
-        </div>
+        <?php if (session()->get('mode') === 'jour'): ?>
+            <div class="retour-top">
+                <?= anchor('/manoirJour',
+                        img([
+                                'src' => base_url('images/commun/btn_retour/home_icone_7.webp'),
+                        ])
+                ) ?>
+            </div>
+        <?php else: ?>
+            <div class="retour-top">
+                <?= anchor('/',
+                        img([
+                                'src' => base_url('images/commun/btn_retour/home_icone_7.webp'),
+                        ])
+                ) ?>
+            </div>
+        <?php endif?>
 
         <!-- Mascotte -->
         <div class="mascotte">
@@ -210,19 +218,31 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
     <?php if ($afficher_popup_succes): ?>
         <div id="popup-succes" class="popup popup-succes" style="display: flex;">
             <div class="popup-content popup-succes-content">
-                <h2>🎉 Félicitations !</h2>
+                <h2>Félicitations !</h2>
                 <p>Vous avez terminé les 2 énigmes de la salle !</p>
                 <p>Vous avez démontré votre vigilance et votre compréhension des enjeux de la sécurité physique et matérielle.</p>
-                <p>Vous pouvez accéder à la salle suivante !</p>
+                <?php if (session()->get('mode') === 'jour'): ?>
                 <div class="popup-actions">
-                    <?= anchor(base_url('/finSalle5'),
-                            form_button([
-                                    'content' => 'Continuer le périple',
-                                    'type' => 'button',
-                                    'class' => 'btn-accueil'
-                            ])
-                    ) ?>
+                    <?= form_open(base_url('/validerJour/5')) ?>
+                    <?= form_button([
+                            'content' => 'Revenir à l\'accueil',
+                            'type'    => 'submit',
+                            'class'   => 'btn-accueil'
+                    ]) ?>
+                    <?= form_close() ?>
                 </div>
+                <?php else: ?>
+                    <p>Vous pouvez accéder à la salle suivante !</p>
+                    <div class="popup-actions">
+                    <?= form_open(base_url('/valider/5')) ?>
+                    <?= form_button([
+                            'content' => 'Continuer le périple',
+                            'type'    => 'submit',
+                            'class'   => 'btn-accueil'
+                    ]) ?>
+                    <?= form_close() ?>
+                </div>
+                <?php endif?>
             </div>
         </div>
         <script>
@@ -237,18 +257,23 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
     <?php if ($afficher_popup_echec): ?>
         <div id="popup-echec" class="popup popup-echec" style="display: flex;">
             <div class="popup-content popup-echec-content">
-                <h2>❌ Échec !</h2>
-                <p>❌ Malheureusement vous n'avez pas réussi les énigmes de la salle</p>
-                <p>Vous devez recommencer cette salle pour progresser.</p>
-                <div class="popup-actions">
-                    <?= anchor(base_url('/finSalle5'),
-                            form_button([
-                                    'content' => 'Fermer',
-                                    'type' => 'button',
-                                    'class' => 'btn-echec',
-                                    'onclick' => 'closePopupEchec()'
-                            ])) ?>
-                </div>
+                <h2>Échec !</h2>
+                <p>Malheureusement vous n'avez pas réussi les énigmes de la salle</p>
+                <?php if (session()->get('mode') === 'jour'): ?>
+                    <div class="popup-actions">
+                        <?= form_open(base_url('/echouerJour/5')) ?>
+                        <?= form_button([
+                                'content' => "Retour à l'accueil",
+                                'type'    => 'submit',
+                                'class' => 'btn-echec',
+                                'onclick' => 'closePopupEchec()'
+                        ]) ?>
+                        <?= form_close() ?>
+                    </div>
+                <?php else: ?>
+                    <p>Vous devez recommencer le parcours.</p>
+
+                <?php endif?>
             </div>
         </div>
         <script>
