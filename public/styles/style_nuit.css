@@ -10,7 +10,7 @@
     --color-text: #333333;
     --color-primary: #2196F3;
     --color-primary-hover: #1976D2;
-    --color-success: #65af4c;
+    --color-success: #5ef12c;
     --color-warning: #f57c00;
     --color-info-bg: #e8f4f8;
     --color-success-bg: #e8f5e9;
@@ -28,10 +28,10 @@
 
 body {
     font-family: "Segoe UI", Arial, sans-serif;
-    padding: 20px;
-    background: var(--color-bg);
+    padding: 0px;
     margin: 0;
     color: var(--text-color);
+    overflow-x: hidden;
 }
 
 /* Conteneur principal */
@@ -57,7 +57,9 @@ h1 {
    ========================== */
 .plan-container {
     text-align: center;
-    margin: 20px 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     position: relative;
 }
 
@@ -75,9 +77,9 @@ h1 {
 svg {
     max-width: 100%;
     height: auto;
-    border: 2px solid var(--color-border);
-    border-radius: var(--radius-md);
-    background: #fafafa;
+    /*border: 2px solid var(--color-border);*/
+    /*border-radius: var(--radius-md);*/
+    background: black;
 }
 
 /* ==========================
@@ -144,6 +146,29 @@ svg {
 .piece.highlighted .piece-label {
     opacity: 1;
 }
+/* Par défaut, escalier sombre visible, éclairé caché */
+.escalier .escalier-sombre {
+    opacity: 1;
+}
+
+.escalier .escalier-clair {
+    opacity: 0;
+}
+
+/* Quand éclairé, on inverse */
+.escalier.clair .escalier-sombre {
+    opacity: 0;
+}
+
+.escalier.clair .escalier-clair {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Optionnel : effet de lueur */
+.escalier.clair .escalier-clair {
+    /*filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));*/
+}
 
 /* ==========================
    INFO BOXES
@@ -166,6 +191,20 @@ svg {
 @keyframes successPulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.02); }
+}
+
+
+.img-fluid{
+    width: 180px;
+    height: 180px;
+}
+
+.modal-body, .modal-texte{
+    display: flex;
+}
+
+.modal-texte{
+    flex-direction: column;
 }
 
 /* ==========================
@@ -249,11 +288,47 @@ button:active {
     fill: transparent;
     cursor: pointer;
     transition: fill var(--transition-fast);
+
 }
 
 .lune-zone:hover {
     fill: rgba(255, 255, 255, 0.15);
 }
+
+.lumi-halo {
+    pointer-events: none; /* Le halo ne bloque pas les clics */
+}
+
+/* Animation alternative */
+@keyframes zoom-in-start {
+    0% {
+        opacity: 0;
+        transform: scale(0.4); /* démarre petit */
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.40); /* zoom au-dessus de l'image */
+    }
+    100% {
+        transform: scale(1); /* revient à sa taille normale */
+    }
+}
+@keyframes hover-float {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05); /* petit souffle */
+    }
+}
+
+.lumi-halo {
+    transform-origin: center;
+    animation: lumi-zoom-start 0.7s ease-out forwards,
+    lumi-hover-float 3s ease-in-out infinite 0.7s;
+    pointer-events: none;
+}
+
 
 /* ==========================
    PROGRESSION
@@ -267,4 +342,178 @@ button:active {
     font-weight: 600;
     margin-left: 10px;
     font-size: 0.95rem;
+}
+
+/* Overlay */
+.victory-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.victory-overlay.hidden {
+    display: none;
+}
+
+/* Modal */
+.victory-modal {
+    background: rgba(0, 0, 0, 0.85);
+    border: 3px solid #ffd700;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 700px;
+    width: 90%;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    animation: modalAppear 0.5s ease-out;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+/* Image à gauche */
+.victory-image {
+    flex-shrink: 0;
+    width: 250px;
+    height: 250px;
+    background: transparent;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.victory-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Contenu à droite */
+.victory-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.victory-title {
+    font-family: 'Irish Grover', cursive;
+    color: #ffd700;
+    font-size: 48px;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    line-height: 1.2;
+}
+
+.victory-text {
+    font-family: 'Irish Grover', cursive;
+    color: #ffd700;
+    font-size: 24px;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Bouton avec image d'étiquette */
+.victory-button {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 200px;
+    height: 60px;
+    align-self: center;
+    outline: none;
+}
+
+.victory-button-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.victory-button-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Irish Grover', cursive;
+    font-size: 22px;
+    color: #2c3e50;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+}
+
+.victory-button:hover {
+    transform: scale(1.09);
+    transition: transform 0.2s;
+    background: none !important;
+}
+
+.victory-button:active {
+    transform: scale(0.95);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Bouton de démonstration */
+.demo-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background: #85db34;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+}
+
+.demo-button:hover {
+    background: #2980b9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .victory-modal {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+
+    .victory-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .victory-title {
+        font-size: 36px;
+    }
+
+    .victory-text {
+        font-size: 20px;
+    }
 }

@@ -35,7 +35,9 @@ class HomeControlleur extends BaseController
         ];
         $this->resetSalle5();
 
-        return view('manoir_home', $data);
+        return view('commun/header.php').
+            view('manoir_home', $data).
+            view('commun/footer.php');
     }
 
     /**
@@ -47,7 +49,9 @@ class HomeControlleur extends BaseController
     {
         session()->set('mode', 'jour');
         $this->resetSalle5();
-        return view('manoir_jour_home');
+        return view('commun/header.php').
+            view('manoir_jour_home').
+            view('commun/footer.php');
     }
 
     /**
@@ -361,7 +365,7 @@ class HomeControlleur extends BaseController
         if (empty($remainingRooms)) {
             return null;
         }
-
+        $index = random_int(0, count($remainingRooms) - 1);
         return $remainingRooms[array_rand($remainingRooms)];
     }
 

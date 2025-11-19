@@ -11,7 +11,7 @@
     --color-primary: #2196F3;
     --color-primary-hover: #1976D2;
     --color-success: #65af4c;
-    --color-failed: #af4c4c;
+    --color-failed: #f34343;
     --color-warning: #f57c00;
     --color-info-bg: #e8f4f8;
     --color-success-bg: #e8f5e9;
@@ -29,10 +29,10 @@
    ========================= */
 body {
     font-family: "Segoe UI", Arial, sans-serif;
-    padding: 20px;
-    background: var(--color-bg);
+    padding: 0px;
     margin: 0;
-    color: var(--color-text);
+    color: var(--text-color);
+    overflow-x: hidden;
 }
 
 .container {
@@ -56,7 +56,9 @@ h1 {
    ========================= */
 .plan-container {
     text-align: center;
-    margin: 20px 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     position: relative;
 }
 
@@ -69,15 +71,14 @@ h1 {
     width: 100%;
     height: auto;
     display: block;
-    pointer-events: auto;
 }
 
 svg {
     max-width: 100%;
     height: auto;
-    border: 2px solid var(--color-border);
-    border-radius: var(--radius-md);
-    background: #fafafa;
+    /*border: 2px solid var(--color-border);*/
+    /*border-radius: var(--radius-md);*/
+    background: #7a9fd0;
 }
 
 /* =========================
@@ -120,9 +121,9 @@ svg {
 
 /* Salle complétée (vert) */
 .piece.completed .piece-zone {
-    fill: rgba(76, 175, 80, 0.25);
+    fill: rgba(76, 175, 80, 0.2);
     stroke: var(--color-success);
-    stroke-width: 2;
+    stroke-width: 4;
 }
 
 .piece.completed .piece-image {
@@ -131,9 +132,9 @@ svg {
 
 /* Salle râtée (rouge) */
 .piece.failed .piece-zone {
-    fill: rgba(175, 76, 91, 0.25);
+    fill: rgba(175, 76, 91, 0.2);
     stroke: var(--color-failed);
-    stroke-width: 2;
+    stroke-width: 4;
 }
 
 /* Salle inactive */
@@ -174,6 +175,19 @@ svg {
 @keyframes successPulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.02); }
+}
+
+.img-fluid{
+    width: 180px;
+    height: 180px;
+}
+
+.modal-body, .modal-texte{
+    display: flex;
+    }
+
+.modal-texte{
+    flex-direction: column;
 }
 
 /* =========================

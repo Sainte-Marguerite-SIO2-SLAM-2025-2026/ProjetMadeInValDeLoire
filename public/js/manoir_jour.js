@@ -111,6 +111,27 @@
 });
 }
 });
+    //zone Lune tooltip
+    const lune = document.getElementById('lune_soleil');
+    const tooltip = document.getElementById('html-tooltip');
+
+    if (lune) {
+        lune.addEventListener('mouseenter', () => tooltip.style.display = 'block');
+        lune.addEventListener('mouseleave', () => tooltip.style.display = 'none');
+
+        // déplacer la tooltip avec la souris
+        lune.addEventListener('mousemove', (e) => {
+            // on ajoute un petit offset pour éviter de couvrir le curseur
+            const offset = 12;
+            tooltip.style.left = (e.clientX + offset) + 'px';
+            tooltip.style.top  = (e.clientY + offset) + 'px';
+        });
+
+        // utile pour accessibilité clavier
+        lune.setAttribute('tabindex', '0');
+        lune.addEventListener('focus', () => tooltip.style.display = 'block');
+        lune.addEventListener('blur',  () => tooltip.style.display = 'none');
+    }
 
     // Zone Quiz
     document.addEventListener("DOMContentLoaded", function() {
