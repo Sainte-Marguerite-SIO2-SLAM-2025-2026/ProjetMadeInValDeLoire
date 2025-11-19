@@ -76,6 +76,18 @@ class HomeControlleur extends BaseController
                 ->with('error', 'Salle indisponible');
         }
 
+        if ((int)$numero === 4){
+            $session = session();
+
+            $data = [
+                'frise_validee' => $session->get('frise_validee') ?? false,
+                'quiz_disponible' => $session->get('frise_validee') ?? false
+            ];
+
+            return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
+        }
+
+
         if ((int)$numero === 5){
             // Instancier les models
             $salleModel = new SalleModel();

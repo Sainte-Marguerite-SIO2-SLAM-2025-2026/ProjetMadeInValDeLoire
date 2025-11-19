@@ -388,7 +388,7 @@ h1 {
 /* ===== Mascotte interactive ===== */
 .mascotte-zone {
     position: absolute;
-    top: 20px;
+    bottom: 20px;
     right: 40px;
     width: 150px;
     height: 180px;
@@ -398,7 +398,7 @@ h1 {
 
 .mascotte-img {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 150px;
     height: 180px;

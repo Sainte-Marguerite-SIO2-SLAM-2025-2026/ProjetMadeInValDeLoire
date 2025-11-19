@@ -85,7 +85,7 @@
     </div>
 
     <?= anchor(base_url(), img([
-            'src'   => 'images/salle_4/images_finales/home_icone_3.webp',
+            'src'   => 'images/commun/btn_retour/home_icone_3.webp',
             'alt'   => 'retour',
             'class' => 'retour'
     ])); ?>
