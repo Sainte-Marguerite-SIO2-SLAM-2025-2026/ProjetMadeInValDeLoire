@@ -51,6 +51,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         objet.classList.add('correct');
                         objetsValides.push(objet);
 
+                        // 🎭 Mascotte exclamée (bonne réponse)
+                        if (window.changerMascotte) {
+                            window.changerMascotte('exclamee', 2000);
+                        }
+
                         if (data.completed) {
                             // ÉNIGME TERMINÉE
                             feedback.textContent = '✅ ' + data.message;
@@ -77,6 +82,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         // ❌ MAUVAISE RÉPONSE - Redirection vers salle avec échec
                         feedback.textContent = '❌ ' + data.message;
                         feedback.className = 'feedback error show';
+
+                        // 😱 Mascotte choquée (mauvaise réponse)
+                        if (window.changerMascotte) {
+                            window.changerMascotte('choquee', 2000);
+                        }
 
                         setTimeout(() => {
                             overlay.style.opacity = '1';

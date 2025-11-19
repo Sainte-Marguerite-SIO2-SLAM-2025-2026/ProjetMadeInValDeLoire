@@ -75,6 +75,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         zoneDepot.style.border = '3px solid #4caf50';
                         zoneDepot.style.backgroundColor = 'rgba(76, 175, 80, 0.2)';
 
+                        // 🎭 Mascotte exclamée (bonne réponse)
+                        if (window.changerMascotte) {
+                            window.changerMascotte('exclamee', 2000);
+                        }
+
                         if (data.completed) {
                             // Énigme terminée
                             feedback.textContent = '✅ ' + data.message;
@@ -93,6 +98,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         // ❌ Mauvaise réponse - Redirection vers salle avec échec
                         feedback.textContent = '❌ ' + data.message;
                         feedback.className = 'feedback error show';
+
+                        // 😱 Mascotte choquée (mauvaise réponse)
+                        if (window.changerMascotte) {
+                            window.changerMascotte('choquee', 2000);
+                        }
 
                         setTimeout(() => {
                             overlay.style.opacity = '1';
