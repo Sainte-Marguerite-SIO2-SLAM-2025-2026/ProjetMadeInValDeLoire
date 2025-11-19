@@ -3,6 +3,7 @@ namespace App\Controllers\accueil;
 
 use App\Controllers\BaseController;
 use App\Models\accueil\AccueilModel;
+use App\Models\salle_1\Salle1ExplicationModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\MascotteModel;
@@ -18,7 +19,11 @@ class AccueilController extends BaseController
 
     public function Salle1() : string
     {
-        return view('salle_1\AccueilSalle1').
+        $explicationModel = new Salle1ExplicationModel();
+
+        $data = ['explication' => $explicationModel->getExplicationSalle1()];
+
+        return view('salle_1\AccueilSalle1', $data).
             view('commun\footer');
     }
 

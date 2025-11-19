@@ -1,6 +1,6 @@
 /* === Arrière-plan === */
 .background-container {
-    background-image: url("../salle_1/images/fonds/fond_page2.webp");
+    background-image: url("../images/salle_1/images/fonds/fond_page2.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -42,7 +42,7 @@
     width: 75%;
     max-height: 350px;
     overflow-y: auto;
-    background-image: url("../salle_1/images/bulle/bulle.webp");
+    background-image: url("../images/salle_1/images/bulle/bulle.webp");
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: 100% 100%;
@@ -104,7 +104,7 @@
 }
 
 .serrure-image:hover {
-    content: url("../salle_1/images/serrure/serrure_jaune.webp");
+    content: url("../images/salle_1/images/serrure/serrure_jaune.webp");
     transform: scale(1.1);
     filter: drop-shadow(0 0 10px yellow);
 }

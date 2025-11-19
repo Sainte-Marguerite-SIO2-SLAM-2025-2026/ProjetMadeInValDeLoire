@@ -4,6 +4,14 @@ document.addEventListener("DOMContentLoaded", function() {
     let motsTrouves = new Set();
     let indiceIndex = 0;
 
+    // 🔵 Ajout pour la mascotte
+    const popup = document.getElementById("popup");
+    const popupTitre = document.getElementById("popup-titre");
+    const popupMessage = document.getElementById("popup-message");
+    const popupExplication = document.getElementById("popup-explication");
+    const popupFermer = document.getElementById("popup-fermer");
+    const popupMascotte = document.getElementById("popup-mascotte"); // ← AJOUT
+
     // Récupère tous les mots à afficher
     let mots = [];
     try {
@@ -33,71 +41,51 @@ document.addEventListener("DOMContentLoaded", function() {
         erreurs = [];
     }
 
-    // Récupère le numéro d'activité
+    // Numéro activité
     const activiteNumero = textZone.dataset.activite || 0;
 
-    // Éléments popup
-    const popup = document.getElementById("popup");
-    const popupTitre = document.getElementById("popup-titre");
-    const popupMessage = document.getElementById("popup-message");
-    const popupExplication = document.getElementById("popup-explication");
-    const popupFermer = document.getElementById("popup-fermer");
-
-    // Fonction pour normaliser un mot (enlever ponctuation et espaces)
+    // Normalize
     function normaliserMot(mot) {
         return mot.trim().toLowerCase().replace(/[.,!?;:]/g, '');
     }
 
-    // Fonction pour trouver l'explication d'un mot
+    // Explication
     function getExplication(mot) {
         const motNormalise = normaliserMot(mot);
-        console.log("🔍 Recherche explication pour:", motNormalise);
-        console.log("📚 Liste des erreurs disponibles:", erreurs);
 
-        const erreur = erreurs.find(e => {
-            const motErreurNormalise = normaliserMot(e.mot_incorrect);
-            console.log(`  Comparaison: "${motNormalise}" === "${motErreurNormalise}"`, motNormalise === motErreurNormalise);
-            return motErreurNormalise === motNormalise;
-        });
+        const erreur = erreurs.find(e =>
+            normaliserMot(e.mot_incorrect) === motNormalise
+        );
 
-        if (erreur) {
-            console.log("✅ Explication trouvée:", erreur.explication);
-            return erreur.explication;
-        }
-
-        console.log("❌ Aucune explication trouvée pour:", motNormalise);
-        return '';
+        return erreur ? erreur.explication : '';
     }
 
-    // Fonction de victoire
+    // 🎉 Victoire
     function verifierVictoire() {
-        console.log("Vérification victoire:", motsTrouves.size, "/", motsSuspects.length);
-
         if (motsTrouves.size === motsSuspects.length && motsSuspects.length > 0) {
-            // Code fixe ou généré
-            const code = 8294;
 
-            // Stocke le code pour la salle suivante
+            const code = 8294;
             sessionStorage.setItem("codePorte", code);
 
-            popupTitre.textContent = "🎉 Félicitations !";
-            popupMessage.innerHTML = `Vous avez trouvé tous les mots suspects !<br><br><strong>Voici votre code : ${code}</strong><br><br>Notez-le bien pour accéder à la suite !`;
+            // 🟣 Mascotte de victoire
+            popupMascotte.src = "<?= base_url('images/commun/mascotte/mascotte_contente.svg') ?>";
 
-            if (popupExplication) {
-                popupExplication.style.display = "none";
-            }
+            popupTitre.textContent = "🎉 Félicitations !";
+            popupMessage.innerHTML = `Vous avez trouvé tous les mots suspects !<br><br>
+                                       <strong>Voici votre code : ${code}</strong>`;
+
+            if (popupExplication) popupExplication.style.display = "none";
 
             popup.style.display = "flex";
 
             popupFermer.onclick = function() {
                 popup.style.display = "none";
-                // Sauvegarde la progression
                 saveRoomCompletion(1);
             };
         }
     }
 
-    // Affiche les mots cliquables
+    // Nettoyage texte
     textZone.innerHTML = "";
 
     const nomSpan = document.createElement('span');
@@ -108,35 +96,29 @@ document.addEventListener("DOMContentLoaded", function() {
     textZone.appendChild(document.createElement('br'));
     textZone.appendChild(document.createElement('br'));
 
+    // Affichage des mots
     mots.forEach((mot, idx) => {
         const span = document.createElement('span');
         span.textContent = mot;
-        span.style.cursor = "pointer";
         span.className = 'mot-cliquable';
+        span.style.cursor = "pointer";
 
         span.addEventListener("click", function() {
-            console.log("Clic sur mot:", mot);
 
             if (span.classList.contains('mot-clique')) {
-                console.log("Mot déjà cliqué, ignoré");
                 return;
             }
 
             span.classList.add('mot-clique');
 
-            // Nettoie le mot (enlève la ponctuation)
             const motNettoye = normaliserMot(mot);
-            console.log("Mot nettoyé:", motNettoye);
 
-            // Vérifie si c'est un mot suspect
-            const estSuspect = motsSuspects.some(suspect =>
-                normaliserMot(suspect) === motNettoye
+            const estSuspect = motsSuspects.some(s =>
+                normaliserMot(s) === motNettoye
             );
 
-            console.log("Est suspect?", estSuspect);
-
             if (estSuspect) {
-                // BON MOT TROUVÉ
+                // ✔ BON MOT
                 span.style.color = "green";
                 span.style.fontWeight = "bold";
                 span.style.textDecoration = "underline";
@@ -145,44 +127,36 @@ document.addEventListener("DOMContentLoaded", function() {
                 span.style.borderRadius = "4px";
 
                 motsTrouves.add(motNettoye);
-                console.log("Mots trouvés:", Array.from(motsTrouves));
 
                 popupTitre.textContent = "✅ Mot suspect trouvé !";
                 popupTitre.style.color = "#27ae60";
 
-                // Récupère l'explication depuis la base de données
+                // 🟢 Mascotte heureuse
+                popupMascotte.src = "<?= base_url('images/commun/mascotte/mascotte_contente.svg') ?>";
+
                 const explication = getExplication(mot);
 
-                if (explication) {
-                    popupMessage.innerHTML = `<strong>Bien joué !</strong><br><br>"<em>${mot.replace(/[.,!?;:]/g, '')}</em>" est bien un mot suspect.<br><br>Progression : <strong>${motsTrouves.size}/${motsSuspects.length}</strong>`;
+                popupMessage.innerHTML = `<strong>Bien joué !</strong><br><br>
+                "<em>${motNettoye}</em>" est un mot suspect.<br><br>
+                Progression : <strong>${motsTrouves.size}/${motsSuspects.length}</strong>`;
 
-                    // Affiche l'explication dans une section dédiée
-                    if (popupExplication) {
-                        popupExplication.innerHTML = `<strong>💡 Pourquoi c'est suspect ?</strong><br><br>${explication}`;
-                        popupExplication.style.display = "block";
-                    }
+                if (explication && popupExplication) {
+                    popupExplication.innerHTML = `<strong>💡 Pourquoi c'est suspect ?</strong><br><br>${explication}`;
+                    popupExplication.style.display = "block";
                 } else {
-                    // Si pas d'explication, message par défaut
-                    popupMessage.innerHTML = `<strong>Bien joué !</strong><br><br>"<em>${mot.replace(/[.,!?;:]/g, '')}</em>" est bien un mot suspect.<br><br>Progression : <strong>${motsTrouves.size}/${motsSuspects.length}</strong><br><br><em>Ce mot est considéré comme suspect dans ce contexte.</em>`;
-
-                    if (popupExplication) {
-                        popupExplication.style.display = "none";
-                    }
+                    popupExplication.style.display = "none";
                 }
 
                 popup.style.display = "flex";
 
                 popupFermer.onclick = function() {
                     popup.style.display = "none";
-                    if (popupExplication) {
-                        popupExplication.style.display = "none";
-                    }
-                    // Vérifier la victoire après fermeture
+                    popupExplication.style.display = "none";
                     setTimeout(verifierVictoire, 300);
                 };
 
             } else {
-                // MAUVAIS MOT
+                // ❌ MAUVAIS MOT
                 span.style.color = "red";
                 span.style.textDecoration = "line-through";
                 span.style.backgroundColor = "#f8d7da";
@@ -192,11 +166,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 popupTitre.textContent = "❌ Erreur !";
                 popupTitre.style.color = "#e74c3c";
 
-                popupMessage.innerHTML = `"<em>${mot.replace(/[.,!?;:]/g, '')}</em>" n'est pas un mot suspect.<br><br>Essayez encore !`;
+                // 🔴 Mascotte en colère
+                popupMascotte.src = "<?= base_url('images/commun/mascotte/mascotte_choquee.svg') ?>";
 
-                if (popupExplication) {
-                    popupExplication.style.display = "none";
-                }
+                popupMessage.innerHTML = `"<em>${motNettoye}</em>" n'est pas un mot suspect.<br><br>Essayez encore !`;
+
+                popupExplication.style.display = "none";
 
                 popup.style.display = "flex";
 
@@ -212,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Gestion des indices
+    // Indices
     const btnIndice = document.getElementById("btn-indice");
     const popupIndice = document.getElementById("popup-indice");
     const indiceMessage = document.getElementById("indice-message");
@@ -242,7 +217,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
 
-        // Fermer au clic en dehors
         if (popupIndice) {
             popupIndice.addEventListener("click", function(e) {
                 if (e.target === popupIndice) {
@@ -252,21 +226,20 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Fermer popup principale au clic en dehors
+    // Fermeture au clic extérieur
     if (popup) {
         popup.addEventListener("click", function(e) {
             if (e.target === popup) {
                 popup.style.display = "none";
-                if (popupExplication) {
-                    popupExplication.style.display = "none";
-                }
+                if (popupExplication) popupExplication.style.display = "none";
             }
         });
     }
 
-    // Fonction pour sauvegarder la complétion de la salle
+    // Sauvegarde salle
     function saveRoomCompletion(roomNumber) {
         let completedRooms = [];
+
         try {
             const stored = localStorage.getItem('completedRooms');
             completedRooms = stored ? JSON.parse(stored) : [];
@@ -277,11 +250,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!completedRooms.includes(roomNumber)) {
             completedRooms.push(roomNumber);
             localStorage.setItem('completedRooms', JSON.stringify(completedRooms));
-            console.log("Salle complétée sauvegardée:", roomNumber);
         }
     }
 
     console.log("Initialisation terminée");
-    console.log("Nombre de mots:", mots.length);
-    console.log("Nombre de mots suspects:", motsSuspects.length);
 });

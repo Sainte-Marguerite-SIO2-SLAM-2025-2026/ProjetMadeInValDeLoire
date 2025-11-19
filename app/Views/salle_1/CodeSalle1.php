@@ -30,7 +30,7 @@
                 base_url('Salle1/accesMessage'),
                 '<div class="retour-wrapper">'
                 .img([
-                        'src' => base_url('salle_1/images/boutons/retour-et-indice_blanc.webp'),
+                        'src' => base_url('images/salle_1/images/boutons/retour-et-indice_blanc.webp'),
                         'alt' => 'Retour',
                         'class' => 'button-image'
                 ])
@@ -42,12 +42,19 @@
                 base_url('/'),
                 '<div class="retour-wrapper">'
                 .img([
-                        'src' => base_url('salle_1/images/boutons/retour-et-indice_blanc.webp'),
+                        'src' => base_url('images/salle_1/images/boutons/retour-et-indice_blanc.webp'),
                         'alt' => 'Menu',
                         'class' => 'button-image'
                 ])
                 .'<span class="retour-texte">Retour au menu</span>'
                 .'</div>'
+        ); ?>
+        <?= anchor(
+                base_url('/'), img([
+                        'src' => base_url('images/commun/mascotte/mascotte_face.svg'),
+                        'alt' => 'Mascotte',
+                        'class' => 'mascotte-image'
+                ])
         ); ?>
     </div>
 
@@ -56,7 +63,6 @@
 <!-- POPUP compatible avec ton JS -->
 <div id="popup" class="popup" style="display:none;">
     <div class="popup-content">
-
         <h2 id="popup-titre"></h2>
         <p id="popup-message"></p>
 

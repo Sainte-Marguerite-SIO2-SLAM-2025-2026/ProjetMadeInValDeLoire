@@ -14,6 +14,11 @@
     <!-- POPUP d'explication -->
     <div class="popup">
         <div class="popup-content">
+            <?= img([
+                    'src' => base_url('images/commun/mascotte/mascotte_face.svg'),
+                    'alt' => 'Mascotte',
+                    'class' => 'mascotte-popup'
+            ]) ?>
             <h2>Bienvenue dans la salle de l'ingénierie sociale !</h2>
             <?php if (isset($explication) && !empty($explication)): ?>
                 <p><?= esc($explication) ?></p>
@@ -24,7 +29,7 @@
     <div class="content-container">
         <?= anchor(base_url().'Salle1/accesMessage',
                 img([
-                        'src' => base_url('salle_1/images/personnages/fantome_1.webp'),
+                        'src' => base_url('images/salle_1/images/personnages/fantome_1.webp'),
                         'alt' => 'Fantôme',
                         'class' => 'perso-accueil',
                         'id'   => 'fantome'
@@ -38,7 +43,7 @@
                 base_url().'/',
                 '<div class="retour-wrapper">'
                 .img([
-                        'src' => base_url('salle_1/images/boutons/retour-et-indice_blanc.webp'),
+                        'src' => base_url('images/salle_1/images/boutons/retour-et-indice_blanc.webp'),
                         'alt' => 'Retour',
                         'class' => 'button-image'
                 ])
