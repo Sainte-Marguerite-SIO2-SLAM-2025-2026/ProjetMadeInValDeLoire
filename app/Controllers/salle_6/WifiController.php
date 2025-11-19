@@ -3,43 +3,36 @@
 namespace App\Controllers\salle_6;
 
 use App\Controllers\BaseController;
+use App\Models\salle_6\ProposerWifiModel;
+use App\Models\salle_6\WifiModel;
 
 class WifiController extends BaseController
 {
-    public function Index():string
+    protected $proposerWifiModel;
+    protected $wifiModel;
+
+    public function __construct()
     {
-        return view('commun\header').
-            view('salle_6\Wifi').
-            view('commun\footer');
+        $this->proposerWifiModel = new ProposerWifiModel();
+        $this->wifiModel = new WifiModel();
     }
-    /**
-     * Données en dur des WiFi
-     */
-    private function getWifis()
+
+    public function Index(): string
     {
-        return [
-            [
-                'id' => '1',
-                'nom' => 'FreeWifi',
-                'type' => 'Public',
-                'chiffrement' => 'WPA2',
-                'est_correct' => false
-            ],
-            [
-                'id' => '2',
-                'nom' => 'Livebox-A3F2',
-                'type' => 'Privé',
-                'chiffrement' => 'WPA3',
-                'est_correct' => true
-            ],
-            [
-                'id' => '3',
-                'nom' => 'SFR-Guest',
-                'type' => 'Public',
-                'chiffrement' => 'WPA2-PSK',
-                'est_correct' => false
-            ]
-        ];
+        // ID de l'activité (à adapter selon votre logique)
+        $activite_numero = 1; // Exemple
+
+        // Récupérer les WiFi depuis la base de données
+        $data['wifis'] = $this->proposerWifiModel->getWifiMelanges($activite_numero);
+
+        // Alternative : récupérer séparément bon et mauvais WiFi
+        // $wifiPourJeu = $this->proposerWifiModel->getWifiPourJeu($activite_numero);
+        // $data['bon_wifi'] = $wifiPourJeu['bon'];
+        // $data['mauvais_wifi'] = $wifiPourJeu['mauvais'];
+
+        return view('commun\header') .
+            view('salle_6\WifiCartes', $data) .
+            view('commun\footer');
     }
 
     /**
@@ -47,64 +40,66 @@ class WifiController extends BaseController
      */
     public function validerCarte()
     {
-        $wifi_id = $this->request->getPost('wifi_id');
+        $this->proposerWifiModel = new ProposerWifiModel();
+        $this->wifiModel = new WifiModel();
 
-        if (!$wifi_id) {
-            return redirect()->to(base_url('Salle6\Wifi'));
-        }
+        $wifi_numero = $this->request->getPost('wifi_numero');
+        $activite_numero = $this->request->getPost('activite_numero') ?? 1;
 
-        // Récupérer les données
-        $wifis = $this->getWifis();
-        $wifi_selectionne = null;
-        $wifi_correct = null;
-
-        // Trouver le WiFi sélectionné et le WiFi correct
-        foreach ($wifis as $wifi) {
-            if ($wifi['id'] == $wifi_id) {
-                $wifi_selectionne = $wifi;
-            }
-            if ($wifi['est_correct']) {
-                $wifi_correct = $wifi;
-            }
+        // Si pas de wifi séléctionner
+        if (!$wifi_numero) {
+            return redirect()->to(base_url('Salle6/WifiCartes'));
         }
 
         // Vérifier si le choix est correct
-        $est_correct = ($wifi_selectionne && $wifi_selectionne['est_correct']);
+        $est_correct = $this->proposerWifiModel->estBonneReponse($wifi_numero, $activite_numero);
 
-        // Stocker les données en session pour les afficher sur la page de résultat
-        $session = session();
-        $session->set([
-            'wifi_choisi' => $wifi_selectionne,
-            'wifi_correct' => $wifi_correct,
-            'resultat_correct' => $est_correct
-        ]);
+        // Récupérer le WiFi sélectionné
+        $wifi_selectionne = $this->wifiModel->getWifiByNumero($wifi_numero);
 
-        // Rediriger vers la page de résultat
-        return redirect()->to(base_url('Salle6/wifi/resultat'));
+        // Récupérer le bon WiFi
+        $wifi_correct = $this->proposerWifiModel->getBonWifiAlea($activite_numero);
+
+        if ($est_correct) {
+        // Stocker les valeurs dans data
+        $data['wifi_choisi'] = $wifi_selectionne;
+        $data['wifi_correct'] = $wifi_correct;
+        $data['est_correct'] = $est_correct;
+
+        return view('commun\header') .
+            view('salle_6\WifiInfos', $data) .
+            view('commun\footer');
+        }
+        else {
+            return redirect()->to(base_url('/'));
+        }
     }
 
     /**
-     * Page de résultat après validation
+     * Méthode de test pour afficher les données
      */
-    public function resultat()
+    public function testRecuperationWifi()
     {
-        $session = session();
+        $activite_numero = 1;
 
-        // Récupérer les données de la session
-        $data['wifi_choisi'] = $session->get('wifi_choisi');
-        $data['wifi_correct'] = $session->get('wifi_correct');
-        $data['est_correct'] = $session->get('resultat_correct');
+        echo "<h2>Test de récupération des WiFi</h2>";
 
-        // Si pas de données en session, rediriger vers l'accueil
-        if (!$data['wifi_choisi']) {
-            return redirect()->to(base_url('Salle6/Wifi'));
-        }
+        echo "<h3>1 bon WiFi aléatoire :</h3>";
+        $bonWifi = $this->proposerWifiModel->getBonWifiAlea($activite_numero);
+        echo "<pre>";
+        print_r($bonWifi);
+        echo "</pre>";
 
-        // Nettoyer la session
-        $session->remove(['wifi_choisi', 'wifi_correct', 'resultat_correct']);
+        echo "<h3>2 mauvais WiFi aléatoires :</h3>";
+        $mauvaisWifi = $this->proposerWifiModel->getMauvaisWifiAlea($activite_numero, 2);
+        echo "<pre>";
+        print_r($mauvaisWifi);
+        echo "</pre>";
 
-        return view('commun\header').
-            view('salle_6\WifiResultatCarte', $data).
-            view('commun\footer');
+        echo "<h3>Tous les WiFi mélangés :</h3>";
+        $wifiMelanges = $this->proposerWifiModel->getWifiMelanges($activite_numero);
+        echo "<pre>";
+        print_r($wifiMelanges);
+        echo "</pre>";
     }
 }

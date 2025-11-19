@@ -1,120 +1,362 @@
-body, html {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #1c1c1c;
-    color: white;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #3d2b2b 0%, #5a4545 100%);
+    color: #f0f0f0;
+    min-height: 100vh;
 }
 
 .scene-enigme {
     position: relative;
-    min-height: 100vh;
-    padding: 40px 20px;
-    box-sizing: border-box;
+    height: 100vh;
 }
 
-.titre-enigme {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 6px black;
+/* Bouton retour en haut à gauche */
+.retour-top {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
 }
 
-.consigne {
-    text-align: center;
-    font-size: 1.2em;
-    margin-bottom: 40px;
-}
-
-.usb-zone {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin-bottom: 40px;
-    align-items: center;
-    height: 50vh;
-    background-image: url('../../images/salle_5/bureau.svg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 15px;
-}
-
-.usb-zone img{
-    width: 20vh;
-}
-
-.usb {
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.usb:hover {
-    transform: scale(1.1);
-}
-
-.etiquette {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-    background-color: #fff;
-    color: #000;
-    padding: 5px 10px;
-    border-radius: 4px;
-}
-
-.feedback {
-    text-align: center;
+.btn-retour {
+    background: linear-gradient(135deg, #d4af37, #f4d03f);
+    color: #2c1810;
+    border: 3px solid #8b6914;
+    border-radius: 8px;
+    padding: 12px 30px;
     font-size: 1.1em;
-    margin-top: 20px;
-    min-height: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-retour:hover {
+    background: linear-gradient(135deg, #f4d03f, #d4af37);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(212, 175, 55, 0.5);
+}
+
+/* Question en haut */
+.question-box {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #f5f5dc, #ffffff);
+    border: 4px solid #d4af37;
+    border-radius: 15px;
+    padding: 15px 40px;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    z-index: 50;
+}
+
+.question-titre {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #2c1810;
+    text-align: center;
+    margin: 0;
+}
+
+/* Fond de bureau (image SVG du bureau) */
+.bureau-fond {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 1100px;
+    z-index: 1;
+}
+
+.bureau-bg {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+}
+
+/* Conteneur des clés USB */
+.usb-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 1100px;
+    height: 60vh;
+    z-index: 10;
+}
+
+/* Positionnement des clés USB */
+.usb-item {
+    position: absolute;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.usb-item:hover {
+    transform: scale(1.15) rotate(5deg);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+}
+
+.usb-item.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.usb-item.selected {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1));
+}
+
+.usb-item.correct {
+    animation: bounce-correct 0.6s ease;
+}
+
+.usb-item.incorrect {
+    animation: shake 0.5s ease;
+}
+
+@keyframes bounce-correct {
+    0%, 100% { transform: scale(1.2); }
+    25% { transform: scale(1.3) rotate(5deg); }
+    50% { transform: scale(1.25) rotate(-5deg); }
+    75% { transform: scale(1.3) rotate(3deg); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-15px) rotate(-5deg); }
+    75% { transform: translateX(15px) rotate(5deg); }
+}
+
+/* Positions des clés USB sur le bureau */
+.usb-left {
+    top: 30%;
+    left: 15%;
+    transform: rotate(-15deg);
+}
+
+.usb-left:hover {
+    transform: scale(1.15) rotate(-10deg);
+}
+
+.usb-right {
+    top: 25%;
+    right: 12%;
+    transform: rotate(10deg);
+}
+
+.usb-right:hover {
+    transform: scale(1.15) rotate(15deg);
+}
+
+.usb-bottom {
+    bottom: 25%;
+    left: 20%;
+    transform: rotate(-5deg);
+}
+
+.usb-bottom:hover {
+    transform: scale(1.15) rotate(0deg);
+}
+
+.usb-img {
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+/* Feedback */
+.feedback {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    color: #fff;
+    padding: 30px 50px;
+    border-radius: 15px;
+    font-size: 1.3em;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    z-index: 2000;
+    max-width: 80%;
+    text-align: center;
+}
+
+.feedback.show {
+    opacity: 1;
 }
 
 .feedback.success {
-    color: #00ff88;
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    border: 3px solid #2e7d32;
 }
 
-.retour {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
+.feedback.error {
+    background: linear-gradient(135deg, #f44336, #e57373);
+    border: 3px solid #c62828;
 }
 
-.retour button {
-    padding: 12px 24px;
-    font-size: 1em;
-    background-color: #ffffff;
-    color: #1c1c1c;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
+/* Mascotte */
 .mascotte {
-    position: absolute;
+    position: fixed;
     bottom: 30px;
     right: 30px;
+    z-index: 1000;
+    pointer-events: all;
 }
 
 .mascotte-img {
-    width: 70px;
-    height: auto;
+    width: 150px;
+    height: 150px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+    animation: float 3s ease-in-out infinite;
 }
 
 .mascotte-img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
+.mascotte-img.locked {
+    pointer-events: none;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Overlay de transition */
 #transition-overlay {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: black;
     opacity: 0;
-    pointer-events: auto;
+    pointer-events: none;
     transition: opacity 0.8s ease;
     z-index: 9999;
 }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .question-titre {
+        font-size: 1.2em;
+    }
+
+    .usb-img {
+        width: 90px;
+    }
+
+    .mascotte-img {
+        width: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .question-titre {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    .btn-retour {
+        padding: 8px 20px;
+        font-size: 0.9em;
+    }
+
+    .usb-img {
+        width: 70px;
+    }
+
+    .usb-left { left: 10%; }
+    .usb-right { right: 8%; }
+    .usb-bottom { left: 15%; }
+
+    .feedback {
+        font-size: 1em;
+        padding: 20px 30px;
+    }
+}
+
+.bureau-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1400px;
+    z-index: 1;
+}
+
+.bureau-wrapper svg {
+    width: 100%;
+    overflow: visible;
+}
+
+.objet-cliquable {
+    cursor: pointer;
+}
+
+.objet-cliquable.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.objet-cliquable.selected {
+    transform: scale(1.1);
+}
+
+.objet-cliquable.correct {
+    animation: glow-green 0.6s ease forwards !important;
+}
+
+@keyframes glow-green {
+    0%, 100% {
+        filter: drop-shadow(0 0 12px rgba(0, 255, 0, 1))
+        drop-shadow(0 0 25px rgba(0, 255, 0, 0.8));
+    }
+    50% {
+        filter: drop-shadow(0 0 20px rgba(0, 255, 0, 1))
+        drop-shadow(0 0 35px rgba(0, 255, 0, 1));
+    }
+}
+
+/* Animation pour mauvaise réponse - MODIFIÉE (moins agressive) */
+.objet-cliquable.incorrect {
+    animation: shake-light 0.5s ease;
+}
+
+@keyframes shake-light {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-8px);
+    }
+    75% {
+        transform: translateX(8px);
+    }
+}
+ svg, svg image{
+     overflow: visible;
+ }
