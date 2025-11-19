@@ -8,11 +8,11 @@ body {
 .timer {
     position: fixed;
     top: 20px;
-    left: 30px;
-    font-size: 3rem;
+    left: 43%;
+    font-size: 5rem;
     color: yellow;
     font-family: "IrishGrover", sans-serif;
-    text-shadow: 0 0 8px black;
+    text-shadow: 0 0 10px black;
     z-index: 999;
 }
 
@@ -38,8 +38,14 @@ body {
     cursor: pointer;
 }
 
+.mascotte-image:hover{
+    content: url("../images/commun/mascotte/mascotte_interrogee.svg");
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px yellow);
+}
+
 .button-image:hover {
-    content: url("../salle_1/images/boutons/retour-et-indice_jaune.webp");
+    content: url("../images/salle_1/images/boutons/retour-et-indice_jaune.webp");
     transform: scale(1.1);
     filter: drop-shadow(0 0 10px yellow);
 }
@@ -55,3 +61,44 @@ body {
     font-size: 1rem;
     pointer-events: none;
 }
+
+.mascotte-popup {
+    top: -40px; /* Elle dépasse un peu de la popup */
+    right: 60%;
+
+    width: 120px;
+    height: auto;
+
+    z-index: 1500;
+    pointer-events: none;
+
+    animation: float 2.5s ease-in-out infinite;
+}
+
+/* Animation flottante */
+@keyframes float {
+    0%   { transform: translateX(0) translateY(0); }
+    50%  { transform: translateX(0) translateY(-12px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+.mascotte-image {
+    width: 120px;
+    height: auto;
+
+    z-index: 1500;
+    pointer-events: none;
+
+    animation: float 2.5s ease-in-out infinite;
+}
+
+/* Animation flottante */
+@keyframes float {
+    0%   { transform: translateX(0) translateY(0); }
+    50%  { transform: translateX(0) translateY(-12px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+
+
+
