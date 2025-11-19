@@ -4,6 +4,11 @@
     width: 1920px;
 }
 
+.header {
+    color: transparent;
+    background-color: transparent;
+}
+
 .envelope {
     position: relative;
     transform: translate(-50%, -50%); /* centre sur la coordonnée */
@@ -16,7 +21,9 @@
 
 .accueil-btn {
     display: inline-block;
-    position: relative;
+    position: fixed !important;
+    top: 10px !important;
+    left: 10px !important;
     margin-top: 10px;
     margin-left: 10px;
     width: 200px;
@@ -24,7 +31,6 @@
     background-image: url('../images/salle_2/boutons/bouton_1.webp');
     background-size: cover;
     background-position: center;
-    color: black;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -33,6 +39,7 @@
     text-decoration: none;
     overflow: hidden;
     transition: transform 0.2s ease, opacity 0.2s ease;
+    z-index: 1000;
 }
 
 .accueil-btn:hover {
@@ -68,7 +75,7 @@
     width: 100%;
     max-width: 1200px;
     padding: 0;
-    border-radius: 12px;
+    border-radius: 4px;
     position: absolute;
     overflow: hidden;
 }
@@ -88,7 +95,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,6 +105,12 @@
     text-align: center;
     color: black;
     text-shadow: 2px 2px 6px white;
+    font-family: Arial, sans-serif;
+}
+
+.modal-text p {
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .close-btn {
@@ -121,18 +136,17 @@
     cursor: pointer;
     color: white;
 }
-
 #btn-legitime {
     background-image: url(../images/salle_2/boutons/bouton_2_bleu.webp);
     background-repeat: no-repeat;
     background-position: center;
 }
 
+
 #btn-frauduleux {
     background-image: url(../images/salle_2/boutons/bouton_1_jaune.webp);
     background-repeat: no-repeat;
     background-position: center;
-
 }
 
 #btn-valider {
@@ -178,6 +192,45 @@
 }
 
 #scoreModal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.mascotte-container {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    width: 180px;
+    z-index: 10000;
+}
+
+.mascotte-container img {
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.mascotte-container img:hover {
+    transform: scale(1.05);
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    bottom: 110%;
+    left: 0;
+    background: white;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    width: 200px;
+    font-size: 14px;
+}
+
+.tooltip.active {
     opacity: 1;
     pointer-events: all;
 }

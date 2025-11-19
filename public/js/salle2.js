@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const table = document.querySelector('.bureau-wrapper');
     if (table) {
         table.addEventListener('click', () => {
-            window.location.href = BASE_URL + "public/Salle2/Enigme";
+            window.location.href = BASE_URL + "/Salle2/Enigme";
         });
     }
 });

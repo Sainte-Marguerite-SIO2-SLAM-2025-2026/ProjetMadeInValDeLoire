@@ -20,6 +20,7 @@ $routes->get('Salle1/Code', 'salle_1\Salle1Controller::accesCode');
 // Routes pour la salle 2
 $routes->get('/Salle2', 'accueil\AccueilController::Salle2');
 $routes->get('/Salle2/Enigme', 'salle_2\Salle2Controller::index');
+$routes->get('/indice/(:num)', 'salle_2\Salle2Controller::getIndice/$1');
 
 // Routes pour la salle 3
 $routes->get('/Salle3', 'accueil\AccueilController::Salle3');

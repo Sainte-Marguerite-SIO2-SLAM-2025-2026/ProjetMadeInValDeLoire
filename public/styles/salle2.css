@@ -10,17 +10,17 @@ body {
 }
 
 .content{
-    height: 950px;
+    height: 1080px;
     width: 1920px;
     background-image: url("../images/salle_2/fond/fond.webp");
-    background-size: auto;
+    background-size: 1920px 1080px;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .bureau-wrapper {
     position: absolute;
-    top: 600px;
+    top: 664px;
     left: 956px;
     transform: translate(-50%, -50%);
     width: auto;

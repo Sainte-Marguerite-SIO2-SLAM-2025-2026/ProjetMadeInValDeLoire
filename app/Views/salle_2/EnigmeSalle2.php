@@ -5,20 +5,38 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?= link_tag('public/styles/salle2_enigme.css') ?>
+    <?= link_tag('styles/salle2_enigme.css') ?>
     <title>Salle 2 - Énigme</title>
 </head>
+<header>
+
+</header>
 <body>
 
 <div class="background-container">
 
-    <img id="bg-img" src="<?= base_url('public/images/salle_2/dessus_bureau/dessus_bureau.webp') ?>" alt="Fond" style="width:1920px; height:950px; display:block;">
+    <img id="bg-img" src="<?= base_url('images/salle_2/dessus_bureau/dessus_bureau.webp') ?>" alt="Fond" style="width:1920px; height:1080px; display:block;">
+
 
     <div class="map-container" style="position:absolute; top:0; left:0; width:100%; height:100%;">
         <!-- Enveloppes générées dynamiquement via JS -->
 
     </div>
-    <?= anchor(base_url(). '/public', 'Accueil', ['class' => 'accueil-btn']) ?>
+
+</div>
+<div class="accueil-btn">
+    <?= anchor(base_url(), 'Accueil') ?>
+</div>
+
+<div class="mascotte-container">
+    <?php $img = ['id' => 'mascotte', 'src' => 'images/commun/mascotte/mascotte_face.svg',  'alt' => 'Mascotte'];
+    echo img($img);
+    ?>
+
+    <div id="mascotte-tooltip" class="tooltip">
+        Voici un indice ! <br>
+        Pense toujours à vérifier l'adresse d'expéditeur.
+    </div>
 </div>
 
     <div id="envelopeModal" class="modal">
@@ -62,6 +80,8 @@
             const btnLegitime = document.getElementById('btn-legitime');
             const btnFrauduleux = document.getElementById('btn-frauduleux');
             const btnValider = document.getElementById('btn-valider');
+            const numeroActivite = <?= $idActivite ?>;
+            const indices =  <?= json_encode($indices) ?>;
 
             let currentEnvelope = null;
 
@@ -77,6 +97,37 @@
                     modal.classList.remove('active');
                     document.querySelector('.background-container').classList.remove('blur-active');
                 }
+            });
+
+            const mascotte = document.getElementById('mascotte');
+            const tooltip = document.getElementById('mascotte-tooltip');
+            let tooltipTimeout = null;
+            let indiceIndex = 0;
+
+            // Image au survol
+            mascotte.addEventListener('mouseenter', () => {
+                mascotte.src = "<?= base_url('images/commun/mascotte/mascotte_exclamee.svg') ?>";
+            });
+
+            mascotte.addEventListener('mouseleave', () => {
+                mascotte.src = "<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>";
+            });
+
+            // Affichage / masquage du tooltip au clic
+            mascotte.addEventListener('click', () => {
+
+                    tooltip.innerText = indices[indiceIndex].libelle;
+                    tooltip.classList.add('active');
+
+                    indiceIndex = (indiceIndex + 1) % indices.length;
+
+                    if (tooltipTimeout) {
+                        clearTimeout(tooltipTimeout);
+                    }
+
+                    tooltipTimeout = setTimeout(() => {
+                        tooltip.classList.remove('active');
+                    }, 5000);
             });
 
             const areas = [
@@ -122,7 +173,7 @@
                     el.style.zIndex = Math.floor(Math.random() * 10 + 1);
 
                     const img = document.createElement('img');
-                    img.src = "<?= base_url('/public/images/salle_2/enveloppes/enveloppe_sepia.webp') ?>";
+                    img.src = "<?= base_url('/images/salle_2/enveloppes/enveloppe_sepia.webp') ?>";
                     img.alt = 'Zone ' + a.zone;
                     img.style.width = '275px';   // taille fixe ou variable
                     img.style.height = '175px';
@@ -137,10 +188,10 @@
 
                         document.querySelector(".modal-text h2").innerText = "Expéditeur : " + mail.expediteur;
                         document.querySelector(".modal-text h3").innerText = "Objet : " + mail.objet;
-                        document.querySelector(".modal-text p").innerText = "Contenu : " + mail.contenu;
+                        document.querySelector(".modal-text p").innerHTML = `<strong>Contenu</strong> : <br>` + mail.contenu;
                         modal.classList.add('active');
                         document.querySelector('.background-container').classList.add('blur-active');
-                        document.getElementById("modal-image").src = "<?= base_url('/public/images/salle_2/mails/mail_ouvert.webp') ?>";
+                        document.getElementById("modal-image").src = "<?= base_url('/images/salle_2/mails/mail_ouvert.webp') ?>";
                     });
 
                     el.dataset.zone = a.zone;
@@ -149,7 +200,7 @@
 
             btnLegitime.addEventListener('click', () => {
                 if(currentEnvelope){
-                    currentEnvelope.querySelector('img').src = "<?= base_url('/public/images/salle_2/enveloppes/enveloppe_bleue.webp')?>";
+                    currentEnvelope.querySelector('img').src = "<?= base_url('/images/salle_2/enveloppes/enveloppe_bleue.webp')?>";
                     triEnveloppes.set(currentEnvelope.dataset.zone, 'legitime');
                     modal.classList.remove('active');
                     document.querySelector('.background-container').classList.remove('blur-active');
@@ -160,7 +211,7 @@
 
             btnFrauduleux.addEventListener('click', () => {
                 if(currentEnvelope){
-                    currentEnvelope.querySelector('img').src = "<?= base_url('/public/images/salle_2/enveloppes/enveloppe_jaune.webp')?>";
+                    currentEnvelope.querySelector('img').src = "<?= base_url('/images/salle_2/enveloppes/enveloppe_jaune.webp')?>";
                     triEnveloppes.set(currentEnvelope.dataset.zone, 'frauduleux');
                     modal.classList.remove('active');
                     document.querySelector('.background-container').classList.remove('blur-active');
@@ -210,6 +261,5 @@
 
     </script>
 
-</div>
 </body>
 </html>
