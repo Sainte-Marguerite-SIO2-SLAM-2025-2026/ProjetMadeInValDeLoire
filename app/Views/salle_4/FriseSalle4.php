@@ -91,13 +91,18 @@
     ])); ?>
 
     <!-- Mascotte interactive -->
-    <div class="mascotte-zone" id="mascotteHelp">
-        <img src="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>"
-             class="mascotte-img mascotte-default"
-             alt="Mascotte">
-        <img src="<?= base_url('images/commun/mascotte/mascotte_exclamee.svg') ?>"
-             class="mascotte-img mascotte-hover"
-             alt="Mascotte hover">
+    <div class="mascotte-zone" id="mascotte-container">
+        <?= anchor(base_url(), img([
+                'src'   => 'images/commun/mascotte/mascotte_face.svg',
+                'alt'   => 'Mascotte',
+                'class' => 'mascotte-img mascotte-default'
+        ])); ?>
+
+        <?= anchor(base_url(), img([
+                'src'   => 'images/commun/mascotte/mascotte_exclamee.svg',
+                'alt'   => 'Mascotte Hover',
+                'class' => 'mascotte-img mascotte-hover'
+        ])); ?>
     </div>
 
     <!-- Modal des règles -->

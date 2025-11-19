@@ -240,6 +240,8 @@ class Salle4Controller extends BaseController
 
         $resultat = $salle4Model->verifierOrdre($activiteChoisie, $ordreUtilisateur);
 
+        $details = $resultat['details'];
+
         // Si correct, débloquer le quiz et bloquer la frise
         if ($resultat['correct']) {
             $session->set('frise_validee', true);
@@ -272,15 +274,6 @@ class Salle4Controller extends BaseController
             'questions' => $questions,
             'reponses' => $reponses
         ];
-
-        // Vérifier si la frise a été validée
-        if (!$session->get('frise_validee')) {
-            $data = [
-                '$frise_validee' => false
-            ];
-
-            return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
-        }
 
         return view('salle_4/QuizSalle4', $data) . view('commun/footer');
     }

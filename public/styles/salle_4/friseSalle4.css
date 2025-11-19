@@ -29,10 +29,10 @@ h1 {
     top: 13%;
     width: 1300px;
     height: 790px;
-    background-size: cover;
-    border: 3px solid #1abc9c;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    /*background-size: cover;*/
+    /*!*border: 3px solid #1abc9c;*!*/
+    /*border-radius: 10px;*/
+    /*box-shadow: 0 10px 30px rgba(0,0,0,0.5);*/
 }
 
 #fondImage {
@@ -144,32 +144,30 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    max-width: 900px;
+    max-width: 1100px;
     z-index: 50;
 }
 
 #info {
-    background: linear-gradient(135deg, rgba(26, 188, 156, 0.95), rgba(22, 160, 133, 0.95));
-    color: white;
-    padding: 15px 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    font-size: 1.1em;
-    font-weight: 600;
-    text-align: center;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2c3e50;
+    z-index: 100;
 }
 
-#info:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-}
 
 /* ===== Contrôles en bas de la page ===== */
 .controls-bottom {
-    position: fixed;
-    bottom: 30px;
+    position: absolute;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;

@@ -19,7 +19,7 @@
     <?php endif; ?>
 
     <!-- Zone Quiz - Bloquée si frise pas validée -->
-    <?php if ($quiz_disponible): ?>
+    <?php if (!$quiz_disponible): ?>
         <?= anchor(base_url().'quizFin', ' ', [ 'class' => 'clickable-zone zone2' ] );?>
     <?php else: ?>
         <div class="clickable-zone zone2 zone-bloquee">
@@ -36,13 +36,17 @@
 
     <!-- Mascotte interactive -->
     <div class="mascotte-zone" id="mascotte-container">
-        <img src="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>"
-             class="mascotte-img mascotte-default"
-             alt="Mascotte">
+        <?= anchor(base_url(), img([
+                'src'   => 'images/commun/mascotte/mascotte_face.svg',
+                'alt'   => 'Mascotte',
+                'class' => 'mascotte-img mascotte-default'
+        ])); ?>
 
-        <img src="<?= base_url('images/commun/mascotte/mascotte_exclamee.svg') ?>"
-             class="mascotte-img mascotte-hover"
-             alt="Mascotte hover">
+        <?= anchor(base_url(), img([
+                'src'   => 'images/commun/mascotte/mascotte_exclamee.svg',
+                'alt'   => 'Mascotte Hover',
+                'class' => 'mascotte-img mascotte-hover'
+        ])); ?>
     </div>
 
     <!-- Modal des règles -->

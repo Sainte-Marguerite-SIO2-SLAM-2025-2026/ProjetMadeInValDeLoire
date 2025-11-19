@@ -244,7 +244,7 @@ validateBtn.addEventListener('click', async function() {
 
 // Fermer la modal et retourner à l'accueil
 closeModalBtn.addEventListener('click', function() {
-    window.location.href = baseUrl + 'Salle4';
+    window.location.href = baseUrl + 'resetSalle';
 });
 
 // Initialisation

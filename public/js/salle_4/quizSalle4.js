@@ -231,7 +231,7 @@ function afficherResultatFinal() {
     const btnRetourAccueil = document.getElementById('btnRetourAccueil');
     if (btnRetourAccueil) {
         btnRetourAccueil.addEventListener('click', function() {
-            window.location.href = baseUrl + 'resetQuiz';
+            window.location.href = baseUrl + 'resetSalle';
         });
     }
 }
