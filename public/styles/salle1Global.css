@@ -8,11 +8,11 @@ body {
 .timer {
     position: fixed;
     top: 20px;
-    left: 30px;
+    left: 43%;
     font-size: 5rem;
     color: yellow;
     font-family: "IrishGrover", sans-serif;
-    text-shadow: 0 0 8px black;
+    text-shadow: 0 0 10px black;
     z-index: 999;
 }
 

@@ -6,21 +6,21 @@
     <title>Salle 1 - Discussion</title>
     <?= link_tag(base_url().'styles/salle1Global.css') ?>
     <?= link_tag(base_url('styles/salle1Discussion.css')) ?>
-    <?= script_tag(base_url('js/salle1Discussion.js')) ?>
-    <?= script_tag(base_url('js/salle1Timer.js')) ?>
 </head>
 <body>
 <div class="background-container">
     <!-- Timer -->
     <div id="timer" class="timer"></div>
 
-    <!-- Nom du personnage (positionné indépendamment) -->
-    <div id="nom-personnage"><?= esc($nom_personnage) ?></div>
+    <!-- Nom du personnage -->
+    <div id="nom-personnage">
+        <?= esc($nom_personnage) ?>
+    </div>
 
     <div class="content-container">
         <?= img([
-                'src' => base_url('salle_1/images/personnages/monstre1.webp'),
-                'alt' => 'Fantôme',
+                'src' => base_url($image_perso ?? 'salle_1/images/personnages/monstre1.webp'),
+                'alt' => esc($nom_personnage),
                 'class' => 'perso-discussion',
                 'id'   => 'fantome'
         ]); ?>
@@ -28,14 +28,25 @@
         <!-- Zone de texte -->
         <div id="text-zone"
              class="text-zone"
-             data-mots='<?= json_encode(explode(" ", esc($message)), JSON_UNESCAPED_UNICODE) ?>'
-             data-suspects='<?= json_encode($mots_suspects ?? [], JSON_UNESCAPED_UNICODE) ?>'>
+             data-activite="<?= $activite_numero ?? 0 ?>"
+             data-mots='<?= json_encode(explode(" ", $message ?? ''), JSON_UNESCAPED_UNICODE | JSON_HEX_APOS | JSON_HEX_QUOT) ?>'
+             data-suspects='<?= json_encode($mots_suspects ?? [], JSON_UNESCAPED_UNICODE | JSON_HEX_APOS | JSON_HEX_QUOT) ?>'
+             data-erreurs='<?= json_encode($erreurs_explications ?? [], JSON_UNESCAPED_UNICODE | JSON_HEX_APOS | JSON_HEX_QUOT) ?>'>
         </div>
+
+        <!-- Bouton indice -->
+        <?php if (!empty($indices)): ?>
+            <div class="indice-container">
+                <button class="btn-indice" id="btn-indice">
+                    💡 Indice (<span id="indices-restants"><?= count($indices) ?></span>)
+                </button>
+            </div>
+        <?php endif; ?>
     </div>
 
     <!-- Serrure (vers la suite du jeu) -->
     <div class="serrure">
-        <?= anchor( base_url('Salle1/Code'),
+        <?= anchor(base_url('Salle1/Code'),
                 img([
                         'src' => base_url('salle_1/images/serrure/serrure_noire.webp'),
                         'alt' => 'Serrure',
@@ -43,7 +54,7 @@
                 ])); ?>
     </div>
 
-    <!-- Bouton retour -->
+    <!-- Boutons retour -->
     <div class="buttons">
         <?= anchor(
                 base_url('Salle1'),
@@ -69,7 +80,6 @@
                 .'</div>'
         ); ?>
     </div>
-
 </div>
 
 <!-- POPUP -->
@@ -77,8 +87,25 @@
     <div class="popup-content">
         <h2 id="popup-titre">Bravo !</h2>
         <p id="popup-message"></p>
+        <div id="popup-explication" class="popup-explication" style="display:none;"></div>
         <button id="popup-fermer">Fermer</button>
     </div>
 </div>
+
+<!-- POPUP INDICE -->
+<div id="popup-indice" class="popup" style="display:none;">
+    <div class="popup-content">
+        <h2>💡 Indice</h2>
+        <p id="indice-message"></p>
+        <button id="indice-fermer">Fermer</button>
+    </div>
+</div>
+
+<script>
+    const BASE_URL = '<?= base_url(); ?>';
+    const INDICES = <?= json_encode($indices ?? [], JSON_UNESCAPED_UNICODE) ?>;
+</script>
+<?= script_tag(base_url('js/salle1Discussion.js')) ?>
+<?= script_tag(base_url('js/salle1Timer.js')) ?>
 </body>
 </html>
