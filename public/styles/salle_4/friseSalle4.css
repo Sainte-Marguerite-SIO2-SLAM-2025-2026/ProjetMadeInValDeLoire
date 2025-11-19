@@ -26,7 +26,7 @@ h1 {
 #gameContainer {
     position: relative;
     margin-left: 17%;
-    top: 7%;
+    top: 13%;
     width: 1300px;
     height: 790px;
     background-size: cover;
@@ -102,17 +102,10 @@ h1 {
     animation: pulse 0.5s infinite;
 }
 
-/*.carte-container .carte.locked {*/
-/*    opacity: 0.6;*/
-/*    cursor: not-allowed;*/
-/*    filter: grayscale(50%);*/
-/*}*/
-
 .carte-container .carte.locked {
+    opacity: 0.6;
     cursor: not-allowed;
-    border-color: #95a5a6;
-    border-width: 5px;
-    /* Supprimé : opacity et grayscale */
+    filter: grayscale(50%);
 }
 
 @keyframes pulse {
@@ -120,7 +113,7 @@ h1 {
     50% { transform: scale(1.05); }
 }
 
-/* ===== Explication sur les cartes - Dans la grande zone ===== */
+/* ===== Explication sur les cartes ===== */
 .carte-container .explication {
     position: absolute;
     top: 60%;
@@ -131,7 +124,6 @@ h1 {
     font-size: 1.2em;
     font-weight: bold;
     font-family: 'Arial', sans-serif;
-    /*padding: 5px 5px;*/
     text-align: center;
     max-width: 85%;
     pointer-events: none;
@@ -145,81 +137,156 @@ h1 {
             -2px 2px 3px rgba(255, 255, 255, 0.9);
 }
 
-/* ===== Contrôles (boutons) ===== */
-.controls {
+/* ===== Zone d'information intégrée en haut du gameContainer ===== */
+#info-container {
     position: absolute;
-    top: 80px;
+    top: 15px;
     left: 50%;
     transform: translateX(-50%);
-    margin: 20px 0;
-    display: flex;
-    gap: 15px;
-    z-index: 100;
+    width: 90%;
+    max-width: 900px;
+    z-index: 50;
 }
 
-button {
-    padding: 12px 25px;
-    font-size: 16px;
-    cursor: pointer;
-    background: #1abc9c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background 0.3s;
-    font-weight: bold;
-}
-
-button:hover {
-    background: #16a085;
-}
-
-#validateBtn {
-    background: #27ae60;
-}
-
-#validateBtn:hover {
-    background: #229954;
-}
-
-#validateBtn:disabled {
-    background: #95a5a6;
-    cursor: not-allowed;
-}
-
-#resetBtn:hover {
-    background: #16a085;
-}
-
-#undoBtn:hover {
-    background: #16a085;
-}
-
-/* ===== Zone d'information ===== */
 #info {
-    margin: 10px 0;
-    padding: 15px 30px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    font-weight: bold;
-    color: #2c3e50;
+    background: linear-gradient(135deg, rgba(26, 188, 156, 0.95), rgba(22, 160, 133, 0.95));
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-size: 1.1em;
+    font-weight: 600;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+#info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Contrôles en bas de la page ===== */
+.controls-bottom {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 100;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.95), rgba(52, 73, 94, 0.95));
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-icon {
+    font-size: 1.3em;
+}
+
+.btn-text {
+    font-size: 0.95em;
+}
+
+/* Bouton Réinitialiser */
+.btn-reset {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+}
+
+.btn-reset:hover:not(:disabled) {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5);
+}
+
+.btn-reset:active {
+    transform: translateY(-1px);
+}
+
+/* Bouton Annuler */
+.btn-undo {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+}
+
+.btn-undo:hover:not(:disabled) {
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.5);
+}
+
+.btn-undo:active {
+    transform: translateY(-1px);
+}
+
+/* Bouton Valider */
+.btn-validate {
+    background: linear-gradient(135deg, #27ae60, #229954);
+    color: white;
+}
+
+.btn-validate:hover:not(:disabled) {
+    background: linear-gradient(135deg, #229954, #1e8449);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.5);
+}
+
+.btn-validate:active {
+    transform: translateY(-1px);
+}
+
+.btn-validate:disabled {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-validate:disabled:hover {
+    transform: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation au survol */
+@keyframes btnGlow {
+    0%, 100% { box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); }
+    50% { box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3); }
 }
 
 /* ===== Boutons de navigation ===== */
+
+/* Bouton retour */
 .retour {
     position: absolute;
-    bottom: 2%;
-    left: 0;
+    top: 1%;
+    left: 1%;
     transform: none;
-    max-width: 250px;
-    height: 75px;
+    max-width: 200px;
+    height: 200px;
     transition: transform 0.3s;
 }
 
-/*.retour:hover {*/
-/*    transform: scale(1.1);*/
-/*}*/
-
+.retour:hover {
+    transform: scale(1.02);
+}
 
 /* ===== Modal de résultat ===== */
 .modal {
@@ -241,11 +308,11 @@ button:hover {
 
 .modal-content {
     background-color: white;
-    margin: 15% auto;
-    padding: 30px;
-    border-radius: 10px;
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 15px;
     width: 80%;
-    max-width: 500px;
+    max-width: 600px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     animation: slideDown 0.3s;
@@ -265,51 +332,75 @@ button:hover {
 .modal-content h2 {
     margin-top: 0;
     color: #2c3e50;
-    font-size: 2em;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+.modal-content h3 {
+    color: #1abc9c;
+    font-size: 1.4em;
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 
 .modal-content p {
     color: #555;
     font-size: 1.2em;
     margin: 20px 0;
+    line-height: 1.6;
 }
 
-.modal-content button {
-    margin: 10px;
+#ordreCorrectList {
+    text-align: left;
+    display: inline-block;
+    margin: 20px auto;
+    padding: 20px 40px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #1abc9c;
 }
 
-#retryBtn {
-    background: #e74c3c;
+#ordreCorrectList li {
+    margin: 12px 0;
+    font-size: 1.1em;
+    color: #2c3e50;
+    line-height: 1.5;
 }
 
-#retryBtn:hover {
-    background: #c0392b;
+.btn-modal {
+    margin: 20px 10px 10px;
+    padding: 15px 35px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
 }
 
-#closeModal {
-    background: #3498db;
-}
-
-#closeModal:hover {
-    background: #2980b9;
+.btn-modal:hover {
+    background: linear-gradient(135deg, #2980b9, #21618c);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.5);
 }
 
 /* ===== Mascotte interactive ===== */
-/* Mascotte en haut à droite */
 .mascotte-zone {
     position: absolute;
-    bottom: 0px;
+    top: 20px;
     right: 40px;
     width: 150px;
     height: 180px;
     cursor: pointer;
-    z-index: 10; /* au-dessus de tout */
+    z-index: 10;
 }
 
-/* Les deux images superposées */
 .mascotte-img {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 150px;
     height: 180px;
@@ -323,3 +414,106 @@ button:hover {
 
 .mascotte-zone:hover .mascotte-default { opacity: 0; }
 .mascotte-zone:hover .mascotte-hover  { opacity: 1; }
+
+/* ===== Modal des règles ===== */
+.rules-modal-content {
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.rules-modal-content h2 {
+    color: #2c3e50;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 3px solid #1abc9c;
+    padding-bottom: 10px;
+}
+
+.rules-modal-content h3 {
+    color: #1abc9c;
+    font-size: 1.4em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.rules-content {
+    text-align: left;
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.rules-content p {
+    margin: 10px 0;
+}
+
+.rules-content ol,
+.rules-content ul {
+    margin: 15px 0;
+    padding-left: 30px;
+}
+
+.rules-content li {
+    margin: 8px 0;
+}
+
+.rules-content strong {
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.close-rules {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #aaa;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-rules:hover {
+    color: #e74c3c;
+}
+
+/* Scrollbar */
+.rules-modal-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.rules-modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.rules-modal-content::-webkit-scrollbar-thumb {
+    background: #1abc9c;
+    border-radius: 5px;
+}
+
+.rules-modal-content::-webkit-scrollbar-thumb:hover {
+    background: #16a085;
+}
+
+/* ===== Responsive adjustments ===== */
+@media (max-width: 1400px) {
+    #gameContainer {
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .controls-bottom {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 12px 20px;
+    }
+
+    .btn-control {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}

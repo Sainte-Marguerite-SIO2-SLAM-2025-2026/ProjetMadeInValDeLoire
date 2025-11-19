@@ -6,12 +6,9 @@
     <title>Salle 4</title>
     <?= link_tag('styles/salle_4/salle4.css'); ?>
 </head>
-
 <body>
 
-
 <div class="image-container">
-
     <!-- Zone Frise - Bloquée si déjà validée -->
     <?php if (!$frise_validee): ?>
         <?= anchor(base_url().'pageFrise', ' ', [ 'class' => 'clickable-zone zone1' ] );?>
@@ -22,7 +19,7 @@
     <?php endif; ?>
 
     <!-- Zone Quiz - Bloquée si frise pas validée -->
-    <?php if (!$quiz_disponible): ?>
+    <?php if ($quiz_disponible): ?>
         <?= anchor(base_url().'quizFin', ' ', [ 'class' => 'clickable-zone zone2' ] );?>
     <?php else: ?>
         <div class="clickable-zone zone2 zone-bloquee">
@@ -30,11 +27,9 @@
         </div>
     <?php endif; ?>
 
-<!--    --><?php //= anchor(base_url().'pageFrise', ' ', [ 'class' => 'clickable-zone zone1' ] );?>
-<!--    --><?php //= anchor(base_url().'quizFin', ' ', [ 'class' => 'clickable-zone zone2' ] );?>
 
     <?= anchor(base_url(), img([
-            'src'   => 'images/commun/retour.png',
+            'src'   => 'images/salle_4/images_finales/home_icone_3.webp',
             'alt'   => 'retour',
             'class' => 'retour'
     ])); ?>
