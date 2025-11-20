@@ -192,7 +192,6 @@ html, body {
     font-size: 1.3em;
     font-weight: 600;
     opacity: 0;
-    pointer-events: none;
     transition: all 0.5s ease;
     z-index: 2000;
     max-width: 80%;
@@ -203,19 +202,47 @@ html, body {
     opacity: 1;
 }
 
+/* Feedback succès */
 .feedback.success {
     background: linear-gradient(135deg, #4caf50, #81c784);
     border: 3px solid #2e7d32;
+    color: #fff;
+    border-radius: 15px;
+    padding: 25px 45px;
+    font-size: 1.4em;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+    animation: glow-green 1.5s infinite alternate;
 }
 
+/* Feedback erreur */
 .feedback.error {
     background: linear-gradient(135deg, #f44336, #e57373);
     border: 3px solid #c62828;
+    color: #fff;
+    border-radius: 15px;
+    padding: 25px 45px;
+    font-size: 1.4em;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(244, 67, 54, 0.6);
+    animation: glow-red 1.5s infinite alternate;
 }
+
+
+
+@keyframes glow-red {
+    0% { box-shadow: 0 0 10px rgba(244, 67, 54, 0.6); }
+    50% { box-shadow: 0 0 25px rgba(244, 67, 54, 0.8); }
+    100% { box-shadow: 0 0 15px rgba(244, 67, 54, 0.7); }
+}
+
+
 
 /* Mascotte */
 .mascotte {
-    position: fixed;
+    position: absolute;
     bottom: 30px;
     right: 30px;
     z-index: 1000;
@@ -249,13 +276,35 @@ html, body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     background: black;
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.8s ease;
-    z-index: 9999;
+   transition: opacity 0.8s ease;
+    z-index: 1000; /* mettre moins que feedback */
+}
+
+.feedback {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000; /* supérieur à overlay */
+}
+
+.feedback button {
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    background: #f4d03f;
+    color: #2c1810;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+.feedback button:hover {
+    background: #d4af37;
+    transform: scale(1.05);
 }
 
 /* Responsive */

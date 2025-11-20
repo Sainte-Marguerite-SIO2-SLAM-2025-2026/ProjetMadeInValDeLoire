@@ -14,6 +14,7 @@ $routes->get('/', 'HomeControlleur::index');
 $routes->get('/manoirJour', 'HomeControlleur::pagejour');
 
 $routes->get('/reset', 'HomeControlleur::reset');
+$routes->post('/reset', 'HomeControlleur::reset');
 $routes->get('/resetSalleJour', 'HomeControlleur::resetSalleJour');
 $routes->get('/salle/salle_(:num)', 'HomeControlleur::salle/$1');
 $routes->post('/valider/(:num)', 'HomeControlleur::valider/$1');
