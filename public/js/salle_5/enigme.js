@@ -68,12 +68,12 @@ document.addEventListener('DOMContentLoaded', function() {
                                     window.location.href = base_url + '/Salle5';
                                 }, 500);
                             });
-                        }
+                        }else{// Réactiver les objets non validés
+                            objetsCliquables.forEach(o => {
+                                if (!objetsValides.includes(o)) o.classList.remove('disabled');
+                            });}
 
-                        // Réactiver les objets non validés
-                        objetsCliquables.forEach(o => {
-                            if (!objetsValides.includes(o)) o.classList.remove('disabled');
-                        });
+
 
                     } else {
                         // ❌ MAUVAISE RÉPONSE

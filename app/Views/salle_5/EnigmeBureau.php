@@ -72,7 +72,7 @@
                     <rect class="zone-click"
                           x="104" y="756" width="123" height="84"
                           transform="rotate(12, 168, 798)"
-                          fill="transparent" style="cursor:pointer;" />
+                          fill="transparent" />
                 </g>
 
                 <!-- Clé USB droite -->
@@ -85,7 +85,7 @@
                     <rect class="zone-click"
                           x="1097" y="292" width="155" height="78"
                           transform="rotate(20, 1174, 331)"
-                          fill="transparent" style="cursor:pointer;" />
+                          fill="transparent" />
                 </g>
             <?php endif; ?>
 
@@ -97,7 +97,7 @@
                            x="850" y="703.12" width="170.83" height="73.958"
                            xlink:href="<?= base_url('images/salle_5/cle.svg') ?>"/>
                     <rect class="zone-click" x="850" y="703.12" width="170.83" height="73.958" fill="transparent"
-                          style="cursor:pointer;"/>
+                         />
                 </g>
 
                 <g id="carte_pass" class="objet-cliquable" data-reponse="carte_pass">
@@ -105,7 +105,7 @@
                            x="106.25" y="332.29" width="152.08" height="110.42"
                            xlink:href="<?= base_url('images/salle_5/badge.svg') ?>"/>
                     <rect class="zone-click" x="106.25" y="332.29" width="152.08" height="110.42" fill="transparent"
-                          style="cursor:pointer;"/>
+                          />
                 </g>
 
                 <g id="carte_bancaire" class="objet-cliquable" data-reponse="carte_bancaire">
@@ -113,7 +113,7 @@
                            x="1167.7" y="230.21" width="182.29" height="114.58"
                            xlink:href="<?= base_url('images/salle_5/cb.svg') ?>"/>
                     <rect class="zone-click" x="1167.7" y="230.21" width="182.29" height="114.58" fill="transparent"
-                          style="cursor:pointer;"/>
+                         />
                 </g>
             <?php endif; ?>
 
@@ -124,7 +124,7 @@
                            x="1145.8" y="143.75" width="146.87" height="142.71"
                            xlink:href="<?= base_url('images/salle_5/post_it_confidentiel.svg') ?>"/>
                     <rect class="zone-click" x="1145.8" y="143.75" width="146.87" height="142.71" fill="transparent"
-                          style="cursor:pointer;"/>
+                         />
                 </g>
 
                 <g id="dossier" class="objet-cliquable" data-reponse="dossier_conf">
@@ -132,7 +132,7 @@
                            x="940.62" y="410.42" width="288.54" height="387.5"
                            xlink:href="<?= base_url('images/salle_5/dossier.svg') ?>"/>
                     <rect class="zone-click" x="940.62" y="410.42" width="288.54" height="387.5" fill="transparent"
-                          style="cursor:pointer;"/>
+                          />
                 </g>
 
                 <g id="carnet" class="objet-cliquable" data-reponse="carnet">
@@ -140,7 +140,7 @@
                            x="40.625" y="271.88" width="408.33" height="275"
                            xlink:href="<?= base_url('images/salle_5/carnet.svg') ?>"/>
                     <rect class="zone-click" x="40.625" y="271.88" width="408.33" height="275" fill="transparent"
-                          style="cursor:pointer;"/>
+                          />
                 </g>
             <?php endif; ?>
 
@@ -151,7 +151,7 @@
                            x="940.62" y="410.42" width="288.54" height="387.5"
                            xlink:href="<?= base_url('images/salle_5/dossier.svg') ?>"/>
                     <rect class="zone-click" x="940.62" y="410.42" width="288.54" height="387.5" fill="transparent"
-                          style="cursor:pointer;"/>
+                         />
                 </g>
 
                 <g id="carnet_mdp" class="objet-cliquable" data-reponse="carnet_mdp_2">
@@ -159,7 +159,7 @@
                            x="40.625" y="271.88" width="408.33" height="275"
                            xlink:href="<?= base_url('images/salle_5/carnet_mdp.svg') ?>"/>
                     <rect class="zone-click" x="40.625" y="271.88" width="408.33" height="275" fill="transparent"
-                          style="cursor:pointer;"/>
+                          />
                 </g>
 
                 <g id="usb_right" class="objet-cliquable" data-reponse="cle3">
@@ -170,7 +170,7 @@
                     <rect class="zone-click"
                           x="1097" y="292" width="155" height="78"
                           transform="rotate(20, 1174, 331)"
-                          fill="transparent" style="cursor:pointer;" />
+                          fill="transparent"  />
                 </g>
             <?php endif; ?>
 
@@ -178,13 +178,13 @@
             <?php if ($enigme->numero == 9): ?>
                 <g id="carte_pass" class="objet-cliquable" data-reponse="B">
                     <image clip-path="url(#clip_carte_pass)"
-                           x="106.25" y="332.29" width="152.08" height="110.42" style="cursor:default;"
+                           x="106.25" y="332.29" width="152.08" height="110.42"
                            xlink:href="<?= base_url('images/salle_5/badge.svg') ?>"/>
                 </g>
 
                 <g id="post_it_code" class="objet-cliquable" data-reponse="A">
                     <image clip-path="url(#clip_post_it_code)"
-                           x="103.12" y="418.75" width="120.83" height="117.71" style="cursor: default;"
+                           x="103.12" y="418.75" width="120.83" height="117.71"
                     xlink:href="<?= base_url('images/salle_5/post_it_code.svg') ?>"/>
                 </g>
 
@@ -219,7 +219,7 @@
                     </text>
 
                     <rect class="zone-click" x="987" y="263" width="533" height="72" fill="transparent"
-                          style="cursor:pointer;"/>
+                         />
                 </g>
 
                 <g id="choix_3" class="objet-cliquable" data-reponse="choix_3">
@@ -237,7 +237,7 @@
                     </text>
 
                     <rect class="zone-click" x="987" y="383" width="533" height="72" fill="transparent"
-                          style="cursor:pointer;"/>
+                          />
                 </g>
 
                 <g id="choix_4" class="objet-cliquable" data-reponse="choix_4">
@@ -255,7 +255,7 @@
                     </text>
 
                     <rect class="zone-click" x="987" y="503" width="533" height="72" fill="transparent"
-                          style="cursor:pointer;"/>
+                          />
                 </g>
 
             <?php endif; ?>

@@ -51,7 +51,7 @@
                     <path class="zone-click"
                           d="m724.2 521.63 243.77-0.21573 7.9819 133.97-250.89-0.43145z"
                           fill="transparent"
-                          style="cursor:pointer;"/>
+                          />
                 </g>
 
                 <!-- Écran droit - données sensibles -->
@@ -64,7 +64,7 @@
                     <path class="zone-click"
                           d="m1018.8 523.13h233.84l0.4386 132.24-233.84-3.1168z"
                           fill="transparent"
-                          style="cursor:pointer;"/>
+                          />
                 </g>
             <?php endif; ?>
 
@@ -82,7 +82,7 @@
                           x="1592.5" y="237.97"
                           width="257.49" height="838.37"
                           fill="transparent"
-                          style="cursor:pointer;"/>
+                         />
                 </g>
             <?php endif; ?>
 
@@ -100,7 +100,7 @@
                     <path class="piece-zone"
                           d="m724.2 521.63 243.77-0.21573 7.9819 133.97-250.89-0.43145z"
                           fill="transparent"
-                          style="cursor:pointer;" />
+                           />
                 </g>
 
                 <!-- Zone de dépôt pour le drag & drop -->
@@ -131,7 +131,7 @@
                           font-size="28"
                           font-weight="600"
                           fill="black"
-                          pointer-events="none">
+                          >
                         Fermer/Sécuriser la fenêtre
                     </text>
                     <rect class="zone-click" width="594" height="105"
@@ -147,7 +147,7 @@
                           font-size="28"
                           font-weight="600"
                           fill="black"
-                          pointer-events="none">
+                          >
                         Poser un autocollant "Ne pas toucher"
                     </text>
                     <rect class="zone-click" width="594" height="105"
@@ -163,7 +163,7 @@
                           font-size="28"
                           font-weight="600"
                           fill="black"
-                          pointer-events="none">
+                          >
                         Cacher le matériel sous un tapis
                     </text>
                     <rect class="zone-click" width="594" height="105"
@@ -179,7 +179,7 @@
                           font-size="28"
                           font-weight="600"
                           fill="black"
-                          pointer-events="none">
+                          >
                         Éloigner/Verrouiller le matériel proche
                     </text>
                     <rect class="zone-click" width="594" height="105"
@@ -198,7 +198,7 @@
                     <rect class="zone-click"
                           x="1577.1" y="89.952" width="232.99" height="113.9"
                           fill="transparent"
-                          style="cursor:pointer;"/>
+                          />
                 </g>
             <?php endif; ?>
 

@@ -196,10 +196,12 @@ html, body {
     z-index: 2000;
     max-width: 80%;
     text-align: center;
+    pointer-events: none;
 }
 
 .feedback.show {
     opacity: 1;
+    pointer-events: all;
 }
 
 /* Feedback succès */
