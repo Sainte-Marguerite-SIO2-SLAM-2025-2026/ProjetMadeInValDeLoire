@@ -393,7 +393,7 @@ h1 {
     width: 150px;
     height: 180px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 100000;
 }
 
 .mascotte-img {

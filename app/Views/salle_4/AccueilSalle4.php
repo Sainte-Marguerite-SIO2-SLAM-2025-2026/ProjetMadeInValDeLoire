@@ -19,7 +19,7 @@
     <?php endif; ?>
 
     <!-- Zone Quiz - Bloquée si frise pas validée -->
-    <?php if (!$quiz_disponible): ?>
+    <?php if ($quiz_disponible): ?>
         <?= anchor(base_url().'quizFin', ' ', [ 'class' => 'clickable-zone zone2' ] );?>
     <?php else: ?>
         <div class="clickable-zone zone2 zone-bloquee">

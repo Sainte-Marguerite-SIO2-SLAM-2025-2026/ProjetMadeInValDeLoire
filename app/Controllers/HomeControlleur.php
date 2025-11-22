@@ -80,8 +80,8 @@ class HomeControlleur extends BaseController
             $session = session();
 
             $data = [
-                'frise_validee' => $session->get('frise_validee') ?? false,
-                'quiz_disponible' => $session->get('frise_validee') ?? false
+                'frise_validee' => false,
+                'quiz_disponible' =>false
             ];
 
             return view('salle_4/AccueilSalle4', $data) . view('commun/footer');

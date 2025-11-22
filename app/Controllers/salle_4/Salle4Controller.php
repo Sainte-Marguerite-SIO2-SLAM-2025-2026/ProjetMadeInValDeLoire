@@ -175,8 +175,8 @@ class Salle4Controller extends BaseController
         $session = session();
 
         $data = [
-            'frise_validee' => $session->get('frise_validee') ?? false,
-            'quiz_disponible' => $session->get('frise_validee') ?? false
+            'frise_validee' => $session->get('frise_validee'),
+            'quiz_disponible' => $session->get('frise_validee')
         ];
 
         return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
@@ -187,10 +187,7 @@ class Salle4Controller extends BaseController
         $session = session();
         $salle4Model = new Salle4Model();
 
-        // Vérifier si la frise est déjà validée
-        if ($session->get('frise_validee')) {
-            return redirect()->to(base_url('Salle4'));
-        }
+
 
         // Choisir aléatoirement une activité parmi 1 et 2
         if (!$session->has('activite_choisie')) {
@@ -236,18 +233,23 @@ class Salle4Controller extends BaseController
         $salle4Model = new Salle4Model();
 
         $activiteChoisie = $session->get('activite_choisie');
-        $ordreUtilisateur = $this->request->getJSON(true)['ordre'] ?? [];
+        $json = $this->request->getJSON(true);
+        $ordreUtilisateur = $json['ordre'] ?? [];
+        $forceCorrect = $json['force_correct'] ?? false;
 
         $resultat = $salle4Model->verifierOrdre($activiteChoisie, $ordreUtilisateur);
 
-        $details = $resultat['details'];
-
-        // Si correct, débloquer le quiz et bloquer la frise
-        if ($resultat['correct']) {
+        // Si correct (par le modèle OU forcé par le JS), débloquer le quiz
+        if ($resultat['correct'] || $forceCorrect) {
             $session->set('frise_validee', true);
             $session->set('quiz_disponible', true);
             $session->remove('activite_choisie');
             $session->remove('positions_cartes_frise');
+
+            // Mettre à jour le résultat si forcé
+            if ($forceCorrect) {
+                $resultat['correct'] = true;
+            }
         }
 
         return $this->response->setJSON($resultat);

@@ -324,7 +324,7 @@ html, body {
     width: 150px;
     height: 180px;
     cursor: pointer;
-    z-index: 200;
+    z-index: 10000;
 }
 
 .mascotte-img {
