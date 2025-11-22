@@ -11,9 +11,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     let objetDepose = null;
+    let dragDisabled = false; // Flag pour bloquer le drag
 
     objetsDrag.forEach(objet => {
         objet.addEventListener('dragstart', (e) => {
+            // Bloquer le drag si désactivé
+            if (dragDisabled) {
+                e.preventDefault();
+                return;
+            }
+
             e.dataTransfer.effectAllowed = 'move';
             e.dataTransfer.setData('text/plain', e.target.dataset.objet);
             e.target.style.opacity = '0.5';
@@ -25,16 +32,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     zoneDepot.addEventListener('dragover', (e) => {
+        if (dragDisabled) return;
+
         e.preventDefault();
         e.dataTransfer.dropEffect = 'move';
         zoneDepot.style.backgroundColor = 'rgba(76, 175, 80, 0.1)';
     });
 
     zoneDepot.addEventListener('dragleave', () => {
+        if (dragDisabled) return;
         zoneDepot.style.backgroundColor = 'transparent';
     });
 
     zoneDepot.addEventListener('drop', (e) => {
+        if (dragDisabled) return;
+
         e.preventDefault();
         zoneDepot.style.backgroundColor = 'transparent';
 
@@ -52,6 +64,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Masquer l'objet source
             objetElement.style.visibility = 'hidden';
+
+            // ⛔ DÉSACTIVER TOUS LES DRAGS pendant la validation
+            dragDisabled = true;
+            objetsDrag.forEach(obj => {
+                obj.draggable = false;
+                obj.style.opacity = '0.5';
+                obj.style.cursor = 'not-allowed';
+            });
 
             // Valider immédiatement avec AJAX
             fetch(base_url + '/validerEnigme', {
@@ -81,22 +101,43 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
 
                         if (data.completed) {
-                            // Énigme terminée
-                            feedback.textContent = '✅ ' + data.message;
+                            // ⛔ ÉNIGME TERMINÉE - TOUT RESTE BLOQUÉ
+                            feedback.innerHTML = '✅ ' + data.message + '<br>';
+                            let btn = document.createElement('button');
+                            btn.textContent = 'Suivant';
+                            btn.style.cssText = 'cursor: pointer; margin-top: 20px; padding: 10px 25px; font-size: 1em; border: none; border-radius: 8px; background: #f4d03f; color: #2c1810; font-weight: 700; transition: all 0.3s ease;';
+                            feedback.appendChild(btn);
                             feedback.className = 'feedback success show';
 
-                            setTimeout(() => {
+                            btn.addEventListener('click', () => {
                                 overlay.style.opacity = '1';
                                 overlay.style.pointerEvents = 'all';
-
                                 setTimeout(() => {
                                     window.location.href = base_url + '/Salle5';
-                                }, 800);
-                            }, 3000);
+                                }, 500);
+                            });
+                        } else {
+                            // Bonne réponse mais pas fini - réactiver les objets non déposés
+                            dragDisabled = false;
+                            objetsDrag.forEach(obj => {
+                                if (obj.style.visibility !== 'hidden') {
+                                    obj.draggable = true;
+                                    obj.style.opacity = '1';
+                                    obj.style.cursor = 'grab';
+                                }
+                            });
                         }
                     } else {
-                        // ❌ Mauvaise réponse - Redirection vers salle avec échec
-                        feedback.textContent = '❌ ' + data.message;
+                        // ❌ MAUVAISE RÉPONSE - TOUT RESTE BLOQUÉ
+                        feedback.innerHTML = '❌ ' + data.message;
+
+                        // Créer le bouton proprement
+                        let btnError = document.createElement('button');
+                        btnError.id = 'next-btn';
+                        btnError.textContent = 'Suivant';
+                        btnError.style.cssText = 'cursor: pointer; margin-top: 20px; padding: 10px 25px; font-size: 1em; border: none; border-radius: 8px; background: #f4d03f; color: #2c1810; font-weight: 700; transition: all 0.3s ease;';
+                        feedback.appendChild(btnError);
+
                         feedback.className = 'feedback error show';
 
                         // 😱 Mascotte choquée (mauvaise réponse)
@@ -104,25 +145,33 @@ document.addEventListener('DOMContentLoaded', function() {
                             window.changerMascotte('choquee', 2000);
                         }
 
-                        setTimeout(() => {
+                        btnError.addEventListener('click', () => {
                             overlay.style.opacity = '1';
                             overlay.style.pointerEvents = 'all';
-
-                            setTimeout(() => {
-                                window.location.href = base_url + '/Salle5?echec=1&activite=' + activite_numero;
-                            }, 800);
-                        }, 2000);
+                            window.location.href = base_url + '/Salle5?echec=1&activite=' + activite_numero;
+                        });
                     }
                 })
                 .catch(error => {
                     console.error('Erreur:', error);
+
+                    // ⛔ ERREUR - TOUT RESTE BLOQUÉ
                     const feedback = document.getElementById('feedback');
-                    feedback.textContent = '❌ Erreur de connexion';
+                    feedback.innerHTML = '❌ Erreur de connexion<br><button id="retry-btn">Réessayer</button>';
                     feedback.className = 'feedback error show';
 
-                    setTimeout(() => {
+                    document.getElementById('retry-btn').addEventListener('click', () => {
+                        // Réactiver les objets non déposés
+                        dragDisabled = false;
+                        objetsDrag.forEach(obj => {
+                            if (obj.style.visibility !== 'hidden') {
+                                obj.draggable = true;
+                                obj.style.opacity = '1';
+                                obj.style.cursor = 'grab';
+                            }
+                        });
                         feedback.classList.remove('show');
-                    }, 2000);
+                    });
                 });
         }
     });

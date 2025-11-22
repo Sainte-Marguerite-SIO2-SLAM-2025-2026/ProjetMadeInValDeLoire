@@ -521,40 +521,6 @@ svg {
     pointer-events: none;
 }
 
-/* Feedback */
-.feedback {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.95);
-    color: #fff;
-    padding: 30px 50px;
-    border-radius: 15px;
-    font-size: 1.3em;
-    font-weight: 600;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.5s ease;
-    z-index: 2000;
-    max-width: 80%;
-    text-align: center;
-}
-
-.feedback.show {
-    opacity: 1;
-}
-
-.feedback.success {
-    background: linear-gradient(135deg, #4caf50, #81c784);
-    border: 3px solid #2e7d32;
-}
-
-.feedback.error {
-    background: linear-gradient(135deg, #f44336, #e57373);
-    border: 3px solid #c62828;
-}
-
 /* RESPONSIVE */
 @media (max-width: 1024px) {
     .mascotte-img {
@@ -603,4 +569,57 @@ svg {
         width: 80px;
         height: 80px;
     }
+}
+
+/* Feedback */
+.feedback {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    color: #fff;
+    padding: 30px 50px;
+    border-radius: 15px;
+    font-size: 1.3em;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    z-index: 2000;
+    max-width: 80%;
+    text-align: center;
+}
+
+.feedback.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.feedback.success {
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    border: 3px solid #2e7d32;
+}
+
+.feedback.error {
+    background: linear-gradient(135deg, #f44336, #e57373);
+    border: 3px solid #c62828;
+}
+
+.feedback button {
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    background: #f4d03f;
+    color: #2c1810;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.feedback button:hover {
+    background: #d4af37;
+    transform: scale(1.05);
 }
