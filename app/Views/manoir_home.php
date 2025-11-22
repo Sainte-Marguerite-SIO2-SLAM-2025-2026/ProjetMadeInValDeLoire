@@ -137,8 +137,7 @@ $etage2_actif = in_array($current_room, $salles_etage2) ||
             <!-- Salle 4 -->
             <g id="salle_4" class="piece <?= in_array(4, session()->get('completed_rooms') ?? []) ? 'completed' : '' ?>"
                data-piece="Salle 4" data-numero="4">
-                <image class="piece-image"
-                <rect width="423" height="209" x="1073" y="320" rx="8" ry="8"/>
+                <image class="piece-image" width="423" height="209" x="1073" y="320" rx="8" ry="8"
                 clip-path="url(#clip_salle_4)" preserveAspectRatio="xMidYMid slice"
                 xlink:href="<?= base_url('images/salles/salle_4.webp') ?>"/>
                 <image class="piece-label" width="300" height="100" x="0" y="0"
