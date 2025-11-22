@@ -35,12 +35,62 @@
                     id="image-fond"
                     style="pointer-events: none;"/>
 
+
+
+            <g id="ciseaux" class="objet-cliquable" data-reponse=".">
+                <image x="350.22" y="-18.651" width="129" height="224.38" transform="rotate(90, 414.72, 93.539)"
+                       xlink:href="<?= base_url('images/salle_5/ciseau.svg') ?>"/>
+
+                <rect class="zone-click" x="350.22" y="-18.651" width="129" height="224.38"
+                      fill="transparent" style="cursor:pointer;" transform="rotate(90, 414.72, 93.539)"/>
+            </g>
+
+            <g id="pic" class="objet-cliquable" data-reponse=".">
+                <image x="322.25" y="445.55" width="115.01" height="54.916"
+                       xlink:href="<?= base_url('images/salle_5/pic_2.svg') ?>"/>
+
+                <rect class="zone-click" x="322.25" y="445.55" width="115.01" height="54.916"
+                      fill="transparent" style="cursor:pointer;"/>
+            </g>
+
+            <g id="puce" class="objet-cliquable" data-reponse=".">
+                <image x="823.75" y="51.808" width="133.66" height="49.736"
+                       xlink:href="<?= base_url('images/salle_5/puce_1.svg') ?>"/>
+
+                <rect class="zone-click" x="823.75" y="51.808" width="133.66" height="49.736"
+                      fill="transparent" style="cursor:pointer;"/>
+            </g>
+
+            <g id="stylo" class="objet-cliquable" data-reponse=".">
+                <image x="321.21" y="758.47" width="295.31" height="119.16"
+                       xlink:href="<?= base_url('images/salle_5/stylo.svg') ?>"/>
+
+                <rect class="zone-click" x="321.21" y="758.47" width="295.31" height="119.16"
+                      fill="transparent" style="cursor:pointer;"/>
+            </g>
+
+            <g id="tel" class="objet-cliquable" data-reponse=".">
+                <image x="808.2" y="662.11" width="157" height="175"
+                       xlink:href="<?= base_url('images/salle_5/telephone.svg') ?>"/>
+
+                <rect class="zone-click" x="808.2" y="662.11" width="157" height="175"
+                      fill="transparent" style="cursor:pointer;"/>
+            </g>
+
+            <g id="trombone" class="objet-cliquable" data-reponse=".">
+                <image x="761.58" y="437.26" width="84.965" height="66.314"
+                       xlink:href="<?= base_url('images/salle_5/trombone.svg') ?>"/>
+
+                <rect class="zone-click" x="761.58" y="437.26" width="84.965" height="66.314"
+                      fill="transparent" style="cursor:pointer;"/>
+            </g>
+
             <?php if ($enigme->numero != 8 && $enigme->numero != 4): ?>
                 <g id="carnet" <?php if ($enigme->numero != 9): ?>class="objet-cliquable"<?php endif; ?> data-reponse="A">
                     <image clip-path="url(#clip_carnet)"
-                           x="963.54" y="519.79" width="345.83" height="277.08"
+                           x="-169.72" y="281.21" width="447.7" height="251.17"
                            xlink:href="<?= base_url('images/salle_5/carnet.svg') ?>"/>
-                    <rect class="zone-click" x="963.54" y="519.79" width="345.83" height="277.08" fill="transparent"
+                    <rect class="zone-click" x="-169.72" y="281.21" width="447.7" height="251.17" fill="transparent"
                             <?php if ($enigme->numero == 9): ?>
                           style="cursor:default;"
                     <?php endif; ?>/>
@@ -137,9 +187,9 @@
 
                 <g id="carnet" class="objet-cliquable" data-reponse="carnet">
                     <image clip-path="url(#clip_carnet)"
-                           x="40.625" y="271.88" width="408.33" height="275"
+                           x="-169.72" y="281.21" width="447.7" height="251.17"
                            xlink:href="<?= base_url('images/salle_5/carnet.svg') ?>"/>
-                    <rect class="zone-click" x="40.625" y="271.88" width="408.33" height="275" fill="transparent"
+                    <rect class="zone-click" x="-169.72" y="281.21" width="447.7" height="251.17" fill="transparent"
                           />
                 </g>
             <?php endif; ?>
@@ -156,9 +206,9 @@
 
                 <g id="carnet_mdp" class="objet-cliquable" data-reponse="carnet_mdp_2">
                     <image clip-path="url(#clip_carnet_mdp)"
-                           x="40.625" y="271.88" width="408.33" height="275"
+                           x="-169.72" y="281.21" width="447.7" height="251.17"
                            xlink:href="<?= base_url('images/salle_5/carnet_mdp.svg') ?>"/>
-                    <rect class="zone-click" x="40.625" y="271.88" width="408.33" height="275" fill="transparent"
+                    <rect class="zone-click" x="-169.72" y="281.21" width="447.7" height="251.17" fill="transparent"
                           />
                 </g>
 
