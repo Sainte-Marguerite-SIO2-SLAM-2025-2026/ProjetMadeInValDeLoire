@@ -1,1 +1,1 @@
-__ci_last_regenerate|i:1763817572;_ci_previous_url|s:67:"http://localhost/ProjetMadeInValDeLoire/public/index.php/manoirJour";mode|s:4:"jour";completed_rooms|a:0:{}failed_rooms|a:1:{i:0;i:5;}error|s:19:"Salle 5 échouée !";__ci_vars|a:1:{s:5:"error";s:3:"old";}
+__ci_last_regenerate|i:1763817874;_ci_previous_url|s:70:"http://localhost/ProjetMadeInValDeLoire/public/index.php/salle/salle_5";mode|s:4:"jour";completed_rooms|a:0:{}failed_rooms|a:1:{i:0;i:5;}activites_salle5|a:2:{i:0;s:1:"3";i:1;s:1:"4";}activites_reussies|a:0:{}popup_salle5_vue|b:1;

@@ -50,7 +50,9 @@
                            xlink:href="<?= base_url('images/salle_5/ecran_mail_2.svg') ?>"/>
                     <path class="zone-click"
                           d="m724.2 521.63 243.77-0.21573 7.9819 133.97-250.89-0.43145z"
-                          fill="transparent"
+                          fill="none"
+                          pointer-events="all"
+                          style="cursor:pointer;"
                           />
                 </g>
 
@@ -63,7 +65,9 @@
                            xlink:href="<?= base_url('images/salle_5/ecran_login_2_v2.webp') ?>"/>
                     <path class="zone-click"
                           d="m1018.8 523.13h233.84l0.4386 132.24-233.84-3.1168z"
-                          fill="transparent"
+                          fill="none"
+                          pointer-events="all"
+                          style="cursor:pointer;"
                           />
                 </g>
             <?php endif; ?>
@@ -81,7 +85,9 @@
                     <rect class="zone-click"
                           x="1592.5" y="237.97"
                           width="257.49" height="838.37"
-                          fill="transparent"
+                          fill="none"
+                          pointer-events="all"
+                          style="cursor:pointer;"
                          />
                 </g>
             <?php endif; ?>
@@ -197,7 +203,9 @@
                            xlink:href="<?= base_url('images/salle_5/camera.svg') ?>"/>
                     <rect class="zone-click"
                           x="1577.1" y="89.952" width="232.99" height="113.9"
-                          fill="transparent"
+                          fill="none"
+                          pointer-events="all"
+                          style="cursor:pointer;"
                           />
                 </g>
             <?php endif; ?>

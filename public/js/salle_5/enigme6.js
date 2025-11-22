@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     } else {
                         // ❌ MAUVAISE RÉPONSE - TOUT RESTE BLOQUÉ
-                        feedback.innerHTML = '❌ ' + data.message;
+                        feedback.innerHTML = '❌ ' + data.message + '<br>';
 
                         // Créer le bouton proprement
                         let btnError = document.createElement('button');

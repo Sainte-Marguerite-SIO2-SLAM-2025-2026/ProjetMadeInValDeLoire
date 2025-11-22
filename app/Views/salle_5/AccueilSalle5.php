@@ -1,7 +1,7 @@
     <?= link_tag('styles/salle_5/salle5.css') ?>
     <title>Salle 5</title>
 </head>
-<body data-baseurl="<?= base_url() ?>">
+<body data-baseurl="<?= base_url() ?>" data-mode="<?= session()->get('mode') ?>">
 <?php
 // On détermine l'image à afficher AVANT d'entrer dans le SVG
 $imageEcranMilieuGauche = null;
@@ -176,26 +176,18 @@ if (in_array("1", $activites_selectionnees)&& !in_array(1, $activites_reussies))
                           style="cursor:pointer;" />
                 </g>
             <?php endif; ?>
-        </svg>
 
-        <!-- Bouton retour -->
-        <?php if (session()->get('mode') === 'jour'): ?>
-            <div class="retour-top">
-                <?= anchor('/manoirJour',
-                        img([
-                                'src' => base_url('images/commun/btn_retour/home_icone_7.webp'),
-                        ])
-                ) ?>
-            </div>
-        <?php else: ?>
-            <div class="retour-top">
-                <?= anchor('/',
-                        img([
-                                'src' => base_url('images/commun/btn_retour/home_icone_7.webp'),
-                        ])
-                ) ?>
-            </div>
-        <?php endif?>
+            <g id="accueil" class="zone-accueil" data-piece="retour-accueil">
+                <ellipse class="accueil-zone" cx="150" cy="100" rx="85" ry="85" fill="transparent"/>
+                <image
+                       preserveAspectRatio="none"
+                       x="65"
+                       y="15"
+                       width="170"
+                       height="170"
+                       xlink:href="<?= base_url('images/commun/btn_retour/home_icone_5.webp') ?>" />
+            </g>
+        </svg>
 
         <!-- Mascotte -->
         <div class="mascotte">

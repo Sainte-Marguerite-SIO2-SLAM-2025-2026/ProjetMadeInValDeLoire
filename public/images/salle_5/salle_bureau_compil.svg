@@ -33,8 +33,6 @@
   <rect id="porte" x="1592.5" y="237.97" width="257.49" height="838.37">
    <title>porte</title>
   </rect>
- </g>
- <g fill-opacity="0">
   <rect id="question" x="327.91" y="41.42" width="1270.2" height="129.44" ry="0">
    <title>question</title>
   </rect>
@@ -72,4 +70,5 @@
    <title>choix4</title>
   </rect>
  </g>
+ <path id="accueil" d="m317.29 83.593a62.237 60.407 0 0 1-62.122 60.407 62.237 60.407 0 0 1-62.352-60.182 62.237 60.407 0 0 1 61.89-60.63 62.237 60.407 0 0 1 62.582 59.957l-62.235 0.44837z" fill-opacity="0"/>
 </svg>
