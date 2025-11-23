@@ -300,15 +300,7 @@ validateBtn.addEventListener('click', async function() {
             document.getElementById('resultTitle').innerHTML = '🎉 Bravo !';
             document.getElementById('resultMessage').innerHTML = 'Vous avez reconstitué la procédure dans le bon ordre !<br><br>Le quiz est maintenant débloqué.';
 
-            const explicationZone = document.getElementById('explicationZone');
-            explicationZone.innerHTML = '';
 
-            const successDiv = document.createElement('div');
-            successDiv.style.textAlign = 'center';
-            successDiv.innerHTML = '<h3 style="color: #27ae60;">✓ Ordre validé</h3>';
-            explicationZone.appendChild(successDiv);
-            explicationZone.appendChild(ordreUtilisateurHtml);
-            explicationZone.style.display = 'block';
 
             // Changer le texte du bouton pour la réussite
             closeModalBtn.textContent = 'Retour à la Salle 4';
@@ -412,25 +404,52 @@ window.addEventListener('resize', function() {
     }
 });
 
-// Mascotte - Modal règles
-const mascotteHelp = document.getElementById("mascotteHelp");
-const rulesModal = document.getElementById("rulesModal");
-const closeRulesBtn = document.querySelector(".close-rules");
+// =====================================================
+// Mascotte avec règles
+// =====================================================
 
-if (mascotteHelp) {
-    mascotteHelp.addEventListener("click", function () {
-        rulesModal.style.display = "block";
+const mascotteContainer = document.querySelector("#mascotte-container");
+const rulesModal = document.getElementById('rulesModal');
+const closeRules = document.querySelector('.close-rules');
+
+if (mascotteContainer) {
+    mascotteContainer.addEventListener("click", function() {
+        if (rulesModal) {
+            rulesModal.style.display = 'block';
+        }
     });
 }
 
-if (closeRulesBtn) {
-    closeRulesBtn.addEventListener("click", function () {
-        rulesModal.style.display = "none";
+if (closeRules) {
+    closeRules.addEventListener('click', function() {
+        closeRulesModal();
     });
 }
 
-window.addEventListener("click", function (event) {
+window.addEventListener('click', function(event) {
     if (event.target === rulesModal) {
-        rulesModal.style.display = "none";
+        closeRulesModal();
+    }
+});
+
+function closeRulesModal() {
+    if (rulesModal) {
+        rulesModal.style.display = 'none';
+    }
+}
+
+// Fermer avec la touche Échap
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        if (questionModal && questionModal.style.display === 'block') {
+            questionModal.style.display = 'none';
+            currentQuestionId = null;
+            currentCarteElement = null;
+            if (btnVrai) btnVrai.disabled = false;
+            if (btnFaux) btnFaux.disabled = false;
+        }
+        if (rulesModal && rulesModal.style.display === 'block') {
+            closeRulesModal();
+        }
     }
 });

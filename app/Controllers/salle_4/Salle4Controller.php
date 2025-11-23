@@ -258,16 +258,18 @@ class Salle4Controller extends BaseController
     public function quizFinal(): string
     {
         $session = session();
-
         $quizModel = new QuizModel();
 
-        // Récupérer ou générer 6 questions aléatoires
-        if (!$session->has('quiz_questions')) {
-            $questions = $quizModel->getRandomQuestions(3, 6);
-            $session->set('quiz_questions', $questions);
-            $session->set('quiz_reponses', []);
-            $session->set('quiz_score', 0);
-        }
+        // Réinitialiser le quiz au chargement
+        $session->remove('quiz_questions');
+        $session->remove('quiz_reponses');
+        $session->remove('quiz_score');
+
+        // Récupérer 6 questions aléatoires
+        $questions = $quizModel->getRandomQuestions(3, 6);
+        $session->set('quiz_questions', $questions);
+        $session->set('quiz_reponses', []);
+        $session->set('quiz_score', 0);
 
         $questions = $session->get('quiz_questions');
         $reponses = $session->get('quiz_reponses');
@@ -305,6 +307,13 @@ class Salle4Controller extends BaseController
 
         $resultat['score'] = $session->get('quiz_score');
         $resultat['total_repondu'] = count($reponses);
+
+
+//        $completedRooms = $session->get('completed_rooms') ?? [];
+//        if (!in_array(4, $completedRooms)) {
+//            $completedRooms[] = 4;
+//        }
+//        $session->set('completed_rooms', $completedRooms);
 
         return $this->response->setJSON($resultat);
     }

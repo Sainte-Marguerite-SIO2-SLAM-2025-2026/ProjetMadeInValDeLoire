@@ -10,29 +10,40 @@
 
 <div class="image-container">
     <!-- Zone Frise - Bloquée si déjà validée -->
-    <?php if (!$frise_validee): ?>
+    <?php if (!$frise_validee || session()->get('mode') === 'jour'): ?>
         <?= anchor(base_url().'pageFrise', ' ', [ 'class' => 'clickable-zone zone1' ] );?>
     <?php else: ?>
         <div class="clickable-zone zone1 zone-bloquee">
-            <div class="overlay-bloque">✓ Validé</div>
+            <div class="overlay-bloque">Validé</div>
         </div>
     <?php endif; ?>
 
     <!-- Zone Quiz - Bloquée si frise pas validée -->
-    <?php if ($quiz_disponible): ?>
+    <?php if ($quiz_disponible || session()->get('mode') === 'jour'): ?> <!--ajout d'une methode pour trouver jour / nuit-->
         <?= anchor(base_url().'quizFin', ' ', [ 'class' => 'clickable-zone zone2' ] );?>
     <?php else: ?>
         <div class="clickable-zone zone2 zone-bloquee">
-<!--            <div class="overlay-bloque">🔒 Complétez d'abord la frise</div>-->
         </div>
     <?php endif; ?>
 
-
-    <?= anchor(base_url(), img([
-            'src'   => 'images/commun/btn_retour/home_icone_3.webp',
-            'alt'   => 'retour',
-            'class' => 'retour'
-    ])); ?>
+    <!-- Bouton retour -->
+    <?php if (session()->get('mode') === 'jour'): ?>
+        <div class="retour-top">
+            <?= anchor('/manoirJour', img([
+                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
+                    'alt'   => 'retour',
+                    'class' => 'retour'
+            ])); ?>
+        </div>
+    <?php else: ?>
+        <div class="retour-top">
+            <?= anchor('/', img([
+                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
+                    'alt'   => 'retour',
+                    'class' => 'retour'
+            ])); ?>
+        </div>
+    <?php endif?>
 
     <!-- Mascotte interactive -->
     <div class="mascotte-zone" id="mascotte-container">

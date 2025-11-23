@@ -21,16 +21,16 @@ $current_room = session()->get('current_room') ?? -1;
 
 // L'escalier s'éclaire si la salle active OU une salle complétée est de cet étage
 $etage0_actif = in_array($current_room, $salles_etage0) ||
-    in_array($current_room, $salles_etage1) ||
-    in_array($current_room, $salles_etage2) ||
-    count(array_intersect($completed_rooms, $salles_etage0)) > 0;
+        in_array($current_room, $salles_etage1) ||
+        in_array($current_room, $salles_etage2) ||
+        count(array_intersect($completed_rooms, $salles_etage0)) > 0;
 
 $etage1_actif = in_array($current_room, $salles_etage1) ||
-    in_array($current_room, $salles_etage2) ||
-    count(array_intersect($completed_rooms, $salles_etage1)) > 0;
+        in_array($current_room, $salles_etage2) ||
+        count(array_intersect($completed_rooms, $salles_etage1)) > 0;
 
 $etage2_actif = in_array($current_room, $salles_etage2) ||
-    count(array_intersect($completed_rooms, $salles_etage2)) > 0;
+        count(array_intersect($completed_rooms, $salles_etage2)) > 0;
 ?>
 
 <div class="plan-container">
@@ -137,10 +137,9 @@ $etage2_actif = in_array($current_room, $salles_etage2) ||
             <!-- Salle 4 -->
             <g id="salle_4" class="piece <?= in_array(4, session()->get('completed_rooms') ?? []) ? 'completed' : '' ?>"
                data-piece="Salle 4" data-numero="4">
-                <image class="piece-image"
-                <rect width="423" height="209" x="1073" y="320" rx="8" ry="8"/>
-                clip-path="url(#clip_salle_4)" preserveAspectRatio="xMidYMid slice"
-                xlink:href="<?= base_url('images/salles/salle_4.webp') ?>"/>
+                <image class="piece-image" width="423" height="209" x="1073" y="320" rx="8" ry="8"
+                       clip-path="url(#clip_salle_4)" preserveAspectRatio="xMidYMid slice"
+                       xlink:href="<?= base_url('images/salles/salle_4.webp') ?>"/>
                 <image class="piece-label" width="300" height="100" x="0" y="0"
                        xlink:href="<?= base_url('images/etiquettes/etiq_salle_4.svg') ?>"/>
                 <rect class="piece-zone"
@@ -243,12 +242,12 @@ $etage2_actif = in_array($current_room, $salles_etage2) ||
                         aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <img src="<?= base_url('images/commun/mascotte/mascotte_exclamee.svg') ?>" alt="Lumi" class="img-fluid rounded mb-3">
+                <img src="<?= base_url('images/commun/mascotte/mascotte_interrogee.svg') ?>" alt="Lumi" class="img-fluid rounded mb-3">
                 <div class="modal-texte">
-                <p>Bienvenue agent ! Vous venez d'intégrer la B.L.U.T., la Brigade un peu spéciale chargée de sécuriser
-                    l'univers numérique. Votre mission : traverser les 6 salles du CyberManor pour prouver que vous êtes
-                    prêt à rejoindre nos rangs...</p>
-                <p>La zone <strong>Lumi</strong> c'est .....</p>
+                    <p>Bienvenue agent ! Vous venez d'intégrer la B.L.U.T., la Brigade un peu spéciale chargée de sécuriser
+                        l'univers numérique. Votre mission : traverser les 6 salles du CyberManor pour prouver que vous êtes
+                        prêt à rejoindre nos rangs...</p>
+                    <p>La zone <strong>Lumi</strong> c'est .....</p>
                 </div>
             </div>
             <div class="modal-footer">

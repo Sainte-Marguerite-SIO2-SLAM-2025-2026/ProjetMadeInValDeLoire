@@ -229,9 +229,14 @@ function afficherResultatFinal() {
 
     // Gestion du bouton retour
     const btnRetourAccueil = document.getElementById('btnRetourAccueil');
-    if (btnRetourAccueil) {
+    if (btnRetourAccueil && mode === 'jour') {
         btnRetourAccueil.addEventListener('click', function() {
-            window.location.href = baseUrl + 'resetQuiz';
+            window.location.href = baseUrl + 'manoirJour';
+        });
+    }
+    else {
+        btnRetourAccueil.addEventListener('click', function() {
+            window.location.href = baseUrl;
         });
     }
 }

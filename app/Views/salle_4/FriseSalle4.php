@@ -84,11 +84,24 @@
         </div>
     </div>
 
-    <?= anchor(base_url(), img([
-            'src'   => 'images/commun/btn_retour/home_icone_3.webp',
-            'alt'   => 'retour',
-            'class' => 'retour'
-    ])); ?>
+    <!-- Bouton retour -->
+    <?php if (session()->get('mode') === 'jour'): ?>
+        <div class="retour-top">
+            <?= anchor('/manoirJour', img([
+                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
+                    'alt'   => 'retour',
+                    'class' => 'retour'
+            ])); ?>
+        </div>
+    <?php else: ?>
+        <div class="retour-top">
+            <?= anchor('/', img([
+                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
+                    'alt'   => 'retour',
+                    'class' => 'retour'
+            ])); ?>
+        </div>
+    <?php endif?>
 
     <!-- Mascotte interactive -->
     <div class="mascotte-zone" id="mascotte-container">

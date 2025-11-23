@@ -78,7 +78,7 @@ class HomeControlleur extends BaseController
 
         if ((int)$numero === 4){
             $session = session();
-
+             // savoir si il est encore en train de faire lka salle
             $data = [
                 'frise_validee' => false,
                 'quiz_disponible' =>false
