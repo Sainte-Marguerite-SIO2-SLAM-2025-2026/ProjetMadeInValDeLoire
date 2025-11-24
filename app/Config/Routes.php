@@ -21,6 +21,17 @@ $routes->match(['GET','POST'],'/valider/(:num)', 'HomeControlleur::valider/$1');
 $routes->match(['GET','POST'],'/validerJour/(:num)', 'HomeControlleur::validerJour/$1');
 $routes->match(['GET','POST'],'/echouerJour/(:num)', 'HomeControlleur::echouerJour/$1');
 
+// Routes pour le quiz
+$routes->group('quiz', function($routes) {
+    $routes->get('/', 'QuizControlleur::index');
+    $routes->match(['get', 'post'],'demarrer/(:segment)', 'QuizControlleur::choix/$1');
+    $routes->get('choix/(:segment)', 'QuizControlleur::demarrer/$1');
+    $routes->get('question/(:segment)', 'QuizControlleur::question/$1');
+    $routes->post('repondre/(:segment)', 'QuizControlleur::repondre/$1');
+    $routes->get('resultats/(:segment)', 'QuizControlleur::resultats/$1');
+
+});
+
 // Routes pour la salle 1
 $routes->get('/Salle1', 'accueil\AccueilController::Salle1');
 $routes->get('Salle1/accesMessage', 'salle_1\Salle1Controller::accesMessage');
@@ -56,11 +67,12 @@ $routes->get('/Salle6', 'salle_6\Salle6Controller::Index');
 $routes->get('/Salle6/Enigme', 'salle_6\Salle6Controller::Enigme');
 $routes->get('/Salle6/Explication', 'salle_6\Salle6Controller::Explication');
 $routes->get('/Salle6/Quitter', 'salle_6\Salle6Controller::QuitterSalle');
+$routes->get('/Salle6/RevenirAccueil', 'salle_6\Salle6Controller::QuitterSalleBtnAccueil');
 // Routes WiFi
 $routes->get('/Salle6/Wifi', 'salle_6\WifiController::index');
 $routes->post('/wifi/validerCarte', 'salle_6\WifiController::validerCarte');
 $routes->post('/Salle6/wifi/resultat', 'salle_6\WifiController::Resultat');
-$routes->get('Salle6/CompleteWifi', 'salle_6\Salle6Controller::CompleteWifi');
+$routes->post('Salle6/CompleteWifi', 'salle_6\Salle6Controller::CompleteWifi');
 // Routes VPN
 $routes->get('/Salle6/VPN', 'salle_6\VpnController::Index');
 $routes->post('/vpn/validerCarte', 'salle_6\VpnController::validerCarte');

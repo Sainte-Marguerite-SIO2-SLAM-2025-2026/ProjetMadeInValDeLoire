@@ -79,7 +79,7 @@ class Salle4Model extends Model
     public function getCartesByActivite(int $activiteId): array
     {
         return $this->where('activite_numero', $activiteId)
-            ->orderBy('numero', 'ASC') // Ordre de la base de données
+            ->orderBy('rand()')// Ordre de la base de données
             ->findAll();
     }
 

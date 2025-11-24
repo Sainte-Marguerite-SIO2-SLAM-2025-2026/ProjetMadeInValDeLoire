@@ -1,3 +1,11 @@
+:root {
+    /* Position horizontale de la mascotte */
+    --pos-mascotte-left: 90%;
+
+    /* Distance entre mascotte et bulle */
+    --distance-bulle: 10px;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -33,11 +41,71 @@ html, body {
     z-index: 10;
 }
 
+
+/* Bulle SVG */
+.bulle {
+    position: absolute;
+    bottom: calc(7% + 100px - 50px); /* 7% (position mascotte) + 100px (moitié hauteur mascotte) - 50px (ajustement centrage) */
+    right: calc(100% - var(--pos-mascotte-left) + var(--distance-bulle)); /* Positionnée à gauche de la mascotte avec 20px d'espace */
+    /*width: min(400px, 50vw);*/
+    width: 15%;    height: auto;
+    z-index: 2;
+    transform: translateY(-20%); /* Centre verticalement */
+}
+
+.bulle svg {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+}
+
+/* Texte dans la bulle SVG */
+.bulle-texte-container {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive;
+    font-size: 20px;
+    line-height: 1.4;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.bulle-texte-container p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+/* Mascotte */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.mascotte {
+    position: absolute;
+    bottom: 7%;
+    left: var(--pos-mascotte-left);
+    transform: none;
+    max-width: 150px;
+    height: 200px;
+    width: 200px;
+    z-index: 1;
+    transition: opacity 0.3s ease-in-out;
+    animation: float 3s ease-in-out infinite;
+}
+
+.mascotte.fade {
+    opacity: 0;
+}
+
+
 .retour {
     position: absolute;
     top: 2%;
     left: 1%;
-    width: 200px;
+    width: 120px;
     text-decoration: none;
     color: black;
     text-align: center;

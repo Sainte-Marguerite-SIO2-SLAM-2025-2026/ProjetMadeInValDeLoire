@@ -3,10 +3,7 @@
     --pos-mascotte-left: 90%;
 
     /* Distance entre mascotte et bulle */
-    --distance-bulle: 280px;
-
-    /* Taille de la flèche */
-    --fleche-taille: 15px;
+    --distance-bulle: 10px;
 }
 
 html, body {}
@@ -44,29 +41,41 @@ html, body {}
     background: transparent;
 }
 
+/* Bulle SVG */
 .bulle {
     position: absolute;
-    bottom: calc(12% + 200px + 1rem); /* 12% (position mascotte) + 200px (hauteur mascotte) + 1rem (espacement) */
-    left: 72%; /* aligné avec la mascotte */
-    display: inline-block;
-    background: white;
-    color: black;
-    padding: 1rem 1.5rem;
-    border-radius: 20px;
-    font-family: sans-serif;
-    max-width: min(250px, 40vw);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    bottom: calc(7% + 100px - 50px); /* 7% (position mascotte) + 100px (moitié hauteur mascotte) - 50px (ajustement centrage) */
+    right: calc(100% - var(--pos-mascotte-left) + var(--distance-bulle)); /* Positionnée à gauche de la mascotte avec 20px d'espace */
+    /*width: min(400px, 50vw);*/
+    width: 15%;
+    height: auto;
+    z-index: 2;
+    transform: translateY(-20%); /* Centre verticalement */
 }
 
-/* Flèche pointant vers le bas (vers la mascotte) */
-.bulle::after {
-    content: "";
-    position: absolute;
-    bottom: -15px; /* Positionne la flèche en dessous de la bulle */
-    left: 20px; /* Petit espace depuis le bord gauche de la bulle */
-    border-width: 15px 15px 0; /* Flèche pointant vers le bas */
-    border-style: solid;
-    border-color: white transparent transparent transparent;
+.bulle svg {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+}
+
+/* Texte dans la bulle SVG */
+.bulle-texte-container {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive;
+    font-size: 15px;
+    line-height: 1.4;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.bulle-texte-container p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 /* Mascotte */
@@ -96,7 +105,7 @@ html, body {}
     position: absolute;
     top: 2%;
     left: 1%;
-    width: 200px;
+    width: 120px;
     text-decoration: none;
     color: black;
     text-align: center;
@@ -110,6 +119,16 @@ html, body {}
         left: 15%;
         width: 25vw;
         height: 15vh;
+    }
+
+    .bulle {
+        width: min(300px, 60vw);
+        right: calc(100% - var(--pos-mascotte-left) + 10px);
+    }
+
+    .bulle-texte-container {
+        font-size: 20px;
+        padding: 15px;
     }
 }
 
