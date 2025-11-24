@@ -83,8 +83,7 @@
                     <rect class="zone-click"
                           x="1592.5" y="237.97"
                           width="257.49" height="838.37"
-                          fill="none"
-                          pointer-events="all"
+                          fill="transparent"
                           style="cursor:pointer;"
                          />
                 </g>
@@ -211,10 +210,10 @@
             <?php if ($enigme->numero == 5 || $enigme->numero == 10): ?>
             <g id="ecran_bas_gauche" class="objet-cliquable" data-reponse=".">
                 <image clip-path="url(#clip_camera)"
-                       x="445.26" y="511.71" width="240" height="198"
+                       x="450" y="511.71" width="230" height="198"
                        xlink:href="<?= base_url('images/salle_5/ecran_veille_1.svg') ?>"/>
                 <rect class="zone-click"
-                      x="445.26" y="511.71" width="240" height="198"
+                      x="450" y="511.71" width="230" height="198"
                       fill="transparent"
                       pointer-events="all"
                       style="cursor:pointer;"
@@ -223,10 +222,10 @@
 
                 <g id="ecran_bas_mid_gauche" class="objet-cliquable" data-reponse=".">
                     <image clip-path="url(#clip_camera)"
-                           x="718.8" y="517.31" width="265" height="189"
+                           x="723" y="517.31" width="255" height="189"
                            xlink:href="<?= base_url('images/salle_5/ecran_veille_2.svg') ?>"/>
                     <rect class="zone-click"
-                          x="718.8" y="517.31" width="265" height="189"
+                          x="723" y="517.31" width="255" height="189"
                           fill="transparent"
                           pointer-events="all"
                           style="cursor:pointer;"
@@ -235,15 +234,28 @@
 
                 <g id="ecran_bas_mid_droit" class="objet-cliquable" data-reponse=".">
                     <image clip-path="url(#clip_camera)"
-                           x="1009.2" y="514.29" width="252" height="190"
-                           xlink:href="<?= base_url('images/salle_5/ecran_veille_2.svg') ?>"/>
+                           x="1013" y="514.29" width="245" height="193"
+                           xlink:href="<?= base_url('images/salle_5/ecran_veille_2_1.svg') ?>"/>
                     <rect class="zone-click"
-                          x="1009.2" y="514.29" width="252" height="190"
+                          x="1013" y="514.29" width="245" height="193"
                           fill="transparent"
                           pointer-events="all"
                           style="cursor:pointer;"
                     />
                 </g>
+
+                <g id="ecran_geant" class="objet-cliquable" data-reponse=".">
+                    <image clip-path="url(#clip_camera)"
+                           x="426.28" y="195" width="1115" height="293"
+                           xlink:href="<?= base_url('images/salle_5/ecran_surveillance.svg') ?>"/>
+                    <rect class="zone-click"
+                          x="426.28" y="195" width="1115" height="293"
+                          fill="transparent"
+                          pointer-events="all"
+                          style="cursor:pointer;"
+                    />
+                </g>
+
             <?php endif; ?>
 
         </svg>

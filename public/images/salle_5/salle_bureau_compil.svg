@@ -78,20 +78,14 @@
   <rect id="ecran_bas_mid_gauche" x="718.8" y="517.31" width="265" height="189">
    <title>ecran_bas_mid_gauche</title>
   </rect>
-  <rect id="ecran_bas_mid_droit" x="1009.2" y="514.29" width="252" height="190">
+  <rect id="ecran_bas_mid_droit" x="1009.2" y="514.29" width="252" height="193">
    <title>ecran_bas_mid_droit</title>
   </rect>
   <rect id="ecran_bas_droit" x="1293.9" y="513.43" width="239" height="198">
    <title>ecran_bas_droit</title>
   </rect>
-  <rect id="ecran_geant_droit" x="1186.5" y="209.69" width="360" height="266">
-   <title>ecran_geant_droit</title>
-  </rect>
-  <rect id="ecran_geant_mid" x="793.88" y="231.26" width="381" height="246">
-   <title>ecran_geant_mid</title>
-  </rect>
-  <rect id="ecran_geant_gauche" x="422.39" y="205.8" width="359.4" height="273.11">
-   <title>ecran_geant_gauche</title>
+  <rect id="ecran_geant" x="426.28" y="203.65" width="1120.1" height="289.94">
+   <title>ecran_geant</title>
   </rect>
  </g>
 </svg>
