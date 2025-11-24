@@ -1,0 +1,390 @@
+CRITICAL - 2025-11-19 09:59:00 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 09:59:05 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 09:59:42 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:01:00 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:01:03 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:01:08 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:01:12 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:01:21 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:01:27 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:01:33 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:07:14 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:07:16 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:11:08 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:11:14 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:11:23 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:11:26 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:11:33 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:11:36 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:11:40 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:11:44 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:11:46 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:11:50 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:11:53 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:11:55 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:15:54 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:17:48 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:18:00 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:18:06 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:25:54 --> ErrorException: Array to string conversion
+[Method: GET, Route: /]
+in APPPATH\Controllers\accueil\AccueilController.php on line 21.
+ 1 APPPATH\Controllers\accueil\AccueilController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Controllers\\accueil\\AccueilController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:26:49 --> ErrorException: Undefined variable $data
+[Method: GET, Route: /]
+in APPPATH\Controllers\accueil\AccueilController.php on line 16.
+ 1 APPPATH\Controllers\accueil\AccueilController.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Controllers\\accueil\\AccueilController.php', 16)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:27:24 --> ErrorException: Array to string conversion
+[Method: GET, Route: Salle1]
+in APPPATH\Controllers\accueil\AccueilController.php on line 27.
+ 1 APPPATH\Controllers\accueil\AccueilController.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Controllers\\accueil\\AccueilController.php', 27)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:28:30 --> ErrorException: Array to string conversion
+[Method: GET, Route: Salle1]
+in APPPATH\Controllers\accueil\AccueilController.php on line 26.
+ 1 APPPATH\Controllers\accueil\AccueilController.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Controllers\\accueil\\AccueilController.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:28:30 --> ErrorException: Array to string conversion
+[Method: GET, Route: Salle1]
+in APPPATH\Controllers\accueil\AccueilController.php on line 26.
+ 1 APPPATH\Controllers\accueil\AccueilController.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Controllers\\accueil\\AccueilController.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\accueil\AccueilController->Salle1()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\accueil\AccueilController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:38:52 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 10:38:56 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 11:04:51 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 11:05:00 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 11:05:08 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-19 11:05:12 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "<"
+[Method: GET, Route: Salle1/%3C]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('Salle1/<')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('Salle1/<')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

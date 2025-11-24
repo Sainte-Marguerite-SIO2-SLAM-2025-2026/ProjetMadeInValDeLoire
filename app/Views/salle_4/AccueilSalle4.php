@@ -6,12 +6,9 @@
     <title>Salle 4</title>
     <?= link_tag('styles/salle_4/salle4.css'); ?>
 </head>
-
 <body>
 
-
 <div class="image-container">
-
     <!-- Zone Frise - Bloquée si déjà validée -->
     <?php if (!$frise_validee): ?>
         <?= anchor(base_url().'pageFrise', ' ', [ 'class' => 'clickable-zone zone1' ] );?>
@@ -30,24 +27,26 @@
         </div>
     <?php endif; ?>
 
-<!--    --><?php //= anchor(base_url().'pageFrise', ' ', [ 'class' => 'clickable-zone zone1' ] );?>
-<!--    --><?php //= anchor(base_url().'quizFin', ' ', [ 'class' => 'clickable-zone zone2' ] );?>
 
     <?= anchor(base_url(), img([
-            'src'   => 'images/commun/retour.png',
+            'src'   => 'images/salle_4/images_finales/home_icone_3.webp',
             'alt'   => 'retour',
             'class' => 'retour'
     ])); ?>
 
     <!-- Mascotte interactive -->
     <div class="mascotte-zone" id="mascotte-container">
-        <img src="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>"
-             class="mascotte-img mascotte-default"
-             alt="Mascotte">
+        <?= anchor(base_url(), img([
+                'src'   => 'images/commun/mascotte/mascotte_face.svg',
+                'alt'   => 'Mascotte',
+                'class' => 'mascotte-img mascotte-default'
+        ])); ?>
 
-        <img src="<?= base_url('images/commun/mascotte/mascotte_exclamee.svg') ?>"
-             class="mascotte-img mascotte-hover"
-             alt="Mascotte hover">
+        <?= anchor(base_url(), img([
+                'src'   => 'images/commun/mascotte/mascotte_exclamee.svg',
+                'alt'   => 'Mascotte Hover',
+                'class' => 'mascotte-img mascotte-hover'
+        ])); ?>
     </div>
 
     <!-- Modal des règles -->

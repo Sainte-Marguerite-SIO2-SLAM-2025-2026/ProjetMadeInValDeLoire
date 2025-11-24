@@ -1,0 +1,311 @@
+/* ==============================================
+   MODE JOUR
+   ============================================== */
+
+/* Variables globales */
+:root {
+    --color-bg: #f5f5f5;
+    --color-surface: #ffffff;
+    --color-border: #dddddd;
+    --color-text: #333333;
+    --color-primary: #2196F3;
+    --color-primary-hover: #1976D2;
+    --color-success: #65af4c;
+    --color-failed: #f34343;
+    --color-warning: #f57c00;
+    --color-info-bg: #e8f4f8;
+    --color-success-bg: #e8f5e9;
+    --color-legend-bg: #fff3e0;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.15);
+    --transition-fast: 0.3s ease;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+/* =========================
+      LA BASE
+   ========================= */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    padding: 0px;
+    margin: 0;
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: var(--color-surface);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+h1 {
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* =========================
+   PLAN ET SVG
+   ========================= */
+.plan-container {
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.svg-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.svg-wrapper svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+svg {
+    max-width: 100%;
+    height: auto;
+    /*border: 2px solid var(--color-border);*/
+    /*border-radius: var(--radius-md);*/
+    background: #7a9fd0;
+}
+
+/* =========================
+    PIÈCES ET INTERACTIONS
+   ========================= */
+.piece-zone {
+    fill: transparent;
+    cursor: pointer;
+    transition: fill var(--transition-fast);
+}
+
+.piece-zone:hover {
+    fill: rgba(33, 150, 243, 0.2);
+}
+
+/* Images des pièces */
+.piece-image {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+/* Pièce mise en lumière */
+.piece.highlighted .piece-zone {
+    fill: transparent;
+    stroke: #e9f9fa;
+    stroke-width: 0.5;
+    cursor: pointer;
+    filter:
+            drop-shadow(0 0 8px rgba(225, 251, 251, 0.8))
+            drop-shadow(0 0 16px rgba(225, 251, 251, 0.6));
+}
+
+.piece.highlighted .piece-image {
+    opacity: 0.9;
+    filter:
+            drop-shadow(0 0 12px rgba(225, 251, 251, 0.4))
+            drop-shadow(0 0 20px rgba(225, 251, 251, 0.3));
+}
+
+/* Salle complétée (vert) */
+.piece.completed .piece-zone {
+    fill: rgba(76, 175, 80, 0.2);
+    stroke: var(--color-success);
+    stroke-width: 4;
+}
+
+.piece.completed .piece-image {
+    opacity: 0.6;
+}
+
+/* Salle râtée (rouge) */
+.piece.failed .piece-zone {
+    fill: rgba(175, 76, 91, 0.2);
+    stroke: var(--color-failed);
+    stroke-width: 4;
+}
+
+/* Salle inactive */
+.piece.inactive .piece-zone {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Labels */
+.piece-label {
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    pointer-events: none;
+}
+
+.piece.highlighted .piece-label {
+    opacity: 1;
+}
+
+/* =========================
+   INFO BOXES
+   ========================= */
+.info-box {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--color-info-bg);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    text-align: center;
+}
+
+.info-box.success {
+    background: var(--color-success-bg);
+    border-left-color: var(--color-success);
+    animation: successPulse 0.5s ease;
+}
+
+@keyframes successPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.img-fluid{
+    width: 180px;
+    height: 180px;
+}
+
+.modal-body, .modal-texte{
+    display: flex;
+    }
+
+.modal-texte{
+    flex-direction: column;
+}
+
+/* =========================
+   BOUTONS
+   ========================= */
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+button:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   LÉGENDE
+   ========================= */
+.legend {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--color-legend-bg);
+    border-radius: var(--radius-sm);
+}
+
+.legend h3 {
+    margin-top: 0;
+    color: var(--color-warning);
+}
+
+.legend ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.legend li {
+    margin: 8px 0;
+}
+
+/* =========================
+   LUMIÈRE ET SOLEIL
+   ========================= */
+.lumi-image {
+    position: absolute;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    pointer-events: none;
+}
+
+.lumi-image.default {
+    opacity: 1;
+}
+
+.zone-lumi:hover .lumi-image.default {
+    opacity: 0;
+}
+
+.zone-lumi:hover .lumi-image.hover {
+    opacity: 1;
+}
+
+.lumi-zone,
+.lune-zone {
+    fill: transparent;
+    cursor: pointer;
+    transition: fill var(--transition-fast);
+}
+
+.lune-zone:hover {
+    fill: rgba(251, 194, 59, 0.15);
+}
+/* =========================
+   Zone Quiz
+   ========================= */
+/*.quizz-zone {*/
+/*    fill: transparent;*/
+/*    cursor: pointer;*/
+/*    transition: fill var(--transition-fast);*/
+/*}*/
+.quizz-zone {
+    fill: #351900;
+    opacity: 1;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.quizz-zone:hover {
+    opacity: 0;
+    pointer-events: auto;
+    fill: transparent;
+}
+/* =========================
+   BADGE DE PROGRESSION
+   ========================= */
+.progress-badge {
+    display: inline-block;
+    background: var(--color-success);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-left: 10px;
+    font-size: 0.95rem;
+}

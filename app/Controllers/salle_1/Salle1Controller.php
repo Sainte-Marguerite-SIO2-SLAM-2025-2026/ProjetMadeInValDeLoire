@@ -3,41 +3,80 @@
 namespace App\Controllers\salle_1;
 
 use App\Controllers\BaseController;
+use App\Models\salle_1\Salle1Message;
 
 class Salle1Controller extends BaseController
 {
-    public function accesMessage() : string
+    public function accesMessage(): string
     {
-        //$message = "Salut, j’ai reçu un email bizarre d’une banque inconnue qui me demande de cliquer sur un lien pour vérifier mon compte";
-        $message = "Salut, j’ai reçu un email étrange d’un service inconnu me demandant mes identifiants. On me propose un remboursement si je clique rapidement sur un lien, mais l’adresse web semble bizarre. Je préfère vérifier auprès de la banque avant de donner mon mot de passe ou mes informations personnelles";
-        $mots_suspects = [
-            "email",
-            "inconnu",
-            "identifiants",
-            "remboursement",
-            "clique",
-            "lien",
-            "adresse web",
-            "mot de passe",
-            "informations personnelles",
-            "banque"
-        ];
+        $messageModel = new Salle1Message();
 
-        //$mots_suspects = ['email','bizarre','banque','lien','compte'];
+        // Récupère un message aléatoire de la base de données
+        $messageData = $messageModel->getMessageSalle1();
+
+        // Récupère les mots suspects depuis la table erreur
+        $motsSuspects = $messageModel->getMotsSuspects($messageData->numero);
+
+        // Récupère les erreurs avec explications
+        $erreursExplications = $messageModel->getErreursAvecExplications($messageData->numero);
+
+        // Récupère les indices
+        $indices = $messageModel->getIndices($messageData->numero);
+
+        // Prépare le nom du personnage
+        $nomPersonnage = $messageData->prenom . ' ' . $messageData->nom;
 
         $data = [
-            'nom_personnage' => 'Olivier',
-            'mots_suspects' => $mots_suspects,
-            'message' => $message,
-        ];
+            'activite_numero' => $messageData->numero,
+            'nom_personnage' => $nomPersonnage,
+            'mots_suspects' => $motsSuspects,
+            'message' => $messageData->libelle,
+            'indices' => $indices,
+            'erreurs_explications' => $erreursExplications,
+            ];
 
-        return view('salle_1\DiscussionSalle1', $data)
-            . view('commun\PiedDePage');
+        return view('salle_1/DiscussionSalle1', $data)
+            . view('commun/footer');
     }
 
-    public function accesCode() : string
+    public function accesCode(): string
     {
-        return view('salle_1\CodeSalle1').
-            view('commun\PiedDePage');
+        return view('salle_1/CodeSalle1')
+            . view('commun/footer');
+    }
+
+    /**
+     * API pour récupérer l'explication d'un mot suspect
+     */
+    public function getExplicationMot()
+    {
+        $messageModel = new Salle1Message();
+
+        $activiteNumero = $this->request->getPost('activite_numero');
+        $mot = $this->request->getPost('mot');
+
+        if (!$activiteNumero || !$mot) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Paramètres manquants'
+            ]);
+        }
+
+        // Récupère toutes les erreurs pour cette activité
+        $erreurs = $messageModel->getErreursAvecExplications($activiteNumero);
+
+        // Cherche l'explication du mot
+        $explication = '';
+        foreach ($erreurs as $erreur) {
+            if (trim($erreur['mot_incorrect']) === trim($mot)) {
+                $explication = $erreur['explication'];
+                break;
+            }
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'explication' => $explication
+        ]);
     }
 }

@@ -1,7 +1,12 @@
-html, body {
-    /*margin: 0;*/
-    /*padding: 0;*/
+:root {
+    /* Position horizontale de la mascotte */
+    --pos-mascotte-left: 90%;
+
+    /* Distance entre mascotte et bulle */
+    --distance-bulle: 10px;
 }
+
+html, body {}
 
 .titre-temp {
     color: white;
@@ -25,70 +30,87 @@ html, body {
     padding-top: 1px;
 }
 
-
-/* zone cliquable */
+/* Zone cliquable */
 .zone-cliquable {
-    position:   absolute;
-    top:        70%;        /* position verticale */
-    left:       23%;        /* position horizontale */
-    width:      30vw;       /* largeur du hotspot */
-    height:     25vh;       /* hauteur du hotspot */
-    /*max-width:  600px;   /* limite la largeur sur grand écran */
-    /*max-height: 600px;  /* limite la hauteur sur grand écran */
-    cursor:     pointer;
+    position: absolute;
+    top: 70%;
+    left: 23%;
+    width: 30vw;
+    height: 25vh;
+    cursor: pointer;
     background: transparent;
-    border: 2px solid red; /* utile pour voir où elle est pendant les tests */
 }
 
+/* Bulle SVG */
 .bulle {
     position: absolute;
-    bottom: calc(12% + 200px + 1rem); /* 5% (position mascotte) + 200px (hauteur mascotte) + 10px (espacement) */
-    left: 72%; /* aligné avec la mascotte */
-    display: inline-block;
-    background: white;
-    color: black;
-    padding: 1rem 1.5rem;
-    border-radius: 20px;
-    font-family: sans-serif;
-    max-width: min(250px,40vw);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    bottom: calc(7% + 100px - 50px); /* 7% (position mascotte) + 100px (moitié hauteur mascotte) - 50px (ajustement centrage) */
+    right: calc(100% - var(--pos-mascotte-left) + var(--distance-bulle)); /* Positionnée à gauche de la mascotte avec 20px d'espace */
+    /*width: min(400px, 50vw);*/
+    width: 15%;
+    height: auto;
+    z-index: 2;
+    transform: translateY(-20%); /* Centre verticalement */
 }
 
-/* Flèche pointant vers la mascotte (en bas à gauche de la bulle) */
-.bulle::after {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    left: 45px;
-    border-width: 15px 15px 0;
-    border-style: solid;
-    border-color: white transparent transparent transparent;
+.bulle svg {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+}
+
+/* Texte dans la bulle SVG */
+.bulle-texte-container {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive;
+    font-size: 15px;
+    line-height: 1.4;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.bulle-texte-container p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Mascotte */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .mascotte {
     position: absolute;
-    bottom: 12%; /* distance par rapport au bas de l'écran */
-    left: 72%;   /* distance par rapport à la gauche (au lieu de 50% centré) */
-    transform: none; /* retire le centrage */
+    bottom: 7%;
+    left: var(--pos-mascotte-left);
+    transform: none;
     max-width: 150px;
     height: 200px;
     width: 200px;
-    /*border: 1px solid red;*/ /*Pour test*/
-    z-index: 1; /* derrière la bulle */
+    z-index: 1;
+    transition: opacity 0.3s ease-in-out;
+    animation: float 3s ease-in-out infinite;
+}
+
+.mascotte.fade {
+    opacity: 0;
 }
 
 .retour {
     position: absolute;
     top: 2%;
     left: 1%;
-    transform: none;
-    width: 200px;
+    width: 120px;
     text-decoration: none;
-    color : black;
+    color: black;
     text-align: center;
     font-size: 2rem;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; /* A changer */
-    /*border: 2px solid red; !* utile pour voir où elle est pendant les tests *!*/
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 @media (max-width: 990px) {
@@ -97,5 +119,95 @@ html, body {
         left: 15%;
         width: 25vw;
         height: 15vh;
+    }
+
+    .bulle {
+        width: min(300px, 60vw);
+        right: calc(100% - var(--pos-mascotte-left) + 10px);
+    }
+
+    .bulle-texte-container {
+        font-size: 20px;
+        padding: 15px;
+    }
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    width: 70vw;
+    height: 70vh;
+}
+
+.modal-content svg {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+}
+
+.modal-texte {
+    color: black;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive;
+    font-size: 40px;
+    line-height: 1.6;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mascotte-modal-img {
+    position: absolute;
+    left: 79.4%;
+    top: 48.9%;
+    width: 20.3%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+#bouton-commencer {
+    transition: opacity 0.3s ease;
+}
+
+#bouton-commencer:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 1200px) {
+    .modal-texte {
+        font-size: 30px;
+    }
+
+    #mascotte-modal-img {
+        left: 79%;
+        top: 49%;
+        width: 20.5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-texte {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    #mascotte-modal-img {
+        left: 78.5%;
+        top: 48.5%;
+        width: 21%;
     }
 }
