@@ -36,7 +36,7 @@ class Salle6Controller extends BaseController
         $vpnComplete = $session->get('vpn_complete') ?? false;
 
         // Récupérer l'explication depuis la BDD (numéro à adapter selon vos données)
-        $explication = $this->ExplicationModel->getExplication(1);
+        $explication = $this->ExplicationModel->getExplication(601);
 
         if ($wifiComplete && $vpnComplete) {
             $data['intitule'] = "Test Félicitations ! Vous avez terminé toutes les énigmes de cette salle !";
@@ -103,7 +103,7 @@ class Salle6Controller extends BaseController
         // Récupérer l'information sélectionnée depuis POST
         $info_selectionnee = $this->request->getPost('info_selectionnee');
         $wifi_numero = $this->request->getPost('wifi_numero');
-        $activite_numero = $this->request->getPost('activite_numero') ?? 1;
+        $activite_numero = $this->request->getPost('activite_numero') ?? 601;
 
         // Vérifier si tous les paramètres sont présents
         if (!$info_selectionnee || !$wifi_numero) {
@@ -137,7 +137,7 @@ class Salle6Controller extends BaseController
 
         // Récupérer le vpn_numero depuis POST
         $vpn_numero = $this->request->getPost('vpn_numero');
-        $activite_numero = 2; // VPN
+        $activite_numero = 602; // VPN
 
         // Vérifier si la réponse est correcte
         if ($vpn_numero) {
@@ -164,7 +164,7 @@ class Salle6Controller extends BaseController
     public function Fin(): string
     {
         // Récupérer l'explication pour la page de fin
-        $explication = $this->ExplicationModel->getExplication(2);
+        $explication = $this->ExplicationModel->getExplication(602);
         $data['explication'] = $explication['libelle'] ?? 'Vous maîtrisez maintenant les concepts de sécurité WiFi et VPN.';
 
         // Message de résultat optionnel (peut être personnalisé)
@@ -189,7 +189,7 @@ class Salle6Controller extends BaseController
             $data['texteBtnValider'] = "Retour à l'accueil";
 
             // Récupérer les explications de la BDD
-            $explication = $this->ExplicationModel->getExplication(4);
+            $explication = $this->ExplicationModel->getExplication(604);
             $data['explication'] = $explication['libelle'] ?? "Tu n'as pas réussi à valider cette salle… cette fois-ci !
             Mais ne baisse pas les bras : chaque échec t'aide à mieux comprendre les mécanismes de sécurité et à renforcer tes compétences.
                 Reviens quand tu veux pour retenter l'expérience : la salle t'attend, et je suis sûr que tu finiras par la résoudre !";
@@ -200,7 +200,7 @@ class Salle6Controller extends BaseController
             $data['texteBtnValider'] = "Continuer d'explorer le manoir";
 
             // Récupérer les félicitations de la BDD
-            $explication = $this->ExplicationModel->getExplication(2);
+            $explication = $this->ExplicationModel->getExplication(602);
             $data['explication'] = $explication['libelle'] ?? 'Vous maîtrisez maintenant les concepts de sécurité WiFi et VPN.';
             $data['messageResultat'] = 'Vous avez brillamment résolu toutes les énigmes de cette salle !';
             $data['intituleMessage'] = '🎉 Félicitations ! 🎉';

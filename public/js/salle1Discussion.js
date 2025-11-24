@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const popupMessage = document.getElementById("popup-message");
     const popupExplication = document.getElementById("popup-explication");
     const popupFermer = document.getElementById("popup-fermer");
-    const popupMascotte = document.getElementById("popup-mascotte"); // ← AJOUT
 
     // Récupère tous les mots à afficher
     let mots = [];
@@ -67,9 +66,6 @@ document.addEventListener("DOMContentLoaded", function() {
             const code = 8294;
             sessionStorage.setItem("codePorte", code);
 
-            // 🟣 Mascotte de victoire
-            popupMascotte.src = "<?= base_url('images/commun/mascotte/mascotte_contente.svg') ?>";
-
             popupTitre.textContent = "🎉 Félicitations !";
             popupMessage.innerHTML = `Vous avez trouvé tous les mots suspects !<br><br>
                                        <strong>Voici votre code : ${code}</strong>`;
@@ -89,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function() {
     textZone.innerHTML = "";
 
     const nomSpan = document.createElement('span');
-    nomSpan.className = 'nom-personnage-bulle';
     const nomElement = document.getElementById('nom-personnage');
     nomSpan.textContent = nomElement ? nomElement.textContent.trim() : '';
     textZone.appendChild(nomSpan);
@@ -131,8 +126,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 popupTitre.textContent = "✅ Mot suspect trouvé !";
                 popupTitre.style.color = "#27ae60";
 
-                // 🟢 Mascotte heureuse
-                popupMascotte.src = "<?= base_url('images/commun/mascotte/mascotte_contente.svg') ?>";
 
                 const explication = getExplication(mot);
 
@@ -165,9 +158,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 popupTitre.textContent = "❌ Erreur !";
                 popupTitre.style.color = "#e74c3c";
-
-                // 🔴 Mascotte en colère
-                popupMascotte.src = "<?= base_url('images/commun/mascotte/mascotte_choquee.svg') ?>";
 
                 popupMessage.innerHTML = `"<em>${motNettoye}</em>" n'est pas un mot suspect.<br><br>Essayez encore !`;
 

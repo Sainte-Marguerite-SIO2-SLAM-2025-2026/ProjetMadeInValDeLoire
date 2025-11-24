@@ -23,7 +23,7 @@
   <rect id="carte_pass" x="106.25" y="332.29" width="152.08" height="110.42">
    <title>carte_pass</title>
   </rect>
-  <rect id="carnet_mdp" x="40.625" y="271.88" width="408.33" height="275" ry="0">
+  <rect id="carnet_mdp" x="-169.72" y="281.21" width="447.7" height="251.17" ry="0">
    <title>carnet_mdp</title>
   </rect>
   <rect id="post_it_conf" x="1145.8" y="143.75" width="146.87" height="142.71">
@@ -46,6 +46,26 @@
   </rect>
   <rect x="987" y="503" width="533" height="72" ry="0">
    <title>choix_4</title>
+  </rect>
+ </g>
+ <g fill-opacity="0">
+  <rect id="tel" x="808.2" y="662.11" width="157" height="175">
+   <title>tel</title>
+  </rect>
+  <rect id="ciseaux" x="350.22" y="-18.651" width="129" height="224.38">
+   <title>ciseaux</title>
+  </rect>
+  <rect id="puce" x="823.75" y="51.808" width="133.66" height="49.736">
+   <title>puce</title>
+  </rect>
+  <rect id="pic" x="322.25" y="445.55" width="115.01" height="54.916">
+   <title>pic</title>
+  </rect>
+  <rect id="trombonne" x="761.58" y="437.26" width="84.965" height="66.314">
+   <title>trombonne</title>
+  </rect>
+  <rect id="stylo" x="321.21" y="758.47" width="295.31" height="119.16">
+   <title>stylo</title>
   </rect>
  </g>
 </svg>
