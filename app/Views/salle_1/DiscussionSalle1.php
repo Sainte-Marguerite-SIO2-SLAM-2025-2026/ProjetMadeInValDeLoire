@@ -82,7 +82,7 @@
 
         <?= anchor(
                 base_url('/'), img([
-                        'src' => base_url('images/commun/mascotte/mascotte_face.svg'),
+                        'src' => base_url('images/commun/mascotte/mascotte_interrogee.svg'),
                         'alt' => 'Mascotte',
                         'class' => 'mascotte-image'
                 ])
@@ -94,8 +94,8 @@
 <!-- POPUP -->
 <div id="popup" class="popup" style="display:none;">
     <div class="popup-content">
-        <img id="popup-mascotte" class="popup-mascotte"
-             src="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>"
+        <img id="popup-mascotte" class="mascotte-popup"
+             src="<?= base_url('images/commun/mascotte/mascotte_saoulee.svg') ?>"
              alt="Mascotte">
         <h2 id="popup-titre">Bravo !</h2>
         <p id="popup-message"></p>
