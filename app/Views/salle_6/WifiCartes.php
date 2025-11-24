@@ -33,7 +33,7 @@
                          data-est-correct="<?= esc($wifi['bonne_reponse']) ?>">
                         <div class="carte-contenu">
                             <h3 class="wifi-nom info-selectionnable" data-info="nom">
-                                WiFi-<?= esc($wifi['wifi_numero']) ?>
+                                <?= esc($wifi['nom']) ?>
                             </h3>
                             <p class="wifi-type info-selectionnable" data-info="type">
                                 <?= $wifi['public'] == 1 ? 'Public' : 'Privé' ?>
@@ -73,17 +73,20 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <!-- Div de résultat (cachée par défaut) -->
-            <div class="resultat-container" id="resultatContainer" style="display: none;">
-                <p id="messageResultat"></p>
+            <!-- Conteneur pour aligner résultat et bouton horizontalement -->
+            <div class="resultat-et-bouton">
+                <!-- Div de résultat (cachée par défaut) -->
+                <div class="resultat-container" id="resultatContainer" style="display: none;">
+                    <p id="messageResultat"></p>
+                </div>
+                <!-- Bouton suivant (caché par défaut) -->
+                <?= form_submit("btnSuivant", "Suivant", [
+                        'id' => 'btnSuivant',
+                        'class' => 'btn-suivant',
+                        'style' => 'display: none;',
+                        "content" => "Suivant"
+                ]) ?>
             </div>
-            <!-- Bouton suivant (caché par défaut) -->
-            <?= form_submit("btnSuivant", "Suivant", [
-                    'id' => 'btnSuivant',
-                    'class' => 'btn-suivant',
-                    'style' => 'display: none;',
-                    "content" => "Suivant"
-            ]) ?>
         </div>
 
 
@@ -148,3 +151,4 @@
 ]) ?>
 
 <?= script_tag('js/salle_6/wifiCartes.js') ?>
+<?= script_tag('js/salle_6/mascotteHover.js') ?>

@@ -107,19 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
     adjustSVGViewBox();
     window.addEventListener('resize', adjustSVGViewBox);
 
-    // Effet sonore (optionnel - nécessite un fichier audio)
-    function playSuccessSound() {
-        // Si vous avez un fichier audio de succès
-        const audio = new Audio('/sounds/success.mp3');
-        audio.volume = 0.3;
-        audio.play().catch(err => {
-            console.log('Lecture audio impossible:', err);
-        });
-    }
-
-    // Décommenter si vous voulez ajouter un son
-    // setTimeout(playSuccessSound, 500);
-
     // Fonction pour créer des étoiles scintillantes
     function createStars() {
         const starCount = 20;
@@ -153,33 +140,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.head.appendChild(style);
 
     // Lancer les étoiles après les confettis
-    setTimeout(createStars, 2000);
+    //setTimeout(createStars, 2000);
 
     // Message dans la console
     console.log('🎉 Félicitations ! Script d\'explication initialisé avec succès ! 🎉');
 
-    // Easter egg : triple-clic sur le titre pour plus de confettis
-    let clickCount = 0;
-    let clickTimer = null;
-
-    if (titre) {
-        titre.addEventListener('click', function() {
-            clickCount++;
-
-            if (clickTimer) {
-                clearTimeout(clickTimer);
-            }
-
-            clickTimer = setTimeout(() => {
-                if (clickCount >= 3) {
-                    createConfetti();
-                    createConfetti();
-                    createStars();
-                    console.log('🎊 Easter egg activé ! 🎊');
-                }
-                clickCount = 0;
-            }, 500);
-        });
-    }
 });
 

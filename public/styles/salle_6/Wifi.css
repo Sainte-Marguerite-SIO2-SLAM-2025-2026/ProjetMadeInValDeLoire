@@ -108,10 +108,16 @@ html, body {
     z-index: 1;
     transition: opacity 0.3s ease-in-out;
     animation: float 3s ease-in-out infinite;
+    cursor: pointer;
+    user-select: none; /* Empêche la sélection de l'image */
 }
 
 .mascotte.fade {
     opacity: 0;
+}
+
+.mascotte img {
+    transition: opacity 0.2s ease-in-out; /* Transition douce lors du changement */
 }
 
 .retour {
@@ -141,6 +147,7 @@ html, body {
     justify-content: center;
     z-index: 100;
     padding: 2rem;
+    border-radius: 25px;
 }
 
 .wifi-card {
@@ -259,8 +266,8 @@ html, body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 74vh;
-    width: 25vw;
+    height: 62vh;
+    width: 20vw;
     min-width: 150px;
     min-height: 200px;
     cursor: pointer;

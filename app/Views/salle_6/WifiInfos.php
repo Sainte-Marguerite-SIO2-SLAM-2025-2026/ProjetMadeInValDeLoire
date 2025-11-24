@@ -139,3 +139,4 @@
     const zoneCorrecte = '<?= isset($zone_correcte) ? esc($zone_correcte) : 'chiffrement' ?>';
 </script>
 <?= script_tag('js/salle_6/wifiInfos.js') ?>
+<?= script_tag('js/salle_6/mascotteHover.js') ?>
