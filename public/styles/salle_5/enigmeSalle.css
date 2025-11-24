@@ -424,9 +424,9 @@ svg {
     pointer-events: none;
 }
 
-.disabled {
-    opacity: 0.5;
+.objet-cliquable.disabled {
     pointer-events: none;
+    opacity: 0.5;
 }
 
 .zone-depot {
@@ -627,4 +627,63 @@ svg {
 .feedback button:hover {
     background: #d4af37;
     transform: scale(1.05);
+}
+
+/* Zones désactivées */
+.objet-cliquable.disabled {
+    filter: none !important;
+}
+
+/* Désactive pointeur et clics */
+.objet-cliquable.disabled .zone-click {
+    cursor: default !important;
+    pointer-events: none !important;
+}
+
+/* Une réponse validée correctement */
+.objet-cliquable.correct .zone-click {
+    pointer-events: none;
+}
+
+/* Feedback */
+.feedback {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+}
+
+.feedback.show {
+    opacity: 1;
+}
+
+.feedback button {
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    background: #f4d03f;
+    color: #2c1810;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+#transition-overlay {
+    transition: opacity 0.5s ease;
+}
+
+.objet-cliquable.correct {
+    filter: drop-shadow(0 0 12px rgba(0, 255, 0, 1))
+    drop-shadow(0 0 25px rgba(0, 255, 0, 0.8)) !important;
+}
+
+/* Désactiver hover sur objets normaux mais NE PAS toucher aux correct */
+.objet-cliquable.disabled:not(.correct) {
+}
+
+/* Bloquer clic uniquement sur les disabled NON corrects */
+.objet-cliquable.disabled:not(.correct) .zone-click {
+    cursor: default !important;
+    pointer-events: none !important;
 }
