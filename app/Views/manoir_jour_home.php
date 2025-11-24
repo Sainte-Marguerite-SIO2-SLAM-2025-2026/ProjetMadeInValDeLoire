@@ -140,7 +140,9 @@
 
             <!-- Zone Lune/Soleil -->
             <g id="lune_soleil" class="zone-lune" data-piece="LuneSoleil">
-                <path class="lune-zone" d="m 1899,1 h -291 c 0,0 3,75 15,108 13,33 32,64 58,87 27,23 61,37 95,45 34,8 84,3 104,0 20,-3 18,-6 18,-6 z"/>
+                <path class="lune-zone" d="m 1610,1 c 0,0 2,76 14,109
+                      12,33 31,62 57,86 26,23 62,41 96,49 35,8
+                       85,8 105,3 19,-4 46,-11 46,-11 V 2 Z"/>
             </g>
 
             <!-- Zone Quiz -->
@@ -176,7 +178,7 @@
                         aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <img src="<?= base_url('images/commun/mascotte/mascotte_exclamee.svg') ?>" alt="Lumi" class="img-fluid rounded mb-3">
+                <img src="<?= base_url('images/commun/mascotte/mascotte_interrogee.svg') ?>" alt="Lumi" class="img-fluid rounded mb-3">
                 <div class="modal-texte">
                 <p>Bienvenue agent ! Vous venez d'intégrer la B.L.U.T., la Brigade un peu spéciale chargée de sécuriser
                     l'univers numérique. Votre mission : traverser les 6 salles du CyberManor pour prouver que vous êtes
