@@ -1,6 +1,6 @@
 /* === Arrière-plan === */
 .background-container {
-    background-image: url("../salle_1/images/fonds/fond_page2.webp");
+    background-image: url("../images/salle_1/images/fonds/fond_page2.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -40,82 +40,55 @@
     left: 60%;
     transform: translateX(-50%);
     width: 75%;
-    height: 230px;             /* Hauteur réduite ici */
-    background-image: url("../salle_1/images/bulle/bulle.webp");
+    max-height: 350px;
+    overflow-y: auto;
+    background-image: url("../images/salle_1/images/bulle/bulle.webp");
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: 100% 100%;
-    display: flex;
-    padding: 18px 60px 12px 60px; /* Espace réduit */
+    padding: 25px 60px 25px 60px;
     color: black;
-    font-size: 1.1rem;         /* Police réduite */
+    font-size: 1.3rem;
     z-index: 3;
-    line-height: 1.4;          /* Espacement naturel */
-    align-items: flex-start;
+    line-height: 1.8;
+    word-wrap: break-word;
+    white-space: normal;
+    text-align: left;
 }
 
-/* === Nom du personnage dans la bulle === */
-.text-zone .nom-personnage-bulle {
-    font-weight: bold;
-    font-size: 1rem;
-    color: #3a3a3a;
-    text-shadow: 0 0 8px #fff, 0 0 3px #fff;
-    padding-bottom: 4px;
-    padding-left: 4px;
-    margin-bottom: 4px;
-    align-self: flex-start;
-}
+
 
 /* === Mots interactifs === */
 .text-zone span {
-    margin: 0 4px;
+    margin: 0 5px;
     cursor: pointer;
     transition: color 0.2s, transform 0.1s;
+    display: inline;
 }
-.text-zone span:hover {
+
+.text-zone span:hover:not(.mot-clique) {
     color: #e6c700;
     text-shadow: 0 0 10px black;
     transform: scale(1.08);
 }
 
+.text-zone span.mot-clique {
+    cursor: default;
+    pointer-events: none;
+}
 
 /* === Nom du personnage === */
 #nom-personnage {
     position: fixed;
-    bottom: 22%;
+    bottom: 20.5%;
     left: 25%;
-    font-size: clamp(1.2rem, 2vw, 2rem);
+    font-size: 1.5rem;
     color: #111;
     text-shadow: 0 0 10px #fff, 0 0 4px #fff;
     font-weight: bold;
     z-index: 20;
     padding: 6px 24px;
     border-radius: 17px;
-}
-
-/* === Vies === */
-#vies {
-    position: fixed;
-    top: 60px;
-    left: 60px;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-    z-index: 20;
-    background: rgba(255,255,255, 0.07);
-    padding: 8px 14px;
-    border-radius: 18px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.10);
-}
-#vies img.coeur {
-    width: clamp(30px, 4vw, 42px);
-    filter: drop-shadow(0 0 5px gold);
-    transition: transform 0.13s ease;
-}
-#vies img.coeur:hover {
-    transform: scale(1.07) rotate(-13deg);
-    filter: drop-shadow(0 0 12px orange);
 }
 
 /* === Serrure === */
@@ -129,8 +102,9 @@
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
 }
+
 .serrure-image:hover {
-    content: url("../salle_1/images/serrure/serrure_jaune.webp");
+    content: url("../images/salle_1/images/serrure/serrure_jaune.webp");
     transform: scale(1.1);
     filter: drop-shadow(0 0 10px yellow);
 }
@@ -188,4 +162,23 @@
 #popup button:hover {
     transform: scale(1.05);
     filter: drop-shadow(0 0 10px yellow);
+}
+
+/* === Scrollbar personnalisée === */
+.text-zone::-webkit-scrollbar {
+    width: 8px;
+}
+
+.text-zone::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.text-zone::-webkit-scrollbar-thumb {
+    background: rgba(230, 199, 0, 0.5);
+    border-radius: 10px;
+}
+
+.text-zone::-webkit-scrollbar-thumb:hover {
+    background: rgba(230, 199, 0, 0.8);
 }

@@ -301,23 +301,19 @@ html, body {
     color: #7f8c8d;
 }
 
-/*#countdown {*/
-/*    font-weight: bold;*/
-/*    color: #e74c3c;*/
-/*}*/
-
 /* ===== Bouton retour ===== */
 .retour {
     position: absolute;
-    bottom: 2%;
-    left: 0;
-    max-width: 250px;
-    height: 75px;
+    top: 1%;
+    left: 1%;
+    transform: none;
+    max-width: 200px;
+    height: 200px;
     transition: transform 0.3s;
 }
 
 .retour:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 
 /* ===== Mascotte interactive ===== */

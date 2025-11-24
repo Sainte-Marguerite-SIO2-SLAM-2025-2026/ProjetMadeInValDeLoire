@@ -44,16 +44,16 @@ html, body {
 /* Bouton retour */
 .retour {
     position: absolute;
-    bottom: 2%;
-    left: 0;
+    top: 1%;
+    left: 1%;
     transform: none;
-    max-width: 250px;
-    height: 75px;
+    max-width: 200px;
+    height: 200px;
     transition: transform 0.3s;
 }
 
 .retour:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 
 /* ===== Mascotte interactive ===== */
@@ -64,7 +64,7 @@ html, body {
     width: 150px;
     height: 180px;
     cursor: pointer;
-    z-index: 200;
+    z-index: 10;
 }
 
 .mascotte-img {
@@ -78,21 +78,11 @@ html, body {
     pointer-events: none;
 }
 
-.mascotte-default {
-    opacity: 1;
-}
+.mascotte-default { opacity: 1; }
+.mascotte-hover  { opacity: 0; }
 
-.mascotte-hover {
-    opacity: 0;
-}
-
-.mascotte-zone:hover .mascotte-default {
-    opacity: 0;
-}
-
-.mascotte-zone:hover .mascotte-hover {
-    opacity: 1;
-}
+.mascotte-zone:hover .mascotte-default { opacity: 0; }
+.mascotte-zone:hover .mascotte-hover  { opacity: 1; }
 
 /* ===== Modal ===== */
 .modal {
@@ -214,4 +204,42 @@ html, body {
 
 .rules-modal-content::-webkit-scrollbar-thumb:hover {
     background: #16a085;
+}
+
+
+
+
+
+
+
+
+
+/* Zones bloquées */
+.zone-bloquee {
+    cursor: not-allowed;
+    position: relative;
+}
+
+.overlay-bloque {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.zone1.zone-bloquee .overlay-bloque {
+    /*background: rgba(39, 174, 96, 0.9);*/
+}
+
+.zone2.zone-bloquee .overlay-bloque {
+    background: transparent;
 }

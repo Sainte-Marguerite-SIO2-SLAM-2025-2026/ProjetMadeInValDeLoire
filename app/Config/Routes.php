@@ -10,7 +10,15 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/MentionLegale', 'commun\CommunController::MentionLegale');
 
 // Route pour la page d'accueil
-$routes->get('/', 'accueil\AccueilController::index');
+$routes->get('/', 'HomeControlleur::index');
+$routes->get('/manoirJour', 'HomeControlleur::pagejour');
+
+$routes->get('/reset', 'HomeControlleur::reset');
+$routes->get('/resetSalleJour', 'HomeControlleur::resetSalleJour');
+$routes->get('/salle/salle_(:num)', 'HomeControlleur::salle/$1');
+$routes->post('/valider/(:num)', 'HomeControlleur::valider/$1');
+$routes->post('/validerJour/(:num)', 'HomeControlleur::validerJour/$1');
+$routes->post('/echouerJour/(:num)', 'HomeControlleur::echouerJour/$1');
 
 // Routes pour la salle 1
 $routes->get('/Salle1', 'accueil\AccueilController::Salle1');
@@ -31,6 +39,7 @@ $routes->post('/verifierOrdre', 'salle_4\Salle4Controller::verifierOrdre');
 $routes->get('/quizFin', 'salle_4\Salle4Controller::quizFinal');
 $routes->post('/verifierReponseQuiz', 'salle_4\Salle4Controller::verifierReponseQuiz');
 $routes->get('/resetQuiz', 'accueil\AccueilController::index');
+$routes->get('/resetSalle4', 'salle_4\Salle4Controller::resetSalle');
 
 
 // Routes pour la salle 5

@@ -9,7 +9,7 @@
 
     <div class="footer-section">
         <h4>Hébergeur</h4>
-        <p>Les réseaux<br>
+        <p>Local<br>
             1 rue Horizon Vert<br>
             37130 Chambray-lès-Tours, France</p>
     </div>

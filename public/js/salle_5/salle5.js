@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const objetsEnigmes = document.querySelectorAll('.objet-enigme');
     const baseUrl = document.body.dataset.baseurl;
 
-
     objetsEnigmes.forEach(objet => {
         const activiteNum = parseInt(objet.getAttribute('data-activite'));
         const zone = objet.querySelector('.piece-zone');

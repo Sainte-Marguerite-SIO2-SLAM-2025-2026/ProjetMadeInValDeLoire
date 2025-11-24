@@ -1,7 +1,7 @@
 <?= link_tag('styles/salle_5/enigme.css') ?>
 <title><?= esc($enigme->libelle) ?></title>
 </head>
-<body>
+<body data-baseurl="<?= base_url() ?>">
 <div class="scene-enigme">
     <!-- Bouton retour -->
     <div class="retour-top">
@@ -854,6 +854,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
             <?php if ($enigme->numero == 2): ?>
                 <!-- Clé USB gauche -->
                 <g id="usb_left" class="objet-cliquable" data-reponse="cle_usb_gauche">
+                    <title>Une clé USB qui circule dans l'entreprise</title>
                     <image
                             x="133" y="282" width="128" height="83"
                             transform="rotate(-15, 197, 323)"
@@ -866,6 +867,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
 
                 <!-- Clé USB bas -->
                 <g id="usb_bottom" class="objet-cliquable" data-reponse="cle1">
+                    <title>Une clé USB remise en main propre par le service comptabilité</title>
                     <image
                             x="104" y="756" width="123" height="84"
                             transform="rotate(12, 165, 798)"
@@ -878,6 +880,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
 
                 <!-- Clé USB droite -->
                 <g id="usb_right" class="objet-cliquable" data-reponse="cle_usb_droite">
+                    <title class="blutblut">Une clé USB qui a été trouvé par terre</title>
                     <image
                             x="1097" y="292" width="155" height="78"
                             transform="rotate(20, 1174, 331)"
@@ -978,18 +981,14 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
             <?php if ($enigme->numero == 9): ?>
                 <g id="carte_pass" class="objet-cliquable" data-reponse="B">
                     <image clip-path="url(#clip_carte_pass)"
-                           x="106.25" y="332.29" width="152.08" height="110.42"
+                           x="106.25" y="332.29" width="152.08" height="110.42" style="cursor:default;"
                            xlink:href="<?= base_url('images/salle_5/badge.svg') ?>"/>
-                    <rect class="zone-click" x="106.25" y="332.29" width="152.08" height="110.42" fill="transparent"
-                          style="cursor:pointer;"/>
                 </g>
 
                 <g id="post_it_code" class="objet-cliquable" data-reponse="A">
                     <image clip-path="url(#clip_post_it_code)"
-                           x="103.12" y="418.75" width="120.83" height="117.71"
+                           x="103.12" y="418.75" width="120.83" height="117.71" style="cursor: default;"
                     xlink:href="<?= base_url('images/salle_5/post_it_code.svg') ?>"/>
-                    <rect class="zone-click" x="103.12" y="418.75" width="120.83" height="117.71" fill="transparent"
-                          style="cursor:pointer;"/>
                 </g>
 
                 <g id="choix_1" class="objet-cliquable" data-reponse="choix_1">
@@ -1074,7 +1073,7 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
     <!-- Mascotte -->
     <div class="mascotte">
         <?= img([
-                "src" => $mascotte->image,
+                "src" => base_url('images/commun/mascotte/mascotte_face.svg'),
                 "class" => "mascotte-img",
                 "alt" => "Mascotte"
         ]) ?>
@@ -1087,5 +1086,5 @@ WcGMskBW9ifaVaWudnbNXrEixsr9sP8CFwHx3lOGRokAAAAASUVORK5CYII=
     const activite_numero = <?= $enigme->numero ?>;
     const base_url = '<?= base_url() ?>';
 </script>
+<?= script_tag('js/salle_5/mascotte.js') ?>
 <?= script_tag('js/salle_5/enigme.js') ?>
-

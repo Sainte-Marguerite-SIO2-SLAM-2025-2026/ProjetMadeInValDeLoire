@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const objetsValides = [];
 
     objetsCliquables.forEach(objet => {
-        // ❌ SUPPRESSION de l'effet néon rouge initial
-        // objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
-
         objet.addEventListener('mouseenter', () => {
             if (!objetsValides.includes(objet)) {
                 objet.style.filter = 'drop-shadow(0 0 15px rgba(255, 255, 255, 1)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.8))';
@@ -58,6 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         objetsValides.push(objet);
                     }
 
+                    // 🎭 Mascotte exclamée (bonne réponse)
+                    if (window.changerMascotte) {
+                        window.changerMascotte('exclamee', 2000);
+                    }
+
                     if (data.completed) {
                         // Énigme terminée
                         feedback.textContent = '✅ ' + data.message;
@@ -83,6 +85,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     // ❌ Mauvaise réponse - Redirection vers salle avec échec
                     feedback.textContent = '❌ ' + data.message;
                     feedback.className = 'feedback error show';
+
+                    // 😱 Mascotte choquée (mauvaise réponse)
+                    if (window.changerMascotte) {
+                        window.changerMascotte('choquee', 2000);
+                    }
 
                     setTimeout(() => {
                         objetsCliquables.forEach(o => {
@@ -144,6 +151,11 @@ function validerQCM() {
                 feedback.textContent = '✅ ' + data.message;
                 feedback.className = 'feedback success show';
 
+                // 🎭 Mascotte exclamée (bonne réponse)
+                if (window.changerMascotte) {
+                    window.changerMascotte('exclamee', 2000);
+                }
+
                 setTimeout(() => {
                     overlay.style.opacity = '1';
                     overlay.style.pointerEvents = 'all';
@@ -155,6 +167,12 @@ function validerQCM() {
             } else {
                 feedback.textContent = '❌ ' + data.message;
                 feedback.className = 'feedback error show';
+
+                // 😱 Mascotte choquée (mauvaise réponse)
+                if (window.changerMascotte) {
+                    window.changerMascotte('choquee', 2000);
+                }
+
                 setTimeout(() => feedback.classList.remove('show'), 2000);
             }
         })

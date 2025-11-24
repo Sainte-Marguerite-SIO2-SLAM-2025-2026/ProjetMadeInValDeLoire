@@ -95,21 +95,25 @@
     </div>
 
     <!-- Bouton retour -->
-    <?= anchor(base_url() . 'Salle4', img([
-            'src'   => 'images/commun/retour.png',
+    <?= anchor(base_url(), img([
+            'src'   => 'images/salle_4/images_finales/home_icone_3.webp',
             'alt'   => 'retour',
             'class' => 'retour'
     ])); ?>
 
     <!-- Mascotte interactive -->
     <div class="mascotte-zone" id="mascotte-container">
-        <img src="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>"
-             class="mascotte-img mascotte-default"
-             alt="Mascotte">
+        <?= anchor(base_url(), img([
+                'src'   => 'images/commun/mascotte/mascotte_face.svg',
+                'alt'   => 'Mascotte',
+                'class' => 'mascotte-img mascotte-default'
+        ])); ?>
 
-        <img src="<?= base_url('images/commun/mascotte/mascotte_exclamee.svg') ?>"
-             class="mascotte-img mascotte-hover"
-             alt="Mascotte hover">
+        <?= anchor(base_url(), img([
+                'src'   => 'images/commun/mascotte/mascotte_exclamee.svg',
+                'alt'   => 'Mascotte Hover',
+                'class' => 'mascotte-img mascotte-hover'
+        ])); ?>
     </div>
 
     <!-- Modal des règles -->
