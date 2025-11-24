@@ -55,6 +55,7 @@ $routes->get('/Salle6', 'salle_6\Salle6Controller::Index');
 $routes->get('/Salle6/Enigme', 'salle_6\Salle6Controller::Enigme');
 $routes->get('/Salle6/Explication', 'salle_6\Salle6Controller::Explication');
 $routes->get('/Salle6/Quitter', 'salle_6\Salle6Controller::QuitterSalle');
+$routes->get('/Salle6/RevenirAccueil', 'salle_6\Salle6Controller::QuitterSalleBtnAccueil');
 // Routes WiFi
 $routes->get('/Salle6/Wifi', 'salle_6\WifiController::index');
 $routes->post('/wifi/validerCarte', 'salle_6\WifiController::validerCarte');

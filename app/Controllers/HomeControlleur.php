@@ -7,6 +7,7 @@ use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\MascotteModel;
 use App\Models\salle_5\SalleModel;
 use CodeIgniter\HTTP\RedirectResponse;
+use App\Controllers\salle_6\Salle6Controller;
 
 class HomeControlleur extends BaseController
 {
@@ -142,6 +143,12 @@ class HomeControlleur extends BaseController
                 'afficher_popup_succes' => $afficher_popup_succes,
                 'afficher_popup_echec' => $afficher_popup_echec,
             ];
+        }
+
+        if ((int)$numero === 6)
+        {
+            $salle6 = new Salle6Controller();
+            return $salle6->Index();
         }
 
         $data['numero_salle'] = $numero;

@@ -43,7 +43,8 @@ class Salle6Controller extends BaseController
         // Passer l'explication à la vue
         $data['explication'] = $explication['libelle'] ?? 'Texte par défaut';
 
-        return view('salle_6\AccueilSalle6', $data) .
+        return view('commun\header') .
+            view('salle_6\AccueilSalle6', $data) .
             view('commun\footer');
     }
 
@@ -142,12 +143,14 @@ class Salle6Controller extends BaseController
 
         // On test si l'utilisateur a fini la salle
         if (!$wifiComplete || !$vpnComplete) {
-            $data['urlImgMascotte'] = base_url('images/commun/mascotte/mascotte_profil');
-            $data['texteBtnValider'] = "J'ai compris !";
+            $data['urlImgMascotte'] = base_url('images/commun/mascotte/mascotte_saoulee');
+            $data['texteBtnValider'] = "Retour à l'accueil";
 
             // Récupérer les explications de la BDD
-            $explication = $this->ExplicationModel->getExplication(3);
-            $data['explication'] = $explication['libelle'] ?? 'Te voila dans le grenier, clique sur le train pour commencer les énigmes. bla bla bla ....';
+            $explication = $this->ExplicationModel->getExplication(4);
+            $data['explication'] = $explication['libelle'] ?? 'Dommage, tu n’as pas réussi à valider cette salle… cette fois-ci !
+                Mais ne baisse pas les bras : chaque échec t’aide à mieux comprendre les mécanismes de sécurité et à renforcer tes compétences.
+                Reviens quand tu veux pour retenter l’expérience : la salle t’attend, et je suis sûr que tu finiras par la résoudre !';
             $data['messageResultat'] = '';
         }
         else{
@@ -173,14 +176,40 @@ class Salle6Controller extends BaseController
         $session->remove('vpn_complete');
     }
 
-    public function QuitterSalle()
+    // Permet de revenir à l'accueil depuis le bouton accueil
+    public function QuitterSalleBtnAccueil()
     {
+        $session = session();
         $this->RazSession();
         // Test si on est en mode jour ou nuit
+        $mode = $session->get('mode') ?? 'nuit';
+        $urlRetour = ($mode === 'jour') ? base_url() . 'manoirJour' : base_url();
+
+        // Renvoie à la page d'accueil selon le mode
+        return redirect()->to($urlRetour);
+    }
+
+    // Gère la réussite ou l'échec de la salle et reviens à l'accueil
+    public function QuitterSalle()
+    {
+        $session = session();
+        $this->RazSession();
+        $mode = $session->get('mode') ?? 'nuit';
+        // Vérifier que les deux énigmes sont bien complétées
+        $wifiComplete = $session->get('wifi_complete') ?? false;
+        $vpnComplete = $session->get('vpn_complete') ?? false;
 
         // Test si l'utilisateur a réussi la salle
+        if ($wifiComplete && $vpnComplete) {
+            // Test si on est en mode jour ou nuit
+            $urlRetour = ($mode === 'jour') ? base_url() . 'validerJour/6' : base_url() . 'echouerJour/6';
+        }
+        else {
+            // Test si on est en mode jour ou nuit
+            $urlRetour = ($mode === 'jour') ? base_url() . 'valider/6' : base_url() . 'reset';
+        }
 
         // Renvoie à la page d'accueil pour l'instant sans changement
-        return redirect()->to(base_url() .'/');
+        return redirect()->to($urlRetour);
     }
 }

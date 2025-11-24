@@ -19,7 +19,7 @@
     <?= anchor(base_url() . 'Salle6/Enigme', ' ', ['class' => 'zone-cliquable']); ?>
 
     <!-- Bouton retour -->
-    <?= anchor(base_url() . '/', img(['src' => 'images/commun/btn_retour/home_icone_6.webp',
+    <?= anchor(base_url() . 'Salle6/RevenirAccueil', img(['src' => 'images/commun/btn_retour/home_icone_6.webp',
             'alt' => 'Retour',
             'class' => 'retour']), [
             'class' => 'retour'

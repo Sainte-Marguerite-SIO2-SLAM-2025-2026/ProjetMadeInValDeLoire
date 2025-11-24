@@ -8,6 +8,7 @@ use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\MascotteModel;
 use App\Models\salle_5\SalleModel;
+use App\Controllers\salle_6\Salle6Controller;
 
 class AccueilController extends BaseController
 {
@@ -126,8 +127,7 @@ class AccueilController extends BaseController
 
     public function Salle6() : string
     {
-        return view('commun\header').
-            view('salle_6\AccueilSalle6').
-            view('commun\footer');
+        $sale6Controller = new Salle6Controller();
+        return $sale6Controller->Index();
     }
 }
