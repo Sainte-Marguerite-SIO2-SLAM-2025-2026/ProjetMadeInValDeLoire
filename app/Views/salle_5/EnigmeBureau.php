@@ -36,57 +36,64 @@
                     style="pointer-events: none;"/>
 
 
+            <?php if ($enigme->numero == 2 || $enigme->numero == 9):
+                $class = "";
+            $cursor = '';
+            else:
+                $class = 'class="objet-cliquable"';
+                $cursor = 'style="cursor:pointer;"';
+            endif; ?>
 
-            <g id="ciseaux" class="objet-cliquable" data-reponse=".">
+            <g id="ciseaux"  <?=$class?> data-reponse=".">
                 <image x="350.22" y="-18.651" width="129" height="224.38" transform="rotate(90, 414.72, 93.539)"
                        xlink:href="<?= base_url('images/salle_5/ciseau.svg') ?>"/>
 
                 <rect class="zone-click" x="350.22" y="-18.651" width="129" height="224.38"
-                      fill="transparent" style="cursor:pointer;" transform="rotate(90, 414.72, 93.539)"/>
+                      fill="transparent" <?=$cursor?> transform="rotate(90, 414.72, 93.539)"/>
             </g>
 
-            <g id="pic" class="objet-cliquable" data-reponse=".">
+            <g id="pic" <?=$class?> data-reponse=".">
                 <image x="322.25" y="445.55" width="115.01" height="54.916"
                        xlink:href="<?= base_url('images/salle_5/pic_2.svg') ?>"/>
 
                 <rect class="zone-click" x="322.25" y="445.55" width="115.01" height="54.916"
-                      fill="transparent" style="cursor:pointer;"/>
+                      fill="transparent" <?=$cursor?>/>
             </g>
 
-            <g id="puce" class="objet-cliquable" data-reponse=".">
+            <g id="puce" <?=$class?> data-reponse=".">
                 <image x="823.75" y="51.808" width="133.66" height="49.736"
                        xlink:href="<?= base_url('images/salle_5/puce_1.svg') ?>"/>
 
                 <rect class="zone-click" x="823.75" y="51.808" width="133.66" height="49.736"
-                      fill="transparent" style="cursor:pointer;"/>
+                      fill="transparent" <?=$cursor?>/>
             </g>
 
-            <g id="stylo" class="objet-cliquable" data-reponse=".">
+            <g id="stylo" <?=$class?> data-reponse=".">
                 <image x="321.21" y="758.47" width="295.31" height="119.16"
                        xlink:href="<?= base_url('images/salle_5/stylo.svg') ?>"/>
 
                 <rect class="zone-click" x="321.21" y="758.47" width="295.31" height="119.16"
-                      fill="transparent" style="cursor:pointer;"/>
+                      fill="transparent" <?=$cursor?>/>
             </g>
 
-            <g id="tel" class="objet-cliquable" data-reponse=".">
+            <g id="tel" <?=$class?> data-reponse=".">
                 <image x="808.2" y="662.11" width="157" height="175"
                        xlink:href="<?= base_url('images/salle_5/telephone.svg') ?>"/>
 
                 <rect class="zone-click" x="808.2" y="662.11" width="157" height="175"
-                      fill="transparent" style="cursor:pointer;"/>
+                      fill="transparent" <?=$cursor?>/>
             </g>
 
-            <g id="trombone" class="objet-cliquable" data-reponse=".">
+            <g id="trombone" <?=$class?> data-reponse=".">
                 <image x="761.58" y="437.26" width="84.965" height="66.314"
                        xlink:href="<?= base_url('images/salle_5/trombone.svg') ?>"/>
 
                 <rect class="zone-click" x="761.58" y="437.26" width="84.965" height="66.314"
-                      fill="transparent" style="cursor:pointer;"/>
+                      fill="transparent" <?=$cursor?>/>
             </g>
 
             <?php if ($enigme->numero != 8 && $enigme->numero != 4): ?>
-                <g id="carnet" <?php if ($enigme->numero != 9): ?>class="objet-cliquable"<?php endif; ?> data-reponse="A">
+                <g id="carnet" <?=$class?> data-reponse="A">
                     <image clip-path="url(#clip_carnet)"
                            x="-169.72" y="281.21" width="447.7" height="251.17"
                            xlink:href="<?= base_url('images/salle_5/carnet.svg') ?>"/>
@@ -226,13 +233,13 @@
 
             <!-- Énigme 9 : Carnet MDP -->
             <?php if ($enigme->numero == 9): ?>
-                <g id="carte_pass" class="objet-cliquable" data-reponse="B">
+                <g id="carte_pass" <?=$class?> data-reponse="B">
                     <image clip-path="url(#clip_carte_pass)"
                            x="106.25" y="332.29" width="152.08" height="110.42"
                            xlink:href="<?= base_url('images/salle_5/badge.svg') ?>"/>
                 </g>
 
-                <g id="post_it_code" class="objet-cliquable" data-reponse="A">
+                <g id="post_it_code" <?=$class?> data-reponse="A">
                     <image clip-path="url(#clip_post_it_code)"
                            x="103.12" y="418.75" width="120.83" height="117.71"
                     xlink:href="<?= base_url('images/salle_5/post_it_code.svg') ?>"/>

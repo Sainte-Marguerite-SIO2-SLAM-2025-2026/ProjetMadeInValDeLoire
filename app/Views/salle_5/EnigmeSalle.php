@@ -201,10 +201,48 @@
                            xlink:href="<?= base_url('images/salle_5/camera.svg') ?>"/>
                     <rect class="zone-click"
                           x="1577.1" y="89.952" width="232.99" height="113.9"
-                          fill="none"
+                          fill="transparent"
                           pointer-events="all"
                           style="cursor:pointer;"
                           />
+                </g>
+            <?php endif; ?>
+
+            <?php if ($enigme->numero == 5 || $enigme->numero == 10): ?>
+            <g id="ecran_bas_gauche" class="objet-cliquable" data-reponse=".">
+                <image clip-path="url(#clip_camera)"
+                       x="445.26" y="511.71" width="240" height="198"
+                       xlink:href="<?= base_url('images/salle_5/ecran_veille_1.svg') ?>"/>
+                <rect class="zone-click"
+                      x="445.26" y="511.71" width="240" height="198"
+                      fill="transparent"
+                      pointer-events="all"
+                      style="cursor:pointer;"
+                />
+            </g>
+
+                <g id="ecran_bas_mid_gauche" class="objet-cliquable" data-reponse=".">
+                    <image clip-path="url(#clip_camera)"
+                           x="718.8" y="517.31" width="265" height="189"
+                           xlink:href="<?= base_url('images/salle_5/ecran_veille_2.svg') ?>"/>
+                    <rect class="zone-click"
+                          x="718.8" y="517.31" width="265" height="189"
+                          fill="transparent"
+                          pointer-events="all"
+                          style="cursor:pointer;"
+                    />
+                </g>
+
+                <g id="ecran_bas_mid_droit" class="objet-cliquable" data-reponse=".">
+                    <image clip-path="url(#clip_camera)"
+                           x="1009.2" y="514.29" width="252" height="190"
+                           xlink:href="<?= base_url('images/salle_5/ecran_veille_2.svg') ?>"/>
+                    <rect class="zone-click"
+                          x="1009.2" y="514.29" width="252" height="190"
+                          fill="transparent"
+                          pointer-events="all"
+                          style="cursor:pointer;"
+                    />
                 </g>
             <?php endif; ?>
 
