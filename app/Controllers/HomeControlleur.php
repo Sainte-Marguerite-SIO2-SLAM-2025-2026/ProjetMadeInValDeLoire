@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\salle_1\Salle1ExplicationModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\MascotteModel;
@@ -74,6 +75,14 @@ class HomeControlleur extends BaseController
             log_message('error', "Vue manquante : {$viewPath}");
             return redirect()->to('/')
                 ->with('error', 'Salle indisponible');
+        }
+
+        if ((int)$numero === 1)
+        {
+            $explicationModel = new Salle1ExplicationModel();
+            $data = ['explication' => $explicationModel->getExplicationSalle1()];
+            return view('salle_1\AccueilSalle1', $data).
+                view('commun\footer');
         }
 
         if ((int)$numero === 5){

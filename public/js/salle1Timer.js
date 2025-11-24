@@ -1,7 +1,7 @@
 // === TIMER GLOBAL (5 minutes) ===
 
 // Durée totale du timer (en millisecondes)
-const TOTAL_TIME = 5 * 60 * 1000; // 5 minutes
+const TOTAL_TIME = 2 * 60 * 1000; // 5 minutes
 
 // Fonction pour démarrer le timer (appelée uniquement sur la page Discussion)
 function startTimer() {
@@ -12,21 +12,11 @@ function startTimer() {
 
 // Fonction pour afficher la popup de défaite
 function afficherDefaite() {
-    const popup = document.getElementById("popup");
-    const popupTitre = document.getElementById("popup-titre");
-    const popupMessage = document.getElementById("popup-message");
-    const popupFermer = document.getElementById("popup-fermer");
+    const popupEchec = document.getElementById("popup-echec");
 
-    if (popup && popupTitre && popupMessage && popupFermer) {
-        popupTitre.textContent = "Temps écoulé !";
-        popupMessage.textContent = "Le temps est écoulé ! Tu as perdu. Retour au menu principal...";
-        popup.style.display = "flex";
-
-        popupFermer.textContent = "Retour au menu";
-        popupFermer.onclick = function() {
-            sessionStorage.removeItem("startTime");
-            window.location.href = "/ProjetMadeInValDeLoire/public/"; // Redirection vers la page d'accueil
-        };
+    if (popupEchec) {
+        popupEchec.style.display = "flex"; // 🔥 La popup s’affiche !
+        sessionStorage.removeItem("startTime");
     }
 }
 

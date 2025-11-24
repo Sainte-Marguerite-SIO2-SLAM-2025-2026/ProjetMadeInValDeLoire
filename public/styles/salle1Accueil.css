@@ -78,7 +78,7 @@
 /* === Fantôme === */
 .content-container {
     position: absolute;
-    bottom: 4%;
+    bottom: 12vh;
     left: 17%;
 }
 
@@ -93,4 +93,9 @@
     transform: scale(1.1);
     filter: drop-shadow(0 0 25px yellow);
 }
+
+
+
+
+
 

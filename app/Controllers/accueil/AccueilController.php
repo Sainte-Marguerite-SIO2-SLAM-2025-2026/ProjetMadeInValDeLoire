@@ -17,15 +17,7 @@ class AccueilController extends BaseController
             view('commun\footer');
     }
 
-    public function Salle1() : string
-    {
-        $explicationModel = new Salle1ExplicationModel();
 
-        $data = ['explication' => $explicationModel->getExplicationSalle1()];
-
-        return view('salle_1\AccueilSalle1', $data).
-            view('commun\footer');
-    }
 
     public function Salle2() : string
     {
