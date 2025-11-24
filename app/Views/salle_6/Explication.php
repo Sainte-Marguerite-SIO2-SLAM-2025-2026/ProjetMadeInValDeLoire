@@ -31,7 +31,7 @@
             padding: 20px;
             font-family: Arial, sans-serif;
         ">
-            <h2 style="color: #2ecc71; font-size: 3rem; margin-bottom: 1rem;">🎉 Félicitations ! 🎉</h2>
+            <h2 style="color: #2ecc71; font-size: 3rem; margin-bottom: 1rem;"> <?= $intituleMessage ?> </h2>
             <p style="color: #333; font-size: 1.5rem; margin-bottom: 1rem;">
                 <?= isset($messageResultat) ? esc($messageResultat) : 'Test' ?>
             </p>
