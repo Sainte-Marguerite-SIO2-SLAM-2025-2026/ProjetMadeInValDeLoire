@@ -6,7 +6,9 @@
     <h1 class="titre-temp">Sélectionnez l'affirmation vraie sur les VPN</h1>
 
     <!-- Bouton retour -->
-    <?= anchor(base_url() . '/', "Projet Made in Val de Loire", [
+    <?= anchor(base_url() . '/', img(['src' => 'images/commun/btn_retour/home_icone_6.webp',
+            '  alt' => 'Retour',
+            'class' => 'retour']), [
             'class' => 'retour'
     ]); ?>
 

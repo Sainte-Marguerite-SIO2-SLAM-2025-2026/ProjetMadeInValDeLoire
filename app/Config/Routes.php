@@ -10,7 +10,15 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/MentionLegale', 'commun\CommunController::MentionLegale');
 
 // Route pour la page d'accueil
-$routes->get('/', 'accueil\AccueilController::index');
+$routes->get('/', 'HomeControlleur::index');
+$routes->get('/manoirJour', 'HomeControlleur::pagejour');
+
+$routes->get('/reset', 'HomeControlleur::reset');
+$routes->get('/resetSalleJour', 'HomeControlleur::resetSalleJour');
+$routes->get('/salle/salle_(:num)', 'HomeControlleur::salle/$1');
+$routes->post('/valider/(:num)', 'HomeControlleur::valider/$1');
+$routes->post('/validerJour/(:num)', 'HomeControlleur::validerJour/$1');
+$routes->post('/echouerJour/(:num)', 'HomeControlleur::echouerJour/$1');
 
 // Routes pour la salle 1
 $routes->get('/Salle1', 'accueil\AccueilController::Salle1');
@@ -45,7 +53,8 @@ $routes->get('/finSalle5', 'salle_5\Salle5Controller::finSalle');
 // Routes pour la salle 6
 $routes->get('/Salle6', 'salle_6\Salle6Controller::Index');
 $routes->get('/Salle6/Enigme', 'salle_6\Salle6Controller::Enigme');
-$routes->get('/Salle6/Resultat', 'salle_6\Salle6Controller::Fin');
+$routes->get('/Salle6/Explication', 'salle_6\Salle6Controller::Explication');
+$routes->get('/Salle6/Quitter', 'salle_6\Salle6Controller::QuitterSalle');
 // Routes WiFi
 $routes->get('/Salle6/Wifi', 'salle_6\WifiController::index');
 $routes->post('/wifi/validerCarte', 'salle_6\WifiController::validerCarte');

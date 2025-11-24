@@ -13,8 +13,8 @@
     <section>
         <h2>1. Éditeur du site</h2>
         <p>
-            Le site <strong>Blut Blut</strong> est édité par la société
-            <strong>Blut Blut Corp</strong>, au capital social de <strong>1000 €</strong>,
+            Le site <strong>CyberQuest</strong> est édité par la société
+            <strong>BLUT - Block, Learn, Understand, Train</strong>, au capital social de <strong>1000 €</strong>,
 <!--            immatriculée au RCS de Paris sous le numéro <strong>123 456 789</strong>,-->
             dont le siège social est situé au <strong>1 rue Horizon Vert, 37130 Chambray-lès-Tours, France</strong>.
         </p>
@@ -59,7 +59,9 @@
         </p>
     </section>
 
-    <?= anchor(base_url() . '/',"Projet Made in Val de Loire", [
+    <?= anchor(base_url().'/', img([
+            'src'   => 'images/commun/footer/accueil_mention1.svg',
+            'alt'   => "Retour à l'accueil",
             'class' => 'retour'
-    ]);?>
+    ])); ?>
 </main>
