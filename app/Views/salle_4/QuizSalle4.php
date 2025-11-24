@@ -90,36 +90,7 @@
             <h2 id="resultTitle"></h2>
             <p id="resultMessage"></p>
             <p id="scoreMessage"></p>
-<!--            <div class="popup-fin-quiz">-->
-<!--                --><?php //= form_open(base_url('verifierReponseQuiz')) ?>
-<!--                --><?php //= form_button([
-//                        'content' => 'Revenir à l\'accueil',
-//                        'type'    => 'submit',
-//                        'class'   => 'btn-retour-accueil'
-//                ]) ?>
-<!--                --><?php //= form_close() ?>
-<!--            </div>-->
             <button id="btnRetourAccueil" class="btn-retour-accueil">Retour à l'accueil</button>
-<!--            --><?php //if (session()->get('mode') === 'nuit'): ?>
-<!--            <div class="popup-fin-quiz">-->
-<!--                --><?php //= form_open(base_url('/valider/4')) ?>
-<!--                --><?php //= form_button([
-//                        'content' => 'Revenir à l\'accueil',
-//                        'type'    => 'submit',
-//                        'class'   => 'btn-retour-accueil'
-//                ]) ?>
-<!--                --><?php //= form_close() ?>
-<!--            </div>-->
-<!--            --><?php //else: ?>
-<!--            <div class="popup-fin-quiz">-->
-<!--                --><?php //= form_open(base_url('/validerJour/4')) ?>
-<!--                --><?php //= form_button([
-//                        'content' => 'Revenir à l\'accueil',
-//                        'type'    => 'submit',
-//                        'class'   => 'btn-retour-accueil'
-//                ]) ?>
-<!--                --><?php //= form_close() ?>
-<!--            --><?php //endif?>
         </div>
     </div>
 
@@ -161,29 +132,30 @@
     <div id="rulesModal" class="modal">
         <div class="modal-content rules-modal-content">
             <span class="close-rules">&times;</span>
-            <h2>📋 Règles du Quiz</h2>
+            <h2>Règles du Quiz</h2>
             <div class="rules-content">
-                <h3>🎯 Objectif</h3>
+                <h3>Objectif</h3>
                 <p>Répondre correctement à 6 questions sur les ransomwares.</p>
 
-                <h3>🎮 Comment jouer ?</h3>
+                <h3>Comment jouer ?</h3>
                 <ol>
                     <li><strong>Cliquez sur une carte</strong> pour révéler une question</li>
                     <li><strong>Lisez attentivement</strong> la question affichée</li>
                     <li><strong>Choisissez VRAI ou FAUX</strong> selon votre réponse</li>
                     <li>Votre réponse est enregistrée automatiquement</li>
                     <li><strong>Continuez</strong> jusqu'à répondre aux 6 questions</li>
-                    <li>Consultez votre <strong>score final</strong> !</li>
+                    <li>Il vous faut au minimum 4 bonnes réponses pour valider la salle</li>
                 </ol>
 
-                <h3>⚠️ Important</h3>
+                <h3>Important</h3>
                 <ul>
                     <li>Une fois répondue, une carte ne peut plus être cliquée</li>
                     <li>Les questions restent les mêmes pendant toute la session</li>
                     <li>Votre score s'affiche en temps réel</li>
+                    <li>Vous n'aurez pas d'indications car il s'agit d'un vrai ou faux pour tester vos connaissances</li>
                 </ul>
 
-                <h3>💡 Astuce</h3>
+                <h3>Astuce</h3>
                 <p>Réfléchissez bien avant de répondre, vous n'avez qu'une seule chance par question !</p>
             </div>
         </div>

@@ -13,7 +13,7 @@
     <section>
         <h2>1. Éditeur du site</h2>
         <p>
-            Le site <strong>CyberQuest</strong> est édité par la société
+            Le site <strong>EnigManor</strong> est édité par la société
             <strong>BLUT - Block, Learn, Understand, Train</strong>, au capital social de <strong>1000 €</strong>,
 <!--            immatriculée au RCS de Paris sous le numéro <strong>123 456 789</strong>,-->
             dont le siège social est situé au <strong>1 rue Horizon Vert, 37130 Chambray-lès-Tours, France</strong>.
@@ -59,9 +59,22 @@
         </p>
     </section>
 
-    <?= anchor(base_url().'/', img([
-            'src'   => 'images/commun/footer/accueil_mention1.svg',
-            'alt'   => "Retour à l'accueil",
-            'class' => 'retour'
-    ])); ?>
+    <!-- Bouton retour -->
+    <?php if (session()->get('mode') === 'jour'): ?>
+        <div class="retour-top">
+            <?= anchor('/manoirJour', img([
+                    'src'   => 'images/commun/btn_retour/home_icone_4.webp',
+                    'alt'   => 'retour',
+                    'class' => 'retour'
+            ])); ?>
+        </div>
+    <?php else: ?>
+        <div class="retour-top">
+            <?= anchor('/', img([
+                    'src'   => 'images/commun/btn_retour/home_icone_4.webp',
+                    'alt'   => 'retour',
+                    'class' => 'retour'
+            ])); ?>
+        </div>
+    <?php endif?>
 </main>

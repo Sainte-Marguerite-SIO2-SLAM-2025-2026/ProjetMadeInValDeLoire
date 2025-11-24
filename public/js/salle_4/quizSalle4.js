@@ -269,12 +269,9 @@ function afficherResultatFinal2() {
     // =============================
     // RÉCUPÉRATION DU MODE (jour/nuit)
     // =============================
-
-
     const btnRetourAccueil = document.getElementById('btnRetourAccueil');
 
     if (!btnRetourAccueil) return;
-
 
     let chemin = "";
 
