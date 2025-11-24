@@ -16,7 +16,10 @@
     <div class="zone-cliquable" id="zoneCliquable"></div>
 
     <!-- Formulaire pour envoyer le choix -->
-    <?= form_open(base_url() . 'Salle6/CompleteVpn', ['id' => 'formVpn']) ?>
+    <?= form_open(base_url() . 'Salle6/CompleteVpn', [
+            'id' => 'formVpn',
+            'data-explication-url' => base_url() . 'Salle6/Explication'
+    ]) ?>
     <?= csrf_field() ?>
     <?= form_input(["type" => "hidden",
             "name" => "vpn_numero",
@@ -93,12 +96,5 @@
 
     <?= form_close() ?>
 </div>
-
-<!-- Bouton d'accueil (caché par défaut, affiché en cas d'échec) -->
-<?= anchor(base_url() . "/", "Revenir à l'accueil", [
-        "id" => "btnAccueil",
-        "class" => "btn-valider",
-        "style" => "display: none;"
-]) ?>
 
 <?= script_tag('js/salle_6/Vpn.js') ?>

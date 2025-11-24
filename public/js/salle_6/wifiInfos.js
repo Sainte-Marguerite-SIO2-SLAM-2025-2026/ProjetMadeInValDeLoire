@@ -5,23 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnSuivant = document.getElementById('btnSuivant');
     const resultatContainer = document.getElementById('resultatContainer');
     const messageResultat = document.getElementById('messageResultat');
+    const formWifiInfo = document.getElementById('formWifiInfo');
+    const infoSelectionneeInput = document.getElementById('infoSelectionneeInput');
 
     // Pour désactiver le hover :
-    document.getElementById('CarteWifi').classList.add('no-hover');
+    const carteWifi = document.getElementById('CarteWifi');
+    if (carteWifi) {
+        carteWifi.classList.add('no-hover');
+    }
 
     let infoSelectionnee = null;
-
-    // Récupérer les données du WiFi depuis sessionStorage
-    const wifiCorrectData = sessionStorage.getItem('wifiCorrect');
-
-    if (wifiCorrectData) {
-        const wifi = JSON.parse(wifiCorrectData);
-
-        // Mettre à jour les informations de la carte
-        document.getElementById('wifiNom').textContent = wifi.nom;
-        document.getElementById('wifiType').textContent = wifi.type;
-        document.getElementById('wifiChiffrement').textContent = wifi.chiffrement;
-    }
+    let reponseCorrecte = false;
 
     // Gérer le clic sur la zone cliquable
     if (zoneCliquable && cartesContainer) {
@@ -68,6 +62,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 element: this
             };
 
+            // Mettre à jour le champ caché
+            if (infoSelectionneeInput) {
+                infoSelectionneeInput.value = typeInfo;
+            }
+
+            console.log('Info sélectionnée:', typeInfo);
+
             // Afficher le bouton valider
             if (btnValider) {
                 btnValider.style.display = 'block';
@@ -85,21 +86,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Vérifier si l'info sélectionnée est la bonne (chiffrement)
-            const estInfoCorrecte = infoSelectionnee.typeInfo === 'chiffrement';
+            console.log('Validation - info sélectionnée:', infoSelectionnee.typeInfo);
+            console.log('Validation - zone correcte:', zoneCorrecte);
+
+            // Vérifier si l'info sélectionnée est la bonne en utilisant la variable globale
+            const estInfoCorrecte = infoSelectionnee.typeInfo === zoneCorrecte;
+            reponseCorrecte = estInfoCorrecte;
 
             if (resultatContainer && messageResultat) {
                 resultatContainer.style.display = 'block';
 
                 if (estInfoCorrecte) {
-                    messageResultat.textContent = '✓ Excellent ! Le chiffrement WPA3 est ce qui rend ce WiFi particulièrement sécurisé.';
+                    messageResultat.textContent = '✓ Excellent ! C\'est bien cette information qui rend ce WiFi sécurisé.';
                     infoSelectionnee.element.classList.add('info-correcte');
                 } else {
-                    messageResultat.textContent = '✗ Non, ce n\'est pas cette information. C\'est le chiffrement (WPA3) qui rend ce WiFi sécurisé.';
+                    messageResultat.textContent = '✗ Non, ce n\'est pas cette information qui garantit la sécurité de ce WiFi.';
                     infoSelectionnee.element.classList.add('info-incorrecte');
 
                     // Mettre en évidence la bonne info
-                    const bonneInfo = document.querySelector('.info-selectionnable[data-info="chiffrement"]');
+                    const bonneInfo = document.querySelector('.info-selectionnable[data-info="' + zoneCorrecte + '"]');
                     if (bonneInfo) {
                         bonneInfo.classList.add('info-correcte');
                     }
@@ -116,6 +121,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     info.style.pointerEvents = 'none';
                     info.classList.remove('info-cliquable');
                 });
+            }
+        });
+    }
+
+    // Gestion du bouton Suivant
+    if (btnSuivant) {
+        btnSuivant.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            if (infoSelectionnee && infoSelectionneeInput && formWifiInfo) {
+                infoSelectionneeInput.value = infoSelectionnee.typeInfo;
+                console.log('Soumission du formulaire avec:', infoSelectionneeInput.value);
+                // Toujours soumettre le formulaire, le contrôleur vérifiera la réponse
+                formWifiInfo.submit();
             }
         });
     }

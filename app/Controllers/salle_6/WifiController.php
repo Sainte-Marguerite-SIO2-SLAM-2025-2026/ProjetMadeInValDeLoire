@@ -25,54 +25,48 @@ class WifiController extends BaseController
         // Récupérer les WiFi depuis la base de données
         $data['wifis'] = $this->proposerWifiModel->getWifiMelanges($activite_numero);
 
-        // Alternative : récupérer séparément bon et mauvais WiFi
-        // $wifiPourJeu = $this->proposerWifiModel->getWifiPourJeu($activite_numero);
-        // $data['bon_wifi'] = $wifiPourJeu['bon'];
-        // $data['mauvais_wifi'] = $wifiPourJeu['mauvais'];
-
         return view('commun\header') .
             view('salle_6\WifiCartes', $data) .
             view('commun\footer');
     }
 
     /**
-     * Valide le choix du WiFi et redirige vers la page de résultat
+     * Valide le choix du WiFi et redirige vers la page WifiInfos
      */
     public function validerCarte()
     {
-        $this->proposerWifiModel = new ProposerWifiModel();
-        $this->wifiModel = new WifiModel();
-
         $wifi_numero = $this->request->getPost('wifi_numero');
         $activite_numero = $this->request->getPost('activite_numero') ?? 1;
 
-        // Si pas de wifi séléctionner
+        // Si pas de wifi sélectionné
         if (!$wifi_numero) {
-            return redirect()->to(base_url('Salle6/WifiCartes'));
+            return redirect()->to(base_url('Salle6/Wifi'));
         }
 
         // Vérifier si le choix est correct
         $est_correct = $this->proposerWifiModel->estBonneReponse($wifi_numero, $activite_numero);
 
-        // Récupérer le WiFi sélectionné
+        // Si incorrect, rediriger vers Explication
+        if (!$est_correct) {
+            return redirect()->to(base_url('Salle6/Explication'));
+        }
+
+        // Si correct, continuer vers WifiInfos
+        // Récupérer le WiFi sélectionné avec toutes ses informations
         $wifi_selectionne = $this->wifiModel->getWifiByNumero($wifi_numero);
 
-        // Récupérer le bon WiFi
-        $wifi_correct = $this->proposerWifiModel->getBonWifiAlea($activite_numero);
+        // Récupérer la zone cliquable correcte pour ce WiFi
+        $zone_correcte = $this->proposerWifiModel->getZoneClique($wifi_numero, $activite_numero);
 
-        if ($est_correct) {
         // Stocker les valeurs dans data
-        $data['wifi_choisi'] = $wifi_selectionne;
-        $data['wifi_correct'] = $wifi_correct;
-        $data['est_correct'] = $est_correct;
+        $data['wifi'] = $wifi_selectionne;
+        $data['wifi_numero'] = $wifi_numero;
+        $data['zone_correcte'] = $zone_correcte; // Ajouter la zone correcte
+        $data['activite_numero'] = $activite_numero;
 
         return view('commun\header') .
             view('salle_6\WifiInfos', $data) .
             view('commun\footer');
-        }
-        else {
-            return redirect()->to(base_url('/'));
-        }
     }
 
     /**
@@ -89,6 +83,12 @@ class WifiController extends BaseController
         echo "<pre>";
         print_r($bonWifi);
         echo "</pre>";
+
+        echo "<h3>Zone cliquable pour le bon WiFi :</h3>";
+        if ($bonWifi) {
+            $zone = $this->proposerWifiModel->getZoneClique($bonWifi['wifi_numero'], $activite_numero);
+            echo "Zone correcte : " . $zone;
+        }
 
         echo "<h3>2 mauvais WiFi aléatoires :</h3>";
         $mauvaisWifi = $this->proposerWifiModel->getMauvaisWifiAlea($activite_numero, 2);

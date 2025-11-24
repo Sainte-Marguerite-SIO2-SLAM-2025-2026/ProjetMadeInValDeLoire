@@ -32,7 +32,7 @@ class VpnController extends BaseController
         if (empty($data['vpns'])) {
             log_message('warning', 'Aucun VPN trouvé en base, utilisation des données de test');
             $data['vpns'] = [
-                [
+                [   
                     'vpn_numero' => 1,
                     'libelle' => 'Un VPN chiffre votre connexion internet pour la sécuriser',
                     'bonne_reponse' => 1,
