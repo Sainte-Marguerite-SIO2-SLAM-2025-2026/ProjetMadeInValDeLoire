@@ -8,10 +8,51 @@ const info = document.getElementById('info');
 const resultModal = document.getElementById('resultModal');
 const closeModalBtn = document.getElementById('closeModalBtn');
 
+// Références pour la mascotte
+const mascotteDefault = document.querySelector('.mascotte-default');
+const mascotteHover = document.querySelector('.mascotte-hover');
+
 let selectedCarte = null;
 let lines = [];
 let lockedCartes = new Set();
 let ordreSelection = [];
+let cartesData = {};
+let reussiteValidation = false; // Variable pour tracker le résultat
+
+// Stocker les données des cartes au chargement
+cartes.forEach(carte => {
+    const numero = carte.dataset.numero;
+    const explication = carte.closest('.carte-container').querySelector('.explication').textContent;
+    cartesData[numero] = explication;
+});
+
+// Fonction pour comparer deux tableaux
+function compareArrays(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+
+    for (let i = 0; i < arr1.length; i++) {
+        if (parseInt(arr1[i]) !== parseInt(arr2[i])) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// Fonction pour changer l'expression de la mascotte
+function changerMascotte(reussite) {
+    if (mascotteDefault && mascotteHover) {
+        if (reussite) {
+            // Mascotte contente
+            mascotteDefault.src = baseUrl + 'images/commun/mascotte/mascotte_contente.svg';
+            mascotteHover.src = baseUrl + 'images/commun/mascotte/mascotte_contente.svg';
+        } else {
+            // Mascotte saoûlée
+            mascotteDefault.src = baseUrl + 'images/commun/mascotte/mascotte_saoulee.svg';
+            mascotteHover.src = baseUrl + 'images/commun/mascotte/mascotte_saoulee.svg';
+        }
+    }
+}
 
 // Fonction pour obtenir les coordonnées du centre d'une carte
 function getCarteCenter(carteElement) {
@@ -195,8 +236,6 @@ validateBtn.addEventListener('click', async function() {
     validateBtn.disabled = true;
     info.innerHTML = '⏳ Vérification en cours...';
 
-    console.log('Ordre sélectionné:', ordreSelection);
-
     try {
         const response = await fetch(baseUrl + 'verifierOrdre', {
             method: 'POST',
@@ -207,31 +246,118 @@ validateBtn.addEventListener('click', async function() {
         });
 
         const resultat = await response.json();
-        console.log('Résultat de la vérification:', resultat);
 
-        if (resultat.correct) {
+        console.log('Ordre utilisateur:', ordreSelection);
+        console.log('Ordre correct:', resultat.ordre_correct);
+        console.log('Résultat du serveur:', resultat);
+
+        // Vérifier si les ordres sont identiques (comparaison JS)
+        const estCorrect = compareArrays(ordreSelection, resultat.ordre_correct);
+        console.log('Comparaison JS:', estCorrect);
+
+        // Si le JS dit que c'est correct mais pas le serveur, forcer la mise à jour
+        if (estCorrect && !resultat.correct) {
+            console.log('Correction du résultat serveur...');
+            const forceResponse = await fetch(baseUrl + 'verifierOrdre', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ordre: ordreSelection,
+                    force_correct: true
+                })
+            });
+            const forceResultat = await forceResponse.json();
+            console.log('Résultat forcé:', forceResultat);
+        }
+
+        // Stocker le résultat pour le bouton
+        reussiteValidation = estCorrect;
+
+        // Changer l'expression de la mascotte
+        changerMascotte(estCorrect);
+
+        // Créer l'affichage de l'ordre du joueur
+        const ordreUtilisateurHtml = document.createElement('div');
+        ordreUtilisateurHtml.id = 'ordreUtilisateur';
+        ordreUtilisateurHtml.innerHTML = '<h3>Votre ordre :</h3>';
+
+        const listUtilisateur = document.createElement('ol');
+        listUtilisateur.style.textAlign = 'left';
+        listUtilisateur.style.marginBottom = '20px';
+
+        ordreSelection.forEach(numero => {
+            const li = document.createElement('li');
+            li.textContent = cartesData[numero];
+            listUtilisateur.appendChild(li);
+        });
+
+        ordreUtilisateurHtml.appendChild(listUtilisateur);
+
+        if (estCorrect) {
             // SUCCÈS
             document.getElementById('resultTitle').innerHTML = '🎉 Bravo !';
             document.getElementById('resultMessage').innerHTML = 'Vous avez reconstitué la procédure dans le bon ordre !<br><br>Le quiz est maintenant débloqué.';
-            document.getElementById('explicationZone').style.display = 'none';
+
+
+
+            // Changer le texte du bouton pour la réussite
+            closeModalBtn.textContent = 'Retour à la Salle 4';
         } else {
             // ÉCHEC
             document.getElementById('resultTitle').innerHTML = '❌ Ordre incorrect';
-            document.getElementById('resultMessage').innerHTML = 'L\'ordre n\'est pas correct. Voici l\'ordre attendu :';
+            document.getElementById('resultMessage').innerHTML = 'L\'ordre n\'est pas correct. Voici la comparaison :';
 
-            // Afficher l'ordre correct
-            const ordreCorrectList = document.getElementById('ordreCorrectList');
-            ordreCorrectList.innerHTML = '';
+            const explicationZone = document.getElementById('explicationZone');
+            explicationZone.innerHTML = '';
 
-            if (resultat.details) {
-                resultat.details.forEach((carte, index) => {
+            const votreOrdreSection = document.createElement('div');
+            votreOrdreSection.style.marginBottom = '20px';
+            votreOrdreSection.innerHTML = '<h3 style="color: #e74c3c;">✗ Votre ordre :</h3>';
+
+            const listUtilisateurError = document.createElement('ol');
+            listUtilisateurError.style.textAlign = 'left';
+
+            ordreSelection.forEach(numero => {
+                const li = document.createElement('li');
+                li.textContent = cartesData[numero];
+                li.style.color = '#555';
+                listUtilisateurError.appendChild(li);
+            });
+
+            votreOrdreSection.appendChild(listUtilisateurError);
+            explicationZone.appendChild(votreOrdreSection);
+
+            const separateur = document.createElement('hr');
+            separateur.style.margin = '20px 0';
+            separateur.style.border = 'none';
+            separateur.style.borderTop = '2px solid #ddd';
+            explicationZone.appendChild(separateur);
+
+            const ordreCorrectDiv = document.createElement('div');
+            ordreCorrectDiv.innerHTML = '<h3 style="color: #27ae60;">✓ Ordre correct :</h3>';
+
+            const ordreCorrectList = document.createElement('ol');
+            ordreCorrectList.style.textAlign = 'left';
+
+            if (resultat.details && resultat.details.length > 0) {
+                resultat.details.forEach(carte => {
                     const li = document.createElement('li');
                     li.textContent = carte.explication;
+                    li.style.color = '#27ae60';
+                    li.style.fontWeight = 'bold';
                     ordreCorrectList.appendChild(li);
                 });
             }
 
-            document.getElementById('explicationZone').style.display = 'block';
+            ordreCorrectDiv.appendChild(ordreCorrectList);
+            explicationZone.appendChild(ordreCorrectDiv);
+
+            explicationZone.style.display = 'block';
+
+            // Changer le texte du bouton pour l'échec
+            closeModalBtn.textContent = 'Retour à l\'accueil';
         }
 
         resultModal.style.display = 'block';
@@ -242,9 +368,23 @@ validateBtn.addEventListener('click', async function() {
     }
 });
 
-// Fermer la modal et retourner à l'accueil
+// Fermer la modal et rediriger selon le résultat
 closeModalBtn.addEventListener('click', function() {
-    window.location.href = baseUrl + 'resetSalle';
+
+    let chemin = "";
+    if (reussiteValidation) {
+        // En cas de réussite : retour à la Salle 4
+        chemin = baseUrl + 'Salle4';
+    } else {
+        if (mode === 'jour') {
+            chemin = baseUrl + 'echouerJour/4'
+        }
+        else {
+            // En cas d'échec : retour à l'accueil du site
+            chemin = baseUrl + 'reset';
+        }
+    }
+    window.location.href = chemin;
 });
 
 // Initialisation
@@ -270,17 +410,52 @@ window.addEventListener('resize', function() {
     }
 });
 
-// Mascotte
-document.getElementById("mascotteHelp").addEventListener("click", function () {
-    document.getElementById("rulesModal").style.display = "block";
+// =====================================================
+// Mascotte avec règles
+// =====================================================
+
+const mascotteContainer = document.querySelector("#mascotte-container");
+const rulesModal = document.getElementById('rulesModal');
+const closeRules = document.querySelector('.close-rules');
+
+if (mascotteContainer) {
+    mascotteContainer.addEventListener("click", function() {
+        if (rulesModal) {
+            rulesModal.style.display = 'block';
+        }
+    });
+}
+
+if (closeRules) {
+    closeRules.addEventListener('click', function() {
+        closeRulesModal();
+    });
+}
+
+window.addEventListener('click', function(event) {
+    if (event.target === rulesModal) {
+        closeRulesModal();
+    }
 });
 
-document.querySelector(".close-rules").addEventListener("click", function () {
-    document.getElementById("rulesModal").style.display = "none";
-});
+function closeRulesModal() {
+    if (rulesModal) {
+        rulesModal.style.display = 'none';
+    }
+}
 
-window.addEventListener("click", function (event) {
-    if (event.target.id === "rulesModal") {
-        document.getElementById("rulesModal").style.display = "none";
+// Fermer avec la touche Échap
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        if (questionModal && questionModal.style.display === 'block') {
+            questionModal.style.display = 'none';
+            currentQuestionId = null;
+            currentCarteElement = null;
+            if (btnVrai) btnVrai.disabled = false;
+            if (btnFaux) btnFaux.disabled = false;
+        }
+        if (rulesModal && rulesModal.style.display === 'block') {
+            closeRulesModal();
+        }
     }
 });

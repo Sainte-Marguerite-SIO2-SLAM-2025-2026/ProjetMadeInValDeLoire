@@ -438,11 +438,13 @@ $etage2_actif = in_array($current_room, $salles_etage2) ||
                         aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <img src="<?= base_url('images/commun/mascotte/mascotte-exclamee.svg') ?>" alt="Lumi" class="img-fluid rounded mb-3">
-                <p>Bienvenue agent ! Vous venez d'intégrer la B.L.U.T., la Brigade un peu spéciale chargée de sécuriser
-                    l'univers numérique. Votre mission : traverser les 6 salles du CyberManor pour prouver que vous êtes
-                    prêt à rejoindre nos rangs...</p>
-                <p>La zone <strong>Lumi</strong> c'est .....</p>
+                <img src="<?= base_url('images/commun/mascotte/mascotte_interrogee.svg') ?>" alt="Lumi" class="img-fluid rounded mb-3">
+                <div class="modal-texte">
+                    <p>Bienvenue agent ! Vous venez d'intégrer la B.L.U.T., la Brigade un peu spéciale chargée de sécuriser
+                        l'univers numérique. Votre mission : traverser les 6 salles du CyberManor pour prouver que vous êtes
+                        prêt à rejoindre nos rangs...</p>
+                    <p>La zone <strong>Lumi</strong> c'est .....</p>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
