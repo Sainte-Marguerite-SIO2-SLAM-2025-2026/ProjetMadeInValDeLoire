@@ -9,7 +9,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const formWifi = document.getElementById('formWifi');
     const cartesWifi = document.querySelectorAll('.CarteWifi');
 
+    // Éléments pour la mascotte et la bulle
+    const mascotte = document.querySelector('.mascotte');
+    const bulle = document.querySelector('.bulle');
+    const bulleTexte = document.querySelector('.bulle-texte-container p');
+
+    // Textes pour la bulle
+    const texteInitial = bulleTexte ? bulleTexte.textContent : '';
+    const texteCartesAffichees = 'Sélectionnez le WiFi qui vous semble le plus sécurisé !';
+
     let carteSelectionnee = null;
+    let bulleVisible = true; // La bulle est visible au départ
 
     // Vérification des éléments requis
     if (!zoneCliquable || !cartesContainer || !btnValider) {
@@ -17,23 +27,49 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
+    // Gestion du clic sur la mascotte
+    if (mascotte && bulle) {
+        mascotte.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Toggle de la visibilité de la bulle
+            bulleVisible = !bulleVisible;
+            bulle.style.display = bulleVisible ? 'block' : 'none';
+        });
+
+        // Ajouter un style pour que la mascotte ait un curseur pointer
+        mascotte.style.cursor = 'pointer';
+    }
+
     // Gestion du clic sur la zone cliquable
     zoneCliquable.addEventListener('click', function() {
         if (cartesContainer.style.display === 'none' || cartesContainer.style.display === '') {
             cartesContainer.style.display = 'flex';
+
+            // Changer le texte de la bulle quand les cartes sont affichées
+            if (bulleTexte) {
+                bulleTexte.textContent = texteCartesAffichees;
+            }
+
             if (carteSelectionnee) {
                 btnValider.style.display = 'block';
             }
         } else {
             cartesContainer.style.display = 'none';
             btnValider.style.display = 'none';
+
+            // Restaurer le texte initial quand les cartes sont cachées
+            if (bulleTexte) {
+                bulleTexte.textContent = texteInitial;
+            }
         }
     });
 
     // Sélection d'une carte WiFi
     cartesWifi.forEach(function(carte) {
         carte.addEventListener('click', function(e) {
-            e.stopPropagation(); // Empêche la propagation du clic
+            e.stopPropagation();
 
             // Retirer la sélection précédente
             cartesWifi.forEach(c => c.classList.remove('carte-selectionnee'));
@@ -73,11 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (estCorrect) {
                 messageResultat.textContent = '✓ Bonne réponse ! Vous avez sélectionné le WiFi sécurisé.';
-                //messageResultat.style.color = '#2ecc71';
                 carteElement.classList.add('carte-correcte');
             } else {
                 messageResultat.textContent = '✗ Mauvaise réponse. Ce n\'est pas le WiFi le plus sécurisé.';
-                //messageResultat.style.color = '#e74c3c';
                 carteElement.classList.add('carte-incorrecte');
 
                 // Mettre en évidence la bonne carte

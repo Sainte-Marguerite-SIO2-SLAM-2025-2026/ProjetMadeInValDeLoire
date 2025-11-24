@@ -54,12 +54,14 @@ $routes->get('/finSalle5', 'salle_5\Salle5Controller::finSalle');
 // Routes pour la salle 6
 $routes->get('/Salle6', 'salle_6\Salle6Controller::Index');
 $routes->get('/Salle6/Enigme', 'salle_6\Salle6Controller::Enigme');
-$routes->get('/Salle6/Resultat', 'salle_6\Salle6Controller::Fin');
+$routes->get('/Salle6/Explication', 'salle_6\Salle6Controller::Explication');
+$routes->get('/Salle6/Quitter', 'salle_6\Salle6Controller::QuitterSalle');
+$routes->get('/Salle6/RevenirAccueil', 'salle_6\Salle6Controller::QuitterSalleBtnAccueil');
 // Routes WiFi
 $routes->get('/Salle6/Wifi', 'salle_6\WifiController::index');
 $routes->post('/wifi/validerCarte', 'salle_6\WifiController::validerCarte');
 $routes->post('/Salle6/wifi/resultat', 'salle_6\WifiController::Resultat');
-$routes->get('Salle6/CompleteWifi', 'salle_6\Salle6Controller::CompleteWifi');
+$routes->post('Salle6/CompleteWifi', 'salle_6\Salle6Controller::CompleteWifi');
 // Routes VPN
 $routes->get('/Salle6/VPN', 'salle_6\VpnController::Index');
 $routes->post('/vpn/validerCarte', 'salle_6\VpnController::validerCarte');
