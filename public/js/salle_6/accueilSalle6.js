@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             mascotteImg.src = mascotteImg.getAttribute('data-hover');
             mascotteImg.classList.remove('fade');
-        }, 130); // Correspond au temps de la transition CSS
+        }, 1); // Correspond au temps de la transition CSS
     });
 
     openModal.addEventListener('mouseleave', function() {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             mascotteImg.src = mascotteImg.getAttribute('data-default');
             mascotteImg.classList.remove('fade');
-        }, 130); // Correspond au temps de la transition CSS
+        }, 1); // Correspond au temps de la transition CSS
     });
 
     // Ouvrir la modal
