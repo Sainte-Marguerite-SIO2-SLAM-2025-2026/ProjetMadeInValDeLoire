@@ -5,9 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?= link_tag('public/styles/salle2.css') ?>
+    <?= link_tag('styles/salle2.css') ?>
     <script> const BASE_URL = "<?= base_url() ?>" </script>
-        <script src="<?= base_url('/public/js/salle2.js') ?>"></script>
+        <script src="<?= base_url('/js/salle2.js') ?>"></script>
     <title>Salle 2 - Phishing</title>
 </head>
 
@@ -15,11 +15,11 @@
 
 <div class="content">
     <div class="bureau-wrapper" id="bureau">
-        <img src="<?= base_url("public/images/bureau/bureau_sepia.webp")?>" alt="Bureau" class="bureau-svg bureau-normal">
-        <img src="<?= base_url("public/images/bureau/bureau_orange.webp")?>" alt="Bureau hover" class="bureau-svg bureau-hover">
+        <img src="<?= base_url("/images/salle_2/bureau/bureau_sepia.webp")?>" alt="Bureau" class="bureau-svg bureau-normal">
+        <img src="<?= base_url("/images/salle_2/bureau/bureau_orange.webp")?>" alt="Bureau hover" class="bureau-svg bureau-hover">
     </div>
 
-<?= anchor(base_url().'public/', 'Accueil', ['class' => 'btn-accueil']); ?>
+<?= anchor(base_url(), 'Accueil', ['class' => 'btn-accueil']); ?>
 
 </div>
 </body>

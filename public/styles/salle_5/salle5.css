@@ -185,7 +185,7 @@ svg {
     drop-shadow(0 0 20px rgba(255, 0, 0, 0.8)) !important;
 }
 
-.fond-image {
+.plan-container {
     position: relative;
     overflow: visible;
 }
@@ -261,7 +261,7 @@ svg {
 }
 
 .popup-succes-content h2 {
-    color: #4caf50;
+    color: #00ff09;
     font-size: 2.5em;
     margin-bottom: 20px;
     text-shadow: 0 0 10px rgba(76, 175, 80, 0.8);

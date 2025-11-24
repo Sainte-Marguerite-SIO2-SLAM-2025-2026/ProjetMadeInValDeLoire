@@ -80,8 +80,8 @@
 /* === Nom du personnage === */
 #nom-personnage {
     position: fixed;
-    bottom: 20.5%;
-    left: 25%;
+    bottom: 18vh;
+    left: 45vh;
     font-size: 1.5rem;
     color: #111;
     text-shadow: 0 0 10px #fff, 0 0 4px #fff;
@@ -94,8 +94,8 @@
 /* === Serrure === */
 .serrure {
     position: absolute;
-    bottom: 28.5%;
-    right: 46.5%;
+    bottom: 31vh;
+    right: 82.1vh;
 }
 
 .serrure-image {
