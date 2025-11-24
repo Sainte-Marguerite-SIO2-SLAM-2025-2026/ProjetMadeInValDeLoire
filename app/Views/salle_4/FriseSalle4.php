@@ -153,6 +153,7 @@
 
 <script>
     const baseUrl = '<?= base_url() ?>';
+    const mode =  "<?= esc(session()->get('mode')) ?>";
 </script>
 <?= script_tag('js/salle_4/friseSalle4.js') ?>
 

@@ -308,12 +308,20 @@ class Salle4Controller extends BaseController
         $resultat['score'] = $session->get('quiz_score');
         $resultat['total_repondu'] = count($reponses);
 
-
-//        $completedRooms = $session->get('completed_rooms') ?? [];
-//        if (!in_array(4, $completedRooms)) {
-//            $completedRooms[] = 4;
+//        if ($resultat['correct']>3) {
+//            if ($session->get('mode') == 'jour') {
+//                $chemin = base_url('validerJour/4');
+//            }
+//            else {
+//                $chemin = base_url('valider/4');
+//            }
 //        }
-//        $session->set('completed_rooms', $completedRooms);
+//        elseif ($session->get('mode') == 'jour') {
+//            $chemin = base_url('echouerJour/4');
+//        }
+//        else {
+//            $chemin = base_url('valider/4');
+//        }
 
         return $this->response->setJSON($resultat);
     }

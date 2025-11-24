@@ -90,7 +90,36 @@
             <h2 id="resultTitle"></h2>
             <p id="resultMessage"></p>
             <p id="scoreMessage"></p>
+<!--            <div class="popup-fin-quiz">-->
+<!--                --><?php //= form_open(base_url('verifierReponseQuiz')) ?>
+<!--                --><?php //= form_button([
+//                        'content' => 'Revenir à l\'accueil',
+//                        'type'    => 'submit',
+//                        'class'   => 'btn-retour-accueil'
+//                ]) ?>
+<!--                --><?php //= form_close() ?>
+<!--            </div>-->
             <button id="btnRetourAccueil" class="btn-retour-accueil">Retour à l'accueil</button>
+<!--            --><?php //if (session()->get('mode') === 'nuit'): ?>
+<!--            <div class="popup-fin-quiz">-->
+<!--                --><?php //= form_open(base_url('/valider/4')) ?>
+<!--                --><?php //= form_button([
+//                        'content' => 'Revenir à l\'accueil',
+//                        'type'    => 'submit',
+//                        'class'   => 'btn-retour-accueil'
+//                ]) ?>
+<!--                --><?php //= form_close() ?>
+<!--            </div>-->
+<!--            --><?php //else: ?>
+<!--            <div class="popup-fin-quiz">-->
+<!--                --><?php //= form_open(base_url('/validerJour/4')) ?>
+<!--                --><?php //= form_button([
+//                        'content' => 'Revenir à l\'accueil',
+//                        'type'    => 'submit',
+//                        'class'   => 'btn-retour-accueil'
+//                ]) ?>
+<!--                --><?php //= form_close() ?>
+<!--            --><?php //endif?>
         </div>
     </div>
 

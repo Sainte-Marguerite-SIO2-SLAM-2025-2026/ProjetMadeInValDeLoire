@@ -371,14 +371,20 @@ validateBtn.addEventListener('click', async function() {
 // Fermer la modal et rediriger selon le résultat
 closeModalBtn.addEventListener('click', function() {
 
-
+    let chemin = "";
     if (reussiteValidation) {
         // En cas de réussite : retour à la Salle 4
-        window.location.href = baseUrl + 'Salle4';
+        chemin = baseUrl + 'Salle4';
     } else {
-        // En cas d'échec : retour à l'accueil du site
-        window.location.href = baseUrl;
+        if (mode === 'jour') {
+            chemin = baseUrl + 'echouerJour/4'
+        }
+        else {
+            // En cas d'échec : retour à l'accueil du site
+            chemin = baseUrl + 'reset';
+        }
     }
+    window.location.href = chemin;
 });
 
 // Initialisation
