@@ -320,6 +320,6 @@
 </script>
 <?= script_tag('js/salle_5/mascotte.js') ?>
 <?= script_tag('js/salle_5/enigmeSalle.js') ?>
-<?php if ($enigme->numero == 6): ?>
+<?php if ($enigme->numero == 506): ?>
     <?= script_tag('js/salle_5/enigme6.js') ?>
 <?php endif; ?>
