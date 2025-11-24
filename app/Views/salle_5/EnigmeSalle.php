@@ -3,16 +3,6 @@
     </head>
     <body data-baseurl="<?= base_url() ?>">
 <div class="scene-enigme">
-    <!-- Bouton retour -->
-    <div class="retour-top">
-        <?= anchor('Salle5',
-            form_button([
-                'content' => 'RETOUR',
-                'type' => 'button',
-                'class' => 'btn-retour'
-            ])
-        ) ?>
-    </div>
 
     <!-- Question -->
     <div class="question-box">
@@ -38,7 +28,7 @@
             <!-- ========================================
                  ÉNIGME 1 : Poste risqué
             ======================================== -->
-            <?php if ($enigme->numero == 1): ?>
+            <?php if ($enigme->numero == 501): ?>
                 <!-- Écran gauche - mail ouvert -->
                 <g id="ecran_mail" class="objet-cliquable" data-reponse="ecran_milieu_gauche">
                     <image clip-path="url(#clip_ecran_milieu_gauche)"
@@ -73,7 +63,7 @@
             <!-- ========================================
                  ÉNIGME 5 : Porte entrouverte
             ======================================== -->
-            <?php if ($enigme->numero == 5): ?>
+            <?php if ($enigme->numero == 505): ?>
                 <g id="porte" class="objet-cliquable" data-reponse="porte">
                     <image clip-path="url(#clip_porte)"
                            x="1592.5" y="237.97"
@@ -92,7 +82,7 @@
             <!-- ========================================
                  ÉNIGME 6 : Écrans non sécurisés + DRAG & DROP
             ======================================== -->
-            <?php if ($enigme->numero == 6): ?>
+            <?php if ($enigme->numero == 506): ?>
                 <g id="ecran_milieu_gauche" class="objet-enigme" data-reponse="ecran">
                     <image id="image_ecran_milieu_gauche"
                            clip-path="url(#clip_ecran_milieu_gauche)"
@@ -117,7 +107,7 @@
             <!-- ========================================
                  ÉNIGME 7 : Fenêtre ouverte (QCM en SVG)
             ======================================== -->
-            <?php if ($enigme->numero == 7): ?>
+            <?php if ($enigme->numero == 507): ?>
                 <!-- Fenêtre ouverte (visuel) -->
                 <g id="fenetre_visuel">
                     <image clip-path="url(#clip_fenetre)"
@@ -193,7 +183,7 @@
             <!-- ========================================
                  ÉNIGME 10 : Caméra interne
             ======================================== -->
-            <?php if ($enigme->numero == 10): ?>
+            <?php if ($enigme->numero == 510): ?>
                 <g id="camera" class="objet-cliquable" data-reponse="camera">
                     <image clip-path="url(#clip_camera)"
                            x="1577.1" y="89.952" width="232.99" height="113.9"
@@ -207,7 +197,7 @@
                 </g>
             <?php endif; ?>
 
-            <?php if ($enigme->numero == 5 || $enigme->numero == 10): ?>
+            <?php if ($enigme->numero == 505 || $enigme->numero == 510): ?>
             <g id="ecran_bas_gauche" class="objet-cliquable" data-reponse=".">
                 <image clip-path="url(#clip_camera)"
                        x="450" y="511.71" width="230" height="198"
@@ -262,7 +252,7 @@
     </div>
 
     <!-- ✅ OBJETS DRAGGABLES POUR ÉNIGME 6 (avec helpers CI4) -->
-    <?php if ($enigme->numero == 6): ?>
+    <?php if ($enigme->numero == 506): ?>
         <div class="objets-draggables">
             <div class="objet-drag" draggable="true" data-objet="filtre">
                 <?= img([

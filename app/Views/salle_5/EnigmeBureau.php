@@ -3,16 +3,6 @@
 </head>
 <body data-baseurl="<?= base_url() ?>">
 <div class="scene-enigme">
-    <!-- Bouton retour -->
-    <div class="retour-top">
-        <?= anchor('Salle5',
-                form_button([
-                        'content' => 'RETOUR',
-                        'type' => 'button',
-                        'class' => 'btn-retour'
-                ])
-        ) ?>
-    </div>
 
     <!-- Question -->
     <div class="question-box">
@@ -36,7 +26,7 @@
                     style="pointer-events: none;"/>
 
 
-            <?php if ($enigme->numero == 2 || $enigme->numero == 9):
+            <?php if ($enigme->numero == 502 || $enigme->numero == 509):
                 $class = "";
             $cursor = '';
             else:
@@ -92,20 +82,20 @@
                       fill="transparent" <?=$cursor?>/>
             </g>
 
-            <?php if ($enigme->numero != 8 && $enigme->numero != 4): ?>
+            <?php if ($enigme->numero != 508 && $enigme->numero != 504): ?>
                 <g id="carnet" <?=$class?> data-reponse="A">
                     <image clip-path="url(#clip_carnet)"
                            x="-169.72" y="281.21" width="447.7" height="251.17"
                            xlink:href="<?= base_url('images/salle_5/carnet.svg') ?>"/>
                     <rect class="zone-click" x="-169.72" y="281.21" width="447.7" height="251.17" fill="transparent"
-                            <?php if ($enigme->numero == 9): ?>
+                            <?php if ($enigme->numero == 509): ?>
                           style="cursor:default;"
                     <?php endif; ?>/>
                 </g>
             <?php endif; ?>
 
             <!-- Énigme 2 : Clés USB -->
-            <?php if ($enigme->numero == 2): ?>
+            <?php if ($enigme->numero == 502): ?>
                 <!-- Clé USB gauche -->
                 <g id="usb_left" class="objet-cliquable" data-reponse="cle_usb_gauche">
                     <title>Une clé USB qui circule dans l'entreprise</title>
@@ -148,7 +138,7 @@
 
 
             <!-- Énigme 3 : Clé / Badge -->
-            <?php if ($enigme->numero == 3): ?>
+            <?php if ($enigme->numero == 503): ?>
                 <g id="cle" class="objet-cliquable" data-reponse="cle">
                     <image clip-path="url(#clip_cle)"
                            x="850" y="703.12" width="170.83" height="73.958"
@@ -175,7 +165,7 @@
             <?php endif; ?>
 
             <!-- Énigme 4 : Post-it confidentiel -->
-            <?php if ($enigme->numero == 4): ?>
+            <?php if ($enigme->numero == 504): ?>
                 <g id="post_it" class="objet-cliquable" data-reponse="post_it_conf_2">
                     <image clip-path="url(#clip_post_it)"
                            x="1145.8" y="143.75" width="146.87" height="142.71"
@@ -202,7 +192,7 @@
             <?php endif; ?>
 
             <!-- Énigme 8 : Dossier -->
-            <?php if ($enigme->numero == 8): ?>
+            <?php if ($enigme->numero == 508): ?>
                 <g id="dossier" class="objet-cliquable" data-reponse="dossier_conf">
                     <image clip-path="url(#clip_dossier)"
                            x="940.62" y="410.42" width="288.54" height="387.5"
@@ -232,7 +222,7 @@
             <?php endif; ?>
 
             <!-- Énigme 9 : Carnet MDP -->
-            <?php if ($enigme->numero == 9): ?>
+            <?php if ($enigme->numero == 509): ?>
                 <g id="carte_pass" <?=$class?> data-reponse="B">
                     <image clip-path="url(#clip_carte_pass)"
                            x="106.25" y="332.29" width="152.08" height="110.42"
