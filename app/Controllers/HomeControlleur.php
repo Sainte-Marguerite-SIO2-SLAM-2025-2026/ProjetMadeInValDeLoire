@@ -34,6 +34,7 @@ class HomeControlleur extends BaseController
             'current_room' => session()->get(self::SESSION_CURRENT_ROOM),
             'completed_rooms' => session()->get(self::SESSION_COMPLETED_ROOMS)
         ];
+        $this->resetSalle4();
         $this->resetSalle5();
 
         return view('commun/header.php').
@@ -49,6 +50,7 @@ class HomeControlleur extends BaseController
     public function pagejour(): string
     {
         session()->set('mode', 'jour');
+        $this->resetSalle4();
         $this->resetSalle5();
         return view('commun/header.php').
             view('manoir_jour_home').
@@ -76,6 +78,18 @@ class HomeControlleur extends BaseController
             return redirect()->to('/')
                 ->with('error', 'Salle indisponible');
         }
+
+        if ((int)$numero === 4){
+            $session = session();
+             // savoir si il est encore en train de faire la salle
+            $data = [
+                'frise_validee' => false,
+                'quiz_disponible' =>false
+            ];
+
+            return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
+        }
+
 
         if ((int)$numero === 5){
             // Instancier les models
@@ -171,6 +185,7 @@ class HomeControlleur extends BaseController
             return redirect()->to('/')
                 ->with('error', 'Numéro de salle invalide');
         }
+        $this->resetSalle4();
         $this->resetSalle5();
 
         // Marque la salle comme complétée
@@ -207,7 +222,7 @@ class HomeControlleur extends BaseController
             return redirect()->to('manoirJour')
                 ->with('error', 'Numéro de salle invalide');
         }
-
+        $this->resetSalle4();
         $this->resetSalle5();
         // Marque la salle comme complétée
         $this->ajouteSalleComplete($numero);
@@ -222,7 +237,7 @@ class HomeControlleur extends BaseController
             return redirect()->to('manoirJour')
                 ->with('error', 'Numéro de salle invalide');
         }
-
+        $this->resetSalle4();
         $this->resetSalle5();
         // Marque la salle comme échouée
         $this->ajouteSalleEchouee($numero);
@@ -391,6 +406,24 @@ class HomeControlleur extends BaseController
         for ($i = 1; $i <= 10; $i++) {
             session()->remove('reponses_activite_' . $i);
         }
+    }
+
+
+    /**
+     * vide toutes les sessions de la salle 4
+     * @return RedirectResponse
+     */
+    public function resetSalle4()
+    {
+        $session = session();
+        $session->remove('frise_validee');
+        $session->remove('activite_choisie');
+        $session->remove('positions_cartes_frise');
+        $session->remove('quiz_questions');
+        $session->remove('quiz_reponses');
+        $session->remove('quiz_score');
+
+        return redirect()->to(base_url('Salle4'));
     }
 }
 
