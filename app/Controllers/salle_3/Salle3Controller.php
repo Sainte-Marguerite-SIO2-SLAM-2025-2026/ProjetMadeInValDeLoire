@@ -1,6 +1,6 @@
 <?php
 
-namespace salle_3\Salle3Controller;
+namespace App\Controllers\salle_3;
 
 use App\Controllers\BaseController;
 use App\Models\salle_3\Salle3Model;
