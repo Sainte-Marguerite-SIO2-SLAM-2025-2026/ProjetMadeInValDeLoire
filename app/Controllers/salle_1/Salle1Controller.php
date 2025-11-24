@@ -14,45 +14,26 @@ class Salle1Controller extends BaseController
         // Récupère un message aléatoire de la base de données
         $messageData = $messageModel->getMessageSalle1();
 
-        // Vérifie si un message a été trouvé
-        if (!$messageData) {
-            // Message par défaut si aucune donnée en BDD
-            $data = [
-                'nom_personnage' => 'Jean-Michel',
-                'mots_suspects' => ['urgente', 'immediate', 'mot-de-passe', 'bancaire', 'definitivement'],
-                'message' => 'Bonjour, je suis Jean-Michel Dupuis du service informatique centrale. Nous avons detecté une intrusion urgente dans votre compte. Pour éviter une coupure immediate merci de m\'envoyer votre mot-de-passe personnel ainsi que votre identifiant bancaire pour vérification. Vous devez répondre dans les 5 minutes sinon votre accès entreprise sera definitivement suprimé.',
-                'indices' => [],
-                'erreurs_explications' => [],
-                'image_perso' => 'salle_1/images/personnages/monstre1.webp'
+        // Récupère les mots suspects depuis la table erreur
+        $motsSuspects = $messageModel->getMotsSuspects($messageData->numero);
+
+        // Récupère les erreurs avec explications
+        $erreursExplications = $messageModel->getErreursAvecExplications($messageData->numero);
+
+        // Récupère les indices
+        $indices = $messageModel->getIndices($messageData->numero);
+
+        // Prépare le nom du personnage
+        $nomPersonnage = $messageData->prenom . ' ' . $messageData->nom;
+
+        $data = [
+            'activite_numero' => $messageData->numero,
+            'nom_personnage' => $nomPersonnage,
+            'mots_suspects' => $motsSuspects,
+            'message' => $messageData->libelle,
+            'indices' => $indices,
+            'erreurs_explications' => $erreursExplications,
             ];
-        } else {
-            // Récupère les mots suspects depuis la table erreur
-            $motsSuspects = $messageModel->getMotsSuspects($messageData->numero);
-
-            // Récupère les erreurs avec explications
-            $erreursExplications = $messageModel->getErreursAvecExplications($messageData->numero);
-
-            // Récupère les indices
-            $indices = $messageModel->getIndices($messageData->numero);
-
-            // Prépare le nom du personnage
-            $nomPersonnage = !empty($messageData->prenom)
-                ? $messageData->prenom . ' ' . ($messageData->nom ?? '')
-                : 'Personnage';
-
-            $data = [
-                'activite_numero' => $messageData->numero,
-                'nom_personnage' => trim($nomPersonnage),
-                'fonction_role' => $messageData->fonction_role ?? '',
-                'mots_suspects' => $motsSuspects,
-                'message' => $messageData->libelle,
-                'indices' => $indices,
-                'erreurs_explications' => $erreursExplications,
-                'image_perso' => !empty($messageData->image)
-                    ? 'salle_1/images/personnages/' . $messageData->image
-                    : 'salle_1/images/personnages/monstre1.webp'
-            ];
-        }
 
         return view('salle_1/DiscussionSalle1', $data)
             . view('commun/footer');

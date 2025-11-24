@@ -90,26 +90,71 @@
             <h2 id="resultTitle"></h2>
             <p id="resultMessage"></p>
             <p id="scoreMessage"></p>
+<!--            <div class="popup-fin-quiz">-->
+<!--                --><?php //= form_open(base_url('verifierReponseQuiz')) ?>
+<!--                --><?php //= form_button([
+//                        'content' => 'Revenir à l\'accueil',
+//                        'type'    => 'submit',
+//                        'class'   => 'btn-retour-accueil'
+//                ]) ?>
+<!--                --><?php //= form_close() ?>
+<!--            </div>-->
             <button id="btnRetourAccueil" class="btn-retour-accueil">Retour à l'accueil</button>
+<!--            --><?php //if (session()->get('mode') === 'nuit'): ?>
+<!--            <div class="popup-fin-quiz">-->
+<!--                --><?php //= form_open(base_url('/valider/4')) ?>
+<!--                --><?php //= form_button([
+//                        'content' => 'Revenir à l\'accueil',
+//                        'type'    => 'submit',
+//                        'class'   => 'btn-retour-accueil'
+//                ]) ?>
+<!--                --><?php //= form_close() ?>
+<!--            </div>-->
+<!--            --><?php //else: ?>
+<!--            <div class="popup-fin-quiz">-->
+<!--                --><?php //= form_open(base_url('/validerJour/4')) ?>
+<!--                --><?php //= form_button([
+//                        'content' => 'Revenir à l\'accueil',
+//                        'type'    => 'submit',
+//                        'class'   => 'btn-retour-accueil'
+//                ]) ?>
+<!--                --><?php //= form_close() ?>
+<!--            --><?php //endif?>
         </div>
     </div>
 
     <!-- Bouton retour -->
-    <?= anchor(base_url() . 'Salle4', img([
-            'src'   => 'images/commun/retour.png',
-            'alt'   => 'retour',
-            'class' => 'retour'
-    ])); ?>
+    <?php if (session()->get('mode') === 'jour'): ?>
+        <div class="retour-top">
+            <?= anchor('/manoirJour', img([
+                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
+                    'alt'   => 'retour',
+                    'class' => 'retour'
+            ])); ?>
+        </div>
+    <?php else: ?>
+        <div class="retour-top">
+            <?= anchor('/', img([
+                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
+                    'alt'   => 'retour',
+                    'class' => 'retour'
+            ])); ?>
+        </div>
+    <?php endif?>
 
     <!-- Mascotte interactive -->
     <div class="mascotte-zone" id="mascotte-container">
-        <img src="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>"
-             class="mascotte-img mascotte-default"
-             alt="Mascotte">
+        <?= anchor(base_url(), img([
+                'src'   => 'images/commun/mascotte/mascotte_face.svg',
+                'alt'   => 'Mascotte',
+                'class' => 'mascotte-img mascotte-default'
+        ])); ?>
 
-        <img src="<?= base_url('images/commun/mascotte/mascotte_exclamee.svg') ?>"
-             class="mascotte-img mascotte-hover"
-             alt="Mascotte hover">
+        <?= anchor(base_url(), img([
+                'src'   => 'images/commun/mascotte/mascotte_exclamee.svg',
+                'alt'   => 'Mascotte Hover',
+                'class' => 'mascotte-img mascotte-hover'
+        ])); ?>
     </div>
 
     <!-- Modal des règles -->
@@ -149,6 +194,7 @@
 <script>
     const baseUrl = '<?= base_url() ?>';
     const questionsData = <?= json_encode($questions) ?>;
+    const mode =  "<?= esc(session()->get('mode')) ?>";
 </script>
 <?= script_tag('js/salle_4/quizSalle4.js') ?>
 

@@ -175,8 +175,8 @@ class Salle4Controller extends BaseController
         $session = session();
 
         $data = [
-            'frise_validee' => $session->get('frise_validee') ?? false,
-            'quiz_disponible' => $session->get('frise_validee') ?? false
+            'frise_validee' => $session->get('frise_validee'),
+            'quiz_disponible' => $session->get('frise_validee')
         ];
 
         return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
@@ -187,10 +187,7 @@ class Salle4Controller extends BaseController
         $session = session();
         $salle4Model = new Salle4Model();
 
-        // Vérifier si la frise est déjà validée
-        if ($session->get('frise_validee')) {
-            return redirect()->to(base_url('Salle4'));
-        }
+
 
         // Choisir aléatoirement une activité parmi 1 et 2
         if (!$session->has('activite_choisie')) {
@@ -236,15 +233,23 @@ class Salle4Controller extends BaseController
         $salle4Model = new Salle4Model();
 
         $activiteChoisie = $session->get('activite_choisie');
-        $ordreUtilisateur = $this->request->getJSON(true)['ordre'] ?? [];
+        $json = $this->request->getJSON(true);
+        $ordreUtilisateur = $json['ordre'] ?? [];
+        $forceCorrect = $json['force_correct'] ?? false;
 
         $resultat = $salle4Model->verifierOrdre($activiteChoisie, $ordreUtilisateur);
 
-        // Si correct, débloquer le quiz et bloquer la frise
-        if ($resultat['correct']) {
+        // Si correct (par le modèle OU forcé par le JS), débloquer le quiz
+        if ($resultat['correct'] || $forceCorrect) {
             $session->set('frise_validee', true);
+            $session->set('quiz_disponible', true);
             $session->remove('activite_choisie');
             $session->remove('positions_cartes_frise');
+
+            // Mettre à jour le résultat si forcé
+            if ($forceCorrect) {
+                $resultat['correct'] = true;
+            }
         }
 
         return $this->response->setJSON($resultat);
@@ -253,21 +258,18 @@ class Salle4Controller extends BaseController
     public function quizFinal(): string
     {
         $session = session();
-
-        // Vérifier si la frise a été validée
-        if (!$session->get('frise_validee')) {
-            return view('salle_4/QuizSalle4') . view('commun/footer');
-        }
-
         $quizModel = new QuizModel();
 
-        // Récupérer ou générer 6 questions aléatoires
-        if (!$session->has('quiz_questions')) {
-            $questions = $quizModel->getRandomQuestions(3, 6);
-            $session->set('quiz_questions', $questions);
-            $session->set('quiz_reponses', []);
-            $session->set('quiz_score', 0);
-        }
+        // Réinitialiser le quiz au chargement
+        $session->remove('quiz_questions');
+        $session->remove('quiz_reponses');
+        $session->remove('quiz_score');
+
+        // Récupérer 6 questions aléatoires
+        $questions = $quizModel->getRandomQuestions(3, 6);
+        $session->set('quiz_questions', $questions);
+        $session->set('quiz_reponses', []);
+        $session->set('quiz_score', 0);
 
         $questions = $session->get('quiz_questions');
         $reponses = $session->get('quiz_reponses');
@@ -305,6 +307,21 @@ class Salle4Controller extends BaseController
 
         $resultat['score'] = $session->get('quiz_score');
         $resultat['total_repondu'] = count($reponses);
+
+//        if ($resultat['correct']>3) {
+//            if ($session->get('mode') == 'jour') {
+//                $chemin = base_url('validerJour/4');
+//            }
+//            else {
+//                $chemin = base_url('valider/4');
+//            }
+//        }
+//        elseif ($session->get('mode') == 'jour') {
+//            $chemin = base_url('echouerJour/4');
+//        }
+//        else {
+//            $chemin = base_url('valider/4');
+//        }
 
         return $this->response->setJSON($resultat);
     }

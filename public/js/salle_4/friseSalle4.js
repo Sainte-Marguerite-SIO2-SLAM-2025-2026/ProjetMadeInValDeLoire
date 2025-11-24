@@ -6,22 +6,60 @@ const undoBtn = document.getElementById('undoBtn');
 const validateBtn = document.getElementById('validateBtn');
 const info = document.getElementById('info');
 const resultModal = document.getElementById('resultModal');
-const closeModal = document.getElementById('closeModal');
-const retryBtn = document.getElementById('retryBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
 
+// Références pour la mascotte
+const mascotteDefault = document.querySelector('.mascotte-default');
+const mascotteHover = document.querySelector('.mascotte-hover');
 
 let selectedCarte = null;
 let lines = [];
 let lockedCartes = new Set();
 let ordreSelection = [];
+let cartesData = {};
+let reussiteValidation = false; // Variable pour tracker le résultat
 
-// Fonction pour obtenir les coordonnées du centre d'une carte par rapport au canvas
+// Stocker les données des cartes au chargement
+cartes.forEach(carte => {
+    const numero = carte.dataset.numero;
+    const explication = carte.closest('.carte-container').querySelector('.explication').textContent;
+    cartesData[numero] = explication;
+});
+
+// Fonction pour comparer deux tableaux
+function compareArrays(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+
+    for (let i = 0; i < arr1.length; i++) {
+        if (parseInt(arr1[i]) !== parseInt(arr2[i])) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// Fonction pour changer l'expression de la mascotte
+function changerMascotte(reussite) {
+    if (mascotteDefault && mascotteHover) {
+        if (reussite) {
+            // Mascotte contente
+            mascotteDefault.src = baseUrl + 'images/commun/mascotte/mascotte_contente.svg';
+            mascotteHover.src = baseUrl + 'images/commun/mascotte/mascotte_contente.svg';
+        } else {
+            // Mascotte saoûlée
+            mascotteDefault.src = baseUrl + 'images/commun/mascotte/mascotte_saoulee.svg';
+            mascotteHover.src = baseUrl + 'images/commun/mascotte/mascotte_saoulee.svg';
+        }
+    }
+}
+
+// Fonction pour obtenir les coordonnées du centre d'une carte
 function getCarteCenter(carteElement) {
     const container = carteElement.closest('.carte-container');
     const containerRect = container.getBoundingClientRect();
     const canvasRect = canvas.getBoundingClientRect();
 
-    // Position du centre de la carte par rapport au canvas
     const x = containerRect.left - canvasRect.left + containerRect.width / 2;
     const y = containerRect.top - canvasRect.top + containerRect.height / 2;
 
@@ -36,14 +74,12 @@ cartes.forEach(carte => {
         const carteId = this.dataset.id;
         const carteNumero = this.dataset.numero;
 
-        // Vérifier si la carte est déjà verrouillée
         if (lockedCartes.has(carteId)) {
             info.innerHTML = '⌛ Cette carte est déjà utilisée !';
             return;
         }
 
         if (selectedCarte === null) {
-            // Premier clic
             const center = getCarteCenter(this);
 
             selectedCarte = {
@@ -57,7 +93,6 @@ cartes.forEach(carte => {
             ordreSelection.push(parseInt(carteNumero));
             info.innerHTML = `✅ Carte ${ordreSelection.length}/8 sélectionnée`;
         } else {
-            // Deuxième clic
             if (carteId === selectedCarte.id) {
                 info.innerHTML = '⚠️ Vous ne pouvez pas relier une carte à elle-même !';
                 return;
@@ -73,10 +108,8 @@ cartes.forEach(carte => {
                 y: center.y
             };
 
-            // Dessiner la ligne
             drawLine(selectedCarte.x, selectedCarte.y, secondCarte.x, secondCarte.y);
 
-            // Sauvegarder la ligne
             lines.push({
                 carte1Id: selectedCarte.id,
                 carte2Id: secondCarte.id,
@@ -86,7 +119,6 @@ cartes.forEach(carte => {
                 y2: secondCarte.y
             });
 
-            // Verrouiller la première carte
             lockedCartes.add(selectedCarte.id);
             selectedCarte.element.classList.add('locked');
             selectedCarte.element.classList.remove('selected');
@@ -94,7 +126,6 @@ cartes.forEach(carte => {
             ordreSelection.push(parseInt(carteNumero));
             info.innerHTML = `✅ Carte ${ordreSelection.length}/8 sélectionnée`;
 
-            // La deuxième carte devient le point de départ suivant
             this.classList.add('selected');
             selectedCarte = {
                 id: secondCarte.id,
@@ -104,7 +135,6 @@ cartes.forEach(carte => {
                 y: secondCarte.y
             };
 
-            // Vérifier si toutes les cartes sont reliées
             if (ordreSelection.length === cartes.length) {
                 selectedCarte.element.classList.remove('selected');
                 selectedCarte = null;
@@ -115,7 +145,6 @@ cartes.forEach(carte => {
     });
 });
 
-// Dessiner une ligne
 function drawLine(x1, y1, x2, y2) {
     ctx.strokeStyle = '#e74c3c';
     ctx.lineWidth = 4;
@@ -134,7 +163,6 @@ function drawLine(x1, y1, x2, y2) {
     drawPoint(x2, y2);
 }
 
-// Dessiner un point
 function drawPoint(x, y) {
     ctx.fillStyle = '#e74c3c';
     ctx.beginPath();
@@ -142,15 +170,12 @@ function drawPoint(x, y) {
     ctx.fill();
 }
 
-// Redessiner toutes les lignes
 function redrawAll() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     lines.forEach(line => {
         drawLine(line.x1, line.y1, line.x2, line.y2);
     });
 }
-
-// Réinitialiser tout
 
 function resetGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -167,12 +192,8 @@ function resetGame() {
     info.innerHTML = 'Cliquez sur les cartes dans l\'ordre chronologique pour reconstituer la frise';
 }
 
-// Événement du bouton reset
 resetBtn.addEventListener('click', resetGame);
 
-resetBtn.addEventListener('click', resetGame);
-
-// Annuler la dernière sélection
 undoBtn.addEventListener('click', function() {
     if (lines.length > 0) {
         const lastLine = lines.pop();
@@ -216,7 +237,7 @@ validateBtn.addEventListener('click', async function() {
     info.innerHTML = '⏳ Vérification en cours...';
 
     try {
-        const response = await fetch(baseUrl + 'Salle4/verifierOrdre', {
+        const response = await fetch(baseUrl + 'verifierOrdre', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -226,14 +247,117 @@ validateBtn.addEventListener('click', async function() {
 
         const resultat = await response.json();
 
-        if (resultat.correct) {
+        console.log('Ordre utilisateur:', ordreSelection);
+        console.log('Ordre correct:', resultat.ordre_correct);
+        console.log('Résultat du serveur:', resultat);
+
+        // Vérifier si les ordres sont identiques (comparaison JS)
+        const estCorrect = compareArrays(ordreSelection, resultat.ordre_correct);
+        console.log('Comparaison JS:', estCorrect);
+
+        // Si le JS dit que c'est correct mais pas le serveur, forcer la mise à jour
+        if (estCorrect && !resultat.correct) {
+            console.log('Correction du résultat serveur...');
+            const forceResponse = await fetch(baseUrl + 'verifierOrdre', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ordre: ordreSelection,
+                    force_correct: true
+                })
+            });
+            const forceResultat = await forceResponse.json();
+            console.log('Résultat forcé:', forceResultat);
+        }
+
+        // Stocker le résultat pour le bouton
+        reussiteValidation = estCorrect;
+
+        // Changer l'expression de la mascotte
+        changerMascotte(estCorrect);
+
+        // Créer l'affichage de l'ordre du joueur
+        const ordreUtilisateurHtml = document.createElement('div');
+        ordreUtilisateurHtml.id = 'ordreUtilisateur';
+        ordreUtilisateurHtml.innerHTML = '<h3>Votre ordre :</h3>';
+
+        const listUtilisateur = document.createElement('ol');
+        listUtilisateur.style.textAlign = 'left';
+        listUtilisateur.style.marginBottom = '20px';
+
+        ordreSelection.forEach(numero => {
+            const li = document.createElement('li');
+            li.textContent = cartesData[numero];
+            listUtilisateur.appendChild(li);
+        });
+
+        ordreUtilisateurHtml.appendChild(listUtilisateur);
+
+        if (estCorrect) {
+            // SUCCÈS
             document.getElementById('resultTitle').innerHTML = '🎉 Bravo !';
-            document.getElementById('resultMessage').innerHTML = 'Vous avez reconstitué la frise dans le bon ordre chronologique !';
-            document.getElementById('retryBtn').style.display = 'none';
+            document.getElementById('resultMessage').innerHTML = 'Vous avez reconstitué la procédure dans le bon ordre !<br><br>Le quiz est maintenant débloqué.';
+
+
+
+            // Changer le texte du bouton pour la réussite
+            closeModalBtn.textContent = 'Retour à la Salle 4';
         } else {
-            document.getElementById('resultTitle').innerHTML = '❌ Pas tout à fait...';
-            document.getElementById('resultMessage').innerHTML = 'L\'ordre n\'est pas correct. Réessayez !';
-            document.getElementById('retryBtn').style.display = 'inline-block';
+            // ÉCHEC
+            document.getElementById('resultTitle').innerHTML = '❌ Ordre incorrect';
+            document.getElementById('resultMessage').innerHTML = 'L\'ordre n\'est pas correct. Voici la comparaison :';
+
+            const explicationZone = document.getElementById('explicationZone');
+            explicationZone.innerHTML = '';
+
+            const votreOrdreSection = document.createElement('div');
+            votreOrdreSection.style.marginBottom = '20px';
+            votreOrdreSection.innerHTML = '<h3 style="color: #e74c3c;">✗ Votre ordre :</h3>';
+
+            const listUtilisateurError = document.createElement('ol');
+            listUtilisateurError.style.textAlign = 'left';
+
+            ordreSelection.forEach(numero => {
+                const li = document.createElement('li');
+                li.textContent = cartesData[numero];
+                li.style.color = '#555';
+                listUtilisateurError.appendChild(li);
+            });
+
+            votreOrdreSection.appendChild(listUtilisateurError);
+            explicationZone.appendChild(votreOrdreSection);
+
+            const separateur = document.createElement('hr');
+            separateur.style.margin = '20px 0';
+            separateur.style.border = 'none';
+            separateur.style.borderTop = '2px solid #ddd';
+            explicationZone.appendChild(separateur);
+
+            const ordreCorrectDiv = document.createElement('div');
+            ordreCorrectDiv.innerHTML = '<h3 style="color: #27ae60;">✓ Ordre correct :</h3>';
+
+            const ordreCorrectList = document.createElement('ol');
+            ordreCorrectList.style.textAlign = 'left';
+
+            if (resultat.details && resultat.details.length > 0) {
+                resultat.details.forEach(carte => {
+                    const li = document.createElement('li');
+                    li.textContent = carte.explication;
+                    li.style.color = '#27ae60';
+                    li.style.fontWeight = 'bold';
+                    ordreCorrectList.appendChild(li);
+                });
+            }
+
+            ordreCorrectDiv.appendChild(ordreCorrectList);
+            explicationZone.appendChild(ordreCorrectDiv);
+
+            explicationZone.style.display = 'block';
+
+            // Changer le texte du bouton pour l'échec
+            closeModalBtn.textContent = 'Retour à l\'accueil';
         }
 
         resultModal.style.display = 'block';
@@ -244,23 +368,31 @@ validateBtn.addEventListener('click', async function() {
     }
 });
 
-// Fermer la modal
-closeModal.addEventListener('click', function() {
-    resultModal.style.display = 'none';
-});
+// Fermer la modal et rediriger selon le résultat
+closeModalBtn.addEventListener('click', function() {
 
-retryBtn.addEventListener('click', function() {
-    resultModal.style.display = 'none';
-    resetGame();
+    let chemin = "";
+    if (reussiteValidation) {
+        // En cas de réussite : retour à la Salle 4
+        chemin = baseUrl + 'Salle4';
+    } else {
+        if (mode === 'jour') {
+            chemin = baseUrl + 'echouerJour/4'
+        }
+        else {
+            // En cas d'échec : retour à l'accueil du site
+            chemin = baseUrl + 'reset';
+        }
+    }
+    window.location.href = chemin;
 });
 
 // Initialisation
 validateBtn.disabled = true;
 
-// Recalculer les positions si la fenêtre est redimensionnée
+// Recalculer au resize
 window.addEventListener('resize', function() {
     if (lines.length > 0) {
-        // Recalculer les positions des lignes existantes
         lines.forEach(line => {
             const carte1 = document.getElementById('carte' + line.carte1Id);
             const carte2 = document.getElementById('carte' + line.carte2Id);
@@ -279,41 +411,51 @@ window.addEventListener('resize', function() {
 });
 
 // =====================================================
-// MASCOTTE INTERACTIVE AVEC MODAL DES RÈGLES
+// Mascotte avec règles
 // =====================================================
-document.getElementById("mascotteHelp").addEventListener("click", function () {
-    document.getElementById("rulesModal").style.display = "block";
-});
 
-document.querySelector(".close-rules").addEventListener("click", function () {
-    document.getElementById("rulesModal").style.display = "none";
-});
+const mascotteContainer = document.querySelector("#mascotte-container");
+const rulesModal = document.getElementById('rulesModal');
+const closeRules = document.querySelector('.close-rules');
 
-window.addEventListener("click", function (event) {
-    if (event.target.id === "rulesModal") {
-        document.getElementById("rulesModal").style.display = "none";
+if (mascotteContainer) {
+    mascotteContainer.addEventListener("click", function() {
+        if (rulesModal) {
+            rulesModal.style.display = 'block';
+        }
+    });
+}
+
+if (closeRules) {
+    closeRules.addEventListener('click', function() {
+        closeRulesModal();
+    });
+}
+
+window.addEventListener('click', function(event) {
+    if (event.target === rulesModal) {
+        closeRulesModal();
     }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+function closeRulesModal() {
+    if (rulesModal) {
+        rulesModal.style.display = 'none';
+    }
+}
 
-    const mascotte = document.getElementById("mascotteHelp");
-    const modal = document.getElementById("rulesModal");
-    const closeBtns = document.querySelectorAll(".close-rules");
-
-    mascotte.addEventListener("click", () => {
-        modal.style.display = "block";
-    });
-
-    closeBtns.forEach(btn => btn.addEventListener("click", () => {
-        modal.style.display = "none";
-    }));
-
-    window.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.style.display = "none";
+// Fermer avec la touche Échap
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        if (questionModal && questionModal.style.display === 'block') {
+            questionModal.style.display = 'none';
+            currentQuestionId = null;
+            currentCarteElement = null;
+            if (btnVrai) btnVrai.disabled = false;
+            if (btnFaux) btnFaux.disabled = false;
         }
-    });
-
+        if (rulesModal && rulesModal.style.display === 'block') {
+            closeRulesModal();
+        }
+    }
 });
-

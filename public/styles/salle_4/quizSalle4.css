@@ -301,39 +301,35 @@ html, body {
     color: #7f8c8d;
 }
 
-/*#countdown {*/
-/*    font-weight: bold;*/
-/*    color: #e74c3c;*/
-/*}*/
-
 /* ===== Bouton retour ===== */
 .retour {
     position: absolute;
-    bottom: 2%;
-    left: 0;
-    max-width: 250px;
-    height: 75px;
+    top: 1%;
+    left: 1%;
+    transform: none;
+    max-width: 200px;
+    height: 200px;
     transition: transform 0.3s;
 }
 
 .retour:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 
 /* ===== Mascotte interactive ===== */
 .mascotte-zone {
     position: absolute;
-    top: 20px;
+    bottom: 20px;
     right: 40px;
     width: 150px;
     height: 180px;
     cursor: pointer;
-    z-index: 200;
+    z-index: 10000;
 }
 
 .mascotte-img {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 150px;
     height: 180px;
