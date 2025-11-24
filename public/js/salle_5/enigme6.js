@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 overlay.style.opacity = '1';
                                 overlay.style.pointerEvents = 'all';
                                 setTimeout(() => {
-                                    window.location.href = base_url + '/Salle5';
+                                    window.location.href = base_url + '/salle/salle_5';
                                 }, 500);
                             });
                         } else {
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         btnError.addEventListener('click', () => {
                             overlay.style.opacity = '1';
                             overlay.style.pointerEvents = 'all';
-                            window.location.href = base_url + '/Salle5?echec=1&activite=' + activite_numero;
+                            window.location.href = base_url + '/salle/salle_5?echec=1&activite=' + activite_numero;
                         });
                     }
                 })
