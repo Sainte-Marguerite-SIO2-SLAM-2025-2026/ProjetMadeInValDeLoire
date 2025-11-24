@@ -43,7 +43,7 @@ html, body {
     height: 20vh;
     cursor: pointer;
     background: transparent;
-    border: 2px solid red; /* utile pour voir où elle est pendant les tests */
+    /*border: 2px solid red; /* utile pour voir où elle est pendant les tests */
     z-index: 10;
 }
 
