@@ -182,8 +182,9 @@ class HomeControlleur extends BaseController
         // Toutes les salles sont complétées
         if ($nextRoom === null) {
             session()->set(self::SESSION_CURRENT_ROOM, -1);
-            return redirect()->to('/')
-                ->with('success', 'Félicitations ! Vous avez terminé toutes les salles !');
+//            return redirect()->to('/')
+//                ->with('success', 'Félicitations ! Vous avez terminé toutes les salles !');
+            return redirect()->to('/quiz/choix/nuit');
         }
 
         // Stocke la prochaine salle

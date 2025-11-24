@@ -112,7 +112,7 @@
 }
 });
     //zone Lune tooltip
-    const lune = document.getElementById('lune_soleil');
+    const lune = document.querySelector('#lune_soleil');
     const tooltip = document.getElementById('html-tooltip');
 
     if (lune) {
