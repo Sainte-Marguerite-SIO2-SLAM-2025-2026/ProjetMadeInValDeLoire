@@ -25,6 +25,7 @@ class VpnController extends BaseController
         // Récupérer les VPN depuis la base de données
         $data['vpns'] = $this->proposerVpnModel->getVpnMelanges($activite_numero);
         //echo isset($data['vpns']) and !is_null(['vpns']);
+        $data['intitule'] = "Clique sur les tuyaux pour commencer";
         // Debug : afficher ce qui est récupéré
         log_message('debug', 'VPN récupérés: ' . print_r($data['vpns'], true));
 

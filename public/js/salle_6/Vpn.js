@@ -9,8 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const formVpn = document.getElementById('formVpn');
     const cartesVpn = document.querySelectorAll('.CarteVpn');
 
+    // Éléments pour la mascotte et la bulle
+    const mascotteLink = document.getElementById('mascotteLink');
+    const bulle = document.querySelector('.bulle');
+    const bulleTexte = document.querySelector('.bulle-texte-container p');
+
+    // Textes pour la bulle
+    const texteInitial = bulleTexte ? bulleTexte.textContent : '';
+    const texteCartesAffichees = 'Sélectionnez l\'affirmation qui vous semble correcte sur les VPN !';
+
     let carteSelectionnee = null;
-    let reponseCorrecte = false; // Variable pour stocker si la réponse est correcte
+    let reponseCorrecte = false;
+    let bulleVisible = false; // La bulle est CACHÉE au départ
 
     // Vérification des éléments requis
     if (!zoneCliquable || !cartesContainer || !btnValider) {
@@ -18,16 +28,39 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
+    // Gestion du clic sur le lien de la mascotte
+    if (mascotteLink && bulle) {
+        mascotteLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Toggle de la visibilité de la bulle
+            bulleVisible = !bulleVisible;
+            bulle.style.display = bulleVisible ? 'block' : 'none';
+        });
+    }
+
     // Gestion du clic sur la zone cliquable
     zoneCliquable.addEventListener('click', function() {
         if (cartesContainer.style.display === 'none' || cartesContainer.style.display === '') {
             cartesContainer.style.display = 'flex';
+
+            // Changer le texte de la bulle quand les cartes sont affichées
+            if (bulleTexte) {
+                bulleTexte.textContent = texteCartesAffichees;
+            }
+
             if (carteSelectionnee) {
                 btnValider.style.display = 'block';
             }
         } else {
             cartesContainer.style.display = 'none';
             btnValider.style.display = 'none';
+
+            // Restaurer le texte initial quand les cartes sont cachées
+            if (bulleTexte) {
+                bulleTexte.textContent = texteInitial;
+            }
         }
     });
 
@@ -77,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const estCorrect = carteElement ? carteElement.getAttribute('data-est-correct') === '1' : false;
-        reponseCorrecte = estCorrect; // Stocker le résultat
+        reponseCorrecte = estCorrect;
 
         console.log('Carte élément trouvé:', carteElement);
         console.log('Est correct:', estCorrect);
@@ -121,7 +154,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (carteSelectionnee && vpnIdInput) {
                 vpnIdInput.value = carteSelectionnee;
-                // Toujours soumettre le formulaire, le contrôleur vérifiera la réponse
                 formVpn.submit();
             }
         });

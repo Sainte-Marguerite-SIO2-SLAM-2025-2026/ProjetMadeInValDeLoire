@@ -8,6 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const formWifiInfo = document.getElementById('formWifiInfo');
     const infoSelectionneeInput = document.getElementById('infoSelectionneeInput');
 
+    // Éléments pour la mascotte et la bulle
+    const mascotteLink = document.getElementById('mascotteLink');
+    const bulle = document.querySelector('.bulle');
+    const bulleTexte = document.querySelector('.bulle-texte-container p');
+
+    // Textes pour la bulle
+    const texteInitial = bulleTexte ? bulleTexte.textContent : '';
+    const texteCartesAffichees = 'Cliquez sur l\'information qui rend ce WiFi sécurisé !';
+
     // Pour désactiver le hover :
     const carteWifi = document.getElementById('CarteWifi');
     if (carteWifi) {
@@ -16,12 +25,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let infoSelectionnee = null;
     let reponseCorrecte = false;
+    let bulleVisible = false; // La bulle est CACHÉE au départ
+
+    // Gestion du clic sur le lien de la mascotte
+    if (mascotteLink && bulle) {
+        mascotteLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Toggle de la visibilité de la bulle
+            bulleVisible = !bulleVisible;
+            bulle.style.display = bulleVisible ? 'block' : 'none';
+        });
+    }
 
     // Gérer le clic sur la zone cliquable
     if (zoneCliquable && cartesContainer) {
         zoneCliquable.addEventListener('click', function() {
             if (cartesContainer.style.display === 'none' || cartesContainer.style.display === '') {
                 cartesContainer.style.display = 'flex';
+
+                // Changer le texte de la bulle quand les cartes sont affichées
+                if (bulleTexte) {
+                    bulleTexte.textContent = texteCartesAffichees;
+                }
 
                 // Rendre les informations cliquables
                 const infosSelectionnables = document.querySelectorAll('.info-selectionnable');
@@ -35,6 +62,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             } else {
                 cartesContainer.style.display = 'none';
+
+                // Restaurer le texte initial quand les cartes sont cachées
+                if (bulleTexte) {
+                    bulleTexte.textContent = texteInitial;
+                }
+
                 if (btnValider) {
                     btnValider.style.display = 'none';
                 }
@@ -133,7 +166,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (infoSelectionnee && infoSelectionneeInput && formWifiInfo) {
                 infoSelectionneeInput.value = infoSelectionnee.typeInfo;
                 console.log('Soumission du formulaire avec:', infoSelectionneeInput.value);
-                // Toujours soumettre le formulaire, le contrôleur vérifiera la réponse
                 formWifiInfo.submit();
             }
         });

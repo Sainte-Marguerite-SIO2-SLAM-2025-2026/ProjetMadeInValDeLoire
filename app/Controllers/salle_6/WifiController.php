@@ -24,6 +24,7 @@ class WifiController extends BaseController
 
         // Récupérer les WiFi depuis la base de données
         $data['wifis'] = $this->proposerWifiModel->getWifiMelanges($activite_numero);
+        $data['intitule'] = "Clique sur les cartes pour commencer";
 
         return view('commun\header') .
             view('salle_6\WifiCartes', $data) .
@@ -63,6 +64,7 @@ class WifiController extends BaseController
         $data['wifi_numero'] = $wifi_numero;
         $data['zone_correcte'] = $zone_correcte; // Ajouter la zone correcte
         $data['activite_numero'] = $activite_numero;
+        $data['intitule'] = "Clique sur les cartes a nouveau pour commencer";
 
         return view('commun\header') .
             view('salle_6\WifiInfos', $data) .
