@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 24 nov. 2025 à 23:40
+-- Généré le : mar. 25 nov. 2025 à 08:18
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.2.26
 
@@ -23,9 +23,7 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `made_in_val_de_loire` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 USE `made_in_val_de_loire`;
 
---
--- User
---
+
 CREATE USER IF NOT EXISTS 'userProjetMIVDL'@'%' IDENTIFIED BY 'Projet@MIVDL!user';
 GRANT ALL PRIVILEGES ON made_in_val_de_loire.* TO 'userProjetMIVDL'@'%';
 -- --------------------------------------------------------
@@ -66,16 +64,16 @@ INSERT INTO `activite` (`numero`, `libelle`, `verrouillage`, `image`, `malveilla
 (401, 'Apres Ransomware', 0, 'frise_reaction_ransomware.png', NULL, NULL, 4, NULL, 401, 401),
 (402, 'Avant Ransomware', 0, 'frise_prevention_ransomware.png', NULL, NULL, 4, NULL, 401, 401),
 (403, 'Quiz Ransomware', 0, 'quiz_ransomware.png', NULL, NULL, 4, NULL, 401, 401),
-(501, 'Poste risqué', NULL, '/images/salle_5/ecran_mail_2.svg', NULL, NULL, 5, NULL, 1, 501),
-(502, 'Clés étranges', NULL, '/images/salle_5/usb_anonyme.svg', NULL, NULL, 5, NULL, 1, 502),
-(503, 'Un oubli risqué', NULL, '/images/salle_5/cle.svg', NULL, NULL, 5, NULL, 1, 503),
-(504, 'Le bureau encombré', NULL, '/images/salle_5/post_it_code.svg', NULL, NULL, 5, NULL, 1, 504),
-(505, 'La porte entrouverte', NULL, '/images/salle_5/porte_ouverte.svg', NULL, NULL, 5, NULL, 1, 505),
-(506, 'Écrans non sécurisés', NULL, '/images/salle_5/ecran_mail_2.svg', NULL, NULL, 5, NULL, 1, 506),
-(507, 'Fenêtre ouverte', NULL, '/images/salle_5/fenetre_ouverte.svg', NULL, NULL, 5, NULL, 1, 507),
-(508, 'Poste « clean desk »', NULL, '/images/salle_5/dossier.svg', NULL, NULL, 5, NULL, 1, 508),
-(509, 'Secrets physiques', NULL, '/images/salle_5/carnet_mdp.svg', NULL, NULL, 5, NULL, 1, 509),
-(510, 'Caméra interne', NULL, '/images/salle_5/camera.svg', NULL, NULL, 5, NULL, 1, 510),
+(501, 'Poste risqué', NULL, '/images/salle_5/ecran_mail_2.svg', NULL, NULL, NULL, NULL, 1, 501),
+(502, 'Clés étranges', NULL, '/images/salle_5/usb_anonyme.svg', NULL, NULL, NULL, NULL, 1, 502),
+(503, 'Un oubli risqué', NULL, '/images/salle_5/cle.svg', NULL, NULL, NULL, NULL, 1, 503),
+(504, 'Le bureau encombré', NULL, '/images/salle_5/post_it_code.svg', NULL, NULL, NULL, NULL, 1, 504),
+(505, 'La porte entrouverte', NULL, '/images/salle_5/porte_ouverte.svg', NULL, NULL, NULL, NULL, 1, 505),
+(506, 'Écrans non sécurisés', NULL, '/images/salle_5/ecran_mail_2.svg', NULL, NULL, NULL, NULL, 1, 506),
+(507, 'Fenêtre ouverte', NULL, '/images/salle_5/fenetre_ouverte.svg', NULL, NULL, NULL, NULL, 1, 507),
+(508, 'Poste « clean desk »', NULL, '/images/salle_5/dossier.svg', NULL, NULL, NULL, NULL, 1, 508),
+(509, 'Secrets physiques', NULL, '/images/salle_5/carnet_mdp.svg', NULL, NULL, NULL, NULL, 1, 509),
+(510, 'Caméra interne', NULL, '/images/salle_5/camera.svg', NULL, NULL, NULL, NULL, 1, 510),
 (601, 'Choisir le bon WiFi', NULL, 'wifi_activity.png', NULL, NULL, NULL, NULL, NULL, NULL),
 (602, 'VPN', NULL, 'temp.svg', NULL, NULL, NULL, NULL, NULL, NULL);
 
@@ -377,7 +375,7 @@ CREATE TABLE IF NOT EXISTS `mascotte` (
 --
 
 INSERT INTO `mascotte` (`numero`, `image`, `humeur`, `salle_numero`) VALUES
-(1, '/images/commun/mascotte/mascotte_face.svg', 'normale', 5);
+(1, '/images/commun/mascotte/mascotte_face.svg', 'normale', NULL);
 
 -- --------------------------------------------------------
 
@@ -629,7 +627,7 @@ INSERT INTO `question` (`numero`, `libelle`, `reponse`, `activite_numero`) VALUE
 DROP TABLE IF EXISTS `salle`;
 CREATE TABLE IF NOT EXISTS `salle` (
   `numero` int NOT NULL AUTO_INCREMENT,
-  `libelle` varchar(20) NOT NULL,
+  `libelle` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `bouton` varchar(20) NOT NULL,
   `intro_salle` text NOT NULL,
   PRIMARY KEY (`numero`)
@@ -642,7 +640,7 @@ CREATE TABLE IF NOT EXISTS `salle` (
 INSERT INTO `salle` (`numero`, `libelle`, `bouton`, `intro_salle`) VALUES
 (1, 'Salle 1', 'Entrer', ''),
 (4, 'Salle 4', 'Entrer', ''),
-(5, 'Sécurité physique et', 'images/commun/retour', 'Bienvenue dans la salle de surveillance !\nPlongez au cœur de la sécurité physique et matérielle, où chaque objet, chaque dispositif et chaque comportement compte. Observez attentivement votre environnement et cliquez sur les objets lumineux pour lancer les énigmes. Préparez-vous à analyser, réagir et mettre vos compétences à l’épreuve : dans cette salle, vigilance et réflexion sont vos meilleurs alliés.');
+(5, 'Sécurité physique et matérielle', 'images/commun/retour', 'Bienvenue dans la salle de surveillance !\nPlongez au cœur de la sécurité physique et matérielle, où chaque objet, chaque dispositif et chaque comportement compte. Observez attentivement votre environnement et cliquez sur les objets lumineux pour lancer les énigmes. Préparez-vous à analyser, réagir et mettre vos compétences à l’épreuve : dans cette salle, vigilance et réflexion sont vos meilleurs alliés.');
 
 -- --------------------------------------------------------
 
@@ -675,7 +673,7 @@ INSERT INTO `type` (`numero`, `libelle`, `explication`) VALUES
 DROP TABLE IF EXISTS `vpn`;
 CREATE TABLE IF NOT EXISTS `vpn` (
   `numero` int NOT NULL AUTO_INCREMENT,
-  `libelle` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `libelle` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`numero`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -684,36 +682,36 @@ CREATE TABLE IF NOT EXISTS `vpn` (
 --
 
 INSERT INTO `vpn` (`numero`, `libelle`) VALUES
-(1, 'Un VPN ne remplace p'),
-(2, 'Un VPN peut réduire '),
-(3, 'Un VPN gratuit peut '),
-(4, 'Les VPN d\'entreprise'),
-(5, 'Un VPN peut contourn'),
-(6, 'Un VPN ne protège pa'),
-(7, 'Un VPN crée un tunne'),
-(8, 'Un VPN ne doit jamai'),
-(9, 'Les VPN sécurisent l'),
-(10, 'Un VPN peut parfois '),
-(11, 'Un VPN ne masque pas'),
-(12, 'Les VPN ne peuvent p'),
-(13, 'Un VPN peut empêcher'),
-(14, 'Un VPN peut fausser '),
-(15, 'Les VPN utilisent so'),
-(16, 'Un VPN n’empêche pas'),
-(17, 'Un VPN n’améliore pa'),
-(18, 'Un VPN peut être ins'),
-(19, 'Les VPN d’entreprise'),
-(20, 'Un VPN peut permettr'),
-(21, 'Un VPN accélère auto'),
-(22, 'Un VPN rend votre ap'),
-(23, 'Avec un VPN, les hac'),
-(24, 'Un VPN rend toutes l'),
-(25, 'Un VPN empêche compl'),
-(26, 'L’utilisation d’un V'),
-(27, 'Un VPN bloque automa'),
-(28, 'Un VPN garantit qu’a'),
-(29, 'Tous les VPN utilise'),
-(30, 'Un VPN protège votre');
+(1, 'Un VPN ne remplace pas un antivirus'),
+(2, 'Un VPN peut réduire légèrement la vitesse selon le serveur utilisé'),
+(3, 'Un VPN gratuit peut collecter et revendre vos données'),
+(4, 'Les VPN d\'entreprise permettent d\'accéder au réseau interne à distance'),
+(5, 'Un VPN peut contourner certaines censures gouvernementales'),
+(6, 'Un VPN ne protège pas contre le phishing'),
+(7, 'Un VPN crée un tunnel chiffré entre l’utilisateur et le serveur'),
+(8, 'Un VPN ne doit jamais être utilisé sur un réseau public'),
+(9, 'Les VPN sécurisent l’utilisation des hotspots WiFi publics'),
+(10, 'Un VPN peut parfois bloquer l’accès à certains services bancaires'),
+(11, 'Un VPN ne masque pas votre identité sur les réseaux sociaux'),
+(12, 'Les VPN ne peuvent pas empêcher les malwares de s’installer'),
+(13, 'Un VPN peut empêcher votre FAI de suivre votre historique'),
+(14, 'Un VPN peut fausser la localisation utilisée par les sites web'),
+(15, 'Les VPN utilisent souvent un chiffrement AES 256 bits'),
+(16, 'Un VPN n’empêche pas les sites web de vous tracker via cookies'),
+(17, 'Un VPN n’améliore pas la sécurité d’un mot de passe faible'),
+(18, 'Un VPN peut être installé sur un routeur WiFi'),
+(19, 'Les VPN d’entreprise utilisent parfois IPsec au lieu d’OpenVPN'),
+(20, 'Un VPN peut permettre d’accéder aux fichiers internes d’une entreprise'),
+(21, 'Un VPN accélère automatiquement votre connexion internet même si le serveur est éloigné'),
+(22, 'Un VPN rend votre appareil totalement anonyme, même pour les sites web'),
+(23, 'Avec un VPN, les hackers ne peuvent plus du tout infecter votre appareil'),
+(24, 'Un VPN rend toutes les connexions web gratuites, même les services payants'),
+(25, 'Un VPN empêche complètement les publicités de s’afficher'),
+(26, 'L’utilisation d’un VPN rend inutile la mise à jour du système d’exploitation'),
+(27, 'Un VPN bloque automatiquement toutes les tentatives de phishing'),
+(28, 'Un VPN garantit qu’aucun site web ne peut installer de cookies sur votre navigateur'),
+(29, 'Tous les VPN utilisent exactement les mêmes protocoles et le même chiffrement'),
+(30, 'Un VPN protège votre compte en ligne même si votre mot de passe est déjà volé');
 
 -- --------------------------------------------------------
 
