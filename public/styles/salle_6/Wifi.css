@@ -453,12 +453,23 @@ a.btn-valider:hover {
 .resultat-container {
     flex: 1;
     max-width: 600px;
-    padding: 20px;
-    background-image: url("../../images/salle_6/bandeRouge.svg");
-    background-size: cover;       /* <-- Changement ici */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
+    margin: 50px;
+    padding: 20px;
+    transition: background-image 0.3s ease;
+}
+
+/* Classe pour résultat correct */
+.resultat-container.correct {
+    background-image: url("../../images/salle_6/bandeVert.svg");
+}
+
+/* Classe pour résultat incorrect */
+.resultat-container.incorrect {
+    background-image: url("../../images/salle_6/bandeRouge.svg");
 }
 
 #messageResultat {
