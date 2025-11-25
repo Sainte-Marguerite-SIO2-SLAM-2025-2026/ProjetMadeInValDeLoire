@@ -84,8 +84,8 @@ class HomeControlleur extends BaseController
         {
             $explicationModel = new Salle1ExplicationModel();
             $data = ['explication' => $explicationModel->getExplicationSalle1()];
-            return view('salle_1\AccueilSalle1', $data).
-                view('commun\footer');
+            return view('salle_1/AccueilSalle1', $data).
+                view('commun/footer');
         }
 
         if ((int)$numero === 4){
@@ -184,9 +184,9 @@ class HomeControlleur extends BaseController
 
         $data['numero_salle'] = $numero;
 
-        return view('commun\header').
+        return view('commun/header').
             view($viewPath, $data).
-            view('commun\footer');
+            view('commun/footer');
     }
 
     /**
