@@ -3,8 +3,91 @@
 namespace App\Models\salle_2;
 
 use CodeIgniter\Model;
-
 class Salle2Model extends Model
 {
+    protected $table = 'indice';
+    protected $primaryKey = 'numero';
+    protected $allowedFields = ['numero', 'libelle'];
+    protected $returnType = 'array';
 
+    /**
+     * Retourne $limit libellés distincts aléatoires
+     */
+    public function getDistinctLibelles(int $limit = 3)
+    {
+        // Liste des valeurs ciblées
+        $cibles = ['4897', '1123', '9875', '8745'];
+
+        return $this->select('libelle')
+            ->distinct()
+            ->whereIn('libelle', $cibles)
+            ->orderBy('RAND()')
+            ->limit($limit)
+            ->findAll();
+    }
+
+    /**
+     * Vérifie si le code est correct en le comparant à la table mot_de_passe.motPasse
+     */
+    public function checkCode(string $code): bool
+    {
+        // 1) Normalisation du code saisi : seulement chiffres, max 6
+        $codeDigits = preg_replace('/\D+/', '', $code);
+        $codeDigits = mb_substr($codeDigits, 0, 6);
+
+        if (mb_strlen($codeDigits) !== 6) {
+            return false; // sécurité : on exige 6 chiffres
+        }
+
+        // 2) Connexion à la table mot_de_passe
+        $db = \Config\Database::connect();
+        $builder = $db->table('mot_de_passe');
+
+        // 3) Récupérer TOUS les mots de passe
+        $rows = $builder->select('motPasse')->get()->getResultArray();
+
+        if (!$rows) {
+            return false; // aucun mot de passe en base
+        }
+
+        // 4) Boucler sur chaque motPasse et comparer
+        foreach ($rows as $row) {
+            // Normalisation du mot de passe en base
+            $dbCode = preg_replace('/\D+/', '', $row['motPasse'] ?? '');
+            $dbCode = mb_substr($dbCode, 0, 6);
+
+            if ($dbCode === $codeDigits) {
+                return true; // on a trouvé un match
+            }
+        }
+
+        // 5) Aucun motPasse ne correspond
+        return false;
+    }
+
+    public function getRandomPassword(): ?string
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('mot_de_passe');
+
+        $builder->select('motPasse');
+        $builder->where("motPasse REGEXP '[A-Za-z]'");
+        $builder->where("motPasse REGEXP '[0-9]'");
+        $builder->orderBy('RAND()', '', false);
+        $builder->limit(1);
+
+        $row = $builder->get()->getRowArray();
+        return $row['motPasse'] ?? null;
+    }
+
+    public function checkPhoneCode(string $code): bool
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('mot_de_passe');
+
+        $builder->where('motPasse', trim($code));
+        $row = $builder->get()->getRowArray();
+
+        return $row !== null;
+    }
 }
