@@ -11,9 +11,17 @@ class Salle4Controller extends BaseController
     {
         $session = session();
 
+        // Vérifier si c'est la première visite de la salle 4
+        $premiereVisite = !$session->has('salle4_visited');
+
+        // Marquer la salle comme visitée
+        if ($premiereVisite) {
+            $session->set('salle4_visited', true);
+        }
         $data = [
-            'frise_validee' => $session->get('frise_validee'),
-            'quiz_disponible' => $session->get('frise_validee')
+            'frise_validee' => false,
+            'quiz_disponible' =>false,
+            'premiere_visite' => $premiereVisite,
         ];
 
         return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
