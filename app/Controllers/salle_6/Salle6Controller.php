@@ -49,9 +49,9 @@ class Salle6Controller extends BaseController
         // Passer l'explication à la vue
         $data['explication'] = $explication['libelle'] ?? 'Texte par défaut';
 
-        return view('commun/header') .
-            view('salle_6/AccueilSalle6', $data) .
-            view('commun/footer');
+        return view('commun\header') .
+            view('salle_6\AccueilSalle6', $data) .
+            view('commun\footer');
     }
 
     public function Vpn(): string
@@ -170,9 +170,9 @@ class Salle6Controller extends BaseController
         // Message de résultat optionnel (peut être personnalisé)
         $data['messageResultat'] = 'Vous avez brillamment résolu toutes les énigmes de cette salle !';
 
-        return view('commun/header') .
-            view('salle_6/Explication', $data) .
-            view('commun/footer');
+        return view('commun\header') .
+            view('salle_6\Explication', $data) .
+            view('commun\footer');
     }
 
     public function Explication()
@@ -206,8 +206,8 @@ class Salle6Controller extends BaseController
             $data['intituleMessage'] = '🎉 Félicitations ! 🎉';
         }
 
-        return view('salle_6/Explication', $data) .
-            view('commun/footer');
+        return view('salle_6\Explication', $data) .
+            view('commun\footer');
     }
 
     public function RazSession()
