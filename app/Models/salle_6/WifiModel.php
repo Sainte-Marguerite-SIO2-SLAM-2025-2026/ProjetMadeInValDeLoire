@@ -8,7 +8,7 @@ class WifiModel extends Model
 {
     protected $table      = 'wifi';
     protected $primaryKey = 'numero';
-    protected $allowedFields = ['numero', 'public', 'chiffrement'];
+    protected $allowedFields = ['numero','nom', 'public', 'chiffrement'];
     protected $returnType = 'array';
 
     /**

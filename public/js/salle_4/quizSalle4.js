@@ -183,7 +183,7 @@ async function envoyerReponse(reponse) {
             if (totalRepondu >= 6) {
                 console.log('Toutes les questions répondues!');
                 setTimeout(() => {
-                    afficherResultatFinal();
+                    afficherResultatFinal2();
                 }, 500);
             }
         } else {
@@ -213,13 +213,13 @@ function afficherResultatFinal() {
     updateMascotte(score);
 
     if (score >= 5) {
-        resultTitle.textContent = '🎉 Excellent !';
+        resultTitle.textContent = 'Excellent !';
         resultMessage.textContent = 'Vous maîtrisez bien le sujet des ransomwares !';
     } else if (score >= 3) {
-        resultTitle.textContent = '👍 Bien joué !';
+        resultTitle.textContent = 'Bien joué !';
         resultMessage.textContent = 'Vous avez de bonnes connaissances sur les ransomwares.';
     } else {
-        resultTitle.textContent = '📚 À améliorer';
+        resultTitle.textContent = 'À améliorer';
         resultMessage.textContent = 'Continuez à vous former sur la cybersécurité !';
     }
 
@@ -229,11 +229,72 @@ function afficherResultatFinal() {
 
     // Gestion du bouton retour
     const btnRetourAccueil = document.getElementById('btnRetourAccueil');
-    if (btnRetourAccueil) {
-        btnRetourAccueil.addEventListener('click', function() {
-            window.location.href = baseUrl + 'resetSalle';
+    if (btnRetourAccueil && mode === 'jour') {
+        btnRetourAccueil.addEventListener('click', function () {
+            window.location.href = baseUrl + 'manoirJour';
+        });
+    } else {
+        btnRetourAccueil.addEventListener('click', function () {
+            window.location.href = baseUrl;
         });
     }
+}
+
+function afficherResultatFinal2() {
+    const resultTitle = document.getElementById('resultTitle');
+    const resultMessage = document.getElementById('resultMessage');
+    const scoreMessage = document.getElementById('scoreMessage');
+
+    // Mettre à jour la mascotte selon le score
+    updateMascotte(score);
+
+    // ================
+    // TEXTES D'AFFICHAGE
+    // ================
+    if (score >= 5) {
+        resultTitle.textContent = 'Excellent !';
+        resultMessage.textContent = 'Vous maîtrisez bien le sujet des ransomwares !';
+    } else if (score >= 3) {
+        resultTitle.textContent = 'Bien joué !';
+        resultMessage.textContent = 'Vous avez de bonnes connaissances sur les ransomwares.';
+    } else {
+        resultTitle.textContent = 'À améliorer';
+        resultMessage.textContent = 'Continuez à vous former sur la cybersécurité !';
+    }
+
+    scoreMessage.textContent = `Votre score : ${score} / 6`;
+
+    resultModal.style.display = 'block';
+
+    // =============================
+    // RÉCUPÉRATION DU MODE (jour/nuit)
+    // =============================
+    const btnRetourAccueil = document.getElementById('btnRetourAccueil');
+
+    if (!btnRetourAccueil) return;
+
+    let chemin = "";
+
+    if (score > 3) {
+        // Salle validée
+        if (mode === 'jour') {
+            chemin = baseUrl + 'validerJour/4';
+        } else {
+            chemin = baseUrl + 'valider/4';
+        }
+    }
+    else if (mode === 'jour') {
+        // Salle échouée en mode jour
+        chemin = baseUrl + 'echouerJour/4';
+    }
+    else {
+        chemin = baseUrl + 'valider/4';
+    }
+
+    btnRetourAccueil.onclick = () => {
+        window.location.href = chemin;
+    };
+
 }
 
 // =====================================================

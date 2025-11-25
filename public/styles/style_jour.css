@@ -33,6 +33,7 @@ body {
     margin: 0;
     color: var(--text-color);
     overflow-x: hidden;
+    background: var(--color-black);
 }
 
 .container {
@@ -76,9 +77,9 @@ h1 {
 svg {
     max-width: 100%;
     height: auto;
-    /*border: 2px solid var(--color-border);*/
-    /*border-radius: var(--radius-md);*/
-    background: #7a9fd0;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: transparent;
 }
 
 /* =========================
@@ -177,19 +178,6 @@ svg {
     50% { transform: scale(1.02); }
 }
 
-.img-fluid{
-    width: 180px;
-    height: 180px;
-}
-
-.modal-body, .modal-texte{
-    display: flex;
-    }
-
-.modal-texte{
-    flex-direction: column;
-}
-
 /* =========================
    BOUTONS
    ========================= */
@@ -274,7 +262,7 @@ button:active {
 }
 
 .lune-zone:hover {
-    fill: rgba(251, 194, 59, 0.15);
+    fill: rgba(244, 215, 29, 0.4);
 }
 /* =========================
    Zone Quiz

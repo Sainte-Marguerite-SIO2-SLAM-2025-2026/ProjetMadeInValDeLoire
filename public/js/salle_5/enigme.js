@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     objetsCliquables.forEach(objet => {
         const zone = objet.querySelector('.zone-click');
-
         if (!zone) return;
 
         // Hover
@@ -51,66 +50,58 @@ document.addEventListener('DOMContentLoaded', function() {
                         objet.classList.add('correct');
                         objetsValides.push(objet);
 
-                        // 🎭 Mascotte exclamée (bonne réponse)
-                        if (window.changerMascotte) {
-                            window.changerMascotte('exclamee', 2000);
-                        }
+                        // 🎭 Mascotte exclamée
+                        if (window.changerMascotte) window.changerMascotte('exclamee', 2000);
 
+                        // Afficher le feedback avec bouton
                         if (data.completed) {
-                            // ÉNIGME TERMINÉE
-                            feedback.textContent = '✅ ' + data.message;
+                            feedback.innerHTML = '✅ ' + data.message + '<br>';
+                            let btn = document.createElement('button');
+                            btn.textContent = 'Suivant';
+                            feedback.appendChild(btn);
                             feedback.className = 'feedback success show';
 
-                            setTimeout(() => {
+                            btn.addEventListener('click', () => {
                                 overlay.style.opacity = '1';
                                 overlay.style.pointerEvents = 'all';
-
                                 setTimeout(() => {
-                                    window.location.href = base_url + '/Salle5';
-                                }, 800);
-                            }, 3000);
-                        } else {
-                            // 🔹 BONNE RÉPONSE mais il en reste - NE PAS AFFICHER DE MESSAGE
-                            // Juste réactiver les objets non validés
-                            objetsCliquables.forEach(o => {
-                                if (!objetsValides.includes(o)) {
-                                    o.classList.remove('disabled');
-                                }
+                                    window.location.href = base_url + '/salle/salle_5';
+                                }, 500);
                             });
-                        }
+                        }else{// Réactiver les objets non validés
+                            objetsCliquables.forEach(o => {
+                                if (!objetsValides.includes(o)) o.classList.remove('disabled');
+                            });}
+
+
+
                     } else {
-                        // ❌ MAUVAISE RÉPONSE - Redirection vers salle avec échec
-                        feedback.textContent = '❌ ' + data.message;
+                        // ❌ MAUVAISE RÉPONSE
+                        feedback.innerHTML = '❌ ' + data.message + '<br><button id="next-btn">Suivant</button>';
                         feedback.className = 'feedback error show';
 
-                        // 😱 Mascotte choquée (mauvaise réponse)
-                        if (window.changerMascotte) {
-                            window.changerMascotte('choquee', 2000);
-                        }
+                        // 😱 Mascotte choquée
+                        if (window.changerMascotte) window.changerMascotte('choquee', 2000);
 
-                        setTimeout(() => {
+                        document.getElementById('next-btn').addEventListener('click', () => {
                             overlay.style.opacity = '1';
                             overlay.style.pointerEvents = 'all';
-
-                            setTimeout(() => {
-                                window.location.href = base_url + '/Salle5?echec=1&activite=' + activite_numero;
-                            }, 800);
-                        }, 2000);
+                            window.location.href = base_url + '/salle/salle_5?echec=1&activite=' + activite_numero;
+                        });
                     }
                 })
                 .catch(error => {
                     console.error('Erreur:', error);
-                    feedback.textContent = '❌ Erreur de connexion';
+                    feedback.innerHTML = '❌ Erreur de connexion<br><button id="next-btn">Réessayer</button>';
                     feedback.className = 'feedback error show';
 
-                    setTimeout(() => {
+                    document.getElementById('next-btn').addEventListener('click', () => {
+                        // Réactiver les objets non validés
                         objetsCliquables.forEach(o => {
-                            if (!objetsValides.includes(o)) {
-                                o.classList.remove('disabled');
-                            }
+                            if (!objetsValides.includes(o)) o.classList.remove('disabled');
                         });
                         feedback.classList.remove('show');
-                    }, 2000);
+                    });
                 });
         });
     });

@@ -277,6 +277,19 @@ html, body {
     transform: scale(1.1);
 }
 
+.btn-retour-accueil {
+    margin: 20px 10px 10px;
+    padding: 15px 35px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
 /* ===== Modal de résultat final ===== */
 .result-modal-content {
     max-width: 600px;
@@ -319,17 +332,17 @@ html, body {
 /* ===== Mascotte interactive ===== */
 .mascotte-zone {
     position: absolute;
-    top: 20px;
+    bottom: 20px;
     right: 40px;
     width: 150px;
     height: 180px;
     cursor: pointer;
-    z-index: 200;
+    z-index: 10000;
 }
 
 .mascotte-img {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 150px;
     height: 180px;

@@ -33,8 +33,6 @@
   <rect id="porte" x="1592.5" y="237.97" width="257.49" height="838.37">
    <title>porte</title>
   </rect>
- </g>
- <g fill-opacity="0">
   <rect id="question" x="327.91" y="41.42" width="1270.2" height="129.44" ry="0">
    <title>question</title>
   </rect>
@@ -70,6 +68,24 @@
   </rect>
   <rect x="1270" y="748" width="594" height="105">
    <title>choix4</title>
+  </rect>
+ </g>
+ <path id="accueil" d="m317.29 83.593a62.237 60.407 0 0 1-62.122 60.407 62.237 60.407 0 0 1-62.352-60.182 62.237 60.407 0 0 1 61.89-60.63 62.237 60.407 0 0 1 62.582 59.957l-62.235 0.44837z" fill-opacity="0"/>
+ <g fill-opacity="0">
+  <rect id="ecran_bas_gauche" x="445.26" y="511.71" width="240" height="198">
+   <title>ecran_bas_gauche</title>
+  </rect>
+  <rect id="ecran_bas_mid_gauche" x="718.8" y="517.31" width="265" height="189">
+   <title>ecran_bas_mid_gauche</title>
+  </rect>
+  <rect id="ecran_bas_mid_droit" x="1009.2" y="514.29" width="252" height="193">
+   <title>ecran_bas_mid_droit</title>
+  </rect>
+  <rect id="ecran_bas_droit" x="1293.9" y="513.43" width="239" height="198">
+   <title>ecran_bas_droit</title>
+  </rect>
+  <rect id="ecran_geant" x="426.28" y="203.65" width="1120.1" height="289.94">
+   <title>ecran_geant</title>
   </rect>
  </g>
 </svg>

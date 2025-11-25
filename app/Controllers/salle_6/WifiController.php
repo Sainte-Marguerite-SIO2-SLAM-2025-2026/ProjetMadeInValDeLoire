@@ -20,7 +20,7 @@ class WifiController extends BaseController
     public function Index(): string
     {
         // ID de l'activité (à adapter selon votre logique)
-        $activite_numero = 1; // Exemple
+        $activite_numero = 601; // Exemple
 
         // Récupérer les WiFi depuis la base de données
         $data['wifis'] = $this->proposerWifiModel->getWifiMelanges($activite_numero);
@@ -37,7 +37,7 @@ class WifiController extends BaseController
     public function validerCarte()
     {
         $wifi_numero = $this->request->getPost('wifi_numero');
-        $activite_numero = $this->request->getPost('activite_numero') ?? 1;
+        $activite_numero = $this->request->getPost('activite_numero') ?? 601;
 
         // Si pas de wifi sélectionné
         if (!$wifi_numero) {
@@ -76,7 +76,7 @@ class WifiController extends BaseController
      */
     public function testRecuperationWifi()
     {
-        $activite_numero = 1;
+        $activite_numero = 601;
 
         echo "<h2>Test de récupération des WiFi</h2>";
 

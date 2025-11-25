@@ -16,9 +16,20 @@ $routes->get('/manoirJour', 'HomeControlleur::pagejour');
 $routes->match(['GET','POST'],'/reset', 'HomeControlleur::reset');
 $routes->get('/resetSalleJour', 'HomeControlleur::resetSalleJour');
 $routes->get('/salle/salle_(:num)', 'HomeControlleur::salle/$1');
-$routes->match(['GET','POST'],'/valider/(:num)', 'HomeControlleur::valider/$1');                //tempo a voir avec la prof
-$routes->match(['GET','POST'],'/validerJour/(:num)', 'HomeControlleur::validerJour/$1');        //tempo a voir avec la prof
-$routes->match(['GET','POST'],'/echouerJour/(:num)', 'HomeControlleur::echouerJour/$1');        //tempo a voir avec la prof
+$routes->match(['GET','POST'],'/valider/(:num)', 'HomeControlleur::valider/$1');
+$routes->match(['GET','POST'],'/validerJour/(:num)', 'HomeControlleur::validerJour/$1');
+$routes->match(['GET','POST'],'/echouerJour/(:num)', 'HomeControlleur::echouerJour/$1');
+
+// Routes pour le quiz
+$routes->group('quiz', function($routes) {
+    $routes->get('/', 'QuizControlleur::index');
+    $routes->match(['get', 'post'],'demarrer/(:segment)', 'QuizControlleur::choix/$1');
+    $routes->get('choix/(:segment)', 'QuizControlleur::demarrer/$1');
+    $routes->get('question/(:segment)', 'QuizControlleur::question/$1');
+    $routes->post('repondre/(:segment)', 'QuizControlleur::repondre/$1');
+    $routes->get('resultats/(:segment)', 'QuizControlleur::resultats/$1');
+
+});
 
 // Routes pour la salle 1
 $routes->get('/Salle1', 'accueil\AccueilController::Salle1');
@@ -45,8 +56,8 @@ $routes->get('/resetSalle4', 'salle_4\Salle4Controller::resetSalle');
 
 
 // Routes pour la salle 5
-$routes->get('/enigmeRetour', 'accueil\AccueilController::Salle5');
-$routes->get('/Salle5', 'accueil\AccueilController::Salle5');
+//$routes->get('/enigmeRetour', 'accueil\AccueilController::Salle5');
+//$routes->get('/Salle5', 'accueil\AccueilController::Salle5');
 $routes->get('/enigme/(:num)', 'salle_5\Salle5Controller::enigme/$1');
 $routes->post('/validerEnigme', 'salle_5\Salle5Controller::validerEnigme');
 $routes->get('/resetSalle5', 'salle_5\Salle5Controller::resetSalle');

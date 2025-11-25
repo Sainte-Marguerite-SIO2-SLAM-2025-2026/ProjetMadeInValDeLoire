@@ -20,7 +20,7 @@ class VpnController extends BaseController
     public function Index(): string
     {
         // ID de l'activité (à adapter selon votre logique)
-        $activite_numero = 2; // Exemple pour VPN
+        $activite_numero = 602; // Exemple pour VPN
 
         // Récupérer les VPN depuis la base de données
         $data['vpns'] = $this->proposerVpnModel->getVpnMelanges($activite_numero);
@@ -37,19 +37,19 @@ class VpnController extends BaseController
                     'vpn_numero' => 1,
                     'libelle' => 'Un VPN chiffre votre connexion internet pour la sécuriser',
                     'bonne_reponse' => 1,
-                    'activite_numero' => 2
+                    'activite_numero' => 602
                 ],
                 [
                     'vpn_numero' => 2,
                     'libelle' => 'Un VPN ralentit toujours votre connexion de 80%',
                     'bonne_reponse' => 0,
-                    'activite_numero' => 2
+                    'activite_numero' => 602
                 ],
                 [
                     'vpn_numero' => 3,
                     'libelle' => 'Les VPN sont illégaux en France',
                     'bonne_reponse' => 0,
-                    'activite_numero' => 2
+                    'activite_numero' => 602
                 ]
             ];
         }
@@ -65,7 +65,7 @@ class VpnController extends BaseController
     public function validerCarte()
     {
         $vpn_numero = $this->request->getPost('vpn_numero');
-        $activite_numero = $this->request->getPost('activite_numero') ?? 2;
+        $activite_numero = $this->request->getPost('activite_numero') ?? 602;
 
         // Si pas de VPN sélectionné
         if (!$vpn_numero) {
@@ -100,7 +100,7 @@ class VpnController extends BaseController
      */
     public function testRecuperationVpn()
     {
-        $activite_numero = 2;
+        $activite_numero = 602;
 
         echo "<h2>Test de récupération des VPN</h2>";
 

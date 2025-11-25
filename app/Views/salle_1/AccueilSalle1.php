@@ -7,7 +7,6 @@
     <?= link_tag(base_url().'styles/salle1Global.css') ?>
     <?= link_tag(base_url().'styles/salle1Accueil.css') ?>
     <?= script_tag(base_url().'js/salle1Accueil.js') ?>
-    <?= script_tag(base_url('js/salle1Timer.js')) ?>
 </head>
 <body>
 <div class="background-container">
@@ -38,19 +37,27 @@
     </div>
 
     <!-- Bouton retour -->
-    <div class="buttons">
-        <?= anchor(
-                base_url().'/',
-                '<div class="retour-wrapper">'
-                .img([
-                        'src' => base_url('images/salle_1/images/boutons/retour-et-indice_blanc.webp'),
-                        'alt' => 'Retour',
-                        'class' => 'button-image'
-                ])
-                .'<span class="retour-texte">Retour au menu</span>'
-                .'</div>'
-        ); ?>
-    </div>
+    <?php if (session()->get('mode') === 'jour'): ?>
+        <div class="home">
+            <?= anchor('/manoirJour',
+                    img([
+                            'src' => base_url('images/commun/btn_retour/home_icone_2.webp'),
+                            'alt' => 'Retour',
+                            'class' => 'button-home'
+                    ])
+            ) ?>
+        </div>
+    <?php else: ?>
+        <div class="home">
+            <?= anchor('/',
+                    img([
+                            'src' => base_url('images/commun/btn_retour/home_icone_2.webp'),
+                            'alt' => 'Retour',
+                            'class' => 'button-home'
+                    ])
+            ) ?>
+        </div>
+    <?php endif?>
 </div>
 </body>
 </html>
