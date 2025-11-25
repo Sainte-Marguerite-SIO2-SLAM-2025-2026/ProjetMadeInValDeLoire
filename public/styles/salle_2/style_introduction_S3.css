@@ -58,23 +58,31 @@ html, body {
 }
 
 .book-text {
-    width: min(800px, 82vw);
+    width: min(900px, 82vw);
     max-width: 700px;
     column-count: 2;
     column-gap: clamp(25px, 4vw, 64px);
-    font-size: clamp(0.52rem, 1.05vw, 0.96rem);
-    line-height: 1;
+
+    /* ↓ Texte plus gros ↓ */
+    font-size: clamp(0.6rem, 1.4vw, 1rem);
+    line-height: 1.32;
+
     letter-spacing: .006em;
     font-weight: 500;
     color: var(--ink);
-    margin-top: -6vh;
+
+    margin-top: 28vh;
     hyphens: auto;
     overflow-wrap: break-word;
+
 }
+
 .book-text p {
     margin: 0 0 1.05em 0;
     color: var(--ink-dim);
 }
+
+
 
 /* --- BOUTONS --- */
 .btn {

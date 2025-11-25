@@ -62,7 +62,7 @@
                     aria-label="Mot de passe"
                     oninput="this.value = this.value.replace(/\D+/g, '').slice(0, 6);"
                     onpaste="setTimeout(() => { this.value = this.value.replace(/\D+/g, '').slice(0, 6); }, 0);"
-                    style="all: unset; display: block; width: 100%; height: 100%; box-sizing: border-box; padding: 0.5em; text-align: center; font: inherit; font-size: 3.5em; font-weight: 600; color: inherit; background: transparent; cursor: text;"
+                    style="all: unset; display: block; width: 100%; height: 100%; box-sizing: border-box; padding: 0.5em; text-align: center; font: inherit; font-size: 2.5em; font-weight: 600; color: inherit; background: transparent; cursor: text;"
             >
 
             <?php if (!empty($error)): ?>
