@@ -14,7 +14,7 @@
         <h2>1. Éditeur du site</h2>
         <p>
             Le site <strong>EnigManor</strong> est édité par la société
-            <strong>BLUT - Block, Learn, Understand, Train</strong>, au capital social de <strong>1000 €</strong>,
+            <strong>BLUT - Brigade Loufoque de l’Univers des Technophiles</strong>, au capital social de <strong>1000 €</strong>,
 <!--            immatriculée au RCS de Paris sous le numéro <strong>123 456 789</strong>,-->
             dont le siège social est situé au <strong>1 rue Horizon Vert, 37130 Chambray-lès-Tours, France</strong>.
         </p>
