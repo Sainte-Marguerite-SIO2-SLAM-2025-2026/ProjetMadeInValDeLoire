@@ -90,10 +90,18 @@ class HomeControlleur extends BaseController
 
         if ((int)$numero === 4){
             $session = session();
-             // savoir si il est encore en train de faire la salle
+
+            // Vérifier si c'est la première visite de la salle 4
+            $premiereVisite = !$session->has('salle4_visited');
+
+            // Marquer la salle comme visitée
+            if ($premiereVisite) {
+                $session->set('salle4_visited', true);
+            }
             $data = [
                 'frise_validee' => false,
-                'quiz_disponible' =>false
+                'quiz_disponible' =>false,
+                'premiere_visite' => $premiereVisite,
             ];
 
             return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
@@ -426,6 +434,7 @@ class HomeControlleur extends BaseController
     public function resetSalle4()
     {
         $session = session();
+        $session->remove('salle4_visited');
         $session->remove('frise_validee');
         $session->remove('activite_choisie');
         $session->remove('positions_cartes_frise');

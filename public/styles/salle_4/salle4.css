@@ -206,14 +206,6 @@ html, body {
     background: #16a085;
 }
 
-
-
-
-
-
-
-
-
 /* Zones bloquées */
 .zone-bloquee {
     cursor: not-allowed;
@@ -243,3 +235,138 @@ html, body {
 .zone2.zone-bloquee .overlay-bloque {
     background: transparent;
 }
+
+/* ===== Modal de bienvenue (première visite) ===== */
+.modal-welcome {
+    display: block;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    animation: fadeIn 0.5s;
+}
+
+.modal-welcome-content {
+    background: linear-gradient(135deg, #69f8ac 0%, #92f663 100%);
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.5s;
+    overflow: hidden;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-welcome-header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    text-align: center;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.modal-welcome-header h2 {
+    color: white;
+    font-size: 2em;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.modal-welcome-body {
+    padding: 30px;
+    background: white;
+}
+
+.situation-box,
+.objectif-box,
+.conseil-box {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.situation-box {
+    background: linear-gradient(135deg, #f6533e 0%, #f5576c 100%);
+    color: #030303;
+}
+
+.objectif-box {
+    background: linear-gradient(135deg, #fb8003 0%, #efa33f 100%);
+    color: #030303;
+}
+
+.conseil-box {
+    background: linear-gradient(135deg, #eac11a 0%, #fbd97a 100%);
+    color: #030303;
+}
+
+.modal-welcome-body h3 {
+    margin-top: 0;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.modal-welcome-body p {
+    line-height: 1.7;
+    font-size: 1.05em;
+    margin: 10px 0;
+}
+
+.modal-welcome-body ol {
+    padding-left: 25px;
+    line-height: 1.8;
+}
+
+.modal-welcome-body li {
+    margin: 10px 0;
+}
+
+.modal-welcome-body strong {
+    font-weight: 700;
+}
+
+.modal-welcome-body em {
+    font-style: italic;
+}
+
+.modal-welcome-footer {
+    padding: 25px;
+    text-align: center;
+    background: white;
+    border-top: 2px solid #f0f0f0;
+}
+
+.glow-zone {
+    position: relative;
+    z-index: 1;
+}
+
+.glow-zone::before {
+    content: "";
+    position: absolute;
+    top: -8px;      /* épaisseur du halo */
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 2px; /* mets 0 si ton tableau est carré */
+    box-shadow: 0 0 15px rgba(216, 246, 28, 0.6);
+    pointer-events: none;
+    z-index: -1;    /* derrière la zone */
+}
+
