@@ -77,7 +77,6 @@
     </div>
 <?php endif?>
 
-<!-- Footer -->
 <div class="scroll-flow">
     <div class="scroll-spacer"></div>
 </div>

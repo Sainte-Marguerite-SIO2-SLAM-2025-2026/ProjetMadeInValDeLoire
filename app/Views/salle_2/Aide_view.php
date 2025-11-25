@@ -48,7 +48,6 @@
     </main>
 </div>
 
-<!--Footer -->
 <div class="scroll-flow">
     <div class="scroll-spacer"></div>
 </div>
