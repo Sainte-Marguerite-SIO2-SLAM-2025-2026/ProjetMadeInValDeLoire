@@ -12,20 +12,12 @@
     position: relative;
 }
 
-/* === Zone principale === */
-.content-container {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 30px;
-    width: 90%;
-    position: relative;
-}
+
 
 /* === Fantôme (monstre) === */
 .perso-discussion {
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    bottom: 0px;
     left: 1%;
     width: clamp(200px, 25vw, 400px);
     height: auto;
@@ -35,7 +27,7 @@
 
 /* === Zone de texte (bulle) === */
 .text-zone {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 60%;
     transform: translateX(-50%);
@@ -79,7 +71,7 @@
 
 /* === Nom du personnage === */
 #nom-personnage {
-    position: fixed;
+    position: absolute;
     bottom: 18vh;
     left: 45vh;
     font-size: 1.5rem;
