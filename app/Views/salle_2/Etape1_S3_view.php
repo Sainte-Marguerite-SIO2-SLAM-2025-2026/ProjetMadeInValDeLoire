@@ -51,13 +51,6 @@
         </div>
     <?php endif?>
 
-
-    <div class="bouton-accueil-cluedo-container">
-        <img src="<?= base_url('images/salle_2/maison/home_icone_7.png') ?>" alt="Mascotte">
-    </div>
-</a>
-
-
 <div class="game-fixed-wrapper">
 
     <div class="accueil-bg" style="background-image:url('<?= base_url('/images/salle_2/Etape1_Salle3.jpg') ?>');"></div>

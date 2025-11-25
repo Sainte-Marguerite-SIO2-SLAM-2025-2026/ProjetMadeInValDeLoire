@@ -168,9 +168,8 @@
     </footer>
 </div>
 
-
 <script>
-    // JS Mascotte (inchangé)
+    // JS Mascotte
     (function () {
         const yesBtn = document.getElementById('help-yes');
         const tip = document.getElementById('help-tip');
