@@ -46,7 +46,7 @@ $routes->get('/indice/(:num)', 'salle_2\Salle2Controller::getIndice/$1');
 $routes->get('/Salle3', 'accueil\AccueilController::Salle3');
 
 // Routes pour la salle 4
-$routes->get('/Salle4', 'accueil\AccueilController::Salle4');
+$routes->get('/Salle4', 'salle_4\Salle4Controller::index');
 $routes->get('/pageFrise', 'salle_4\Salle4Controller::pageFrise');
 $routes->post('/verifierOrdre', 'salle_4\Salle4Controller::verifierOrdre');
 $routes->get('/quizFin', 'salle_4\Salle4Controller::quizFinal');
