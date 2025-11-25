@@ -1,7 +1,7 @@
 <title>Salle n°6</title>
 <?= link_tag(base_url() . "styles/salle_6/accueilSalle6.css") ?>
 <div class="container">
-    <h1 class="titre-temp">Salle n°6</h1>
+    <h1 class="titre-temp">Sécurité à l’extérieur</h1>
 
     <!-- Bulle de dialogue SVG -->
     <div class="bulle">
