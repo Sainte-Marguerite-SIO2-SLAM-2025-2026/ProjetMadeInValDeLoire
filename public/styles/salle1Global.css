@@ -201,5 +201,3 @@ body {
     from { transform: translateY(-20px) scale(0.97); opacity: 0; }
     to   { transform: translateY(0) scale(1); opacity: 1; }
 }
-
-

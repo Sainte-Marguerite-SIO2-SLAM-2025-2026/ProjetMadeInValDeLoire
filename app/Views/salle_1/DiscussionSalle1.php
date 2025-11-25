@@ -98,13 +98,11 @@
                 .'</div>'
         ); ?>
 
-        <?= anchor(
-                base_url('/'), img([
-                        'src' => base_url('images/commun/mascotte/mascotte_interrogee.svg'),
-                        'alt' => 'Mascotte',
-                        'class' => 'mascotte-image'
-                ])
-        ); ?>
+        <?= img([
+                    'src' => base_url('images/commun/mascotte/mascotte_interrogee.svg'),
+                    'alt' => 'Mascotte',
+                    'class' => 'mascotte-image'
+        ])?>
 
     </div>
 </div>
@@ -152,6 +150,7 @@
     </div>
 </div>
 <?= script_tag(base_url('js/salle1Discussion.js')) ?>
+<?= script_tag(base_url('js/salle1Mascotte.js')) ?>
 <?= script_tag(base_url('js/salle1Timer.js')) ?>
 </body>
 </html>

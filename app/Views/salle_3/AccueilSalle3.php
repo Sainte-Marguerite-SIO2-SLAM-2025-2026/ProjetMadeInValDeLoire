@@ -12,14 +12,18 @@
 </head>
 
 <body>
-
+<?php $session = session()->get('mode'); ?>
 <div class="content">
     <div class="bureau-wrapper" id="bureau">
         <img src="<?= base_url("/images/salle_3/bureau/bureau_sepia.webp")?>" alt="Bureau" class="bureau-svg bureau-normal">
         <img src="<?= base_url("/images/salle_3/bureau/bureau_orange.webp")?>" alt="Bureau hover" class="bureau-svg bureau-hover">
     </div>
 
+    <?php if ($session == 'nuit') : ?>
     <?= anchor(base_url(), ' ', ['class' => 'btn-accueil']); ?>
+    <?php else : ?>
+    <?= anchor(base_url('/manoirJour'), ' ', ['class' => 'btn-accueil']); ?>
+    <?php endif; ?>
 
 </div>
 
