@@ -73,6 +73,8 @@ class Salle4Controller extends BaseController
     public function verifierOrdre()
     {
         $session = session();
+
+
         $salle4Model = new Salle4Model();
 
         $activiteChoisie = $session->get('activite_choisie');

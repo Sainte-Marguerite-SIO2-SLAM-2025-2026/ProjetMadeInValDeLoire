@@ -62,7 +62,7 @@ $routes->get('/Salle3', 'accueil\AccueilController::Salle3');
 $routes->get('/Salle3/Enigme', 'salle_3\Salle3Controller::index');
 
 // Routes pour la salle 4
-$routes->get('/Salle4', 'accueil\AccueilController::Salle4');
+$routes->get('/Salle4', 'salle_4\Salle4Controller::index');
 $routes->get('/pageFrise', 'salle_4\Salle4Controller::pageFrise');
 $routes->post('/verifierOrdre', 'salle_4\Salle4Controller::verifierOrdre');
 $routes->get('/quizFin', 'salle_4\Salle4Controller::quizFinal');
