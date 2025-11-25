@@ -351,22 +351,3 @@ html, body {
     background: white;
     border-top: 2px solid #f0f0f0;
 }
-
-.glow-zone {
-    position: relative;
-    z-index: 1;
-}
-
-.glow-zone::before {
-    content: "";
-    position: absolute;
-    top: -8px;      /* épaisseur du halo */
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    border-radius: 2px; /* mets 0 si ton tableau est carré */
-    box-shadow: 0 0 15px rgba(216, 246, 28, 0.6);
-    pointer-events: none;
-    z-index: -1;    /* derrière la zone */
-}
-

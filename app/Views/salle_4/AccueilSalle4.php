@@ -11,7 +11,7 @@
 <div class="image-container">
     <!-- Zone Frise - Bloquée si déjà validée -->
     <?php if (!$frise_validee || session()->get('mode') === 'jour'): ?>
-        <?= anchor(base_url().'pageFrise', ' ', [ 'class' => 'clickable-zone zone1 glow-zone' ] );?>
+        <?= anchor(base_url().'pageFrise', ' ', [ 'class' => 'clickable-zone zone1' ] );?>
     <?php else: ?>
         <div class="clickable-zone zone1 zone-bloquee">
             <div class="overlay-bloque">Validé</div>
@@ -19,7 +19,7 @@
     <?php endif; ?>
 
     <!-- Zone Quiz - Bloquée si frise pas validée -->
-    <?php if ($quiz_disponible || session()->get('mode') === 'jour'): ?> <!--ajout d'une methode pour trouver jour / nuit-->
+    <?php if ($quiz_disponible || session()->get('mode') === 'jour'): ?>
         <?= anchor(base_url().'quizFin', ' ', [ 'class' => 'clickable-zone zone2' ] );?>
     <?php else: ?>
         <div class="clickable-zone zone2 zone-bloquee">
