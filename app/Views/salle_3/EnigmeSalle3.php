@@ -16,7 +16,7 @@
 <?php $mode = session()->get("mode") ?>
 <div class="background-container">
 
-    <img id="bg-img" src="<?= base_url('images/salle_3/dessus_bureau/dessus_bureau.webp') ?>" alt="Fond" style="width:1920px; height:1080px; display:block;">
+    <img id="bg-img" src="<?= base_url('images/salle_3/dessus_bureau/dessus_bureau.webp') ?>" alt="Fond" style="width:1600px; height:900px; display:block;">
 
 
     <div class="map-container" style="position:absolute; top:0; left:0; width:100%; height:100%;">
@@ -106,7 +106,7 @@
                 <?php endif; ?>
             </div>
         </div>
-        <img id="score-mascotte" src="" alt="Mascotte score" style="width:400px; position:absolute; right:-550px; bottom:250px;">
+        <img id="score-mascotte" src="" alt="Mascotte score" style="width:300px; position:absolute; right:-450px; bottom:250px;">
     </div>
 </div>
 <button id="btn-valider" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); padding:10px 20px; font-size:16px; z-index:1000;">Valider</button>
@@ -178,11 +178,11 @@
         const areas = [
             {zone:1, coords:[406.5,157.5,681.5,332.5]},
             {zone:2, coords:[953,144,1228,319]},
-            {zone:3, coords:[1243,279,1518,454]},
+            {zone:3, coords:[1243,279,1318,454]},
             {zone:4, coords:[721,276,996,451]},
-            {zone:5, coords:[1349,506,1624,681]},
+            {zone:5, coords:[1349,506,1136,681]},
             {zone:6, coords:[332,745,607,920]},
-            {zone:7, coords:[1241,670,1516,845]},
+            {zone:7, coords:[1241,670,1216,845]},
             {zone:8, coords:[399,458,674,633]},
             {zone:9, coords:[730,523,1005,698]},
             {zone:10, coords:[839,691,1114,866]}
