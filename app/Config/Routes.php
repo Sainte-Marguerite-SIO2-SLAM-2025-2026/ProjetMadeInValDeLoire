@@ -13,8 +13,7 @@ $routes->get('/MentionLegale', 'commun\CommunController::MentionLegale');
 $routes->get('/', 'HomeControlleur::index');
 $routes->get('/manoirJour', 'HomeControlleur::pagejour');
 
-$routes->get('/reset', 'HomeControlleur::reset');
-$routes->post('/reset', 'HomeControlleur::reset');
+$routes->match(['GET','POST'],'/reset', 'HomeControlleur::reset');
 $routes->get('/resetSalleJour', 'HomeControlleur::resetSalleJour');
 $routes->get('/salle/salle_(:num)', 'HomeControlleur::salle/$1');
 $routes->match(['GET','POST'],'/valider/(:num)', 'HomeControlleur::valider/$1');
@@ -39,11 +38,12 @@ $routes->get('Salle1/Code', 'salle_1\Salle1Controller::accesCode');
 
 // Routes pour la salle 2
 $routes->get('/Salle2', 'accueil\AccueilController::Salle2');
-$routes->get('/Salle2/Enigme', 'salle_2\Salle2Controller::index');
+
 $routes->get('/indice/(:num)', 'salle_2\Salle2Controller::getIndice/$1');
 
 // Routes pour la salle 3
 $routes->get('/Salle3', 'accueil\AccueilController::Salle3');
+$routes->get('/Salle3/Enigme', 'salle_3\Salle3Controller::index');
 
 // Routes pour la salle 4
 $routes->get('/Salle4', 'accueil\AccueilController::Salle4');
