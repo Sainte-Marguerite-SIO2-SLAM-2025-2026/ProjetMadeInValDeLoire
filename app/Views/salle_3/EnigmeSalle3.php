@@ -12,7 +12,7 @@
 
 </header>
 <body>
-
+<?php $session = session()->get('mode'); ?>
 <?php $mode = session()->get("mode") ?>
 <div class="background-container">
 
@@ -26,7 +26,11 @@
 
 </div>
 
-<?= anchor(base_url(), ' ', ['class' => 'accueil-btn']) ?>
+<?php if ($session == 'nuit') : ?>
+    <?= anchor(base_url(), ' ', ['class' => 'accueil-btn']); ?>
+<?php else : ?>
+    <?= anchor(base_url('/manoirJour'), ' ', ['class' => 'accueil-btn']); ?>
+<?php endif; ?>
 
 
 <div class="mascotte-container">
