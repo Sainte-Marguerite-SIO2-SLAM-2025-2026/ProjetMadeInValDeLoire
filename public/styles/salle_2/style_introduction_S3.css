@@ -125,7 +125,7 @@ html, body {
 .code-intro {
     position: absolute;
     bottom: 87%;
-    right: 11.5%;
+    right: 12.5%;
     transform: translate(50%, 50%) rotate(6.2deg);
     font-size: 2rem;
     font-weight: 700;
