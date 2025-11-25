@@ -7,9 +7,33 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.style.transition = "opacity 0.8s ease";
     }
 
-    // Récupérer tous les groupes d'objets énigmes
-    const objetsEnigmes = document.querySelectorAll('.objet-enigme');
     const baseUrl = document.body.dataset.baseurl;
+
+    // BOUTON ACCUEIL
+    const btnAccueil = document.getElementById("accueil");
+    if (btnAccueil) {
+        const baseUrl = document.body.dataset.baseurl;
+        const isJour = document.body.dataset.mode === 'jour';
+        const redirectUrl = isJour ? baseUrl + '/manoirJour' : baseUrl + '/';
+
+        btnAccueil.style.cursor = "pointer";
+
+        btnAccueil.addEventListener("click", () => {
+            if (overlay) {
+                overlay.style.opacity = "1";
+                overlay.style.pointerEvents = "all";
+            }
+
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, 800);
+        });
+    }
+
+    // -------------------------------------------------------
+    //  ÉNIGMES
+    // -------------------------------------------------------
+    const objetsEnigmes = document.querySelectorAll('.objet-enigme');
 
     objetsEnigmes.forEach(objet => {
         const activiteNum = parseInt(objet.getAttribute('data-activite'));
@@ -17,11 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!zone) return;
 
-        // Appliquer l'effet néon rouge pour les énigmes non réussies
+        // effet néon rouge
         objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
         objet.style.animation = 'neonPulse 2s ease-in-out infinite';
 
-        // Hover effect
         zone.addEventListener('mouseenter', () => {
             objet.style.filter = 'drop-shadow(0 0 15px rgba(255, 0, 0, 1)) drop-shadow(0 0 25px rgba(255, 0, 0, 0.8))';
         });
@@ -30,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
             objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
         });
 
-        // Redirection au clic
         zone.addEventListener('click', () => {
             if (overlay) {
                 overlay.style.opacity = '1';
@@ -43,30 +65,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
-    // 🔹 Popup explicatif (seulement si présent dans le DOM)
+    // -------------------------------------------------------
+    // Popup explicatif
+    // -------------------------------------------------------
     const popup = document.getElementById("popup-explication");
     if (popup) {
-        // Afficher la popup après 1 seconde
         setTimeout(() => {
             popup.style.display = "flex";
         }, 1000);
 
-        // Fermer en cliquant en dehors
         window.addEventListener("click", (event) => {
             if (event.target === popup) {
                 popup.style.display = "none";
             }
         });
 
-        // Fonction pour fermer la popup
         window.closePopup = function () {
             popup.style.display = "none";
         };
     }
 });
 
-// 🔁 Correction du retour navigateur (pageshow = même si cache)
+// Correction retour navigateur
 window.addEventListener("pageshow", () => {
     const overlay = document.getElementById("transition-overlay");
     if (overlay) {

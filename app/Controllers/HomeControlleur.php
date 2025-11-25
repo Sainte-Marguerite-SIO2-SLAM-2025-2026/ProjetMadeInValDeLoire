@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\salle_1\Salle1ExplicationModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\MascotteModel;
@@ -34,6 +35,7 @@ class HomeControlleur extends BaseController
             'current_room' => session()->get(self::SESSION_CURRENT_ROOM),
             'completed_rooms' => session()->get(self::SESSION_COMPLETED_ROOMS)
         ];
+        $this->resetSalle4();
         $this->resetSalle5();
 
         return view('commun/header.php').
@@ -49,6 +51,7 @@ class HomeControlleur extends BaseController
     public function pagejour(): string
     {
         session()->set('mode', 'jour');
+        $this->resetSalle4();
         $this->resetSalle5();
         return view('commun/header.php').
             view('manoir_jour_home').
@@ -76,6 +79,34 @@ class HomeControlleur extends BaseController
             return redirect()->to('/')
                 ->with('error', 'Salle indisponible');
         }
+
+        if ((int)$numero === 1)
+        {
+            $explicationModel = new Salle1ExplicationModel();
+            $data = ['explication' => $explicationModel->getExplicationSalle1()];
+            return view('salle_1\AccueilSalle1', $data).
+                view('commun\footer');
+        }
+
+        if ((int)$numero === 4){
+            $session = session();
+
+            // Vérifier si c'est la première visite de la salle 4
+            $premiereVisite = !$session->has('salle4_visited');
+
+            // Marquer la salle comme visitée
+            if ($premiereVisite) {
+                $session->set('salle4_visited', true);
+            }
+            $data = [
+                'frise_validee' => false,
+                'quiz_disponible' =>false,
+                'premiere_visite' => $premiereVisite,
+            ];
+
+            return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
+        }
+
 
         if ((int)$numero === 5){
             // Instancier les models
@@ -171,6 +202,7 @@ class HomeControlleur extends BaseController
             return redirect()->to('/')
                 ->with('error', 'Numéro de salle invalide');
         }
+        $this->resetSalle4();
         $this->resetSalle5();
 
         // Marque la salle comme complétée
@@ -182,8 +214,9 @@ class HomeControlleur extends BaseController
         // Toutes les salles sont complétées
         if ($nextRoom === null) {
             session()->set(self::SESSION_CURRENT_ROOM, -1);
-            return redirect()->to('/')
-                ->with('success', 'Félicitations ! Vous avez terminé toutes les salles !');
+//            return redirect()->to('/')
+//                ->with('success', 'Félicitations ! Vous avez terminé toutes les salles !');
+            return redirect()->to('/quiz/choix/nuit');
         }
 
         // Stocke la prochaine salle
@@ -207,7 +240,7 @@ class HomeControlleur extends BaseController
             return redirect()->to('manoirJour')
                 ->with('error', 'Numéro de salle invalide');
         }
-
+        $this->resetSalle4();
         $this->resetSalle5();
         // Marque la salle comme complétée
         $this->ajouteSalleComplete($numero);
@@ -222,7 +255,7 @@ class HomeControlleur extends BaseController
             return redirect()->to('manoirJour')
                 ->with('error', 'Numéro de salle invalide');
         }
-
+        $this->resetSalle4();
         $this->resetSalle5();
         // Marque la salle comme échouée
         $this->ajouteSalleEchouee($numero);
@@ -391,6 +424,25 @@ class HomeControlleur extends BaseController
         for ($i = 1; $i <= 10; $i++) {
             session()->remove('reponses_activite_' . $i);
         }
+    }
+
+
+    /**
+     * vide toutes les sessions de la salle 4
+     * @return RedirectResponse
+     */
+    public function resetSalle4()
+    {
+        $session = session();
+        $session->remove('salle4_visited');
+        $session->remove('frise_validee');
+        $session->remove('activite_choisie');
+        $session->remove('positions_cartes_frise');
+        $session->remove('quiz_questions');
+        $session->remove('quiz_reponses');
+        $session->remove('quiz_score');
+
+        return redirect()->to(base_url('Salle4'));
     }
 }
 

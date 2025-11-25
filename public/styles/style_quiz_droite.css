@@ -1,0 +1,521 @@
+
+/* ===================================
+   VARIABLES CSS (Custom Properties)
+   =================================== */
+:root {
+    /* Couleurs principales */
+    --color-text-primary: #fffdfd;
+    --color-text-secondary: #0b0a0a;
+    --color-black: black;
+    --color-black-transparent: rgba(0, 0, 0, 0.7);
+
+    /* Couleurs formulaire */
+    --color-radio-bg: #8fbdbd;
+    --color-radio-checked: #ccffff;
+    --color-radio-border: #5cbaba;
+    --color-radio-hover: #555;
+    --color-radio-hover-border: #777;
+    --color-radio-text: #101010;
+
+    /* Couleurs zones interactives */
+    --color-clavier-stroke: #e1c7f2;
+    --color-tooltip-bg: rgb(204, 255, 255);
+
+    /* Couleurs zones choix formulaire */
+    --color-choix-hover: rgba(234, 208, 102, 0.2);
+    --color-choix-select: rgba(234, 223, 102, 0.4);
+    --color-choix-letter-background: #ead066;
+
+    /* Couleurs zones score */
+    --color-score-background: rgba(60, 59, 59, 0.33);
+    --color-score-shadow :rgba(0, 0, 0, 0.3);
+    --color-score-title: #faf6f6;
+    --color-score-display: #d7c4fd;
+    --color-score-percentage: #ead066;
+    --color-score-message: #fdfcfc;
+
+    /* Typographie */
+    --font-doto: "Doto", sans-serif;
+    --font-audiowide: 'Audiowide-Regular', sans-serif;
+
+    /* Tailles de police responsive */
+    --font-size-h2: clamp(12px, 2vw, 48px);
+    --font-size-form: clamp(12px, 2vw, 26px);
+    --font-size-radio: clamp(12px, 1.8vw, 18px);
+    --font-size-tooltip: 18px;
+
+    /* Dimensions */
+    --tooltip-max-width: 480px;
+
+    /* Opacité */
+    --opacity-hidden: 0;
+    --opacity-visible: 1;
+
+    /* Transitions */
+    --transition-default: 0.3s ease;
+
+    /* Espacements */
+    --spacing-xs: 0.2rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-tooltip: 6px 10px;
+
+    /* Bordures */
+    --border-radius-sm: 2px;
+    --border-radius-md: 5px;
+    --border-radius-lg: 6px;
+    --border-radius-xl: 10px;
+    --border-width: 2px;
+    --border-width-stroke: 8;
+
+    /* Z-index */
+    --z-index-base: 1;
+    --z-index-tooltip: 9999;
+
+    /* Animations */
+    --animation-float-duration: 3s;
+    --animation-zoom-duration: 0.7s;
+}
+
+/* ===================================
+   POLICES PERSONNALISÉES
+   =================================== */
+@font-face {
+    font-family: 'Doto';
+    src: url('../fonts/Doto-VariableFont_ROND,wght.ttf') format('truetype');
+    font-weight: 900;
+}
+
+/* ===================================
+   RÉINITIALISATION GLOBALE
+   =================================== */
+body {
+    color: var(--color-black);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: var(--color-black);
+}
+
+/* ===================================
+   CONTENEUR PRINCIPAL DU QUIZ
+   =================================== */
+.quiz-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.quiz-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+
+/* ===================================
+   WRAPPER SVG
+   =================================== */
+.svg-wrapper {
+    position: relative;
+    z-index: var(--z-index-base);
+}
+
+.svg-wrapper svg,
+svg {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    background: transparent;
+}
+
+/* ===================================
+   FORMULAIRE DE QUIZ
+   =================================== */
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: 100%;
+    padding: var(--spacing-md);
+    box-sizing: border-box;
+    color: var(--color-text-primary);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-doto);
+    font-weight: 900;
+}
+
+.formulaire h2 {
+    margin-top: 0;
+    font-size: var(--font-size-h2);
+    text-align: center;
+}
+
+.quiz-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
+    flex: 1;
+    font-size: var(--font-size-form);
+}
+
+.quiz-form .question {
+    font-size: clamp(12px, 3vw,32px);
+    text-align: center;
+    margin-bottom: 1.5vh;
+    color: #f8f6f6;
+    flex: 0 0 auto;
+    font-family: "Doto", sans-serif;
+    font-weight: 900;
+}
+
+.choices {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 0.5vh;
+}
+
+.choice {
+    display: flex;
+    align-items: center;
+    padding: 0.8vh 1vw;
+    margin: 0.3vh 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: clamp(14px, 2.2vw, 24px);
+    font-family: "Doto", sans-serif;
+    font-weight: 900;
+}
+.choice:hover {
+    background: var(--color-choix-hover);
+}
+
+.choice.selected {
+    background:var(--color-choix-select);
+}
+
+.choice .letter {
+    background: var(--color-choix-letter-background);
+    color: var(--color-black);
+    font-weight: bold;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+/* Groupes de champs */
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+/* ===================================
+    BOITE MODALE SCORES
+ ===================================== */
+/* Styles pour la modale de résultats */
+.score-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-black-transparent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+
+.score-overlay.hidden {
+    display: none;
+}
+
+.score-modal {
+    background: var(--color-score-background);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+    max-width: 900px;
+    width: 90%;
+    box-shadow: 0 10px 50px var(--color-score-shadow);
+    animation: modalAppear 0.3s ease-out;
+}
+
+@keyframes modalAppear {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.score-image {
+    flex: 0 0 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-image img {
+    width: 80%;
+    height: auto;
+}
+
+.score-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.score-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--color-score-title);
+    margin: 0 0 20px 0;
+}
+
+.score-display {
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--color-score-display);
+    margin: 10px 0;
+}
+
+.score-percentage {
+    font-size: 2em;
+    color: var(--color-score-percentage);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.score-message {
+    font-size: 1.3em;
+    color: var(--color-score-message);
+    margin: 20px 0;
+    line-height: 1.5;
+}
+
+.score-button {
+    position: relative;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 20px;
+    transition: transform 0.2s;
+}
+
+.score-button:hover {
+    transform: scale(1.05);
+}
+
+.score-button-bg {
+    width: 400px;
+    height: auto;
+}
+
+/* ===================================
+   BOUTONS RADIO PERSONNALISÉS
+   =================================== */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+    justify-content: center;
+}
+
+.radio-option {
+    position: relative;
+}
+
+/* Cache les inputs radio natifs */
+.radio-option input[type="radio"] {
+    position: absolute;
+    opacity: var(--opacity-hidden);
+    cursor: pointer;
+}
+
+/* Style personnalisé des labels radio */
+.radio-label {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-radio-bg);
+    color: var(--color-radio-text);
+    border: var(--border-width) solid transparent;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-radio);
+    cursor: pointer;
+    transition: all var(--transition-default);
+}
+
+/* État sélectionné */
+.radio-option input[type="radio"]:checked + .radio-label {
+    background: var(--color-radio-checked);
+    border-color: var(--color-radio-border);
+    transform: scale(1.05);
+}
+
+/* Effet hover */
+.radio-label:hover {
+    background: var(--color-radio-hover);
+    border-color: var(--color-radio-hover-border);
+}
+
+/* ===================================
+   CLASSE DE POLICE PERSONNALISÉE
+   =================================== */
+.policeTexte {
+    font-family: var(--font-doto);
+    font-weight: 900;
+}
+
+/* ===================================
+   TOOLTIP HTML
+   =================================== */
+#html-tooltip {
+    font-family: var(--font-doto);
+    font-weight: 900;
+    font-size: var(--font-size-tooltip);
+    max-width: var(--tooltip-max-width);
+    display: none;
+    padding: var(--spacing-tooltip);
+    background: var(--color-tooltip-bg);
+    color: var(--color-text-secondary);
+    border-radius: var(--border-radius-lg);
+    pointer-events: none;
+    z-index: var(--z-index-tooltip);
+    position: fixed;
+}
+
+/* ===================================
+   ÉLÉMENTS LUMINEUX (Lumi)
+   =================================== */
+.lumi-image {
+    position: absolute;
+    opacity: var(--opacity-visible);
+    transition: opacity var(--transition-default);
+    pointer-events: none;
+}
+
+.lumi-zone {
+    fill: transparent;
+    cursor: pointer;
+    transition: fill var(--transition-default);
+}
+
+.lumi-halo {
+    transform-origin: center;
+    /*animation:*/
+    /*        zoom-in-start var(--animation-zoom-duration) ease-out forwards,*/
+    /*        hover-float var(--animation-float-duration) ease-in-out infinite var(--animation-zoom-duration);*/
+    pointer-events: none;
+}
+
+/* ===================================
+   ZONE RETOUR
+   =================================== */
+.retour-zone {
+    fill: transparent;
+    cursor: pointer;
+    transition: opacity 0.25s ease;
+}
+
+.retour-zone:hover {
+    opacity: 0.7;
+}
+
+/* Image de base */
+#retour-image {
+    transition: opacity 0.3s ease;
+}
+
+/* Image au survol (cachée par défaut) */
+#retour-image-hover {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Au survol du groupe retour */
+#retour:hover #retour-image {
+    opacity: 0;
+}
+
+#retour:hover #retour-image-hover {
+    opacity: 1;
+}
+
+/* ===================================
+   ZONE CLAVIER
+   =================================== */
+.zone-clavier {
+    display: inline-grid;
+    grid-auto-flow: row;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-xl);
+    cursor: pointer;
+}
+
+.clavier-zone {
+    fill: transparent;
+    stroke: var(--color-clavier-stroke);
+    stroke-width: var(--border-width-stroke);
+}
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+
+/* Animation de zoom au démarrage */
+@keyframes zoom-in-start {
+    0% {
+        opacity: var(--opacity-hidden);
+        transform: scale(0.4);
+    }
+    70% {
+        opacity: var(--opacity-visible);
+        transform: scale(1.40);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animation de flottement au hover */
+@keyframes hover-float {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}

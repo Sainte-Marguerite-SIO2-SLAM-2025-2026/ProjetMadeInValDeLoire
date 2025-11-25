@@ -58,15 +58,15 @@
     <!-- Contrôles en bas de la page -->
     <div class="controls-bottom">
         <button id="resetBtn" class="btn-control btn-reset">
-            <span class="btn-icon">🔄</span>
+            <span class="btn-icon"></span>
             <span class="btn-text">Réinitialiser</span>
         </button>
         <button id="undoBtn" class="btn-control btn-undo">
-            <span class="btn-icon">↶</span>
+            <span class="btn-icon"></span>
             <span class="btn-text">Annuler</span>
         </button>
         <button id="validateBtn" class="btn-control btn-validate" disabled>
-            <span class="btn-icon">✓</span>
+            <span class="btn-icon"></span>
             <span class="btn-text">Valider</span>
         </button>
     </div>
@@ -77,18 +77,31 @@
             <h2 id="resultTitle"></h2>
             <p id="resultMessage"></p>
             <div id="explicationZone" style="display:none;">
-                <h3>📋 Ordre correct :</h3>
+                <h3>Ordre correct :</h3>
                 <ol id="ordreCorrectList"></ol>
             </div>
             <button id="closeModalBtn" class="btn-modal">Retour à l'accueil</button>
         </div>
     </div>
 
-    <?= anchor(base_url(), img([
-            'src'   => 'images/salle_4/images_finales/home_icone_3.webp',
-            'alt'   => 'retour',
-            'class' => 'retour'
-    ])); ?>
+    <!-- Bouton retour -->
+    <?php if (session()->get('mode') === 'jour'): ?>
+        <div class="retour-top">
+            <?= anchor('/manoirJour', img([
+                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
+                    'alt'   => 'retour',
+                    'class' => 'retour'
+            ])); ?>
+        </div>
+    <?php else: ?>
+        <div class="retour-top">
+            <?= anchor('/', img([
+                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
+                    'alt'   => 'retour',
+                    'class' => 'retour'
+            ])); ?>
+        </div>
+    <?php endif?>
 
     <!-- Mascotte interactive -->
     <div class="mascotte-zone" id="mascotte-container">
@@ -109,37 +122,45 @@
     <div class="modal" id="rulesModal">
         <div class="modal-content rules-modal-content">
             <span class="close-rules">&times;</span>
-            <h2>📋 Règles du jeu - Frise</h2>
+
             <div class="rules-content">
-                <h3>🎯 Objectif</h3>
-                <p>Reconstituer la procédure correcte en reliant les cartes dans le bon ordre chronologique.</p>
-
-                <h3>🎮 Comment jouer ?</h3>
-                <ol>
-                    <li><strong>Cliquez sur une première carte</strong> pour la sélectionner</li>
-                    <li><strong>Cliquez sur une deuxième carte</strong> pour les relier</li>
-                    <li>La première carte se verrouille, la deuxième reste active</li>
-                    <li><strong>Continuez à relier</strong> toutes les cartes dans l'ordre</li>
-                    <li><strong>Validez</strong> votre ordre avec le bouton "Valider"</li>
-                </ol>
-
-                <h3>🔧 Outils disponibles</h3>
-                <ul>
-                    <li><strong>🔄 Réinitialiser :</strong> Tout recommencer</li>
-                    <li><strong>↶ Annuler :</strong> Annuler la dernière liaison</li>
-                    <li><strong>✓ Valider :</strong> Vérifier si l'ordre est correct</li>
-                </ul>
-
-                <h3>💡 Astuce</h3>
-                <p>Lisez attentivement les descriptions sur chaque carte pour trouver l'ordre logique !</p>
+                <div class="indices-container">
+                    <?php if ($activite == 401): ?>
+                        <h3>Indices pour l'ordre</h3>
+                        <ul>
+                            <li>Commence toujours par <strong>isoler</strong> avant d'agir : ça évite la propagation.</li>
+                            <li>Une fois isolé, <strong>couper les accès réseau</strong> empêche l'attaque de continuer.</li>
+                            <li>Avant d'aller plus loin, il faut <strong>prévenir l'équipe spécialisée</strong>, qui pourra superviser.</li>
+                            <li>On <strong>conserve les preuves</strong> avant toute action invasive : sinon elles peuvent être perdues.</li>
+                            <li>On ne peut <strong>bloquer la cause</strong> que lorsqu'on a sécurisé le périmètre.</li>
+                            <li>Le <strong>nettoyage</strong> vient après l'identification du problème.</li>
+                            <li>On <strong>restaure les sauvegardes</strong> seulement une fois sûr que tout est propre.</li>
+                            <li>Le <strong>changement de mots de passe</strong> sert à sécuriser après récupération.</li>
+                        </ul>
+<!--                        <h3>Résumé très court</h3>-->
+<!--                        <p><strong>Isole → Coupe → Alerte → Conserve → Identifie → Nettoie → Restaure → Sécurise</strong></p>-->
+                    <?php else: ?>
+                        <h3>Indices pour l'ordre</h3>
+                        <ul>
+                            <li>On commence toujours par des <strong>actions techniques de base</strong> : mise à jour, antivirus.</li>
+                            <li>Ensuite viennent les <strong>mesures organisationnelles</strong> (droits, filtrage).</li>
+                            <li>Les actions qui réduisent les <strong>risques humains</strong> arrivent ensuite (formation).</li>
+                            <li>Enfin, ce qui garantit la <strong>résilience en cas de problème</strong> (sauvegardes).</li>
+                        </ul>
+<!--                        <h3>Résumé très court</h3>-->
+<!--                        <p><strong>Solidifie → Protège → Limite → Filtre → Désactive → Segmente → Sensibilise → Sauvegarde</strong></p>-->
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>
+
 
 </div>
 
 <script>
     const baseUrl = '<?= base_url() ?>';
+    const mode =  "<?= esc(session()->get('mode')) ?>";
 </script>
 <?= script_tag('js/salle_4/friseSalle4.js') ?>
 

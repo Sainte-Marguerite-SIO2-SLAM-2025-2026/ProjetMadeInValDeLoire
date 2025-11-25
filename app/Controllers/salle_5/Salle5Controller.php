@@ -13,7 +13,7 @@ use App\Models\salle_5\ZoneModel;
 class Salle5Controller extends BaseController
 {
     // Liste des énigmes qui utilisent le fond de bureau
-    private $enigmes_bureau = [2, 3, 4, 8, 9];
+    private $enigmes_bureau = [502, 503, 504, 508, 509];
 
     public function enigme($activite_numero)
     {
@@ -123,16 +123,16 @@ class Salle5Controller extends BaseController
         $resultat = $zoneModel->verifierZone($activite_numero, $reponse);
 
         $messages_echec = [
-            1 => ' Échec ! Ce n\'était pas le bon écran à risque, cet écran est vérouillé',
-            2 => ' Raté ! Vous ne pouvez pas être sur que cette clé USB est sûre. Elle peut contenir un malware (attaque BadUSB) !',
-            3 => ' Incorrect ! Cet objet ne compromet pas directement la sécurité physique.',
-            4 => ' Dommage ! Cette zone ne présente pas d\'information confidentielle visible. Cherchez des post-it ou documents sensibles !',
-            5 => ' Mauvaise réponse ! La porte entrouverte permet le tailgating (intrusion par filature). Une porte doit toujours être fermée !',
-            6 => ' Échec ! Ce n\'est pas la bonne protection contre l\'épaule-surfing (shoulder surfing). Un filtre de confidentialité est nécessaire !',
-            7 => ' Raté ! Cette action n\'est pas une contre-mesure efficace. Pensez à fermer/sécuriser la fenêtre et éloigner le matériel sensible.',
-            8 => ' Incorrect ! Ce n\'est pas une violation de la politique "clean desk". Un bureau propre ne doit avoir AUCUN document, carnet de mots de passe ou clé USB visible.',
-            9 => ' Échec ! Vous n\'avez pas identifié les bonnes erreurs. Les secrets physiques (codes, badges) ne doivent JAMAIS être notés ou affichés, et les mots de passe doivent être forts !',
-            10 => ' Mauvaise réponse ! Une caméra de surveillance interne peut poser des problèmes de conformité RGPD. Sûreté ≠ espionnage ; respectez la proportionnalité !'
+            501 => ' Échec ! Ce n\'était pas le bon écran à risque, cet écran est vérouillé',
+            502 => ' Raté ! Vous ne pouvez pas être sur que cette clé USB est sûre. Elle peut contenir un malware (attaque BadUSB) !',
+            503 => ' Incorrect ! Cet objet ne compromet pas directement la sécurité physique.',
+            504 => ' Dommage ! Cette zone ne présente pas d\'information confidentielle visible. Cherchez des post-it ou documents sensibles !',
+            505 => ' Mauvaise réponse ! La porte entrouverte permet le tailgating (intrusion par filature). Une porte doit toujours être fermée !',
+            506 => ' Échec ! Ce n\'est pas la bonne protection contre l\'épaule-surfing (shoulder surfing). Un filtre de confidentialité est nécessaire !',
+            507 => ' Raté ! Cette action n\'est pas une contre-mesure efficace. Pensez à fermer/sécuriser la fenêtre et éloigner le matériel sensible.',
+            508 => ' Incorrect ! Ce n\'est pas une violation de la politique "clean desk". Un bureau propre ne doit avoir AUCUN document, carnet de mots de passe ou clé USB visible.',
+            509 => ' Échec ! Vous n\'avez pas identifié les bonnes erreurs. Les secrets physiques (codes, badges) ne doivent JAMAIS être notés ou affichés, et les mots de passe doivent être forts !',
+            510 => ' Mauvaise réponse ! Une caméra de surveillance interne peut poser des problèmes de conformité RGPD. Sûreté ≠ espionnage ; respectez la proportionnalité !'
         ];
 
         if (!$resultat['valid']) {
@@ -163,16 +163,16 @@ class Salle5Controller extends BaseController
 
             // Messages personnalisés par activité
             $messages = [
-                1 => 'Excellent ! Laisser un poste ouvert permet l\'accès aux données sensibles. Toujours verrouiller (Win+L) !',
-                2 => 'Bravo ! Une clé USB inconnue peut contenir un malware (attaque BadUSB).',
-                3 => 'Parfait ! Un badge d\'entreprise ne doit jamais être laissé sans surveillance.',
-                4 => 'Bien vu ! Les informations confidentielles ne doivent jamais être visibles.',
-                5 => 'Excellent ! Les portes doivent être fermées pour éviter les intrusions (tailgating).',
-                6 => 'Bravo ! L\'épaule-surfing est un risque physique simple à exploiter.',
-                7 => 'Parfait ! La sécurité physique inclut aussi les ouvrants (risque de vol).',
-                8 => 'Félicitations ! La politique "clean desk" réduit le risque de perte/vol d\'infos.',
-                9 => 'Super ! Les secrets physiques ne doivent jamais être affichés et les MDP doivent être forts.',
-                10 => 'Bien vu ! Sûreté ≠ espionnage interne ; respecter le principe de proportionnalité.'
+                501 => 'Excellent ! Laisser un poste ouvert permet l\'accès aux données sensibles. Toujours verrouiller (Win+L) !',
+                502 => 'Bravo ! Une clé USB inconnue peut contenir un malware (attaque BadUSB).',
+                503 => 'Parfait ! Un badge d\'entreprise ne doit jamais être laissé sans surveillance.',
+                504 => 'Bien vu ! Les informations confidentielles ne doivent jamais être visibles.',
+                505 => 'Excellent ! Les portes doivent être fermées pour éviter les intrusions (tailgating).',
+                506 => 'Bravo ! L\'épaule-surfing est un risque physique simple à exploiter.',
+                507 => 'Parfait ! La sécurité physique inclut aussi les ouvrants (risque de vol).',
+                508 => 'Félicitations ! La politique "clean desk" réduit le risque de perte/vol d\'infos.',
+                509 => 'Super ! Les secrets physiques ne doivent jamais être affichés et les MDP doivent être forts.',
+                510 => 'Bien vu ! Sûreté ≠ espionnage interne ; respecter le principe de proportionnalité.'
             ];
 
             return $this->response->setJSON([
