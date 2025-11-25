@@ -142,10 +142,15 @@
                     <?php else: ?>
                         <h3>Indices pour l'ordre</h3>
                         <ul>
-                            <li>On commence toujours par des <strong>actions techniques de base</strong> : mise à jour, antivirus.</li>
-                            <li>Ensuite viennent les <strong>mesures organisationnelles</strong> (droits, filtrage).</li>
-                            <li>Les actions qui réduisent les <strong>risques humains</strong> arrivent ensuite (formation).</li>
-                            <li>Enfin, ce qui garantit la <strong>résilience en cas de problème</strong> (sauvegardes).</li>
+                            <li>Garde toujours tes <strong>systèmes à jour</strong> : les correctifs bloquent les failles exploitées par les attaquants.</li>
+                            <li>Installe un <strong>antivirus performant</strong> : il détecte et neutralise les comportements suspects.</li>
+                            <li><strong>Limite les droits administrateur</strong> : moins de privilèges = moins de dégâts en cas d’infection.</li>
+                            <li><strong>Filtre les emails</strong> et les pièces jointes : c’est la meilleure façon d’éviter les pièges courants.</li>
+                            <li><strong>Désactive les macros</strong> par défaut : elles sont souvent utilisées pour lancer des attaques.</li>
+                            <li><strong>Ségmente ton réseau</strong> : une attaque sur une partie ne doit pas contaminer toute l’infrastructure.</li>
+                            <li><strong>Forme les utilisateurs</strong> : ils représentent la première barrière contre les cybermenaces.</li>
+                            <li>Effectue des <strong>sauvegardes régulières</strong> : elles permettent de récupérer rapidement après une attaque.</li>
+
                         </ul>
 <!--                        <h3>Résumé très court</h3>-->
 <!--                        <p><strong>Solidifie → Protège → Limite → Filtre → Désactive → Segmente → Sensibilise → Sauvegarde</strong></p>-->
