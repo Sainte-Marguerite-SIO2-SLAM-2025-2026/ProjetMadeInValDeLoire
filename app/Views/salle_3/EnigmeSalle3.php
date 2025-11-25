@@ -70,14 +70,14 @@
 
             <div id="resultButtons" class="buttons-zone" style="margin-top:20px;">
                 <?php if ($mode === "jour") : ?>
-                    <?= form_open(base_url('/echouerJour/2')) ?>
+                    <?= form_open(base_url('/echouerJour/3')) ?>
                     <?= form_button([
                         'content' => 'Retour à l\'accueil',
                         'type' => 'submit',
                         'class' => 'btn-echoue',
                     ]) ?>
                     <?= form_close() ?>
-                    <?= form_open(base_url('/validerJour/2')) ?>
+                    <?= form_open(base_url('/validerJour/3')) ?>
                     <?= form_button([
                         'content' => 'Valider la salle',
                         'type' => 'submit',
@@ -92,7 +92,7 @@
                         'class' => 'btn-echoue',
                     ]) ?>
                     <?= form_close() ?>
-                    <?= form_open(base_url('/valider/2')) ?>
+                    <?= form_open(base_url('/valider/3')) ?>
                     <?= form_button([
                         'content' => 'Valider la salle',
                         'type' => 'submit',
