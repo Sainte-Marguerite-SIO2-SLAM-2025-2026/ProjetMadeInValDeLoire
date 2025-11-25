@@ -40,7 +40,7 @@
 <div id="modal-accueil" class="modal">
     <div class="modal-content">
         <span id="modal-close" class="close">&times;</span>
-        <h2>Bienvenue !</h2>
+        <h2>Bienvenue dans la salle du phishing !</h2>
         <p>
             <br> <br>
             Les lourdes portes de la bibliothèque s’ouvrent… bienvenue dans une pièce où chaque détail pourrait être un indice.<br><br> Saurez-vous les trouver ?
