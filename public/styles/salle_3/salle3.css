@@ -1,0 +1,229 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.content{
+    height: 1080px;
+    width: 1920px;
+    background-image: url("../../images/salle_3/fond/fond.webp");
+    background-size: 1920px 1080px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bureau-wrapper {
+    position: absolute;
+    top: 664px;
+    left: 956px;
+    transform: translate(-50%, -50%);
+    width: auto;
+    max-width: 500px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.bureau-wrapper:hover {
+    transform: translate(-50%, -50%);
+}
+
+.bureau-svg {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.bureau-normal {
+    opacity: 1;
+}
+
+.bureau-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.bureau-wrapper:hover .bureau-normal {
+    opacity: 0;
+}
+
+.bureau-wrapper:hover .bureau-hover {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bureau-wrapper {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .bureau-wrapper {
+        width: 90%;
+    }
+}
+
+.btn-accueil {
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 200px;
+    height: 100px;
+    background-image: url('../../images/commun/btn_retour/home_icone_6.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: black;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-accueil:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* --- MODALE GENERIQUE --- */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(3px);
+    z-index: 2000;
+    opacity: 1;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    width: 400px;
+    max-width: 90%;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px 25px 50px 25px; /* espace pour le contenu + boutons */
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #333333;
+}
+
+.modal-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    color: #34495e;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    z-index: 3000;
+    transition: color 0.2s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.mascotte-container {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    width: 180px;
+    z-index: 10000;
+}
+
+.mascotte-container img {
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.mascotte-container img:hover {
+    transform: scale(1.05);
+}
+
+/* Tooltip */
+.toolTip {
+    position: absolute;
+    bottom: 110%;
+    left: 0;
+    background: white;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    width: 200px;
+    font-size: 14px;
+}
+
+.toolTip.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.commencer {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background: #2ecc71;
+    color: white;
+}
+
+.commencer:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(39,174,96,0.35);
+}

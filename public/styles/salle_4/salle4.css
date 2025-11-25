@@ -1,0 +1,372 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.image-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    max-width: 1920px;
+    aspect-ratio: 1920 / 1080;
+    background-image: url('../../images/salle_4/images_finales/chambre.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Toutes les zones cliquables */
+.clickable-zone {
+    position: absolute;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.clickable-zone:hover {
+    transform: scale(1.05);
+}
+
+/* Zone 1 (rectangle - tableau) */
+.zone1 {
+    top: calc(61 / 1080 * 100%);
+    left: calc(670 / 1920 * 100%);
+    width: calc(619 / 1920 * 100%);
+    height: calc(337 / 1080 * 100%);
+}
+
+/* Zone 2 (polygone - dossier) */
+.zone2 {
+    top: calc(961 / 1080 * 100%);
+    left: calc(1413 / 1920 * 100%);
+    width: calc(192 / 1920 * 100%);
+    height: calc(104 / 1080 * 100%);
+}
+
+/* Bouton retour */
+.retour {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    transform: none;
+    max-width: 200px;
+    height: 200px;
+    transition: transform 0.3s;
+}
+
+.retour:hover {
+    transform: scale(1.02);
+}
+
+/* ===== Mascotte interactive ===== */
+.mascotte-zone {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    width: 150px;
+    height: 180px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.mascotte-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    height: 180px;
+    object-fit: contain;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+}
+
+.mascotte-default { opacity: 1; }
+.mascotte-hover  { opacity: 0; }
+
+.mascotte-zone:hover .mascotte-default { opacity: 0; }
+.mascotte-zone:hover .mascotte-hover  { opacity: 1; }
+
+/* ===== Modal ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.3s;
+    position: relative;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== Modal des règles ===== */
+.rules-modal-content {
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.rules-modal-content h2 {
+    color: #2c3e50;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 3px solid #1abc9c;
+    padding-bottom: 10px;
+}
+
+.rules-modal-content h3 {
+    color: #1abc9c;
+    font-size: 1.4em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.rules-content {
+    text-align: left;
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.rules-content p {
+    margin: 10px 0;
+}
+
+.rules-content ol,
+.rules-content ul {
+    margin: 15px 0;
+    padding-left: 30px;
+}
+
+.rules-content li {
+    margin: 8px 0;
+}
+
+.rules-content strong {
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.close-rules {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #aaa;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-rules:hover {
+    color: #e74c3c;
+}
+
+/* Scrollbar personnalisée */
+.rules-modal-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.rules-modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.rules-modal-content::-webkit-scrollbar-thumb {
+    background: #1abc9c;
+    border-radius: 5px;
+}
+
+.rules-modal-content::-webkit-scrollbar-thumb:hover {
+    background: #16a085;
+}
+
+/* Zones bloquées */
+.zone-bloquee {
+    cursor: not-allowed;
+    position: relative;
+}
+
+.overlay-bloque {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.zone1.zone-bloquee .overlay-bloque {
+    /*background: rgba(39, 174, 96, 0.9);*/
+}
+
+.zone2.zone-bloquee .overlay-bloque {
+    background: transparent;
+}
+
+/* ===== Modal de bienvenue (première visite) ===== */
+.modal-welcome {
+    display: block;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    animation: fadeIn 0.5s;
+}
+
+.modal-welcome-content {
+    background: linear-gradient(135deg, #69f8ac 0%, #92f663 100%);
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.5s;
+    overflow: hidden;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-welcome-header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    text-align: center;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.modal-welcome-header h2 {
+    color: white;
+    font-size: 2em;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.modal-welcome-body {
+    padding: 30px;
+    background: white;
+}
+
+.situation-box,
+.objectif-box,
+.conseil-box {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.situation-box {
+    background: linear-gradient(135deg, #f6533e 0%, #f5576c 100%);
+    color: #030303;
+}
+
+.objectif-box {
+    background: linear-gradient(135deg, #fb8003 0%, #efa33f 100%);
+    color: #030303;
+}
+
+.conseil-box {
+    background: linear-gradient(135deg, #eac11a 0%, #fbd97a 100%);
+    color: #030303;
+}
+
+.modal-welcome-body h3 {
+    margin-top: 0;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.modal-welcome-body p {
+    line-height: 1.7;
+    font-size: 1.05em;
+    margin: 10px 0;
+}
+
+.modal-welcome-body ol {
+    padding-left: 25px;
+    line-height: 1.8;
+}
+
+.modal-welcome-body li {
+    margin: 10px 0;
+}
+
+.modal-welcome-body strong {
+    font-weight: 700;
+}
+
+.modal-welcome-body em {
+    font-style: italic;
+}
+
+.modal-welcome-footer {
+    padding: 25px;
+    text-align: center;
+    background: white;
+    border-top: 2px solid #f0f0f0;
+}
+
+.glow-zone {
+    position: relative;
+    z-index: 1;
+}
+
+.glow-zone::before {
+    content: "";
+    position: absolute;
+    top: -8px;      /* épaisseur du halo */
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 2px; /* mets 0 si ton tableau est carré */
+    box-shadow: 0 0 15px rgba(216, 246, 28, 0.6);
+    pointer-events: none;
+    z-index: -1;    /* derrière la zone */
+}
+
