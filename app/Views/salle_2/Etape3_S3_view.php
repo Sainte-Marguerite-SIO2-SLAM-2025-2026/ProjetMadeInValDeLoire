@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><?= esc($title ?? 'Mallette | Salle Mot de Passe') ?></title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preload" as="image" href="<?= base_url('/images/salle_2/Etape3_Salle3.webp') ?>" type="image/jpeg">
     <link rel="stylesheet" href="<?= base_url('/styles/salle_2/style_etape_S3.css') ?>?v=4">
 </head>

@@ -69,10 +69,7 @@ function isReload() {
         const fromHelper = /\/(aide|etape1|etape1a)(\/|$)/.test(ref);
         const reload     = isReload();
 
-        // Hide intro only if:
-        // - explicitly not allowed to show (no flag) AND it's not a reload
-        // - OR suppressed via key
-        // - OR user comes from helper/parent pages
+
         if ((!shouldShow && !reload) || suppress || fromHelper) {
             document.documentElement.classList.add('hide-intro');
         } else {

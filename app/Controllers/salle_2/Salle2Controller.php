@@ -10,13 +10,24 @@ class Salle2Controller extends BaseController
 
     public function Introduction()
     {
-        return view('salle_2\Introduction_view');
+        $model = new Salle2Model();
+        $libelles = $model->getMotDePasse1();
+        $data = [
+            'libelles' => $libelles
+        ];
+
+        return view('salle_2\Introduction_view',$data);
 
     }
 
     public function Aide()
     {
-        return view('salle_2\Aide_view');
+        $model = new Salle2Model();
+        $libelles = $model->getMotDePasse1();
+        $data = [
+            'libelles' => $libelles
+        ];
+        return view('salle_2\Aide_view',$data);
     }
 
     public function Etape1()

@@ -56,8 +56,6 @@
                 Bienvenue dans la salle des mots de passe…<br></br>
 
             Sauras-tu trouver les mots de passe dans les différentes étapes ?
-
-        </p>
         <div class="hero-buttons">
             <a class="btn btn--accent btn--xl" href="<?= base_url('Salle2-introduction') ?>">Commencer</a>
         </div>

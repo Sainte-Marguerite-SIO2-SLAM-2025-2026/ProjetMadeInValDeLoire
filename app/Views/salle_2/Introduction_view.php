@@ -32,7 +32,8 @@
             <br><br>
             Les mots de passe doivent obligatoirement être complexes !
             <br><br>
-            Mot de passe de la porte : 489677
+            Mot de passe de la porte : <?= esc($libelles[0]['libelle'] ?? '') ?>
+
         </p>
 
         <div class="final-actions">
