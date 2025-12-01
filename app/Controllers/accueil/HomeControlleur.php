@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\accueil;
 
+use App\Controllers\BaseController;
+use App\Controllers\salle_6\Salle6Controller;
 use App\Models\salle_1\Salle1ExplicationModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\MascotteModel;
 use App\Models\salle_5\SalleModel;
 use CodeIgniter\HTTP\RedirectResponse;
-use App\Controllers\salle_6\Salle6Controller;
 
 class HomeControlleur extends BaseController
 {
@@ -39,7 +40,7 @@ class HomeControlleur extends BaseController
         $this->resetSalle5();
 
         return view('commun/header.php').
-            view('manoir_home', $data).
+            view('accueil/manoir_home', $data).
             view('commun/footer.php');
     }
 
@@ -54,7 +55,7 @@ class HomeControlleur extends BaseController
         $this->resetSalle4();
         $this->resetSalle5();
         return view('commun/header.php').
-            view('manoir_jour_home').
+            view('accueil/manoir_jour_home').
             view('commun/footer.php');
     }
 
