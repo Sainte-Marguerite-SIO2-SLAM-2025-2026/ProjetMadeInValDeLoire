@@ -23,7 +23,15 @@ class Salle2Model extends Model
 
         return $query->getResult(); // récupère les résultats
     }
+    public function getIndice($numero)
+    {
+        return $this->db->table('indice')
+            ->select('libelle')
+            ->where('numero', $numero)
+            ->get()
+            ->getRow();
 
+    }
 
 
 

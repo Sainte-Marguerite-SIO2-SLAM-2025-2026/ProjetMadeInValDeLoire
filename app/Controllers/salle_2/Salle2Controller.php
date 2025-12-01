@@ -32,9 +32,14 @@ class Salle2Controller extends BaseController
 
     public function Etape1()
     {
-        return view('salle_2\Etape1_S3_View')
-            . view('commun\footer.php');
+        $model = new Salle2Model();
+        $indice = $model->getIndice(10);
+        return view('salle_2/Etape1_S3_View', [
+                'indice' => $indice->libelle ?? ''
+            ]) . view('commun/footer.php');
     }
+
+
 
 
     /* Etape 1a */

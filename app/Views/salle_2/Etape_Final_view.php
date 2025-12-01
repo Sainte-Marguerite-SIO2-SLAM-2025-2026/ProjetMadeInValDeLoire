@@ -30,7 +30,7 @@
         <h1 class="final-title">Félicitations !</h1>
 
         <p class="final-text">
-            Bravo, détective. Vous avez terminé avec brio les <strong>5 étapes</strong> que Monsieur Fox vous a données.
+            Bravo, détective. Vous avez terminé avec brio les <strong>5 étapes</strong>.
             <br><br>
             Le manoir vous ouvre désormais ses secrets les plus profonds...
         </p>

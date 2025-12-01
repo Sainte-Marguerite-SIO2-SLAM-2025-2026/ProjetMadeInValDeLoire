@@ -97,6 +97,7 @@
 <div class="scroll-flow">
     <div class="scroll-spacer"></div>
 </div>
+    <script src="<?= base_url('/js/salle_2/mascotte.js') ?>" defer></script>
 
 </body>
 </html>
