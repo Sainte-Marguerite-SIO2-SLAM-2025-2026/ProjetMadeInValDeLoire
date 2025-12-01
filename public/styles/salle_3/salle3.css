@@ -10,21 +10,21 @@ body {
 }
 
 .content{
-    height: 1080px;
-    width: 1920px;
+    height: 900px;
+    width: 1600px;
     background-image: url("../../images/salle_3/fond/fond.webp");
-    background-size: 1920px 1080px;
+    background-size: 1600px 900px;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .bureau-wrapper {
     position: absolute;
-    top: 664px;
-    left: 956px;
+    top: 545px;
+    left: 796px;
     transform: translate(-50%, -50%);
     width: auto;
-    max-width: 500px;
+    max-width: 400px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }

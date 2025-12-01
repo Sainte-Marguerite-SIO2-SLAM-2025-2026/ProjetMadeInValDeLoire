@@ -19,8 +19,8 @@ class Salle4Controller extends BaseController
             $session->set('salle4_visited', true);
         }
         $data = [
-            'frise_validee' => false,
-            'quiz_disponible' =>false,
+            'frise_validee' => true,
+            'quiz_disponible' =>true,
             'premiere_visite' => $premiereVisite,
         ];
 

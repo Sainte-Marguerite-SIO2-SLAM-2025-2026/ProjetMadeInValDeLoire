@@ -21,8 +21,7 @@
     <div id="timer" class="timer"></div>
 
     <!-- Nom du personnage -->
-    <div id="nom-personnage">
-        <?= esc($nom_personnage) ?>
+    <!--<div id="nom-personnage"> -->
     </div>
 
         <?= img([

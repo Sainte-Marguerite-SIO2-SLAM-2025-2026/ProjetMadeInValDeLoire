@@ -193,7 +193,7 @@
                 margin: 0;
                 text-align: center;
                 font: inherit;
-                font-size: 1.2em;
+                font-size: 1em;
                 font-weight: 700;
                 color: #ff3b30;
                 background: transparent;

@@ -53,7 +53,7 @@
 <main class="hero hero--lower">
     <aside class="hero-panel">
         <p class="hero-desc">
-            Bienvenue dans la salle n°3…
+            Bienvenue dans la salle des mots de passe…
             Ici, les mots ont un pouvoir, mais seuls les plus sûrs te permettront d’avancer.
 
             Sauras-tu trouver les 5 mots de passe cachés dans les quêtes ?

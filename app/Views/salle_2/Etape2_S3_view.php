@@ -79,14 +79,14 @@
                         aria-live="assertive"
                         style="
                         position: absolute;
-                        top: calc(95% + 0px);
+                        top: calc(95% + 2px);
                         left: 0;
                         width: 100%;
                         padding: 0.25em 0;
                         margin: 0;
                         text-align: center;
                         font: inherit;
-                        font-size: 1.2em;
+                        font-size: 1em;
                         font-weight: 700;
                         color: #ff3b30;
                         background: transparent;
