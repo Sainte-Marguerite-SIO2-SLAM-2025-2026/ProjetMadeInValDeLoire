@@ -1,4 +1,4 @@
-/* Accueil de la salle 2 */
+/* Accueil de la salle 3 */
 document.addEventListener('DOMContentLoaded', () => {
     const table = document.querySelector('.bureau-wrapper');
     const modal = document.getElementById("modal-accueil");
@@ -51,5 +51,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
-
-/* Partie énigme de la salle 2 */
