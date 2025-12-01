@@ -3,16 +3,6 @@
     </head>
     <body data-baseurl="<?= base_url() ?>">
 <div class="scene-enigme">
-    <!-- Bouton retour -->
-    <div class="retour-top">
-        <?= anchor('Salle5',
-            form_button([
-                'content' => 'RETOUR',
-                'type' => 'button',
-                'class' => 'btn-retour'
-            ])
-        ) ?>
-    </div>
 
     <!-- Question -->
     <div class="question-box">
@@ -38,7 +28,7 @@
             <!-- ========================================
                  ÉNIGME 1 : Poste risqué
             ======================================== -->
-            <?php if ($enigme->numero == 1): ?>
+            <?php if ($enigme->numero == 501): ?>
                 <!-- Écran gauche - mail ouvert -->
                 <g id="ecran_mail" class="objet-cliquable" data-reponse="ecran_milieu_gauche">
                     <image clip-path="url(#clip_ecran_milieu_gauche)"
@@ -73,7 +63,7 @@
             <!-- ========================================
                  ÉNIGME 5 : Porte entrouverte
             ======================================== -->
-            <?php if ($enigme->numero == 5): ?>
+            <?php if ($enigme->numero == 505): ?>
                 <g id="porte" class="objet-cliquable" data-reponse="porte">
                     <image clip-path="url(#clip_porte)"
                            x="1592.5" y="237.97"
@@ -83,8 +73,7 @@
                     <rect class="zone-click"
                           x="1592.5" y="237.97"
                           width="257.49" height="838.37"
-                          fill="none"
-                          pointer-events="all"
+                          fill="transparent"
                           style="cursor:pointer;"
                          />
                 </g>
@@ -93,7 +82,7 @@
             <!-- ========================================
                  ÉNIGME 6 : Écrans non sécurisés + DRAG & DROP
             ======================================== -->
-            <?php if ($enigme->numero == 6): ?>
+            <?php if ($enigme->numero == 506): ?>
                 <g id="ecran_milieu_gauche" class="objet-enigme" data-reponse="ecran">
                     <image id="image_ecran_milieu_gauche"
                            clip-path="url(#clip_ecran_milieu_gauche)"
@@ -118,7 +107,7 @@
             <!-- ========================================
                  ÉNIGME 7 : Fenêtre ouverte (QCM en SVG)
             ======================================== -->
-            <?php if ($enigme->numero == 7): ?>
+            <?php if ($enigme->numero == 507): ?>
                 <!-- Fenêtre ouverte (visuel) -->
                 <g id="fenetre_visuel">
                     <image clip-path="url(#clip_fenetre)"
@@ -194,7 +183,7 @@
             <!-- ========================================
                  ÉNIGME 10 : Caméra interne
             ======================================== -->
-            <?php if ($enigme->numero == 10): ?>
+            <?php if ($enigme->numero == 510): ?>
                 <g id="camera" class="objet-cliquable" data-reponse="camera">
                     <image clip-path="url(#clip_camera)"
                            x="1577.1" y="89.952" width="232.99" height="113.9"
@@ -208,13 +197,13 @@
                 </g>
             <?php endif; ?>
 
-            <?php if ($enigme->numero == 5 || $enigme->numero == 10): ?>
+            <?php if ($enigme->numero == 505 || $enigme->numero == 510): ?>
             <g id="ecran_bas_gauche" class="objet-cliquable" data-reponse=".">
                 <image clip-path="url(#clip_camera)"
-                       x="445.26" y="511.71" width="240" height="198"
+                       x="450" y="511.71" width="230" height="198"
                        xlink:href="<?= base_url('images/salle_5/ecran_veille_1.svg') ?>"/>
                 <rect class="zone-click"
-                      x="445.26" y="511.71" width="240" height="198"
+                      x="450" y="511.71" width="230" height="198"
                       fill="transparent"
                       pointer-events="all"
                       style="cursor:pointer;"
@@ -223,10 +212,10 @@
 
                 <g id="ecran_bas_mid_gauche" class="objet-cliquable" data-reponse=".">
                     <image clip-path="url(#clip_camera)"
-                           x="718.8" y="517.31" width="265" height="189"
+                           x="723" y="517.31" width="255" height="189"
                            xlink:href="<?= base_url('images/salle_5/ecran_veille_2.svg') ?>"/>
                     <rect class="zone-click"
-                          x="718.8" y="517.31" width="265" height="189"
+                          x="723" y="517.31" width="255" height="189"
                           fill="transparent"
                           pointer-events="all"
                           style="cursor:pointer;"
@@ -235,22 +224,35 @@
 
                 <g id="ecran_bas_mid_droit" class="objet-cliquable" data-reponse=".">
                     <image clip-path="url(#clip_camera)"
-                           x="1009.2" y="514.29" width="252" height="190"
-                           xlink:href="<?= base_url('images/salle_5/ecran_veille_2.svg') ?>"/>
+                           x="1013" y="514.29" width="245" height="193"
+                           xlink:href="<?= base_url('images/salle_5/ecran_veille_2_1.svg') ?>"/>
                     <rect class="zone-click"
-                          x="1009.2" y="514.29" width="252" height="190"
+                          x="1013" y="514.29" width="245" height="193"
                           fill="transparent"
                           pointer-events="all"
                           style="cursor:pointer;"
                     />
                 </g>
+
+                <g id="ecran_geant" class="objet-cliquable" data-reponse=".">
+                    <image clip-path="url(#clip_camera)"
+                           x="426.28" y="195" width="1115" height="293"
+                           xlink:href="<?= base_url('images/salle_5/ecran_surveillance.svg') ?>"/>
+                    <rect class="zone-click"
+                          x="426.28" y="195" width="1115" height="293"
+                          fill="transparent"
+                          pointer-events="all"
+                          style="cursor:pointer;"
+                    />
+                </g>
+
             <?php endif; ?>
 
         </svg>
     </div>
 
     <!-- ✅ OBJETS DRAGGABLES POUR ÉNIGME 6 (avec helpers CI4) -->
-    <?php if ($enigme->numero == 6): ?>
+    <?php if ($enigme->numero == 506): ?>
         <div class="objets-draggables">
             <div class="objet-drag" draggable="true" data-objet="filtre">
                 <?= img([
@@ -318,6 +320,6 @@
 </script>
 <?= script_tag('js/salle_5/mascotte.js') ?>
 <?= script_tag('js/salle_5/enigmeSalle.js') ?>
-<?php if ($enigme->numero == 6): ?>
+<?php if ($enigme->numero == 506): ?>
     <?= script_tag('js/salle_5/enigme6.js') ?>
 <?php endif; ?>

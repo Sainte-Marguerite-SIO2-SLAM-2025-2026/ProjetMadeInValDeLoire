@@ -71,19 +71,21 @@
                 </div>
             <?php endif; ?>
         </div>
+        <!-- Conteneur pour aligner résultat et bouton horizontalement -->
+        <div class="resultat-et-bouton">
+            <!-- Div de résultat (cachée par défaut) -->
+            <div class="resultat-container" id="resultatContainer" style="display: none;">
+                <p id="messageResultat"></p>
+            </div>
 
-        <!-- Div de résultat (cachée par défaut) -->
-        <div class="resultat-container" id="resultatContainer" style="display: none;">
-            <p id="messageResultat"></p>
+            <!-- Bouton suivant (caché par défaut) -->
+            <?= form_submit("btnSuivant", "Suivant", [
+                    'id' => 'btnSuivant',
+                    'class' => 'btn-suivant',
+                    'style' => 'display: none;',
+                    "content" => "Suivant"
+            ]) ?>
         </div>
-
-        <!-- Bouton suivant (caché par défaut) -->
-        <?= form_submit("btnSuivant", "Suivant", [
-                'id' => 'btnSuivant',
-                'class' => 'btn-suivant',
-                'style' => 'display: none;',
-                "content" => "Suivant"
-        ]) ?>
     </div>
 
     <!-- Bouton valider -->
@@ -139,3 +141,5 @@
 </div>
 
 <?= script_tag('js/salle_6/Vpn.js') ?>
+<?= script_tag('js/salle_6/mascotteHover.js') ?>
+

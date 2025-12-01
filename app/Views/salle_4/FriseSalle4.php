@@ -58,15 +58,15 @@
     <!-- Contrôles en bas de la page -->
     <div class="controls-bottom">
         <button id="resetBtn" class="btn-control btn-reset">
-            <span class="btn-icon">🔄</span>
+            <span class="btn-icon"></span>
             <span class="btn-text">Réinitialiser</span>
         </button>
         <button id="undoBtn" class="btn-control btn-undo">
-            <span class="btn-icon">↶</span>
+            <span class="btn-icon"></span>
             <span class="btn-text">Annuler</span>
         </button>
         <button id="validateBtn" class="btn-control btn-validate" disabled>
-            <span class="btn-icon">✓</span>
+            <span class="btn-icon"></span>
             <span class="btn-text">Valider</span>
         </button>
     </div>
@@ -77,10 +77,10 @@
             <h2 id="resultTitle"></h2>
             <p id="resultMessage"></p>
             <div id="explicationZone" style="display:none;">
-                <h3>📋 Ordre correct :</h3>
+                <h3>Ordre correct :</h3>
                 <ol id="ordreCorrectList"></ol>
             </div>
-            <button id="closeModalBtn" class="btn-modal">Retour à l'accueil</button>
+            <button id="closeModalBtn" class="btn-modal">Retour au Manoir</button>
         </div>
     </div>
 
@@ -122,32 +122,40 @@
     <div class="modal" id="rulesModal">
         <div class="modal-content rules-modal-content">
             <span class="close-rules">&times;</span>
-            <h2>📋 Règles du jeu - Frise</h2>
+
             <div class="rules-content">
-                <h3>🎯 Objectif</h3>
-                <p>Reconstituer la procédure correcte en reliant les cartes dans le bon ordre chronologique.</p>
+                <div class="indices-container">
+                    <?php if ($activite == 401): ?>
+                        <h3>Indices pour l'ordre</h3>
+                        <ul>
+                            <li>Commence toujours par <strong>isoler</strong> avant d'agir : ça évite la propagation.</li>
+                            <li>Une fois isolé, <strong>couper les accès réseau</strong> empêche l'attaque de continuer.</li>
+                            <li>Avant d'aller plus loin, il faut <strong>prévenir l'équipe spécialisée</strong>, qui pourra superviser.</li>
+                            <li>On <strong>conserve les preuves</strong> avant toute action invasive : sinon elles peuvent être perdues.</li>
+                            <li>On ne peut <strong>bloquer la cause</strong> que lorsqu'on a sécurisé le périmètre.</li>
+                            <li>Le <strong>nettoyage</strong> vient après l'identification du problème.</li>
+                            <li>On <strong>restaure les sauvegardes</strong> seulement une fois sûr que tout est propre.</li>
+                            <li>Le <strong>changement de mots de passe</strong> sert à sécuriser après récupération.</li>
+                        </ul>
+                    <?php else: ?>
+                        <h3>Indices pour l'ordre</h3>
+                        <ul>
+                            <li>Garde toujours tes <strong>systèmes à jour</strong> : les correctifs bloquent les failles exploitées par les attaquants.</li>
+                            <li>Installe un <strong>antivirus performant</strong> : il détecte et neutralise les comportements suspects.</li>
+                            <li><strong>Limite les droits administrateur</strong> : moins de privilèges = moins de dégâts en cas d’infection.</li>
+                            <li><strong>Filtre les emails</strong> et les pièces jointes : c’est la meilleure façon d’éviter les pièges courants.</li>
+                            <li><strong>Désactive les macros</strong> par défaut : elles sont souvent utilisées pour lancer des attaques.</li>
+                            <li><strong>Ségmente ton réseau</strong> : une attaque sur une partie ne doit pas contaminer toute l’infrastructure.</li>
+                            <li><strong>Forme les utilisateurs</strong> : ils représentent la première barrière contre les cybermenaces.</li>
+                            <li>Effectue des <strong>sauvegardes régulières</strong> : elles permettent de récupérer rapidement après une attaque.</li>
 
-                <h3>🎮 Comment jouer ?</h3>
-                <ol>
-                    <li><strong>Cliquez sur une première carte</strong> pour la sélectionner</li>
-                    <li><strong>Cliquez sur une deuxième carte</strong> pour les relier</li>
-                    <li>La première carte se verrouille, la deuxième reste active</li>
-                    <li><strong>Continuez à relier</strong> toutes les cartes dans l'ordre</li>
-                    <li><strong>Validez</strong> votre ordre avec le bouton "Valider"</li>
-                </ol>
-
-                <h3>🔧 Outils disponibles</h3>
-                <ul>
-                    <li><strong>🔄 Réinitialiser :</strong> Tout recommencer</li>
-                    <li><strong>↶ Annuler :</strong> Annuler la dernière liaison</li>
-                    <li><strong>✓ Valider :</strong> Vérifier si l'ordre est correct</li>
-                </ul>
-
-                <h3>💡 Astuce</h3>
-                <p>Lisez attentivement les descriptions sur chaque carte pour trouver l'ordre logique !</p>
+                        </ul>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>
+
 
 </div>
 

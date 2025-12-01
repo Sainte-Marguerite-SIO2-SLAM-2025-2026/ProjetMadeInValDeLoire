@@ -27,8 +27,8 @@ html, body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1300px;
-    height: 800px;
+    width: 1100px;
+    height: 680px;;
 }
 
 .dossier-fond {
@@ -48,47 +48,47 @@ html, body {
 
 .carte-quiz {
     position: absolute;
-    width: 200px;
-    height: 280px;
+    width: 170px;
+    height: 230px;
     cursor: pointer;
     transition: all var(--transition-fast);
 }
 
 /* Position des 6 cartes comme sur l'image */
 .carte-quiz[data-position="0"] {
-    left: 12%;
-    top: 12%;
-    transform: rotate(-15deg);
-}
-
-.carte-quiz[data-position="1"] {
-    left: 33%;
-    top: 8%;
-    transform: rotate(-5deg);
-}
-
-.carte-quiz[data-position="2"] {
-    right: 12%;
+    left: 10%;
     top: 10%;
-    transform: rotate(12deg);
-}
-
-.carte-quiz[data-position="3"] {
-    left: 18%;
-    bottom: 15%;
     transform: rotate(-10deg);
 }
 
+.carte-quiz[data-position="1"] {
+    left: 32%;
+    top: 6%;
+    transform: rotate(-3deg);
+}
+
+.carte-quiz[data-position="2"] {
+    right: 10%;
+    top: 8%;
+    transform: rotate(8deg);
+}
+
+.carte-quiz[data-position="3"] {
+    left: 15%;
+    bottom: 12%;
+    transform: rotate(-7deg);
+}
+
 .carte-quiz[data-position="4"] {
-    right: 25%;
-    bottom: 18%;
-    transform: rotate(5deg);
+    right: 22%;
+    bottom: 15%;
+    transform: rotate(4deg);
 }
 
 .carte-quiz[data-position="5"] {
-    right: 8%;
-    bottom: 12%;
-    transform: rotate(18deg);
+    right: 6%;
+    bottom: 10%;
+    transform: rotate(12deg);
 }
 
 .carte-quiz:hover:not(.answered) {
@@ -133,14 +133,14 @@ html, body {
 /* ===== Score ===== */
 #score-display {
     position: absolute;
-    top: 20px;
+    top: 15px;
     left: 50%;
     transform: translateX(-50%);
     background: white;
-    padding: 15px 30px;
+    padding: 12px 25px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: bold;
     color: #2c3e50;
     z-index: 100;
@@ -169,11 +169,11 @@ html, body {
 }
 
 .modal-content {
-    background-color: white;
+    /*background-color: white;*/
     margin: 5% auto;
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);*/
     animation: slideDown 0.3s;
     position: relative;
 }
@@ -190,31 +190,38 @@ html, body {
 }
 
 .question-modal-content {
-    max-width: 800px;
+    max-width: 400px;
     text-align: center;
 }
 
-.close-question {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    color: #aaa;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
-}
+/*.close-question {*/
+/*    position: absolute;*/
+/*    top: 15px;*/
+/*    right: 25px;*/
+/*    color: #f6533e;*/
+/*    font-size: 35px;*/
+/*    font-weight: bold;*/
+/*    cursor: pointer;*/
+/*    transition: color 0.3s;*/
+/*}*/
 
-.close-question:hover {
-    color: #e74c3c;
-}
+/*.close-question:hover {*/
+/*    color: #e74c3c;*/
+/*}*/
 
 /* ===== Carte en grand format ===== */
 .carte-grande {
     position: relative;
-    width: 500px;
-    height: 700px;
+    width: 420px;
+    height: 580px;
     margin: 0 auto 30px;
+
+    /*margin: 5% auto;*/
+    /*!*padding: 40px;*!*/
+    /*!*border-radius: 15px;*!*/
+    /*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);*/
+    /*animation: slideDown 0.3s;*/
+    /*position: relative;*/
 }
 
 .carte-grande-img {
@@ -228,7 +235,7 @@ html, body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 60%;
     font-size: 1.3em;
     font-weight: bold;
     color: #000;
@@ -247,8 +254,8 @@ html, body {
 }
 
 .btn-reponse {
-    padding: 20px 60px;
-    font-size: 1.5em;
+    padding: 15px 45px;
+    font-size: 1.3em;
     font-weight: bold;
     border: none;
     border-radius: 10px;
@@ -277,7 +284,49 @@ html, body {
     transform: scale(1.1);
 }
 
+.btn-retour-accueil {
+    margin: 20px 10px 10px;
+    padding: 15px 35px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
 /* ===== Modal de résultat final ===== */
+
+.modal-fin {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content-fin {
+    background-color: white;
+    margin: 5% auto;
+    top : 20%;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.3s;
+    position: relative;
+}
+
 .result-modal-content {
     max-width: 600px;
     text-align: center;
@@ -307,8 +356,8 @@ html, body {
     top: 1%;
     left: 1%;
     transform: none;
-    max-width: 200px;
-    height: 200px;
+    max-width: 120px;
+    height: 120px;
     transition: transform 0.3s;
 }
 
@@ -343,6 +392,28 @@ html, body {
 
 .mascotte-zone:hover .mascotte-default { opacity: 0; }
 .mascotte-zone:hover .mascotte-hover  { opacity: 1; }
+
+.modal-lumi {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content-lumi {
+    background-color: white;
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.3s;
+    position: relative;
+}
 
 /* ===== Modal des règles (style amélioré) ===== */
 .rules-modal-content {

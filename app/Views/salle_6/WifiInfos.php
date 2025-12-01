@@ -41,7 +41,7 @@
                         <h3 class="wifi-nom info-selectionnable"
                             data-info="nom"
                             id="wifiNom">
-                            WiFi-<?= esc($wifi['numero']) ?>
+                            <?= esc($wifi['nom']) ?>
                         </h3>
                         <p class="wifi-type info-selectionnable"
                            data-info="public_prive"
@@ -139,3 +139,4 @@
     const zoneCorrecte = '<?= isset($zone_correcte) ? esc($zone_correcte) : 'chiffrement' ?>';
 </script>
 <?= script_tag('js/salle_6/wifiInfos.js') ?>
+<?= script_tag('js/salle_6/mascotteHover.js') ?>

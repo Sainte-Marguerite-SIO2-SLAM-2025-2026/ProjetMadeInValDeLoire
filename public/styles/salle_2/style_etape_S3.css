@@ -1,0 +1,1015 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+
+/* 1. Active le scroll vertical et empêche le débordement horizontal */
+html, body {
+    overflow-y: auto !important;
+    overflow-x: hidden !important; /* Important pour virer le vide à droite */
+    margin: 0 !important;
+    font-family: "Cinzel", serif;
+    padding: 0 !important;
+    width: 100%;
+}
+
+/* 2. Le Jeu : Figé en arrière-plan */
+.game-fixed-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. La couche de scroll : Transparente aux clics */
+.scroll-flow {
+    position: relative;
+    width: 100%;
+    z-index: 9999;
+    pointer-events: none; /* Laisse passer les clics vers le jeu */
+    margin: 0;
+    padding: 0;
+}
+
+/* 4. L'espace vide (hauteur écran) */
+.spacer-screen, .scroll-spacer {
+    height: 100vh;
+    width: 100%;
+    display: block;
+}
+
+/* 5. Le Footer : Pleine largeur + Bonne Police + SANS LIGNE JAUNE */
+footer, .game-footer, .site-footer {
+    position: relative;
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    padding: 30px 0;
+
+    font-family: "Cinzel", serif !important;
+    color: #c8a96a;
+    background: #000;
+    text-align: center;
+
+    /* MODIFICATION ICI : On retire la bordure du haut */
+    border-top: none !important;
+
+    z-index: 10000;
+    pointer-events: auto;
+}
+
+/* Scène centrée avec letterboxing, ratio 16:9 par défaut */
+.stage {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+    background: #dfe0e3;
+}
+
+/* Canvas à ratio fixe: adapte largeur/hauteur sans recadrer l’image */
+.stage-canvas {
+    position: relative;
+    width: 100vw;
+    max-height: 100vh;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+/* Image sans recadrage pour conserver le mapping des % */
+.stage-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Si tu utilises encore un background plein écran ailleurs */
+.accueil-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    /* pointer-events: none; */
+}
+
+/* Conteneur potentiellement au-dessus du fond */
+.center-container {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+}
+
+/* Style commun (positionnement absolu etc.) */
+.code-contour, .livre-contour, .poignier-contour,.aide-telephone,
+.label-contour, .valide-contour, .reset-contour,
+.postit-1, .postit-2, .postit-3,
+.code-label, .reset-code, .valide-code,
+.carton-contour, .malette-contour,
+.valide-malette, .reset-malette,
+.genere-telephone, .ecran-telephone, .astuce-postit,
+.corbeil-postit, .bougie-postit,
+.postit-ep5-10, .postit-ep5-9, .postit-ep5-8, .postit-ep5-7, .postit-ep5-6, .postit-ep5-5,
+.postit-ep5-1, .postit-ep5-2 {
+    position: absolute;
+    transform: translate(50%, 50%);
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+/* Etape 1 (extraits initiaux) */
+.code-contour {
+    bottom: 43.4%;
+    right: 28%;
+    width: 7.8708%;
+    height: 14%;
+    cursor: pointer;
+    display: block;
+}
+
+.livre-contour {
+    bottom: 23%;
+    right: 13.5%;
+    width: 11.4583%;
+    height: 4.2037%;
+    cursor: pointer;
+    display: block;
+}
+
+.poignier-contour {
+    bottom: 15.2%;
+    right: 41.4%;
+    width: 4.1250%;
+    height: 6.5556%;
+    cursor: pointer;
+    display: block;
+
+}
+
+/* Bordures (fluides) */
+.label-contour,
+.valide-contour,
+.reset-contour,
+.postit-1, .postit-2, .postit-3, .ecran-telephone,.aide-telephone,
+.code-label, .reset-code, .valide-code,
+.carton-contour, .malette-contour,
+.valide-malette, .reset-malette,
+.genere-telephone, .astuce-postit,
+.corbeil-postit, .bougie-postit,
+.postit-ep5-10, .postit-ep5-9, .postit-ep5-8, .postit-ep5-7, .postit-ep5-6, .postit-ep5-5,
+.postit-ep5-1, .postit-ep5-2 {
+    border-style: none;
+    border-color : red;
+}
+
+/* Couleurs + tailles */
+.label-contour {
+    bottom: 53.2%;
+    right: 73.5%;
+    width: 43.2292%;
+    height: 28.5481%;
+}
+
+.valide-contour {
+    bottom: 31.8%;
+    right: 25.5%;
+    width: 10.7813%;
+    height: 13.3704%;
+}
+
+.reset-contour {
+    bottom: 47%;
+    right: 17.2%;
+    width: 7.4792%;
+    height: 7.9444%;
+}
+
+.btn-retour-code {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Toujours au-dessus du fond */
+.label-contour,
+.reset-contour,
+.valide-contour {
+    z-index: 11 !important;
+}
+
+/* ------------------------------
+   Tip / UI
+   ------------------------------ */
+
+.tip-panel {
+    position: fixed;
+    bottom: clamp(12px, 4vh, 48px);
+    left: clamp(12px, 4vw, 21px);
+    z-index: 9999;
+
+    max-width: min(95vw, 600px);
+    padding: clamp(12px, 2vw, 18px);
+    border-radius: 12px;
+
+    background: rgba(10,10,10,0.52);
+    border: 1px solid rgba(200,169,106,0.22);
+    box-shadow:
+            0 10px 25px rgba(0,0,0,0.45),
+            0 0 0 1px rgba(200,169,106,0.08);
+    backdrop-filter: blur(2px) saturate(110%);
+}
+.tip-desc-mascotte{
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.1rem, 2vw, 1rem);
+    line-height: 1.45;
+    text-shadow: 0 1px 0 rgba(0,0,0,.6);
+}
+
+.tip-desc {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    line-height: 1.45;
+    text-shadow: 0 1px 0 rgba(0,0,0,.6);
+}
+
+.tip-panel--top {
+    top: clamp(40px, 10vh, 150px);
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: min(95vw, 800px);
+    pointer-events: none;
+}
+
+
+.tip-panel--autohide {
+    opacity: 1;
+    will-change: opacity, visibility;
+    animation: tipAutoHide 30s linear forwards !important;
+}
+
+@keyframes tipAutoHide {
+    0%, 96% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tip-panel--autohide {
+        animation: tipAutoHide 15s linear forwards !important;
+    }
+}
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Overlay poignée (modal) */
+.poignier-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    place-items: center;
+    background: rgba(5,5,8,0.55);
+    z-index: 10000;
+}
+#poignier-toggle:checked ~ #poignier-overlay {
+    display: grid;
+}
+
+.poignier-panel {
+    max-width: min(92vw, 560px);
+    margin: 0 16px;
+    padding: clamp(12px, 2vw, 18px);
+    border-radius: 12px;
+
+    background: rgba(10,10,10,0.52);
+    border: 1px solid rgba(200,169,106,0.22);
+    box-shadow:
+            0 10px 25px rgba(0,0,0,0.45),
+            0 0 0 1px rgba(200,169,106,0.08);
+    backdrop-filter: blur(2px) saturate(110%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .poignier-panel {
+        opacity: 0;
+        transform: translateY(6px);
+        transition: opacity .35s ease, transform .35s ease;
+    }
+    #poignier-toggle:checked ~ #poignier-overlay .poignier-panel {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.tip-btn,
+button, .btn, a.button, .btn-primary {
+    display: inline-block;
+    padding: 14px 28px;
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    color: #e7e1c6;
+    background: linear-gradient(180deg, #2a2824, #121110);
+    border: 1.5px solid #5e4a1f;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.08),
+            0 10px 25px rgba(0,0,0,0.45),
+            0 0 0 1px rgba(200,169,106,0.08);
+    transition: transform .12s ease, box-shadow .2s ease, color .2s ease, background .2s ease, border-color .2s ease;
+    cursor: pointer;
+}
+
+.tip-btn {
+    margin-top: 12px;
+    padding: 12px 22px;
+    font-size: 1rem;
+}
+.tip-btn:hover,
+button:hover, .btn:hover, a.button:hover, .btn-primary:hover {
+    transform: translateY(-1px);
+    color: #f7f1db;
+    border-color: #c8a96a;
+    box-shadow:
+            0 12px 28px rgba(0,0,0,.55),
+            0 0 14px rgba(140,180,255,.25);
+}
+.tip-btn:active,
+button:active, .btn:active, a.button:active, .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 16px rgba(0,0,0,.5), inset 0 2px 6px rgba(0,0,0,.4);
+}
+.btn--ghost { background: transparent; border-color: rgba(200,169,106,0.5); }
+.btn--ghost:hover { background: rgba(200,169,106,0.08); }
+.btn--xl { padding: 18px 36px; font-size: 1.15rem; border-radius: 12px; }
+
+.hero-buttons {
+    position: relative;
+    z-index: 3;
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .tip-panel {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        max-width: none;
+    }
+    .btn, .btn--xl { width: 100%; text-align: center; }
+}
+
+/* Bouton retour */
+.retour-buttons {
+    position: fixed;
+    bottom: clamp(12px, 4vh, 32px);
+    left: clamp(12px, 4vw, 32px);
+    transform: none;
+    z-index: 10001;
+    margin: 0;
+}
+
+/* Masquer complètement l'intro si déjà vue (pour CET onglet) */
+.hide-intro #intro-tip { display: none !important; }
+
+.code-success-overlay {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(5,5,8,0.55);
+    z-index: 10000;
+}
+/* Neutralise le positionnement bas/gauche hérité de .tip-panel */
+.code-success-overlay .tip-panel.code-success-panel {
+    position: static;
+    top: auto; right: auto; bottom: auto; left: auto;
+    transform: none;
+    max-width: min(92vw, 560px);
+    text-align: center;
+}
+/* ------------------------------
+   Etape 2
+   ------------------------------ */
+/* styles communs pour tous les post-it */
+.postit-1,
+.postit-2,
+.postit-3 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    box-sizing: border-box;
+    padding: 6px;
+    line-height: 1.05;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+
+}
+
+.postit-1 {
+    bottom: 40%;
+    right: 12.4%;
+    width: 9.7396%;
+    height: 18.6481%;
+}
+
+.postit-2 {
+    bottom: 33.2%;
+    right: 35.5%;
+    width: 10.5042%;
+    height: 22%;
+}
+
+.postit-3 {
+    bottom: 67%;
+    right: 42.5%;
+    width: 10.1042%;
+    height: 21%;
+    transform-origin: center center;
+}
+
+.code-label {
+    /* Ton positionnement existant */
+    position: absolute; /* Ajouté ici car il était inline avant, plus propre dans le CSS */
+    overflow: visible;
+    bottom: 62.2%;
+    right: 77.9%;
+    width: 15%;
+    height: 9.1296%;
+    display: flex;             /* Active le mode Flexbox */
+    align-items: center;       /* Centre verticalement */
+    justify-content: center;   /* Centre horizontalement le bloc input */
+
+
+}
+
+.reset-code {
+    bottom: 40.4%;
+    right: 73.8%;
+    width: 3.2813%;
+    height: 3.7778%;
+}
+
+.valide-code {
+    bottom: 33.7%;
+    right: 77.6%;
+    width: 5%;
+    height: 5.6370%;
+    border-color : red;
+
+}
+
+
+/* Etape 2a */
+.carton-contour {
+    bottom: 63.5%;
+    right: 77%;
+    width: 10.5%;
+    height: 7.5%;
+
+}
+
+.malette-contour {
+    bottom: 26.5%;
+    right: 71%;
+    width: 30.9896%;
+    height: 17.1667%;
+}
+
+/* Etape 3 */
+.valide-malette {
+    bottom: 24.5%;
+    right: 38.7%;
+    width: 5%;
+    height: 5%;
+}
+
+.reset-malette {
+    bottom: 24.5%;
+    right: 50%;
+    width: 14.7604%;
+    height: 5.2407%;
+}
+.ecran-malette {
+    position: absolute;
+    bottom: 50%;
+    right: 44%;
+    width: 21%;
+    height: 36%;
+    box-sizing: border-box;
+    z-index: 20;
+}
+
+/* LE CONTENEUR PARENT */
+.ecran-malette {
+    position: absolute;
+    bottom: 47%;
+    right: 44%;
+    width: 21%;
+    height: 36%;
+    box-sizing: border-box;
+    z-index: 20;
+
+    /* C'est ici que la magie du centrage opère */
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;     /* Centre verticalement le textarea */
+}
+
+/* LE TEXTAREA */
+.ecran-malette #code {
+    all: unset;
+    display: block;
+    width: 100%;
+    height: auto;
+
+    font-family: system-ui, sans-serif; /* police de base du navigateur */
+    font-weight: 400;
+    font-size: clamp(0.9rem, 1.8vmin, 1.1rem);
+    line-height: 1.25;
+
+    box-sizing: border-box;
+    text-align: center;
+    color: inherit;
+    background: transparent;
+    cursor: text;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    overflow: hidden;
+    resize: none;
+}
+
+
+
+/* LE PLACEHOLDER (Simplifié) */
+/* Plus besoin de position absolute, text-align center suffit */
+.ecran-malette #code::placeholder {
+    color: #222;
+    opacity: 0.9;
+    /* Le centrage est hérité du textarea */
+}
+
+/* MESSAGE D'ERREUR */
+.ecran-malette .label-message {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+    padding: 10px;
+    color: #a40000;
+    font-weight: 800;
+    line-height: 1.25;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.ecran-malette .label-message.is-hidden {
+    display: none;
+}
+.area-btn {
+    all: unset;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Etape 4 */
+.genere-telephone {
+    bottom: 44%;
+    right: 33.5%;
+    width: 11.2083%;
+    height: 8.9444%;
+}
+.ecran-telephone {
+    bottom: 70%;
+    right: 33.5%;
+    width: 14.2083%;
+    height: 32.9444%;
+}
+.validate-container {
+    position: fixed;
+    left: 20px; /* Changement ici : remplace right par left */
+    bottom: 20px;
+    z-index: 10;
+}
+
+.btn-validate {
+    padding: 10px 18px;
+    border-radius: 6px;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-validate:hover {
+    background-color: #218838;
+}
+.genere-telephone.loading {
+    opacity: 0.7;
+    cursor: progress;
+}
+.ecran-telephone .password-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 3.2vmin;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+}
+.aide-telephone {
+    bottom: 43%;
+    right: 71.5%;
+    width: 26.2083%;
+    height: 67.9444%;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: #000;
+}
+
+/* ===== Étape 5 v23 : Une seule zone par drop ===== */
+
+/* Wrapper = surface collision, pas de contour */
+.zone-drop {
+    position:absolute;
+    z-index:9;
+    box-sizing:border-box;
+    border-radius:10px;
+    backdrop-filter:blur(1px);
+    /* pas d’outline ici */
+}
+
+/* Positions actuelles (inchangées) */
+.zone-drop-valid {
+    bottom:39.2%;
+    right:26.2%;
+    width:14.5%;
+    height:35%;
+}
+.zone-drop-invalid {
+    bottom:0%;
+    right:5%;
+    width:25%;
+    height:28%;
+}
+
+/* Interne = zone visible (contour) */
+.zone-valid,
+.zone-invalid {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    outline:2px dashed rgba(255,255,255,0.18);
+    border-radius:6px;
+    transition:background .2s ease, outline-color .2s ease;
+    box-sizing:border-box;
+}
+
+/* Highlight sur interne */
+.zone-valid.highlight {
+    outline-color:#4caf50;
+    background:rgba(76,175,80,0.18);
+}
+.zone-invalid.highlight {
+    outline-color:#e53935;
+    background:rgba(229,57,53,0.18);
+}
+
+/* (Facultatif) Anciennes classes vides pour éviter erreurs JS si référencées */
+.zone-valid, .zone-invalid { /* plus utilisées */ }
+
+.draggable-postit {
+    position:absolute;
+    width:140px;
+    height:140px;
+    cursor:grab;
+    touch-action:none;
+    z-index:20;
+}
+.draggable-postit img {
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    pointer-events:none;
+}
+.postit-label {
+    position:absolute;
+    left:50%; top:50%;
+    transform:translate(-50%,-50%);
+    font-size:0.8vw;
+    font-weight:700;
+    color:#111;
+    text-shadow:0 1px 0 rgba(255,255,255,0.7);
+    pointer-events:none;
+    text-align:center;
+    line-height:1.15;
+    min-width:60%;
+}
+
+.draggable-postit.dragging { box-shadow:0 12px 26px rgba(0,0,0,.55); transform:scale(1.07); z-index:999; }
+.draggable-postit.is-valid { outline:3px solid #4caf50; }
+.draggable-postit.is-invalid { outline:3px solid #e53935; }
+
+/* Positions (adapter p11 si besoin) */
+.postit-ep5-11 { bottom:57%; right:45%; width:6.7%; height:14.2963%; transform:translate(50%,50%); }
+.postit-ep5-10 { bottom:57.2%; right:51.5%; width:6.7%; height:14.2963%; transform:translate(50%,50%); }
+.postit-ep5-9  { bottom:80.2%; right:52.5%; width:5.825%; height:12.537%; transform:translate(50%,50%); }
+.postit-ep5-8  { bottom:84%; right:62.7%; width:6.3%; height:13.3704%; transform:translate(50%,50%) rotate(6.2deg); }
+.postit-ep5-7  { bottom:65%; right:59.7%; width:5.8333%; height:12.3704%; transform:translate(50%,50%); }
+.postit-ep5-6  { bottom:82%; right:74.2%; width:7.3%; height:14.4222%; transform:translate(50%,50%); }
+.postit-ep5-5  { bottom:63%; right:71%; width:6%; height:12.2222%; transform:translate(50%,50%); }
+.postit-ep5-4  { bottom:60%; right:43%; width:6%; height:12%; transform:translate(50%,50%); }
+.postit-ep5-3  { bottom:62%; right:48%; width:6%; height:12%; transform:translate(50%,50%); }
+.postit-ep5-2  { bottom:58%; right:53%; width:6%; height:12%; transform:translate(50%,50%); }
+.postit-ep5-1  { bottom:55%; right:58%; width:6%; height:12%; transform:translate(50%,50%); }
+
+
+/* Feedback */
+.feedback-global {
+    position:fixed; top:12px; right:12px; z-index:11000;
+    min-width:260px; padding:12px 16px; background:rgba(0,0,0,0.75);
+    color:#fff; font-weight:600; font-size:.9rem; border-radius:10px;
+    backdrop-filter:blur(2px); box-shadow:0 6px 18px rgba(0,0,0,.4); display:none;
+}
+.feedback-global.show { display:block; }
+
+.validate-container-left { position:fixed; bottom:16px; left:16px; z-index:12000; }
+
+.result-overlay { position:fixed; inset:0; display:grid; place-items:center; background:rgba(5,5,8,0.55); backdrop-filter:blur(2px); z-index:15000; }
+.result-overlay.is-hidden { display:none !important; }
+.result-panel {
+    width:min(90vw,880px); max-height:85vh; background:rgba(22,22,28,0.95);
+    border:1px solid rgba(200,169,106,0.25); border-radius:18px;
+    padding:24px 30px; box-shadow:0 16px 40px rgba(0,0,0,.55);
+    overflow-y:auto; color:#eae6d8; font-family:"Cinzel", serif;
+}
+.result-panel h2 { margin:0 0 16px; text-align:center; font-size:1.7rem; letter-spacing:.05em; }
+.classement-note {
+    margin:0 0 14px; font-size:.9rem; line-height:1.45; background:rgba(255,255,255,0.07);
+    padding:12px 16px; border-left:4px solid #c8a96a; border-radius:10px;
+}
+.resume-global { margin:0 0 18px; font-size:.95rem; background:rgba(255,255,255,0.05); padding:10px 14px; border:1px solid rgba(200,169,106,0.18); border-radius:8px; line-height:1.4; }
+.result-content { display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; margin-bottom:24px; }
+.result-content .bloc {
+    flex:1 1 250px; min-width:240px; background:rgba(255,255,255,0.06);
+    border:1px solid rgba(200,169,106,0.2); border-radius:12px; padding:14px 16px;
+}
+.result-content h3 { margin:0 0 10px; font-size:1.05rem; letter-spacing:.04em; color:#f4e8c8; }
+.result-content ul { list-style:none; margin:0; padding:0; font-size:.9rem; }
+.result-content li { padding:4px 6px; border-bottom:1px solid rgba(255,255,255,0.15); display:flex; justify-content:space-between; gap:8px; line-height:1.25; }
+.result-content li:last-child { border-bottom:none; }
+.result-footer { margin-top:12px; text-align:center; }
+.badge-valid{ color:#4caf50; font-weight:700; }
+.badge-invalid{ color:#e53935; font-weight:700; }
+.badge-neutral{ color:#d9a93b; font-weight:700; }
+
+@media (max-width:800px){
+    .result-content{ flex-direction:column; }
+    .postit-label{ font-size:1.5vw; }
+}
+@media (max-width:520px){
+    .postit-label{ font-size:2.4vw; }
+    .result-panel{ padding:20px 18px; }
+}
+
+
+
+/* Contenu du popover */
+.help-title {
+    margin: 0 0 10px 0;
+    color: #fff;
+    font-size: clamp(1rem, 2.4vmin, 1.1rem);
+    line-height: 1.4;
+    text-shadow: 0 1px 0 rgba(0,0,0,.6);
+}
+.help-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Affichage quand togglé */
+#help-toggle:checked ~ .mascotte-popover {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+#help-toggle:checked ~ .mascotte-backdrop {
+    display: block;
+}
+
+/* Accessibilité préférences mouvements */
+@media (prefers-reduced-motion: reduce) {
+    .mascotte-btn { transition: none; }
+    .mascotte-btn::after { animation: none; }
+    .mascotte-popover { transition: none; }
+}
+
+/* Overlay couvrant tout l'écran et centrant le contenu */
+.code-success-overlay {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(5,5,8,0.55);
+    z-index: 10000;
+}
+
+/* Neutralise le positionnement bas/gauche du style .tip-panel global */
+.code-success-overlay .tip-panel.code-success-panel {
+    position: static;      /* plus de position:fixed */
+    bottom: auto;
+    left: auto;
+    right: auto;
+    top: auto;
+    transform: none;
+    max-width: min(92vw, 560px);
+    text-align: center;
+}
+
+.code-success-overlay .tip-btn {
+    margin-top: 4px;
+}
+
+
+
+/* === MASCOTTE === */
+.mascotte-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 150px;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.mascotte-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s ease;
+}
+
+
+#mascotte-bulle {
+    position: fixed;
+    display: none;
+
+    margin-left: -80px;
+
+    /* TEXTE CENTRÉ */
+    text-align: center;
+
+    /* Taille */
+    max-width: 600px;
+    min-width: 260px;
+    width: auto;
+
+    /* Hauteur gérable + Cache la barre de scroll */
+    max-height: 70vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    /* Style */
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(10,10,10,0.52);
+    border: 1px solid rgba(200,169,106,0.22);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(200,169,106,0.08);
+    backdrop-filter: blur(2px) saturate(110%);
+
+    /* Typographie */
+    font-family: "Cinzel", serif;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0,0,0,.6);
+
+    z-index: 10001;
+}
+
+#mascotte-bulle::-webkit-scrollbar {
+    display: none;
+}
+
+#bulle-texte {
+    margin-bottom: 14px;
+    word-break: break-word;
+}
+
+#bulle-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#bulle-actions button {
+    padding: 10px 18px;
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    color: #e7e1c6;
+    background: linear-gradient(180deg, #2a2824, #121110);
+    border: 1.5px solid #5e4a1f;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 10px 25px rgba(0,0,0,0.45), 0 0 0 1px rgba(200,169,106,0.08);
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+    white-space: nowrap;
+}
+
+#bulle-actions button:hover {
+    transform: translateY(-1px);
+    color: #f7f1db;
+    border-color: #c8a96a;
+    box-shadow: 0 12px 28px rgba(0,0,0,.55),0 0 14px rgba(140,180,255,.25);
+}
+
+.bulle-fleche {
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+
+    margin-left: 80px;
+
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 14px solid rgba(10,10,10,0.52);
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.4));
+}
+
+.bouton-accueil-cluedo {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    text-decoration: none;
+}
+.bouton-accueil-cluedo img{
+    width: 150px;
+    height: 150px;
+
+}
+
+.bouton-accueil-cluedo-container {
+    width: 120px;    /* taille moyenne */
+    cursor: pointer;
+}
+
+.bouton-accueil-cluedo-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

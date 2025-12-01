@@ -2,13 +2,16 @@
 
 namespace App\Controllers;
 
+use App\Controllers\salle_6\Salle6Controller;
 use App\Models\salle_1\Salle1ExplicationModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
-use App\Models\salle_5\MascotteModel;
-use App\Models\salle_5\SalleModel;
+//use App\Models\salle_5\MascotteModel;
+//use App\Models\salle_5\SalleModel;
 use CodeIgniter\HTTP\RedirectResponse;
 use App\Controllers\salle_6\Salle6Controller;
+use App\Models\commun\MascotteModel;
+use App\Models\commun\SalleModel;
 
 class HomeControlleur extends BaseController
 {
@@ -21,6 +24,19 @@ class HomeControlleur extends BaseController
     private const SESSION_CURRENT_ROOM = 'current_room';
     private const SESSION_COMPLETED_ROOMS = 'completed_rooms';
     private const SESSION_FAILED_ROOMS = 'failed_rooms';
+
+    protected $salleModel;
+    protected $mascotteModel;
+
+    /**
+     * Initialise les salles et les mascottes
+     *
+     */
+    public function __construct()
+    {
+        $this->salleModel = new SalleModel();
+        $this->mascotteModel = new MascotteModel();
+    }
 
     /**
      * Page d'accueil du manoir
@@ -39,7 +55,7 @@ class HomeControlleur extends BaseController
         $this->resetSalle5();
 
         return view('commun/header.php').
-            view('manoir_home', $data).
+            view('accueil/manoir_home', $data).
             view('commun/footer.php');
     }
 
@@ -54,7 +70,7 @@ class HomeControlleur extends BaseController
         $this->resetSalle4();
         $this->resetSalle5();
         return view('commun/header.php').
-            view('manoir_jour_home').
+            view('accueil/manoir_jour_home').
             view('commun/footer.php');
     }
 
@@ -84,16 +100,25 @@ class HomeControlleur extends BaseController
         {
             $explicationModel = new Salle1ExplicationModel();
             $data = ['explication' => $explicationModel->getExplicationSalle1()];
-            return view('salle_1\AccueilSalle1', $data).
-                view('commun\footer');
+            return view('salle_1/AccueilSalle1', $data).
+                view('commun/footer');
         }
 
         if ((int)$numero === 4){
             $session = session();
-             // savoir si il est encore en train de faire la salle
+
+            // Vérifier si c'est la première visite de la salle 4
+            $premiereVisite = !$session->has('salle4_visited');
+
+            // Marquer la salle comme visitée
+            if ($premiereVisite) {
+                $session->set('salle4_visited', true);
+            }
             $data = [
                 'frise_validee' => false,
-                'quiz_disponible' =>false
+                'quiz_disponible' =>false,
+                'premiere_visite' => $premiereVisite,
+                'salle' => $this->salleModel->getSalleById(4),
             ];
 
             return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
@@ -102,10 +127,11 @@ class HomeControlleur extends BaseController
 
         if ((int)$numero === 5){
             // Instancier les models
-            $salleModel = new SalleModel();
-            $mascotteModel = new MascotteModel();
+//            $salleModel = new SalleModel();
+//            $mascotteModel = new MascotteModel();
             $explicationModel = new ExplicationModel();
             $activiteModel = new ActiviteModel();
+            $IndiceModel = new IndiceModel();
 
             // 🔥 Vérifier si on arrive avec un échec
             $echec = $this->request->getGet('echec');
@@ -157,14 +183,15 @@ class HomeControlleur extends BaseController
 
             // Récupérer les données via les models
             $data = [
-                'salle' => $salleModel->getSalle(5),
-                'mascotte' => $mascotteModel->getMascotteBySalle(5),
+                'salle' => $this->salleModel->getSalleById(5),
+                'mascotte' => $this->mascotteModel->getMascottes(),
                 'explication' => $explicationModel->getExplication(1),
                 'activites_selectionnees' => $activites_ids,
                 'activites_reussies' => $activites_reussies,
                 'afficher_popup' => $afficher_popup,
                 'afficher_popup_succes' => $afficher_popup_succes,
                 'afficher_popup_echec' => $afficher_popup_echec,
+                'indice' => $IndiceModel->getIndice(500),
             ];
         }
 
@@ -176,9 +203,9 @@ class HomeControlleur extends BaseController
 
         $data['numero_salle'] = $numero;
 
-        return view('commun\header').
+        return view('commun/header').
             view($viewPath, $data).
-            view('commun\footer');
+            view('commun/footer');
     }
 
     /**
@@ -426,6 +453,7 @@ class HomeControlleur extends BaseController
     public function resetSalle4()
     {
         $session = session();
+        $session->remove('salle4_visited');
         $session->remove('frise_validee');
         $session->remove('activite_choisie');
         $session->remove('positions_cartes_frise');

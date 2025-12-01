@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+
+/* RESET ET BASE */
+html, body {
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: "Cinzel", serif;
+    background: #0a0a0a;
+    height: 100%;
+    width: 100%;
+}
+
+.accueil-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0; object-fit: cover; opacity: 0.3;
+}
+
+.btn {
+    display: inline-block; padding: 14px 28px; font-family: "Cinzel", serif; font-weight: 600;
+    color: #e7e1c6; background: linear-gradient(180deg, #2a2824, #121110);
+    border: 1.5px solid #5e4a1f; border-radius: 10px; text-decoration: none; cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.45); transition: all .2s ease;
+}
+.btn:hover { transform: translateY(-2px); color: #fff; border-color: #c8a96a; box-shadow: 0 15px 30px rgba(200,169,106,0.3); }
+.btn--xl { padding: 18px 36px; font-size: 1.2rem; }
+
+/* --- WRAPPER FINAL --- */
+.final-screen-wrapper {
+    position: fixed; inset: 0; display: grid; place-items: center; z-index: 1000;
+    background: radial-gradient(circle at center, rgba(20,20,30,0.85) 0%, rgba(0,0,0,0.95) 100%);
+}
+
+/* --- LE POPUP --- */
+.final-popup-container {
+    position: relative;
+    width: min(90vw, 700px);
+    /* On rajoute de l'espace en haut (padding-top) pour que le texte commence plus bas */
+    padding: 20px 30px 40px 30px;
+    text-align: center;
+    background: linear-gradient(160deg, rgba(30,30,35,0.95), rgba(10,10,12,0.98));
+    border: 2px solid #c8a96a;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(200, 169, 106, 0.2), inset 0 0 100px rgba(0,0,0,0.5), 0 20px 50px rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    animation: popupEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+
+    /* Important : on descend le popup entier pour laisser de la place à la mascotte en haut de l'écran */
+    margin-top: 100px;
+    overflow: visible !important; /* Pour que la mascotte puisse dépasser du cadre */
+}
+
+@keyframes popupEntrance {
+    from { opacity: 0; transform: scale(0.8) translateY(50px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Coins décoratifs dorés */
+.final-popup-container::before, .final-popup-container::after {
+    content: ''; position: absolute; width: 150px; height: 150px; pointer-events: none;
+    border: 2px solid #c8a96a; opacity: 0.5;
+}
+.final-popup-container::before { top: -10px; left: -10px; border-right: none; border-bottom: none; border-radius: 20px 0 0 0; }
+.final-popup-container::after { bottom: -10px; right: -10px; border-left: none; border-top: none; border-radius: 0 0 20px 0; }
+
+/* --- TITRE --- */
+.final-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #c8a96a;
+    text-shadow: 0 2px 10px rgba(200, 169, 106, 0.4);
+    background: linear-gradient(to bottom, #f4e8c8, #c8a96a);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+
+    /* AJOUT : Marge en haut pour éloigner le titre de la mascotte */
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.final-text { font-size: 1.2rem; line-height: 1.6; color: #eae6d8; margin-bottom: 30px; }
+.final-text strong { color: #c8a96a; }
+
+/* --- MASCOTTE --- */
+.mascot-final-wrapper {
+    position: absolute;
+    /* AJOUT : On la monte très haut (-230px) pour dégager le texte */
+    top: -230px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    z-index: 10;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.6));
+    animation: mascotFloat 4s ease-in-out infinite;
+    pointer-events: none; /* Pour pouvoir cliquer au travers si besoin */
+}
+
+.mascot-final-wrapper img { width: 100%; height: auto; display: block; }
+
+@keyframes mascotFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+    50% { transform: translateX(-50%) translateY(-15px) rotate(2deg); }
+}
+
+/* --- BOUTONS --- */
+.final-actions { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
+
+.btn-nuit { background: linear-gradient(180deg, #1a1a2e, #0f0f1a); border-color: #4a4a8a; color: #a6a6d9; }
+.btn-nuit:hover { border-color: #7a7af9; color: #fff; box-shadow: 0 0 25px rgba(122, 122, 249, 0.4); }
+
+.btn-jour { background: linear-gradient(180deg, #2a2824, #121110); }
+.btn-jour:hover { box-shadow: 0 0 25px rgba(200, 169, 106, 0.5); }
+
+
+/* --- PARTICULES --- */
+.particles-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: -1; }
+.flying-item { position: absolute; opacity: 0; animation: flyAcross 8s linear infinite; }
+.flying-item svg { width: 40px; height: 40px; fill: #c8a96a; opacity: 0.6; filter: drop-shadow(0 0 5px rgba(200,169,106,0.8)); }
+
+.item-1 { top: 80%; left: -5%; animation-delay: 0s; animation-duration: 12s; transform: scale(0.8); }
+.item-2 { top: 20%; left: -5%; animation-delay: 2s; animation-duration: 15s; transform: scale(1.2) rotate(45deg); }
+.item-3 { top: 60%; left: 105%; animation-delay: 1s; animation-duration: 10s; animation-direction: reverse; }
+.item-4 { top: 10%; left: 105%; animation-delay: 4s; animation-duration: 18s; animation-direction: reverse; transform: scale(0.6); }
+
+@keyframes flyAcross {
+    0% { opacity: 0; transform: translateX(0) translateY(0) rotate(0deg); }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translateX(110vw) translateY(-100px) rotate(360deg); }
+}
+
+/* Fond sombre derrière la popup */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Très sombre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    backdrop-filter: blur(2px); /* Petit flou sympa */
+}
+
+/* La fenêtre elle-même */
+.modal-box {
+    background: #1a1a1a; /* Fond gris très foncé */
+    border: 2px solid #c5a059; /* Bordure dorée comme le thème probable */
+    padding: 2rem;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.2);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    color: #fff;
+    font-family: 'Cinzel', serif;
+}
+
+/* Quand la popup est active */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-overlay.active .modal-box {
+    transform: scale(1);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #c5a059; /* Doré */
+}
+
+.modal-text {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Boutons de la popup */
+.btn-modal {
+    padding: 10px 20px;
+    border: 1px solid #c5a059;
+    background: transparent;
+    color: #c5a059;
+    font-family: 'Cinzel', serif;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-modal:hover {
+    background: #c5a059;
+    color: #000;
+}
+
+.btn-modal-cancel {
+    border-color: #888;
+    color: #aaa;
+}
+.btn-modal-cancel:hover {
+    background: #555;
+    color: #fff;
+}
