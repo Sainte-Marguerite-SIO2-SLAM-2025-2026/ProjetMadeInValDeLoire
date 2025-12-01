@@ -22,7 +22,7 @@
 
     <div class="footer-section">
         <h4>Notre société</h4>
-        <p>BLUT - Block, Learn, Understand, Train<br>
+        <p>BLUT - Brigade Loufoque de l’Univers des Technophiles<br>
             Création de sites et applications web<br></p>
     </div>
 

@@ -19,8 +19,8 @@ class Salle4Controller extends BaseController
             $session->set('salle4_visited', true);
         }
         $data = [
-            'frise_validee' => false,
-            'quiz_disponible' =>false,
+            'frise_validee' => true,
+            'quiz_disponible' =>true,
             'premiere_visite' => $premiereVisite,
         ];
 
@@ -73,6 +73,8 @@ class Salle4Controller extends BaseController
     public function verifierOrdre()
     {
         $session = session();
+
+
         $salle4Model = new Salle4Model();
 
         $activiteChoisie = $session->get('activite_choisie');

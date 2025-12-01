@@ -21,11 +21,9 @@
     <div id="timer" class="timer"></div>
 
     <!-- Nom du personnage -->
-    <div id="nom-personnage">
-        <?= esc($nom_personnage) ?>
+    <!--<div id="nom-personnage"> -->
     </div>
 
-    <div class="content-container">
         <?= img([
                 'src' => base_url($image_perso ?? 'images/salle_1/images/personnages/monstre1.webp'),
                 'alt' => esc($nom_personnage),
@@ -41,16 +39,6 @@
              data-suspects='<?= json_encode($mots_suspects ?? [], JSON_UNESCAPED_UNICODE | JSON_HEX_APOS | JSON_HEX_QUOT) ?>'
              data-erreurs='<?= json_encode($erreurs_explications ?? [], JSON_UNESCAPED_UNICODE | JSON_HEX_APOS | JSON_HEX_QUOT) ?>'>
         </div>
-
-        <!-- Bouton indice -->
-        <?php if (!empty($indices)): ?>
-            <div class="indice-container">
-                <button class="btn-indice" id="btn-indice">
-                    💡 Indice (<span id="indices-restants"><?= count($indices) ?></span>)
-                </button>
-            </div>
-        <?php endif; ?>
-    </div>
 
     <!-- Serrure (vers la suite du jeu) -->
     <div class="serrure">
@@ -98,13 +86,11 @@
                 .'</div>'
         ); ?>
 
-        <?= anchor(
-                base_url('/'), img([
-                        'src' => base_url('images/commun/mascotte/mascotte_interrogee.svg'),
-                        'alt' => 'Mascotte',
-                        'class' => 'mascotte-image'
-                ])
-        ); ?>
+        <?= img([
+                    'src' => base_url('images/commun/mascotte/mascotte_interrogee.svg'),
+                    'alt' => 'Mascotte',
+                    'class' => 'mascotte-image'
+        ])?>
 
     </div>
 </div>
@@ -152,6 +138,7 @@
     </div>
 </div>
 <?= script_tag(base_url('js/salle1Discussion.js')) ?>
+<?= script_tag(base_url('js/salle1Mascotte.js')) ?>
 <?= script_tag(base_url('js/salle1Timer.js')) ?>
 </body>
 </html>

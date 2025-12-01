@@ -303,7 +303,7 @@ validateBtn.addEventListener('click', async function() {
 
 
             // Changer le texte du bouton pour la réussite
-            closeModalBtn.textContent = 'Retour à la Salle 4';
+            closeModalBtn.textContent = 'Continuer la salle';
         } else {
             // ÉCHEC
             document.getElementById('resultTitle').innerHTML = '❌ Ordre incorrect';

@@ -41,7 +41,7 @@
                         <h3 class="wifi-nom info-selectionnable"
                             data-info="nom"
                             id="wifiNom">
-                            WiFi-<?= esc($wifi['numero']) ?>
+                            <?= esc($wifi['nom']) ?>
                         </h3>
                         <p class="wifi-type info-selectionnable"
                            data-info="public_prive"

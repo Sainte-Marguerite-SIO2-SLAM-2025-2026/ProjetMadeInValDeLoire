@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 24 nov. 2025 à 23:40
+-- Généré le : mar. 25 nov. 2025 à 09:44
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.2.26
 
@@ -23,9 +23,6 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `made_in_val_de_loire` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 USE `made_in_val_de_loire`;
 
---
--- User
---
 CREATE USER IF NOT EXISTS 'userProjetMIVDL'@'%' IDENTIFIED BY 'Projet@MIVDL!user';
 GRANT ALL PRIVILEGES ON made_in_val_de_loire.* TO 'userProjetMIVDL'@'%';
 -- --------------------------------------------------------
@@ -63,6 +60,13 @@ INSERT INTO `activite` (`numero`, `libelle`, `verrouillage`, `image`, `malveilla
 (101, 'Bonjour, je suis Jean-Michel Dupuis du service informatique centrale. Nous avons detecté une intrusion urgente dans votre compte. Pour éviter une coupure immediate merci de m\'envoyer votre mot-de-passe personnel ainsi que votre identifiant bancaire pour vérification. Vous devez répondre dans les 5 minutes sinon votre accès entreprise sera definitivement supprimé.', 0, 'monstre1.webp', 1, 1, 1, 101, 1, 101),
 (102, 'Madame, Monsieur, votre système informatique presente une vulnérabilité critique notre équipe de securité a identifié un virus dangereux. Cliquez immédiatement sur ce lien pour télécharger notre logiciel de protection gratuit attention, si vous n\'agissez pas maintenant vos données personnelles seront compromises dans moins d\'une heure.', 0, 'monstre1.webp', 1, 1, 1, 102, 1, 101),
 (103, 'Cher client, nous avons remarqué une transaction suspecte de 1500 euros sur votre compte bancaire. Pour annuler cette opération frauduleuse, veuillez confirmer votre numéro de carte bleue et votre code confidentiel en cliquant ici Cette verification est obligatoire pour proteger votre argent.', 0, 'monstre1.webp', 1, 1, 1, 103, 1, 101),
+(104, 'Bonjour, je suis Marc Dubois du service informatique. Nous avons détecté une activité suspecte sur votre compte professionnel. Pour des raisons de sécurité, vous devez impérativement nous communiquer votre mot-de-passe dans les 30min . Cliquez immédiatement sur ce lien pour vérifier votre identité sinon votre accès sera définitivement bloqué et vos fichiers seront supprimés', 0, 'monstre1.webp', 1, 1, 1, 104, 1, 101),
+(105, 'Cher client, nous avons remarqué une transaction inhabituelle de 1500 euros sur votre compte. Pour votre sécurité, nous avons temporairement bloqué votre carte bancaire. Merci de confirmer rapidement vos informations personnelles incluant votre numéro de carte complète, votre code-secret et votre date de naissance en cliquant sur le lien ci-joint  Cette vérification est obligatoire pour débloquer votre compte avant ce soir.', 0, 'monstre1.webp', 1, 1, 1, 105, 1, 101),
+(106, 'Votre colis est actuellement bloqué dans notre centre de distribution. Pour éviter son retour à l\'expéditeur, vous devez régler des frais de douane de 2,99$ immédiatement Cliquez sur ce lien sécurisé pour payer en ligne avec votre carte-bancaire Sans action de votre part sous 48h votre commande sera automatiquement annulée et perdue définitivement', 0, 'monstre1.webp', 1, 1, 1, 108, 1, 101),
+(107, 'Service des impôts : Vous avez un remboursement de 327,50$ en attente. Suite à une erreur de calcul dans votre dernière déclaration, notre système a généré automatiquement un crédit d\'impôt en votre faveur. Pour recevoir ce montant rapidement sur votre compte, veuillez confirmer vos coordonnées bancaires complètes en cliquant ici. Ce remboursement expire dans 7 jours.', 0, 'monstre1.webp', 1, 1, 1, 111, 1, 101),
+(108, 'Amazon Service Client : Une activité inhabituelle a été détectée sur votre compte Prime. Quelqu\'un a tenté de passer une commande de 899$ depuis un appareil inconnu Par mesure de précaution, votre compte a été suspendu Cliquez ici pour vérifier cette transaction et réactiver immédiatement votre accès en confirmant votre mot-de-passe et vos informations de paiement', 0, 'monstre1.webp', 1, 1, 1, 108, 1, 101),
+(109, 'Alerte de sécurité Apple : Votre identifiant Apple a été utilisé pour se connecter sur un iPhone inconnu en Chine. Si ce n\'était pas vous, votre compte iCloud risque d\'être piraté et toutes vos photos personnelles pourraient être publiées publiquement. Sécurisez immédiatement votre compte en cliquant ici pour changer votre mot de passe Apple et vos questions secrètes de sécurité.', 0, 'monstre1.webp', 1, 1, 1, 113, 1, 101),
+(110, 'Caisse d\'Allocations Familiales : Vous êtes éligible à une aide exceptionnelle de 400$ suite à la nouvelle réforme sociale. Votre dossier a été présélectionné automatiquement par nos services. Pour bénéficier de ce versement urgent, complétez votre demande en ligne en fournissant votre numéro de sécurité-sociale votre situation familiale détaillée et votre relevé d\'identité bancaire. Attention, les fonds seront redistribués dans 5 jours aux premiers inscrits.', 0, 'monstre2.webp', 1, 1, 1, 111, 1, 101),
 (401, 'Apres Ransomware', 0, 'frise_reaction_ransomware.png', NULL, NULL, 4, NULL, 401, 401),
 (402, 'Avant Ransomware', 0, 'frise_prevention_ransomware.png', NULL, NULL, 4, NULL, 401, 401),
 (403, 'Quiz Ransomware', 0, 'quiz_ransomware.png', NULL, NULL, 4, NULL, 401, 401),
@@ -92,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `auteur` (
   `prenom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `fonction_role` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`numero`)
-) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `auteur`
@@ -101,7 +105,17 @@ CREATE TABLE IF NOT EXISTS `auteur` (
 INSERT INTO `auteur` (`numero`, `nom`, `prenom`, `fonction_role`) VALUES
 (101, 'Dupuis', 'Jean-Michel', 'Technicien informati'),
 (102, 'Martin', 'Louis', 'Support de livraison'),
-(103, 'Delasource', 'Carine', 'DRH');
+(103, 'Delasource', 'Carine', 'DRH'),
+(104, 'Dubois', 'Marc', 'Service Informatique'),
+(105, 'Martin', 'Sophie', 'Directrice des Resso'),
+(106, 'Lefebvre', 'Jean', 'Conseiller Bancaire'),
+(107, 'Bernard', 'Claire', 'Support Technique Mi'),
+(108, 'Petit', 'Thomas', 'Service Client Amazo'),
+(109, 'Robert', 'Marie', 'Sécurité Informatiqu'),
+(110, 'Richard', 'Paul', 'Service de Livraison'),
+(111, 'Durand', 'Julie', 'Administration Fisca'),
+(112, 'Moreau', 'Lucas', 'Service Recrutement'),
+(113, 'Laurent', 'Emma', 'Support Technique Ap');
 
 -- --------------------------------------------------------
 
@@ -238,7 +252,7 @@ CREATE TABLE IF NOT EXISTS `erreur` (
   `activite_numero` int DEFAULT NULL,
   PRIMARY KEY (`numero`),
   KEY `activite_ibfk_3` (`activite_numero`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `erreur`
@@ -259,7 +273,63 @@ INSERT INTO `erreur` (`numero`, `mot_incorrect`, `explication`, `activite_numero
 (12, 'carte', 'Aucune banque ne demande votre numéro de carte complet par email.', 103),
 (13, 'code', 'Le code confidentiel ne doit JAMAIS être communiqué à quiconque.', 103),
 (14, 'obligatoire', 'Fausse obligation pour vous forcer à agir.', 103),
-(15, 'ici', 'Lien cliquable suspect qui mène probablement vers un faux site.', 103);
+(15, 'ici', 'Lien cliquable suspect qui mène probablement vers un faux site.', 103),
+(16, 'suspecte', 'Créer un sentiment de danger pour vous faire agir rapidement sans réfléchir.', 104),
+(17, 'impérativement', 'L\'urgence extrême est une technique classique de manipulation pour court-circuiter votre jugement.', 104),
+(18, 'mot-de-passe', 'JAMAIS une entreprise légitime ne vous demandera votre mot de passe par email ou message.', 104),
+(19, '30min', 'La pression temporelle précise vise à vous paniquer et vous empêcher de vérifier la légitimité du message.', 104),
+(20, 'immédiatement', 'Ce mot renforce l\'urgence artificielle pour vous pousser à cliquer sans réfléchir.', 104),
+(21, 'définitivement', 'Les menaces de conséquences irréversibles sont utilisées pour créer la peur et forcer une action rapide.', 104),
+(22, 'supprimés', 'Menace de perte de données pour amplifier la panique et vous forcer à agir impulsivement.', 104),
+(23, 'inhabituelle', 'Créer un doute sur une activité normale pour justifier une demande suspecte.', 105),
+(24, 'temporairement', 'Annonce un blocage fictif pour créer l\'urgence et justifier les demandes qui suivent.', 105),
+(25, 'rapidement', 'Pression temporelle pour vous empêcher de contacter votre vraie banque et vérifier.', 105),
+(26, 'carte', 'Une banque ne demande JAMAIS le numéro complet de votre carte par email ou message.', 105),
+(27, 'code-secret', 'AUCUNE institution financière ne demande votre code PIN - c\'est la règle d\'or de la sécurité bancaire.', 105),
+(28, 'naissance', 'Demande d\'informations personnelles sensibles utilisables pour l\'usurpation d\'identité.', 105),
+(29, 'ci-joint', 'Lien suspect qui mène probablement vers un faux site imitant celui de votre banque.', 105),
+(30, 'obligatoire', 'Fausse obligation pour vous forcer à agir sans vérifier la légitimité de la demande.', 105),
+(31, 'bloqué', 'Situation de blocage inventée pour justifier une demande d\'argent urgente.', 106),
+(32, 'retour', 'Menace de perdre le colis pour créer l\'urgence et justifier le paiement immédiat.', 106),
+(33, '2,99$', 'Petite somme pour sembler légitime mais c\'est surtout vos données bancaires qui sont visées.', 106),
+(34, 'immédiatement', 'Urgence pour vous empêcher de vérifier auprès du vrai service de livraison.', 106),
+(35, 'sécurisé', 'Fausse garantie de sécurité pour vous rassurer alors que le lien est frauduleux.', 106),
+(36, 'carte-bancaire', 'Demande de paiement par lien suspect - les vrais transporteurs utilisent d\'autres moyens.', 106),
+(37, '48h', 'Délai court pour vous presser et vous empêcher de contacter le vrai service.', 106),
+(38, 'définitivement', 'Menace de perte irréversible pour amplifier la peur et forcer l\'action immédiate.', 106),
+(39, 'remboursement', 'Appât financier pour vous attirer - les vrais remboursements sont notifiés officiellement par courrier.', 107),
+(40, '327,50$', 'Montant précis pour donner une fausse crédibilité - un vrai remboursement serait notifié différemment.', 107),
+(41, 'erreur', 'Prétexte inventé pour justifier un remboursement surprise et non sollicité.', 107),
+(42, 'automatiquement', 'Excuse pour l\'envoi non sollicité - les impôts ne fonctionnent pas ainsi par email.', 107),
+(43, 'rapidement', 'Promesse de vitesse pour vous inciter à agir vite sans vérifier.', 107),
+(44, 'bancaires', 'Les impôts ont déjà votre RIB - ils ne le redemandent JAMAIS par email.', 107),
+(45, 'expire', 'Fausse date limite pour créer l\'urgence - un vrai remboursement ne \"expire\" pas ainsi.', 107),
+(46, 'inhabituelle', 'Alerte fictive pour créer le doute et justifier les demandes suspectes qui suivent.', 108),
+(47, 'détectée', 'Fausse détection technique pour donner une crédibilité au message frauduleux.', 108),
+(48, 'tenté', 'Scénario d\'attaque inventé pour vous faire paniquer et agir rapidement.', 108),
+(49, '899$', 'Montant élevé pour maximiser la peur d\'une fraude sur votre compte.', 108),
+(50, 'inconnu', 'Détail technique pour renforcer la crédibilité de la fausse alerte de sécurité.', 108),
+(51, 'suspendu', 'Blocage fictif de compte pour créer l\'urgence et justifier la demande d\'informations.', 108),
+(52, 'vérifier', 'Prétexte pour vous faire cliquer sur un lien malveillant déguisé en outil de vérification.', 108),
+(53, 'mot-de-passe', 'Amazon ne demande JAMAIS de confirmer votre mot de passe par email ou lien.', 108),
+(54, 'paiement', 'Demande de données bancaires - Amazon les a déjà et ne les redemande jamais ainsi.', 108),
+(55, 'inconnu', 'Appareil fictif pour créer le doute et justifier l\'alerte de sécurité frauduleuse.', 109),
+(56, 'Chine', 'Localisation étrangère pour amplifier le sentiment de menace et de piratage.', 109),
+(57, 'piraté', 'Terme alarmiste pour créer la panique maximale et vous faire agir sans réfléchir.', 109),
+(58, 'personnelles', 'Menace sur votre vie privée pour toucher vos émotions et créer la peur.', 109),
+(59, 'publiées', 'Conséquence dramatique inventée pour maximiser votre panique et urgence d\'agir.', 109),
+(60, 'publiquement', 'Amplification de la menace sur votre réputation pour forcer une action immédiate.', 109),
+(61, 'immédiatement', 'Urgence extrême pour court-circuiter votre réflexion et vous faire cliquer.', 109),
+(62, 'secrètes', 'Apple ne demande JAMAIS de changer vos questions de sécurité via un lien email.', 109),
+(63, 'éligible', 'Vous faire croire que vous avez droit à quelque chose pour vous inciter à donner vos informations.', 110),
+(64, 'exceptionnelle', 'Aide \"spéciale\" inventée pour rendre l\'offre unique et urgente.', 110),
+(65, '400$', 'Montant attractif mais réaliste pour sembler crédible - les vraies aides sont notifiées officiellement.', 110),
+(66, 'présélectionné', 'Flatterie pour vous faire sentir privilégié et baisser votre vigilance.', 110),
+(67, 'automatiquement', 'Prétexte pour l\'envoi non sollicité - la CAF ne fonctionne pas ainsi.', 110),
+(68, 'urgent', 'Création d\'urgence artificielle pour vous presser et éviter que vous vérifiiez.', 110),
+(69, 'sécurité-sociale', 'Information ultra-sensible - la CAF l\'a déjà et ne la redemande JAMAIS par email.', 110),
+(70, 'détaillée', 'Demande excessive d\'informations personnelles pour usurpation d\'identité potentielle.', 110),
+(71, 'premiers', 'Fausse rareté pour créer la compétition et vous pousser à agir vite sans réfléchir.', 110);
 
 -- --------------------------------------------------------
 
@@ -338,23 +408,37 @@ CREATE TABLE IF NOT EXISTS `mail` (
   `phishing` tinyint NOT NULL,
   `difficulte` int DEFAULT NULL,
   PRIMARY KEY (`numero`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `mail`
 --
 
 INSERT INTO `mail` (`numero`, `expediteur`, `objet`, `contenu`, `phishing`, `difficulte`) VALUES
-(1, 'matheo.legrand@gmail.com', 'Mise à jour de vos coordonnées bancaires', 'On vous demande de mettre à jour vos informations pour payer le plus vite possible svp\r\nCliquez sur ce lien le plus vite possible : http://malveillancemax.fr\r\n', 1, 1),
-(2, 'no-reply@microhard.com', 'Mise à jour de votre compte', 'Bonjour,\r\nDe nouvelles informations obligatoires doivent être mises à jour sur votre compte.\r\nVeuillez-vous rendre sur votre espace compte utilisateur en cliquant sur ce lien : http://microhard.fr/account/\r\nCordialement,\r\nL’équipe Microsoft.\r\n', 1, 1),
-(3, 'phishing@gmail.com ', 'Mot passe', 'votre mot passe va expirer bientot\r\nrenouveler le en cliquant sur le lien la : http://comptefake.fr/compte/motpasse\r\n', 1, 1),
-(4, 'notifications@votre-banque.com', 'Relevé mensuel disponible', 'Bonjour,\r\nVotre relevé du compte courant est disponible dans votre espace client. Consultez-le depuis votre espace sécurisé : https://votre-banque.fr/mon-compte/\r\n', 0, NULL),
-(5, 'suivi@colissimo.fr', 'Suivi colis n°NP123456789', 'Bonjour,\r\nVotre colis NP123456789 sera livré entre le 05/11 entre 14 :00 et 18 :0. Suivez-le via votre espace client.\r\nSi vous n’êtes pas disponible sur ce créneau, veuillez en définir un nouveau sur https://colissimo.fr/suivi/np123456789/\r\n', 0, NULL),
-(6, 'rh@votre-entreprise.fr', 'Bulletin de paie Octobre 2025', 'Bonjour,\r\nVotre bulletin de paie d’octobre est téléchargeable sur l’intranet RH.\r\n', 0, NULL),
-(7, 'newsletter@mediatheque.fr', 'Bienvenue', 'Bonjour,\r\nMerci pour votre abonnement. Gérez vos préférences ou désabonnez-vous ici : https://mediatheque.fr/compte/\r\n', 0, NULL),
-(8, 'billing@saasprovider.com', 'Facture n°F-2025-1010', 'Bonjour,\r\nVotre facture pour octobre est disponible dans votre espace facturation : https://saasprovider.com/compte/factures\r\nÉchéance : 15/11/2025\r\n', 0, NULL),
-(9, 'promo@win-prize.com', 'Vous gagnez un iPhone now !!!', 'CONGRATS !! Vous etes chanceux. Repondre et envoyer coordonnee banquaire pour recevoir le prix : http://claimyourprize.com/', 1, 1),
-(10, 'facebook@ami-invite.com ', 'Nouveau message', 'Veuillez rentrer vos coordonnées bancaires pour voir vos messages non lus ici : http://ami-invite.com/', 1, 1);
+(11, 'service.client.apple@gmail.com', 'Échec du paiement', 'Votre paiement d’un montant de 49.99€ a échoué.\r\nVeuillez mettre à jour vos informations de paiement en cliquant sur ce lien : http://achatapple.fr\r\n', 1, 1),
+(12, 'sumsung.reward@gmail.com', 'Vous êtes le grand gagnant !', 'Vous êtes le grand gagnant de notre concours pour gagner notre tout dernier iPhone !\r\nPour récupérer votre gain, veuillez nous transmettre vos coordonnées en cliquant sur ce lien : http://collectedonnees.fr/\r\n', 1, 1),
+(13, 'admin-it@gmail.com', 'Réinissialisation administrative (action requise)', 'Nous réinissialisons votre compte. veuillez conffirmer en cliquant ici : http://adminphishing.fr/', 1, 1),
+(14, 'googueule@newsletters.com', 'Offre spéciale', 'Félicitations ! Vous avez le droit à un coupon. Activez ici : http://googueule.com/coupon', 1, 1),
+(15, 'peter.pain@gmail.com', 'Message important', 'vous avez un message important qui vous attend : http://peter.pain.fr/message', 1, 1),
+(16, 'linkedout@gmail.com', 'Nouveaux offres postes disponibles', 'nous avont trouver un potentiel nouveau poste de caissier pour toi\r\ndécouvrer le http://linkedout.com/offre/\r\n', 1, 1),
+(17, 'macdonalds-france@gmail.com', 'phishing', 'Bonjour,\r\nNous avons récemment constaté une vague de phishing concernant la plupart de nos utilisateurs.\r\nNous vous conseillons de vous sécuriser au plus vite en cliquant sur ce lien : http://phishing.com/\r\n', 1, 1),
+(18, 'refunds@marketplace.com', 'Remboursement en attente', 'Bonjour,\r\nUn remboursement vous est dû. Pour le percevoir, indiquez vos coordonnées : http://morketplace.com/\r\nLe Service Remboursement.\r\n', 1, 1),
+(19, 'netflix@gmail.com', 'Suspension de votre compte', 'Votre abonnement est temporairement suspendu. Restaurez l’accès en vérifiant vos informations ici : http://netfliix.com/\r\nL’équipe Netflix.\r\n', 1, 1),
+(20, 'shipping@colilissimo.fr', 'Problème de livraison', 'Bonjour, \r\nLa livraison de votre colis a échoué. Confirmez vos coordonnées bancaires ici : http://colilissimo.fr/\r\nL’équipe Colissimo.\r\n', 1, 1),
+(21, 'no-reply@secure-bank.com', 'Activité inhabituelle détectée', 'Bonjour,\r\nNous avons detecté une connection inhabituelle sur votre compte. Veuillez vérifier immédaitement via : http://secure-bank.com ou votre compte sera bloqué.\r\nMerci,\r\nSécurité SecureBank\r\n', 1, 1),
+(22, 'billing@pay-services.com', 'Paiement refusé', 'Bonjour Mme/M.,\r\nVotre dernier paiement a été refusé. Mettez à jour vos informations bancaires via http://pay-services.com/ pour réactiver votre service.\r\nCordialement, Service paiement.\r\n', 1, 1),
+(23, 'paypal-service@secure-payments.com', 'Paeiment refusé !', 'Bonjour, votre carte a ete refusee. Si vous ne mettez pas a jour maintenant, votre compte sera supprime. \r\nCliquez : http://paypale.com/\r\n', 1, 1),
+(24, 'admin@yourbank-security.net', 'VERIFICATION OBLIGATOIRE (48H)', 'CHER CLIENT,\r\nPOUR VOTRE SECURITE NOUS VERIFIONS VOS DONNEES. REPONDEZ SUR : http://yourbank.com/\r\nMERCI.\r\n', 1, 1),
+(25, 'ecole@admin-school.com', 'Convocation examen', 'Vous êtes convoque. Le sujet en pièce jointe : [PIÈCE_JOINTE : sujet.pdf.exe]', 1, 1),
+(26, 'contact@assurance-vie.fr', 'Attestation d’assurance ', 'Bonjour,\r\nVotre attestation d’assurance a été générée. Vous pouvez la télécharger depuis votre espace client : https://assurance-maladie.fr/mon-espace/\r\n', 0, NULL),
+(27, 'support@free.fr', 'Confirmation de changement d’offre', 'Bonjour,\r\nVotre demande de migration vers l’offre Fibre+ a été prise en compte. Détails et date d’activation dans votre espace client : https://free.fr/mon-espace/\r\n', 0, NULL),
+(28, 'contact@mairie-tours.fr', 'Réunion de quartier - Grammont', 'Bonjour,\r\nNous organisons une réunion de quartier à Grammont le 18/11 à 19 :00 à la salle des fêtes. Si vous souhaitez y participer, veuillez nous l’indiquer sur https://maire-tours.fr/reunion-quartier/\r\n', 0, NULL),
+(29, 'noreply@indeed.com', 'Nouveau poste disponible – Offre #4521', 'Bonjour,\r\nUne nouvelle offre de poste est disponible et pourrait vous intéresser. Si vous souhaitez en savoir plus, rendez-vous sur https://indeed.com/offres/\r\n', 0, NULL),
+(30, 'no-reply@spotify.com', 'Recommandations de concerts à côté de chez vous', 'Bonjour,\r\nDivers évènements d’artistes que vous écoutez sont à venir dans votre région.\r\nPour en savoir plus rendez-vous sur votre espace : https://spotify.com/events/\r\n', 0, NULL),
+(31, 'contact@info-news.mcdonalds.fr', 'Mise à jour de la politique d’utilisation', 'Bonjour,\r\nNous mettons à jour la politique d’utilisation du programme de fidélité. Cette mise à jour s’applique sans action de votre part. Si vous souhaitez en savoir plus, vous pouvez les consulter sur https://mcdonalds.fr/politiques/\r\n', 0, NULL),
+(32, 'info@autohero.com', 'Nouveaux véhicules disponibles', 'Bonjour,\r\nDe nouveaux véhicules correspondants à votre recherche sont disponibles. Rendez-vous sur https://autohero.com/fr/search/ pour les consulter.\r\n', 0, NULL),
+(33, 'no-reply@accounts.google.com', 'Alerte de sécurité', 'Bonjour,\r\nNous avons détecté une nouvelle connexion à votre compte Google. S’il s’agit de vous, aucune action n’est requise. Dans le cas contraire, nous pouvons vous aider à le sécuriser sur https://google.com/accounts/security/\r\n', 0, NULL),
+(34, 'paiement@aeroport-orly.fr', 'Paiement refusé – Vol #6893', 'Bonjour,\r\nVous avez récemment tenté d’acheter un billet pour le vol #6893 Orly-Budapest mais votre paiement a été refusé. Si vous souhaitez reprendre un billet, rendez-vous sur https://aeroport-orly.fr/vol6893/.\r\nSi le problème persiste, vous pouvez contacter un assistant sur https://aeroport-orly.fr/support/\r\n', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -377,7 +461,7 @@ CREATE TABLE IF NOT EXISTS `mascotte` (
 --
 
 INSERT INTO `mascotte` (`numero`, `image`, `humeur`, `salle_numero`) VALUES
-(1, '/images/commun/mascotte/mascotte_face.svg', 'normale', 5);
+(1, '/images/commun/mascotte/mascotte_face.svg', 'normale', NULL);
 
 -- --------------------------------------------------------
 
@@ -406,7 +490,7 @@ INSERT INTO `mode_emploi` (`numero`, `explication_1`, `explication_2`, `explicat
 (503, '', 'Quel poste présente un risque ?', NULL, 501),
 (504, '', 'Trouver les 2 erreurs de sécurité.', NULL, 504),
 (505, '', 'Comment pouvez vous éviter le tailgating en 1 clic ?', NULL, 505),
-(506, '', 'Quel est le problème et la contre-mesure ? ', NULL, 506),
+(506, '', 'Comment protéger l\'écran de l\'espionnage (drag and drop) ? ', NULL, 506),
 (507, '', 'Lister deux actions immédiates. ', NULL, 507),
 (508, '', 'Marquer 3 problèmes de confidentialité.', NULL, 508),
 (509, '', 'qu\'est ce qui ne respecte pas la politique \"Clean Desk\". ', NULL, 509),
@@ -629,7 +713,7 @@ INSERT INTO `question` (`numero`, `libelle`, `reponse`, `activite_numero`) VALUE
 DROP TABLE IF EXISTS `salle`;
 CREATE TABLE IF NOT EXISTS `salle` (
   `numero` int NOT NULL AUTO_INCREMENT,
-  `libelle` varchar(20) NOT NULL,
+  `libelle` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `bouton` varchar(20) NOT NULL,
   `intro_salle` text NOT NULL,
   PRIMARY KEY (`numero`)
@@ -642,7 +726,7 @@ CREATE TABLE IF NOT EXISTS `salle` (
 INSERT INTO `salle` (`numero`, `libelle`, `bouton`, `intro_salle`) VALUES
 (1, 'Salle 1', 'Entrer', ''),
 (4, 'Salle 4', 'Entrer', ''),
-(5, 'Sécurité physique et', 'images/commun/retour', 'Bienvenue dans la salle de surveillance !\nPlongez au cœur de la sécurité physique et matérielle, où chaque objet, chaque dispositif et chaque comportement compte. Observez attentivement votre environnement et cliquez sur les objets lumineux pour lancer les énigmes. Préparez-vous à analyser, réagir et mettre vos compétences à l’épreuve : dans cette salle, vigilance et réflexion sont vos meilleurs alliés.');
+(5, 'Sécurité physique et matérielle', 'images/commun/retour', 'Bienvenue dans la salle de surveillance !\nPlongez au cœur de la sécurité physique et matérielle, où chaque objet, chaque dispositif et chaque comportement compte. Observez attentivement votre environnement et cliquez sur les objets lumineux pour lancer les énigmes. Préparez-vous à analyser, réagir et mettre vos compétences à l’épreuve : dans cette salle, vigilance et réflexion sont vos meilleurs alliés.');
 
 -- --------------------------------------------------------
 
@@ -675,7 +759,7 @@ INSERT INTO `type` (`numero`, `libelle`, `explication`) VALUES
 DROP TABLE IF EXISTS `vpn`;
 CREATE TABLE IF NOT EXISTS `vpn` (
   `numero` int NOT NULL AUTO_INCREMENT,
-  `libelle` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `libelle` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`numero`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -684,36 +768,36 @@ CREATE TABLE IF NOT EXISTS `vpn` (
 --
 
 INSERT INTO `vpn` (`numero`, `libelle`) VALUES
-(1, 'Un VPN ne remplace p'),
-(2, 'Un VPN peut réduire '),
-(3, 'Un VPN gratuit peut '),
-(4, 'Les VPN d\'entreprise'),
-(5, 'Un VPN peut contourn'),
-(6, 'Un VPN ne protège pa'),
-(7, 'Un VPN crée un tunne'),
-(8, 'Un VPN ne doit jamai'),
-(9, 'Les VPN sécurisent l'),
-(10, 'Un VPN peut parfois '),
-(11, 'Un VPN ne masque pas'),
-(12, 'Les VPN ne peuvent p'),
-(13, 'Un VPN peut empêcher'),
-(14, 'Un VPN peut fausser '),
-(15, 'Les VPN utilisent so'),
-(16, 'Un VPN n’empêche pas'),
-(17, 'Un VPN n’améliore pa'),
-(18, 'Un VPN peut être ins'),
-(19, 'Les VPN d’entreprise'),
-(20, 'Un VPN peut permettr'),
-(21, 'Un VPN accélère auto'),
-(22, 'Un VPN rend votre ap'),
-(23, 'Avec un VPN, les hac'),
-(24, 'Un VPN rend toutes l'),
-(25, 'Un VPN empêche compl'),
-(26, 'L’utilisation d’un V'),
-(27, 'Un VPN bloque automa'),
-(28, 'Un VPN garantit qu’a'),
-(29, 'Tous les VPN utilise'),
-(30, 'Un VPN protège votre');
+(1, 'Un VPN ne remplace pas un antivirus'),
+(2, 'Un VPN peut réduire légèrement la vitesse selon le serveur utilisé'),
+(3, 'Un VPN gratuit peut collecter et revendre vos données'),
+(4, 'Les VPN d\'entreprise permettent d\'accéder au réseau interne à distance'),
+(5, 'Un VPN peut contourner certaines censures gouvernementales'),
+(6, 'Un VPN ne protège pas contre le phishing'),
+(7, 'Un VPN crée un tunnel chiffré entre l’utilisateur et le serveur'),
+(8, 'Un VPN ne doit jamais être utilisé sur un réseau public'),
+(9, 'Les VPN sécurisent l’utilisation des hotspots WiFi publics'),
+(10, 'Un VPN peut parfois bloquer l’accès à certains services bancaires'),
+(11, 'Un VPN ne masque pas votre identité sur les réseaux sociaux'),
+(12, 'Les VPN ne peuvent pas empêcher les malwares de s’installer'),
+(13, 'Un VPN peut empêcher votre FAI de suivre votre historique'),
+(14, 'Un VPN peut fausser la localisation utilisée par les sites web'),
+(15, 'Les VPN utilisent souvent un chiffrement AES 256 bits'),
+(16, 'Un VPN n’empêche pas les sites web de vous tracker via cookies'),
+(17, 'Un VPN n’améliore pas la sécurité d’un mot de passe faible'),
+(18, 'Un VPN peut être installé sur un routeur WiFi'),
+(19, 'Les VPN d’entreprise utilisent parfois IPsec au lieu d’OpenVPN'),
+(20, 'Un VPN peut permettre d’accéder aux fichiers internes d’une entreprise'),
+(21, 'Un VPN accélère automatiquement votre connexion internet même si le serveur est éloigné'),
+(22, 'Un VPN rend votre appareil totalement anonyme, même pour les sites web'),
+(23, 'Avec un VPN, les hackers ne peuvent plus du tout infecter votre appareil'),
+(24, 'Un VPN rend toutes les connexions web gratuites, même les services payants'),
+(25, 'Un VPN empêche complètement les publicités de s’afficher'),
+(26, 'L’utilisation d’un VPN rend inutile la mise à jour du système d’exploitation'),
+(27, 'Un VPN bloque automatiquement toutes les tentatives de phishing'),
+(28, 'Un VPN garantit qu’aucun site web ne peut installer de cookies sur votre navigateur'),
+(29, 'Tous les VPN utilisent exactement les mêmes protocoles et le même chiffrement'),
+(30, 'Un VPN protège votre compte en ligne même si votre mot de passe est déjà volé');
 
 -- --------------------------------------------------------
 
