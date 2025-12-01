@@ -22,12 +22,12 @@ $routes->match(['GET','POST'],'/echouerJour/(:num)', 'HomeControlleur::echouerJo
 
 // Routes pour le quiz
 $routes->group('quiz', function($routes) {
-    $routes->get('/', 'QuizControlleur::index');
-    $routes->match(['get', 'post'],'demarrer/(:segment)', 'QuizControlleur::choix/$1');
-    $routes->get('choix/(:segment)', 'QuizControlleur::demarrer/$1');
-    $routes->get('question/(:segment)', 'QuizControlleur::question/$1');
-    $routes->post('repondre/(:segment)', 'QuizControlleur::repondre/$1');
-    $routes->get('resultats/(:segment)', 'QuizControlleur::resultats/$1');
+    $routes->get('/', 'Quiz\QuizControlleur::index');
+    $routes->match(['get', 'post'],'demarrer/(:segment)', 'Quiz\QuizControlleur::choix/$1');
+    $routes->get('choix/(:segment)', 'Quiz\QuizControlleur::demarrer/$1');
+    $routes->get('question/(:segment)', 'Quiz\QuizControlleur::question/$1');
+    $routes->post('repondre/(:segment)', 'Quiz\QuizControlleur::repondre/$1');
+    $routes->get('resultats/(:segment)', 'Quiz\QuizControlleur::resultats/$1');
 
 });
 
@@ -95,8 +95,3 @@ $routes->get('/Salle6/VPN', 'salle_6\VpnController::Index');
 $routes->post('/vpn/validerCarte', 'salle_6\VpnController::validerCarte');
 $routes->get('/Salle6/vpn/debug', 'salle_6\VpnController::debug');
 $routes->post('/Salle6/CompleteVpn', 'salle_6\Salle6Controller::CompleteVpn');
-
-
-
-
-
