@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\salle_1\Salle1ExplicationModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\MascotteModel;
@@ -79,12 +80,28 @@ class HomeControlleur extends BaseController
                 ->with('error', 'Salle indisponible');
         }
 
+        if ((int)$numero === 1)
+        {
+            $explicationModel = new Salle1ExplicationModel();
+            $data = ['explication' => $explicationModel->getExplicationSalle1()];
+            return view('salle_1/AccueilSalle1', $data).
+                view('commun/footer');
+        }
+
         if ((int)$numero === 4){
             $session = session();
-             // savoir si il est encore en train de faire la salle
+
+            // Vérifier si c'est la première visite de la salle 4
+            $premiereVisite = !$session->has('salle4_visited');
+
+            // Marquer la salle comme visitée
+            if ($premiereVisite) {
+                $session->set('salle4_visited', true);
+            }
             $data = [
                 'frise_validee' => false,
-                'quiz_disponible' =>false
+                'quiz_disponible' =>false,
+                'premiere_visite' => $premiereVisite,
             ];
 
             return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
@@ -167,9 +184,9 @@ class HomeControlleur extends BaseController
 
         $data['numero_salle'] = $numero;
 
-        return view('commun\header').
+        return view('commun/header').
             view($viewPath, $data).
-            view('commun\footer');
+            view('commun/footer');
     }
 
     /**
@@ -417,6 +434,7 @@ class HomeControlleur extends BaseController
     public function resetSalle4()
     {
         $session = session();
+        $session->remove('salle4_visited');
         $session->remove('frise_validee');
         $session->remove('activite_choisie');
         $session->remove('positions_cartes_frise');

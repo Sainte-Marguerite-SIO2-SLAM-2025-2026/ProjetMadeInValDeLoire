@@ -22,12 +22,12 @@
 
     <div class="footer-section">
         <h4>Notre société</h4>
-        <p>Hova team<br>
+        <p>BLUT - Brigade Loufoque de l’Univers des Technophiles<br>
             Création de sites et applications web<br></p>
     </div>
 
     <div class="footer-bottom">
-        &copy; 2025 Hova team - Tous droits réservés
+        &copy; 2025 BLUT - Tous droits réservés
     </div>
 </footer>
 </body>

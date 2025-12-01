@@ -1,28 +1,74 @@
 <!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?= link_tag('public/styles/salle2.css') ?>
-    <script> const BASE_URL = "<?= base_url() ?>" </script>
-        <script src="<?= base_url('/public/js/salle2.js') ?>"></script>
-    <title>Salle 2 - Phishing</title>
-</head>
+<?php session()->get('mode') ?>
 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accueil | Salle Mot de Passe </title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+
+    <link rel="preload" as="image" href="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>">
+
+    <link rel="stylesheet" href="<?= base_url('styles/salle_2/style_accueil_S3.css') ?>">
+</head>
 <body>
 
-<div class="content">
-    <div class="bureau-wrapper" id="bureau">
-        <img src="<?= base_url("public/images/bureau/bureau_sepia.webp")?>" alt="Bureau" class="bureau-svg bureau-normal">
-        <img src="<?= base_url("public/images/bureau/bureau_orange.webp")?>" alt="Bureau hover" class="bureau-svg bureau-hover">
+<?php if (session()->get('mode') === 'jour'): ?>
+    <div class="bouton-accueil-cluedo">
+        <?= anchor('/manoirJour',
+                img([
+                        'src' => base_url('images/commun/btn_retour/home_icone_7.webp'),
+                        'alt' => 'Mascotte',
+                        'class' => 'bouton-accueil-cluedo'
+                ])
+        ) ?>
     </div>
+<?php else: ?>
+    <div class="bouton-accueil-cluedo">
+        <?= anchor('/',
+                img([
+                        'src' => base_url('images/commun/btn_retour/home_icone_7.webp'),
+                        'alt' => 'Mascotte',
+                        'class' => 'bouton-accueil-cluedo'
 
-<?= anchor(base_url().'public/', 'Accueil', ['class' => 'btn-accueil']); ?>
+                ])
+        ) ?>
+    </div>
+<?php endif?>
+<img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>"
+     alt="Fond"
+     class="accueil-bg"
+     style="width:1920px; height:1080px; display:block;">
 
-</div>
+<div class="bg-overlay"></div>
+
+<header class="site-header">
+    <h1 class="site-title"> Bureau Du Grand Détéctive </h1>
+</header>
+
+<main class="hero hero--lower">
+    <aside class="hero-panel">
+        <p class="hero-desc">
+            Bienvenue dans la salle des mots de passe…
+            Ici, les mots ont un pouvoir, mais seuls les plus sûrs te permettront d’avancer.
+
+            Sauras-tu trouver les 5 mots de passe cachés dans les quêtes ?
+            Chaque choix compte… et chaque erreur pourrait te faire perdre du temps précieux !
+
+            Le manoir t'observe. À toi de prouver que tu connais les secrets des mots bien gardés.
+        </p>
+        <div class="hero-buttons">
+            <a class="btn btn--accent btn--xl" href="<?= base_url('Salle2-introduction') ?>">Commencer</a>
+            <a class="btn btn--ghost btn--xl" href="<?= base_url() ?>">Accueil</a>
+        </div>
+    </aside>
+</main>
+
+
+<script src="<?= base_url('/js/salle_2/accueil.js') ?>" defer></script>
 </body>
 </html>
-
-
