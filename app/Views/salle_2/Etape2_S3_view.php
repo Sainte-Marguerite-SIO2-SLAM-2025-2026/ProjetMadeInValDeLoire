@@ -139,23 +139,6 @@
             Étape 2 : Essaie d'ouvrir ce coffre avec un code à 6 chiffres. Attention, sois attentif aux éléments dans la pièce !
         </p>
     </aside>
-    <script>
-        (function() {
-            // 1. Détection du rechargement (F5)
-            const isReload = performance.getEntriesByType("navigation")[0]?.type === 'reload';
-
-            // 2. Détection de la validation (Si une erreur est affichée, c'est qu'on a validé)
-            const errorDiv = document.getElementById('code-error');
-            // Si la div d'erreur contient du texte et est visible, c'est une validation échouée
-            const isValidation = errorDiv && errorDiv.innerText.trim().length > 0 && errorDiv.style.display !== 'none';
-
-            // Si c'est un F5 OU une tentative de validation, on cache le message
-            if (isReload || isValidation) {
-                const msg = document.getElementById('message-intro');
-                if(msg) msg.style.display = 'none';
-            }
-        })();
-    </script>
     <div class="mascotte-container">
         <img id="mascotte" src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
     </div>
@@ -193,5 +176,24 @@
         <?= $this->include('commun\footer') ?>
     </footer>
 </div>
+
+<script>
+    (function() {
+        // 1. Détection du rechargement (F5)
+        const isReload = performance.getEntriesByType("navigation")[0]?.type === 'reload';
+
+        // 2. Détection de la validation (Si une erreur est affichée, c'est qu'on a validé)
+        const errorDiv = document.getElementById('code-error');
+        // Si la div d'erreur contient du texte et est visible, c'est une validation échouée
+        const isValidation = errorDiv && errorDiv.innerText.trim().length > 0 && errorDiv.style.display !== 'none';
+
+        // Si c'est un F5 OU une tentative de validation, on cache le message
+        if (isReload || isValidation) {
+            const msg = document.getElementById('message-intro');
+            if(msg) msg.style.display = 'none';
+        }
+    })();
+</script>
+
 </body>
 </html>

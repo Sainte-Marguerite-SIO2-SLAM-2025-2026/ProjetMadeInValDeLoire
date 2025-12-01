@@ -166,7 +166,7 @@
         const actions = document.getElementById("bulle-actions");
 
         const indices = [
-            "Indice : Ne négligez pas les mots de passe, même s'ils semblent complexes : ils n'y sont pas !"
+            "Indice : Trie les mots de passe. Il y a 5 mots de passe valides et 6 mots de passe invalides. Attention, certains pourraient sembler valides mais ne le sont pas du tout !"
         ];
 
         let index = 0;

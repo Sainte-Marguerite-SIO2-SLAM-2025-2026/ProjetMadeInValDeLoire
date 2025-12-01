@@ -117,26 +117,15 @@
         </div>
     </form>
 
-    <input type="checkbox" id="help-toggle" class="sr-only" aria-hidden="true">
-
-    <label for="help-toggle" class="mascotte-backdrop" aria-hidden="true"></label>
-
-    <label for="help-toggle" class="mascotte-btn" aria-label="Besoin d'aide ?" title="Aide">
-        <img src="<?= base_url('/images/Lumi_En_Tricycle.jpeg') ?>" alt="" aria-hidden="true" loading="lazy">
-    </label>
-
-    <div class="mascotte-popover" role="dialog" aria-labelledby="help-title" aria-modal="false">
-        <p id="help-title" class="help-title">Souhaitez-vous de l'aide ?</p>
-        <div class="help-actions">
-            <button type="button" class="btn btn-primary" id="help-yes">Oui</button>
-            <label for="help-toggle" class="btn btn--ghost" role="button" tabindex="0">Non</label>
-        </div>
+    <div class="mascotte-container">
+        <img id="mascotte" src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
     </div>
 
-    <aside class="tip-panel" role="note" aria-live="polite">
-        <p class="tip-desc">
-            Information : Entrez un nouveau code pour remplacer l’ancien code du digicode !</p>
-    </aside>
+    <div id="mascotte-bulle">
+        <div id="bulle-texte"></div>
+        <div id="bulle-actions"></div>
+        <div class="bulle-fleche"></div>
+    </div>
 
     <div id="help-tip" class="tip-panel" style="display:none;">
         <p class="tip-desc-mascotte">
@@ -173,89 +162,5 @@
        <?= $this->include('commun\footer.php') ?>
     </footer>
 </div>
-
-<script>
-    // JS Mascotte
-    (function () {
-        const yesBtn = document.getElementById('help-yes');
-        const tip = document.getElementById('help-tip');
-        const tipClose = document.getElementById('help-tip-close');
-        const toggle = document.getElementById('help-toggle');
-
-        if (yesBtn && tip && toggle) {
-            yesBtn.addEventListener('click', function () {
-                // Ferme le popover
-                toggle.checked = false;
-                // Affiche l'astuce (avec autohide via animation CSS)
-                tip.style.display = 'block';
-                tip.classList.add('tip-panel--autohide');
-
-                // Masquer à la fin de l'animation (~30s)
-                setTimeout(function () {
-                    tip.style.display = 'none';
-                    tip.classList.remove('tip-panel--autohide');
-                }, 31000);
-            });
-        }
-
-        if (tipClose && tip) {
-            tipClose.addEventListener('click', function () {
-                tip.style.display = 'none';
-                tip.classList.remove('tip-panel--autohide');
-            });
-        }
-    })();
-
-    // Validation client
-    (function () {
-        const form = document.getElementById('code-form');
-        const input = document.getElementById('mot_de_passe');
-        const errorBox = document.getElementById('code-error');
-        if (!form || !input || !errorBox) return;
-        if (input.disabled) return; // si succès affiché
-
-        function showError(msg) {
-            if (!msg) {
-                errorBox.textContent = '';
-                errorBox.style.display = 'none';
-                return;
-            }
-            errorBox.textContent = msg;
-            if (errorBox.style.display === 'none') {
-                errorBox.setAttribute('style',
-                    'all: unset; display: block; width: 100%; height: 100%; box-sizing: border-box; padding: 0.5em; text-align: center; font: inherit; font-size: 2.5em; font-weight: 600; color: yellow; background: transparent; cursor: text;'
-                );
-            }
-            errorBox.style.display = 'block';
-        }
-
-        form.addEventListener('submit', function (e) {
-            const v = (input.value || '').replace(/\D+/g, '').slice(0, 6);
-            input.value = v;
-            showError('');
-
-            if (v.length !== 6) {
-                e.preventDefault();
-                showError('Le code doit contenir exactement 6 chiffres.');
-                input.value = ''; // MODIFICATION JS : Reset input
-                return;
-            }
-            if (v === '111111') {
-                e.preventDefault();
-                showError("Interdit : vous ne pouvez pas réutiliser l'ancien code.");
-                input.value = ''; // MODIFICATION JS : Reset input
-                return;
-            }
-            if ((new Set(v)).size !== 6) {
-                e.preventDefault();
-                showError('Chaque chiffre doit être différent (pas de doublons).');
-                input.value = ''; // MODIFICATION JS : Reset input
-                return;
-            }
-        });
-
-        input.addEventListener('input', () => { if (errorBox.textContent) showError(''); });
-    })();
-</script>
 </body>
 </html>

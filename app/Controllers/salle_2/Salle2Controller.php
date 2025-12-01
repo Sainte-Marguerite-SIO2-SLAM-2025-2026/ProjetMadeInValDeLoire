@@ -119,15 +119,30 @@ class Salle2Controller extends BaseController
         $success_message = null;
         $next_url = base_url('/Etape2');
 
+        // Fonction pour détecter une année plausible
+        $isBirthYear = function($year) {
+            return $year >= 1900 && $year <= 2024;
+        };
+
+        // Extraction des tranches d'année possibles
+        $year1 = intval(substr($motDePasse, 0, 4)); // XXXX--
+        $year2 = intval(substr($motDePasse, 2, 4)); // --XXXX
+        $year3 = intval(substr($motDePasse, 1, 4)); // -XXXX-
+
         if (strlen($motDePasse) < 6) {
             $error = 'Le code doit contenir 6 chiffres.';
-        } elseif ($motDePasse === '489677' || $motDePasse === '111111'|| $motDePasse === '123456') {
+        } elseif ($motDePasse === '489677' || $motDePasse === '111111' || $motDePasse === '123456') {
             $error = 'Interdit : Ancien code.';
         } elseif (count(array_unique(str_split($motDePasse))) < 6) {
             $error = 'Chaque chiffre doit être différent.';
-        } else {
+        }
+        // contrôle DATE
+        elseif ($isBirthYear($year1) || $isBirthYear($year2) || $isBirthYear($year3)) {
+            $error = 'Interdit : Le code ressemble à une date de naissance.';
+        }
+        else {
             $success = true;
-            $success_message = 'Bravo ! Le code est mis a jour. La porte est maintenant sécurisé.';
+            $success_message = 'Bravo ! Le code est mis à jour. La porte est maintenant sécurisée.';
         }
 
         return view('salle_2\etape1b_s3_view', [
@@ -139,6 +154,7 @@ class Salle2Controller extends BaseController
             'next_url' => $next_url,
         ]);
     }
+
 
     /* Etape 2 */
     public function Etape2()
@@ -183,13 +199,8 @@ class Salle2Controller extends BaseController
 
     public function etape2a()
     {
-        return
-            view('salle_2\Etape2a_S3_View', [
-                'title'   => 'Etape 2 | Salle Mot de Passe',
-                'message' => session()->getFlashdata('message'),
-                'error'   => session()->getFlashdata('error'),
-            ])
-            . view('commun\footer');
+        return view('salle_2\Etape2a_S3_View')
+            . view('commun\footer.php');
     }
 
 
