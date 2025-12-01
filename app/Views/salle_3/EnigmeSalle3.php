@@ -19,7 +19,9 @@
 <div id="data" data-indices='<?= esc(json_encode($indices), "attr") ?>' data-mails='<?= esc(json_encode($mails, JSON_UNESCAPED_UNICODE), "attr") ?>'></div>
 
 <div class="background-container">
-
+    <div id="popup-explications" class="popup-explications">
+        <?= $explication[0]['libelle'] ?>
+    </div>
     <img id="bg-img" src="<?= base_url('images/salle_3/dessus_bureau/dessus_bureau.webp') ?>" alt="Fond" style="width:1920px; height:1080px; display:block;">
 
 
@@ -113,7 +115,7 @@
         <img id="score-mascotte" src="" alt="Mascotte score" style="width:300px; position:absolute; right:-450px; bottom:250px;">
     </div>
 </div>
-<button id="btn-valider" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); padding:10px 20px; font-size:16px; z-index:1000;">Valider</button>
+<button id="btn-valider" class="btn-valider" style="display:none;">Valider</button>
 
 </body>
 </html>

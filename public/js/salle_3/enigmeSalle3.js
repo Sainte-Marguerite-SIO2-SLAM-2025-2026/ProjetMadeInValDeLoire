@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.getElementById('modalOverlay');
     const btnEchoue = document.querySelector('.btn-echoue');
     const btnReussie = document.querySelector('.btn-reussie');
+    const popup = document.getElementById('popup-explications');
     const data = document.getElementById("data");
     const indices = JSON.parse(data.dataset.indices);
     const mails = JSON.parse(data.dataset.mails);
@@ -17,6 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentEnvelope = null;
 
     const triEnveloppes = new Map();
+
+    popup.classList.add("show");
+
+    setTimeout(() => {
+        popup.style.transition = "opacity 1s ease";
+        popup.style.opacity = "0";
+        setTimeout(() => {
+            popup.style.display = "none";
+        }, 10000);
+    }, 10000);
 
     closeBtn.addEventListener('click', () => {
         modal.classList.remove('active');
