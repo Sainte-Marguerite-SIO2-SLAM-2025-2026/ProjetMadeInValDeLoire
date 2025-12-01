@@ -10,15 +10,15 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/MentionLegale', 'commun\CommunController::MentionLegale');
 
 // Route pour la page d'accueil
-$routes->get('/', 'HomeControlleur::index');
-$routes->get('/manoirJour', 'HomeControlleur::pagejour');
+$routes->get('/', 'accueil\HomeControlleur::index');
+$routes->get('/manoirJour', 'accueil\HomeControlleur::pagejour');
 
-$routes->match(['GET','POST'],'/reset', 'HomeControlleur::reset');
-$routes->get('/resetSalleJour', 'HomeControlleur::resetSalleJour');
-$routes->get('/salle/salle_(:num)', 'HomeControlleur::salle/$1');
-$routes->match(['GET','POST'],'/valider/(:num)', 'HomeControlleur::valider/$1');
-$routes->match(['GET','POST'],'/validerJour/(:num)', 'HomeControlleur::validerJour/$1');
-$routes->match(['GET','POST'],'/echouerJour/(:num)', 'HomeControlleur::echouerJour/$1');
+$routes->match(['GET','POST'],'/reset', 'accueil\HomeControlleur::reset');
+$routes->get('/resetSalleJour', 'accueil\HomeControlleur::resetSalleJour');
+$routes->get('/salle/salle_(:num)', 'accueil\HomeControlleur::salle/$1');
+$routes->match(['GET','POST'],'/valider/(:num)', 'accueil\HomeControlleur::valider/$1');
+$routes->match(['GET','POST'],'/validerJour/(:num)', 'accueil\HomeControlleur::validerJour/$1');
+$routes->match(['GET','POST'],'/echouerJour/(:num)', 'accueil\HomeControlleur::echouerJour/$1');
 
 // Routes pour le quiz
 $routes->group('quiz', function($routes) {
