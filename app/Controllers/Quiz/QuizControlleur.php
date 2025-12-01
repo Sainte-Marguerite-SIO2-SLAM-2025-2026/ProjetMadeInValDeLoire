@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Quiz;
 
-use App\Models\QuestionModel;
-use App\Models\CategorieModel;
 use App\Controllers\BaseController;
+use App\Models\CategorieModel;
+use App\Models\QuestionModel;
 
 class QuizControlleur extends BaseController
 {
