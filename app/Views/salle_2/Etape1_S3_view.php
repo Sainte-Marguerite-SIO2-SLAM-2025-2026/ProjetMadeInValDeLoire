@@ -61,32 +61,42 @@
         <a class="livre-contour" href="<?= base_url('Salle2-Aide') ?>"></a>
     </div>
 
-    <aside class="tip-panel" role="note" aria-live="polite">
-        <p class="tip-desc">Astuce : Vous pouvez cliquer sur le livre pour pouvoir revoir les informations !</p>
-    </aside>
+    <div class="mascotte-container">
+        <img id="mascotte" src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
+    </div>
 
+    <!-- Mascotte -->
+    <div id="mascotte-bulle">
+        <div id="bulle-texte"></div>
+        <div id="bulle-actions"></div>
+        <div class="bulle-fleche"></div>
+    </div>
+
+
+    <!-- Message Introduction-->
     <aside id="intro-tip" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
         <p class="tip-desc">
             Étape 1 : Ouvrir cette porte avec le code fourni par le détective Fox. Attention : si tu réussis, tu devras par la suite choisir un nouveau code pour la porte !
         </p>
     </aside>
 
+
+    <!-- Div poignet permet d'indique a l'utilisateur d'aller clique sur le digicode -->
     <input type="checkbox" id="poignier-toggle" class="sr-only" aria-hidden="true" />
     <div id="poignier-overlay" class="poignier-overlay" role="dialog" aria-modal="true" aria-labelledby="poignier-texte">
         <aside class="poignier-panel">
             <p id="poignier-texte" class="tip-desc">
-                Mhh Bizarre la porte est fermé, je pense je devrais tape le code.
+                 Bizarre la porte est fermé, je pense je devrais tape le code.
             </p>
             <label for="poignier-toggle" class="tip-btn" aria-label="Fermer ce message et continuer">Continuer</label>
         </aside>
     </div>
 
+<!-- Scroll footer -->
 </div>
 <div class="scroll-flow">
     <div class="scroll-spacer"></div>
 </div>
 
-
-<script src="<?= base_url('/assets/js/etape1.js') ?>" defer></script>
 </body>
 </html>

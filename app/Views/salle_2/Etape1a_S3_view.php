@@ -55,7 +55,7 @@
                     pattern="[0-9]{6}"
                     minlength="6"
                     maxlength="6"
-                    placeholder="Ecrire un mot de passe"
+                    placeholder="Ecrire un Code"
                     value="<?= esc($mot_de_passe ?? old('mot_de_passe') ?? '') ?>"
                     required
                     aria-describedby="aide-motdepasse"
@@ -102,7 +102,7 @@
                    class="tip-btn btn--xl"
                    id="go-next"
                    aria-label="Passer à la salle suivante">
-                    Passer à la salle suivante
+                    Passer à l'étape suivante
                 </a>
             </aside>
         </div>

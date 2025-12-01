@@ -33,6 +33,12 @@
 </head>
 <body>
 
+<aside id="intro-tip" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
+    <p class="tip-desc">
+        Étape 1b : Tape un nouveau Code sécurisé pour réinitialiser le Digicode de la porte!
+    </p>
+</aside>
+
 <?php if (session()->get('mode') === 'jour'): ?>
     <div class="bouton-accueil-cluedo">
         <?= anchor('/manoirJour',
@@ -76,7 +82,7 @@
                     pattern="[0-9]{6}"
                     minlength="6"
                     maxlength="6"
-                    placeholder="Ecrire un nouveau mot de passe"
+                    placeholder="Ecrire un nouveau Code"
                     value=""
                     required
                     aria-describedby="aide-motdepasse code-error"

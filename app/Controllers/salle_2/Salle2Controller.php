@@ -10,50 +10,19 @@ class Salle2Controller extends BaseController
 
     public function Introduction()
     {
-        // Préparer les données pour la vue principale
-        $data = [
-            'title'   => 'Introduction | Salle Mot de Passe',
-            'message' => session()->getFlashdata('message'),
-            'error'   => session()->getFlashdata('error'),
-        ];
+        return view('salle_2\Introduction_view');
 
-        // Charger la vue principale
-        echo view('salle_2\Introduction_view', $data);
-
-        // Charger le footer séparément
-        echo view('commun\footer.php', []);
     }
 
     public function Aide()
     {
-        // Préparer les données pour la vue principale
-        $data = [
-            'title'   => 'Aide | Salle Mot de Passe',
-            'message' => session()->getFlashdata('message'),
-            'error'   => session()->getFlashdata('error'),
-        ];
-
-        // Charger la vue principale
-        echo view('salle_2\Aide_view', $data);
-
-        // Charger le footer séparément
-        echo view('commun\footer.php', []);
+        return view('salle_2\Aide_view');
     }
 
     public function Etape1()
     {
-        // Préparer les données pour la vue principale
-        $data = [
-            'title'   => 'Etape 1 | Salle Mot de Passe',
-            'message' => session()->getFlashdata('message'),
-            'error'   => session()->getFlashdata('error'),
-        ];
-
-        // Charger la vue principale
-        echo view('salle_2\Etape1_S3_View', $data);
-
-        // Charger le footer séparément
-        echo view('commun\footer.php', []);
+        return view('salle_2\Etape1_S3_View')
+            . view('commun\footer.php');
     }
 
 
@@ -357,20 +326,13 @@ class Salle2Controller extends BaseController
 
     public function Etape5()
     {
-        return view('salle_2\Etape5_S3_View', [
-            'title' => 'Post-It | Salle Mot de Passe',
-            'message' => session()->getFlashdata('message'),
-            'error' => session()->getFlashdata('error'),
-        ]);
+        return view('salle_2\Etape5_S3_View')
+            . view('commun\footer.php');
     }
 
     public function Etapef()
     {
-        return view('salle_2\Etape_Final_view', [
-            'title' => 'Finalisation | Salle Mot de Passe',
-            'message' => session()->getFlashdata('message'),
-            'error' => session()->getFlashdata('error'),
-        ]);
+        return view('salle_2\Etape_Final_view');
     }
 
 

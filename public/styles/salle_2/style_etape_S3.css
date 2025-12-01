@@ -276,7 +276,7 @@ footer, .game-footer, .site-footer {
 
 @media (prefers-reduced-motion: reduce) {
     .tip-panel--autohide {
-        animation: tipAutoHide 30s linear forwards !important;
+        animation: tipAutoHide 15s linear forwards !important;
     }
 }
 

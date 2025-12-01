@@ -135,7 +135,7 @@
                class="tip-btn btn--xl"
                id="go-next"
                aria-label="Passer à la salle suivante">
-                Finalisation
+                Etape Final
             </a>
         </aside>
     </div>

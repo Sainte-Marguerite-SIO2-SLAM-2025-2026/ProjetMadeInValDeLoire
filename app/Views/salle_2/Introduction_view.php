@@ -3,83 +3,46 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><?= esc($title) ?></title>
+    <title>Introduction | Salle Mot de Passe</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url('styles/salle_2/style_introduction_S3.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('styles/salle_2/style_fin_S3.css') ?>">
 </head>
 <body>
 
-<div class="fixed-layer">
+<img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>" alt="Fond" class="accueil-bg">
 
-    <div class="bg-container">
-        <img src="<?= base_url('/images/salle_2/introduction_salle3.webp') ?>"
-             alt="Fond"
-             style="width:1920px; height:1080px; display:block;">
+<main class="final-screen-wrapper">
+    <div class="particles-layer">
+        <div class="flying-item item-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
+        <div class="flying-item item-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
     </div>
 
-    <a class="btn btn--ghost btn--xl btn-retour" href="<?= base_url('/salle/salle_2') ?>">Retour</a>
+    <div class="final-popup-container">
+        <div class="mascot-final-wrapper">
+            <img src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Monsieur Fox">
+        </div>
 
-    <a class="btn btn--ghost btn--xl btn-passe"
-       href="<?= base_url('/Etape1') ?>"
-       onclick="try{ sessionStorage.removeItem('etape1_suppress_intro'); sessionStorage.setItem('etape1_show_intro_once','1'); }catch(e){}">
-        Commencer
-    </a>
+        <h1 class="final-title">Explication !</h1>
 
-    <div class="code-intro">
-        <article>
-            <p>489677</p>
-        </article>
+        <p class="final-text">
+            Il y a <strong>5 étapes</strong>, le but est de trouver les mots de passe à travers des indices cachés.
+            <br><br>
+            Les mots de passe doivent obligatoirement être complexes !
+            <br><br>
+            Mot de passe de la porte : 489677
+        </p>
+
+        <div class="final-actions">
+            <!-- le lien va directement à Etape1, plus besoin de popup -->
+            <a href="<?= base_url('Etape1') ?>" class="btn btn--xl btn-nuit">
+                Commencer
+            </a>
+        </div>
     </div>
-
-    <main class="book">
-        <article class="book-text">
-            <p>
-                Ce grimoire poussiéreux vous introduit à la Salle des Mots de Passe, ancien bureau du célèbre détective Fox.
-                Chaque recoin de cette pièce raconte une énigme, chaque objet semble murmurer un secret oublié. Ici, cinq épreuves vous attendent, plus ou moins difficiles, conçues pour tester votre logique, votre mémoire et votre sens de l’observation.
-                Mais attention : il ne suffit pas de trouver des mots de passe. Vous devrez les générer, les identifier, puis les trier avec soin. Le moindre faux pas peut vous faire perdre du temps précieux.
-            </p>
-
-            <p>
-                Épreuve de Génération : utilisez votre esprit pour imaginer les combinaisons possibles, à partir d’indices dissimulés, les livres ou les écrits griffonnés de Fox.
-                Épreuve d’Identification : parmi une multitude de mots, seuls certains correspondent à la vérité que le détective a laissée derrière lui. Serez-vous capable de les reconnaître ?
-                Épreuve de Tri : classez-les dans le bon endroit, car chaque mot de passe mal placé peut bloquer votre progression vers la réussite.
-            </p>
-
-            <p>
-                Les autres épreuves, plus subtiles, reposent sur l’Observation et la Déduction. Notez le moindre détail : un livre sur le bureau, une montre arrêtée sur une heure étrange, un post-it … Tous ces indices composent le fil invisible de l’histoire de Fox.
-                Trouvez la cohérence entre les éléments, et un cliquetis discret vous confirmera que vous avancez sur la bonne voie.
-            </p>
-        </article>
-    </main>
-</div>
-
-<?php if (session()->get('mode') === 'jour'): ?>
-    <div class="bouton-accueil-cluedo">
-        <?= anchor('/manoirJour',
-                img([
-                        'src' => base_url('images/commun/btn_retour/home_icone_7.webp'),
-                        'alt' => 'Mascotte',
-                        'class' => 'bouton-accueil-cluedo'
-                ])
-        ) ?>
-    </div>
-<?php else: ?>
-    <div class="bouton-accueil-cluedo">
-        <?= anchor('/',
-                img([
-                        'src' => base_url('images/commun/btn_retour/home_icone_7.webp'),
-                        'alt' => 'Mascotte',
-                        'class' => 'bouton-accueil-cluedo'
-
-                ])
-        ) ?>
-    </div>
-<?php endif?>
-
-<div class="scroll-flow">
-    <div class="scroll-spacer"></div>
-</div>
+</main>
 
 </body>
 </html>
