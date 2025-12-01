@@ -17,9 +17,7 @@ class Salle1Message extends Model
     public function getMessageSalle1()
     {
         return $this->db->table('activite a')
-            ->select('a.numero, a.libelle, 
-                      aut.nom, aut.prenom')
-            ->join('auteur aut', 'aut.numero = a.auteur_numero', 'left')
+            ->select('a.numero, a.libelle')
             ->where('a.salle_numero', 1)
             ->orderBy('RAND()')
             ->limit(1)

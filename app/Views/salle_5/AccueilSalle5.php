@@ -218,14 +218,14 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
 
     </div>
 
-    <h1 class="titre-salle"><?=$salle->libelle?></h1>
+    <h1 class="titre-salle"><?=$salle['libelle']?></h1>
 
     <?php if ($afficher_popup): ?>
         <div id="popup-explication" class="popup">
             <div class="popup-content">
                 <span class="close-btn" onclick="closePopup()">&times;</span>
                 <h2>Explication</h2>
-                <p><?= $salle->intro_salle ?></p>
+                <p><?= $salle['intro_salle'] ?></p>
                 <div class="popup-actions">
                     <button class="btn-accueil" onclick="closePopup()">
                         J'ai compris !

@@ -64,7 +64,7 @@
 
     <!-- Modal pour afficher la question -->
     <div id="questionModal" class="modal">
-        <div class="modal-content question-modal-content">
+        <div id="questionModal" class="modal-content question-modal-content">
             <span class="close-question">&times;</span>
 
             <!-- Carte en grand format -->
@@ -74,23 +74,22 @@
                      alt="Carte"
                      class="carte-grande-img">
                 <div class="question-text" id="question-text"></div>
-            </div>
 
-            <!-- Boutons Vrai/Faux -->
-            <div class="reponses-buttons">
-                <button type="button" id="btn-vrai" class="btn-reponse btn-vrai">VRAI</button>
-                <button type="button" id="btn-faux" class="btn-reponse btn-faux">FAUX</button>
+                <div class="reponses-buttons">
+                    <button type="button" id="btn-vrai" class="btn-reponse btn-vrai">VRAI</button>
+                    <button type="button" id="btn-faux" class="btn-reponse btn-faux">FAUX</button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Modal de résultat final -->
-    <div id="resultModal" class="modal">
-        <div class="modal-content result-modal-content">
+    <div id="resultModal" class="modal-fin">
+        <div class="modal-content-fin result-modal-content">
             <h2 id="resultTitle"></h2>
             <p id="resultMessage"></p>
             <p id="scoreMessage"></p>
-            <button id="btnRetourAccueil" class="btn-retour-accueil">Retour à l'accueil</button>
+            <button id="btnRetourAccueil" class="btn-retour-accueil">Retourner au Manoir</button>
         </div>
     </div>
 
@@ -129,11 +128,11 @@
     </div>
 
     <!-- Modal des règles -->
-    <div id="rulesModal" class="modal">
-        <div class="modal-content rules-modal-content">
+    <div id="rulesModal" class="modal-lumi">
+        <div class="modal-content-lumi rules-modal-content">
             <span class="close-rules">&times;</span>
             <h2>Règles du Quiz</h2>
-            <div class="rules-content">
+            <div class="rules-content-lumi">
                 <h3>Objectif</h3>
                 <p>Répondre correctement à 6 questions sur les ransomwares.</p>
 
