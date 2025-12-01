@@ -169,11 +169,11 @@ html, body {
 }
 
 .modal-content {
-    background-color: white;
+    /*background-color: white;*/
     margin: 5% auto;
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);*/
     animation: slideDown 0.3s;
     position: relative;
 }
@@ -190,24 +190,24 @@ html, body {
 }
 
 .question-modal-content {
-    max-width: 800px;
+    max-width: 400px;
     text-align: center;
 }
 
-.close-question {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    color: #aaa;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
-}
+/*.close-question {*/
+/*    position: absolute;*/
+/*    top: 15px;*/
+/*    right: 25px;*/
+/*    color: #f6533e;*/
+/*    font-size: 35px;*/
+/*    font-weight: bold;*/
+/*    cursor: pointer;*/
+/*    transition: color 0.3s;*/
+/*}*/
 
-.close-question:hover {
-    color: #e74c3c;
-}
+/*.close-question:hover {*/
+/*    color: #e74c3c;*/
+/*}*/
 
 /* ===== Carte en grand format ===== */
 .carte-grande {
@@ -215,6 +215,13 @@ html, body {
     width: 420px;
     height: 580px;
     margin: 0 auto 30px;
+
+    /*margin: 5% auto;*/
+    /*!*padding: 40px;*!*/
+    /*!*border-radius: 15px;*!*/
+    /*box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);*/
+    /*animation: slideDown 0.3s;*/
+    /*position: relative;*/
 }
 
 .carte-grande-img {
@@ -228,7 +235,7 @@ html, body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 60%;
     font-size: 1.3em;
     font-weight: bold;
     color: #000;
@@ -291,6 +298,35 @@ html, body {
     box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
 }
 /* ===== Modal de résultat final ===== */
+
+.modal-fin {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content-fin {
+    background-color: white;
+    margin: 5% auto;
+    top : 20%;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.3s;
+    position: relative;
+}
+
 .result-modal-content {
     max-width: 600px;
     text-align: center;
@@ -356,6 +392,28 @@ html, body {
 
 .mascotte-zone:hover .mascotte-default { opacity: 0; }
 .mascotte-zone:hover .mascotte-hover  { opacity: 1; }
+
+.modal-lumi {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content-lumi {
+    background-color: white;
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.3s;
+    position: relative;
+}
 
 /* ===== Modal des règles (style amélioré) ===== */
 .rules-modal-content {

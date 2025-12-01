@@ -80,7 +80,7 @@
                 <h3>Ordre correct :</h3>
                 <ol id="ordreCorrectList"></ol>
             </div>
-            <button id="closeModalBtn" class="btn-modal">Retour à l'accueil</button>
+            <button id="closeModalBtn" class="btn-modal">Retour au Manoir</button>
         </div>
     </div>
 
@@ -137,8 +137,6 @@
                             <li>On <strong>restaure les sauvegardes</strong> seulement une fois sûr que tout est propre.</li>
                             <li>Le <strong>changement de mots de passe</strong> sert à sécuriser après récupération.</li>
                         </ul>
-<!--                        <h3>Résumé très court</h3>-->
-<!--                        <p><strong>Isole → Coupe → Alerte → Conserve → Identifie → Nettoie → Restaure → Sécurise</strong></p>-->
                     <?php else: ?>
                         <h3>Indices pour l'ordre</h3>
                         <ul>
@@ -152,8 +150,6 @@
                             <li>Effectue des <strong>sauvegardes régulières</strong> : elles permettent de récupérer rapidement après une attaque.</li>
 
                         </ul>
-<!--                        <h3>Résumé très court</h3>-->
-<!--                        <p><strong>Solidifie → Protège → Limite → Filtre → Désactive → Segmente → Sensibilise → Sauvegarde</strong></p>-->
                     <?php endif; ?>
                 </div>
             </div>

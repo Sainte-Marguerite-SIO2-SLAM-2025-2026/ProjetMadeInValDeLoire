@@ -5,10 +5,12 @@ namespace App\Controllers;
 use App\Models\salle_1\Salle1ExplicationModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
-use App\Models\salle_5\MascotteModel;
-use App\Models\salle_5\SalleModel;
+//use App\Models\salle_5\MascotteModel;
+//use App\Models\salle_5\SalleModel;
 use CodeIgniter\HTTP\RedirectResponse;
 use App\Controllers\salle_6\Salle6Controller;
+use App\Models\commun\MascotteModel;
+use App\Models\commun\SalleModel;
 
 class HomeControlleur extends BaseController
 {
@@ -21,6 +23,19 @@ class HomeControlleur extends BaseController
     private const SESSION_CURRENT_ROOM = 'current_room';
     private const SESSION_COMPLETED_ROOMS = 'completed_rooms';
     private const SESSION_FAILED_ROOMS = 'failed_rooms';
+
+    protected $salleModel;
+    protected $mascotteModel;
+
+    /**
+     * Initialise les salles et les mascottes
+     *
+     */
+    public function __construct()
+    {
+        $this->salleModel = new SalleModel();
+        $this->mascotteModel = new MascotteModel();
+    }
 
     /**
      * Page d'accueil du manoir
@@ -84,8 +99,8 @@ class HomeControlleur extends BaseController
         {
             $explicationModel = new Salle1ExplicationModel();
             $data = ['explication' => $explicationModel->getExplicationSalle1()];
-            return view('salle_1\AccueilSalle1', $data).
-                view('commun\footer');
+            return view('salle_1/AccueilSalle1', $data).
+                view('commun/footer');
         }
 
         if ((int)$numero === 4){
@@ -102,6 +117,7 @@ class HomeControlleur extends BaseController
                 'frise_validee' => false,
                 'quiz_disponible' =>false,
                 'premiere_visite' => $premiereVisite,
+                'salle' => $this->salleModel->getSalleById(4),
             ];
 
             return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
@@ -110,8 +126,8 @@ class HomeControlleur extends BaseController
 
         if ((int)$numero === 5){
             // Instancier les models
-            $salleModel = new SalleModel();
-            $mascotteModel = new MascotteModel();
+//            $salleModel = new SalleModel();
+//            $mascotteModel = new MascotteModel();
             $explicationModel = new ExplicationModel();
             $activiteModel = new ActiviteModel();
 
@@ -165,8 +181,8 @@ class HomeControlleur extends BaseController
 
             // Récupérer les données via les models
             $data = [
-                'salle' => $salleModel->getSalle(5),
-                'mascotte' => $mascotteModel->getMascotteBySalle(5),
+                'salle' => $this->salleModel->getSalleById(5),
+                'mascotte' => $this->mascotteModel->getMascottes(),
                 'explication' => $explicationModel->getExplication(1),
                 'activites_selectionnees' => $activites_ids,
                 'activites_reussies' => $activites_reussies,
@@ -184,9 +200,9 @@ class HomeControlleur extends BaseController
 
         $data['numero_salle'] = $numero;
 
-        return view('commun\header').
+        return view('commun/header').
             view($viewPath, $data).
-            view('commun\footer');
+            view('commun/footer');
     }
 
     /**
