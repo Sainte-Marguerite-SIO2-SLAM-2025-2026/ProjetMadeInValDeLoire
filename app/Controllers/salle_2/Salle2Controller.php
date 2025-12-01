@@ -353,8 +353,12 @@ class Salle2Controller extends BaseController
 
     public function Etape5()
     {
-        return view('salle_2\Etape5_S3_View')
-            . view('commun\footer.php');
+        $model = new Salle2Model();
+        $indice = $model->getIndice(15);
+        return view('salle_2/Etape5_S3_View', [
+                'indice' => $indice->libelle ?? ''
+            ]) . view('commun/footer.php');
+
     }
 
     public function Etapef()
