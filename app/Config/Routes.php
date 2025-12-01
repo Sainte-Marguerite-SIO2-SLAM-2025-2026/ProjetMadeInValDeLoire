@@ -95,8 +95,3 @@ $routes->get('/Salle6/VPN', 'salle_6\VpnController::Index');
 $routes->post('/vpn/validerCarte', 'salle_6\VpnController::validerCarte');
 $routes->get('/Salle6/vpn/debug', 'salle_6\VpnController::debug');
 $routes->post('/Salle6/CompleteVpn', 'salle_6\Salle6Controller::CompleteVpn');
-
-
-
-
-
