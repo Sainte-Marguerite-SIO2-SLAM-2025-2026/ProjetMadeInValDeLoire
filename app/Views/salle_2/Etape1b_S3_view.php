@@ -11,25 +11,7 @@
     <link rel="stylesheet" href="<?= base_url('/styles/salle_2/style_etape_S3.css') ?>">
     <link rel="stylesheet" href="<?= base_url('/styles/salle_2/mascotte.css') ?>">
 
-    <style>
-        .code-success-overlay {
-            position: fixed;
-            inset: 0;
-            display: grid;
-            place-items: center;
-            padding: 24px;
-            background: rgba(5,5,8,0.55);
-            z-index: 10000;
-        }
-        /* Neutralise le positionnement bas/gauche hérité de .tip-panel */
-        .code-success-overlay .tip-panel.code-success-panel {
-            position: static;
-            top: auto; right: auto; bottom: auto; left: auto;
-            transform: none;
-            max-width: min(92vw, 560px);
-            text-align: center;
-        }
-    </style>
+
 </head>
 <body>
 
@@ -116,25 +98,6 @@
                     <?= !empty($success) ? 'disabled' : '' ?>></button>
         </div>
     </form>
-
-    <div class="mascotte-container">
-        <img id="mascotte" src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
-    </div>
-
-    <div id="mascotte-bulle">
-        <div id="bulle-texte"></div>
-        <div id="bulle-actions"></div>
-        <div class="bulle-fleche"></div>
-    </div>
-
-    <div id="help-tip" class="tip-panel" style="display:none;">
-        <p class="tip-desc-mascotte">
-            Indice: Saisissez un code à 6 chiffres. Il doit être 100% sécurisé et respecte certaines règles.
-        </p>
-        <div class="hero-buttons">
-            <button type="button" class="btn" id="help-tip-close">Fermer</button>
-        </div>
-    </div>
 
     <?php if (!empty($success)): ?>
         <div class="code-success-overlay" role="dialog" aria-modal="true" aria-labelledby="code-success-titre">

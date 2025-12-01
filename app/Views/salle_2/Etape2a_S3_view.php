@@ -47,7 +47,7 @@
 
     <aside id="intro-tip" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
         <p class="tip-desc">
-            Récupère cette mallette qui était dans le coffre de M. Fox. Attention, elle pourrait être ouverte.
+            Récupère cette mallette qui était dans le coffre. Attention, elle pourrait être ouverte.
         </p>
     </aside>
 

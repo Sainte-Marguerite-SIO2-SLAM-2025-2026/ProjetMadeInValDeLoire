@@ -239,8 +239,8 @@ class Salle2Controller extends BaseController
             }
 
             $len = mb_strlen($pwd);
-            if ($len < 16) {
-                $errors[] = 'Au moins 16 caractères.';
+            if ($len < 12) {
+                $errors[] = 'Au moins 12 caractères.';
             }
 
             if (!preg_match('/[A-Z]/u', $pwd)) {
@@ -258,7 +258,7 @@ class Salle2Controller extends BaseController
 
             if (!empty($errors)) {
                 // Message unique et concis au milieu
-                $data['error'] = 'Mot de passe non conforme (16+ caractères, 1 maj, 1 min, 1 chiffre, 1 spécial).';
+                $data['error'] = 'Mot de passe non conforme (12+ caractères, 1 maj, 1 min, 1 chiffre, 1 spécial).';
             } else {
                 // Aucun mot de passe fixé: tout mot de passe complexe est accepté
                 $data['success'] = true;

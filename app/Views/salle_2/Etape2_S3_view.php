@@ -139,6 +139,23 @@
             Étape 2 : Essaie d'ouvrir ce coffre avec un code à 6 chiffres. Attention, sois attentif aux éléments dans la pièce !
         </p>
     </aside>
+    <script>
+        (function() {
+            // 1. Détection du rechargement (F5)
+            const isReload = performance.getEntriesByType("navigation")[0]?.type === 'reload';
+
+            // 2. Détection de la validation (Si une erreur est affichée, c'est qu'on a validé)
+            const errorDiv = document.getElementById('code-error');
+            // Si la div d'erreur contient du texte et est visible, c'est une validation échouée
+            const isValidation = errorDiv && errorDiv.innerText.trim().length > 0 && errorDiv.style.display !== 'none';
+
+            // Si c'est un F5 OU une tentative de validation, on cache le message
+            if (isReload || isValidation) {
+                const msg = document.getElementById('message-intro');
+                if(msg) msg.style.display = 'none';
+            }
+        })();
+    </script>
     <div class="mascotte-container">
         <img id="mascotte" src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
     </div>
@@ -168,8 +185,6 @@
         </script>
     <?php endif; ?>
 
-
-
 </div> <div class="scroll-flow">
     <div class="scroll-spacer"></div>
     <footer>
@@ -177,22 +192,80 @@
     </footer>
 </div>
 
+
 <script>
-    (function() {
-        // 1. Détection du rechargement (F5)
-        const isReload = performance.getEntriesByType("navigation")[0]?.type === 'reload';
+    document.getElementById('code-form')?.addEventListener('reset', function () {
+        const input = document.getElementById('code');
+        const err = document.getElementById('code-error');
+        setTimeout(() => {
+            if (input) input.value = '';
+            if (err) { err.textContent = ''; err.style.display = 'none'; }
+            input?.focus();
+        }, 0);
+    });
+</script>
 
-        // 2. Détection de la validation (Si une erreur est affichée, c'est qu'on a validé)
-        const errorDiv = document.getElementById('code-error');
-        // Si la div d'erreur contient du texte et est visible, c'est une validation échouée
-        const isValidation = errorDiv && errorDiv.innerText.trim().length > 0 && errorDiv.style.display !== 'none';
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const mascotte = document.getElementById("mascotte");
+        const bulle = document.getElementById("mascotte-bulle");
+        const txt = document.getElementById("bulle-texte");
 
-        // Si c'est un F5 OU une tentative de validation, on cache le message
-        if (isReload || isValidation) {
-            const msg = document.getElementById('message-intro');
-            if(msg) msg.style.display = 'none';
-        }
-    })();
+        const indices = [
+        "Indice : regarde, le premier et le dernier chiffre de chaque post-it sont dans le code !"
+        ];
+
+        let index = 0;
+        let timer = null;
+
+        function positionnerBulle() {
+        const r = mascotte.getBoundingClientRect();
+        bulle.style.left = Math.max(10, r.left + r.width / 2 - bulle.offsetWidth / 2) + "px";
+        bulle.style.top = Math.max(10, r.top - bulle.offsetHeight - 20) + "px";
+    }
+
+        function afficherIndice() {
+        clearTimeout(timer);
+        txt.textContent = indices[index];
+        index = (index + 1) % indices.length;
+
+        bulle.style.display = "block";
+        positionnerBulle();
+
+        // Masque automatiquement la bulle après 6 secondes
+        timer = setTimeout(() => {
+        bulle.style.display = "none";
+        mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>";
+    }, 6000);
+
+        // Change l'image de la mascotte pendant l'affichage
+        mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_exclamee.svg') ?>";
+    }
+
+        // Survol mascotte
+        mascotte.addEventListener("mouseenter", () => {
+        mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_exclamee.svg') ?>";
+    });
+        mascotte.addEventListener("mouseleave", () => {
+        if (bulle.style.display !== "block") {
+        mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>";
+    }
+    });
+
+        // Clic mascotte
+        mascotte.addEventListener("click", () => {
+        if (bulle.style.display === "block") {
+        bulle.style.display = "none";
+        mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>";
+    } else {
+        afficherIndice();
+    }
+    });
+
+        // Repositionnement dynamique
+        window.addEventListener("resize", () => { if (bulle.style.display === "block") positionnerBulle(); });
+        window.addEventListener("scroll", () => { if (bulle.style.display === "block") positionnerBulle(); });
+    });
 </script>
 
 </body>

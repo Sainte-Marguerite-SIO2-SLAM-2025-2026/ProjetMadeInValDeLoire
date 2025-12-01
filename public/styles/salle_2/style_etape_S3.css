@@ -401,6 +401,23 @@ button:active, .btn:active, a.button:active, .btn-primary:active {
 /* Masquer complètement l'intro si déjà vue (pour CET onglet) */
 .hide-intro #intro-tip { display: none !important; }
 
+.code-success-overlay {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(5,5,8,0.55);
+    z-index: 10000;
+}
+/* Neutralise le positionnement bas/gauche hérité de .tip-panel */
+.code-success-overlay .tip-panel.code-success-panel {
+    position: static;
+    top: auto; right: auto; bottom: auto; left: auto;
+    transform: none;
+    max-width: min(92vw, 560px);
+    text-align: center;
+}
 /* ------------------------------
    Etape 2
    ------------------------------ */

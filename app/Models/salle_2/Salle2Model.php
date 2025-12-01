@@ -25,6 +25,8 @@ class Salle2Model extends Model
     }
 
 
+
+
     public function getMotDePasse1(int $limit = 1)
     {
         $cibles = ['789546', '321456', '912364'];
