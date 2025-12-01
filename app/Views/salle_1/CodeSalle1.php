@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salle 1 - Code</title>
-    <?= link_tag(base_url().'styles/salle1Global.css') ?>
-    <?= link_tag(base_url('styles/salle1Code.css')) ?>
+    <?= link_tag(base_url().'styles/salle_1/salle1Global.css') ?>
+    <?= link_tag(base_url('styles/salle_1/salle1Code.css')) ?>
 </head>
 <body>
 <div class="background-container">
@@ -46,17 +46,6 @@
     <?php endif?>
 
     <div class="buttons">
-        <?= anchor(
-                base_url('Salle1/accesMessage'),
-                '<div class="retour-wrapper">'
-                .img([
-                        'src' => base_url('images/salle_1/images/boutons/retour-et-indice_blanc.webp'),
-                        'alt' => 'Retour',
-                        'class' => 'button-image'
-                ])
-                .'<span class="retour-texte">Page précédente</span>'
-                .'</div>'
-        ); ?>
 
         <?= anchor(
                 base_url('/'), img([
@@ -85,7 +74,7 @@
 <div id="popup-echec" class="popup popup-echec" style="display: none;">
     <div class="popup-content popup-echec-content">
         <?= img([
-                'src' => base_url('images/commun/mascotte/mascotte_saoulee.svg'),
+                'src' => base_url('images/commun/mascotte/mascotte_face.svg'),
                 'alt' => 'Mascotte',
                 'class' => 'mascotte-popup'
         ]) ?>
@@ -119,9 +108,8 @@
 <script>
     const BASE_URL = '<?= base_url(); ?>';
     const MODE = '<?= session()->get('mode') ?? 'nuit'; ?>';
-    console.log('Mode détecté:', MODE);
 </script>
-<?= script_tag(base_url('js/salle1Code.js')) ?>
-<?= script_tag(base_url('js/salle1Timer.js')) ?>
+<?= script_tag(base_url('js/salle_1/salle1Code.js')) ?>
+<?= script_tag(base_url('js/salle_1/salle1Timer.js')) ?>
 </body>
 </html>

@@ -1,6 +1,6 @@
 /* === Arrière-plan === */
 .background-container {
-    background-image: url("../images/salle_1/images/fonds/fond_page1.webp");
+    background-image: url("../../images/salle_1/images/fonds/fond_page1.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -89,7 +89,7 @@
 
 /* Survol du fantôme : passe en version “jaune” */
 .perso-accueil:hover {
-    content: url("../images/salle_1/images/personnages/fantome_1_jaune.webp");
+    content: url("../../images/salle_1/images/personnages/fantome_1_jaune.webp");
     transform: scale(1.1);
     filter: drop-shadow(0 0 25px yellow);
 }
