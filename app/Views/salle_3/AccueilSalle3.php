@@ -50,5 +50,3 @@
         <button id="commencer" class="commencer">Commencer !</button>
     </div>
 </div>
-</body>
-</html>
