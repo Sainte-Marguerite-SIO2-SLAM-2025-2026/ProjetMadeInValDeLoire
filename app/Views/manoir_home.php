@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plan du Manoir</title>
-    <?= link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css') ?>
+    <?= link_tag('css/bootstrap.min.css') ?>
     <?= link_tag('styles/style_nuit.css'); ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('js/bootstrap.bundle.min.js') ?>"></script>
+
 
 </head>
 <body>
@@ -39,7 +40,7 @@ $etage2_actif = in_array($current_room, $salles_etage2) ||
     <div class="welcome-modal" onclick="event.stopPropagation()">
         <!-- Image Lumi à gauche -->
         <div class="welcome-image">
-            <img src="<?= base_url('images/commun/mascotte/mascotte_interrogee.svg'); ?>" alt="Lumi">
+            <img src="<?= base_url('images/lumi/mascotte-09.svg'); ?>" alt="Lumi">
         </div>
 
         <!-- Contenu à droite -->
@@ -49,12 +50,18 @@ $etage2_actif = in_array($current_room, $salles_etage2) ||
             <p class="welcome-text">
                 Bienvenue Agent, vous venez d'intégrer<br>
                 la <strong>B</strong>rigade <strong>L</strong>oufoque de l’<strong>U</strong>nivers
-                des <strong>T</strong>echnophiles
-                </strong>.<br><strong> Votre mission  </strong>: traverser les <strong>6</strong> salles mystérieuses de ce manoir pour
+                des <strong>T</strong>echnophiles.<br>
+                <strong>Votre mission</strong> : traverser les <strong>6</strong> salles mystérieuses de ce manoir pour
                 prouver vos compétences en cybersécurité.
             </p>
+
             <p class="welcome-hint">
                 💡 <strong>Astuce :</strong> Cliquez sur la salle éclairée pour commencer votre aventure !
+            </p>
+
+            <p class="welcome-hint">
+                🔎 <strong>Besoin d’aide ?</strong> Cliquez sur <strong>Lumi</strong> :<br>
+                il vous expliquera les règles et vous guidera à travers le manoir.
             </p>
 
             <!-- Bouton -->
@@ -428,6 +435,7 @@ $etage2_actif = in_array($current_room, $salles_etage2) ||
     </div>
 
 </div>
+
 <!-- Modal Lumi -->
 <div class="modal fade" id="modalLumi" tabindex="-1" aria-labelledby="modalLumiLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -438,13 +446,32 @@ $etage2_actif = in_array($current_room, $salles_etage2) ||
                         aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <img src="<?= base_url('images/commun/mascotte/mascotte_interrogee.svg') ?>" alt="Lumi" class="img-fluid rounded mb-3">
-                <div class="modal-texte">
-                    <p>Bienvenue agent ! Vous venez d'intégrer la B.L.U.T., la Brigade un peu spéciale chargée de sécuriser
-                        l'univers numérique. Votre mission : traverser les 6 salles du CyberManor pour prouver que vous êtes
-                        prêt à rejoindre nos rangs...</p>
-                    <p>La zone <strong>Lumi</strong> c'est .....</p>
-                </div>
+                <img src="<?= base_url('images/commun/mascotte/mascotte_interrogee.webp') ?>"
+                     alt="Lumi" class="img-fluid rounded mb-3">
+                <p>Bienvenue à <strong>Enig’Manoir</strong></p>
+
+                <p>
+                    Ici, chaque salle est un défi… et chaque défi est lié à un piège de cybersécurité.<br>
+                    Esprit du lieu : jouer, réfléchir… et survivre aux dangers du web.
+                </p>
+                <p>
+                    🌙 <strong>Mode Nuit — Parcours Escape Game</strong><br>
+                    Un vrai parcours, version cyber :<br>
+                    • Les salles s’enchaînent dans un ordre aléatoire<br>
+                    • Chaque pièce a son ambiance, son esprit et son propre piège numérique<br>
+                    • Pour valider le parcours : réussissez toutes les salles<br>
+                    • Échec dans une salle ? Tant pis… on recommence tout ! 😉
+                </p>
+                <p>
+                    ☀️ <strong>Mode Jour — Exploration Libre</strong><br>
+                    • Choisissez vos salles, dans l’ordre que vous voulez<br>
+                    • Rejouez vos favorites ou entraînez-vous<br>
+                </p>
+                <p>
+                    👁️  Et surtout… gardez l’œil ouvert :<br>
+                    <strong>un espace mystère</strong> se cache quelque part dans le manoir… mais seulement côté jour.
+                </p>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -476,6 +503,3 @@ $etage2_actif = in_array($current_room, $salles_etage2) ||
         }
     </script>
 <?php endif; ?>
-
-</body>
-</html>

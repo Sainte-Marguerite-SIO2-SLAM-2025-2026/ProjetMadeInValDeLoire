@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plan du Manoir</title>
-    <?= link_tag('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css') ?>
+    <?= link_tag('css/bootstrap.min.css') ?>
     <?= link_tag('styles/style_jour.css'); ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('js/bootstrap.bundle.min.js') ?>"></script>
+
 
 </head>
 <body>
@@ -148,15 +149,15 @@
             <!-- Zone Quiz -->
             <g id="quizz" class="zone-quizz" data-piece="Quizz">
                 <path class="quizz-zone" fill="#351900"
-                <path  <path d="m 1856,1003 h -110 c 0,0 0,-18 3,-26 2,-8 6,-17 11,-23 5,-6 12,-10 17,-15
+                      d="m 1856,1003 h -110 c 0,0 0,-18 3,-26 2,-8 6,-17 11,-23 5,-6 12,-10 17,-15
                     5,-4 13,-8 18,-13 4,-4 7,-4 11,-9 3,-4 5,-14 7,-18 2,-4 3,-7 3,-7 h 2 c 0,0 1,5 2,9
                     1,3 1,8 2,12 1,4 2,8 4,13 2,4 4,8 6,13 2,4 5,6 8,10 3,4 6,8 8,12 2,4 2,6 4,12 1,5 4,12
                     4,18 0,5 -2,15 -2,15 z"
                 />
             </g>
-            </g>
 
         </svg>
+
         <!-- tooltip HTML -> positionné par CSS -->
         <div id="html-tooltip" style="position:fixed;
         display:none; padding:6px 10px;
@@ -167,7 +168,6 @@
         </div>
     </div>
 </div>
-
 <!-- Modal Lumi -->
 <div class="modal fade" id="modalLumi" tabindex="-1" aria-labelledby="modalLumiLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -178,13 +178,31 @@
                         aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <img src="<?= base_url('images/commun/mascotte/mascotte_interrogee.svg') ?>" alt="Lumi" class="img-fluid rounded mb-3">
-                <div class="modal-texte">
-                <p>Bienvenue agent ! Vous venez d'intégrer la B.L.U.T., la Brigade un peu spéciale chargée de sécuriser
-                    l'univers numérique. Votre mission : traverser les 6 salles du CyberManor pour prouver que vous êtes
-                    prêt à rejoindre nos rangs...</p>
-                <p>La zone <strong>Lumi</strong> c'est .....</p>
-                </div>
+                <img src="<?= base_url('images/commun/mascotte/mascotte_interrogee.webp') ?>"
+                     alt="Lumi" class="img-fluid rounded mb-3">
+                <p>Bienvenue à <strong>Enig’Manoir</strong></p>
+
+                <p>
+                    Ici, chaque salle est un défi… et chaque défi est lié à un piège de cybersécurité.<br>
+                    Esprit du lieu : jouer, réfléchir… et survivre aux dangers du web.
+                </p>
+                <p>
+                    ☀️ <strong>Mode Jour — Exploration Libre</strong><br>
+                    • Choisissez vos salles, dans l’ordre que vous voulez<br>
+                    • Rejouez vos favorites ou entraînez-vous<br>
+                </p>
+                <p>
+                    👁️  Et surtout… gardez l’œil ouvert :<br>
+                    <strong>un espace mystère</strong> se cache quelque part dans le manoir… mais seulement ici.
+                </p>
+                <p>
+                    🌙 <strong>Mode Nuit — Parcours Escape Game</strong><br>
+                    Un vrai parcours, version cyber :<br>
+                    • Les salles s’enchaînent dans un ordre aléatoire<br>
+                    • Chaque pièce a son ambiance, son esprit et son propre piège numérique<br>
+                    • Pour valider le parcours : réussissez toutes les salles<br>
+                    • Échec dans une salle ? Tant pis… on recommence tout ! 😉
+                </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
@@ -205,5 +223,3 @@
 <!-- Chargement du script JS -->
 <script src="<?= base_url('js/manoir_jour.js') ?>"></script>
 
-</body>
-</html>
