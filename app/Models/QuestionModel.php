@@ -63,7 +63,36 @@ class QuestionModel extends Model
 
         return $builder->get()->getResultArray();
     }
+    /**
+     * Récupère des questions aléatoires selon des critères
+     */
+    public function getQuestionsAleatoiresNuit()
+    {
+        $niveauDifficulte = ["M", "D", "E"];
+        $categorieExclure = "Réseaux sociaux & Cyber Harcèlement";
+        $nombre = 8;
 
+        $builder = $this->builder();
+
+        // Exclure toutes les questions qui sont dans une des catégories interdites
+        // comme une question peut-etre dans plusieurs catégoreis,
+        // on enlève toutes les questions qui font partie au moins une fois de cette catégorie
+        $builder->whereNotIn('question.numero', function($sub) use ($categorieExclure) {
+            $sub->select('qc.question_numero')
+                ->from('question_categorie qc')
+                ->join('categorie c', 'c.id = qc.categorie_id')
+                ->where('c.theme', $categorieExclure);
+        });
+
+        // Filtrer par difficulté
+        $builder->whereIn('niveau_difficulte', $niveauDifficulte);
+
+        // Aleatoire + limite
+        $builder->orderBy('RAND()');
+        $builder->limit($nombre);
+
+        return $builder->get()->getResultArray();
+    }
     /**
      * Vérifie si une réponse est correcte
      */
