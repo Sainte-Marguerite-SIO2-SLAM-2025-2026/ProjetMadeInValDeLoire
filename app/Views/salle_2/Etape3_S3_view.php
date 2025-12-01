@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><?= esc($title ?? 'Mallette | Salle Mot de Passe') ?></title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preload" as="image" href="<?= base_url('/images/salle_2/Etape3_Salle3.webp') ?>" type="image/jpeg">
     <link rel="stylesheet" href="<?= base_url('/styles/salle_2/style_etape_S3.css') ?>?v=4">
 </head>
@@ -164,94 +163,7 @@
     });
 </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const mascotte = document.getElementById("mascotte");
-        const bulle = document.getElementById("mascotte-bulle");
-        const txt = document.getElementById("bulle-texte");
-        const actions = document.getElementById("bulle-actions");
+<script src="<?= base_url('/js/salle_2/mascotte.js') ?>" defer></script>
 
-        const indices = [
-            "Indice : Il faut un mot de passe qui respect les consignes de la CNIL !"
-        ];
-
-        let index = 0;
-        let timer = null;
-
-        /* Positionne la bulle dynamiquement */
-        function positionnerBulle() {
-            const r = mascotte.getBoundingClientRect();
-            bulle.style.left = Math.max(10, r.left + r.width/2 - bulle.offsetWidth/2) + "px";
-            bulle.style.top = Math.max(10, r.top - bulle.offsetHeight - 20) + "px";
-        }
-
-        function bouton(label, action) {
-            const b = document.createElement("button");
-            b.textContent = label;
-            b.onclick = action;
-            return b;
-        }
-
-        function afficherQuestion() {
-            clearTimeout(timer);
-            mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_exclamee.svg') ?>";
-
-            txt.textContent = "Souhaites-tu un indice ?";
-            actions.innerHTML = "";
-            actions.appendChild(bouton("Oui", afficherIndice));
-            actions.appendChild(bouton("Non", () => {
-                bulle.style.display = "none";
-                mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>";
-            }));
-
-            bulle.style.display = "block";
-            setTimeout(positionnerBulle, 10);
-        }
-
-        function afficherIndice() {
-            clearTimeout(timer);
-            txt.textContent = indices[index];
-            index = (index + 1) % indices.length;
-
-            actions.innerHTML = "";
-            actions.appendChild(bouton("OK", () => {
-                bulle.style.display = "none";
-                mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>";
-            }));
-
-            bulle.style.display = "block";
-            setTimeout(positionnerBulle, 10);
-
-            timer = setTimeout(() => {
-                bulle.style.display = "none";
-                mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>";
-            }, 6000);
-        }
-
-        // Survol mascotte
-        mascotte.addEventListener("mouseenter", () => {
-            mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_exclamee.svg') ?>";
-        });
-        mascotte.addEventListener("mouseleave", () => {
-            if(bulle.style.display !== "block"){
-                mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>";
-            }
-        });
-
-        // Clic mascotte
-        mascotte.addEventListener("click", () => {
-            if (bulle.style.display === "block") {
-                bulle.style.display = "none";
-                mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>";
-            } else {
-                afficherQuestion();
-            }
-        });
-
-        // Repositionnement dynamique
-        window.addEventListener("resize", () => { if(bulle.style.display==="block") positionnerBulle(); });
-        window.addEventListener("scroll", () => { if(bulle.style.display==="block") positionnerBulle(); });
-    });
-</script>
 </body>
 </html>

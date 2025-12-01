@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salle 1 - Accueil</title>
-    <?= link_tag(base_url().'styles/salle1Global.css') ?>
-    <?= link_tag(base_url().'styles/salle1Accueil.css') ?>
-    <?= script_tag(base_url().'js/salle1Accueil.js') ?>
+    <?= link_tag(base_url().'styles/salle_1/salle1Global.css') ?>
+    <?= link_tag(base_url().'styles/salle_1/salle1Accueil.css') ?>
+    <?= script_tag(base_url().'js/salle_1/salle1Accueil.js') ?>
 </head>
 <body>
 <div class="background-container">
@@ -58,6 +58,16 @@
             ) ?>
         </div>
     <?php endif?>
+
+    <div class="buttons">
+
+        <?= img([
+                'src' => base_url('images/commun/mascotte/mascotte_face.svg'),
+                'alt' => 'Mascotte',
+                'class' => 'mascotte-image'
+        ])?>
+
+    </div>
 </div>
 </body>
 </html>

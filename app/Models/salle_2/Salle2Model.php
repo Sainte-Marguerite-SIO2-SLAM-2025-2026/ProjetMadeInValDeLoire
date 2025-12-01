@@ -10,12 +10,48 @@ class Salle2Model extends Model
     protected $allowedFields = ['numero', 'libelle'];
     protected $returnType = 'array';
 
+
+    public function getIntroduction()
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('explication');
+
+        $query = $builder->select('libelle')
+            ->distinct()
+            ->whereIn('numero', [1])
+            ->get(); // exécute la requête
+
+        return $query->getResult(); // récupère les résultats
+    }
+    public function getIndice($numero)
+    {
+        return $this->db->table('indice')
+            ->select('libelle')
+            ->where('numero', $numero)
+            ->get()
+            ->getRow();
+
+    }
+
+
+
+    public function getMotDePasse1(int $limit = 1)
+    {
+        $cibles = ['789546', '321456', '912364'];
+
+        return $this->select('libelle')
+            ->distinct()
+            ->whereIn('libelle', $cibles)
+            ->orderBy('RAND()')
+            ->limit($limit)
+            ->findAll();
+    }
+
     /**
      * Retourne $limit libellés distincts aléatoires
      */
     public function getDistinctLibelles(int $limit = 3)
     {
-        // Liste des valeurs ciblées
         $cibles = ['4897', '1123', '9875', '8745'];
 
         return $this->select('libelle')
@@ -79,6 +115,9 @@ class Salle2Model extends Model
         $row = $builder->get()->getRowArray();
         return $row['motPasse'] ?? null;
     }
+
+
+
 
     public function checkPhoneCode(string $code): bool
     {

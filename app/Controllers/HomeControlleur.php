@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Controllers\salle_6\Salle6Controller;
 use App\Models\salle_1\Salle1ExplicationModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
@@ -54,7 +55,7 @@ class HomeControlleur extends BaseController
         $this->resetSalle5();
 
         return view('commun/header.php').
-            view('manoir_home', $data).
+            view('accueil/manoir_home', $data).
             view('commun/footer.php');
     }
 
@@ -69,7 +70,7 @@ class HomeControlleur extends BaseController
         $this->resetSalle4();
         $this->resetSalle5();
         return view('commun/header.php').
-            view('manoir_jour_home').
+            view('accueil/manoir_jour_home').
             view('commun/footer.php');
     }
 
@@ -130,6 +131,7 @@ class HomeControlleur extends BaseController
 //            $mascotteModel = new MascotteModel();
             $explicationModel = new ExplicationModel();
             $activiteModel = new ActiviteModel();
+            $IndiceModel = new IndiceModel();
 
             // 🔥 Vérifier si on arrive avec un échec
             $echec = $this->request->getGet('echec');
@@ -189,6 +191,7 @@ class HomeControlleur extends BaseController
                 'afficher_popup' => $afficher_popup,
                 'afficher_popup_succes' => $afficher_popup_succes,
                 'afficher_popup_echec' => $afficher_popup_echec,
+                'indice' => $IndiceModel->getIndice(500),
             ];
         }
 

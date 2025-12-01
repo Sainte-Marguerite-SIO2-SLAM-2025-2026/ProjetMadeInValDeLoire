@@ -55,14 +55,14 @@
                     pattern="[0-9]{6}"
                     minlength="6"
                     maxlength="6"
-                    placeholder="Ecrire un mot de passe"
+                    placeholder="Ecrire un Code"
                     value="<?= esc($mot_de_passe ?? old('mot_de_passe') ?? '') ?>"
                     required
                     aria-describedby="aide-motdepasse"
                     aria-label="Mot de passe"
                     oninput="this.value = this.value.replace(/\D+/g, '').slice(0, 6);"
                     onpaste="setTimeout(() => { this.value = this.value.replace(/\D+/g, '').slice(0, 6); }, 0);"
-                    style="all: unset; display: block; width: 100%; height: 100%; box-sizing: border-box; padding: 0.5em; text-align: center; font: inherit; font-size: 3.5em; font-weight: 600; color: inherit; background: transparent; cursor: text;"
+                    style="all: unset; display: block; width: 100%; height: 100%; box-sizing: border-box; padding: 0.5em; text-align: center; font: inherit; font-size: 2.5em; font-weight: 600; color: inherit; background: transparent; cursor: text;"
             >
 
             <?php if (!empty($error)): ?>
@@ -83,10 +83,16 @@
         </div>
     </form>
 
-    <aside class="tip-panel" role="note" aria-live="polite">
-        <p class="tip-desc">
-            Information : Entrez le code du digicode pour ouvrir la porte du manoir !</p>
-    </aside>
+    </script>
+    <div class="mascotte-container">
+        <img id="mascotte" src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
+    </div>
+
+    <div id="mascotte-bulle">
+        <div id="bulle-texte"></div>
+        <div id="bulle-actions"></div>
+        <div class="bulle-fleche"></div>
+    </div>
 
     <div class="retour-buttons">
         <a class="btn btn--ghost btn--xl btn-retour-code" href="<?= base_url('/Etape1') ?>">Retour</a>
@@ -102,7 +108,7 @@
                    class="tip-btn btn--xl"
                    id="go-next"
                    aria-label="Passer à la salle suivante">
-                    Passer à la salle suivante
+                    Passer à l'étape suivante
                 </a>
             </aside>
         </div>
@@ -116,6 +122,8 @@
     <div class="scroll-spacer"></div>
 
 </div>
+
+<script src="<?= base_url('/js/salle_2/mascotte.js') ?>" defer></script>
 
 </body>
 </html>

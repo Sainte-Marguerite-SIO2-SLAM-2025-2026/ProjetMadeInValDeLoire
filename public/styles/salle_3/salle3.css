@@ -20,11 +20,11 @@ body {
 
 .bureau-wrapper {
     position: absolute;
-    top: 664px;
+    top: 665px;
     left: 956px;
     transform: translate(-50%, -50%);
     width: auto;
-    max-width: 500px;
+    max-width: 550px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -121,9 +121,9 @@ body {
 .modal-content {
     width: 400px;
     max-width: 90%;
-    background-color: #ffffff;
+    background-color: grey;
     border-radius: 16px;
-    padding: 30px 25px 50px 25px; /* espace pour le contenu + boutons */
+    padding: 30px 25px 50px 25px;
     position: relative;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     display: flex;
@@ -137,14 +137,14 @@ body {
 .modal-content h2 {
     font-size: 1.8rem;
     margin-bottom: 15px;
-    color: #2c3e50;
+    color: white;
 }
 
 .modal-content p {
     font-size: 1.1rem;
     line-height: 1.5;
     margin-bottom: 25px;
-    color: #34495e;
+    color: white;
 }
 
 .close {
@@ -170,6 +170,9 @@ body {
     to { transform: scale(1); opacity: 1; }
 }
 
+.mascotte-hidden {
+    display: none !important;
+}
 .mascotte-container {
     position: fixed;
     left: 20px;

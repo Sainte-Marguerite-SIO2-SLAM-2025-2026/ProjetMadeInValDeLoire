@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salle 1 - Discussion</title>
-    <?= link_tag(base_url().'styles/salle1Global.css') ?>
-    <?= link_tag(base_url('styles/salle1Discussion.css')) ?>
+    <?= link_tag(base_url().'styles/salle_1/salle1Global.css') ?>
+    <?= link_tag(base_url('styles/salle_1/salle1Discussion.css')) ?>
 </head>
 <body>
 <script>
@@ -20,14 +20,10 @@
     <!-- Timer -->
     <div id="timer" class="timer"></div>
 
-    <!-- Nom du personnage -->
-    <div id="nom-personnage">
-        <?= esc($nom_personnage) ?>
-    </div>
 
-        <?= img([
+    <?= img([
                 'src' => base_url($image_perso ?? 'images/salle_1/images/personnages/monstre1.webp'),
-                'alt' => esc($nom_personnage),
+                'alt' => "monstre",
                 'class' => 'perso-discussion',
                 'id'   => 'fantome'
         ]); ?>
@@ -75,20 +71,9 @@
     <?php endif?>
 
     <div class="buttons">
-        <?= anchor(
-                base_url('salle/salle_1'),
-                '<div class="retour-wrapper">'
-                .img([
-                        'src' => base_url('images/salle_1/images/boutons/retour-et-indice_blanc.webp'),
-                        'alt' => 'Retour',
-                        'class' => 'button-image'
-                ])
-                .'<span class="retour-texte">Page précédente</span>'
-                .'</div>'
-        ); ?>
 
         <?= img([
-                    'src' => base_url('images/commun/mascotte/mascotte_interrogee.svg'),
+                    'src' => base_url('images/commun/mascotte/mascotte_face.svg'),
                     'alt' => 'Mascotte',
                     'class' => 'mascotte-image'
         ])?>
@@ -121,7 +106,7 @@
             <div class="popup-actions">
                 <?= form_open(base_url('/echouerJour/1')) ?>
                 <?= form_button([
-                        'content' => "Retour à l'accueil",
+                        'content' => "Retour au manoir",
                         'type'    => 'submit',
                         'class' => 'btn-echec'
                 ]) ?>
@@ -131,15 +116,15 @@
             <p>Vous devez recommencer le parcours.</p>
             <?= form_open(base_url('/reset')) ?>
             <?= form_button([
-                    'content' => "Retour à l'accueil",
+                    'content' => "Retour au manoir",
                     'type'    => 'submit',
                     'class' => 'btn-echec'
             ]) ?>
         <?php endif ?>
     </div>
 </div>
-<?= script_tag(base_url('js/salle1Discussion.js')) ?>
-<?= script_tag(base_url('js/salle1Mascotte.js')) ?>
-<?= script_tag(base_url('js/salle1Timer.js')) ?>
+<?= script_tag(base_url('js/salle_1/salle1Discussion.js')) ?>
+<?= script_tag(base_url('js/salle_1/salle1Mascotte.js')) ?>
+<?= script_tag(base_url('js/salle_1/salle1Timer.js')) ?>
 </body>
 </html>

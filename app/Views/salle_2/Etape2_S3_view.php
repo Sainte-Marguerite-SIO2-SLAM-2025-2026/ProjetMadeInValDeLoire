@@ -61,7 +61,7 @@
                     pattern="[0-9]{6}"
                     minlength="6"
                     maxlength="6"
-                    placeholder="Tape le Mot de passe"
+                    placeholder="Tape le Code"
                     value="<?= !empty($error) ? '' : esc($code ?? '') ?>"
                     required
                     aria-describedby="code-error"
@@ -79,14 +79,14 @@
                         aria-live="assertive"
                         style="
                         position: absolute;
-                        top: calc(95% + 0px);
+                        top: calc(95% + 2px);
                         left: 0;
                         width: 100%;
                         padding: 0.25em 0;
                         margin: 0;
                         text-align: center;
                         font: inherit;
-                        font-size: 1.2em;
+                        font-size: 1em;
                         font-weight: 700;
                         color: #ff3b30;
                         background: transparent;
@@ -205,95 +205,7 @@
     });
 </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const mascotte = document.getElementById("mascotte");
-        const bulle = document.getElementById("mascotte-bulle");
-        const txt = document.getElementById("bulle-texte");
-        const actions = document.getElementById("bulle-actions");
-
-        const indices = [
-            "Indice : regarde, le premier et le #.'$^ù/ chiffre de chaque post-it sont dans le code !"        ];
-
-        let index = 0;
-        let timer = null;
-
-        /* Positionne la bulle dynamiquement */
-        function positionnerBulle() {
-            const r = mascotte.getBoundingClientRect();
-            bulle.style.left = Math.max(10, r.left + r.width/2 - bulle.offsetWidth/2) + "px";
-            bulle.style.top = Math.max(10, r.top - bulle.offsetHeight - 20) + "px";
-        }
-
-        function bouton(label, action) {
-            const b = document.createElement("button");
-            b.textContent = label;
-            b.onclick = action;
-            return b;
-        }
-
-        function afficherQuestion() {
-            clearTimeout(timer);
-            mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_exclamee.svg') ?>";
-
-            txt.textContent = "Souhaites-tu un indice ?";
-            actions.innerHTML = "";
-            actions.appendChild(bouton("Oui", afficherIndice));
-            actions.appendChild(bouton("Non", () => {
-                bulle.style.display = "none";
-                mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>";
-            }));
-
-            bulle.style.display = "block";
-            setTimeout(positionnerBulle, 10);
-        }
-
-        function afficherIndice() {
-            clearTimeout(timer);
-            txt.textContent = indices[index];
-            index = (index + 1) % indices.length;
-
-            actions.innerHTML = "";
-            actions.appendChild(bouton("OK", () => {
-                bulle.style.display = "none";
-                mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>";
-            }));
-
-            bulle.style.display = "block";
-            setTimeout(positionnerBulle, 10);
-
-            timer = setTimeout(() => {
-                bulle.style.display = "none";
-                mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>";
-            }, 6000);
-        }
-
-        // Survol mascotte
-        mascotte.addEventListener("mouseenter", () => {
-            mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_exclamee.svg') ?>";
-        });
-        mascotte.addEventListener("mouseleave", () => {
-            if(bulle.style.display !== "block"){
-                mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>";
-            }
-        });
-
-        // Clic mascotte
-        mascotte.addEventListener("click", () => {
-            if (bulle.style.display === "block") {
-                bulle.style.display = "none";
-                mascotte.src = "<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>";
-            } else {
-                afficherQuestion();
-            }
-        });
-
-        // Repositionnement dynamique
-        window.addEventListener("resize", () => { if(bulle.style.display==="block") positionnerBulle(); });
-        window.addEventListener("scroll", () => { if(bulle.style.display==="block") positionnerBulle(); });
-    });
-
-</script>
+<script src="<?= base_url('/js/salle_2/mascotte.js') ?>" defer></script>
 
 </body>
 </html>

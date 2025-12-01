@@ -20,18 +20,10 @@ class Salle1Controller extends BaseController
         // Récupère les erreurs avec explications
         $erreursExplications = $messageModel->getErreursAvecExplications($messageData->numero);
 
-        // Récupère les indices
-        $indices = $messageModel->getIndices($messageData->numero);
-
-        // Prépare le nom du personnage
-        $nomPersonnage = $messageData->prenom . ' ' . $messageData->nom;
-
         $data = [
             'activite_numero' => $messageData->numero,
-            'nom_personnage' => $nomPersonnage,
             'mots_suspects' => $motsSuspects,
             'message' => $messageData->libelle,
-            'indices' => $indices,
             'erreurs_explications' => $erreursExplications,
             ];
 

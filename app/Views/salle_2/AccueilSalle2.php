@@ -47,23 +47,17 @@
 <div class="bg-overlay"></div>
 
 <header class="site-header">
-    <h1 class="site-title"> Bureau Du Grand Détéctive </h1>
+    <h1 class="site-title"> Salle des Mots de Passe </h1>
 </header>
 
 <main class="hero hero--lower">
     <aside class="hero-panel">
-        <p class="hero-desc">
-            Bienvenue dans la salle n°3…
-            Ici, les mots ont un pouvoir, mais seuls les plus sûrs te permettront d’avancer.
+        <br class="hero-desc">
+                Bienvenue dans la salle des mots de passe…<br></br>
 
-            Sauras-tu trouver les 5 mots de passe cachés dans les quêtes ?
-            Chaque choix compte… et chaque erreur pourrait te faire perdre du temps précieux !
-
-            Le manoir t'observe. À toi de prouver que tu connais les secrets des mots bien gardés.
-        </p>
+            Sauras-tu trouver les mots de passe dans les différentes étapes ?
         <div class="hero-buttons">
             <a class="btn btn--accent btn--xl" href="<?= base_url('Salle2-introduction') ?>">Commencer</a>
-            <a class="btn btn--ghost btn--xl" href="<?= base_url() ?>">Accueil</a>
         </div>
     </aside>
 </main>
