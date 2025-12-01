@@ -247,17 +247,12 @@ validateBtn.addEventListener('click', async function() {
 
         const resultat = await response.json();
 
-        console.log('Ordre utilisateur:', ordreSelection);
-        console.log('Ordre correct:', resultat.ordre_correct);
-        console.log('Résultat du serveur:', resultat);
 
         // Vérifier si les ordres sont identiques (comparaison JS)
         const estCorrect = compareArrays(ordreSelection, resultat.ordre_correct);
-        console.log('Comparaison JS:', estCorrect);
 
         // Si le JS dit que c'est correct mais pas le serveur, forcer la mise à jour
         if (estCorrect && !resultat.correct) {
-            console.log('Correction du résultat serveur...');
             const forceResponse = await fetch(baseUrl + 'verifierOrdre', {
                 method: 'POST',
                 headers: {
@@ -269,7 +264,6 @@ validateBtn.addEventListener('click', async function() {
                 })
             });
             const forceResultat = await forceResponse.json();
-            console.log('Résultat forcé:', forceResultat);
         }
 
         // Stocker le résultat pour le bouton
@@ -303,7 +297,7 @@ validateBtn.addEventListener('click', async function() {
 
 
             // Changer le texte du bouton pour la réussite
-            closeModalBtn.textContent = 'Continuer la salle';
+            closeModalBtn.textContent = 'Retourner dans la chambre';
         } else {
             // ÉCHEC
             document.getElementById('resultTitle').innerHTML = '❌ Ordre incorrect';
@@ -357,7 +351,7 @@ validateBtn.addEventListener('click', async function() {
             explicationZone.style.display = 'block';
 
             // Changer le texte du bouton pour l'échec
-            closeModalBtn.textContent = 'Retour à l\'accueil';
+            closeModalBtn.textContent = 'Retourner au Manoir';
         }
 
         resultModal.style.display = 'block';
