@@ -1,7 +1,7 @@
 <title>Salle n°6</title>
 <?= link_tag(base_url() . "styles/salle_6/accueilSalle6.css") ?>
 <div class="container">
-    <h1 class="titre-temp">Sécurité à l’extérieur</h1>
+    <h1 class="titre-temp"><?= $infosSalle['libelle'] ?></h1>
 
     <!-- Bulle de dialogue SVG -->
     <div class="bulle">
@@ -44,7 +44,7 @@
     <?= anchor(base_url() . 'Salle6/Enigme', ' ', ['class' => 'zone-cliquable']); ?>
 
     <!-- Bouton retour -->
-    <?= anchor(base_url() . 'Salle6/RevenirAccueil', img(['src' => 'images/commun/btn_retour/home_icone_6.webp',
+    <?= anchor(base_url() . 'Salle6/RevenirAccueil', img(['src' => $infosSalle['bouton'],
             'alt' => 'Retour',
             'class' => 'retour']), [
             'class' => 'retour'
@@ -61,7 +61,7 @@
                 <!-- Texte d'explication -->
                 <foreignObject x="83.06" y="72.965" width="1328.2" height="502.03">
                     <div xmlns="http://www.w3.org/1999/xhtml" class="modal-texte">
-                        Te voilà dans le grenier, clique sur le train pour commencer les énigmes. Explore bien chaque recoin et résous les mystères qui t'attendent !
+                        <?= $infosSalle['intro_salle'] ?>
                     </div>
                 </foreignObject>
 
