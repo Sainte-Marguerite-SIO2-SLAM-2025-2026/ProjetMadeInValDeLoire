@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Controllers\accueil;
+namespace App\Controllers;
 
-use App\Controllers\BaseController;
 use App\Controllers\salle_6\Salle6Controller;
 use App\Models\salle_1\Salle1ExplicationModel;
 use App\Models\salle_5\ActiviteModel;

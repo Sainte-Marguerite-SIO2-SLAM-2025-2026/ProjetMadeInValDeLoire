@@ -10,24 +10,24 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/MentionLegale', 'commun\CommunController::MentionLegale');
 
 // Route pour la page d'accueil
-$routes->get('/', 'accueil\HomeControlleur::index');
-$routes->get('/manoirJour', 'accueil\HomeControlleur::pagejour');
+$routes->get('/', 'HomeControlleur::index');
+$routes->get('/manoirJour', 'HomeControlleur::pagejour');
 
-$routes->match(['GET','POST'],'/reset', 'accueil\HomeControlleur::reset');
-$routes->get('/resetSalleJour', 'accueil\HomeControlleur::resetSalleJour');
-$routes->get('/salle/salle_(:num)', 'accueil\HomeControlleur::salle/$1');
-$routes->match(['GET','POST'],'/valider/(:num)', 'accueil\HomeControlleur::valider/$1');
-$routes->match(['GET','POST'],'/validerJour/(:num)', 'accueil\HomeControlleur::validerJour/$1');
-$routes->match(['GET','POST'],'/echouerJour/(:num)', 'accueil\HomeControlleur::echouerJour/$1');
+$routes->match(['GET','POST'],'/reset', 'HomeControlleur::reset');
+$routes->get('/resetSalleJour', 'HomeControlleur::resetSalleJour');
+$routes->get('/salle/salle_(:num)', 'HomeControlleur::salle/$1');
+$routes->match(['GET','POST'],'/valider/(:num)', 'HomeControlleur::valider/$1');
+$routes->match(['GET','POST'],'/validerJour/(:num)', 'HomeControlleur::validerJour/$1');
+$routes->match(['GET','POST'],'/echouerJour/(:num)', 'HomeControlleur::echouerJour/$1');
 
 // Routes pour le quiz
 $routes->group('quiz', function($routes) {
-    $routes->get('/', 'QuizControlleur::index');
-    $routes->match(['get', 'post'],'demarrer/(:segment)', 'QuizControlleur::choix/$1');
-    $routes->get('choix/(:segment)', 'QuizControlleur::demarrer/$1');
-    $routes->get('question/(:segment)', 'QuizControlleur::question/$1');
-    $routes->post('repondre/(:segment)', 'QuizControlleur::repondre/$1');
-    $routes->get('resultats/(:segment)', 'QuizControlleur::resultats/$1');
+    $routes->get('/', 'Quiz\QuizControlleur::index');
+    $routes->match(['get', 'post'],'demarrer/(:segment)', 'Quiz\QuizControlleur::choix/$1');
+    $routes->get('choix/(:segment)', 'Quiz\QuizControlleur::demarrer/$1');
+    $routes->get('question/(:segment)', 'Quiz\QuizControlleur::question/$1');
+    $routes->post('repondre/(:segment)', 'Quiz\QuizControlleur::repondre/$1');
+    $routes->get('resultats/(:segment)', 'Quiz\QuizControlleur::resultats/$1');
 
 });
 
