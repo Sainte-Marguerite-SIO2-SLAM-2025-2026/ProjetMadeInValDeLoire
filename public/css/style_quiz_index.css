@@ -1,0 +1,152 @@
+/* ===================================
+   VARIABLES CSS (Custom Properties)
+   =================================== */
+:root {
+    /* Couleurs */
+    --color-background: #faf6f6;
+    --color-text-primary: #fbf9f9;
+    --color-hover-overlay: rgba(159, 126, 81, 0.4);
+    --color-screen: rgba(218, 205, 153, 0.16);
+
+    /* Typographie */
+    --font-primary: 'IrishGrover', sans-serif;
+    --font-fallback: sans-serif;
+    --font-size-responsive: clamp(14px, 2.7vw, 30px);
+
+    /* Opacité */
+    --opacity-text: 0.7;
+    --opacity-hover: 0.7;
+
+    /* Transitions */
+    --transition-default: 0.25s ease;
+
+    /* Espacement */
+    --spacing-default: 15px;
+
+    /* Z-index */
+    --z-index-base: 1;
+}
+
+/* ===================================
+   RÉINITIALISATION GLOBALE
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===================================
+   POLICES PERSONNALISÉES
+   =================================== */
+@font-face {
+    font-family: 'IrishGrover';
+    src: url('../fonts/IrishGrover-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+/* ===================================
+   STYLES DU BODY
+   =================================== */
+body {
+    background: var(--color-black);
+    font-family: var(--font-fallback);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+/* ===================================
+   CONTENEUR PRINCIPAL DU QUIZ
+   =================================== */
+.quiz-container {
+    width: 100vw;
+    height: auto;
+    /*height: 100vh;*/
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.quiz-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+/* ===================================
+   WRAPPER SVG
+   =================================== */
+.svg-wrapper {
+    position: relative;
+    z-index: var(--z-index-base);
+}
+
+.svg-wrapper svg,
+svg {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    background: transparent;
+}
+
+/* ===================================
+   ZONES INTERACTIVES (Portes et Retour)
+   =================================== */
+.porte-gauche-zone,
+.porte-droite-zone,
+.retour-zone {
+    fill: transparent;
+    cursor: pointer;
+    transition: opacity var(--transition-default);
+}
+
+/* Effet hover pour les portes */
+.porte-gauche-zone:hover,
+.porte-droite-zone:hover {
+    opacity: var(--opacity-hover);
+    fill: var(--color-hover-overlay);
+}
+
+/* Effet hover pour le bouton retour */
+.retour-zone:hover {
+    opacity: var(--opacity-hover);
+}
+
+/* ===================================
+   ZONE D'ÉCRAN
+   =================================== */
+.ecran-zone {
+    fill: var(--color-screen);
+}
+
+/* ===================================
+   TEXTE STYLISÉ
+   =================================== */
+.policeTexte {
+    /* Typographie */
+    font-family: var(--font-primary);
+    font-weight: 900;
+    font-size: var(--font-size-responsive);
+    color: var(--color-text-primary);
+    text-align: center;
+
+    /* Apparence */
+    opacity: var(--opacity-text);
+
+    /* Disposition */
+    width: 100%;
+    height: 100%;
+    padding: var(--spacing-default);
+    box-sizing: border-box;
+    overflow: hidden;
+
+    /* Flexbox - Centrage vertical et horizontal */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    /* Désactivation des événements pointer */
+    pointer-events: none;
+}
