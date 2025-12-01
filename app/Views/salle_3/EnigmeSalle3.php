@@ -20,7 +20,7 @@
 
 <div class="background-container">
 
-    <img id="bg-img" src="<?= base_url('images/salle_3/dessus_bureau/dessus_bureau.webp') ?>" alt="Fond" style="width:1600px; height:900px; display:block;">
+    <img id="bg-img" src="<?= base_url('images/salle_3/dessus_bureau/dessus_bureau.webp') ?>" alt="Fond" style="width:1920px; height:1080px; display:block;">
 
 
     <div class="map-container" style="position:absolute; top:0; left:0; width:100%; height:100%;">
