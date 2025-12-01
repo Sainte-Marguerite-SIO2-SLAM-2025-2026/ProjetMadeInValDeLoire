@@ -9,11 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const codeCorrect = sessionStorage.getItem("codePorte");
 
-    console.log("=== DEBUG CODE SALLE 1 ===");
-    console.log("Code correct:", codeCorrect);
-    console.log("Mode:", MODE);
-    console.log("Type de MODE:", typeof MODE);
-
     // --- SI CODE NON GÉNÉRÉ ---
     if (!codeCorrect) {
         popupTitre.textContent = "⚠️ Attention";
@@ -32,12 +27,9 @@ document.addEventListener("DOMContentLoaded", function() {
         e.preventDefault();
 
         const codeEntre = codeInput.value.trim();
-        console.log("Code entré:", codeEntre);
-        console.log("Comparaison:", codeEntre, "===", codeCorrect);
 
         if (codeEntre === codeCorrect) {
-            console.log("✅ Code correct !");
-
+            sessionStorage.removeItem("startTime");
             popupTitre.textContent = "🎉 Bravo !";
             popupMessage.innerHTML = "Le code est correct !<br>Tu peux maintenant passer à la salle suivante.";
             popup.style.display = "flex";
@@ -50,10 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
             popupFermer.onclick = function () {
                 sessionStorage.removeItem("codePorte");
 
-                console.log("Redirection selon le mode:", MODE);
-
                 if (MODE === "jour") {
-                    console.log("→ Redirection mode JOUR");
                     window.location.href = BASE_URL + "validerJour/1";
                 } else {
                     console.log("→ Redirection mode NUIT");

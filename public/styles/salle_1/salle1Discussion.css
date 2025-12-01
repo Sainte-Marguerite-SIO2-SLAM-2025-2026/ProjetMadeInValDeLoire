@@ -1,6 +1,6 @@
 /* === Arrière-plan === */
 .background-container {
-    background-image: url("../images/salle_1/images/fonds/fond_page2.webp");
+    background-image: url("../../images/salle_1/images/fonds/fond_page2.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -34,15 +34,15 @@
     width: 75%;
     max-height: 350px;
     overflow-y: auto;
-    background-image: url("../images/salle_1/images/bulle/bulle.webp");
+    background-image: url("../../images/salle_1/images/bulle/bulle.webp");
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: 100% 100%;
-    padding: 25px 60px 25px 60px;
+    padding: 25px 70px 25px 70px;
     color: black;
     font-size: 1.3rem;
     z-index: 3;
-    line-height: 1.8;
+    line-height: 1.5;
     word-wrap: break-word;
     white-space: normal;
     text-align: left;
@@ -52,7 +52,8 @@
 
 /* === Mots interactifs === */
 .text-zone span {
-    margin: 0 5px;
+
+    margin: 0 15px;
     cursor: pointer;
     transition: color 0.2s, transform 0.1s;
     display: inline;
@@ -69,24 +70,10 @@
     pointer-events: none;
 }
 
-/* === Nom du personnage === */
-#nom-personnage {
-    position: absolute;
-    bottom: 21vh;
-    left: 44vh;
-    font-size: 1.5rem;
-    color: #111;
-    text-shadow: 0 0 10px #fff, 0 0 4px #fff;
-    font-weight: bold;
-    z-index: 20;
-    padding: 6px 24px;
-    border-radius: 17px;
-}
-
 /* === Serrure === */
 .serrure {
     position: absolute;
-    bottom: 29vh;
+    bottom: 30.2vh;
     right: 81.8vh;
 }
 
@@ -96,7 +83,7 @@
 }
 
 .serrure-image:hover {
-    content: url("../images/salle_1/images/serrure/serrure_jaune.webp");
+    content: url("../../images/salle_1/images/serrure/serrure_jaune.webp");
     transform: scale(1.1);
     filter: drop-shadow(0 0 10px yellow);
 }
@@ -156,21 +143,18 @@
     filter: drop-shadow(0 0 10px yellow);
 }
 
-/* === Scrollbar personnalisée === */
-.text-zone::-webkit-scrollbar {
-    width: 8px;
-}
 
-.text-zone::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+.compteur-suspects {
+    position: fixed;
+    top: 10vh;
+    left: 41%;
+    background: yellow;
+    padding: 8px 14px;
+    font-size: 1.8rem;
+    font-weight: bold;
     border-radius: 10px;
+    color: #111;
+    box-shadow: 0 0 10px grey;
+    z-index: 999;
 }
 
-.text-zone::-webkit-scrollbar-thumb {
-    background: rgba(230, 199, 0, 0.5);
-    border-radius: 10px;
-}
-
-.text-zone::-webkit-scrollbar-thumb:hover {
-    background: rgba(230, 199, 0, 0.8);
-}

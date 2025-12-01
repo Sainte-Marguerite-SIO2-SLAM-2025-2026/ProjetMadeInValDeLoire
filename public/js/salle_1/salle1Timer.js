@@ -1,7 +1,7 @@
 // === TIMER GLOBAL (5 minutes) ===
 
 // Durée totale du timer (en millisecondes)
-const TOTAL_TIME = 2 * 60 * 1000; // 5 minutes
+const TOTAL_TIME = 4 * 60 * 1000; // 4 minutes
 
 // Fonction pour démarrer le timer (appelée uniquement sur la page Discussion)
 function startTimer() {
