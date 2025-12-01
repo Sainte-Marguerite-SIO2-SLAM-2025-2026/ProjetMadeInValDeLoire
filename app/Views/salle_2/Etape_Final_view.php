@@ -30,7 +30,7 @@
         <h1 class="final-title">Félicitations !</h1>
 
         <p class="final-text">
-            Bravo, détective. Vous avez terminé avec brio les <strong>5 étapes</strong> que Monsieur Fox vous a données.
+            Bravo, détective. Vous avez terminé avec brio les <strong>5 étapes</strong>.
             <br><br>
             Le manoir vous ouvre désormais ses secrets les plus profonds...
         </p>
@@ -49,62 +49,12 @@
     </div>
 </main>
 
-<div id="customConfirmModal" class="modal-overlay">
-    <div class="modal-box">
-        <h3 class="modal-title">Validation Définitive</h3>
-        <p class="modal-text">
-            Voulez-vous vraiment valider le mode <strong id="modalModeText"></strong> ?
-            <br>Ce choix influencera la suite du jeu.
-        </p>
-        <div class="modal-actions">
-            <button id="btnCancel" class="btn-modal btn-modal-cancel">Non, attendre</button>
-            <a id="btnConfirm" href="#" class="btn-modal">Oui, je valide</a>
-        </div>
-    </div>
-</div>
+
 
 <script>
     const BASE_URL = '<?= base_url(); ?>';
     const MODE = '<?= session()->get('mode') ?? 'nuit'; ?>';
     console.log('Mode détecté:', MODE);
-
-    // --- GESTION DE LA POPUP ---
-    document.addEventListener('DOMContentLoaded', () => {
-        const modal = document.getElementById('customConfirmModal');
-        const modalModeText = document.getElementById('modalModeText');
-        const btnConfirm = document.getElementById('btnConfirm');
-        const btnCancel = document.getElementById('btnCancel');
-
-        // Pour tous les boutons qui déclenchent la popup
-        document.querySelectorAll('.trigger-popup').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault(); // On bloque le clic immédiat
-
-                // On récupère les infos du bouton cliqué
-                const urlCible = btn.getAttribute('href');
-                const modeChoisi = btn.getAttribute('data-mode'); // "Nuit" ou "Jour"
-
-                // On met à jour le texte et le lien de la popup
-                modalModeText.innerText = MODE;
-                btnConfirm.setAttribute('href', urlCible);
-
-                // On affiche la popup
-                modal.classList.add('active');
-            });
-        });
-
-        // Clic sur "Non" (Fermer la popup)
-        btnCancel.addEventListener('click', () => {
-            modal.classList.remove('active');
-        });
-
-        // (Optionnel) Fermer si on clique en dehors de la boîte
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-            }
-        });
-    });
 </script>
 
 </body>
