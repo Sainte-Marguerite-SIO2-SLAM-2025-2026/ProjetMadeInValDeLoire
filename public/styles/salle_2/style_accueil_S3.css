@@ -86,19 +86,19 @@ body {
 
 /* --- HERO SECTION --- */
 .hero {
-    min-height: calc(100dvh - var(--header-h));
+    min-height: calc(80dvh - var(--header-h));
     display: grid;
     place-items: center start;
     position: relative;
     z-index: 1;
     padding: 0;
-    padding-bottom: 40px; /* Espace pour ne pas coller au footer */
+    padding-bottom: 70px; /* Espace pour ne pas coller au footer */
 }
 
 .hero--lower .hero-panel { margin-top: clamp(24px, 10vh, 160px); }
 
 .hero-panel {
-    margin-left: clamp(16px, 6vw, 80px);
+    margin-left: clamp(26px, 10vw, 86px);
     max-width: 560px;
     background: rgba(10,10,10,0.52);
     border: 1px solid rgba(200,169,106,0.22);
@@ -126,14 +126,19 @@ body {
     font-size: clamp(0.95rem, 2vw, 1.1rem);
     line-height: 1.5;
     text-shadow: 0 1px 0 rgba(0,0,0,.6);
+
 }
 
 .hero-buttons {
     margin-top: 16px;
     display: flex;
+    justify-content: center;
     gap: 12px;
     flex-wrap: wrap;
+    width: 100%;
+    text-align: center;
 }
+
 .animate .hero-buttons {
     opacity: 0;
     transform: translateY(10px);

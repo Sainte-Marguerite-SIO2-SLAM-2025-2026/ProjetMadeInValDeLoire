@@ -3,10 +3,12 @@
 namespace App\Controllers\salle_5;
 
 use App\Controllers\BaseController;
-use App\Models\salle_5\MascotteModel;
+//use App\Models\salle_5\MascotteModel;
+use App\Models\commun\MascotteModel;
+use App\Models\commun\SalleModel;
 use App\Models\salle_5\ModeEmploiModel;
 use App\Models\salle_5\ActiviteModel;
-use App\Models\salle_5\SalleModel;
+//use App\Models\salle_5\SalleModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\ZoneModel;
 
@@ -56,8 +58,10 @@ class Salle5Controller extends BaseController
         // Données pour la vue
         $data = [
             'enigme' => $activite,
-            'salle' => $salleModel->getSalle(5),
-            'mascotte' => $mascotteModel->getMascotteBySalle(5),
+//            'salle' => $salleModel->getSalle(5),
+//            'mascotte' => $mascotteModel->getMascotteBySalle(5),
+            'salle' => $salleModel->getSalleById(5),
+            'mascotte' => $mascotteModel->getMascottes(),
             'mode_emploi' => $mode_emploi,
             'explication' => $explication,
         ];
@@ -65,15 +69,15 @@ class Salle5Controller extends BaseController
         // Charger la vue selon si c'est une énigme bureau ou pas
         if (in_array($activite_numero, $this->enigmes_bureau)) {
             // Énigmes sur fond de bureau (2, 3, 4, 8, 9)
-            return view('commun\header') .
+            return view('commun/header') .
                 view('salle_5/EnigmeBureau', $data) .
-                view('commun\footer');
+                view('commun/footer');
         }
 
         // Vue par défaut pour les autres énigmes
-        return view('commun\header') .
+        return view('commun/header') .
             view('salle_5/EnigmeSalle', $data) .
-            view('commun\footer');
+            view('commun/footer');
     }
 
     public function validerEnigme()

@@ -2,11 +2,24 @@
 namespace App\Controllers\salle_4;
 
 use App\Controllers\BaseController;
+use App\Models\commun\MascotteModel;
+use App\Models\commun\SalleModel;
 use App\Models\salle_4\Salle4Model;
 use App\Models\salle_4\QuizModel;
 
 class Salle4Controller extends BaseController
 {
+
+    protected $salleModel;
+    protected $mascotteModel;
+
+
+    public function __construct()
+    {
+        $this->salleModel = new SalleModel();
+        $this->mascotteModel = new MascotteModel();
+    }
+
     public function index(): string
     {
         $session = session();
@@ -22,6 +35,8 @@ class Salle4Controller extends BaseController
             'frise_validee' => true,
             'quiz_disponible' =>true,
             'premiere_visite' => $premiereVisite,
+            'mascotte' => $this->mascotteModel->getMascottes(),
+            'salle' => $this->salleModel->getSalleById(4),
         ];
 
         return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
@@ -64,7 +79,9 @@ class Salle4Controller extends BaseController
         $data = [
             'activite' => $activiteChoisie,
             'cartes' => $cartes,
-            'positions' => $positions
+            'positions' => $positions,
+            'mascotte' => $this->mascotteModel->getMascottes(),
+            'salle' => $this->salleModel->getSalleById(4),
         ];
 
         return view('salle_4/friseSalle4', $data) . view('commun/footer');
@@ -121,7 +138,9 @@ class Salle4Controller extends BaseController
 
         $data = [
             'questions' => $questions,
-            'reponses' => $reponses
+            'reponses' => $reponses,
+            'mascotte' => $this->mascotteModel->getMascottes(),
+            'salle' => $this->salleModel->getSalleById(4),
         ];
 
         return view('salle_4/QuizSalle4', $data) . view('commun/footer');

@@ -10,51 +10,36 @@ class Salle2Controller extends BaseController
 
     public function Introduction()
     {
-        // Préparer les données pour la vue principale
+        $model = new Salle2Model();
+        $libelles = $model->getMotDePasse1();
         $data = [
-            'title'   => 'Introduction | Salle Mot de Passe',
-            'message' => session()->getFlashdata('message'),
-            'error'   => session()->getFlashdata('error'),
+            'libelles' => $libelles
         ];
 
-        // Charger la vue principale
-        echo view('salle_2\Introduction_view', $data);
+        return view('salle_2\Introduction_view',$data);
 
-        // Charger le footer séparément
-        echo view('commun\footer.php', []);
     }
 
     public function Aide()
     {
-        // Préparer les données pour la vue principale
+        $model = new Salle2Model();
+        $libelles = $model->getMotDePasse1();
         $data = [
-            'title'   => 'Aide | Salle Mot de Passe',
-            'message' => session()->getFlashdata('message'),
-            'error'   => session()->getFlashdata('error'),
+            'libelles' => $libelles
         ];
-
-        // Charger la vue principale
-        echo view('salle_2\Aide_view', $data);
-
-        // Charger le footer séparément
-        echo view('commun\footer.php', []);
+        return view('salle_2\Aide_view',$data);
     }
 
     public function Etape1()
     {
-        // Préparer les données pour la vue principale
-        $data = [
-            'title'   => 'Etape 1 | Salle Mot de Passe',
-            'message' => session()->getFlashdata('message'),
-            'error'   => session()->getFlashdata('error'),
-        ];
-
-        // Charger la vue principale
-        echo view('salle_2\Etape1_S3_View', $data);
-
-        // Charger le footer séparément
-        echo view('commun\footer.php', []);
+        $model = new Salle2Model();
+        $indice = $model->getIndice(10);
+        return view('salle_2/Etape1_S3_View', [
+                'indice' => $indice->libelle ?? ''
+            ]) . view('commun/footer.php');
     }
+
+
 
 
     /* Etape 1a */
@@ -150,15 +135,30 @@ class Salle2Controller extends BaseController
         $success_message = null;
         $next_url = base_url('/Etape2');
 
+        // Fonction pour détecter une année plausible
+        $isBirthYear = function($year) {
+            return $year >= 1900 && $year <= 2024;
+        };
+
+        // Extraction des tranches d'année possibles
+        $year1 = intval(substr($motDePasse, 0, 4)); // XXXX--
+        $year2 = intval(substr($motDePasse, 2, 4)); // --XXXX
+        $year3 = intval(substr($motDePasse, 1, 4)); // -XXXX-
+
         if (strlen($motDePasse) < 6) {
             $error = 'Le code doit contenir 6 chiffres.';
-        } elseif ($motDePasse === '489677' || $motDePasse === '111111'|| $motDePasse === '123456') {
+        } elseif ($motDePasse === '489677' || $motDePasse === '111111' || $motDePasse === '123456') {
             $error = 'Interdit : Ancien code.';
         } elseif (count(array_unique(str_split($motDePasse))) < 6) {
             $error = 'Chaque chiffre doit être différent.';
-        } else {
+        }
+        // contrôle DATE
+        elseif ($isBirthYear($year1) || $isBirthYear($year2) || $isBirthYear($year3)) {
+            $error = 'Interdit : Le code ressemble à une date de naissance.';
+        }
+        else {
             $success = true;
-            $success_message = 'Bravo ! Le code est mis a jour. La porte est maintenant sécurisé.';
+            $success_message = 'Bravo ! Le code est mis à jour. La porte est maintenant sécurisée.';
         }
 
         return view('salle_2\etape1b_s3_view', [
@@ -170,6 +170,7 @@ class Salle2Controller extends BaseController
             'next_url' => $next_url,
         ]);
     }
+
 
     /* Etape 2 */
     public function Etape2()
@@ -214,13 +215,8 @@ class Salle2Controller extends BaseController
 
     public function etape2a()
     {
-        return
-            view('salle_2\Etape2a_S3_View', [
-                'title'   => 'Etape 2 | Salle Mot de Passe',
-                'message' => session()->getFlashdata('message'),
-                'error'   => session()->getFlashdata('error'),
-            ])
-            . view('commun\footer');
+        return view('salle_2\Etape2a_S3_View')
+            . view('commun\footer.php');
     }
 
 
@@ -248,8 +244,8 @@ class Salle2Controller extends BaseController
             }
 
             $len = mb_strlen($pwd);
-            if ($len < 16) {
-                $errors[] = 'Au moins 16 caractères.';
+            if ($len < 12) {
+                $errors[] = 'Au moins 12 caractères.';
             }
 
             if (!preg_match('/[A-Z]/u', $pwd)) {
@@ -267,7 +263,7 @@ class Salle2Controller extends BaseController
 
             if (!empty($errors)) {
                 // Message unique et concis au milieu
-                $data['error'] = 'Mot de passe non conforme (16+ caractères, 1 maj, 1 min, 1 chiffre, 1 spécial).';
+                $data['error'] = 'Mot de passe non conforme (12+ caractères, 1 maj, 1 min, 1 chiffre, 1 spécial).';
             } else {
                 // Aucun mot de passe fixé: tout mot de passe complexe est accepté
                 $data['success'] = true;
@@ -357,20 +353,13 @@ class Salle2Controller extends BaseController
 
     public function Etape5()
     {
-        return view('salle_2\Etape5_S3_View', [
-            'title' => 'Post-It | Salle Mot de Passe',
-            'message' => session()->getFlashdata('message'),
-            'error' => session()->getFlashdata('error'),
-        ]);
+        return view('salle_2\Etape5_S3_View')
+            . view('commun\footer.php');
     }
 
     public function Etapef()
     {
-        return view('salle_2\Etape_Final_view', [
-            'title' => 'Finalisation | Salle Mot de Passe',
-            'message' => session()->getFlashdata('message'),
-            'error' => session()->getFlashdata('error'),
-        ]);
+        return view('salle_2\Etape_Final_view');
     }
 
 

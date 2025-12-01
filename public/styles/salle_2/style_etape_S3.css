@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
 
-/* ------------------------------
-   Base / Layout scène responsive
-   ------------------------------ */
-/* =========================================
-   CORRECTIF FINAL : SCROLL, FOOTER & POLICE
-   ========================================= */
-
 /* 1. Active le scroll vertical et empêche le débordement horizontal */
 html, body {
     overflow-y: auto !important;
@@ -276,7 +269,7 @@ footer, .game-footer, .site-footer {
 
 @media (prefers-reduced-motion: reduce) {
     .tip-panel--autohide {
-        animation: tipAutoHide 30s linear forwards !important;
+        animation: tipAutoHide 15s linear forwards !important;
     }
 }
 
@@ -408,6 +401,23 @@ button:active, .btn:active, a.button:active, .btn-primary:active {
 /* Masquer complètement l'intro si déjà vue (pour CET onglet) */
 .hide-intro #intro-tip { display: none !important; }
 
+.code-success-overlay {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(5,5,8,0.55);
+    z-index: 10000;
+}
+/* Neutralise le positionnement bas/gauche hérité de .tip-panel */
+.code-success-overlay .tip-panel.code-success-panel {
+    position: static;
+    top: auto; right: auto; bottom: auto; left: auto;
+    transform: none;
+    max-width: min(92vw, 560px);
+    text-align: center;
+}
 /* ------------------------------
    Etape 2
    ------------------------------ */
@@ -542,32 +552,30 @@ button:active, .btn:active, a.button:active, .btn-primary:active {
 
 /* LE TEXTAREA */
 .ecran-malette #code {
-    all: unset;            /* Réinitialise tout */
+    all: unset;
     display: block;
     width: 100%;
-
-    /* CHANGEMENT CLÉ : On met height en auto (ou on retire 100%) */
-    /* Cela permet au Flexbox du parent de centrer le bloc entier */
     height: auto;
 
-    box-sizing: border-box;
-    text-align: center;    /* Centre le texte horizontalement */
-
-    font: inherit;
-    font-weight: 700;
+    font-family: system-ui, sans-serif; /* police de base du navigateur */
+    font-weight: 400;
     font-size: clamp(0.9rem, 1.8vmin, 1.1rem);
     line-height: 1.25;
+
+    box-sizing: border-box;
+    text-align: center;
     color: inherit;
     background: transparent;
     cursor: text;
 
-    /* Gestion du texte */
     white-space: pre-wrap;
     overflow-wrap: anywhere;
     word-break: break-word;
-    overflow: hidden;      /* Mieux que auto pour un code court */
+    overflow: hidden;
     resize: none;
 }
+
+
 
 /* LE PLACEHOLDER (Simplifié) */
 /* Plus besoin de position absolute, text-align center suffit */
