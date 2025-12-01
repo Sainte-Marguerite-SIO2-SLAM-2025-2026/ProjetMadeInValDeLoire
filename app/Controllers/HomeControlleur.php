@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\salle_1\Salle1ExplicationModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
+use App\Models\salle_5\IndiceModel;
 use App\Models\salle_5\MascotteModel;
 use App\Models\salle_5\SalleModel;
 use CodeIgniter\HTTP\RedirectResponse;
@@ -114,6 +115,7 @@ class HomeControlleur extends BaseController
             $mascotteModel = new MascotteModel();
             $explicationModel = new ExplicationModel();
             $activiteModel = new ActiviteModel();
+            $IndiceModel = new IndiceModel();
 
             // 🔥 Vérifier si on arrive avec un échec
             $echec = $this->request->getGet('echec');
@@ -167,12 +169,13 @@ class HomeControlleur extends BaseController
             $data = [
                 'salle' => $salleModel->getSalle(5),
                 'mascotte' => $mascotteModel->getMascotteBySalle(5),
-                'explication' => $explicationModel->getExplication(1),
+                'explication' => $explicationModel->getExplication(0),
                 'activites_selectionnees' => $activites_ids,
                 'activites_reussies' => $activites_reussies,
                 'afficher_popup' => $afficher_popup,
                 'afficher_popup_succes' => $afficher_popup_succes,
                 'afficher_popup_echec' => $afficher_popup_echec,
+                'indice' => $IndiceModel->getIndice(500),
             ];
         }
 

@@ -86,6 +86,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+// -------------------------------------------------------
+// Tooltip mascotte
+// -------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+    const mascotte = document.querySelector(".mascotte-img");
+    const bulle = document.getElementById("infobulle");
+
+    mascotte.addEventListener("click", () => {
+        // alterner visible / caché
+        bulle.style.display = (bulle.style.display === "none") ? "block" : "none";
+    });
+});
+
 // Correction retour navigateur
 window.addEventListener("pageshow", () => {
     const overlay = document.getElementById("transition-overlay");
