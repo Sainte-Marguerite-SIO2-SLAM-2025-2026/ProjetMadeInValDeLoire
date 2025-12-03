@@ -8,6 +8,7 @@ use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
 //use App\Models\salle_5\MascotteModel;
 //use App\Models\salle_5\SalleModel;
+use App\Models\salle_5\IndiceModel;
 use CodeIgniter\HTTP\RedirectResponse;
 use App\Models\commun\MascotteModel;
 use App\Models\commun\SalleModel;
