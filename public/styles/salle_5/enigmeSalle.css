@@ -1,11 +1,13 @@
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
+@font-face {
+    font-family: 'Chalkduster';
+    src: url('../../fonts/Chalkduster.ttf') format('truetype');
+    font-weight: 900;
+}
 /* Reset */
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Chalkduster', sans-serif;
     background-color: #121212;
     color: #f0f0f0;
 }
@@ -686,4 +688,36 @@ svg {
 .objet-cliquable.disabled:not(.correct) .zone-click {
     cursor: default !important;
     pointer-events: none !important;
+}
+
+.lumi-image {
+    position: absolute;
+    opacity: 0;
+    transition: 0.3s ease;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+    animation: float 3s ease-in-out infinite;
+}
+
+.lumi-image.default {
+    opacity: 1;
+}
+
+.zone-lumi:hover .lumi-image.default {
+    opacity: 0;
+}
+
+.zone-lumi:hover .lumi-image.hover {
+    opacity: 1;
+}
+
+.lumi-zone,
+.lune-zone {
+    fill: transparent;
+    cursor: pointer;
+    transition: fill 0.3s ease;
+}
+
+.lune-zone:hover {
+    fill: rgba(244, 215, 29, 0.4);
 }
