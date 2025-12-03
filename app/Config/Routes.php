@@ -9,6 +9,12 @@ use CodeIgniter\Router\RouteCollection;
 // Routes communes
 $routes->get('/MentionLegale', 'commun\CommunController::MentionLegale');
 
+// Routes admin
+$routes->get('/user/connexion', 'admin\AdminController::index');
+$routes->get('admin/login', 'admin\AdminController::index');
+$routes->post('admin/login', 'admin\AdminController::login');
+$routes->get('admin/logout', 'admin\AdminController::logout');
+
 // Route pour la page d'accueil
 $routes->get('/', 'HomeControlleur::index');
 $routes->get('/manoirJour', 'HomeControlleur::pagejour');

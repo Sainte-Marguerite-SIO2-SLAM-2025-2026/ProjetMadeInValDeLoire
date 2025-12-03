@@ -1,9 +1,14 @@
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'); /* Reset */
+/* Import Font */
+@font-face {
+    font-family: 'IrishGrover';
+    src: url('../../fonts/IrishGrover-Regular.ttf') format('truetype');
+    font-weight: 900;
+}
+
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'IrishGrover', sans-serif;
     background-color: #121212;
     color: #f0f0f0;
 }
@@ -374,6 +379,8 @@ svg {
     opacity: 0;
     transition: 0.3s ease;
     pointer-events: none;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+    animation: float 3s ease-in-out infinite;
 }
 
 .lumi-image.default {

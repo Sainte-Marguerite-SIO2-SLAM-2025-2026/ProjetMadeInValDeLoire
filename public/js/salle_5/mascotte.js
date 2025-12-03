@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+/**document.addEventListener('DOMContentLoaded', function() {
     const mascotteImg = document.querySelector('.mascotte-img');
 
     if (!mascotteImg) return;
@@ -46,4 +46,4 @@ document.addEventListener('DOMContentLoaded', function() {
         mascotteImg.classList.remove('locked');
         mascotteImg.src = mascotteImages.face;
     };
-});
+});**/
