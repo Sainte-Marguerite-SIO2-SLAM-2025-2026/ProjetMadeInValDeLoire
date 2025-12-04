@@ -108,10 +108,10 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                     <image id="image_post_it_conf"
                            clip-path="url(#clip_post_it_conf)"
                            preserveAspectRatio="none"
-                           x="1144.7" y="518.82" width="73.347" height="84.566"
+                           x="1400" y="518.82" width="73.347" height="84.566"
                            xlink:href="<?= base_url('images/salle_5/post_it_confidentiel.svg') ?>" />
                     <rect class="piece-zone"
-                          x="1144.7" y="518.82" width="73.347" height="84.566"
+                          x="1400.7" y="518.82" width="73.347" height="84.566"
                           fill="transparent"
                           style="cursor:pointer;" />
                 </g>
