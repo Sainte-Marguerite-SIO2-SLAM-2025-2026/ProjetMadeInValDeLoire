@@ -106,7 +106,7 @@
         <div class="retour-top">
             <?= anchor('/', img([
                     'src'   => 'images/commun/btn_retour/home_icone_3.webp',
-                    'alt'   => 'retour',
+                    'alt'   => 'back',
                     'class' => 'retour'
             ])); ?>
         </div>
