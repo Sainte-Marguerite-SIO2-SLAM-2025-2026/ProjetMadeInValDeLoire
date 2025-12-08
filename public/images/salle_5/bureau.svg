@@ -47,8 +47,6 @@
   <rect x="987" y="503" width="533" height="72" ry="0">
    <title>choix_4</title>
   </rect>
- </g>
- <g fill-opacity="0">
   <rect id="tel" x="808.2" y="662.11" width="157" height="175">
    <title>tel</title>
   </rect>
@@ -68,4 +66,7 @@
    <title>stylo</title>
   </rect>
  </g>
+ <rect id="lumi" x="1400" y="797.15" width="128" height="170" fill-opacity="0">
+  <title>lumi</title>
+ </rect>
 </svg>

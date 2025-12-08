@@ -248,6 +248,18 @@
 
             <?php endif; ?>
 
+            <g id="lumi" class="zone-lumi" data-piece="Lumi">
+                <image class="lumi-image default"
+                       preserveAspectRatio="xMidYMid slice"
+                       x="1687.9" y="786.97" width="205" height="252"
+                       xlink:href="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>" />
+                <image class="lumi-image hover"
+                       preserveAspectRatio="xMidYMid slice"
+                       x="1687.9" y="786.97" width="205" height="252"
+                       xlink:href="<?= base_url('images/commun/mascotte/mascotte_interrogee.svg') ?>" />
+                <rect class="lumi-zone" x="1687.9" y="786.97" width="205" height="252" pointer-events="all"/>
+            </g>
+
         </svg>
     </div>
 
@@ -299,17 +311,6 @@
 
     <!-- Feedback -->
     <div class="feedback" id="feedback"></div>
-
-
-
-    <!-- Mascotte -->
-    <div class="mascotte">
-        <?= img([
-                "src" => base_url('images/commun/mascotte/mascotte_face.svg'),
-                "class" => "mascotte-img",
-                "alt" => "Mascotte"
-        ]) ?>
-    </div>
 </div>
 
 <div id="transition-overlay"></div>
