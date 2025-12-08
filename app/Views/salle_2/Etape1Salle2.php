@@ -34,34 +34,40 @@
         </div>
     <?php endif?>
 
+    <aside id="intro-tip" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
+        <p class="tip-desc">
+            <?= $libelles->libelle ?>
+        </p>
+    </aside>
+
 <div class="game-fixed-wrapper">
 
     <div class="accueil-bg" style="background-image:url('<?= base_url('/images/salle_2/Etape1_Salle3.jpg') ?>');"></div>
 
     <div class="center-container">
         <label for="poignier-toggle" class="poignier-contour" aria-controls="poignier-overlay" aria-haspopup="dialog"></label>
-        <a class="code-contour" href="<?= base_url('Etape1a') ?>"></a>
-        <a class="livre-contour" href="<?= base_url('Salle2-Aide') ?>"></a>
+        <a class="code-contour" href="<?= base_url('/Salle2/Etape1a') ?>"></a>
+        <a class="livre-contour" href="<?= base_url('/Salle2/Aide') ?>"></a>
     </div>
 
     <div class="mascotte-container">
         <img id="mascotte" src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
     </div>
 
-    <!-- Mascotte -->
     <div id="mascotte-bulle">
         <div id="bulle-texte"></div>
         <div id="bulle-actions"></div>
         <div class="bulle-fleche"></div>
     </div>
-</div>
 
-    <!-- Message Introduction-->
-    <aside id="message-intro" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
-        <p class="tip-desc">
-            <?= $libelles->libelle ?>
-        </p>
-    </aside>
+    <?php
+    $indices_for_js = is_array($mascotte) ? $mascotte : [$mascotte];
+    $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
+    ?>
+
+    <script>
+        const INDICES = <?= json_encode($libelles_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
+    </script>
 
 
     <!-- Div poignet permet d'indique a l'utilisateur d'aller clique sur le digicode -->

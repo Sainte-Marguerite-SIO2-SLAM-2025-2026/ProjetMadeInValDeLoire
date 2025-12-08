@@ -35,7 +35,7 @@
 
         <div class="final-actions">
             <?php if (session()->get('mode') === 'nuit'): ?>
-                <a href="<?= base_url('echouer/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
+                <a href="<?= base_url('reset') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
                     Réessayer
                 </a>
             <?php else: ?>
