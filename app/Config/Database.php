@@ -51,10 +51,10 @@ class Database extends Config
         ],
     ];
     public array $dbQuizz = [
-        'hostname'     => 'localhost',
-        'username'     => 'slam_2026_vdl',
-        'password'     => 'slam_2026_vdl',
-        'database'     => 'slam_2026_VDL',
+        'hostname'     => '',
+        'username'     => '',
+        'password'     => '',
+        'database'     => '',
         'DBDriver'     => 'MySQLi','DBPrefix'     => '',
         'pConnect'     => false,
         'DBDebug'      => true,
