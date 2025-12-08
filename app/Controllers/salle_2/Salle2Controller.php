@@ -12,8 +12,11 @@ class Salle2Controller extends BaseController
     {
         $model = new Salle2Model();
         $libelles = $model->getMotDePasse1();
+        $introduction =$model->getIntroduction();
         $data = [
-            'libelles' => $libelles
+            'libelles' => $libelles,
+            'introduction' => $introduction,
+
         ];
 
         return view('salle_2\Introduction_view',$data);
@@ -33,10 +36,12 @@ class Salle2Controller extends BaseController
     public function Etape1()
     {
         $model = new Salle2Model();
-        $indice = $model->getIndice(10);
-        return view('salle_2/Etape1_S3_View', [
-                'indice' => $indice->libelle ?? ''
-            ]) . view('commun/footer.php');
+        $indice = $model->getIndice(2);
+        $data = [
+            'libelles' => $indice
+        ];
+        echo view('salle_2\etape1_s3_view', $data);
+        echo view('commun\footer.php');
     }
 
 
@@ -45,7 +50,6 @@ class Salle2Controller extends BaseController
     /* Etape 1a */
     public function Etape1a()
     {
-
         if ($this->request->getMethod() === 'post') {
             return $this->validerEtape1a();
         }
@@ -108,21 +112,24 @@ class Salle2Controller extends BaseController
     /* Etape 1b */
     public function Etape1b()
     {
-        // Vérifie si c'est un POST
-        if (strtolower($this->request->getMethod()) === 'post') {
+        $model = new Salle2Model();
+        $libelles = $model->getIndice(3); // Renommé pour correspondre à la vue
+
+        if ($this->request->getMethod() === 'post') {
             return $this->validerEtape1b();
         }
 
-        // Affichage initial (GET)
-        return view('salle_2\etape1b_s3_view', [
+        return view('salle_2/etape1b_s3_view', [
             'title' => 'Code de la Porte | Salle Mot de Passe',
             'mot_de_passe' => '',
             'error' => null,
             'success' => false,
             'success_message' => null,
             'next_url' => base_url('/Etape2'),
+            'libelles' => $libelles,
         ]);
     }
+
 
     public function validerEtape1b()
     {
@@ -176,11 +183,15 @@ class Salle2Controller extends BaseController
     public function Etape2()
     {
         $model = new Salle2Model();
-        $libelles = $model->getDistinctLibelles(3); // récupérer 3 libelles pour la view
+        $libelles = $model->getDistinctLibelles(4); // récupérer 3 libelles pour la view
+        $indices = $model->getIndice(4);
+
+
 
         // Données par défaut
         $data = [
             'libelles' => $libelles,
+            'indices' => $indices,
             'success' => false,
             'success_message' => null,
             'error' => null,
@@ -215,7 +226,12 @@ class Salle2Controller extends BaseController
 
     public function etape2a()
     {
-        return view('salle_2\Etape2a_S3_View')
+        $model = new Salle2Model();
+        $indice = $model->getIndice(5);
+        $data = [
+            'libelles' => $indice
+        ];
+        echo view('salle_2\etape2a_s3_view', $data)
             . view('commun\footer.php');
     }
 
@@ -223,8 +239,11 @@ class Salle2Controller extends BaseController
     /* Etape 3 */
     public function Etape3()
     {
+        $model = new Salle2Model();
+        $indice = $model->getIndice(6);
         // Données par défaut
         $data = [
+            'libelles' => $indice,
             'title'           => 'Mallette | Salle Mot de Passe',
             'success'         => false,
             'success_message' => null,
@@ -280,12 +299,15 @@ class Salle2Controller extends BaseController
     /* Etape 4 */
     public function Etape4()
     {
+        $model = new Salle2Model();
+        $indice = $model->getIndice(7);
 
         if ($this->request->getMethod() === 'post') {
             return $this->validerEtape4();
         }
 
         $data = [
+            'libelles' => $indice,
             'title' => 'Téléphone | Salle Mot de Passe',
             'code' => '',
             'error' => '',
@@ -354,10 +376,12 @@ class Salle2Controller extends BaseController
     public function Etape5()
     {
         $model = new Salle2Model();
-        $indice = $model->getIndice(15);
-        return view('salle_2/Etape5_S3_View', [
-                'indice' => $indice->libelle ?? ''
-            ]) . view('commun/footer.php');
+        $indice = $model->getIndice(8);
+        $data = [
+            'libelles' => $indice
+        ];
+        echo view('salle_2\etape5_s3_view', $data)
+            . view('commun\footer.php');
 
     }
 

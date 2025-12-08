@@ -62,7 +62,7 @@
            aria-live="polite"
            style="<?= (!empty($error) || !empty($success)) ? 'display:none !important;' : '' ?>">
         <p class="tip-desc">
-            Étape 4 : Trouve le mot de passe du téléphone pour permettre de trouver des informations cruciales !
+            <?= $libelles->libelle ?>
         </p>
     </aside>
 

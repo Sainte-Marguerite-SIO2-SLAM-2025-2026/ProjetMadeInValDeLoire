@@ -224,6 +224,7 @@ footer, .game-footer, .site-footer {
             0 0 0 1px rgba(200,169,106,0.08);
     backdrop-filter: blur(2px) saturate(110%);
 }
+
 .tip-desc-mascotte{
     margin: 0;
     color: #ffffff;
@@ -240,20 +241,21 @@ footer, .game-footer, .site-footer {
     text-shadow: 0 1px 0 rgba(0,0,0,.6);
 }
 
+/* MODIFIÉ: place les panneaux .tip-panel--top tout en haut et centrés */
 .tip-panel--top {
-    top: clamp(40px, 10vh, 150px);
-    bottom: auto;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;              /* tout en haut */
+    bottom: auto;        /* neutralise le bas */
+    left: 50%;           /* centrage horizontal */
+    transform: translateX(-50%); /* centrage via transform */
     max-width: min(95vw, 800px);
     pointer-events: none;
 }
 
-
+/* MODIFIÉ: retire le timer/autohide pour la classe .tip-panel--autohide */
 .tip-panel--autohide {
     opacity: 1;
     will-change: opacity, visibility;
-    animation: tipAutoHide 30s linear forwards !important;
+    animation: none !important;     /* suppression du timer */
 }
 
 @keyframes tipAutoHide {

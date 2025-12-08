@@ -28,9 +28,7 @@
         <h1 class="final-title">Explication !</h1>
 
         <p class="final-text">
-            Il y a <strong>5 étapes</strong>, le but est de trouver les mots de passe à travers des indices cachés.
-            <br><br>
-            Les mots de passe doivent obligatoirement être complexes !
+            <?= $introduction->libelle; ?>
             <br><br>
             Mot de passe de la porte : <?= esc($libelles[0]['libelle'] ?? '') ?>
 

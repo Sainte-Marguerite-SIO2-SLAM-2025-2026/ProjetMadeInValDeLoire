@@ -92,8 +92,10 @@
 
     <div id="feedback-global" class="feedback-global" aria-live="polite"></div>
 
-    <aside class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
-        <p class="tip-desc">Étape 5 : Classe les mots de passe sur la feuille (valides) et dans la poubelle (invalides), puis valide.</p>
+    <aside id="message-intro" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
+        <p class="tip-desc">
+            <?= $libelles->libelle ?>
+        </p>
     </aside>
 
     <div class="validate-container-left">

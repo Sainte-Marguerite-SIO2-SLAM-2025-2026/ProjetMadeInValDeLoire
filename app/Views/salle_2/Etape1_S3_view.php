@@ -7,23 +7,6 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preload" as="image" href="<?= base_url('/images/salle_2/Etape1_Salle3.jpg') ?>">
-
-    <script>
-        (function () {
-            try {
-                var SHOW_KEY = 'etape1_show_intro_once';
-                var SUP_KEY  = 'etape1_suppress_intro';
-                var shouldShow = sessionStorage.getItem(SHOW_KEY) === '1';
-                var suppress   = sessionStorage.getItem(SUP_KEY) === '1';
-                var ref = document.referrer || '';
-                var fromHelper = /\/(aide|etape1a)(\/|$)/.test(ref);
-                if (!shouldShow || suppress || fromHelper) {
-                    document.documentElement.classList.add('hide-intro');
-                }
-            } catch (e) {}
-        })();
-    </script>
-
     <link rel="stylesheet" href="<?= base_url('/styles/salle_2/style_etape_S3.css') ?>?v=8">
 </head>
 <body>
@@ -71,12 +54,12 @@
         <div id="bulle-actions"></div>
         <div class="bulle-fleche"></div>
     </div>
-
+</div>
 
     <!-- Message Introduction-->
-    <aside id="intro-tip" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
+    <aside id="message-intro" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
         <p class="tip-desc">
-            Étape 1 : Ouvrir cette porte avec le code fourni par le détective Fox. Attention : si tu réussis, tu devras par la suite choisir un nouveau code pour la porte !
+            <?= $libelles->libelle ?>
         </p>
     </aside>
 
