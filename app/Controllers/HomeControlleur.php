@@ -9,7 +9,6 @@ use App\Models\salle_5\ExplicationModel;
 //use App\Models\salle_5\MascotteModel;
 //use App\Models\salle_5\SalleModel;
 use CodeIgniter\HTTP\RedirectResponse;
-use App\Controllers\salle_6\Salle6Controller;
 use App\Models\commun\MascotteModel;
 use App\Models\commun\SalleModel;
 

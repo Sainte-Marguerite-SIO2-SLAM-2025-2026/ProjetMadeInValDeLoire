@@ -124,7 +124,7 @@
     </div>
 </div>
 <?= script_tag(base_url('js/salle_1/salle1Discussion.js')) ?>
-<?= script_tag(base_url('js/salle_1/salle1Mascotte.js')) ?>
 <?= script_tag(base_url('js/salle_1/salle1Timer.js')) ?>
+<?= script_tag(base_url('js/salle_1/salle1Mascotte.js')) ?>
 </body>
 </html>

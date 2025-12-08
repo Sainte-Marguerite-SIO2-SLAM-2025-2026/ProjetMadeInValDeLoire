@@ -6,6 +6,7 @@
     <title>Salle 1 - Code</title>
     <?= link_tag(base_url().'styles/salle_1/salle1Global.css') ?>
     <?= link_tag(base_url('styles/salle_1/salle1Code.css')) ?>
+    <?= script_tag(base_url().'js/salle_1/salle1Mascotte.js') ?>
 </head>
 <body>
 <div class="background-container">
