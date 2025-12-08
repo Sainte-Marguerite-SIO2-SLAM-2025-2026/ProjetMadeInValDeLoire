@@ -30,7 +30,7 @@
         <p class="final-text">
             <?= $introduction->libelle; ?>
             <br><br>
-            Mot de passe de la porte : <?= esc($libelles[0]['libelle'] ?? '') ?>
+            Si vous avez <strong>besoin d'aide</strong> cliquez sur la <strong> mascotte </strong>!
 
         </p>
 

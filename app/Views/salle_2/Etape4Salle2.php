@@ -38,7 +38,7 @@
 
     <div class="accueil-bg" style="background-image:url('<?= base_url('/images/salle_2/Etape4_Salle3.webp') ?>');"></div>
 
-    <form method="post" action="<?= site_url('Etape4') ?>">
+    <form method="post" action="<?= site_url('Salle2/Etape4') ?>">
         <?= csrf_field() ?>
 
         <div class="genere-telephone" id="genere-telephone" style="cursor:pointer;" aria-label="Générer un nouveau mot de passe"></div>
@@ -115,7 +115,7 @@
                 phoneDiv.classList.add('loading');
                 phoneDiv.setAttribute('aria-busy', 'true');
 
-                fetch("<?= base_url('/Etape4/password-random') ?>", {
+                fetch("<?= base_url('Etape4/password-random') ?>", {
                     method: 'GET',
                     headers: {
                         'X-Requested-With': 'XMLHttpRequest',
@@ -166,7 +166,7 @@
                 <p id="code-success-titre" class="tip-desc" style="margin-bottom:14px;">
                     <?= esc($success_message ?? 'Bravo ! Le code est correct. Le Téléphone est maintenant déverrouillée.') ?>
                 </p>
-                <a href="<?= esc($next_url ?? site_url('Etape5')) ?>"
+                <a href="<?= esc($next_url ?? site_url('Salle2/Etape5')) ?>"
                    class="tip-btn btn--xl"
                    id="go-next"
                    aria-label="Passer à la salle suivante">
@@ -218,6 +218,18 @@
         <div id="bulle-actions"></div>
         <div class="bulle-fleche"></div>
     </div>
+
+    <?php
+    $indices_for_js = is_array($mascotte) ? $mascotte : [$mascotte];
+    $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
+    ?>
+
+    <script>
+        const INDICES = <?= json_encode($libelles_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
+    </script>
+
+
+    <script src="<?= base_url('js/salle_2/mascotte.js') ?>"></script>
 
 </div> <div class="scroll-flow">
     <div class="scroll-spacer"></div>
