@@ -45,6 +45,7 @@ $routes->group('quiz', function($routes) {
 $routes->get('/Salle1', 'accueil\AccueilController::Salle1');
 $routes->get('Salle1/accesMessage', 'salle_1\Salle1Controller::accesMessage');
 $routes->get('Salle1/Code', 'salle_1\Salle1Controller::accesCode');
+$routes->get('Salle1/Backend', 'salle_1\Salle1Controller::getBackend');
 
 
 // Routes pour la salle 2
