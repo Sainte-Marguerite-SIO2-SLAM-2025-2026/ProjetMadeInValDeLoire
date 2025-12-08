@@ -15,7 +15,6 @@
         <p>
             Le site <strong>EnigManor</strong> est édité par la société
             <strong>BLUT - Brigade Loufoque de l’Univers des Technophiles</strong>, au capital social de <strong>1000 €</strong>,
-<!--            immatriculée au RCS de Paris sous le numéro <strong>123 456 789</strong>,-->
             dont le siège social est situé au <strong>1 rue Horizon Vert, 37130 Chambray-lès-Tours, France</strong>.
         </p>
         <ul>
@@ -65,7 +64,7 @@
             <li>
                 <strong>Salle Phising / Fake Inbox</strong> : développement réalisé par
                 <strong>Enzo MENINI</strong>, graphismes réalisés par
-                <strong>Morgane DENEUX, Clara LAGARDE</strong>.
+                <strong>Clara LAGARDE, Morgane DENEUX</strong>.
             </li>
             <li>
                 <strong>Salle Ransomware / Lockdown</strong> : développement réalisé par

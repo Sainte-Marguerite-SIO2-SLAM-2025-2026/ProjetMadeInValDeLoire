@@ -13,7 +13,6 @@
     <!-- Dossier ouvert (container) -->
     <div id="dossier-container">
         <?= img([
-//                'src'   => 'images/salle_4/images_finales/PNG/dossier_ouvert_plein.png',
                 'src'   => 'images/salle_4/images_finales/dossier-interieur-vide.webp',
                 'alt'   => 'Dossier ouvert',
                 'class' => 'dossier-fond'
@@ -97,7 +96,7 @@
     <?php if (session()->get('mode') === 'jour'): ?>
         <div class="retour-top">
             <?= anchor('/manoirJour', img([
-                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
+                    'src'   => $salle['bouton'],
                     'alt'   => 'retour',
                     'class' => 'retour'
             ])); ?>
@@ -105,23 +104,23 @@
     <?php else: ?>
         <div class="retour-top">
             <?= anchor('/', img([
-                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
-                    'alt'   => 'retour',
+                    'src'   => $salle['bouton'],
+                    'alt'   => 'back',
                     'class' => 'retour'
             ])); ?>
         </div>
     <?php endif?>
 
-    <!-- Mascotte interactive -->
+    <!-- Mascotte -->
     <div class="mascotte-zone" id="mascotte-container">
         <?= anchor(base_url(), img([
-                'src'   => 'images/commun/mascotte/mascotte_face.svg',
+                'src'   => $mascotte['face'],
                 'alt'   => 'Mascotte',
                 'class' => 'mascotte-img mascotte-default'
         ])); ?>
 
         <?= anchor(base_url(), img([
-                'src'   => 'images/commun/mascotte/mascotte_exclamee.svg',
+                'src'   => $mascotte['exclamee'],
                 'alt'   => 'Mascotte Hover',
                 'class' => 'mascotte-img mascotte-hover'
         ])); ?>
