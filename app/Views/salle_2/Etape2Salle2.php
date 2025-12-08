@@ -159,7 +159,7 @@
         </div>
 
     <?php
-    $indices_for_js = is_array($mascotte) ? $mascotte : [$mascotte];
+    $indices_for_js = is_array($mascotte_i) ? $mascotte_i : [$mascotte_i];
     $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
     ?>
 
@@ -167,6 +167,8 @@
             const INDICES = <?= json_encode($libelles_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
         </script>
     <?php endif; ?>
+
+
 
     <?php if (!empty($success)): ?>
         <!-- Nouveau popup de fin -->
