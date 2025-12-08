@@ -4,6 +4,7 @@ namespace App\Controllers\salle_4;
 use App\Controllers\BaseController;
 use App\Models\commun\MascotteModel;
 use App\Models\commun\SalleModel;
+use App\Models\commun\IndiceModel;
 use App\Models\salle_4\Salle4Model;
 use App\Models\salle_4\QuizModel;
 
@@ -13,11 +14,14 @@ class Salle4Controller extends BaseController
     protected $salleModel;
     protected $mascotteModel;
 
+    protected $indice;
+
 
     public function __construct()
     {
         $this->salleModel = new SalleModel();
         $this->mascotteModel = new MascotteModel();
+        $this->indice = new IndiceModel();
     }
 
     public function index(): string
@@ -37,6 +41,7 @@ class Salle4Controller extends BaseController
             'premiere_visite' => $premiereVisite,
             'mascotte' => $this->mascotteModel->getMascottes(),
             'salle' => $this->salleModel->getSalleById(4),
+            'indice' => $this->indice->getIndice(400),
         ];
 
         return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
@@ -82,6 +87,7 @@ class Salle4Controller extends BaseController
             'positions' => $positions,
             'mascotte' => $this->mascotteModel->getMascottes(),
             'salle' => $this->salleModel->getSalleById(4),
+            'indice' => $this->indice->getIndice($activiteChoisie),
         ];
 
         return view('salle_4/friseSalle4', $data) . view('commun/footer');
@@ -141,6 +147,7 @@ class Salle4Controller extends BaseController
             'reponses' => $reponses,
             'mascotte' => $this->mascotteModel->getMascottes(),
             'salle' => $this->salleModel->getSalleById(4),
+            'indice' => $this->indice->getIndice(403),
         ];
 
         return view('salle_4/QuizSalle4', $data) . view('commun/footer');

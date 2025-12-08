@@ -4,11 +4,10 @@ namespace App\Controllers;
 
 use App\Controllers\salle_6\Salle6Controller;
 use App\Models\salle_1\Salle1ExplicationModel;
+//use App\Models\salle_4\IndiceModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
-//use App\Models\salle_5\MascotteModel;
-//use App\Models\salle_5\SalleModel;
-use App\Models\salle_5\IndiceModel;
+use App\Models\commun\IndiceModel;
 use CodeIgniter\HTTP\RedirectResponse;
 use App\Models\commun\MascotteModel;
 use App\Models\commun\SalleModel;
@@ -99,13 +98,18 @@ class HomeControlleur extends BaseController
         if ((int)$numero === 1)
         {
             $explicationModel = new Salle1ExplicationModel();
-            $data = ['explication' => $explicationModel->getExplicationSalle1()];
+            $data = [
+                'explication' => $explicationModel->getExplicationSalle1(),
+                'mascotte'=>$this->mascotteModel->getMascottes(),
+            ];
             return view('salle_1/AccueilSalle1', $data).
                 view('commun/footer');
         }
 
         if ((int)$numero === 4){
             $session = session();
+
+            $this->indice = new IndiceModel();
 
             // Vérifier si c'est la première visite de la salle 4
             $premiereVisite = !$session->has('salle4_visited');
@@ -119,6 +123,8 @@ class HomeControlleur extends BaseController
                 'quiz_disponible' =>false,
                 'premiere_visite' => $premiereVisite,
                 'salle' => $this->salleModel->getSalleById(4),
+                'mascotte' => $this->mascotteModel->getMascottes(),
+                'indice' => $this->indice->getIndice(400),
             ];
 
             return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
@@ -127,8 +133,6 @@ class HomeControlleur extends BaseController
 
         if ((int)$numero === 5){
             // Instancier les models
-//            $salleModel = new SalleModel();
-//            $mascotteModel = new MascotteModel();
             $explicationModel = new ExplicationModel();
             $activiteModel = new ActiviteModel();
             $IndiceModel = new IndiceModel();
@@ -202,6 +206,7 @@ class HomeControlleur extends BaseController
         }
 
         $data['numero_salle'] = $numero;
+        $data['mascotte'] = $this->mascotteModel->getMascottes();
 
         return view('commun/header').
             view($viewPath, $data).

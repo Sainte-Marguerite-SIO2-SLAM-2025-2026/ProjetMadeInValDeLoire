@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => 'userProjetMIVDL',
-        'password'     => 'Projet@MIVDL!user',
-        'database'     => 'made_in_val_de_loire',
+        'hostname'     => '',
+        'username'     => '',
+        'password'     => '',
+        'database'     => '',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
@@ -51,10 +51,10 @@ class Database extends Config
         ],
     ];
     public array $dbQuizz = [
-        'hostname'     => 'localhost',
-        'username'     => 'slam_2026_vdl',
-        'password'     => 'slam_2026_vdl',
-        'database'     => 'slam_2026_VDL',
+        'hostname'     => '',
+        'username'     => '',
+        'password'     => '',
+        'database'     => '',
         'DBDriver'     => 'MySQLi','DBPrefix'     => '',
         'pConnect'     => false,
         'DBDebug'      => true,

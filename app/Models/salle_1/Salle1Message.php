@@ -70,18 +70,4 @@ class Salle1Message extends Model
             ->get()
             ->getResultArray();
     }
-
-    /**
-     * Récupère le mode d'emploi pour une activité.
-     * @param int $activite_numero
-     * @return object|null
-     */
-    public function getModeEmploi(int $activite_numero)
-    {
-        return $this->db->table('mode_emploi')
-            ->select('explication_1, explication_2, explication_3')
-            ->where('activite_numero', $activite_numero)
-            ->get()
-            ->getRow();
-    }
 }

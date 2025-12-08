@@ -73,7 +73,7 @@
     <div class="buttons">
 
         <?= img([
-                    'src' => base_url('images/commun/mascotte/mascotte_face.svg'),
+                    'src' => $mascotte['face'],
                     'alt' => 'Mascotte',
                     'class' => 'mascotte-image'
         ])?>
@@ -96,7 +96,7 @@
 <div id="popup-echec" class="popup popup-echec" style="display: none;">
     <div class="popup-content popup-echec-content">
         <?= img([
-                'src' => base_url('images/commun/mascotte/mascotte_saoulee.svg'),
+                'src' => $mascotte['saoulee'],
                 'alt' => 'Mascotte',
                 'class' => 'mascotte-popup'
         ]) ?>
@@ -124,7 +124,7 @@
     </div>
 </div>
 <?= script_tag(base_url('js/salle_1/salle1Discussion.js')) ?>
-<?= script_tag(base_url('js/salle_1/salle1Mascotte.js')) ?>
 <?= script_tag(base_url('js/salle_1/salle1Timer.js')) ?>
+<?= script_tag(base_url('js/salle_1/salle1Mascotte.js')) ?>
 </body>
 </html>
