@@ -98,7 +98,10 @@ class HomeControlleur extends BaseController
         if ((int)$numero === 1)
         {
             $explicationModel = new Salle1ExplicationModel();
-            $data = ['explication' => $explicationModel->getExplicationSalle1()];
+            $data = [
+                'explication' => $explicationModel->getExplicationSalle1(),
+                'mascotte'=>$this->mascotteModel->getMascottes(),
+            ];
             return view('salle_1/AccueilSalle1', $data).
                 view('commun/footer');
         }
