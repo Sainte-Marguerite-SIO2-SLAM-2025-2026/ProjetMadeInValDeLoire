@@ -108,10 +108,10 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                     <image id="image_post_it_conf"
                            clip-path="url(#clip_post_it_conf)"
                            preserveAspectRatio="none"
-                           x="1144.7" y="518.82" width="73.347" height="84.566"
+                           x="1400" y="518.82" width="73.347" height="84.566"
                            xlink:href="<?= base_url('images/salle_5/post_it_confidentiel.svg') ?>" />
                     <rect class="piece-zone"
-                          x="1144.7" y="518.82" width="73.347" height="84.566"
+                          x="1400.7" y="518.82" width="73.347" height="84.566"
                           fill="transparent"
                           style="cursor:pointer;" />
                 </g>
@@ -194,7 +194,7 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                        x="1358.2" y="723.12" width="341.71" height="248.52"
                        xlink:href="<?= base_url('images/salle_6/bulle-salle-6.svg') ?>" />
                 <!-- Bloc texte dans la bulle -->
-                <foreignObject x="1380" y="740" width="300" height="200">
+                <foreignObject x="1380" y="780" width="300" height="200">
                     <div class="texte-indice" xmlns="http://www.w3.org/1999/xhtml"
                          style="font-size:22px; font-weight:600; text-align:center;">
                         <?= $indice->libelle ?>
@@ -305,22 +305,12 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                 <?php endif?>
             </div>
         </div>
-        <script>
-            window.addEventListener('DOMContentLoaded', () => {
-                if (window.changerMascotte) {
-                    window.changerMascotte('saoulee');
-                }
-            });
-
-            function closePopupEchec() {
-                document.getElementById('popup-echec').style.display = 'none';
-            }
-        </script>
     <?php endif; ?>
 
 </div>
 
 <div id="transition-overlay"></div>
+<?= script_tag('js/salle_5/mascotte.js') ?>
 <?= script_tag('js/salle_5/salle5.js') ?>
 
 
