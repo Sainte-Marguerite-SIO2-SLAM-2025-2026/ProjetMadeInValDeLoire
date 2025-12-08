@@ -153,7 +153,7 @@
     </div>
 
 <?php
-$indices_for_js = is_array($mascotte) ? $mascotte : [$mascotte];
+$indices_for_js = is_array($mascotte_i) ? $mascotte_i : [$mascotte_i];
 $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
 ?>
 

@@ -123,7 +123,7 @@
         </p>
     </aside>
 
-    <    <div class="mascotte-container">
+        <div class="mascotte-container">
         <img id="mascotte" src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
     </div>
 
@@ -134,7 +134,7 @@
     </div>
 
     <?php
-    $indices_for_js = is_array($mascotte) ? $mascotte : [$mascotte];
+    $indices_for_js = is_array($mascotte_i) ? $mascotte_i : [$mascotte_i];
     $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
     ?>
 
