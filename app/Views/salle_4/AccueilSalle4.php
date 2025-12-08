@@ -98,20 +98,21 @@
             <h2>Notes d'enquête</h2>
             <div class="rules-content">
                 <h3>Indices repérés :</h3>
-                <p>
-                    <strong>Zone 1 - Tableau chronologique :</strong> Une frise temporelle est accrochée au-dessus du lit.
-                    Elle retrace l'ensemble des événements de l'attaque dans l'ordre chronologique.
-                    Analysez-la pour comprendre comment l'attaque s'est déroulée.
-                </p>
-                <p>
-                    <strong>Zone 2 - Dossier d'expertise :</strong> Un dossier de test gît par terre, près du bureau.
-                    Il contient des questions pour évaluer vos connaissances en cybersécurité.
-                    Répondez correctement pour progresser dans l'enquête.
-                </p>
-                <p>
-                    <strong>Recommandation :</strong> Examinez d'abord la chronologie pour comprendre l'attaque,
-                    puis testez vos connaissances avec le dossier d'expertise.
-                </p>
+                <?= $indice->libelle;?>
+<!--                <p>-->
+<!--                    <strong>Zone 1 - Tableau chronologique :</strong> Un tableau est accrochée au-dessus du lit.-->
+<!--                    Il permet de reproduire la procédure à suivre en cas d'attaque ou bien de prévention d'attaque.-->
+<!--                    Analysez-le pour comprendre comment réagir ou anticiper au mieux.-->
+<!--                </p>-->
+<!--                <p>-->
+<!--                    <strong>Zone 2 - Dossier d'expertise :</strong> Un dossier de test gît par terre, près du bureau.-->
+<!--                    Il contient des questions pour évaluer vos connaissances en cybersécurité.-->
+<!--                    Répondez correctement pour progresser dans l'enquête.-->
+<!--                </p>-->
+<!--                <p>-->
+<!--                    <strong>Recommandation :</strong> Examinez d'abord la chronologie pour comprendre l'attaque,-->
+<!--                    puis testez vos connaissances avec le dossier d'expertise.-->
+<!--                </p>-->
             </div>
         </div>
     </div>

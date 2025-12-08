@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\salle_4;
+namespace App\Models\commun;
 
 use CodeIgniter\Model;
 
@@ -12,7 +12,7 @@ class IndiceModel extends Model
     protected $returnType = 'object';
 
     /**
-     * récupérer l'indice sur l'accueil de la salle 4
+     * récupérer l'indice sur l'accueil de la salle voulue
      */
     public function getIndice($numero)
     {

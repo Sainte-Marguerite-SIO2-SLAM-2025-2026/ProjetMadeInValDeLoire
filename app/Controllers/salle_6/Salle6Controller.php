@@ -5,6 +5,7 @@ namespace App\Controllers\salle_6;
 use App\Controllers\BaseController;
 use App\Controllers\salle_6\WifiController;
 use App\Controllers\salle_6\VpnController;
+use App\Models\commun\MascotteModel;
 use App\Models\salle_6\ExplicationModel;
 use App\Models\salle_6\ProposerWifiModel;
 use App\Models\salle_6\ProposerVpnModel;
@@ -19,6 +20,7 @@ class Salle6Controller extends BaseController
     protected ProposerWifiModel $ProposerWifiModel;
     protected ProposerVpnModel $ProposerVpnModel;
     protected Salle6Model $Salle6Model;
+    protected MascotteModel $mascotteModel;
 
     public function __construct()
     {
@@ -28,6 +30,7 @@ class Salle6Controller extends BaseController
         $this->ProposerWifiModel = new ProposerWifiModel();
         $this->ProposerVpnModel = new ProposerVpnModel();
         $this->Salle6Model = new Salle6Model();
+        $this->mascotteModel = new MascotteModel();
     }
 
     public function Index(): string
@@ -47,6 +50,9 @@ class Salle6Controller extends BaseController
         $data['infosSalle'] = $infosSalle;
         $intitule = $this->ExplicationModel->getExplication(601);
         $data['intitule'] = $intitule['libelle'];
+
+        // recuperer les mascottes
+        $data['mascotte'] = $this->mascotteModel->getMascottes();
 
         // Passer l'explication à la vue
         $data['explication'] = $explication['libelle'] ?? 'Texte par défaut';
