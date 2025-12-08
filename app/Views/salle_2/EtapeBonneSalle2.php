@@ -24,13 +24,13 @@
 
     <div class="final-popup-container">
         <div class="mascot-final-wrapper">
-            <img src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Monsieur Fox">
+            <img src="<?= base_url('/images/salle_2/mascotte/mascotte_contente.svg') ?>" alt="Monsieur Fox">
         </div>
 
         <h1 class="final-title">Félicitations !</h1>
 
         <p class="final-text">
-            Bravo, détective. Vous avez terminé avec brio les <strong>5 étapes</strong>.
+            Bravo, détective. Vous avez terminé avec brio les <strong> étapes</strong>.
             <br><br>
             Le manoir vous ouvre désormais ses secrets les plus profonds...
         </p>

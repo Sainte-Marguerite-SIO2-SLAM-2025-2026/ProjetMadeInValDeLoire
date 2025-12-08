@@ -19,7 +19,7 @@ class Salle2Controller extends BaseController
 
         ];
 
-        return view('salle_2\Introduction_view',$data);
+        return view('salle_2\IntroductionSalle2',$data);
 
     }
 
@@ -30,7 +30,7 @@ class Salle2Controller extends BaseController
         $data = [
             'libelles' => $libelles
         ];
-        return view('salle_2\Aide_view',$data);
+        return view('salle_2\AideSalle2',$data);
     }
 
     public function Etape1()
@@ -40,7 +40,7 @@ class Salle2Controller extends BaseController
         $data = [
             'libelles' => $indice
         ];
-        echo view('salle_2\etape1_s3_view', $data);
+        echo view('salle_2\etape1Salle2', $data);
         echo view('commun\footer.php');
     }
 
@@ -64,9 +64,9 @@ class Salle2Controller extends BaseController
             // Champs succès potentiels (si tu viens d'un PRG, par ex.)
             'success' => session()->getFlashdata('success') ?? false,
             'success_message' => session()->getFlashdata('success_message') ?? null,
-            'next_url' => session()->getFlashdata('next_url') ?? base_url('/Etape1b'),
+            'next_url' => session()->getFlashdata('next_url') ?? base_url('/Salle2/Etape1b'),
         ];
-        echo view('salle_2\etape1a_s3_view', $data);
+        echo view('salle_2\etape1aSalle2', $data);
         echo view('commun\footer.php');
     }
 
@@ -87,11 +87,11 @@ class Salle2Controller extends BaseController
                 'error' => null,
                 'success' => true,
                 'success_message' => "Bravo ! Le code est correct. La porte est maintenant déverrouillée.",
-                'next_url' => base_url('/Etape1b'),
+                'next_url' => base_url('/Salle2/Etape1b'),
             ];
 
             // On renvoie la vue directement pour afficher l’overlay de succès
-            return view('salle_2\etape1a_s3_view', $data);
+            return view('salle_2\etape1aSalle2', $data);
         }
 
         // Code incorrect -> reset auto + message dans le placeholder (et aussi dans $error pour compat)
@@ -104,7 +104,7 @@ class Salle2Controller extends BaseController
         ];
 
         // On renvoie directement la vue (pas de withInput pour ne pas réinsérer l'ancienne valeur)
-        echo view('salle_2\etape1a_s3_view', $data);
+        echo view('salle_2\etape1aSalle2', $data);
         echo view('commun\footer.php');
 
     }
@@ -119,13 +119,13 @@ class Salle2Controller extends BaseController
             return $this->validerEtape1b();
         }
 
-        return view('salle_2/etape1b_s3_view', [
+        return view('salle_2/etape1bSalle2', [
             'title' => 'Code de la Porte | Salle Mot de Passe',
             'mot_de_passe' => '',
             'error' => null,
             'success' => false,
             'success_message' => null,
-            'next_url' => base_url('/Etape2'),
+            'next_url' => base_url('/Salle2/Etape2'),
             'libelles' => $libelles,
         ]);
     }
@@ -140,7 +140,7 @@ class Salle2Controller extends BaseController
         $error = null;
         $success = false;
         $success_message = null;
-        $next_url = base_url('/Etape2');
+        $next_url = base_url('/Salle2/Etape2');
 
         // Fonction pour détecter une année plausible
         $isBirthYear = function($year) {
@@ -168,7 +168,7 @@ class Salle2Controller extends BaseController
             $success_message = 'Bravo ! Le code est mis à jour. La porte est maintenant sécurisée.';
         }
 
-        return view('salle_2\etape1b_s3_view', [
+        return view('salle_2\etape1bSalle2', [
             'title' => 'Code de la Porte | Salle Mot de Passe',
             'mot_de_passe' => $motDePasse,
             'error' => $error,
@@ -196,7 +196,7 @@ class Salle2Controller extends BaseController
             'success_message' => null,
             'error' => null,
             'code' => '',
-            'next_url' => base_url('/Etape2a'), // ou la page suivante souhaitée
+            'next_url' => base_url('/Salle2/Etape2a'), // ou la page suivante souhaitée
             'title' => 'Coffre Fort | Salle Mot de Passe',
         ];
 
@@ -221,7 +221,7 @@ class Salle2Controller extends BaseController
             $data['code'] = $code;
         }
 
-        return view('salle_2\etape2_s3_view', $data);
+        return view('salle_2\etape2Salle2', $data);
     }
 
     public function etape2a()
@@ -231,7 +231,7 @@ class Salle2Controller extends BaseController
         $data = [
             'libelles' => $indice
         ];
-        echo view('salle_2\etape2a_s3_view', $data)
+        echo view('salle_2\etape2aSalle2', $data)
             . view('commun\footer.php');
     }
 
@@ -249,7 +249,7 @@ class Salle2Controller extends BaseController
             'success_message' => null,
             'error'           => '',
             'code'            => '',
-            'next_url'        => base_url('/Etape4'),
+            'next_url'        => base_url('/Salle2/Etape4'),
         ];
 
         if (strtolower($this->request->getMethod()) === 'post') {
@@ -293,7 +293,7 @@ class Salle2Controller extends BaseController
             $data['code'] = '';
         }
 
-        return view('salle_2\Etape3_S3_View', $data);
+        return view('salle_2\Etape3Salle2', $data);
     }
 
     /* Etape 4 */
@@ -313,10 +313,10 @@ class Salle2Controller extends BaseController
             'error' => '',
             'success' => false,
             'success_message' => null,
-            'next_url' => site_url('Etape5'),
+            'next_url' => site_url('/Salle2/Etape5'), // a modif ??
         ];
 
-        return view('salle_2\Etape4_S3_View', $data);
+        return view('salle_2\Etape4Salle2', $data);
     }
 
     public function validerEtape4()
@@ -336,7 +336,7 @@ class Salle2Controller extends BaseController
                 'error' => null,
                 'success' => true,
                 'success_message' => "Bravo ! Le code est correct. Le Téléphone est maintenant déverrouillée.",
-                'next_url' => site_url('Etape5'),
+                'next_url' => site_url('/Salle2/Etape5'),
             ];
         } else {
             $data = [
@@ -345,11 +345,11 @@ class Salle2Controller extends BaseController
                 'error' => "Mot de passe incorrect ",
                 'success' => false,
                 'success_message' => null,
-                'next_url' => site_url('Etape5'),
+                'next_url' => site_url('/Salle2/Etape5'),
             ];
         }
 
-        return view('salle_2\Etape4_S3_View', $data);
+        return view('salle_2\Etape4Salle2', $data);
     }
 
     public function passwordRandom()
@@ -380,14 +380,18 @@ class Salle2Controller extends BaseController
         $data = [
             'libelles' => $indice
         ];
-        echo view('salle_2\etape5_s3_view', $data)
+        echo view('salle_2\etape5Salle2', $data)
             . view('commun\footer.php');
 
     }
 
+    public function Etapeb()
+    {
+        return view('salle_2\EtapeBonneSalle2');
+    }
     public function Etapef()
     {
-        return view('salle_2\Etape_Final_view');
+        return view('salle_2\EtapeFausseSalle2');
     }
 
 

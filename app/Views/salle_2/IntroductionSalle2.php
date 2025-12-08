@@ -36,7 +36,7 @@
 
         <div class="final-actions">
             <!-- le lien va directement à Etape1, plus besoin de popup -->
-            <a href="<?= base_url('Etape1') ?>" class="btn btn--xl btn-nuit">
+            <a href="<?= base_url('/Salle2/Etape1') ?>" class="btn btn--xl btn-nuit">
                 Commencer
             </a>
         </div>
