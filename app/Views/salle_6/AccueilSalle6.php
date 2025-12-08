@@ -1,7 +1,7 @@
 <title>Salle n°6</title>
 <?= link_tag(base_url() . "styles/salle_6/accueilSalle6.css") ?>
 <div class="container">
-    <h1 class="titre-temp">Salle n°6</h1>
+    <h1 class="titre-temp"><?= $infosSalle['libelle'] ?></h1>
 
     <!-- Bulle de dialogue SVG -->
     <div class="bulle">
@@ -33,18 +33,18 @@
 
     <!-- Mascotte -->
     <?=anchor("#",img([
-            'src' => base_url() . 'images/commun/mascotte/mascotte_face.svg',
+            'src'=>base_url().$mascotte['face'],
             'alt' => 'Mascotte',
             'class' => 'mascotte',
-            'data-hover' => base_url() . 'images/commun/mascotte/mascotte_exclamee.svg',
-            'data-default' => base_url() . 'images/commun/mascotte/mascotte_face.svg'
+            'data-hover' => base_url() . $mascotte['exclamee'],
+            'data-default' => base_url() . $mascotte['face']
     ]), ['id'=>"open-modal"]) ?>
 
     <!-- zone train -->
     <?= anchor(base_url() . 'Salle6/Enigme', ' ', ['class' => 'zone-cliquable']); ?>
 
     <!-- Bouton retour -->
-    <?= anchor(base_url() . 'Salle6/RevenirAccueil', img(['src' => 'images/commun/btn_retour/home_icone_6.webp',
+    <?= anchor(base_url() . 'Salle6/RevenirAccueil', img(['src' => $infosSalle['bouton'],
             'alt' => 'Retour',
             'class' => 'retour']), [
             'class' => 'retour'
@@ -61,7 +61,7 @@
                 <!-- Texte d'explication -->
                 <foreignObject x="83.06" y="72.965" width="1328.2" height="502.03">
                     <div xmlns="http://www.w3.org/1999/xhtml" class="modal-texte">
-                        Te voilà dans le grenier, clique sur le train pour commencer les énigmes. Explore bien chaque recoin et résous les mystères qui t'attendent !
+                        <?= $infosSalle['intro_salle'] ?>
                     </div>
                 </foreignObject>
 
@@ -77,7 +77,7 @@
                 <rect id="mascotte" x="1524.8" y="528.53" width="390.55" height="547.23" fill-opacity="0" stroke-width=".26458"/>
             </svg>
             <!-- Image de la mascotte injectée par JS -->
-            <img id="mascotte-modal-img" src="<?= base_url() ?>images/commun/mascotte/mascotte_profil.svg" alt="Mascotte" />
+            <img id="mascotte-modal-img" src="<?= base_url().$mascotte['profil']; ?>" alt="Mascotte" />
         </div>
     </div>
 

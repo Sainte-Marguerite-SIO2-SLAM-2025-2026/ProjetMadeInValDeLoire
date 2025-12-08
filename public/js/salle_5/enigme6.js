@@ -4,6 +4,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     const objetsDrag = document.querySelectorAll('.objet-drag');
     const zoneDepot = document.getElementById('zone_depot');
+    const btn = document.querySelector(".lumi-zone");
+    const bulle = document.getElementById("infobulle");
+
+    btn.addEventListener("click", () => {
+        if (bulle.style.display === "none" || bulle.style.display === "") {
+            bulle.style.display = "block";
+            setTimeout(() => {
+                bulle.style.display = "none";
+            }, 8000);
+        }
+    });
 
     if (!zoneDepot || objetsDrag.length === 0) {
         console.log('Énigme 6 : éléments drag & drop non trouvés');

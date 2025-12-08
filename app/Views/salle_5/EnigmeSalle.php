@@ -117,9 +117,9 @@
 
                 <!-- CHOIX 1 -->
                 <g id="choix_1" class="objet-cliquable" data-reponse="choix1">
-                    <image width="594" height="105" x="1270" y="388"
+                    <image width="594" height="105" x="1270" y="308"
                            xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
-                    <text x="1567" y="450"
+                    <text x="1567" y="370"
                           text-anchor="middle"
                           font-size="28"
                           font-weight="600"
@@ -128,14 +128,14 @@
                         Fermer/Sécuriser la fenêtre
                     </text>
                     <rect class="zone-click" width="594" height="105"
-                          x="1270" y="388" fill="transparent" style="cursor:pointer;"/>
+                          x="1270" y="308" fill="transparent" style="cursor:pointer;"/>
                 </g>
 
                 <!-- CHOIX 2 -->
                 <g id="choix_2" class="objet-cliquable" data-reponse="autocollant">
-                    <image width="594" height="105" x="1270" y="508"
+                    <image width="594" height="105" x="1270" y="428"
                            xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
-                    <text x="1567" y="570"
+                    <text x="1567" y="490"
                           text-anchor="middle"
                           font-size="28"
                           font-weight="600"
@@ -144,14 +144,14 @@
                         Poser un autocollant "Ne pas toucher"
                     </text>
                     <rect class="zone-click" width="594" height="105"
-                          x="1270" y="508" fill="transparent" style="cursor:pointer;"/>
+                          x="1270" y="428" fill="transparent" style="cursor:pointer;"/>
                 </g>
 
                 <!-- CHOIX 3 -->
                 <g id="choix_3" class="objet-cliquable" data-reponse="cacher_tapis">
-                    <image width="594" height="105" x="1270" y="628"
+                    <image width="594" height="105" x="1270" y="548"
                            xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
-                    <text x="1567" y="690"
+                    <text x="1567" y="610"
                           text-anchor="middle"
                           font-size="28"
                           font-weight="600"
@@ -160,14 +160,14 @@
                         Cacher le matériel sous un tapis
                     </text>
                     <rect class="zone-click" width="594" height="105"
-                          x="1270" y="628" fill="transparent" style="cursor:pointer;"/>
+                          x="1270" y="548" fill="transparent" style="cursor:pointer;"/>
                 </g>
 
                 <!-- CHOIX 4 -->
                 <g id="choix_4" class="objet-cliquable" data-reponse="choix4">
-                    <image width="594" height="105" x="1270" y="748"
+                    <image width="594" height="105" x="1270" y="668"
                            xlink:href="<?= base_url('images/salle_5/reponse.svg') ?>"/>
-                    <text x="1567" y="810"
+                    <text x="1567" y="730"
                           text-anchor="middle"
                           font-size="28"
                           font-weight="600"
@@ -176,7 +176,7 @@
                         Éloigner/Verrouiller le matériel proche
                     </text>
                     <rect class="zone-click" width="594" height="105"
-                          x="1270" y="748" fill="transparent" style="cursor:pointer;"/>
+                          x="1270" y="668" fill="transparent" style="cursor:pointer;"/>
                 </g>
             <?php endif; ?>
 
@@ -248,6 +248,32 @@
 
             <?php endif; ?>
 
+            <g id="infobulle" class="infobulle" style="display:none">
+                <image id="indice"
+                       preserveAspectRatio="none"
+                       x="1358.2" y="723.12" width="341.71" height="248.52"
+                       xlink:href="<?= base_url('images/salle_6/bulle-salle-6.svg') ?>" />
+                <!-- Bloc texte dans la bulle -->
+                <foreignObject x="1370" y="800" width="300" height="200">
+                    <div class="texte-indice" xmlns="http://www.w3.org/1999/xhtml"
+                         style="font-size:22px; font-weight:600; text-align:center;">
+                        <?= $indice->libelle ?>
+                    </div>
+                </foreignObject>
+            </g>
+
+            <g id="lumi" class="zone-lumi" data-piece="Lumi">
+                <image class="lumi-image default"
+                       preserveAspectRatio="xMidYMid slice"
+                       x="1687.9" y="786.97" width="205" height="252"
+                       xlink:href="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>" />
+                <image class="lumi-image hover"
+                       preserveAspectRatio="xMidYMid slice"
+                       x="1687.9" y="786.97" width="205" height="252"
+                       xlink:href="<?= base_url('images/commun/mascotte/mascotte_interrogee.svg') ?>" />
+                <rect class="lumi-zone" x="1687.9" y="786.97" width="205" height="252" pointer-events="all"/>
+            </g>
+
         </svg>
     </div>
 
@@ -299,17 +325,6 @@
 
     <!-- Feedback -->
     <div class="feedback" id="feedback"></div>
-
-
-
-    <!-- Mascotte -->
-    <div class="mascotte">
-        <?= img([
-                "src" => base_url('images/commun/mascotte/mascotte_face.svg'),
-                "class" => "mascotte-img",
-                "alt" => "Mascotte"
-        ]) ?>
-    </div>
 </div>
 
 <div id="transition-overlay"></div>

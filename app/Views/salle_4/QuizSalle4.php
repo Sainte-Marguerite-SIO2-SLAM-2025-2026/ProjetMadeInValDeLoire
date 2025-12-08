@@ -13,7 +13,6 @@
     <!-- Dossier ouvert (container) -->
     <div id="dossier-container">
         <?= img([
-//                'src'   => 'images/salle_4/images_finales/PNG/dossier_ouvert_plein.png',
                 'src'   => 'images/salle_4/images_finales/dossier-interieur-vide.webp',
                 'alt'   => 'Dossier ouvert',
                 'class' => 'dossier-fond'
@@ -64,7 +63,7 @@
 
     <!-- Modal pour afficher la question -->
     <div id="questionModal" class="modal">
-        <div class="modal-content question-modal-content">
+        <div id="questionModal" class="modal-content question-modal-content">
             <span class="close-question">&times;</span>
 
             <!-- Carte en grand format -->
@@ -74,23 +73,22 @@
                      alt="Carte"
                      class="carte-grande-img">
                 <div class="question-text" id="question-text"></div>
-            </div>
 
-            <!-- Boutons Vrai/Faux -->
-            <div class="reponses-buttons">
-                <button type="button" id="btn-vrai" class="btn-reponse btn-vrai">VRAI</button>
-                <button type="button" id="btn-faux" class="btn-reponse btn-faux">FAUX</button>
+                <div class="reponses-buttons">
+                    <button type="button" id="btn-vrai" class="btn-reponse btn-vrai">VRAI</button>
+                    <button type="button" id="btn-faux" class="btn-reponse btn-faux">FAUX</button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Modal de résultat final -->
-    <div id="resultModal" class="modal">
-        <div class="modal-content result-modal-content">
+    <div id="resultModal" class="modal-fin">
+        <div class="modal-content-fin result-modal-content">
             <h2 id="resultTitle"></h2>
             <p id="resultMessage"></p>
             <p id="scoreMessage"></p>
-            <button id="btnRetourAccueil" class="btn-retour-accueil">Retour à l'accueil</button>
+            <button id="btnRetourAccueil" class="btn-retour-accueil">Retourner au Manoir</button>
         </div>
     </div>
 
@@ -98,7 +96,7 @@
     <?php if (session()->get('mode') === 'jour'): ?>
         <div class="retour-top">
             <?= anchor('/manoirJour', img([
-                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
+                    'src'   => $salle['bouton'],
                     'alt'   => 'retour',
                     'class' => 'retour'
             ])); ?>
@@ -106,34 +104,34 @@
     <?php else: ?>
         <div class="retour-top">
             <?= anchor('/', img([
-                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
-                    'alt'   => 'retour',
+                    'src'   => $salle['bouton'],
+                    'alt'   => 'back',
                     'class' => 'retour'
             ])); ?>
         </div>
     <?php endif?>
 
-    <!-- Mascotte interactive -->
+    <!-- Mascotte -->
     <div class="mascotte-zone" id="mascotte-container">
         <?= anchor(base_url(), img([
-                'src'   => 'images/commun/mascotte/mascotte_face.svg',
+                'src'   => $mascotte['face'],
                 'alt'   => 'Mascotte',
                 'class' => 'mascotte-img mascotte-default'
         ])); ?>
 
         <?= anchor(base_url(), img([
-                'src'   => 'images/commun/mascotte/mascotte_exclamee.svg',
+                'src'   => $mascotte['exclamee'],
                 'alt'   => 'Mascotte Hover',
                 'class' => 'mascotte-img mascotte-hover'
         ])); ?>
     </div>
 
     <!-- Modal des règles -->
-    <div id="rulesModal" class="modal">
-        <div class="modal-content rules-modal-content">
+    <div id="rulesModal" class="modal-lumi">
+        <div class="modal-content-lumi rules-modal-content">
             <span class="close-rules">&times;</span>
             <h2>Règles du Quiz</h2>
-            <div class="rules-content">
+            <div class="rules-content-lumi">
                 <h3>Objectif</h3>
                 <p>Répondre correctement à 6 questions sur les ransomwares.</p>
 

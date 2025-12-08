@@ -29,3 +29,22 @@ class IndicesModel extends Model
         return $indices;
     }
 }
+
+class ExplicationsModel extends Model
+{
+    protected $table = 'explication';
+    protected $primaryKey = 'numero';
+    protected $allowedFields = ['libelle'];
+
+    public function getExplication($numeroActivite)
+    {
+        $builder = $this->db->table('explication');
+        $builder->select('explication.libelle');
+        $builder->join('activite', 'activite.explication_numero = explication.numero');
+        $builder->where('activite.numero', $numeroActivite);
+        $builder->distinct();
+
+        $explication = $builder->get()->getResultArray();
+        return $explication;
+    }
+}

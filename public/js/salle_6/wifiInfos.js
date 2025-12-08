@@ -132,9 +132,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (estInfoCorrecte) {
                     messageResultat.textContent = '✓ Excellent ! C\'est bien cette information qui rend ce WiFi sécurisé.';
                     infoSelectionnee.element.classList.add('info-correcte');
+                    // Ajouter la classe correct pour le background vert
+                    resultatContainer.classList.remove('incorrect');
+                    resultatContainer.classList.add('correct');
                 } else {
                     messageResultat.textContent = '✗ Non, ce n\'est pas cette information qui garantit la sécurité de ce WiFi.';
                     infoSelectionnee.element.classList.add('info-incorrecte');
+                    // Ajouter la classe incorrect pour le background rouge
+                    resultatContainer.classList.remove('correct');
+                    resultatContainer.classList.add('incorrect');
 
                     // Mettre en évidence la bonne info
                     const bonneInfo = document.querySelector('.info-selectionnable[data-info="' + zoneCorrecte + '"]');

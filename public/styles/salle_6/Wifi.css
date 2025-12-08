@@ -327,7 +327,7 @@ html, body {
 }
 
 .wifi-nom {
-    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-size: clamp(1.8rem, 2.5vw, 2rem);
     font-weight: bold;
     color: #2c3e50;
     margin: 0;
@@ -336,7 +336,7 @@ html, body {
 }
 
 .wifi-type {
-    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-size: clamp(2rem, 3.5vw, 3rem);
     color: #34495e;
     margin: 0;
     padding: 0.5rem 1rem;
@@ -346,7 +346,7 @@ html, body {
 }
 
 .wifi-chiffrement {
-    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-size: clamp(2rem, 3.5vw, 3rem);
     color: #7f8c8d;
     margin: 0;
     padding: 0.3rem 0.8rem;
@@ -453,12 +453,23 @@ a.btn-valider:hover {
 .resultat-container {
     flex: 1;
     max-width: 600px;
-    padding: 20px;
-    background-image: url("../../images/salle_6/bandeRouge.svg");
-    background-size: cover;       /* <-- Changement ici */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
+    margin: 50px;
+    padding: 20px;
+    transition: background-image 0.3s ease;
+}
+
+/* Classe pour résultat correct */
+.resultat-container.correct {
+    background-image: url("../../images/salle_6/bandeVert.svg");
+}
+
+/* Classe pour résultat incorrect */
+.resultat-container.incorrect {
+    background-image: url("../../images/salle_6/bandeRouge.svg");
 }
 
 #messageResultat {

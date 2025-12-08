@@ -41,7 +41,7 @@
                         <h3 class="wifi-nom info-selectionnable"
                             data-info="nom"
                             id="wifiNom">
-                            WiFi-<?= esc($wifi['numero']) ?>
+                            <?= esc($wifi['nom']) ?>
                         </h3>
                         <p class="wifi-type info-selectionnable"
                            data-info="public_prive"
@@ -122,12 +122,12 @@
 
     <!-- Mascotte avec anchor -->
     <?= anchor('#', img([
-            'src' => base_url() . 'images/commun/mascotte/mascotte_face.svg',
+            'src' => base_url() . $mascotte['face'],
             'alt' => 'Mascotte',
             'class' => 'mascotte',
             'id' => 'mascotte',
-            'data-hover' => base_url() . 'images/commun/mascotte/mascotte_exclamee.svg',
-            'data-default' => base_url() . 'images/commun/mascotte/mascotte_face.svg'
+            'data-hover' => base_url() . $mascotte['exclamee'],
+            'data-default' => base_url() . $mascotte['face']
     ]), [
             'id' => 'mascotteLink',
             'class' => 'mascotte-link'
