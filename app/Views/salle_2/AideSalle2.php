@@ -24,15 +24,13 @@
         <div class="mascot-final-wrapper">
             <img src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Monsieur Fox">
         </div>
-
         <h1 class="final-title">Explication !</h1>
 
         <p class="final-text">
-            Il y a <strong>5 étapes</strong>, le but est de trouver les mots de passe à travers des indices cachés.
+            <?= $introduction->libelle; ?>
             <br><br>
-            Les mots de passe doivent obligatoirement être complexes !
-            <br><br>
-            Mot de passe de la porte : <?= esc($libelles[0]['libelle'] ?? '') ?>
+            Si vous avez <strong>besoin d'aide</strong> cliquez sur la <strong> mascotte </strong>!
+
         </p>
 
         <div class="final-actions">

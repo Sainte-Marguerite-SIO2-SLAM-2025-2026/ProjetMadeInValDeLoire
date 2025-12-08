@@ -122,29 +122,25 @@
             <?= $libelles->libelle ?>
         </p>
     </aside>
-    <script>
-        (function() {
-            const isReload = performance.getEntriesByType("navigation")[0]?.type === 'reload';
-            const errorDiv = document.getElementById('label-message');
-            const isValidation = errorDiv && !errorDiv.classList.contains('is-hidden') && errorDiv.innerText.trim().length > 0;
 
-            if (isReload || isValidation) {
-                const msg = document.getElementById('message-intro');
-                if(msg) msg.style.display = 'none';
-            }
-        })();
-    </script>
-
-    <!-- Mascotte et bulle invisibles quand il y a le message de succès -->
-    <div class="mascotte-container" style="<?= !empty($success) ? 'visibility:hidden;' : '' ?>">
+    <    <div class="mascotte-container">
         <img id="mascotte" src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
     </div>
 
-    <div id="mascotte-bulle" style="<?= !empty($success) ? 'visibility:hidden;' : '' ?>">
+    <div id="mascotte-bulle">
         <div id="bulle-texte"></div>
         <div id="bulle-actions"></div>
         <div class="bulle-fleche"></div>
     </div>
+
+    <?php
+    $indices_for_js = is_array($mascotte) ? $mascotte : [$mascotte];
+    $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
+    ?>
+
+    <script>
+        const INDICES = <?= json_encode($libelles_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
+    </script>
 
 </div> <div class="scroll-flow">
     <div class="scroll-spacer"></div>

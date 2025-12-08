@@ -63,6 +63,8 @@
 </main>
 
 
+
+
 <script src="<?= base_url('/js/salle_2/accueil.js') ?>" defer></script>
 </body>
 </html>

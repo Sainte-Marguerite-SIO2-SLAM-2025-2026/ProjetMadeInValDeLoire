@@ -152,20 +152,21 @@
         <div class="bulle-fleche"></div>
     </div>
 
-</div> <div class="scroll-flow">
-    <div class="scroll-spacer"></div>
-</div>
 <?php
-// Toujours transformer en tableau pour JS
-$indices_for_js = !empty($indice) ? [$indice] : ["Aucun indice disponible"];
+$indices_for_js = is_array($mascotte) ? $mascotte : [$mascotte];
+$libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
 ?>
+
 <script>
-    const BASE_URL = "<?= esc(base_url()) ?>";
-    const INDICES = <?= json_encode($indices_for_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
+    const INDICES = <?= json_encode($libelles_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
 </script>
+
 
 <script src="<?= base_url('js/salle_2/mascotte.js') ?>"></script>
 
+</div> <div class="scroll-flow">
+    <div class="scroll-spacer"></div>
+</div>
 
 
 <script>const base_url = "<?= base_url() ?>";</script>

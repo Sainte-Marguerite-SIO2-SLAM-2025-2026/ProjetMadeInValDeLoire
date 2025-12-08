@@ -157,6 +157,15 @@
             <div id="bulle-actions"></div>
             <div class="bulle-fleche"></div>
         </div>
+
+    <?php
+    $indices_for_js = is_array($mascotte) ? $mascotte : [$mascotte];
+    $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
+    ?>
+
+        <script>
+            const INDICES = <?= json_encode($libelles_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
+        </script>
     <?php endif; ?>
 
     <?php if (!empty($success)): ?>

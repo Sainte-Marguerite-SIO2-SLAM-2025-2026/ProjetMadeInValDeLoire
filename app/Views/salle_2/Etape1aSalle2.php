@@ -107,9 +107,14 @@
             <div class="bulle-fleche"></div>
         </div>
 
-        <div class="retour-buttons">
-            <a class="btn btn--ghost btn--xl btn-retour-code" href="<?= base_url('/Salle2/Etape1') ?>">Retour</a>
-        </div>
+    <?php
+    $indices_for_js = is_array($mascotte) ? $mascotte : [$mascotte];
+    $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
+    ?>
+
+        <script>
+            const INDICES = <?= json_encode($libelles_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
+        </script>
     <?php endif; ?>
 
     <?php if (!empty($success)): ?>

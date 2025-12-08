@@ -27,9 +27,13 @@ class Salle2Controller extends BaseController
     {
         $model = new Salle2Model();
         $libelles = $model->getMotDePasse1();
+        $introduction =$model->getIntroduction();
         $data = [
-            'libelles' => $libelles
+            'libelles' => $libelles,
+            'introduction' => $introduction,
+
         ];
+
         return view('salle_2\AideSalle2',$data);
     }
 
@@ -37,8 +41,10 @@ class Salle2Controller extends BaseController
     {
         $model = new Salle2Model();
         $indice = $model->getIndice(2);
+        $mascotte = $model->getIndiceMascotte(10);
         $data = [
             'libelles' => $indice
+            ,'mascotte' => $mascotte
         ];
         echo view('salle_2\etape1Salle2', $data);
         echo view('commun\footer.php');
@@ -52,6 +58,8 @@ class Salle2Controller extends BaseController
     {
         $model = new Salle2Model();
         $indice = $model->getIndice(2);
+        $mascotte = $model->getIndiceMascotte(11);
+
 
         if ($this->request->getMethod() === 'post') {
             return $this->validerEtape1a();
@@ -60,6 +68,7 @@ class Salle2Controller extends BaseController
         // Affichage initial (GET)
         $data = [
             'libelles' => $indice,
+            'mascotte' => $mascotte,
             'title' => 'Code de la Porte | Salle Mot de Passe',
             'mot_de_passe' => '', // champ vide par défaut
             'placeholder_message' => session()->getFlashdata('placeholder_message') ?? null,
@@ -122,6 +131,8 @@ class Salle2Controller extends BaseController
         $model = new Salle2Model();
         $libelles = $model->getDistinctLibelles(4); // récupérer 3 libelles pour la view
         $indices = $model->getIndice(4);
+        $mascotte = $model->getIndiceMascotte(12);
+
 
 
 
@@ -129,6 +140,7 @@ class Salle2Controller extends BaseController
         $data = [
             'libelles' => $libelles,
             'indices' => $indices,
+            'mascotte' => $mascotte,
             'success' => false,
             'success_message' => null,
             'error' => null,
@@ -178,9 +190,11 @@ class Salle2Controller extends BaseController
     {
         $model = new Salle2Model();
         $indice = $model->getIndice(6);
+        $mascotte = $model->getIndiceMascotte(13);
         // Données par défaut
         $data = [
             'libelles' => $indice,
+            'mascotte' => $mascotte,
             'title'           => 'Mallette | Salle Mot de Passe',
             'success'         => false,
             'success_message' => null,
@@ -238,6 +252,7 @@ class Salle2Controller extends BaseController
     {
         $model = new Salle2Model();
         $indice = $model->getIndice(7);
+        $mascotte = $model->getIndiceMascotte(14);
 
         if ($this->request->getMethod() === 'post') {
             return $this->validerEtape4();
@@ -245,6 +260,7 @@ class Salle2Controller extends BaseController
 
         $data = [
             'libelles' => $indice,
+            'mascotte' => $mascotte,
             'title' => 'Téléphone | Salle Mot de Passe',
             'code' => '',
             'error' => '',
@@ -314,8 +330,10 @@ class Salle2Controller extends BaseController
     {
         $model = new Salle2Model();
         $indice = $model->getIndice(8);
+        $mascotte = $model->getIndiceMascotte(15);
         $data = [
-            'libelles' => $indice
+            'libelles' => $indice,
+            'mascotte'=> $mascotte,
         ];
         echo view('salle_2\etape5Salle2', $data)
             . view('commun\footer.php');

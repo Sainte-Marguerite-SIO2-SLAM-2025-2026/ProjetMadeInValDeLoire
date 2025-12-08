@@ -25,28 +25,28 @@ document.addEventListener("DOMContentLoaded", () => {
         bulle.style.display = "block";
         positionnerBulle();
 
-        mascotte.src = baseUrl + "/images/salle_2/mascotte/mascotte_exclamee.svg";
+        mascotte.src = baseUrl + "../images/salle_2/mascotte/mascotte_interrogee.svg";
 
         timer = setTimeout(() => {
             bulle.style.display = "none";
-            mascotte.src = baseUrl + "/images/salle_2/mascotte/mascotte_face.svg";
+            mascotte.src = baseUrl + "../images/salle_2/mascotte/mascotte_face.svg";
         }, 5000);
     }
 
     mascotte.addEventListener("mouseenter", () => {
-        mascotte.src = baseUrl + "/images/salle_2/mascotte/mascotte_exclamee.svg";
+        mascotte.src = baseUrl + "../images/salle_2/mascotte/mascotte_interrogee.svg";
     });
 
     mascotte.addEventListener("mouseleave", () => {
         if (bulle.style.display !== "block") {
-            mascotte.src = baseUrl + "/images/salle_2/mascotte/mascotte_face.svg";
+            mascotte.src = baseUrl + "../images/salle_2/mascotte/mascotte_face.svg";
         }
     });
 
     mascotte.addEventListener("click", () => {
         if (bulle.style.display === "block") {
             bulle.style.display = "none";
-            mascotte.src = baseUrl + "/images/salle_2/mascotte/mascotte_face.svg";
+            mascotte.src = baseUrl + "../images/salle_2/mascotte/mascotte_face.svg";
         } else {
             afficherIndice();
         }
@@ -60,3 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (bulle.style.display === "block") positionnerBulle();
     });
 });
+
+const faceImg = new Image();
+faceImg.src = BASE_URL + "../images/salle_2/mascotte/mascotte_interrogee.svg";
+
+const exclameeImg = new Image();
+exclameeImg.src = BASE_URL + "../images/salle_2/mascotte/mascotte_exclamee.svg";
