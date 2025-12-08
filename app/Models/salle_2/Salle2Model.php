@@ -17,20 +17,19 @@ class Salle2Model extends Model
         $builder = $db->table('explication');
 
         $query = $builder->select('libelle')
-            ->distinct()
-            ->whereIn('numero', [1])
-            ->get(); // exécute la requête
+            ->where('numero', 1)
+            ->get();
 
-        return $query->getResult(); // récupère les résultats
+        return $query->getRow(); // retourne un seul objet
     }
+
     public function getIndice($numero)
     {
-        return $this->db->table('indice')
+        return $this->db->table('explication')
             ->select('libelle')
             ->where('numero', $numero)
             ->get()
             ->getRow();
-
     }
 
 
