@@ -33,11 +33,11 @@
 
     <!-- Mascotte -->
     <?=anchor("#",img([
-            'src' => base_url() . 'images/commun/mascotte/mascotte_face.svg',
+            'src'=>base_url().$mascotte['face'],
             'alt' => 'Mascotte',
             'class' => 'mascotte',
-            'data-hover' => base_url() . 'images/commun/mascotte/mascotte_exclamee.svg',
-            'data-default' => base_url() . 'images/commun/mascotte/mascotte_face.svg'
+            'data-hover' => base_url() . $mascotte['exclamee'],
+            'data-default' => base_url() . $mascotte['face']
     ]), ['id'=>"open-modal"]) ?>
 
     <!-- zone train -->
@@ -77,7 +77,7 @@
                 <rect id="mascotte" x="1524.8" y="528.53" width="390.55" height="547.23" fill-opacity="0" stroke-width=".26458"/>
             </svg>
             <!-- Image de la mascotte injectée par JS -->
-            <img id="mascotte-modal-img" src="<?= base_url() ?>images/commun/mascotte/mascotte_profil.svg" alt="Mascotte" />
+            <img id="mascotte-modal-img" src="<?= base_url().$mascotte['profil']; ?>" alt="Mascotte" />
         </div>
     </div>
 

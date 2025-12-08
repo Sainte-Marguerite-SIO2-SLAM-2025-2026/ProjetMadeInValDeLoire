@@ -3,6 +3,7 @@
 namespace App\Controllers\salle_6;
 
 use App\Controllers\BaseController;
+use App\Models\commun\MascotteModel;
 use App\Models\salle_6\ProposerVpnModel;
 use App\Models\salle_6\VpnModel;
 
@@ -11,10 +12,13 @@ class VpnController extends BaseController
     protected $proposerVpnModel;
     protected $vpnModel;
 
+    protected MascotteModel $mascotteModel;
+
     public function __construct()
     {
         $this->proposerVpnModel = new ProposerVpnModel();
         $this->vpnModel = new VpnModel();
+        $this->mascotteModel = new MascotteModel();
     }
 
     public function Index(): string
@@ -26,6 +30,10 @@ class VpnController extends BaseController
         $data['vpns'] = $this->proposerVpnModel->getVpnMelanges($activite_numero);
         //echo isset($data['vpns']) and !is_null(['vpns']);
         $data['intitule'] = "Clique sur les tuyaux pour commencer";
+
+        // recuperer les mascottes
+        $data['mascotte'] = $this->mascotteModel->getMascottes();
+
         // Debug : afficher ce qui est récupéré
         log_message('debug', 'VPN récupérés: ' . print_r($data['vpns'], true));
 
