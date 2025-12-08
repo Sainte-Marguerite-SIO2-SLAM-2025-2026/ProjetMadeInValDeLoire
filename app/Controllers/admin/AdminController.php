@@ -4,6 +4,7 @@ namespace App\Controllers\admin;
 
 use App\Controllers\BaseController;
 use App\Models\admin\UserModel;
+use CodeIgniter\HTTP\RedirectResponse;
 
 class AdminController extends BaseController
 {
@@ -13,9 +14,8 @@ class AdminController extends BaseController
             view('admin/Connexion');
     }
 
-    public function login()
+    public function login() : string|RedirectResponse
     {
-
         $userModel = new UserModel();
 
         $username = esc($this->request->getPost('user'));
@@ -29,7 +29,6 @@ class AdminController extends BaseController
         }
 
         // Vérification mot de passe
-        //if (encrypt_aes256_cbc($password) !== $user['mdp']) {
         if ($password !== $user['mdp']) {
             return redirect()->back()->with('error', 'Mot de passe incorrect');
         }
@@ -43,18 +42,19 @@ class AdminController extends BaseController
         return redirect()->to('/gingembre/accueil');
     }
 
-    public function checkConnexion()
-    {
-
-    }
-
-    public function logout()
+    public function logout() : RedirectResponse
     {
         session()->destroy();
         return redirect()->to('/gingembre');
     }
 
-    public function accueil() {
+    public function accueil() : string|RedirectResponse
+    {
+        // Test si l'utilisateur est connecté
+        if (session()->get('admin_id') == null)
+        {
+            return redirect()->to('/gingembre');
+        }
         return view('admin/adminAccueil');
     }
 
@@ -62,8 +62,14 @@ class AdminController extends BaseController
         // Création d'utilisateur avec le model
     }
 
-    public function salle($numero) : string
+    public function salle($numero) : string|RedirectResponse
     {
+        // Test si l'utilisateur est connecté
+        if (session()->get('admin_id') == null)
+        {
+            return redirect()->to('/gingembre');
+        }
+
         if ($numero == 1) {
             return view('admin/salle_1/AccueilAdminSalle1');
         }
@@ -87,13 +93,23 @@ class AdminController extends BaseController
         }
     }
 
-    public function quiz() : string
+    public function quiz() : string|RedirectResponse
     {
+        // Test si l'utilisateur est connecté
+        if (session()->get('admin_id') == null)
+        {
+            return redirect()->to('/gingembre');
+        }
         return view('admin/quiz/AccueilAdminquiz');
     }
 
-    public function mascotte() : string
+    public function mascotte() : string|RedirectResponse
     {
+        // Test si l'utilisateur est connecté
+        if (session()->get('admin_id') == null)
+        {
+            return redirect()->to('/gingembre');
+        }
         return view('admin/mascotte/AccueilAdminmascotte');
     }
 
