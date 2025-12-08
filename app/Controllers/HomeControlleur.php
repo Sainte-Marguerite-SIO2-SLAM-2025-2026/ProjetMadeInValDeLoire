@@ -206,6 +206,7 @@ class HomeControlleur extends BaseController
         }
 
         $data['numero_salle'] = $numero;
+        $data['mascotte'] = $this->mascotteModel->getMascottes();
 
         return view('commun/header').
             view($viewPath, $data).
