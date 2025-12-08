@@ -133,7 +133,7 @@
             <p id="code-success-titre" class="tip-desc" style="margin-bottom:14px;">
                 <?= esc($success_message ?? 'Bravo ! Le classement est correct. Vous avez fini la salle Mot de Passe.') ?>
             </p>
-            <a href="<?= esc($next_url ?? site_url('/Etapef')) ?>"
+            <a href="<?= esc($next_url ?? site_url('Salle2/Etapeb')) ?>"
                class="tip-btn btn--xl"
                id="go-next"
                aria-label="Passer à la salle suivante">

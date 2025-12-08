@@ -44,7 +44,6 @@ $routes->get('Salle2/Aide', 'salle_2\Salle2Controller::Aide');
 $routes->get('Salle2/Etape1', 'salle_2\Salle2Controller::Etape1');
 $routes->get('Salle2/Etape1a', 'salle_2\Salle2Controller::Etape1a');
 $routes->post('Etape1a', 'salle_2\Salle2Controller::validerEtape1a');
-$routes->match(['get', 'post'], '/Salle2/Etape1b', 'salle_2\Salle2Controller::Etape1b');
 $routes->get('Salle2/Etape2', 'salle_2\Salle2Controller::Etape2');
 $routes->match(['get', 'post'], '/Salle2/Etape2', 'salle_2\Salle2Controller::Etape2');
 $routes->get('Salle2/Etape2a', 'salle_2\Salle2Controller::Etape2a');

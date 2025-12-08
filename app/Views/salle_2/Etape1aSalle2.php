@@ -89,7 +89,12 @@
         </div>
     </form>
 
-    <!-- le </script> orphelin a été retiré -->
+    <!-- Message Introduction-->
+    <aside id="intro-tip" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
+        <p class="tip-desc">
+            <?= $libelles->libelle ?>
+        </p>
+    </aside>
 
     <?php if (empty($success)): ?>
         <div class="mascotte-container">
@@ -136,7 +141,7 @@
                     </p>
 
                     <div class="final-actions">
-                        <a href="<?= base_url('Salle2/Etape1b') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
+                        <a href="<?= base_url('Salle2/Etape2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
                             Passer a la salle Suivante
                         </a>
                     </div>
