@@ -142,6 +142,7 @@ class Salle2Model extends Model
 
 
 
+
     public function checkPhoneCode(string $code): bool
     {
         $db = \Config\Database::connect();

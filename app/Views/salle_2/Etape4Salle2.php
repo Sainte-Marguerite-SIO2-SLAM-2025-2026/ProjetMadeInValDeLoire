@@ -77,13 +77,13 @@
     </script>
     <article class="aide-telephone">
         <p>
-            Information importante à retenir !
+            <strong>Information importante à retenir !</strong>
         </p>
         <p>
             Pour trouver le code, vous devez appuyer sur le bouton en orange. Cette action permet de générer automatiquement un mot de passe sécurisé et unique.
         </p>
         <p>
-            Attention, le mot de passe peut être plus ou moins complexe. Ne négligez surtout pas la difficulté de cette étape, car elle garantit l'ouverture du Téléphone !
+            Attention, le mot de passe peut être plus ou moins complexe!
         </p>
     </article>
 
@@ -115,7 +115,7 @@
                 phoneDiv.classList.add('loading');
                 phoneDiv.setAttribute('aria-busy', 'true');
 
-                fetch("<?= base_url('Etape4/password-random') ?>", {
+                fetch("<?= base_url('Salle2/Etape4/password-random') ?>", {
                     method: 'GET',
                     headers: {
                         'X-Requested-With': 'XMLHttpRequest',
