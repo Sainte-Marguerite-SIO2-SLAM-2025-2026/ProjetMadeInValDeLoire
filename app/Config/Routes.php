@@ -10,10 +10,14 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/MentionLegale', 'commun\CommunController::MentionLegale');
 
 // Routes admin
-$routes->get('/user/connexion', 'admin\AdminController::index');
-$routes->get('admin/login', 'admin\AdminController::index');
-$routes->post('admin/login', 'admin\AdminController::login');
-$routes->get('admin/logout', 'admin\AdminController::logout');
+$routes->get('/gingembre', 'admin\AdminController::index');
+$routes->post('/gingembre/loginCheck', 'admin\AdminController::login');
+$routes->get('/gingembre/logout', 'admin\AdminController::logout');
+$routes->get('/gingembre/accueil', 'admin\AdminController::accueil');
+$routes->get('/gingembre/salle_(:num)', 'admin\AdminController::salle/$1');
+$routes->get('/gingembre/create-user', 'admin\AdminController::createUser');
+$routes->get('gingembre/quiz', 'admin\AdminController::quiz');
+$routes->get('gingembre/mascotte', 'admin\AdminController::mascotte');
 
 // Route pour la page d'accueil
 $routes->get('/', 'HomeControlleur::index');

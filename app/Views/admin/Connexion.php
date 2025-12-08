@@ -1,114 +1,21 @@
-<?= helper(['form']); ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Connexion Admin</title>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Inter", Arial, sans-serif;
-            background: linear-gradient(135deg, #2d3436, #000428);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .login-container {
-            width: 380px;
-            padding: 40px 35px;
-            background: rgba(255, 255, 255, 0.12);
-            border-radius: 18px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(9px);
-            -webkit-backdrop-filter: blur(9px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            color: white;
-            text-align: center;
-            animation: fadeIn 0.7s ease-out;
-        }
-
-        h2 {
-            font-size: 26px;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-
-        .input-field {
-            width: 90%;
-            margin-bottom: 18px;
-        }
-
-        .input-field input {
-            width: 100%;
-            padding: 14px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.3);
-            background: rgba(255, 255, 255, 0.15);
-            color: #fff;
-            font-size: 16px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        .input-field input::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .input-field input:focus {
-            border-color: #74b9ff;
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-            color: white;
-            font-size: 17px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn-submit:hover {
-            background: linear-gradient(135deg, #5f52d8, #8f88fc);
-            transform: translateY(-2px);
-        }
-
-        .error {
-            background: rgba(255, 0, 0, 0.2);
-            padding: 10px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            color: #ff7675;
-            font-weight: 600;
-            border: 1px solid rgba(255, 0, 0, 0.3);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    <?=link_tag('styles/admin/admin.css');?>
 </head>
 <body>
 
 <div class="login-container">
 
-    <h2>Connexion Administrateur</h2>
+    <h2>Espace de connexion</h2>
 
     <?php if (session()->getFlashdata('error')) : ?>
         <div class="error"><?= session()->getFlashdata('error') ?></div>
     <?php endif; ?>
 
-    <?= form_open('/admin/login'); ?>
+    <?= form_open('/gingembre/loginCheck'); ?>
 
     <div class="input-field">
         <?= form_input([

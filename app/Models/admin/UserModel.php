@@ -11,8 +11,8 @@ class UserModel extends Model
 
     protected $allowedFields = ['login', 'mdp'];
 
-    public function getUser($user)
+    public function getUser($login)
     {
-        return $this->where('user', $user)->first();
+        return $this->where('login', $login)->first();
     }
 }
