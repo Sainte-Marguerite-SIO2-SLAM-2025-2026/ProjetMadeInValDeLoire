@@ -3,10 +3,11 @@
 namespace App\Controllers\salle_5;
 
 use App\Controllers\BaseController;
-use App\Models\salle_5\MascotteModel;
+use App\Models\commun\MascotteModel;
+use App\Models\commun\SalleModel;
+use App\Models\salle_5\IndiceModel;
 use App\Models\salle_5\ModeEmploiModel;
 use App\Models\salle_5\ActiviteModel;
-use App\Models\salle_5\SalleModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\ZoneModel;
 
@@ -23,6 +24,7 @@ class Salle5Controller extends BaseController
         $mascotteModel = new MascotteModel();
         $modeEmploiModel = new ModeEmploiModel();
         $explicationModel = new ExplicationModel();
+        $indiceModel = new IndiceModel();
 
         // Vérifier que l'activité fait partie des activités sélectionnées
         $activites_ids = session()->get('activites_salle5') ?? [];
@@ -56,24 +58,27 @@ class Salle5Controller extends BaseController
         // Données pour la vue
         $data = [
             'enigme' => $activite,
-            'salle' => $salleModel->getSalle(5),
-            'mascotte' => $mascotteModel->getMascotteBySalle(5),
+//            'salle' => $salleModel->getSalle(5),
+//            'mascotte' => $mascotteModel->getMascotteBySalle(5),
+            'salle' => $salleModel->getSalleById(5),
+            'mascotte' => $mascotteModel->getMascottes(),
             'mode_emploi' => $mode_emploi,
             'explication' => $explication,
+            'indice' => $indiceModel->getIndice($activite_numero),
         ];
 
         // Charger la vue selon si c'est une énigme bureau ou pas
         if (in_array($activite_numero, $this->enigmes_bureau)) {
             // Énigmes sur fond de bureau (2, 3, 4, 8, 9)
-            return view('commun\header') .
+            return view('commun/header') .
                 view('salle_5/EnigmeBureau', $data) .
-                view('commun\footer');
+                view('commun/footer');
         }
 
         // Vue par défaut pour les autres énigmes
-        return view('commun\header') .
+        return view('commun/header') .
             view('salle_5/EnigmeSalle', $data) .
-            view('commun\footer');
+            view('commun/footer');
     }
 
     public function validerEnigme()
@@ -168,9 +173,10 @@ class Salle5Controller extends BaseController
                 503 => 'Parfait ! Un badge d\'entreprise ne doit jamais être laissé sans surveillance.',
                 504 => 'Bien vu ! Les informations confidentielles ne doivent jamais être visibles.',
                 505 => 'Excellent ! Les portes doivent être fermées pour éviter les intrusions (tailgating).',
-                506 => 'Bravo ! L\'épaule-surfing est un risque physique simple à exploiter.',
+                506 => 'Bravo ! Le shoulder-surfing est un risque physique simple à exploiter (espionner un écran pour voir les données).',
                 507 => 'Parfait ! La sécurité physique inclut aussi les ouvrants (risque de vol).',
-                508 => 'Félicitations ! La politique "clean desk" réduit le risque de perte/vol d\'infos.',
+                508 => 'Félicitations ! La politique "clean desk" réduit le risque de perte/vol d\'infos.  
+                Ce terme désigne une approche systématique visant à garantir la sécurité des données sensibles et la confidentialité des informations critiques pour l\'entreprise.',
                 509 => 'Super ! Les secrets physiques ne doivent jamais être affichés et les MDP doivent être forts.',
                 510 => 'Bien vu ! Sûreté ≠ espionnage interne ; respecter le principe de proportionnalité.'
             ];

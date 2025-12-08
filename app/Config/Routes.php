@@ -9,6 +9,16 @@ use CodeIgniter\Router\RouteCollection;
 // Routes communes
 $routes->get('/MentionLegale', 'commun\CommunController::MentionLegale');
 
+// Routes admin
+$routes->get('/gingembre', 'admin\AdminController::index');
+$routes->post('/gingembre/loginCheck', 'admin\AdminController::login');
+$routes->get('/gingembre/logout', 'admin\AdminController::logout');
+$routes->get('/gingembre/accueil', 'admin\AdminController::accueil');
+$routes->get('/gingembre/salle_(:num)', 'admin\AdminController::salle/$1');
+$routes->get('/gingembre/create-user', 'admin\AdminController::createUser');
+$routes->get('gingembre/quiz', 'admin\AdminController::quiz');
+$routes->get('gingembre/mascotte', 'admin\AdminController::mascotte');
+
 // Route pour la page d'accueil
 $routes->get('/', 'HomeControlleur::index');
 $routes->get('/manoirJour', 'HomeControlleur::pagejour');
@@ -22,12 +32,12 @@ $routes->match(['GET','POST'],'/echouerJour/(:num)', 'HomeControlleur::echouerJo
 
 // Routes pour le quiz
 $routes->group('quiz', function($routes) {
-    $routes->get('/', 'QuizControlleur::index');
-    $routes->match(['get', 'post'],'demarrer/(:segment)', 'QuizControlleur::choix/$1');
-    $routes->get('choix/(:segment)', 'QuizControlleur::demarrer/$1');
-    $routes->get('question/(:segment)', 'QuizControlleur::question/$1');
-    $routes->post('repondre/(:segment)', 'QuizControlleur::repondre/$1');
-    $routes->get('resultats/(:segment)', 'QuizControlleur::resultats/$1');
+    $routes->get('/', 'Quiz\QuizControlleur::index');
+    $routes->match(['get', 'post'],'demarrer/(:segment)', 'Quiz\QuizControlleur::choix/$1');
+    $routes->get('choix/(:segment)', 'Quiz\QuizControlleur::demarrer/$1');
+    $routes->get('question/(:segment)', 'Quiz\QuizControlleur::question/$1');
+    $routes->post('repondre/(:segment)', 'Quiz\QuizControlleur::repondre/$1');
+    $routes->get('resultats/(:segment)', 'Quiz\QuizControlleur::resultats/$1');
 
 });
 
@@ -35,6 +45,7 @@ $routes->group('quiz', function($routes) {
 $routes->get('/Salle1', 'accueil\AccueilController::Salle1');
 $routes->get('Salle1/accesMessage', 'salle_1\Salle1Controller::accesMessage');
 $routes->get('Salle1/Code', 'salle_1\Salle1Controller::accesCode');
+$routes->get('Salle1/Backend', 'salle_1\Salle1Controller::getBackend');
 
 
 // Routes pour la salle 2
@@ -63,7 +74,7 @@ $routes->get('/Salle3', 'accueil\AccueilController::Salle3');
 $routes->get('/Salle3/Enigme', 'salle_3\Salle3Controller::index');
 
 // Routes pour la salle 4
-$routes->get('/Salle4', 'accueil\AccueilController::Salle4');
+$routes->get('/Salle4', 'salle_4\Salle4Controller::index');
 $routes->get('/pageFrise', 'salle_4\Salle4Controller::pageFrise');
 $routes->post('/verifierOrdre', 'salle_4\Salle4Controller::verifierOrdre');
 $routes->get('/quizFin', 'salle_4\Salle4Controller::quizFinal');
@@ -96,8 +107,3 @@ $routes->get('/Salle6/VPN', 'salle_6\VpnController::Index');
 $routes->post('/vpn/validerCarte', 'salle_6\VpnController::validerCarte');
 $routes->get('/Salle6/vpn/debug', 'salle_6\VpnController::debug');
 $routes->post('/Salle6/CompleteVpn', 'salle_6\Salle6Controller::CompleteVpn');
-
-
-
-
-

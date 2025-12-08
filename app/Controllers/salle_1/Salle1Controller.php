@@ -3,6 +3,7 @@
 namespace App\Controllers\salle_1;
 
 use App\Controllers\BaseController;
+use App\Models\commun\MascotteModel;
 use App\Models\salle_1\Salle1Message;
 
 class Salle1Controller extends BaseController
@@ -10,6 +11,7 @@ class Salle1Controller extends BaseController
     public function accesMessage(): string
     {
         $messageModel = new Salle1Message();
+        $this->mascotte = new MascotteModel();
 
         // Récupère un message aléatoire de la base de données
         $messageData = $messageModel->getMessageSalle1();
@@ -20,19 +22,12 @@ class Salle1Controller extends BaseController
         // Récupère les erreurs avec explications
         $erreursExplications = $messageModel->getErreursAvecExplications($messageData->numero);
 
-        // Récupère les indices
-        $indices = $messageModel->getIndices($messageData->numero);
-
-        // Prépare le nom du personnage
-        $nomPersonnage = $messageData->prenom . ' ' . $messageData->nom;
-
         $data = [
             'activite_numero' => $messageData->numero,
-            'nom_personnage' => $nomPersonnage,
             'mots_suspects' => $motsSuspects,
             'message' => $messageData->libelle,
-            'indices' => $indices,
             'erreurs_explications' => $erreursExplications,
+            'mascotte' => $this->mascotte->getMascottes(),
             ];
 
         return view('salle_1/DiscussionSalle1', $data)
@@ -41,7 +36,12 @@ class Salle1Controller extends BaseController
 
     public function accesCode(): string
     {
-        return view('salle_1/CodeSalle1')
+        $this->mascotte = new MascotteModel();
+        $data = [
+            'mascotte' => $this->mascotte->getMascottes(),
+        ];
+
+        return view('salle_1/CodeSalle1',$data)
             . view('commun/footer');
     }
 
@@ -78,5 +78,11 @@ class Salle1Controller extends BaseController
             'success' => true,
             'explication' => $explication
         ]);
+    }
+
+    public function getBackend() : string
+    {
+        return view('salle_1/BackSalle1').
+            view('commun/footer');
     }
 }

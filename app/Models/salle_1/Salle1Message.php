@@ -17,9 +17,7 @@ class Salle1Message extends Model
     public function getMessageSalle1()
     {
         return $this->db->table('activite a')
-            ->select('a.numero, a.libelle, 
-                      aut.nom, aut.prenom')
-            ->join('auteur aut', 'aut.numero = a.auteur_numero', 'left')
+            ->select('a.numero, a.libelle')
             ->where('a.salle_numero', 1)
             ->orderBy('RAND()')
             ->limit(1)
@@ -71,19 +69,5 @@ class Salle1Message extends Model
             ->where('ai.activite_numero', $activite_numero)
             ->get()
             ->getResultArray();
-    }
-
-    /**
-     * Récupère le mode d'emploi pour une activité.
-     * @param int $activite_numero
-     * @return object|null
-     */
-    public function getModeEmploi(int $activite_numero)
-    {
-        return $this->db->table('mode_emploi')
-            ->select('explication_1, explication_2, explication_3')
-            ->where('activite_numero', $activite_numero)
-            ->get()
-            ->getRow();
     }
 }

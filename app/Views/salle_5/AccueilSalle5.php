@@ -108,10 +108,10 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                     <image id="image_post_it_conf"
                            clip-path="url(#clip_post_it_conf)"
                            preserveAspectRatio="none"
-                           x="1144.7" y="518.82" width="73.347" height="84.566"
+                           x="1400" y="518.82" width="73.347" height="84.566"
                            xlink:href="<?= base_url('images/salle_5/post_it_confidentiel.svg') ?>" />
                     <rect class="piece-zone"
-                          x="1144.7" y="518.82" width="73.347" height="84.566"
+                          x="1400.7" y="518.82" width="73.347" height="84.566"
                           fill="transparent"
                           style="cursor:pointer;" />
                 </g>
@@ -187,26 +187,45 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                        height="170"
                        xlink:href="<?= base_url('images/commun/btn_retour/home_icone_5.webp') ?>" />
             </g>
+
+            <g id="infobulle" class="infobulle" style="display:none">
+                <image id="indice"
+                       preserveAspectRatio="none"
+                       x="1358.2" y="723.12" width="341.71" height="248.52"
+                       xlink:href="<?= base_url('images/salle_6/bulle-salle-6.svg') ?>" />
+                <!-- Bloc texte dans la bulle -->
+                <foreignObject x="1380" y="780" width="300" height="200">
+                    <div class="texte-indice" xmlns="http://www.w3.org/1999/xhtml"
+                         style="font-size:22px; font-weight:600; text-align:center;">
+                        <?= $indice->libelle ?>
+                    </div>
+                </foreignObject>
+            </g>
+
+            <g id="lumi" class="zone-lumi" data-piece="Lumi">
+                <image class="lumi-image default"
+                       preserveAspectRatio="xMidYMid slice"
+                       x="1687.9" y="786.97" width="205" height="252"
+                       xlink:href="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>" />
+                <image class="lumi-image hover"
+                       preserveAspectRatio="xMidYMid slice"
+                       x="1687.9" y="786.97" width="205" height="252"
+                       xlink:href="<?= base_url('images/commun/mascotte/mascotte_interrogee.svg') ?>" />
+                <rect class="lumi-zone" x="1687.9" y="786.97" width="205" height="252" pointer-events="all"/>
+            </g>
         </svg>
 
-        <!-- Mascotte -->
-        <div class="mascotte">
-            <?= img([
-                    "src" => base_url('images/commun/mascotte/mascotte_face.svg'),
-                    "class" => "mascotte-img",
-                    "alt" => "Mascotte"
-            ]) ?>
-        </div>
+
     </div>
 
-    <h1 class="titre-salle"><?=$salle->libelle?></h1>
+    <h1 class="titre-salle"><?=$salle['libelle']?></h1>
 
     <?php if ($afficher_popup): ?>
         <div id="popup-explication" class="popup">
             <div class="popup-content">
                 <span class="close-btn" onclick="closePopup()">&times;</span>
                 <h2>Explication</h2>
-                <p><?= $salle->intro_salle ?></p>
+                <p><?= $salle['intro_salle'] ?></p>
                 <div class="popup-actions">
                     <button class="btn-accueil" onclick="closePopup()">
                         J'ai compris !
@@ -226,7 +245,7 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                 <div class="popup-actions">
                     <?= form_open(base_url('/validerJour/5')) ?>
                     <?= form_button([
-                            'content' => 'Revenir à l\'accueil',
+                            'content' => 'Continuer la visite du manoir',
                             'type'    => 'submit',
                             'class'   => 'btn-accueil'
                     ]) ?>
@@ -264,7 +283,7 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                     <div class="popup-actions">
                         <?= form_open(base_url('/echouerJour/5')) ?>
                         <?= form_button([
-                                'content' => "Retour à l'accueil",
+                                'content' => "Continuer la visite du manoir",
                                 'type'    => 'submit',
                                 'class' => 'btn-echec',
                                 'onclick' => 'closePopupEchec()'
@@ -276,7 +295,7 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                 <div class="popup-actions">
                     <?= form_open(base_url('/reset')) ?>
                     <?= form_button([
-                            'content' => "Retour à l'accueil",
+                            'content' => "Recommencer le manoir",
                             'type'    => 'submit',
                             'class' => 'btn-echec',
                             'onclick' => 'closePopupEchec()'
@@ -286,17 +305,6 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                 <?php endif?>
             </div>
         </div>
-        <script>
-            window.addEventListener('DOMContentLoaded', () => {
-                if (window.changerMascotte) {
-                    window.changerMascotte('saoulee');
-                }
-            });
-
-            function closePopupEchec() {
-                document.getElementById('popup-echec').style.display = 'none';
-            }
-        </script>
     <?php endif; ?>
 
 </div>

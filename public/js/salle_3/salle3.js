@@ -1,4 +1,4 @@
-/* Accueil de la salle 2 */
+/* Accueil de la salle 3 */
 document.addEventListener('DOMContentLoaded', () => {
     const table = document.querySelector('.bureau-wrapper');
     const modal = document.getElementById("modal-accueil");
@@ -8,17 +8,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const commencerBtn = document.getElementById("commencer");
 
     modal.classList.remove("hidden");
+    mascotte.classList.add("hidden");
 
     commencerBtn.addEventListener('click', () => {
         modal.classList.add("hidden");
+        mascotte.classList.remove("hidden");
     })
     closeBtn.addEventListener("click", () => {
         modal.classList.add("hidden");
+        mascotte.classList.remove("hidden");
     });
 
     modal.addEventListener("click", (e) => {
         if (e.target === modal) {
             modal.classList.add("hidden");
+            mascotte.classList.remove("hidden");
         }
     });
 
@@ -51,5 +55,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
-
-/* Partie énigme de la salle 2 */

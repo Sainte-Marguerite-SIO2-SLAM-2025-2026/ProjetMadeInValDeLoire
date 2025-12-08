@@ -1,5 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
+@font-face {
+    font-family: 'Chalkduster';
+    src: url('../../fonts/Chalkduster.ttf') format('truetype');
+    font-weight: 900;
+}
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +10,7 @@
 }
 
 html, body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Chalkduster', sans-serif;
     background: linear-gradient(135deg, #3d2b2b 0%, #5a4545 100%);
     color: #f0f0f0;
     min-height: 100vh;
@@ -411,3 +414,40 @@ html, body {
  svg, svg image{
      overflow: visible;
  }
+
+.lumi-image {
+    position: absolute;
+    opacity: 0;
+    transition: 0.3s ease;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+    animation: float 3s ease-in-out infinite;
+}
+
+.lumi-image.default {
+    opacity: 1;
+}
+
+.zone-lumi:hover .lumi-image.default {
+    opacity: 0;
+}
+
+.zone-lumi:hover .lumi-image.hover {
+    opacity: 1;
+}
+
+.lumi-zone,
+.lune-zone {
+    fill: transparent;
+    cursor: pointer;
+    transition: fill 0.3s ease;
+}
+
+.lune-zone:hover {
+    fill: rgba(244, 215, 29, 0.4);
+}
+
+.texte-indice{
+    color: black;
+    font-size: 1.2em;
+}

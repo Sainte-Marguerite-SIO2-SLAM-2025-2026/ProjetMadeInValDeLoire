@@ -22,7 +22,7 @@
 
     <div class="final-popup-container">
         <div class="mascot-final-wrapper">
-            <img src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Monsieur Fox">
+            <img src="<?= $mascotte['face'] ?>" alt="Monsieur Fox">
         </div>
         <h1 class="final-title">Explication !</h1>
 

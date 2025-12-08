@@ -41,18 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!zone) return;
 
-        // effet néon rouge
-        objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
-        objet.style.animation = 'neonPulse 2s ease-in-out infinite';
-
-        zone.addEventListener('mouseenter', () => {
-            objet.style.filter = 'drop-shadow(0 0 15px rgba(255, 0, 0, 1)) drop-shadow(0 0 25px rgba(255, 0, 0, 0.8))';
-        });
-
-        zone.addEventListener('mouseleave', () => {
-            objet.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))';
-        });
-
         zone.addEventListener('click', () => {
             if (overlay) {
                 overlay.style.opacity = '1';
@@ -84,6 +72,25 @@ document.addEventListener("DOMContentLoaded", () => {
             popup.style.display = "none";
         };
     }
+});
+
+// -------------------------------------------------------
+// Tooltip mascotte
+// -------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.querySelector(".lumi-zone");
+    const bulle = document.getElementById("infobulle");
+
+    btn.addEventListener("click", () => {
+        if (bulle.style.display === "none" || bulle.style.display === "") {
+            bulle.style.display = "block";
+            setTimeout(() => {
+                bulle.style.display = "none";
+            }, 8000);
+        } else {
+            bulle.style.display = "none";
+        }
+    });
 });
 
 // Correction retour navigateur

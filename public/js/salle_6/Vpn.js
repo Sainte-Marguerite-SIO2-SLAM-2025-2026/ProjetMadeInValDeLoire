@@ -122,9 +122,15 @@ document.addEventListener('DOMContentLoaded', function() {
             if (estCorrect) {
                 messageResultat.textContent = '✓ Bonne réponse ! Cette affirmation sur les VPN est correcte.';
                 carteElement.classList.add('carte-correcte');
+                // Ajouter la classe correct pour le background vert
+                resultatContainer.classList.remove('incorrect');
+                resultatContainer.classList.add('correct');
             } else {
                 messageResultat.textContent = '✗ Mauvaise réponse. Cette affirmation sur les VPN est incorrecte.';
                 carteElement.classList.add('carte-incorrecte');
+                // Ajouter la classe incorrect pour le background rouge
+                resultatContainer.classList.remove('correct');
+                resultatContainer.classList.add('incorrect');
 
                 // Mettre en évidence la bonne carte
                 const bonneCarteElement = document.querySelector('.CarteVpn[data-est-correct="1"]');

@@ -23,17 +23,27 @@ h1 {
 }
 
 /* ===== Conteneur principal du jeu ===== */
+/*#gameContainer {*/
+/*    position: relative;*/
+/*    margin-left: 17%;*/
+/*    top: 13%;*/
+/*    width: 1300px;*/
+/*    height: 790px;*/
+/*    !*background-size: cover;*!*/
+/*    !*!*border: 3px solid #1abc9c;*!*!*/
+/*    !*border-radius: 10px;*!*/
+/*    !*box-shadow: 0 10px 30px rgba(0,0,0,0.5);*!*/
+/*}*/
+
 #gameContainer {
-    position: relative;
-    margin-left: 17%;
-    top: 13%;
-    width: 1300px;
-    height: 790px;
-    /*background-size: cover;*/
-    /*!*border: 3px solid #1abc9c;*!*/
-    /*border-radius: 10px;*/
-    /*box-shadow: 0 10px 30px rgba(0,0,0,0.5);*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1200px;
+    height: 680px;
+    transform: translate(-50%, -50%);
 }
+
 
 #fondImage {
     width: 100%;
@@ -64,14 +74,27 @@ h1 {
 }
 
 /* Tailles agrandies des cartes */
-.carte-pos-1 { width: 280px; height: 250px; }
-.carte-pos-2 { width: 280px; height: 250px; }
-.carte-pos-3 { width: 290px; height: 260px; }
-.carte-pos-4 { width: 240px; height: 240px; }
-.carte-pos-5 { width: 280px; height: 250px; }
-.carte-pos-6 { width: 310px; height: 250px; }
-.carte-pos-7 { width: 280px; height: 230px; }
-.carte-pos-8 { width: 280px; height: 240px; }
+/*.carte-pos-1 { width: 280px; height: 250px; }*/
+/*.carte-pos-2 { width: 280px; height: 250px; }*/
+/*.carte-pos-3 { width: 290px; height: 260px; }*/
+/*.carte-pos-4 { width: 240px; height: 240px; }*/
+/*.carte-pos-5 { width: 280px; height: 250px; }*/
+/*.carte-pos-6 { width: 310px; height: 250px; }*/
+/*.carte-pos-7 { width: 280px; height: 230px; }*/
+/*.carte-pos-8 { width: 280px; height: 240px; }*/
+
+.carte-pos-1,
+.carte-pos-2,
+.carte-pos-3,
+.carte-pos-4,
+.carte-pos-5,
+.carte-pos-6,
+.carte-pos-7,
+.carte-pos-8 {
+    width: 230px;
+    height: 200px;
+}
+
 
 /* ===== Images des cartes ===== */
 .carte-container .carte {
@@ -277,8 +300,8 @@ h1 {
     top: 1%;
     left: 1%;
     transform: none;
-    max-width: 200px;
-    height: 200px;
+    max-width: 120px;
+    height: 120px;
     transition: transform 0.3s;
 }
 
