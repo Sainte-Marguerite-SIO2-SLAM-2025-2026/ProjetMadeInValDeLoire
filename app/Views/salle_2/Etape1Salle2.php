@@ -40,8 +40,8 @@
 
     <div class="center-container">
         <label for="poignier-toggle" class="poignier-contour" aria-controls="poignier-overlay" aria-haspopup="dialog"></label>
-        <a class="code-contour" href="<?= base_url('Etape1a') ?>"></a>
-        <a class="livre-contour" href="<?= base_url('Salle2-Aide') ?>"></a>
+        <a class="code-contour" href="<?= base_url('/Salle2/Etape1a') ?>"></a>
+        <a class="livre-contour" href="<?= base_url('/Salle2/Aide') ?>"></a>
     </div>
 
     <div class="mascotte-container">

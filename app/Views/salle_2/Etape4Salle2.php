@@ -38,7 +38,7 @@
 
     <div class="accueil-bg" style="background-image:url('<?= base_url('/images/salle_2/Etape4_Salle3.webp') ?>');"></div>
 
-    <form method="post" action="<?= site_url('Etape4') ?>">
+    <form method="post" action="<?= site_url('/Salle2/Etape4') ?>">
         <?= csrf_field() ?>
 
         <div class="genere-telephone" id="genere-telephone" style="cursor:pointer;" aria-label="Générer un nouveau mot de passe"></div>
@@ -166,7 +166,7 @@
                 <p id="code-success-titre" class="tip-desc" style="margin-bottom:14px;">
                     <?= esc($success_message ?? 'Bravo ! Le code est correct. Le Téléphone est maintenant déverrouillée.') ?>
                 </p>
-                <a href="<?= esc($next_url ?? site_url('Etape5')) ?>"
+                <a href="<?= esc($next_url ?? site_url('/Salle2/Etape5')) ?>"
                    class="tip-btn btn--xl"
                    id="go-next"
                    aria-label="Passer à la salle suivante">

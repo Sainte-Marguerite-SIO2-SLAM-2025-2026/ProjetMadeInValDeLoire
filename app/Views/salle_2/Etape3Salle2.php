@@ -81,7 +81,7 @@
                 <p id="code-success-titre" class="tip-desc" style="margin-bottom:14px;">
                     <?= esc($success_message ?? 'Bravo ! Le mot de passe est conforme. La mallette est maintenant ouverte.') ?>
                 </p>
-                <a href="<?= esc($next_url ?? site_url('etape4')) ?>" class="tip-btn btn--xl" id="go-next" aria-label="Passer à la salle suivante">
+                <a href="<?= esc($next_url ?? site_url('/Salle2/etape4')) ?>" class="tip-btn btn--xl" id="go-next" aria-label="Passer à la salle suivante">
                     Passer à la salle suivante
                 </a>
             </aside>
