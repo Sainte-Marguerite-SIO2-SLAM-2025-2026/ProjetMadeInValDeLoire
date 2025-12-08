@@ -25,7 +25,6 @@ class Salle2Model extends Model
     }
 
 
-
     public function getIndice($numero)
     {
         return $this->db->table('explication')
@@ -46,27 +45,41 @@ class Salle2Model extends Model
 
 
 
-    public function getMotDePasse1(int $limit = 1)
-    {
-        $cibles = ['789546', '321456', '912364'];
 
-        return $this->select('libelle')
+    public function getMotDePasse1a(): array
+    {
+        $builder = $this->db->table('mot_de_passe');
+
+        // Récupère tous les mots de passe valides
+        $query = $builder->select('motPasse')
             ->distinct()
-            ->whereIn('libelle', $cibles)
-            ->orderBy('RAND()')
-            ->limit($limit)
-            ->findAll();
+            ->whereIn('motPasse', ['789546','321456','912364'])
+            ->get();
+
+        $results = $query->getResult(); // tableau d'objets
+
+        // Transforme en tableau simple de chaînes
+        $motsDePasse = [];
+        foreach ($results as $row) {
+            $mot = preg_replace('/\D+/', '', (string)$row->motPasse); // ne garde que les chiffres
+            $mot = mb_substr($mot, 0, 6); // coupe à 6 caractères si nécessaire
+            $motsDePasse[] = $mot;
+        }
+
+        return $motsDePasse;
     }
+
+
+
+
     /**
      * Retourne $limit libellés distincts aléatoires
      */
     public function getDistinctLibelles(int $limit = 3)
     {
-        $cibles = ['4897', '1123', '9875', '8745'];
-
         return $this->select('libelle')
             ->distinct()
-            ->whereIn('libelle', $cibles)
+            ->whereIn('libelle', ['4897', '1123', '9875', '8745'])
             ->orderBy('RAND()')
             ->limit($limit)
             ->findAll();
