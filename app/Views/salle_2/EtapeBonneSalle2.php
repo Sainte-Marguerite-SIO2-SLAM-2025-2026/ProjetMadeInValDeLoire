@@ -24,7 +24,7 @@
 
     <div class="final-popup-container">
         <div class="mascot-final-wrapper">
-            <img src="<?= base_url('/images/salle_2/mascotte/mascotte_contente.svg') ?>" alt="Monsieur Fox">
+            <img src="<?= $mascotte['exclamee'] ?>" alt="Monsieur Fox">
         </div>
 
         <h1 class="final-title">Félicitations !</h1>
