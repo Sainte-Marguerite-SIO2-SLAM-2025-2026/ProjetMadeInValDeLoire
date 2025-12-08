@@ -7,12 +7,12 @@ use CodeIgniter\Model;
 class UserModel extends Model
 {
     protected $table      = 'user';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'numero';
 
-    protected $allowedFields = ['user', 'mdp'];
+    protected $allowedFields = ['login', 'mdp'];
 
-    public function getUser($user)
+    public function getUser($login)
     {
-        return $this->where('user', $user)->first();
+        return $this->where('login', $login)->first();
     }
 }

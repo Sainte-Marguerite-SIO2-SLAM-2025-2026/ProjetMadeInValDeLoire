@@ -119,6 +119,7 @@ class HomeControlleur extends BaseController
                 'quiz_disponible' =>false,
                 'premiere_visite' => $premiereVisite,
                 'salle' => $this->salleModel->getSalleById(4),
+                'mascotte' => $this->mascotteModel->getMascottes(),
             ];
 
             return view('salle_4/AccueilSalle4', $data) . view('commun/footer');

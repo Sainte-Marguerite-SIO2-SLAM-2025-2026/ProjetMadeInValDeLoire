@@ -30,7 +30,6 @@
     <?php if (session()->get('mode') === 'jour'): ?>
         <div class="retour-top">
             <?= anchor('/manoirJour', img([
-//                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
                     'src'   => $salle['bouton'],
                     'alt'   => 'retour',
                     'class' => 'retour'
@@ -39,23 +38,23 @@
     <?php else: ?>
         <div class="retour-top">
             <?= anchor('/', img([
-                    'src'   => 'images/commun/btn_retour/home_icone_3.webp',
+                    'src'   => $salle['bouton'],
                     'alt'   => 'retour',
                     'class' => 'retour'
             ])); ?>
         </div>
     <?php endif?>
 
-    <!-- Mascotte interactive -->
+    <!-- Mascotte -->
     <div class="mascotte-zone" id="mascotte-container">
         <?= anchor(base_url(), img([
-                'src'   => 'images/commun/mascotte/mascotte_face.svg',
+                'src'   => $mascotte['face'],
                 'alt'   => 'Mascotte',
                 'class' => 'mascotte-img mascotte-default'
         ])); ?>
 
         <?= anchor(base_url(), img([
-                'src'   => 'images/commun/mascotte/mascotte_exclamee.svg',
+                'src'   => $mascotte['exclamee'],
                 'alt'   => 'Mascotte Hover',
                 'class' => 'mascotte-img mascotte-hover'
         ])); ?>
@@ -66,49 +65,53 @@
         <div id="startModal" class="modal-welcome">
             <div class="modal-welcome-content">
                 <span class="close-start"></span>
+
                 <div class="modal-welcome-header">
-                    <h2>Salle 4 - Ransomware</h2>
+                    <h2><?= $salle['libelle']; ?></h2>
                 </div>
+
                 <div class="modal-welcome-body">
+
                     <div class="situation-box">
-                        <h3>Mission</h3>
-                        <p> Vous venez de rentrer dans la chambre. Prenez le temps de bien observer les éléments qui vous entourent pour parvenir au bout de la salle.</p>
+<!--                        <h2>-->
+<!--                            Bienvenue dans la salle des ransomwares !-->
+<!--                            Découvrez comment ces logiciels malveillants parviennent à bloquer l’accès aux données et ce qu’il faut mettre en place pour s’en protéger.-->
+<!--                        </h2>-->
+<!--                        <h3>Mission</h3>-->
+<!--                        <p>-->
+<!--                            Explorez les éléments autour de vous, analysez les bonnes pratiques et apprenez à sécuriser un système avant qu’il ne soit trop tard.-->
+<!--                            Ici, l’anticipation et la prévention font toute la différence.-->
+<!--                        </p>-->
+                        <p><?=$salle['intro_salle'];?></p>
                     </div>
 
-                    <div class="objectif-box">
-
-                        <h3>Éléments à explorer</h3>
-                        <ol>
-                            <li>
-                                <strong>Tableau</strong><br>
-                                Les traces de l'incident sont éparpillées. Replacez chaque étape au bon endroit.
-                            </li>
-                            <li>
-                                <strong>Dossier</strong><br>
-                                Vérifiez vos connaissances sur la cyber-attaque de la salle en répondant à des questions rapides.
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div class="conseil-box">
-                        <h3>Progression</h3>
-                        <ul>
-                            <li>Le <strong>tableau</strong> contient les indices à analyser.</li>
-                            <li>Le <strong>dossier</strong> permet d'évaluer votre compréhension après avoir réussi la première énigme.</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
+
     <?php endif; ?>
 
     <!-- Modal Lumi -->
     <div id="rulesModal" class="modal">
         <div class="modal-content rules-modal-content">
             <span class="close-rules">&times;</span>
-            <h2>Salle 4</h2>
+            <h2>Notes d'enquête</h2>
             <div class="rules-content">
-                <p>Essayer de cliquer sur le tableau au dessus du lit ou bien sur le dossier par terre</p>
+                <h3>Indices repérés :</h3>
+                <p>
+                    <strong>Zone 1 - Tableau chronologique :</strong> Une frise temporelle est accrochée au-dessus du lit.
+                    Elle retrace l'ensemble des événements de l'attaque dans l'ordre chronologique.
+                    Analysez-la pour comprendre comment l'attaque s'est déroulée.
+                </p>
+                <p>
+                    <strong>Zone 2 - Dossier d'expertise :</strong> Un dossier de test gît par terre, près du bureau.
+                    Il contient des questions pour évaluer vos connaissances en cybersécurité.
+                    Répondez correctement pour progresser dans l'enquête.
+                </p>
+                <p>
+                    <strong>Recommandation :</strong> Examinez d'abord la chronologie pour comprendre l'attaque,
+                    puis testez vos connaissances avec le dossier d'expertise.
+                </p>
             </div>
         </div>
     </div>
