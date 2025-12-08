@@ -53,7 +53,7 @@
 <main class="hero hero--lower">
     <aside class="hero-panel">
         <br class="hero-desc">
-                Bienvenue dans la salle des mots de passe…<br></br>
+        Bienvenue dans la salle des mots de passe…<br></br>
 
             Sauras-tu trouver les mots de passe dans les différentes étapes ?
         <div class="hero-buttons">
