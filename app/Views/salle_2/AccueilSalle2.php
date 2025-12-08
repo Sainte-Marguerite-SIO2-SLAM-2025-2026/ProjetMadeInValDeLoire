@@ -53,14 +53,16 @@
 <main class="hero hero--lower">
     <aside class="hero-panel">
         <br class="hero-desc">
-                Bienvenue dans la salle des mots de passe…<br></br>
+        Bienvenue dans la salle des mots de passe…<br></br>
 
             Sauras-tu trouver les mots de passe dans les différentes étapes ?
         <div class="hero-buttons">
-            <a class="btn btn--accent btn--xl" href="<?= base_url('Salle2-introduction') ?>">Commencer</a>
+            <a class="btn btn--accent btn--xl" href="<?= base_url('/Salle2/Introduction') ?>">Commencer</a>
         </div>
     </aside>
 </main>
+
+
 
 
 <script src="<?= base_url('/js/salle_2/accueil.js') ?>" defer></script>

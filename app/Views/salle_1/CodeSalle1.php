@@ -50,7 +50,7 @@
 
         <?= anchor(
                 base_url('/'), img([
-                        'src' => base_url('images/commun/mascotte/mascotte_face.svg'),
+                        'src' => $mascotte['face'],
                         'alt' => 'Mascotte',
                         'class' => 'mascotte-image'
                 ])
@@ -62,7 +62,7 @@
 <!-- POPUP -->
 <div id="popup" class="popup" style="display:none;">
     <div class="popup-content">
-        <img src="<?= base_url('images/commun/mascotte/mascotte_contente.svg') ?>"
+        <img src="<?= $mascotte['exclamee'] ?>"
              alt="Mascotte"
              class="mascotte-popup">
         <h2 id="popup-titre"></h2>
@@ -75,7 +75,7 @@
 <div id="popup-echec" class="popup popup-echec" style="display: none;">
     <div class="popup-content popup-echec-content">
         <?= img([
-                'src' => base_url('images/commun/mascotte/mascotte_face.svg'),
+                'src' => $mascotte['face'],
                 'alt' => 'Mascotte',
                 'class' => 'mascotte-popup'
         ]) ?>

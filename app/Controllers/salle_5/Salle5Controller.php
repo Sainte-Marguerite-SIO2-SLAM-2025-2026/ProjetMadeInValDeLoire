@@ -3,12 +3,10 @@
 namespace App\Controllers\salle_5;
 
 use App\Controllers\BaseController;
-//use App\Models\salle_5\MascotteModel;
 use App\Models\commun\MascotteModel;
 use App\Models\commun\SalleModel;
 use App\Models\salle_5\ModeEmploiModel;
 use App\Models\salle_5\ActiviteModel;
-//use App\Models\salle_5\SalleModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\salle_5\ZoneModel;
 
@@ -174,7 +172,8 @@ class Salle5Controller extends BaseController
                 505 => 'Excellent ! Les portes doivent être fermées pour éviter les intrusions (tailgating).',
                 506 => 'Bravo ! L\'épaule-surfing est un risque physique simple à exploiter.',
                 507 => 'Parfait ! La sécurité physique inclut aussi les ouvrants (risque de vol).',
-                508 => 'Félicitations ! La politique "clean desk" réduit le risque de perte/vol d\'infos.',
+                508 => 'Félicitations ! La politique "clean desk" réduit le risque de perte/vol d\'infos.  
+                Ce terme désigne une approche systématique visant à garantir la sécurité des données sensibles et la confidentialité des informations critiques pour l\'entreprise.',
                 509 => 'Super ! Les secrets physiques ne doivent jamais être affichés et les MDP doivent être forts.',
                 510 => 'Bien vu ! Sûreté ≠ espionnage interne ; respecter le principe de proportionnalité.'
             ];

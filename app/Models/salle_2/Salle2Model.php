@@ -17,20 +17,31 @@ class Salle2Model extends Model
         $builder = $db->table('explication');
 
         $query = $builder->select('libelle')
-            ->distinct()
-            ->whereIn('numero', [1])
-            ->get(); // exécute la requête
+            ->whereIn('numero', [12, 13, 14])
+            ->orderBy('RAND()')
+            ->get(1);
 
-        return $query->getResult(); // récupère les résultats
+        return $query->getRow();
     }
+
+
+
     public function getIndice($numero)
+    {
+        return $this->db->table('explication')
+            ->select('libelle')
+            ->where('numero', $numero)
+            ->get()
+            ->getRow();
+    }
+
+    public function getIndiceMascotte($numero)
     {
         return $this->db->table('indice')
             ->select('libelle')
             ->where('numero', $numero)
             ->get()
             ->getRow();
-
     }
 
 
@@ -46,7 +57,6 @@ class Salle2Model extends Model
             ->limit($limit)
             ->findAll();
     }
-
     /**
      * Retourne $limit libellés distincts aléatoires
      */
