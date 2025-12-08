@@ -16,7 +16,6 @@ class Salle2Controller extends BaseController
         $data = [
             'libelles' => $libelles,
             'introduction' => $introduction,
-
         ];
 
         return view('salle_2\IntroductionSalle2',$data);
