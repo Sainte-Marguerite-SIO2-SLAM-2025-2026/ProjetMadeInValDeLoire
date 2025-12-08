@@ -6,7 +6,6 @@ use CodeIgniter\Model;
 class MailModel extends Model
 {
     protected $table = 'mail';
-    protected $DBGroup = 'admin';
     protected $primaryKey = 'numero';
     protected $allowedFields = ['expediteur', 'objet', 'contenu', 'difficulte', 'phishing'];
     protected $useTimestamps = false;

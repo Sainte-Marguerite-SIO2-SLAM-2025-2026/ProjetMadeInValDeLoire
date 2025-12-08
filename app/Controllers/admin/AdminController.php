@@ -4,6 +4,7 @@ namespace App\Controllers\admin;
 
 use App\Controllers\BaseController;
 use App\Models\admin\UserModel;
+use App\Controllers\salle_3\MailController;
 
 class AdminController extends BaseController
 {
@@ -64,6 +65,8 @@ class AdminController extends BaseController
 
     public function salle($numero) : string
     {
+        $mailController = new MailController();
+
         if ($numero == 1) {
             return view('admin/salle_1/AccueilAdminSalle1');
         }
@@ -71,7 +74,7 @@ class AdminController extends BaseController
             return view('admin/salle_2/AccueilAdminSalle2');
         }
         elseif ($numero == 3) {
-            return view('admin/salle_3/AccueilAdminSalle3');
+            return $mailController->index();
         }
         elseif ($numero == 4) {
             return view('admin/salle_4/AccueilAdminSalle4');
