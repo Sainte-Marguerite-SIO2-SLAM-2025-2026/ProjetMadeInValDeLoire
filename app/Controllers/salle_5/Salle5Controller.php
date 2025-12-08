@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 //use App\Models\salle_5\MascotteModel;
 use App\Models\commun\MascotteModel;
 use App\Models\commun\SalleModel;
+use App\Models\salle_5\IndiceModel;
 use App\Models\salle_5\ModeEmploiModel;
 use App\Models\salle_5\ActiviteModel;
 //use App\Models\salle_5\SalleModel;
@@ -25,6 +26,7 @@ class Salle5Controller extends BaseController
         $mascotteModel = new MascotteModel();
         $modeEmploiModel = new ModeEmploiModel();
         $explicationModel = new ExplicationModel();
+        $indiceModel = new IndiceModel();
 
         // Vérifier que l'activité fait partie des activités sélectionnées
         $activites_ids = session()->get('activites_salle5') ?? [];
@@ -64,6 +66,7 @@ class Salle5Controller extends BaseController
             'mascotte' => $mascotteModel->getMascottes(),
             'mode_emploi' => $mode_emploi,
             'explication' => $explication,
+            'indice' => $indiceModel->getIndice($activite_numero),
         ];
 
         // Charger la vue selon si c'est une énigme bureau ou pas

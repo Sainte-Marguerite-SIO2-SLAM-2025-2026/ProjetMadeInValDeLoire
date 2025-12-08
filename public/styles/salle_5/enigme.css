@@ -446,3 +446,8 @@ html, body {
 .lune-zone:hover {
     fill: rgba(244, 215, 29, 0.4);
 }
+
+.texte-indice{
+    color: black;
+    font-size: 1.2em;
+}

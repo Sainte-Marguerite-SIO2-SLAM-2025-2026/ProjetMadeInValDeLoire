@@ -106,3 +106,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// -------------------------------------------------------
+// Tooltip mascotte
+// -------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.querySelector(".lumi-zone");
+    const bulle = document.getElementById("infobulle");
+
+    btn.addEventListener("click", () => {
+        if (bulle.style.display === "none" || bulle.style.display === "") {
+            bulle.style.display = "block";
+            setTimeout(() => {
+                bulle.style.display = "none";
+            }, 8000);
+        } else {
+            bulle.style.display = "none";
+        }
+    });
+});
