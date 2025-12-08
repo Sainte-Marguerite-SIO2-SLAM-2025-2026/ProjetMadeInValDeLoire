@@ -14,10 +14,9 @@
 
 </head>
 <body>
-
-<aside id="intro-tip" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
+<aside id="message-intro" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
     <p class="tip-desc">
-        Étape 1b : Tape un nouveau Code sécurisé pour réinitialiser le Digicode de la porte!
+        <?= $libelles->libelle ?>
     </p>
 </aside>
 

@@ -245,7 +245,7 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                 <div class="popup-actions">
                     <?= form_open(base_url('/validerJour/5')) ?>
                     <?= form_button([
-                            'content' => 'Revenir à l\'accueil',
+                            'content' => 'Continuer la visite du manoir',
                             'type'    => 'submit',
                             'class'   => 'btn-accueil'
                     ]) ?>
@@ -283,7 +283,7 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                     <div class="popup-actions">
                         <?= form_open(base_url('/echouerJour/5')) ?>
                         <?= form_button([
-                                'content' => "Retour à l'accueil",
+                                'content' => "Continuer la visite du manoir",
                                 'type'    => 'submit',
                                 'class' => 'btn-echec',
                                 'onclick' => 'closePopupEchec()'
@@ -295,7 +295,7 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                 <div class="popup-actions">
                     <?= form_open(base_url('/reset')) ?>
                     <?= form_button([
-                            'content' => "Retour à l'accueil",
+                            'content' => "Recommencer le manoir",
                             'type'    => 'submit',
                             'class' => 'btn-echec',
                             'onclick' => 'closePopupEchec()'

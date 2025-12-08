@@ -3,14 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Félicitations Détective !</title>
+    <title>Introduction | Salle Mot de Passe</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('styles/salle_2/style_fin_S3.css') ?>">
-
-
 </head>
 <body>
 
@@ -27,35 +25,23 @@
             <img src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Monsieur Fox">
         </div>
 
-        <h1 class="final-title">Félicitations !</h1>
+        <h1 class="final-title">Explication !</h1>
 
         <p class="final-text">
-            Bravo, détective. Vous avez terminé avec brio les <strong>5 étapes</strong>.
+            <?= $introduction->libelle; ?>
             <br><br>
-            Le manoir vous ouvre désormais ses secrets les plus profonds...
+            Mot de passe de la porte : <?= esc($libelles[0]['libelle'] ?? '') ?>
+
         </p>
 
         <div class="final-actions">
-            <?php if (session()->get('mode') === 'nuit'): ?>
-            <a href="<?= base_url('valider/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
-                Valide
+            <!-- le lien va directement à Etape1, plus besoin de popup -->
+            <a href="<?= base_url('/Salle2/Etape1') ?>" class="btn btn--xl btn-nuit">
+                Commencer
             </a>
-            <?php else: ?>
-            <a href="<?= base_url('validerJour/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Jour">
-                Valide
-            </a>
-            <?php endif; ?>
         </div>
     </div>
 </main>
-
-
-
-<script>
-    const BASE_URL = '<?= base_url(); ?>';
-    const MODE = '<?= session()->get('mode') ?? 'nuit'; ?>';
-    console.log('Mode détecté:', MODE);
-</script>
 
 </body>
 </html>

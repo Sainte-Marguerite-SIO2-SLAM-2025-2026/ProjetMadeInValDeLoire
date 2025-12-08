@@ -1,61 +1,62 @@
-    document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const mascotte = document.getElementById("mascotte");
     const bulle = document.getElementById("mascotte-bulle");
     const txt = document.getElementById("bulle-texte");
 
-        const indices = [
-            "<?= esc($indice) ?>"
-        ];
+    // Sécurisation des variables globales
+    const baseUrl = typeof BASE_URL !== "undefined" ? BASE_URL : "";
+    const indices = Array.isArray(INDICES) && INDICES.length > 0 ? INDICES : ["Aucun indice disponible"];
 
-
-        let index = 0;
+    let index = 0;
     let timer = null;
 
     function positionnerBulle() {
-    const r = mascotte.getBoundingClientRect();
-    bulle.style.left = Math.max(10, r.left + r.width / 2 - bulle.offsetWidth / 2) + "px";
-    bulle.style.top = Math.max(10, r.top - bulle.offsetHeight - 20) + "px";
-}
+        const r = mascotte.getBoundingClientRect();
+        bulle.style.left = Math.max(10, r.left + r.width / 2 - bulle.offsetWidth / 2) + "px";
+        bulle.style.top = Math.max(10, r.top - bulle.offsetHeight - 20) + "px";
+    }
 
     function afficherIndice() {
-    clearTimeout(timer);
-    txt.textContent = indices[index];
-    index = (index + 1) % indices.length;
+        clearTimeout(timer);
 
-    bulle.style.display = "block";
-    positionnerBulle();
+        txt.textContent = indices[index];
+        index = (index + 1) % indices.length;
 
-    // Masque automatiquement la bulle après 6 secondes
-    timer = setTimeout(() => {
-    bulle.style.display = "none";
-    mascotte.src = "<?= base_url('images/salle_2/mascotte/mascotte_face.svg') ?>";
-}, 6000);
+        bulle.style.display = "block";
+        positionnerBulle();
 
-    // Change l'image de la mascotte pendant l'affichage
-    mascotte.src = "<?= base_url('images/salle_2/mascotte/mascotte_exclamee.svg') ?>";
-}
+        mascotte.src = baseUrl + "/images/salle_2/mascotte/mascotte_exclamee.svg";
 
-    // Survol mascotte
+        timer = setTimeout(() => {
+            bulle.style.display = "none";
+            mascotte.src = baseUrl + "/images/salle_2/mascotte/mascotte_face.svg";
+        }, 5000);
+    }
+
     mascotte.addEventListener("mouseenter", () => {
-    mascotte.src = "<?= base_url('images/salle_2/mascotte/mascotte_exclamee.svg') ?>";
-});
+        mascotte.src = baseUrl + "/images/salle_2/mascotte/mascotte_exclamee.svg";
+    });
+
     mascotte.addEventListener("mouseleave", () => {
-    if (bulle.style.display !== "block") {
-    mascotte.src = "<?= base_url('images/salle_2/mascotte/mascotte_face.svg') ?>";
-}
-});
+        if (bulle.style.display !== "block") {
+            mascotte.src = baseUrl + "/images/salle_2/mascotte/mascotte_face.svg";
+        }
+    });
 
-    // Clic mascotte
     mascotte.addEventListener("click", () => {
-    if (bulle.style.display === "block") {
-    bulle.style.display = "none";
-    mascotte.src = "<?= base_url('images/salle_2/mascotte/mascotte_face.svg') ?>";
-} else {
-    afficherIndice();
-}
-});
+        if (bulle.style.display === "block") {
+            bulle.style.display = "none";
+            mascotte.src = baseUrl + "/images/salle_2/mascotte/mascotte_face.svg";
+        } else {
+            afficherIndice();
+        }
+    });
 
-    // Repositionnement dynamique
-    window.addEventListener("resize", () => { if (bulle.style.display === "block") positionnerBulle(); });
-    window.addEventListener("scroll", () => { if (bulle.style.display === "block") positionnerBulle(); });
+    window.addEventListener("resize", () => {
+        if (bulle.style.display === "block") positionnerBulle();
+    });
+
+    window.addEventListener("scroll", () => {
+        if (bulle.style.display === "block") positionnerBulle();
+    });
 });

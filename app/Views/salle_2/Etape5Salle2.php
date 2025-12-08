@@ -92,8 +92,10 @@
 
     <div id="feedback-global" class="feedback-global" aria-live="polite"></div>
 
-    <aside class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
-        <p class="tip-desc">Étape 5 : Classe les mots de passe sur la feuille (valides) et dans la poubelle (invalides), puis valide.</p>
+    <aside id="message-intro" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
+        <p class="tip-desc">
+            <?= $libelles->libelle ?>
+        </p>
     </aside>
 
     <div class="validate-container-left">
@@ -153,11 +155,20 @@
 </div> <div class="scroll-flow">
     <div class="scroll-spacer"></div>
 </div>
+<?php
+// Toujours transformer en tableau pour JS
+$indices_for_js = !empty($indice) ? [$indice] : ["Aucun indice disponible"];
+?>
+<script>
+    const BASE_URL = "<?= esc(base_url()) ?>";
+    const INDICES = <?= json_encode($indices_for_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
+</script>
+
+<script src="<?= base_url('js/salle_2/mascotte.js') ?>"></script>
 
 
 
 <script>const base_url = "<?= base_url() ?>";</script>
-<script src="<?= base_url('/js/salle_2/mascotte.js') ?>" defer></script>
 <script src="<?= base_url('/js/salle_2/postits_drag.js') ?>?v=21"></script>
 </body>
 </html>

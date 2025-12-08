@@ -93,7 +93,7 @@
 
     <aside id="message-intro" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
         <p class="tip-desc">
-            Étape 3 : Crée un code Sécurisé pour la malette. Elle te donnera des informations précieuses !
+            <?= $libelles->libelle ?>
         </p>
     </aside>
     <script>

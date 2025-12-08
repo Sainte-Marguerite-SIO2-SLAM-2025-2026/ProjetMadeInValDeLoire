@@ -3,12 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Introduction | Salle Mot de Passe</title>
+    <title>Félicitations Détective !</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('styles/salle_2/style_fin_S3.css') ?>">
+
+
 </head>
 <body>
 
@@ -22,28 +24,38 @@
 
     <div class="final-popup-container">
         <div class="mascot-final-wrapper">
-            <img src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Monsieur Fox">
+            <img src="<?= base_url('/images/salle_2/mascotte/mascotte_contente.svg') ?>" alt="Monsieur Fox">
         </div>
 
-        <h1 class="final-title">Explication !</h1>
+        <h1 class="final-title">Félicitations !</h1>
 
         <p class="final-text">
-            Il y a <strong>5 étapes</strong>, le but est de trouver les mots de passe à travers des indices cachés.
+            Bravo, détective. Vous avez terminé avec brio les <strong> étapes</strong>.
             <br><br>
-            Les mots de passe doivent obligatoirement être complexes !
-            <br><br>
-            Mot de passe de la porte : <?= esc($libelles[0]['libelle'] ?? '') ?>
-
+            Le manoir vous ouvre désormais ses secrets les plus profonds...
         </p>
 
         <div class="final-actions">
-            <!-- le lien va directement à Etape1, plus besoin de popup -->
-            <a href="<?= base_url('Etape1') ?>" class="btn btn--xl btn-nuit">
-                Commencer
+            <?php if (session()->get('mode') === 'nuit'): ?>
+            <a href="<?= base_url('valider/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
+                Valide
             </a>
+            <?php else: ?>
+            <a href="<?= base_url('validerJour/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Jour">
+                Valide
+            </a>
+            <?php endif; ?>
         </div>
     </div>
 </main>
+
+
+
+<script>
+    const BASE_URL = '<?= base_url(); ?>';
+    const MODE = '<?= session()->get('mode') ?? 'nuit'; ?>';
+    console.log('Mode détecté:', MODE);
+</script>
 
 </body>
 </html>
