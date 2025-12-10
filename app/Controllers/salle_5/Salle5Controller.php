@@ -175,7 +175,7 @@ class Salle5Controller extends BaseController
                 505 => 'Excellent ! Les portes doivent être fermées pour éviter les intrusions (tailgating).',
                 506 => 'Bravo ! Le shoulder-surfing est un risque physique simple à exploiter (espionner un écran pour voir les données).',
                 507 => 'Parfait ! La sécurité physique inclut aussi les ouvrants (risque de vol).',
-                508 => 'Félicitations ! La politique "clean desk" réduit le risque de perte/vol d\'infos.  
+                508 => 'Félicitations ! La politique "clean desk" réduit le risque de perte/vol d\'infos.
                 Ce terme désigne une approche systématique visant à garantir la sécurité des données sensibles et la confidentialité des informations critiques pour l\'entreprise.',
                 509 => 'Super ! Les secrets physiques ne doivent jamais être affichés et les MDP doivent être forts.',
                 510 => 'Bien vu ! Sûreté ≠ espionnage interne ; respecter le principe de proportionnalité.'

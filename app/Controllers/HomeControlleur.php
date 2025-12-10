@@ -8,6 +8,7 @@ use App\Models\salle_1\Salle1ExplicationModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
 use App\Models\commun\IndiceModel;
+use App\Models\salle_5\ObjetModel;
 use CodeIgniter\HTTP\RedirectResponse;
 use App\Models\commun\MascotteModel;
 use App\Models\commun\SalleModel;
@@ -136,8 +137,9 @@ class HomeControlleur extends BaseController
             $explicationModel = new ExplicationModel();
             $activiteModel = new ActiviteModel();
             $IndiceModel = new IndiceModel();
+            $objetModel = new ObjetModel();
 
-            // 🔥 Vérifier si on arrive avec un échec
+            //  Vérifier si on arrive avec un échec
             $echec = $this->request->getGet('echec');
             $activite_echec = $this->request->getGet('activite');
 
@@ -182,8 +184,10 @@ class HomeControlleur extends BaseController
                 session()->set('popup_salle5_vue', true);
             }
 
-            // 🔥 Popup d'échec si paramètre présent
+            //  Popup d'échec si paramètre présent
             $afficher_popup_echec = ($echec == 1 && $activite_echec);
+
+            $objets = $objetModel->getObjetsPourSalle($activites_ids, $activites_reussies);
 
             // Récupérer les données via les models
             $data = [
@@ -196,6 +200,7 @@ class HomeControlleur extends BaseController
                 'afficher_popup_succes' => $afficher_popup_succes,
                 'afficher_popup_echec' => $afficher_popup_echec,
                 'indice' => $IndiceModel->getIndice(500),
+                'objets' => $objets,
             ];
         }
 
