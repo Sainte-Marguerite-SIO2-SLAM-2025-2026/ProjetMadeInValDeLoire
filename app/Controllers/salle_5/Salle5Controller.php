@@ -67,17 +67,8 @@ class Salle5Controller extends BaseController
             'indice' => $indiceModel->getIndice($activite_numero),
         ];
 
-        // Charger la vue selon si c'est une énigme bureau ou pas
-        if (in_array($activite_numero, $this->enigmes_bureau)) {
-            // Énigmes sur fond de bureau (2, 3, 4, 8, 9)
-            return view('commun/header') .
-                view('salle_5/EnigmeBureau', $data) .
-                view('commun/footer');
-        }
-
-        // Vue par défaut pour les autres énigmes
         return view('commun/header') .
-            view('salle_5/EnigmeSalle', $data) .
+            view('salle_5/Enigme', $data) .
             view('commun/footer');
     }
 
