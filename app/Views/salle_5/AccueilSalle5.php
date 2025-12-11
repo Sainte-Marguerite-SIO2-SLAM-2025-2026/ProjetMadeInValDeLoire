@@ -14,9 +14,9 @@
                     id="image-fond"
                     style="pointer-events: none;"/>
 
-            <?php foreach ($objets as $obj): ?>
+            <?php foreach ($objetDeclencheur as $obj): ?>
 
-                <g id="<?= $obj['nom'] ?>" class="objet-enigme" data-activite="<?= $obj['activite_numero'] ?>">
+                <g id="<?= $obj['nom'] ?>" class="objet-enigme" data-activite="<?= $obj['numero_activite'] ?>">
 
                     <image
                             id="image_<?= $obj['nom'] ?>"

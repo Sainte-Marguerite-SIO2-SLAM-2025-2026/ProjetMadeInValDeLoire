@@ -26,6 +26,8 @@
                 id="image-fond"
                 style="pointer-events: none;"/>
 
+            //faire une table objet et une inter objet enigme avec tout objet liés aux enigmes
+            // recreer model, modif controller et view pour afficher les objets apres avoir fait la table objet_activité
 
 
 
