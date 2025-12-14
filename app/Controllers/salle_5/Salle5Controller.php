@@ -9,6 +9,8 @@ use App\Models\salle_5\IndiceModel;
 use App\Models\salle_5\ModeEmploiModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
+use App\Models\salle_5\ObjetDeclencheurModel;
+use App\Models\salle_5\ObjetsActiviteModel;
 use App\Models\salle_5\ZoneModel;
 
 class Salle5Controller extends BaseController
@@ -25,6 +27,7 @@ class Salle5Controller extends BaseController
         $modeEmploiModel = new ModeEmploiModel();
         $explicationModel = new ExplicationModel();
         $indiceModel = new IndiceModel();
+        $objetsActiviiteModel = new ObjetsActiviteModel();
 
         // Vérifier que l'activité fait partie des activités sélectionnées
         $activites_ids = session()->get('activites_salle5') ?? [];
@@ -55,6 +58,7 @@ class Salle5Controller extends BaseController
             $explication = $explicationModel->getExplication($activite->explication_numero);
         }
 
+
         // Données pour la vue
         $data = [
             'enigme' => $activite,
@@ -65,6 +69,7 @@ class Salle5Controller extends BaseController
             'mode_emploi' => $mode_emploi,
             'explication' => $explication,
             'indice' => $indiceModel->getIndice($activite_numero),
+            'objets_activite' => $objetsActiviiteModel->getObjetsActivite($activite_numero),
         ];
 
         return view('commun/header') .
