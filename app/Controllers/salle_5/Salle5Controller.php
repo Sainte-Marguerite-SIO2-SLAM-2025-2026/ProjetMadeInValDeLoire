@@ -5,6 +5,7 @@ namespace App\Controllers\salle_5;
 use App\Controllers\BaseController;
 use App\Models\commun\MascotteModel;
 use App\Models\commun\SalleModel;
+use App\Models\salle_5\AvoirRepModel;
 use App\Models\salle_5\IndiceModel;
 use App\Models\salle_5\ModeEmploiModel;
 use App\Models\salle_5\ActiviteModel;
@@ -120,8 +121,8 @@ class Salle5Controller extends BaseController
         $reponses_utilisateur = session()->get('reponses_activite_' . $activite_numero) ?? [];
 
         // Vérifier la réponse via les zones de la BDD
-        $zoneModel = new ZoneModel();
-        $resultat = $zoneModel->verifierZone($activite_numero, $reponse);
+        $avoirRepModel = new AvoirRepModel();
+        $resultat = $avoirRepModel->verifierZone($activite_numero, $reponse);
 
         $messages_echec = [
             501 => ' Échec ! Ce n\'était pas le bon écran à risque, cet écran est vérouillé',
@@ -152,7 +153,7 @@ class Salle5Controller extends BaseController
         }
 
         // Compter le nombre de bonnes réponses attendues
-        $nb_bonnes_reponses_attendues = $zoneModel->countBonnesReponses($activite_numero);
+        $nb_bonnes_reponses_attendues = $avoirRepModel->countBonnesReponses($activite_numero);
         $nb_reponses_trouvees = count($reponses_utilisateur);
 
         // Vérifier si toutes les bonnes réponses ont été trouvées
