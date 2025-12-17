@@ -190,9 +190,7 @@
     const base_url = '<?= base_url() ?>';
 </script>
 
-<?= (str_contains($enigme->image, 'compil'))
-        ? script_tag('js/salle_5/enigmeSalle.js')
-        : script_tag('js/salle_5/enigme.js') ?>
+<?= script_tag('js/salle_5/enigme.js') ?>
 
 <?= script_tag('js/salle_5/mascotte.js') ?>
 
