@@ -39,7 +39,8 @@
                 <?php if (empty($obj['drag'])): ?>
 
                     <g id="<?= esc($obj['nom']) ?>"
-                       class="objet-cliquable"
+                            <?= (empty($obj['cliquable']))? 'class="objet-cliquable"' : 'class="objet-decor"' ?>
+
                        data-reponse="<?= esc($obj['reponse']) ?>">
 
                         <?= (isset($obj['hover'])) ? '<title>' . esc($obj['hover']) . '</title>' : '' ?>
@@ -50,19 +51,19 @@
                                 y="<?= $obj['y'] ?>"
                                 width="<?= $obj['width'] ?>"
                                 height="<?= $obj['height'] ?>"
-                                <?= (isset($obj['ratio']))? 'preserveAspectRatio="'.$obj['ratio'].'"' : 'preserveAspectRatio="XMidYMid slice"' ?>
+                                <?= (isset($obj['ratio']))? 'preserveAspectRatio="'.$obj['ratio'].'"' : 'preserveAspectRatio="xMidYMid slice"' ?>
                                 <?= !empty($obj['rotate']) ? 'transform="'.$obj['rotate'].'"' : '' ?>
                         />
 
                         <?php if (!empty($obj['zone_path'])): ?>
-                        <?= (empty($obj['cliquable']))? '<path class="zone-click"' : '<path class=""' ?>
+                        <?= (empty($obj['cliquable']))? '<path class="zone-click"' : '<path class="aucune"' ?>
                                   d="<?= $obj['zone_path'] ?>"
                                   fill="none"
                                   pointer-events="all"
                                   style="cursor:pointer;"
                             <?= !empty($obj['rotate']) ? 'transform="'.$obj['rotate'].'"' : '' ?>/>
                         <?php else: ?>
-                            <?= (empty($obj['cliquable']))? '<rect class="zone-click"' : '<rect class=""' ?>
+                            <?= (empty($obj['cliquable']))? '<rect class="zone-click"' : '<rect class="aucune"' ?>
                                   x="<?= $obj['x'] ?>"
                                   y="<?= $obj['y'] ?>"
                                   width="<?= $obj['width'] ?>"

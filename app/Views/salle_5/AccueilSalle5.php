@@ -56,7 +56,7 @@
                        y="15"
                        width="170"
                        height="170"
-                       xlink:href="<?= base_url('images/commun/btn_retour/home_icone_5.webp') ?>" />
+                       xlink:href="<?= base_url($salle['bouton']) ?>" />
             </g>
 
             <g id="infobulle" class="infobulle" style="display:none">

@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const objetsCliquables = document.querySelectorAll('.objet-cliquable');
-    const feedback = document.getElementById('feedback');
+    const zoneClick = [
+        ...document.querySelectorAll('.zone-click'),
+        ...document.querySelectorAll('.aucune')
+    ];    const feedback = document.getElementById('feedback');
     const overlay = document.getElementById('transition-overlay');
     const objetsValides = []; // Stocker les objets déjà validés
 
@@ -29,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Désactiver temporairement tous les clics
             objetsCliquables.forEach(o => o.classList.add('disabled'));
+            zoneClick.forEach(z => z.classList.add('disabled'));
 
             // Envoyer au serveur
             fetch(base_url + '/validerEnigme', {
@@ -71,6 +75,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         }else{// Réactiver les objets non validés
                             objetsCliquables.forEach(o => {
                                 if (!objetsValides.includes(o)) o.classList.remove('disabled');
+                            });
+                            zoneClick.forEach(z => {
+                                if (!objetsValides.includes(z)) z.classList.remove('disabled');
                             });}
 
 
