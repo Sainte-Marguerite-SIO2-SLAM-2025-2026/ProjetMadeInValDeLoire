@@ -451,3 +451,11 @@ html, body {
     color: black;
     font-size: 1.2em;
 }
+
+.zone-click.disabled {
+    pointer-events: none;
+}
+
+.aucune{
+    pointer-events: none;
+}
