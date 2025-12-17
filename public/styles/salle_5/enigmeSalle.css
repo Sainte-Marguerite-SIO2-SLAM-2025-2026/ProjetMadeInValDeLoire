@@ -726,3 +726,7 @@ svg {
     color: black;
     font-size: 1.2em;
 }
+
+.aucune{
+    pointer-events: none;
+}

@@ -16,6 +16,6 @@ class SalleModel extends Model
      */
     public function getSalle($numero)
     {
-        return $this->find($numero);
+        return $this->where('salle_numero', $numero)->first();
     }
 }
