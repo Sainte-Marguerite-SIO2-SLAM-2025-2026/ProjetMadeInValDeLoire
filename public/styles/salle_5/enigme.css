@@ -367,10 +367,6 @@ html, body {
     overflow: visible;
 }
 
-.objet-cliquable {
-    cursor: pointer;
-}
-
 .objet-cliquable.disabled {
     pointer-events: none;
     opacity: 0.5;
@@ -450,4 +446,12 @@ html, body {
 .texte-indice{
     color: black;
     font-size: 1.2em;
+}
+
+.zone-click.disabled {
+    pointer-events: none;
+}
+
+.aucune{
+    pointer-events: none;
 }
