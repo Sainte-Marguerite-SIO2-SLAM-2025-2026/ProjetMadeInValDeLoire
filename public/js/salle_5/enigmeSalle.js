@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                         // ENIGME FINIE → bouton suivant
                         if (data.completed) {
+                            objetsCliquables.forEach(o => o.classList.add('disabled'));
                             feedback.innerHTML = '✅ ' + data.message + '<br>';
                             let btn = document.createElement('button');
                             btn.textContent = 'Suivant';

@@ -42,33 +42,35 @@
                        class="objet-cliquable"
                        data-reponse="<?= esc($obj['reponse']) ?>">
 
+                        <?= (isset($obj['hover'])) ? '<title>' . esc($obj['hover']) . '</title>' : '' ?>
+
                         <image
                                 href="<?= base_url($obj['image']) ?>"
                                 x="<?= $obj['x'] ?>"
                                 y="<?= $obj['y'] ?>"
                                 width="<?= $obj['width'] ?>"
                                 height="<?= $obj['height'] ?>"
-                                <?php if(str_contains($enigme->image, 'compil')): ?>
-                                    preserveAspectRatio="none" a stocker en base, si ya un rotate aussi
-                                <?php endif; ?>
+                                <?= (isset($obj['ratio']))? 'preserveAspectRatio="'.$obj['ratio'].'"' : 'preserveAspectRatio="XMidYMid slice"' ?>
                                 <?= !empty($obj['rotate']) ? 'transform="'.$obj['rotate'].'"' : '' ?>
                         />
 
                         <?php if (!empty($obj['zone_path'])): ?>
-                            <path class="zone-click"
+                        <?= (empty($obj['cliquable']))? '<path class="zone-click"' : '<path class=""' ?>
                                   d="<?= $obj['zone_path'] ?>"
                                   fill="none"
                                   pointer-events="all"
-                                  style="cursor:pointer;" />
+                                  style="cursor:pointer;"
+                            <?= !empty($obj['rotate']) ? 'transform="'.$obj['rotate'].'"' : '' ?>/>
                         <?php else: ?>
-                            <rect class="zone-click"
+                            <?= (empty($obj['cliquable']))? '<rect class="zone-click"' : '<rect class=""' ?>
                                   x="<?= $obj['x'] ?>"
                                   y="<?= $obj['y'] ?>"
                                   width="<?= $obj['width'] ?>"
                                   height="<?= $obj['height'] ?>"
                                   fill="transparent"
                                   pointer-events="all"
-                                  style="cursor:pointer;" />
+                                  style="cursor:pointer;"
+                            <?= !empty($obj['rotate']) ? 'transform="'.$obj['rotate'].'"' : '' ?>/>
                         <?php endif; ?>
 
                         <?php if (!empty($obj['texte'])): ?>
@@ -78,7 +80,8 @@
                                   dominant-baseline="central"
                                   font-size="28"
                                   font-weight="600"
-                                  fill="black">
+                                  fill="black"
+                                  pointer-events="none">
                                 <?= esc($obj['texte']) ?>
                             </text>
                         <?php endif; ?>
@@ -122,17 +125,31 @@
             <g id="lumi" class="zone-lumi" data-piece="Lumi">
                 <image class="lumi-image default"
                        preserveAspectRatio="xMidYMid slice"
+                       <?php if (str_contains($enigme->image, 'compil')): ?>
+                       x="1687.9" y="786.97" width="205" height="252"
+                       <?php else: ?>
                        x="1400.9" y="725.97"
                        width="205" height="252"
+                       <?php endif; ?>
                        xlink:href="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>" />
                 <image class="lumi-image hover"
                        preserveAspectRatio="xMidYMid slice"
-                       x="1400.9" y="725.97"
-                       width="205" height="252"
+                        <?php if (str_contains($enigme->image, 'compil')): ?>
+                            x="1687.9" y="786.97" width="205" height="252"
+                        <?php else: ?>
+                            x="1400.9" y="725.97"
+                            width="205" height="252"
+                        <?php endif; ?>
                        xlink:href="<?= base_url('images/commun/mascotte/mascotte_interrogee.svg') ?>" />
                 <rect class="lumi-zone"
-                      x="1400.9" y="725.97"
-                      width="205" height="252" pointer-events="all"/> </g>
+                        <?php if (str_contains($enigme->image, 'compil')): ?>
+                            x="1687.9" y="786.97" width="205" height="252"
+                        <?php else: ?>
+                            x="1400.9" y="725.97"
+                            width="205" height="252"
+                        <?php endif; ?>
+                      pointer-events="all"/>
+            </g>
 
         </svg>
     </div>

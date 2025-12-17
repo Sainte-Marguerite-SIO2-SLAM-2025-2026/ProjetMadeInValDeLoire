@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Hover
         zone.addEventListener('mouseenter', () => {
-            if (!objetsValides.includes(objet)) {
+            if (!objetsValides.includes(objet)&& !objet.classList.contains('disabled')) {
                 objet.style.filter = 'drop-shadow(0 0 15px rgba(255, 255, 255, 1)) drop-shadow(0 0 25px rgba(255, 255, 255, 0.8))';
             }
         });
 
         zone.addEventListener('mouseleave', () => {
-            if (!objetsValides.includes(objet)) {
+            if (!objetsValides.includes(objet) && !objet.classList.contains('disabled')) {
                 objet.style.filter = 'drop-shadow(0 0 0 rgba(0, 0, 0, 0)) drop-shadow(0 0 0 rgba(0, 0, 0, 0))';
             }
         });
