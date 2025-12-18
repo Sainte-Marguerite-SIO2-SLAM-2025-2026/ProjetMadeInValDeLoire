@@ -51,7 +51,7 @@
                                 y="<?= $obj['y'] ?>"
                                 width="<?= $obj['width'] ?>"
                                 height="<?= $obj['height'] ?>"
-                                <?= (isset($obj['ratio']))? 'preserveAspectRatio="'.$obj['ratio'].'"' : 'preserveAspectRatio="xMidYMid slice"' ?>
+                                <?= (isset($obj['ratio']))? 'preserveAspectRatio="'.$obj['ratio'].'"' : 'preserveAspectRatio="xMidYMid"' ?>
                                 <?= !empty($obj['rotate']) ? 'transform="'.$obj['rotate'].'"' : '' ?>
                         />
 
