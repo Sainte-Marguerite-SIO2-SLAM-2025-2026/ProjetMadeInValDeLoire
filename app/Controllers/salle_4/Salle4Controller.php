@@ -10,11 +10,11 @@ use App\Models\salle_4\QuizModel;
 
 class Salle4Controller extends BaseController
 {
+    protected SalleModel $salleModel;
+    protected MascotteModel $mascotteModel;
 
-    protected $salleModel;
-    protected $mascotteModel;
-
-    protected $indice;
+    protected IndiceModel $indice;
+    protected QuizModel $quizModel;
 
 
     public function __construct()
@@ -22,6 +22,7 @@ class Salle4Controller extends BaseController
         $this->salleModel = new SalleModel();
         $this->mascotteModel = new MascotteModel();
         $this->indice = new IndiceModel();
+        //$this->quizModel = new QuizModel();
     }
 
     public function index(): string
