@@ -6,20 +6,15 @@ use App\Controllers\BaseController;
 use App\Models\commun\MascotteModel;
 use App\Models\commun\SalleModel;
 use App\Models\salle_5\AvoirRepModel;
-use App\Models\salle_5\IndiceModel;
+use App\Models\commun\IndiceModel;
 use App\Models\salle_5\messageReponseModel;
 use App\Models\salle_5\ModeEmploiModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ExplicationModel;
-use App\Models\salle_5\ObjetDeclencheurModel;
 use App\Models\salle_5\ObjetsActiviteModel;
-use App\Models\salle_5\ZoneModel;
 
 class Salle5Controller extends BaseController
 {
-    // Liste des énigmes qui utilisent le fond de bureau
-    private $enigmes_bureau = [502, 503, 504, 508, 509];
-
     public function enigme($activite_numero)
     {
         // Instancier les models
@@ -29,7 +24,7 @@ class Salle5Controller extends BaseController
         $modeEmploiModel = new ModeEmploiModel();
         $explicationModel = new ExplicationModel();
         $indiceModel = new IndiceModel();
-        $objetsActiviiteModel = new ObjetsActiviteModel();
+        $objetsActiviteModel = new ObjetsActiviteModel();
 
         // Vérifier que l'activité fait partie des activités sélectionnées
         $activites_ids = session()->get('activites_salle5') ?? [];
@@ -64,14 +59,12 @@ class Salle5Controller extends BaseController
         // Données pour la vue
         $data = [
             'enigme' => $activite,
-//            'salle' => $salleModel->getSalle(5),
-//            'mascotte' => $mascotteModel->getMascotteBySalle(5),
             'salle' => $salleModel->getSalleById(5),
             'mascotte' => $mascotteModel->getMascottes(),
             'mode_emploi' => $mode_emploi,
             'explication' => $explication,
             'indice' => $indiceModel->getIndice($activite_numero),
-            'objets_activite' => $objetsActiviiteModel->getObjetsActivite($activite_numero),
+            'objets_activite' => $objetsActiviteModel->getObjetsActivite($activite_numero),
         ];
 
         return view('commun/header') .
@@ -177,14 +170,4 @@ class Salle5Controller extends BaseController
             'total_attendu' => $nb_bonnes_reponses_attendues
         ]);
     }
-
-    public function resetSalle()
-    {
-        session()->remove('activites_salle5');
-        session()->remove('activites_reussies');
-        return redirect()->to(base_url('Salle5'));
-    }
-
-
-
 }

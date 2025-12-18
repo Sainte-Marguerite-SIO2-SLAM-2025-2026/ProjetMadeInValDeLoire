@@ -4,9 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\salle_6\Salle6Controller;
 use App\Models\salle_1\Salle1ExplicationModel;
-//use App\Models\salle_4\IndiceModel;
 use App\Models\salle_5\ActiviteModel;
-use App\Models\salle_5\ExplicationModel;
 use App\Models\commun\IndiceModel;
 use App\Models\salle_5\ObjetDeclencheurModel;
 use CodeIgniter\HTTP\RedirectResponse;
@@ -134,7 +132,6 @@ class HomeControlleur extends BaseController
 
         if ((int)$numero === 5){
             // Instancier les models
-            $explicationModel = new ExplicationModel();
             $activiteModel = new ActiviteModel();
             $IndiceModel = new IndiceModel();
             $objetDeclencheurModel = new ObjetDeclencheurModel();
@@ -144,7 +141,7 @@ class HomeControlleur extends BaseController
             $activite_echec = $this->request->getGet('activite');
 
             if ($echec == 1 && $activite_echec) {
-                // ❌ ÉCHEC : Réinitialiser la progression de cette énigme
+                // ÉCHEC : Réinitialiser la progression de cette énigme
                 $activites_reussies = session()->get('activites_reussies') ?? [];
 
                 // Retirer l'activité des réussies si elle y était
@@ -191,7 +188,6 @@ class HomeControlleur extends BaseController
             $data = [
                 'salle' => $this->salleModel->getSalleById(5),
                 'mascotte' => $this->mascotteModel->getMascottes(),
-                'explication' => $explicationModel->getExplication(1),
                 'activites_selectionnees' => $activites_ids,
                 'activites_reussies' => $activites_reussies,
                 'afficher_popup' => $afficher_popup,
