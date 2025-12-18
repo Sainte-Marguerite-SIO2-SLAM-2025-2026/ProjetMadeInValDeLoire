@@ -31,7 +31,6 @@
                     'class' => 'mascotte-popup'
             ]) ?>
         </div>
-
         <h1 class="final-title">Félicitations !</h1>
 
         <p class="final-text">
