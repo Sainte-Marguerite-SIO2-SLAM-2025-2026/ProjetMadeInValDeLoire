@@ -367,6 +367,10 @@ html, body {
     overflow: visible;
 }
 
+.objet-cliquable {
+    cursor: pointer;
+}
+
 .objet-cliquable.disabled {
     pointer-events: none;
     opacity: 0.5;
