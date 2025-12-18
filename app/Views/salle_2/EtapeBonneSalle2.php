@@ -23,8 +23,13 @@
     </div>
 
     <div class="final-popup-container">
+
         <div class="mascot-final-wrapper">
-            <img src="<?= $mascotte['exclamee'] ?>" alt="Monsieur Fox">
+            <?= img([
+                    'src' => $mascotte['face'],
+                    'alt' => 'Mascotte',
+                    'class' => 'mascotte-popup'
+            ]) ?>
         </div>
 
         <h1 class="final-title">Félicitations !</h1>
@@ -37,19 +42,17 @@
 
         <div class="final-actions">
             <?php if (session()->get('mode') === 'nuit'): ?>
-            <a href="<?= base_url('valider/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
-                Valide
-            </a>
+                <a href="<?= base_url('valider/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
+                    Valide
+                </a>
             <?php else: ?>
-            <a href="<?= base_url('validerJour/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Jour">
-                Valide
-            </a>
+                <a href="<?= base_url('validerJour/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Jour">
+                    Valide
+                </a>
             <?php endif; ?>
         </div>
-    </div>
-</main>
 
-
+    </div> </main>
 
 <script>
     const BASE_URL = '<?= base_url(); ?>';

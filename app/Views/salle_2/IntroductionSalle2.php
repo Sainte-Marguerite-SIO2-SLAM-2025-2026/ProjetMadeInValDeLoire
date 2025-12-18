@@ -22,8 +22,11 @@
 
     <div class="final-popup-container">
         <div class="mascot-final-wrapper">
-            <img src="<?= $mascotte['face'] ?>" alt="Monsieur Fox">
-        </div>
+            <?= img([
+                    'src' => $mascotte['face'],
+                    'alt' => 'Mascotte',
+                    'class' => 'mascotte-popup'
+            ]) ?>        </div>
 
         <h1 class="final-title">Explication !</h1>
 

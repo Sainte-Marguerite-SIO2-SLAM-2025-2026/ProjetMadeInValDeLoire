@@ -281,37 +281,32 @@ class Salle2Controller extends BaseController
     public function validerEtape4()
     {
         $model = new Salle2Model();
+
         $indice = $model->getIndice(7);
         $mascotte_i = $model->getIndiceMascotte(14);
         $code = trim((string) $this->request->getPost('code'));
 
-        $validPasswords = [
-            'Karvion42-b',
-            'Zorliam87ax!@',
-            'Farytek31z-31'
-        ];
-
-        if (in_array($code, $validPasswords, true)) {
+        if ($model->checkPhoneCode($code)) {
             $data = [
-                'libelles' => $indice,
-                'mascotte_i' => $mascotte_i,
-                'title' => 'Téléphone | Salle Mot de Passe',
-                'code' => '',
-                'error' => null,
-                'success' => true,
-                'success_message' => "Bravo ! Le code est correct. Le Téléphone est maintenant déverrouillée.",
-                'next_url' => site_url('Salle2/Etape5'),
+                'libelles'        => $indice,
+                'mascotte_i'      => $mascotte_i,
+                'title'           => 'Téléphone | Salle Mot de Passe',
+                'code'            => '',
+                'error'           => null,
+                'success'         => true,
+                'success_message' => "Bravo ! Le code est correct. Le téléphone est maintenant déverrouillé.",
+                'next_url'        => site_url('Salle2/Etape5'),
             ];
         } else {
             $data = [
-                'libelles' => $indice,
-                'mascotte_i' => $mascotte_i,
-                'title' => 'Téléphone | Salle Mot de Passe',
-                'code' => '',
-                'error' => "Mot de passe incorrect ",
-                'success' => false,
+                'libelles'        => $indice,
+                'mascotte_i'      => $mascotte_i,
+                'title'           => 'Téléphone | Salle Mot de Passe',
+                'code'            => '',
+                'error'           => "Mot de passe incorrect.",
+                'success'         => false,
                 'success_message' => null,
-                'next_url' => site_url('Salle2/Etape5'),
+                'next_url'        => site_url('Salle2/Etape5'),
             ];
         }
 
@@ -357,12 +352,23 @@ class Salle2Controller extends BaseController
 
     public function Etapeb()
     {
-        return view('salle_2/EtapeBonneSalle2');
+        $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
+        $data = [
+            'mascotte' => $this->mascotte->getMascottes(),
+        ];
+        return view('salle_2/EtapeBonneSalle2',$data);
+
+
     }
     public function Etapef()
     {
-        return view('salle_2/EtapeFausseSalle2');
+        $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
+        $data = [
+            'mascotte' => $this->mascotte->getMascottes(),
+        ];
+        return view('salle_2/EtapeFausseSalle2',$data);
     }
-
 
 }
