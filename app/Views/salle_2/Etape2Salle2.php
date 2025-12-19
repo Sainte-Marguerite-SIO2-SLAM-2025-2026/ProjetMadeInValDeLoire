@@ -149,7 +149,7 @@
 
     <?php if (empty($success)): ?>
         <div class="mascotte-container">
-            <img id="mascotte" src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
+            <img id="mascotte" src="<?= $mascotte['face'] ?>" alt="Mascotte">
         </div>
 
         <div id="mascotte-bulle">
@@ -187,7 +187,7 @@
 
                 <div class="final-popup-container">
                     <div class="mascot-final-wrapper">
-                        <img src="<?= base_url('/images/salle_2/mascotte/mascotte_contente.svg') ?>" alt="Monsieur Fox">
+                        <img src="<?= $mascotte['exclamee'] ?>" alt="Monsieur Fox">
                     </div>
 
                     <h1 class="final-title" id="final-title">Félicitations !</h1>
