@@ -42,7 +42,7 @@
 
     <div class="center-container">
         <label for="poignier-toggle" class="carton-contour" aria-controls="poignier-overlay" aria-haspopup="dialog"></label>
-        <a class="malette-contour" href="<?= base_url('Etape3') ?>"></a>
+        <a class="malette-contour" href="<?= base_url('/Salle2/Etape3') ?>"></a>
     </div>
 
     <aside id="intro-tip" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">

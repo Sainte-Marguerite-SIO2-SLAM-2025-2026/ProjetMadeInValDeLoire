@@ -1,7 +1,8 @@
-/**document.addEventListener('DOMContentLoaded', function() {
-    const mascotteImg = document.querySelector('.mascotte-img');
+document.addEventListener('DOMContentLoaded', function() {
+    const mascotteImg = document.querySelector('.lumi-image.hover');
+    const lumiZone = document.querySelector('.lumi-zone');
 
-    if (!mascotteImg) return;
+    if (!mascotteImg || !lumiZone) return;
 
     const baseUrl = document.body.dataset.baseurl || '';
 
@@ -14,36 +15,30 @@
         saoulee: baseUrl + '/images/commun/mascotte/mascotte_saoulee.svg'
     };
 
-    mascotteImg.src = mascotteImages.face;
-
-    mascotteImg.addEventListener('mouseenter', () => {
-        if (!mascotteImg.classList.contains('locked')) {
-            mascotteImg.src = mascotteImages.interrogee;
-        }
-    });
-
-    mascotteImg.addEventListener('mouseleave', () => {
-        if (!mascotteImg.classList.contains('locked')) {
-            mascotteImg.src = mascotteImages.face;
-        }
-    });
-
+    // Fonction pour changer l'état de la mascotte
     window.changerMascotte = function(etat, duree = 0) {
         if (mascotteImages[etat]) {
             mascotteImg.classList.add('locked');
-            mascotteImg.src = mascotteImages[etat];
+            mascotteImg.setAttribute('xlink:href', mascotteImages[etat]);
 
             if (duree > 0) {
                 setTimeout(() => {
                     mascotteImg.classList.remove('locked');
-                    mascotteImg.src = mascotteImages.face;
+                    mascotteImg.setAttribute('xlink:href', mascotteImages.interrogee);
                 }, duree);
             }
         }
     };
 
+    // Fonction pour revenir à l'état de base de la mascotte
     window.deverrouillerMascotte = function() {
         mascotteImg.classList.remove('locked');
-        mascotteImg.src = mascotteImages.face;
+        mascotteImg.setAttribute('xlink:href', mascotteImages.interrogee);
     };
-});**/
+
+    // Ajouter un événement pour le clic sur la zone lumi
+    lumiZone.addEventListener('click', () => {
+        // Au clic, changer l'image en "contente"
+        changerMascotte('contente', 8000); // L'image "contente" pendant 2 secondes
+    });
+});

@@ -21,10 +21,14 @@
     </div>
 
     <div class="final-popup-container">
-        <div class="mascot-final-wrapper">
-            <img src="<?= base_url('/images/salle_2/mascotte/mascotte_choquee.svg') ?>" alt="Monsieur Fox">
-        </div>
 
+        <div class="mascot-final-wrapper">
+            <?= img([
+                    'src' => $mascotte['choquee'],
+                    'alt' => 'Mascotte',
+                    'class' => 'mascotte-popup'
+            ]) ?>
+        </div>
         <h1 class="final-title">Vous n'avez pas réussi !</h1>
 
         <p class="final-text">
@@ -35,7 +39,7 @@
 
         <div class="final-actions">
             <?php if (session()->get('mode') === 'nuit'): ?>
-                <a href="<?= base_url('echouer/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
+                <a href="<?= base_url('reset') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
                     Réessayer
                 </a>
             <?php else: ?>
@@ -44,8 +48,8 @@
                 </a>
             <?php endif; ?>
         </div>
-    </div>
-</main>
+
+    </div> </main>
 
 <script>
     const BASE_URL = '<?= base_url(); ?>';

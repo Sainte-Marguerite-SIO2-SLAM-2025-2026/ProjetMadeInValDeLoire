@@ -22,15 +22,18 @@
 
     <div class="final-popup-container">
         <div class="mascot-final-wrapper">
-            <img src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Monsieur Fox">
-        </div>
+            <?= img([
+                    'src' => $mascotte['face'],
+                    'alt' => 'Mascotte',
+                    'class' => 'mascotte-popup'
+            ]) ?>        </div>
 
         <h1 class="final-title">Explication !</h1>
 
         <p class="final-text">
             <?= $introduction->libelle; ?>
             <br><br>
-            Mot de passe de la porte : <?= esc($libelles[0]['libelle'] ?? '') ?>
+            Si vous avez <strong>besoin d'aide</strong> cliquez sur la <strong> mascotte </strong>!
 
         </p>
 

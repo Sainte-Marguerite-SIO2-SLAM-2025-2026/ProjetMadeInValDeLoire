@@ -5,10 +5,8 @@ namespace App\Controllers;
 use App\Controllers\salle_6\Salle6Controller;
 use App\Models\salle_1\Salle1ExplicationModel;
 use App\Models\salle_5\ActiviteModel;
-use App\Models\salle_5\ExplicationModel;
-//use App\Models\salle_5\MascotteModel;
-//use App\Models\salle_5\SalleModel;
-use App\Models\salle_5\IndiceModel;
+use App\Models\commun\IndiceModel;
+use App\Models\salle_5\ObjetDeclencheurModel;
 use CodeIgniter\HTTP\RedirectResponse;
 use App\Models\commun\MascotteModel;
 use App\Models\commun\SalleModel;
@@ -99,13 +97,18 @@ class HomeControlleur extends BaseController
         if ((int)$numero === 1)
         {
             $explicationModel = new Salle1ExplicationModel();
-            $data = ['explication' => $explicationModel->getExplicationSalle1()];
+            $data = [
+                'explication' => $explicationModel->getExplicationSalle1(),
+                'mascotte'=>$this->mascotteModel->getMascottes(),
+            ];
             return view('salle_1/AccueilSalle1', $data).
                 view('commun/footer');
         }
 
         if ((int)$numero === 4){
             $session = session();
+
+            $this->indice = new IndiceModel();
 
             // Vérifier si c'est la première visite de la salle 4
             $premiereVisite = !$session->has('salle4_visited');
@@ -120,6 +123,7 @@ class HomeControlleur extends BaseController
                 'premiere_visite' => $premiereVisite,
                 'salle' => $this->salleModel->getSalleById(4),
                 'mascotte' => $this->mascotteModel->getMascottes(),
+                'indice' => $this->indice->getIndice(400),
             ];
 
             return view('salle_4/AccueilSalle4', $data) . view('commun/footer');
@@ -128,18 +132,16 @@ class HomeControlleur extends BaseController
 
         if ((int)$numero === 5){
             // Instancier les models
-//            $salleModel = new SalleModel();
-//            $mascotteModel = new MascotteModel();
-            $explicationModel = new ExplicationModel();
             $activiteModel = new ActiviteModel();
             $IndiceModel = new IndiceModel();
+            $objetDeclencheurModel = new ObjetDeclencheurModel();
 
-            // 🔥 Vérifier si on arrive avec un échec
+            //  Vérifier si on arrive avec un échec
             $echec = $this->request->getGet('echec');
             $activite_echec = $this->request->getGet('activite');
 
             if ($echec == 1 && $activite_echec) {
-                // ❌ ÉCHEC : Réinitialiser la progression de cette énigme
+                // ÉCHEC : Réinitialiser la progression de cette énigme
                 $activites_reussies = session()->get('activites_reussies') ?? [];
 
                 // Retirer l'activité des réussies si elle y était
@@ -179,20 +181,20 @@ class HomeControlleur extends BaseController
                 session()->set('popup_salle5_vue', true);
             }
 
-            // 🔥 Popup d'échec si paramètre présent
+            //  Popup d'échec si paramètre présent
             $afficher_popup_echec = ($echec == 1 && $activite_echec);
 
             // Récupérer les données via les models
             $data = [
                 'salle' => $this->salleModel->getSalleById(5),
                 'mascotte' => $this->mascotteModel->getMascottes(),
-                'explication' => $explicationModel->getExplication(1),
                 'activites_selectionnees' => $activites_ids,
                 'activites_reussies' => $activites_reussies,
                 'afficher_popup' => $afficher_popup,
                 'afficher_popup_succes' => $afficher_popup_succes,
                 'afficher_popup_echec' => $afficher_popup_echec,
                 'indice' => $IndiceModel->getIndice(500),
+                'objetDeclencheur' => $objetDeclencheurModel->getObjetsPourSalle($activites_ids, $activites_reussies)
             ];
         }
 
@@ -203,6 +205,7 @@ class HomeControlleur extends BaseController
         }
 
         $data['numero_salle'] = $numero;
+        $data['mascotte'] = $this->mascotteModel->getMascottes();
 
         return view('commun/header').
             view($viewPath, $data).

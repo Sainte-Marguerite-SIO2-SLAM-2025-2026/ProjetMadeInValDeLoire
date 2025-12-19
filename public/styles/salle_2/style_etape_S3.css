@@ -124,31 +124,30 @@ footer, .game-footer, .site-footer {
 
 /* Etape 1 (extraits initiaux) */
 .code-contour {
-    bottom: 43.4%;
+    bottom: 42.4%;
     right: 28%;
     width: 7.8708%;
-    height: 14%;
+    height: 18%;
     cursor: pointer;
     display: block;
 }
 
 .livre-contour {
-    bottom: 23%;
+    bottom: 18%;
     right: 13.5%;
     width: 11.4583%;
-    height: 4.2037%;
+    height: 6.2037%;
     cursor: pointer;
     display: block;
 }
 
 .poignier-contour {
-    bottom: 15.2%;
+    bottom: 9.5%;
     right: 41.4%;
     width: 4.1250%;
-    height: 6.5556%;
+    height: 8.5556%;
     cursor: pointer;
     display: block;
-
 }
 
 /* Bordures (fluides) */
@@ -192,9 +191,10 @@ footer, .game-footer, .site-footer {
 .btn-retour-code {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     z-index: 1000;
 }
+
 
 /* Toujours au-dessus du fond */
 .label-contour,
@@ -241,7 +241,6 @@ footer, .game-footer, .site-footer {
     text-shadow: 0 1px 0 rgba(0,0,0,.6);
 }
 
-/* MODIFIÉ: place les panneaux .tip-panel--top tout en haut et centrés */
 .tip-panel--top {
     top: 0;              /* tout en haut */
     bottom: auto;        /* neutralise le bas */
@@ -251,7 +250,6 @@ footer, .game-footer, .site-footer {
     pointer-events: none;
 }
 
-/* MODIFIÉ: retire le timer/autohide pour la classe .tip-panel--autohide */
 .tip-panel--autohide {
     opacity: 1;
     will-change: opacity, visibility;
@@ -269,11 +267,6 @@ footer, .game-footer, .site-footer {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .tip-panel--autohide {
-        animation: tipAutoHide 15s linear forwards !important;
-    }
-}
 
 .sr-only {
     position: absolute !important;
@@ -366,8 +359,18 @@ button:active, .btn:active, a.button:active, .btn-primary:active {
     transform: translateY(0);
     box-shadow: 0 6px 16px rgba(0,0,0,.5), inset 0 2px 6px rgba(0,0,0,.4);
 }
-.btn--ghost { background: transparent; border-color: rgba(200,169,106,0.5); }
-.btn--ghost:hover { background: rgba(200,169,106,0.08); }
+.btn--ghost
+{
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    color: #e7e1c6;
+    background: linear-gradient(180deg, #2a2824, #121110);
+    border-radius: 10px;
+    text-decoration: none;
+
+}
 .btn--xl { padding: 18px 36px; font-size: 1.15rem; border-radius: 12px; }
 
 .hero-buttons {
@@ -390,7 +393,6 @@ button:active, .btn:active, a.button:active, .btn-primary:active {
     .btn, .btn--xl { width: 100%; text-align: center; }
 }
 
-/* Bouton retour */
 .retour-buttons {
     position: fixed;
     bottom: clamp(12px, 4vh, 32px);
@@ -439,7 +441,6 @@ button:active, .btn:active, a.button:active, .btn-primary:active {
     font-size: 1rem;
     font-weight: 700;
     color: #000;
-
 }
 
 .postit-1 {
@@ -450,78 +451,75 @@ button:active, .btn:active, a.button:active, .btn-primary:active {
 }
 
 .postit-2 {
-    bottom: 33.2%;
+    bottom: 31.4%;
     right: 35.5%;
     width: 10.5042%;
     height: 22%;
 }
 
 .postit-3 {
-    bottom: 67%;
-    right: 42.5%;
+    bottom: 59.7%;
+    right: 37.2%;
     width: 10.1042%;
     height: 21%;
     transform-origin: center center;
+    transform: rotate(5.8deg);
 }
 
 .code-label {
     /* Ton positionnement existant */
     position: absolute; /* Ajouté ici car il était inline avant, plus propre dans le CSS */
     overflow: visible;
-    bottom: 62.2%;
+    bottom: 64.2%;
     right: 77.9%;
     width: 15%;
     height: 9.1296%;
     display: flex;             /* Active le mode Flexbox */
     align-items: center;       /* Centre verticalement */
     justify-content: center;   /* Centre horizontalement le bloc input */
-
-
 }
 
 .reset-code {
-    bottom: 40.4%;
+    bottom: 38.4%;
     right: 73.8%;
     width: 3.2813%;
     height: 3.7778%;
 }
 
 .valide-code {
-    bottom: 33.7%;
+    bottom: 31.5%;
     right: 77.6%;
     width: 5%;
-    height: 5.6370%;
-    border-color : red;
-
+    height: 6.6370%;
 }
 
 
 /* Etape 2a */
 .carton-contour {
-    bottom: 63.5%;
+    bottom: 65.5%;
     right: 77%;
     width: 10.5%;
-    height: 7.5%;
-
+    height: 9.5%;
 }
 
 .malette-contour {
-    bottom: 26.5%;
+    bottom: 24.5%;
     right: 71%;
     width: 30.9896%;
     height: 17.1667%;
 }
 
+
 /* Etape 3 */
 .valide-malette {
-    bottom: 24.5%;
-    right: 38.7%;
-    width: 5%;
+    bottom: 20.2%;
+    right: 38.8%;
+    width: 5.5%;
     height: 5%;
 }
 
 .reset-malette {
-    bottom: 24.5%;
+    bottom: 20.5%;
     right: 50%;
     width: 14.7604%;
     height: 5.2407%;
@@ -534,12 +532,13 @@ button:active, .btn:active, a.button:active, .btn-primary:active {
     height: 36%;
     box-sizing: border-box;
     z-index: 20;
+
 }
 
 /* LE CONTENEUR PARENT */
 .ecran-malette {
     position: absolute;
-    bottom: 47%;
+    bottom: 50%;
     right: 44%;
     width: 21%;
     height: 36%;
@@ -616,7 +615,7 @@ button:active, .btn:active, a.button:active, .btn-primary:active {
 
 /* Etape 4 */
 .genere-telephone {
-    bottom: 44%;
+    bottom: 42%;
     right: 33.5%;
     width: 11.2083%;
     height: 8.9444%;
@@ -629,9 +628,17 @@ button:active, .btn:active, a.button:active, .btn-primary:active {
 }
 .validate-container {
     position: fixed;
-    left: 20px; /* Changement ici : remplace right par left */
+    left: 20px;
     bottom: 20px;
     z-index: 10;
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    color: #e7e1c6;
+    background: linear-gradient(180deg, #2a2824, #121110);
+    border-radius: 10px;
+    text-decoration: none;
 }
 
 .btn-validate {
@@ -663,13 +670,13 @@ button:active, .btn:active, a.button:active, .btn-primary:active {
     text-align: center;
 }
 .aide-telephone {
-    bottom: 43%;
+    bottom: 47%;
     right: 71.5%;
     width: 26.2083%;
     height: 67.9444%;
     font-size: 1.2rem;
     line-height: 1.4;
-    color: #000;
+    color: #000
 }
 
 /* ===== Étape 5 v23 : Une seule zone par drop ===== */

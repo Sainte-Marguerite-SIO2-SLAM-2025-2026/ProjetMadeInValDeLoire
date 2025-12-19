@@ -17,11 +17,13 @@ class Salle2Model extends Model
         $builder = $db->table('explication');
 
         $query = $builder->select('libelle')
-            ->where('numero', 1)
-            ->get();
+            ->whereIn('numero', [12, 13, 14])
+            ->orderBy('RAND()')
+            ->get(1);
 
-        return $query->getRow(); // retourne un seul objet
+        return $query->getRow();
     }
+
 
     public function getIndice($numero)
     {
@@ -32,18 +34,34 @@ class Salle2Model extends Model
             ->getRow();
     }
 
-
-
-    public function getMotDePasse1(int $limit = 1)
+    public function getIndiceMascotte($numero)
     {
-        $cibles = ['789546', '321456', '912364'];
+        return $this->db->table('indice')
+            ->select('libelle')
+            ->where('numero', $numero)
+            ->get()
+            ->getRow();
+    }
 
-        return $this->select('libelle')
+    public function getMotDePasse1a(): array
+    {
+        $builder = $this->db->table('mot_de_passe');
+
+        $query = $builder->select('motPasse')
             ->distinct()
-            ->whereIn('libelle', $cibles)
-            ->orderBy('RAND()')
-            ->limit($limit)
-            ->findAll();
+            ->whereIn('motPasse', ['789546','321456','912364'])
+            ->get();
+
+        $results = $query->getResult();
+
+        $motsDePasse = [];
+        foreach ($results as $row) {
+            $mot = preg_replace('/\D+/', '', (string)$row->motPasse); // ne garde que les chiffres
+            $mot = mb_substr($mot, 0, 6); // coupe à 6 caractères si nécessaire
+            $motsDePasse[] = $mot;
+        }
+
+        return $motsDePasse;
     }
 
     /**
@@ -51,11 +69,9 @@ class Salle2Model extends Model
      */
     public function getDistinctLibelles(int $limit = 3)
     {
-        $cibles = ['4897', '1123', '9875', '8745'];
-
         return $this->select('libelle')
             ->distinct()
-            ->whereIn('libelle', $cibles)
+            ->whereIn('libelle', ['4897', '1123', '9875', '8745'])
             ->orderBy('RAND()')
             ->limit($limit)
             ->findAll();
@@ -66,7 +82,6 @@ class Salle2Model extends Model
      */
     public function checkCode(string $code): bool
     {
-        // 1) Normalisation du code saisi : seulement chiffres, max 6
         $codeDigits = preg_replace('/\D+/', '', $code);
         $codeDigits = mb_substr($codeDigits, 0, 6);
 
@@ -74,7 +89,6 @@ class Salle2Model extends Model
             return false; // sécurité : on exige 6 chiffres
         }
 
-        // 2) Connexion à la table mot_de_passe
         $db = \Config\Database::connect();
         $builder = $db->table('mot_de_passe');
 
@@ -82,21 +96,19 @@ class Salle2Model extends Model
         $rows = $builder->select('motPasse')->get()->getResultArray();
 
         if (!$rows) {
-            return false; // aucun mot de passe en base
+            return false;
         }
 
-        // 4) Boucler sur chaque motPasse et comparer
         foreach ($rows as $row) {
             // Normalisation du mot de passe en base
             $dbCode = preg_replace('/\D+/', '', $row['motPasse'] ?? '');
             $dbCode = mb_substr($dbCode, 0, 6);
 
             if ($dbCode === $codeDigits) {
-                return true; // on a trouvé un match
+                return true;
             }
         }
 
-        // 5) Aucun motPasse ne correspond
         return false;
     }
 
@@ -114,18 +126,14 @@ class Salle2Model extends Model
         $row = $builder->get()->getRowArray();
         return $row['motPasse'] ?? null;
     }
-
-
-
-
     public function checkPhoneCode(string $code): bool
     {
-        $db = \Config\Database::connect();
-        $builder = $db->table('mot_de_passe');
+        $builder = $this->db->table('mot_de_passe');
 
         $builder->where('motPasse', trim($code));
-        $row = $builder->get()->getRowArray();
 
-        return $row !== null;
+        $builder->whereIn('numero', [96, 97]);
+
+        return $builder->countAllResults() > 0;
     }
 }
