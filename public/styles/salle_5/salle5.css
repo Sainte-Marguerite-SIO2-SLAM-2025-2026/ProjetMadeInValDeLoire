@@ -28,45 +28,6 @@ body, html {
     z-index: 1;
 }
 
-.retour {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-}
-
-.retour button {
-    font-size: 1em;
-    background-color: #fff;
-    color: #121212;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.retour button:hover {
-    background-color: #e0e0e0;
-    transform: scale(1.05);
-}
-
-/* 🐧 Mascotte */
-.mascotte {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-}
-
-.mascotte-img {
-    width: 70px;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.mascotte-img:hover {
-
-}
-
 /* Footer en bas de page */
 .footer {
     height: 100px;
@@ -149,10 +110,6 @@ body, html {
     cursor: pointer;
 }
 
-#ecran_milieu_gauche image {
-    overflow: hidden;
-}
-
 /* Animations */
 @keyframes fadeInDown {
     from {
@@ -205,55 +162,10 @@ svg {
     z-index: 1;
 }
 
-/* Mascotte et bouton = superposés AU-DESSUS du SVG, mais dans le même flux */
-.retour, .mascotte {
-    position: absolute;
-    z-index: 2; /* au-dessus du SVG */
-}
-
-/* Bouton retour en haut à gauche */
-.retour-top {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 100;
-}
-
-.btn-retour {
-    background: linear-gradient(135deg, #d4af37, #f4d03f);
-    color: #2c1810;
-    border: 3px solid #8b6914;
-    border-radius: 8px;
-    padding: 12px 30px;
-    font-size: 1.1em;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.btn-retour:hover {
-    background: linear-gradient(135deg, #f4d03f, #d4af37);
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(212, 175, 55, 0.5);
-}
-
-.mascotte {
-    bottom: 30px;
-    right: 30px;
-}
-
-.mascotte-img {
-    width: 180px;
-    height: 180px;
-    animation: float 3s ease-in-out infinite;
-}
-
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
-
 
 /* Popup de succès */
 .popup-succes {

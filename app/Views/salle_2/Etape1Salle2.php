@@ -8,6 +8,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preload" as="image" href="<?= base_url('/images/salle_2/Etape1_Salle3.jpg') ?>">
     <link rel="stylesheet" href="<?= base_url('/styles/salle_2/style_etape_S3.css') ?>?v=8">
+
+    <?php if (empty($success)): ?>
+        <div class="mascotte-container">
+            <img id="mascotte"
+                 src="<?= base_url('images/salle_2/mascotte/mascotte_face.svg'); ?>"
+                 alt="Mascotte">
+        </div>
+
+        <div id="mascotte-bulle">
+            <div id="bulle-texte"></div>
+            <div id="bulle-actions"></div>
+            <div class="bulle-fleche"></div>
+        </div>
+    <?php endif; ?>
+
 </head>
 <body>
 
@@ -50,9 +65,7 @@
         <a class="livre-contour" href="<?= base_url('/Salle2/Aide') ?>"></a>
     </div>
 
-    <div class="mascotte-container">
-        <img id="mascotte" src="<?= $mascotte['face'] ?>" alt="Mascotte">
-    </div>
+
 
     <div id="mascotte-bulle">
         <div id="bulle-texte"></div>

@@ -62,8 +62,8 @@ $routes->match(['get', 'post'], '/Salle2/etape2a', 'salle_2\Salle2Controller::Et
 $routes->get('Salle2/Etape3', 'salle_2\Salle2Controller::Etape3');
 $routes->match(['get', 'post'], '/Salle2/Etape3', 'salle_2\Salle2Controller::Etape3');
 $routes->get('Salle2/Etape4', 'salle_2\Salle2Controller::Etape4');
-$routes->post('Etape4', 'salle_2\Salle2Controller::validerEtape4');
-$routes->get('Etape4/password-random', 'salle_2\Salle2Controller::passwordRandom');
+$routes->post('Salle2/Etape4', 'salle_2\Salle2Controller::validerEtape4');
+$routes->get('Salle2/Etape4/password-random', 'salle_2\Salle2Controller::passwordRandom');
 $routes->get('Salle2/Etape5', 'salle_2\Salle2Controller::Etape5');
 $routes->get('Salle2/Etapef', 'salle_2\Salle2Controller::Etapef');
 $routes->get('Salle2/Etapeb', 'salle_2\Salle2Controller::Etapeb');
