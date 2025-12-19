@@ -103,11 +103,30 @@ class Salle2Controller extends BaseController
         if (in_array($motDePasseSaisi, $motsDePasseValides, true)) {
             session()->remove('echecs_Etape1a');
 
+            // Génération du chemin NUIT dès la validation d'Etape1a
+            if (session()->get('mode') === 'nuit') {
+                // Choisir uniformément une des trois paires, puis mélanger l'ordre
+                $paires = [
+                    ['Etape2', 'Etape3'],
+                    ['Etape2', 'Etape4'],
+                    ['Etape3', 'Etape4'],
+                ];
+                $selection = $paires[random_int(0, count($paires) - 1)];
+                shuffle($selection);
+
+                $chemin = array_merge(['Etape1a'], $selection, ['Etape5']);
+                session()->set('nuit_chemin', $chemin);
+            } else {
+                // En mode jour, on nettoie par sécurité
+                session()->remove('nuit_chemin');
+            }
+
             $data['placeholder_message'] = null;
             $data['error'] = null;
             $data['success'] = true;
             $data['success_message'] = "Bravo ! Le code est correct.";
 
+            // Utilise le chemin déjà généré
             $data['next_url'] = $this->getNextUrl('Etape1a');
         } else {
             if ($this->checkMaxFailures('Etape1a')) {
@@ -369,22 +388,29 @@ class Salle2Controller extends BaseController
 
         $chemin = session()->get('nuit_chemin');
 
-        if ($currentStep === 'Etape1a' || empty($chemin)) {
-
+        if (empty($chemin)) {
             $candidats = ['Etape2', 'Etape3', 'Etape4'];
 
-            shuffle($candidats);
-
-            $nombreEtapes = rand(2, 3);
-
-            $selection = array_slice($candidats, 0, $nombreEtapes);
-
-            $chemin = array_merge(['Etape1a'], $selection, ['Etape5']);
+            if (in_array($currentStep, $candidats, true)) {
+                // Déjà dans une des salles: on choisit UNE autre salle au hasard, puis Etape5
+                $restants = array_values(array_diff($candidats, [$currentStep]));
+                $autre = $restants[random_int(0, count($restants) - 1)];
+                $chemin = ['Etape1a', $currentStep, $autre, 'Etape5'];
+            } else {
+                $paires = [
+                    ['Etape2', 'Etape3'],
+                    ['Etape2', 'Etape4'],
+                    ['Etape3', 'Etape4'],
+                ];
+                $selection = $paires[random_int(0, count($paires) - 1)];
+                shuffle($selection);
+                $chemin = array_merge(['Etape1a'], $selection, ['Etape5']);
+            }
 
             session()->set('nuit_chemin', $chemin);
         }
 
-        $positionActuelle = array_search($currentStep, $chemin);
+        $positionActuelle = array_search($currentStep, $chemin, true);
 
         if ($positionActuelle !== false && isset($chemin[$positionActuelle + 1])) {
             $prochaineEtape = $chemin[$positionActuelle + 1];
@@ -395,6 +421,7 @@ class Salle2Controller extends BaseController
             return base_url('/Salle2/Etapeb');
         }
 
+        // Si jamais l'étape n'est pas trouvée dans le chemin (cas limite), aller vers Etape5.
         return base_url('/Salle2/Etape5');
     }
 }

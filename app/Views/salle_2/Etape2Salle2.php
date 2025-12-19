@@ -204,7 +204,7 @@
                     </p>
 
                     <div class="final-actions">
-                        <a href="<?= base_url('Salle2/Etape2a') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
+                        <a href="<?= esc($next_url ?? base_url('/Salle2/Etape2a')) ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
                             Continuer
                         </a>
                     </div>
