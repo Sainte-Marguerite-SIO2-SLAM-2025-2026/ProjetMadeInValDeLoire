@@ -138,6 +138,26 @@
     </div>
 
     <div id="code-success-overlay" class="final-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="final-title" style="display:none">
+        <!-- Masquer la mascotte, sa bulle et le libellé d'indice quand le pop-up succès est visible -->
+        <style>
+            /* Robustesse: block ou flex */
+            body:has(#code-success-overlay[style*="display:block"]) .mascotte-container,
+            body:has(#code-success-overlay[style*="display:block"]) #mascotte-bulle,
+            body:has(#code-success-overlay[style*="display:block"]) #message-intro,
+            body:has(#code-success-overlay[style*="display:flex"]) .mascotte-container,
+            body:has(#code-success-overlay[style*="display:flex"]) #mascotte-bulle,
+            body:has(#code-success-overlay[style*="display:flex"]) #message-intro {
+                display: none !important;
+            }
+
+            /* S'assurer que le pop-up passe devant tout */
+            body:has(#code-success-overlay[style*="display:block"]) .final-popup-overlay,
+            body:has(#code-success-overlay[style*="display:flex"]) .final-popup-overlay {
+                position: fixed !important;
+                inset: 0 !important;
+                z-index: 9999 !important;
+            }
+        </style>
 
         <img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>" alt="Fond" class="accueil-bg">
 
@@ -175,6 +195,7 @@
             </div>
         </main>
     </div>
+
     <div class="mascotte-container">
         <img id="mascotte"
              src="<?= base_url('images/salle_2/mascotte/mascotte_face.svg'); ?>"
@@ -199,7 +220,8 @@
 
     <script src="<?= base_url('js/salle_2/mascotte.js') ?>"></script>
 
-</div> <div class="scroll-flow">
+</div>
+<div class="scroll-flow">
     <div class="scroll-spacer"></div>
 </div>
 

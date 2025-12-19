@@ -66,6 +66,18 @@
 
     const successOverlay = document.getElementById('code-success-overlay');
 
+    // FORM pour soumission serveur (contrôleur Etape5)
+    const form = document.getElementById('form-jeu-validation');
+    const inputResult = document.getElementById('input-resultat-jeu');
+    function submitResult(isSuccess) {
+        if (!form || !inputResult) {
+            console.warn('[Post-it Drag] Formulaire introuvable, soumission impossible.');
+            return;
+        }
+        inputResult.value = isSuccess ? '1' : '0';
+        form.submit();
+    }
+
     if (!zoneValidWrapper || !zoneInvalidWrapper || !zoneValid || !zoneInvalid || postits.length === 0) {
         console.warn('[Post-it Drag] Éléments manquants.');
         return;
@@ -299,6 +311,7 @@
 
         overlay.classList.remove('is-hidden');
 
+        // Flag succès: affichera l'overlay "Continuer" au clic sur Fermer
         if (correct >= 7) {
             readyForSuccess = true;
         }
@@ -313,7 +326,20 @@
     btnFermer?.addEventListener('click', ()=>{
         overlay.classList.add('is-hidden');
         if (readyForSuccess && successOverlay) {
+            // Montre l’overlay avec le bouton "Continuer" de la vue
             successOverlay.style.display = 'grid';
+
+            // Focalise le bouton pour accessibilité
+            const continueBtn = successOverlay.querySelector('button');
+            continueBtn?.focus();
+
+            // IMPORTANT: on ne soumet plus automatiquement ici.
+            // Si vous voulez tout de même lancer le "clic" automatiquement (au lieu d'appeler form.submit),
+            // décommentez la ligne suivante:
+            // setTimeout(()=> continueBtn?.click(), 800);
+        } else {
+            // Soumission échec pour incrémenter le compteur côté serveur (mode nuit)
+            submitResult(false);
         }
     });
 

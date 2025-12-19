@@ -18,6 +18,10 @@ $routes->get('/gingembre/salle_(:num)', 'admin\AdminController::salle/$1');
 $routes->get('/gingembre/create-user', 'admin\AdminController::createUser');
 $routes->get('gingembre/quiz', 'admin\AdminController::quiz');
 $routes->get('gingembre/mascotte', 'admin\AdminController::mascotte');
+//Salle2
+// 2. La suppression (DELETE)
+$routes->get('gingembre/deleteElement/(:segment)/(:num)', 'Gingembre::deleteElement/$1/$2');
+$routes->post('gingembre/saveGeneric', 'Gingembre::saveGeneric');
 
 // Route pour la page d'accueil
 $routes->get('/', 'HomeControlleur::index');

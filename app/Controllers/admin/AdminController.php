@@ -5,6 +5,7 @@ namespace App\Controllers\admin;
 use App\Controllers\BaseController;
 use App\Models\admin\UserModel;
 use CodeIgniter\HTTP\RedirectResponse;
+use App\Models\admin\salle_2\Salle2Admin;
 
 class AdminController extends BaseController
 {
@@ -19,18 +20,18 @@ class AdminController extends BaseController
         $userModel = new UserModel();
 
         $username = esc($this->request->getPost('user'));
-        $password = esc($this->request->getPost('mdp')); // Garder le mot de passe en clair
+        $password = esc($this->request->getPost('mdp'));
 
-        // Chercher l'utilisateur
+        // Chercher l’utilisateur
         $user = $userModel->getUser($username);
 
         if (!$user) {
             return redirect()->back()->with('error', 'Utilisateur inconnu');
         }
 
-        // Vérification mot de passe - INVERSER la logique
-        if (!password_verify($password, $user['mdp'])) {
-            return redirect()->back()->with('error','Mot de passe incorrect');
+        // Vérification mot de passe
+        if ($password !== $user['mdp']) {
+            return redirect()->back()->with('error', 'Mot de passe incorrect');
         }
 
         // Connexion OK → enregistrer en session
@@ -74,7 +75,14 @@ class AdminController extends BaseController
             return view('admin/salle_1/AccueilAdminSalle1');
         }
         elseif ($numero == 2) {
-            return view('admin/salle_2/AccueilAdminSalle2');
+            $model = new Salle2Admin();
+            $data = [
+                'explications' => $model->getExplications(),
+                'indices'      => $model->getIndices(),
+                'mdps'         => $model->getMdps()
+            ];
+
+            return view('admin/salle_2/AccueilAdminSalle2', $data);
         }
         elseif ($numero == 3) {
             return view('admin/salle_3/AccueilAdminSalle3');
@@ -95,7 +103,6 @@ class AdminController extends BaseController
 
     public function quiz() : string|RedirectResponse
     {
-        // Test si l'utilisateur est connecté
         if (session()->get('admin_id') == null)
         {
             return redirect()->to('/gingembre');
@@ -105,7 +112,6 @@ class AdminController extends BaseController
 
     public function mascotte() : string|RedirectResponse
     {
-        // Test si l'utilisateur est connecté
         if (session()->get('admin_id') == null)
         {
             return redirect()->to('/gingembre');
@@ -113,4 +119,28 @@ class AdminController extends BaseController
         return view('admin/mascotte/AccueilAdminmascotte');
     }
 
+    public function saveGeneric()
+    {
+        $model = new Salle2Admin();
+        $ancienNumero = $this->request->getPost('id');
+        $type = $this->request->getPost('type_element');
+
+        $data = [
+            'numero'      => $this->request->getPost('numero'),
+            'description' => $this->request->getPost('description'),
+            'valeur'      => $this->request->getPost('valeur')
+        ];
+
+        $model->saveElement($type, $data, $ancienNumero);
+        return redirect()->to(base_url('gingembre/salle2_gestion') . '#section-' . $type);
+    }
+
+    public function deleteElement($type, $numero)
+    {
+        $model = new Salle2Admin();
+        $model->deleteElement($type, $numero);
+
+        // MODIFICATION ICI : On redirige vers la route 'salle2_gestion'
+        return redirect()->to(base_url('gingembre/salle2_gestion') . '#section-' . $type);
+    }
 }

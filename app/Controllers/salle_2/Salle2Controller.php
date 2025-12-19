@@ -301,7 +301,7 @@ class Salle2Controller extends BaseController
             'next_url' => '#'
         ];
 
-        if ($this->request->getMethod() === 'post') {
+        if (strtolower($this->request->getMethod()) === 'post') {
 
             $estValide = $this->request->getPost('resultat_jeu') === '1';
 

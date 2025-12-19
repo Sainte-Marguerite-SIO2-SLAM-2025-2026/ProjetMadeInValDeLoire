@@ -1,50 +1,84 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\admin\salle_2;
 
 use CodeIgniter\Model;
 
 class Salle2Admin extends Model
 {
-    // Ce modèle servira de "Dashboard" pour gérer plusieurs tables,
-    // donc on n'utilise pas la propriété $table par défaut ici,
-    // on utilisera le Query Builder ($this->db->table).
-
-    /**
-     * Récupère les explications (Numéro et Libellé)
-     * Correspond à la table 'explication' de ton diagramme.
-     */
     public function getExplications()
     {
         return $this->db->table('explication')
-            ->select('numero, libelle')
-            // ASTUCE : Ta vue HTML attend une colonne 'id' pour les boutons delete/edit.
-            // Comme ton diagramme indique que 'numero' est la clé, on crée un alias.
-            ->select('numero as id')
+            ->select('numero as id, numero, libelle')
             ->orderBy('numero', 'ASC')
             ->get()
             ->getResultArray();
     }
-
 
     public function getIndices()
     {
         return $this->db->table('indice')
-            ->select('numero, libelle')
-            ->select('numero as id') // Alias pour le HTML
+            ->select('numero as id, numero, libelle')
             ->orderBy('numero', 'ASC')
             ->get()
             ->getResultArray();
     }
 
-
     public function getMdps()
     {
         return $this->db->table('mot_de_passe')
-            ->select('numero, motPasse, Valeur')
-            ->select('numero as id') // Alias pour le HTML
+            ->select('numero as id, numero, motPasse, Valeur')
             ->orderBy('numero', 'ASC')
             ->get()
             ->getResultArray();
+    }
+
+    public function saveElement($type, $data, $ancienNumero = null)
+    {
+        $table = '';
+        $dbData = [];
+
+        if ($type === 'explication') {
+            $table = 'explication';
+            $dbData = [
+                'numero'  => $data['numero'],
+                'libelle' => $data['description']
+            ];
+        }
+        elseif ($type === 'indice') {
+            $table = 'indice';
+            $dbData = [
+                'numero'  => $data['numero'],
+                'libelle' => $data['description']
+            ];
+        }
+        elseif ($type === 'mdp') {
+            $table = 'mot_de_passe';
+            $dbData = [
+                'numero'   => $data['numero'],
+                'motPasse' => $data['description'],
+                'Valeur'   => $data['valeur']
+            ];
+        }
+
+        if (!empty($ancienNumero)) {
+            return $this->db->table($table)->where('numero', $ancienNumero)->update($dbData);
+        } else {
+            // INSERT
+            return $this->db->table($table)->insert($dbData);
+        }
+    }
+
+    public function deleteElement($type, $numero)
+    {
+        $table = '';
+        if ($type === 'explication') $table = 'explication';
+        elseif ($type === 'indice') $table = 'indice';
+        elseif ($type === 'mdp') $table = 'mot_de_passe';
+
+        if ($table && $numero) {
+            return $this->db->table($table)->where('numero', $numero)->delete();
+        }
+        return false;
     }
 }

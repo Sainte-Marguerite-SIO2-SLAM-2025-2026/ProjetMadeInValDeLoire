@@ -40,7 +40,7 @@
                     <button class="btn-add" onclick="openForm('explication', 'add')">➕ Ajouter</button>
                 </div>
                 <table class="data-table">
-                    <thead><tr><th>N°</th><th>Libellé</th><th>Actions</th></tr></thead>
+                    <thead><tr><th>N°</th><th>Description</th><th>Actions</th></tr></thead>
                     <tbody>
                     <?php if(!empty($explications)): foreach($explications as $row): ?>
                         <tr>
@@ -62,7 +62,7 @@
                     <button class="btn-add" onclick="openForm('indice', 'add')">➕ Ajouter</button>
                 </div>
                 <table class="data-table">
-                    <thead><tr><th>N°</th><th>Libellé</th><th>Actions</th></tr></thead>
+                    <thead><tr><th>N°</th><th>Description</th><th>Actions</th></tr></thead>
                     <tbody>
                     <?php if(!empty($indices)): foreach($indices as $row): ?>
                         <tr>
@@ -84,7 +84,7 @@
                     <button class="btn-add" onclick="openForm('mdp', 'add')">➕ Ajouter</button>
                 </div>
                 <table class="data-table">
-                    <thead><tr><th>N°</th><th>Mot de Passe</th><th>Valeur</th><th>Actions</th></tr></thead>
+                    <thead><tr><th>N°</th><th>Mot de Passe</th><th>Etape</th><th>Actions</th></tr></thead>
                     <tbody>
                     <?php if(!empty($mdps)): foreach($mdps as $row): ?>
                         <tr>
