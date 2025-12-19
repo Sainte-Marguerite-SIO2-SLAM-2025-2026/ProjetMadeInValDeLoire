@@ -47,58 +47,58 @@ USE `made_in_val_de_loire`;
 
 DROP TABLE IF EXISTS `activite`;
 CREATE TABLE IF NOT EXISTS `activite` (
-  `numero` int NOT NULL AUTO_INCREMENT,
-  `libelle` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `verrouillage` tinyint DEFAULT NULL,
-  `image` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `malveillant` tinyint DEFAULT NULL,
-  `difficulte_numero` int DEFAULT NULL,
-  `salle_numero` int DEFAULT NULL,
-  `auteur_numero` int DEFAULT NULL,
-  `type_numero` int DEFAULT NULL,
-  `explication_numero` int DEFAULT NULL,
-  `width_img` int DEFAULT NULL,
-  `height_img` int DEFAULT NULL,
-  PRIMARY KEY (`numero`),
-  KEY `auteur_ibfk_1` (`auteur_numero`),
-  KEY `difficulte_ibfk_1` (`difficulte_numero`),
-  KEY `explication_ibfk_1` (`explication_numero`),
-  KEY `salle_ibfk_2` (`salle_numero`),
-  KEY `type_ibfk_1` (`type_numero`)
-) ENGINE=InnoDB AUTO_INCREMENT=603 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                                          `numero` int NOT NULL AUTO_INCREMENT,
+                                          `libelle` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                                          `verrouillage` tinyint DEFAULT NULL,
+                                          `image` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+    `malveillant` tinyint DEFAULT NULL,
+    `difficulte_numero` int DEFAULT NULL,
+    `salle_numero` int DEFAULT NULL,
+    `auteur_numero` int DEFAULT NULL,
+    `type_numero` int DEFAULT NULL,
+    `explication_numero` int DEFAULT NULL,
+    `width_img` int DEFAULT NULL,
+    `height_img` int DEFAULT NULL,
+    PRIMARY KEY (`numero`),
+    KEY `auteur_ibfk_1` (`auteur_numero`),
+    KEY `difficulte_ibfk_1` (`difficulte_numero`),
+    KEY `explication_ibfk_1` (`explication_numero`),
+    KEY `salle_ibfk_2` (`salle_numero`),
+    KEY `type_ibfk_1` (`type_numero`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=603 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `activite`
 --
 
 INSERT INTO `activite` (`numero`, `libelle`, `verrouillage`, `image`, `malveillant`, `difficulte_numero`, `salle_numero`, `auteur_numero`, `type_numero`, `explication_numero`, `width_img`, `height_img`) VALUES
-(101, 'Bonjour, je suis Jean-Michel Dupuis du service informatique centrale. Nous avons detecté une intrusion urgente dans votre compte. Pour éviter une coupure immediate merci de m\'envoyer votre mot-de-passe personnel ainsi que votre identifiant bancaire pour vérification. Vous devez répondre dans les 5 minutes sinon votre accès entreprise sera definitivement supprimé.', 0, 'monstre1.webp', 1, 1, 1, 101, NULL, 101, NULL, NULL),
+                                                                                                                                                                                                               (101, 'Bonjour, je suis Jean-Michel Dupuis du service informatique centrale. Nous avons detecté une intrusion urgente dans votre compte. Pour éviter une coupure immediate merci de m\'envoyer votre mot-de-passe personnel ainsi que votre identifiant bancaire pour vérification. Vous devez répondre dans les 5 minutes sinon votre accès entreprise sera definitivement supprimé.', 0, 'monstre1.webp', 1, 1, 1, 101, NULL, 101, NULL, NULL),
 (102, 'Madame, Monsieur, votre système informatique presente une vulnérabilité critique notre équipe de securité a identifié un virus dangereux. Cliquez immédiatement sur ce lien pour télécharger notre logiciel de protection gratuit attention, si vous n\'agissez pas maintenant vos données personnelles seront compromises dans moins d\'une heure.', 0, 'monstre1.webp', 1, 1, 1, 102, NULL, 101, NULL, NULL),
 (103, 'Cher client, nous avons remarqué une transaction suspecte de 1500 euros sur votre compte bancaire. Pour annuler cette opération frauduleuse, veuillez confirmer votre numéro de carte bleue et votre code confidentiel en cliquant ici Cette verification est obligatoire pour proteger votre argent.', 0, 'monstre1.webp', 1, 1, 1, 103, NULL, 101, NULL, NULL),
 (104, 'Bonjour, je suis Marc Dubois du service informatique. Nous avons détecté une activité suspecte sur votre compte professionnel. Pour des raisons de sécurité, vous devez impérativement nous communiquer votre mot-de-passe dans les 30min . Cliquez immédiatement sur ce lien pour vérifier votre identité sinon votre accès sera définitivement bloqué et vos fichiers seront supprimés', 0, 'monstre1.webp', 1, 1, 1, 104, NULL, 101, NULL, NULL),
 (105, 'Cher client, nous avons remarqué une transaction inhabituelle de 1500 euros sur votre compte. Pour votre sécurité, nous avons temporairement bloqué votre carte bancaire. Merci de confirmer rapidement vos informations personnelles incluant votre numéro de carte complète, votre code-secret et votre date de naissance en cliquant sur le lien ci-joint  Cette vérification est obligatoire pour débloquer votre compte avant ce soir.', 0, 'monstre1.webp', 1, 1, 1, 105, NULL, 101, NULL, NULL),
 (106, 'Votre colis est actuellement bloqué dans notre centre de distribution. Pour éviter son retour à l\'expéditeur, vous devez régler des frais de douane de 2,99$ immédiatement Cliquez sur ce lien sécurisé pour payer en ligne avec votre carte-bancaire Sans action de votre part sous 48h votre commande sera automatiquement annulée et perdue définitivement', 0, 'monstre1.webp', 1, 1, 1, 108, NULL, 101, NULL, NULL),
-(107, 'Service des impôts : Vous avez un remboursement de 327,50$ en attente. Suite à une erreur de calcul dans votre dernière déclaration, notre système a généré automatiquement un crédit d\'impôt en votre faveur. Pour recevoir ce montant rapidement sur votre compte, veuillez confirmer vos coordonnées bancaires complètes en cliquant ici. Ce remboursement expire dans 7 jours.', 0, 'monstre1.webp', 1, 1, 1, 111, NULL, 101, NULL, NULL),
+                                                                                                                                                                                                               (107, 'Service des impôts : Vous avez un remboursement de 327,50$ en attente. Suite à une erreur de calcul dans votre dernière déclaration, notre système a généré automatiquement un crédit d\'impôt en votre faveur. Pour recevoir ce montant rapidement sur votre compte, veuillez confirmer vos coordonnées bancaires complètes en cliquant ici. Ce remboursement expire dans 7 jours.', 0, 'monstre1.webp', 1, 1, 1, 111, NULL, 101, NULL, NULL),
 (108, 'Amazon Service Client : Une activité inhabituelle a été détectée sur votre compte Prime. Quelqu\'un a tenté de passer une commande de 899$ depuis un appareil inconnu Par mesure de précaution, votre compte a été suspendu Cliquez ici pour vérifier cette transaction et réactiver immédiatement votre accès en confirmant votre mot-de-passe et vos informations de paiement', 0, 'monstre1.webp', 1, 1, 1, 108, NULL, 101, NULL, NULL),
-(109, 'Alerte de sécurité Apple : Votre identifiant Apple a été utilisé pour se connecter sur un iPhone inconnu en Chine. Si ce n\'était pas vous, votre compte iCloud risque d\'être piraté et toutes vos photos personnelles pourraient être publiées publiquement. Sécurisez immédiatement votre compte en cliquant ici pour changer votre mot de passe Apple et vos questions secrètes de sécurité.', 0, 'monstre1.webp', 1, 1, 1, 113, NULL, 101, NULL, NULL),
-(110, 'Caisse d\'Allocations Familiales : Vous êtes éligible à une aide exceptionnelle de 400$ suite à la nouvelle réforme sociale. Votre dossier a été présélectionné automatiquement par nos services. Pour bénéficier de ce versement urgent, complétez votre demande en ligne en fournissant votre numéro de sécurité-sociale votre situation familiale détaillée et votre relevé d\'identité bancaire. Attention, les fonds seront redistribués dans 5 jours aux premiers inscrits.', 0, 'monstre2.webp', 1, 1, 1, 111, NULL, 101, NULL, NULL),
-(301, 'phishing', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 301, NULL, NULL),
-(400, 'Entree dans la chambre', 0, NULL, NULL, NULL, 4, NULL, NULL, 400, NULL, NULL),
-(401, 'Apres Ransomware', 0, 'frise_reaction_ransomware.png', NULL, NULL, 4, NULL, NULL, 401, NULL, NULL),
-(402, 'Avant Ransomware', 0, 'frise_prevention_ransomware.png', NULL, NULL, 4, NULL, NULL, 401, NULL, NULL),
-(403, 'Quiz Ransomware', 0, 'quiz_ransomware.png', NULL, NULL, 4, NULL, NULL, 401, NULL, NULL),
-(501, 'Poste risqué', NULL, '../images/salle_5/salle_bureau_compil.svg', NULL, NULL, 5, NULL, NULL, 501, 1920, 1080),
-(502, 'Clés étranges', NULL, '../images/salle_5/bureau.svg', NULL, NULL, 5, NULL, NULL, 502, 1375, 917),
-(503, 'Un oubli risqué', NULL, '../images/salle_5/bureau.svg', NULL, NULL, 5, NULL, NULL, 503, 1375, 917),
-(504, 'Le bureau encombré', NULL, '../images/salle_5/bureau.svg', NULL, NULL, 5, NULL, NULL, 504, 1375, 917),
-(505, 'La porte entrouverte', NULL, '../images/salle_5/salle_bureau_compil.svg', NULL, NULL, 5, NULL, NULL, 505, 1920, 1080),
-(506, 'Écrans non sécurisés', NULL, '../images/salle_5/salle_bureau_compil.svg', NULL, NULL, 5, NULL, 402, 506, 1920, 1080),
-(507, 'Fenêtre ouverte', NULL, '../images/salle_5/salle_bureau_compil.svg', NULL, NULL, 5, NULL, 1, 507, 1920, 1080),
-(508, 'Poste « clean desk »', NULL, '../images/salle_5/bureau.svg', NULL, NULL, 5, NULL, NULL, 508, 1375, 917),
-(509, 'Secrets physiques', NULL, '../images/salle_5/bureau.svg', NULL, NULL, 5, NULL, 1, 509, 1375, 917),
-(510, 'Caméra interne', NULL, '../images/salle_5/salle_bureau_compil.svg', NULL, NULL, 5, NULL, NULL, 510, 1920, 1080),
-(601, 'Choisir le bon WiFi', NULL, 'wifi_activity.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(602, 'VPN', NULL, 'temp.svg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+                                                                                                                                                                                                               (109, 'Alerte de sécurité Apple : Votre identifiant Apple a été utilisé pour se connecter sur un iPhone inconnu en Chine. Si ce n\'était pas vous, votre compte iCloud risque d\'être piraté et toutes vos photos personnelles pourraient être publiées publiquement. Sécurisez immédiatement votre compte en cliquant ici pour changer votre mot de passe Apple et vos questions secrètes de sécurité.', 0, 'monstre1.webp', 1, 1, 1, 113, NULL, 101, NULL, NULL),
+                                                                                                                                                                                                               (110, 'Caisse d\'Allocations Familiales : Vous êtes éligible à une aide exceptionnelle de 400$ suite à la nouvelle réforme sociale. Votre dossier a été présélectionné automatiquement par nos services. Pour bénéficier de ce versement urgent, complétez votre demande en ligne en fournissant votre numéro de sécurité-sociale votre situation familiale détaillée et votre relevé d\'identité bancaire. Attention, les fonds seront redistribués dans 5 jours aux premiers inscrits.', 0, 'monstre2.webp', 1, 1, 1, 111, NULL, 101, NULL, NULL),
+                                                                                                                                                                                                               (301, 'phishing', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 301, NULL, NULL),
+                                                                                                                                                                                                               (400, 'Entree dans la chambre', 0, NULL, NULL, NULL, 4, NULL, NULL, 400, NULL, NULL),
+                                                                                                                                                                                                               (401, 'Apres Ransomware', 0, 'frise_reaction_ransomware.png', NULL, NULL, 4, NULL, NULL, 401, NULL, NULL),
+                                                                                                                                                                                                               (402, 'Avant Ransomware', 0, 'frise_prevention_ransomware.png', NULL, NULL, 4, NULL, NULL, 401, NULL, NULL),
+                                                                                                                                                                                                               (403, 'Quiz Ransomware', 0, 'quiz_ransomware.png', NULL, NULL, 4, NULL, NULL, 401, NULL, NULL),
+                                                                                                                                                                                                               (501, 'Poste risqué', NULL, '../images/salle_5/salle_bureau_compil.svg', NULL, NULL, 5, NULL, NULL, 501, 1920, 1080),
+                                                                                                                                                                                                               (502, 'Clés étranges', NULL, '../images/salle_5/bureau.svg', NULL, NULL, 5, NULL, NULL, 502, 1375, 917),
+                                                                                                                                                                                                               (503, 'Un oubli risqué', NULL, '../images/salle_5/bureau.svg', NULL, NULL, 5, NULL, NULL, 503, 1375, 917),
+                                                                                                                                                                                                               (504, 'Le bureau encombré', NULL, '../images/salle_5/bureau.svg', NULL, NULL, 5, NULL, NULL, 504, 1375, 917),
+                                                                                                                                                                                                               (505, 'La porte entrouverte', NULL, '../images/salle_5/salle_bureau_compil.svg', NULL, NULL, 5, NULL, NULL, 505, 1920, 1080),
+                                                                                                                                                                                                               (506, 'Écrans non sécurisés', NULL, '../images/salle_5/salle_bureau_compil.svg', NULL, NULL, 5, NULL, 402, 506, 1920, 1080),
+                                                                                                                                                                                                               (507, 'Fenêtre ouverte', NULL, '../images/salle_5/salle_bureau_compil.svg', NULL, NULL, 5, NULL, 1, 507, 1920, 1080),
+                                                                                                                                                                                                               (508, 'Poste « clean desk »', NULL, '../images/salle_5/bureau.svg', NULL, NULL, 5, NULL, NULL, 508, 1375, 917),
+                                                                                                                                                                                                               (509, 'Secrets physiques', NULL, '../images/salle_5/bureau.svg', NULL, NULL, 5, NULL, 1, 509, 1375, 917),
+                                                                                                                                                                                                               (510, 'Caméra interne', NULL, '../images/salle_5/salle_bureau_compil.svg', NULL, NULL, 5, NULL, NULL, 510, 1920, 1080),
+                                                                                                                                                                                                               (601, 'Choisir le bon WiFi', NULL, 'wifi_activity.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+                                                                                                                                                                                                               (602, 'VPN', NULL, 'temp.svg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -108,24 +108,24 @@ INSERT INTO `activite` (`numero`, `libelle`, `verrouillage`, `image`, `malveilla
 
 DROP TABLE IF EXISTS `activite_message`;
 CREATE TABLE IF NOT EXISTS `activite_message` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `activite_numero` int NOT NULL,
-  `type_message` enum('succes','echec') NOT NULL,
-  `message` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `activite_numero` (`activite_numero`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                                                  `id` int NOT NULL AUTO_INCREMENT,
+                                                  `activite_numero` int NOT NULL,
+                                                  `type_message` enum('succes','echec') NOT NULL,
+    `message` text NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `activite_numero` (`activite_numero`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `activite_message`
 --
 
 INSERT INTO `activite_message` (`id`, `activite_numero`, `type_message`, `message`) VALUES
-(1, 501, 'succes', 'Excellent ! Laisser un poste ouvert permet l\'accès aux données sensibles. Toujours verrouiller (Win+L) !'),
+                                                                                        (1, 501, 'succes', 'Excellent ! Laisser un poste ouvert permet l\'accès aux données sensibles. Toujours verrouiller (Win+L) !'),
 (2, 501, 'echec', 'Échec ! Ce n\'était pas le bon écran à risque, cet écran est vérouillé'),
-(3, 502, 'succes', 'Bravo ! Une clé USB inconnue peut contenir un malware (attaque BadUSB).'),
-(4, 502, 'echec', 'Raté ! Vous ne pouvez pas être sûr que cette clé USB est sûre. Elle peut contenir un malware !'),
-(5, 503, 'succes', 'Parfait ! Un badge d\'entreprise ne doit jamais être laissé sans surveillance.'),
+                                                                                        (3, 502, 'succes', 'Bravo ! Une clé USB inconnue peut contenir un malware (attaque BadUSB).'),
+                                                                                        (4, 502, 'echec', 'Raté ! Vous ne pouvez pas être sûr que cette clé USB est sûre. Elle peut contenir un malware !'),
+                                                                                        (5, 503, 'succes', 'Parfait ! Un badge d\'entreprise ne doit jamais être laissé sans surveillance.'),
 (6, 503, 'echec', 'Incorrect ! Cet objet ne compromet pas directement la sécurité physique.'),
 (7, 505, 'succes', 'Excellent ! Les portes doivent être fermées pour éviter les intrusions (tailgating).'),
 (8, 505, 'echec', 'Mauvaise réponse ! La porte entrouverte permet le tailgating. Une porte doit toujours être fermée !'),
@@ -133,8 +133,8 @@ INSERT INTO `activite_message` (`id`, `activite_numero`, `type_message`, `messag
 (10, 506, 'echec', 'Échec ! Ce n\'est pas la bonne protection contre l\'épaule-surfing. Un filtre de confidentialité est nécessaire !'),
 (11, 507, 'succes', 'Parfait ! La sécurité physique inclut aussi les ouvrants (risque de vol).'),
 (12, 507, 'echec', 'Raté ! Cette action n\'est pas une contre-mesure efficace.'),
-(13, 509, 'succes', 'Super ! Les secrets physiques ne doivent jamais être affichés et les MDP doivent être forts.\n'),
-(14, 509, 'echec', 'Incorrect ! Vous n\'avez pas identifié les bonnes erreurs.'),
+                                                                                        (13, 509, 'succes', 'Super ! Les secrets physiques ne doivent jamais être affichés et les MDP doivent être forts.\n'),
+                                                                                        (14, 509, 'echec', 'Incorrect ! Vous n\'avez pas identifié les bonnes erreurs.'),
 (15, 510, 'succes', 'Bien vu ! Sûreté ≠ espionnage interne ; respecter le principe de proportionnalité.'),
 (16, 510, 'echec', 'Mauvaise réponse ! Une caméra de surveillance interne peut poser des problèmes de conformité RGPD. Sûreté ≠ espionnage ; respectez la proportionnalité !'),
 (17, 504, 'succes', 'Bien vu ! Les informations confidentielles ne doivent jamais être visibles.'),
@@ -150,31 +150,31 @@ INSERT INTO `activite_message` (`id`, `activite_numero`, `type_message`, `messag
 
 DROP TABLE IF EXISTS `auteur`;
 CREATE TABLE IF NOT EXISTS `auteur` (
-  `numero` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `prenom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `fonction_role` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  PRIMARY KEY (`numero`)
-) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                                        `numero` int NOT NULL AUTO_INCREMENT,
+                                        `nom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+    `prenom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+    `fonction_role` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+    PRIMARY KEY (`numero`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `auteur`
 --
 
 INSERT INTO `auteur` (`numero`, `nom`, `prenom`, `fonction_role`) VALUES
-(101, 'Dupuis', 'Jean-Michel', 'Technicien informati'),
-(102, 'Martin', 'Louis', 'Support de livraison'),
-(103, 'Delasource', 'Carine', 'DRH'),
-(104, 'Dubois', 'Marc', 'Service Informatique'),
-(105, 'Martin', 'Sophie', 'Directrice des Resso'),
-(106, 'Lefebvre', 'Jean', 'Conseiller Bancaire'),
-(107, 'Bernard', 'Claire', 'Support Technique Mi'),
-(108, 'Petit', 'Thomas', 'Service Client Amazo'),
-(109, 'Robert', 'Marie', 'Sécurité Informatiqu'),
-(110, 'Richard', 'Paul', 'Service de Livraison'),
-(111, 'Durand', 'Julie', 'Administration Fisca'),
-(112, 'Moreau', 'Lucas', 'Service Recrutement'),
-(113, 'Laurent', 'Emma', 'Support Technique Ap');
+                                                                      (101, 'Dupuis', 'Jean-Michel', 'Technicien informati'),
+                                                                      (102, 'Martin', 'Louis', 'Support de livraison'),
+                                                                      (103, 'Delasource', 'Carine', 'DRH'),
+                                                                      (104, 'Dubois', 'Marc', 'Service Informatique'),
+                                                                      (105, 'Martin', 'Sophie', 'Directrice des Resso'),
+                                                                      (106, 'Lefebvre', 'Jean', 'Conseiller Bancaire'),
+                                                                      (107, 'Bernard', 'Claire', 'Support Technique Mi'),
+                                                                      (108, 'Petit', 'Thomas', 'Service Client Amazo'),
+                                                                      (109, 'Robert', 'Marie', 'Sécurité Informatiqu'),
+                                                                      (110, 'Richard', 'Paul', 'Service de Livraison'),
+                                                                      (111, 'Durand', 'Julie', 'Administration Fisca'),
+                                                                      (112, 'Moreau', 'Lucas', 'Service Recrutement'),
+                                                                      (113, 'Laurent', 'Emma', 'Support Technique Ap');
 
 -- --------------------------------------------------------
 
@@ -184,24 +184,24 @@ INSERT INTO `auteur` (`numero`, `nom`, `prenom`, `fonction_role`) VALUES
 
 DROP TABLE IF EXISTS `avoir_indice`;
 CREATE TABLE IF NOT EXISTS `avoir_indice` (
-  `activite_numero` int NOT NULL,
-  `indice_numero` int NOT NULL,
-  PRIMARY KEY (`activite_numero`,`indice_numero`),
-  KEY `indice_ibfk_1` (`indice_numero`),
-  KEY `activite_numero` (`activite_numero`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                                              `activite_numero` int NOT NULL,
+                                              `indice_numero` int NOT NULL,
+                                              PRIMARY KEY (`activite_numero`,`indice_numero`),
+    KEY `indice_ibfk_1` (`indice_numero`),
+    KEY `activite_numero` (`activite_numero`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `avoir_indice`
 --
 
 INSERT INTO `avoir_indice` (`activite_numero`, `indice_numero`) VALUES
-(301, 301),
-(301, 302),
-(502, 302),
-(301, 303),
-(301, 304),
-(400, 400);
+                                                                    (301, 301),
+                                                                    (301, 302),
+                                                                    (502, 302),
+                                                                    (301, 303),
+                                                                    (301, 304),
+                                                                    (400, 400);
 
 -- --------------------------------------------------------
 
@@ -211,34 +211,34 @@ INSERT INTO `avoir_indice` (`activite_numero`, `indice_numero`) VALUES
 
 DROP TABLE IF EXISTS `avoir_rep`;
 CREATE TABLE IF NOT EXISTS `avoir_rep` (
-  `objet_id` int NOT NULL,
-  `activite_numero` int NOT NULL,
-  PRIMARY KEY (`objet_id`,`activite_numero`),
-  KEY `activite_ibfk_7` (`activite_numero`),
-  KEY `objets_ibfk_7` (`objet_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                                           `objet_id` int NOT NULL,
+                                           `activite_numero` int NOT NULL,
+                                           PRIMARY KEY (`objet_id`,`activite_numero`),
+    KEY `activite_ibfk_7` (`activite_numero`),
+    KEY `objets_ibfk_7` (`objet_id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `avoir_rep`
 --
 
 INSERT INTO `avoir_rep` (`objet_id`, `activite_numero`) VALUES
-(26, 501),
-(9, 502),
-(12, 503),
-(14, 504),
-(15, 504),
-(28, 505),
-(40, 506),
-(31, 507),
-(34, 507),
-(15, 508),
-(18, 508),
-(19, 508),
-(22, 509),
-(24, 509),
-(25, 509),
-(35, 510);
+                                                            (26, 501),
+                                                            (9, 502),
+                                                            (12, 503),
+                                                            (14, 504),
+                                                            (15, 504),
+                                                            (28, 505),
+                                                            (40, 506),
+                                                            (31, 507),
+                                                            (34, 507),
+                                                            (15, 508),
+                                                            (18, 508),
+                                                            (19, 508),
+                                                            (22, 509),
+                                                            (24, 509),
+                                                            (25, 509),
+                                                            (35, 510);
 
 -- --------------------------------------------------------
 
@@ -248,34 +248,34 @@ INSERT INTO `avoir_rep` (`objet_id`, `activite_numero`) VALUES
 
 DROP TABLE IF EXISTS `avoir_zone`;
 CREATE TABLE IF NOT EXISTS `avoir_zone` (
-  `zone_numero` int NOT NULL,
-  `activite_numero` int NOT NULL,
-  PRIMARY KEY (`zone_numero`,`activite_numero`),
-  KEY `activite_ibfk_7` (`activite_numero`),
-  KEY `zone_numero` (`zone_numero`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                                            `zone_numero` int NOT NULL,
+                                            `activite_numero` int NOT NULL,
+                                            PRIMARY KEY (`zone_numero`,`activite_numero`),
+    KEY `activite_ibfk_7` (`activite_numero`),
+    KEY `zone_numero` (`zone_numero`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `avoir_zone`
 --
 
 INSERT INTO `avoir_zone` (`zone_numero`, `activite_numero`) VALUES
-(15, 501),
-(45, 502),
-(57, 503),
-(61, 504),
-(63, 504),
-(19, 505),
-(35, 506),
-(37, 507),
-(43, 507),
-(49, 508),
-(59, 508),
-(63, 508),
-(67, 509),
-(71, 509),
-(73, 509),
-(1, 510);
+                                                                (15, 501),
+                                                                (45, 502),
+                                                                (57, 503),
+                                                                (61, 504),
+                                                                (63, 504),
+                                                                (19, 505),
+                                                                (35, 506),
+                                                                (37, 507),
+                                                                (43, 507),
+                                                                (49, 508),
+                                                                (59, 508),
+                                                                (63, 508),
+                                                                (67, 509),
+                                                                (71, 509),
+                                                                (73, 509),
+                                                                (1, 510);
 
 -- --------------------------------------------------------
 
@@ -285,23 +285,23 @@ INSERT INTO `avoir_zone` (`zone_numero`, `activite_numero`) VALUES
 
 DROP TABLE IF EXISTS `carte`;
 CREATE TABLE IF NOT EXISTS `carte` (
-  `numero` int NOT NULL AUTO_INCREMENT,
-  `image` varchar(50) NOT NULL,
-  `explication` text NOT NULL,
-  `activite_numero` int DEFAULT NULL,
-  `explication_piege` text,
-  `type_carte` varchar(20) DEFAULT 'bonne_pratique',
-  PRIMARY KEY (`numero`),
-  KEY `activite_ibfk_1` (`activite_numero`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                                       `numero` int NOT NULL AUTO_INCREMENT,
+                                       `image` varchar(50) NOT NULL,
+    `explication` text NOT NULL,
+    `activite_numero` int DEFAULT NULL,
+    `explication_piege` text,
+    `type_carte` varchar(20) DEFAULT 'bonne_pratique',
+    PRIMARY KEY (`numero`),
+    KEY `activite_ibfk_1` (`activite_numero`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `carte`
 --
 
 INSERT INTO `carte` (`numero`, `image`, `explication`, `activite_numero`, `explication_piege`, `type_carte`) VALUES
-(1, 'carte_pins_01.png', 'Isolez immédiatement les machines infectées', 401, NULL, 'bonne_pratique'),
-(2, 'carte_pins_02.png', 'Prévenez l\'équipe de sécurité', 401, NULL, 'bonne_pratique'),
+                                                                                                                 (1, 'carte_pins_01.png', 'Isolez immédiatement les machines infectées', 401, NULL, 'bonne_pratique'),
+                                                                                                                 (2, 'carte_pins_02.png', 'Prévenez l\'équipe de sécurité', 401, NULL, 'bonne_pratique'),
 (3, 'carte_pins_03.png', 'Identifiez l\'étendue de l\'attaque', 401, NULL, 'bonne_pratique'),
 (4, 'carte_pins_04.png', 'Nettoyez les systèmes', 401, NULL, 'bonne_pratique'),
 (5, 'carte_pins_05.png', 'Restaurez depuis des sauvegardes', 401, NULL, 'bonne_pratique'),
@@ -318,10 +318,10 @@ INSERT INTO `carte` (`numero`, `image`, `explication`, `activite_numero`, `expli
 (18, 'carte_pins_02.png', 'Installez 3 antivirus différents', 402, 'Conflits entre logiciels : ralentit le système et crée des faux positifs', 'piege'),
 (19, 'carte_pins_03.png', 'Scannez manuellement chaque fichier avant ouverture', 402, 'Irréaliste au quotidien : les utilisateurs vont contourner cette contrainte', 'piege'),
 (20, 'carte_pins_04.png', 'Interdisez l\'accès à Internet', 402, 'Trop radical : empêche le travail et les mises à jour de sécurité', 'piege'),
-(21, 'carte_pins_05.png', 'Sauvegardez uniquement sur disques durs externes', 402, 'Risque de perte/vol : pas de rotation, pas de tests de restauration', 'piege'),
-(22, 'carte_pins_06.png', 'Désactivez les mises à jour automatiques', 402, 'Crée des failles : les correctifs de sécurité ne sont pas appliqués', 'piege'),
-(23, 'carte_pins_07.png', 'Cryptez tous les fichiers systèmes', 402, 'Risque de blocage : peut empêcher le démarrage du système', 'piege'),
-(24, 'carte_pins_08.png', 'Formez uniquement les cadres dirigeants', 402, 'Protection incomplète : les autres employés restent vulnérables au phishing', 'piege');
+                                                                                                                 (21, 'carte_pins_05.png', 'Sauvegardez uniquement sur disques durs externes', 402, 'Risque de perte/vol : pas de rotation, pas de tests de restauration', 'piege'),
+                                                                                                                 (22, 'carte_pins_06.png', 'Désactivez les mises à jour automatiques', 402, 'Crée des failles : les correctifs de sécurité ne sont pas appliqués', 'piege'),
+                                                                                                                 (23, 'carte_pins_07.png', 'Cryptez tous les fichiers systèmes', 402, 'Risque de blocage : peut empêcher le démarrage du système', 'piege'),
+                                                                                                                 (24, 'carte_pins_08.png', 'Formez uniquement les cadres dirigeants', 402, 'Protection incomplète : les autres employés restent vulnérables au phishing', 'piege');
 
 -- --------------------------------------------------------
 
@@ -331,17 +331,17 @@ INSERT INTO `carte` (`numero`, `image`, `explication`, `activite_numero`, `expli
 
 DROP TABLE IF EXISTS `difficulte`;
 CREATE TABLE IF NOT EXISTS `difficulte` (
-  `numero` int NOT NULL AUTO_INCREMENT,
-  `libelle` varchar(10) NOT NULL,
-  PRIMARY KEY (`numero`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                                            `numero` int NOT NULL AUTO_INCREMENT,
+                                            `libelle` varchar(10) NOT NULL,
+    PRIMARY KEY (`numero`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `difficulte`
 --
 
 INSERT INTO `difficulte` (`numero`, `libelle`) VALUES
-(1, 'Facile');
+    (1, 'Facile');
 
 -- --------------------------------------------------------
 
@@ -351,90 +351,90 @@ INSERT INTO `difficulte` (`numero`, `libelle`) VALUES
 
 DROP TABLE IF EXISTS `erreur`;
 CREATE TABLE IF NOT EXISTS `erreur` (
-  `numero` int NOT NULL AUTO_INCREMENT,
-  `mot_incorrect` varchar(50) NOT NULL,
-  `explication` text NOT NULL,
-  `activite_numero` int DEFAULT NULL,
-  PRIMARY KEY (`numero`),
-  KEY `activite_ibfk_3` (`activite_numero`)
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                                        `numero` int NOT NULL AUTO_INCREMENT,
+                                        `mot_incorrect` varchar(50) NOT NULL,
+    `explication` text NOT NULL,
+    `activite_numero` int DEFAULT NULL,
+    PRIMARY KEY (`numero`),
+    KEY `activite_ibfk_3` (`activite_numero`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `erreur`
 --
 
 INSERT INTO `erreur` (`numero`, `mot_incorrect`, `explication`, `activite_numero`) VALUES
-(1, 'urgente', 'L\'utilisation de l\'urgence est une technique de manipulation pour vous faire agir sans réfléchir.', 101),
-(2, 'immediate', 'Les vrais services informatiques ne demandent jamais d\'action immédiate par email.', 101),
+                                                                                       (1, 'urgente', 'L\'utilisation de l\'urgence est une technique de manipulation pour vous faire agir sans réfléchir.', 101),
+                                                                                       (2, 'immediate', 'Les vrais services informatiques ne demandent jamais d\'action immédiate par email.', 101),
 (3, 'mot-de-passe', 'JAMAIS un service légitime ne vous demandera votre mot de passe par email !', 101),
 (4, 'bancaire', 'Le service informatique n\'a aucune raison de vous demander des informations bancaires.', 101),
-(5, 'definitivement', 'La menace de suppression définitive est utilisée pour créer la panique.', 101),
-(6, 'critique', 'Créer un sentiment d\'urgence critique pour vous pousser à agir rapidement.', 102),
+                                                                                       (5, 'definitivement', 'La menace de suppression définitive est utilisée pour créer la panique.', 101),
+                                                                                       (6, 'critique', 'Créer un sentiment d\'urgence critique pour vous pousser à agir rapidement.', 102),
 (7, 'immédiatement', 'Les vraies alertes de sécurité ne demandent jamais d\'action immédiate non vérifiée.', 102),
-(8, 'gratuit', 'Méfiez-vous des logiciels \"gratuits\" proposés dans des emails non sollicités.', 102),
-(9, 'maintenant', 'Pression temporelle pour éviter que vous ne vérifiiez la légitimité du message.', 102),
-(10, 'compromises', 'Menace vague pour créer la peur sans donner de détails précis.', 102),
-(11, 'suspecte', 'Les vraies banques vous appellent ou utilisent leur application sécurisée.', 103),
-(12, 'carte', 'Aucune banque ne demande votre numéro de carte complet par email.', 103),
-(13, 'code', 'Le code confidentiel ne doit JAMAIS être communiqué à quiconque.', 103),
-(14, 'obligatoire', 'Fausse obligation pour vous forcer à agir.', 103),
-(15, 'ici', 'Lien cliquable suspect qui mène probablement vers un faux site.', 103),
-(16, 'suspecte', 'Créer un sentiment de danger pour vous faire agir rapidement sans réfléchir.', 104),
-(17, 'impérativement', 'L\'urgence extrême est une technique classique de manipulation pour court-circuiter votre jugement.', 104),
+                                                                                       (8, 'gratuit', 'Méfiez-vous des logiciels \"gratuits\" proposés dans des emails non sollicités.', 102),
+                                                                                       (9, 'maintenant', 'Pression temporelle pour éviter que vous ne vérifiiez la légitimité du message.', 102),
+                                                                                       (10, 'compromises', 'Menace vague pour créer la peur sans donner de détails précis.', 102),
+                                                                                       (11, 'suspecte', 'Les vraies banques vous appellent ou utilisent leur application sécurisée.', 103),
+                                                                                       (12, 'carte', 'Aucune banque ne demande votre numéro de carte complet par email.', 103),
+                                                                                       (13, 'code', 'Le code confidentiel ne doit JAMAIS être communiqué à quiconque.', 103),
+                                                                                       (14, 'obligatoire', 'Fausse obligation pour vous forcer à agir.', 103),
+                                                                                       (15, 'ici', 'Lien cliquable suspect qui mène probablement vers un faux site.', 103),
+                                                                                       (16, 'suspecte', 'Créer un sentiment de danger pour vous faire agir rapidement sans réfléchir.', 104),
+                                                                                       (17, 'impérativement', 'L\'urgence extrême est une technique classique de manipulation pour court-circuiter votre jugement.', 104),
 (18, 'mot-de-passe', 'JAMAIS une entreprise légitime ne vous demandera votre mot de passe par email ou message.', 104),
 (19, '30min', 'La pression temporelle précise vise à vous paniquer et vous empêcher de vérifier la légitimité du message.', 104),
 (20, 'immédiatement', 'Ce mot renforce l\'urgence artificielle pour vous pousser à cliquer sans réfléchir.', 104),
-(21, 'définitivement', 'Les menaces de conséquences irréversibles sont utilisées pour créer la peur et forcer une action rapide.', 104),
-(22, 'supprimés', 'Menace de perte de données pour amplifier la panique et vous forcer à agir impulsivement.', 104),
-(23, 'inhabituelle', 'Créer un doute sur une activité normale pour justifier une demande suspecte.', 105),
-(24, 'temporairement', 'Annonce un blocage fictif pour créer l\'urgence et justifier les demandes qui suivent.', 105),
+                                                                                       (21, 'définitivement', 'Les menaces de conséquences irréversibles sont utilisées pour créer la peur et forcer une action rapide.', 104),
+                                                                                       (22, 'supprimés', 'Menace de perte de données pour amplifier la panique et vous forcer à agir impulsivement.', 104),
+                                                                                       (23, 'inhabituelle', 'Créer un doute sur une activité normale pour justifier une demande suspecte.', 105),
+                                                                                       (24, 'temporairement', 'Annonce un blocage fictif pour créer l\'urgence et justifier les demandes qui suivent.', 105),
 (25, 'rapidement', 'Pression temporelle pour vous empêcher de contacter votre vraie banque et vérifier.', 105),
 (26, 'carte', 'Une banque ne demande JAMAIS le numéro complet de votre carte par email ou message.', 105),
 (27, 'code-secret', 'AUCUNE institution financière ne demande votre code PIN - c\'est la règle d\'or de la sécurité bancaire.', 105),
 (28, 'naissance', 'Demande d\'informations personnelles sensibles utilisables pour l\'usurpation d\'identité.', 105),
-(29, 'ci-joint', 'Lien suspect qui mène probablement vers un faux site imitant celui de votre banque.', 105),
-(30, 'obligatoire', 'Fausse obligation pour vous forcer à agir sans vérifier la légitimité de la demande.', 105),
-(31, 'bloqué', 'Situation de blocage inventée pour justifier une demande d\'argent urgente.', 106),
+                                                                                       (29, 'ci-joint', 'Lien suspect qui mène probablement vers un faux site imitant celui de votre banque.', 105),
+                                                                                       (30, 'obligatoire', 'Fausse obligation pour vous forcer à agir sans vérifier la légitimité de la demande.', 105),
+                                                                                       (31, 'bloqué', 'Situation de blocage inventée pour justifier une demande d\'argent urgente.', 106),
 (32, 'retour', 'Menace de perdre le colis pour créer l\'urgence et justifier le paiement immédiat.', 106),
-(33, '2,99$', 'Petite somme pour sembler légitime mais c\'est surtout vos données bancaires qui sont visées.', 106),
+                                                                                       (33, '2,99$', 'Petite somme pour sembler légitime mais c\'est surtout vos données bancaires qui sont visées.', 106),
 (34, 'immédiatement', 'Urgence pour vous empêcher de vérifier auprès du vrai service de livraison.', 106),
 (35, 'sécurisé', 'Fausse garantie de sécurité pour vous rassurer alors que le lien est frauduleux.', 106),
 (36, 'carte-bancaire', 'Demande de paiement par lien suspect - les vrais transporteurs utilisent d\'autres moyens.', 106),
-(37, '48h', 'Délai court pour vous presser et vous empêcher de contacter le vrai service.', 106),
-(38, 'définitivement', 'Menace de perte irréversible pour amplifier la peur et forcer l\'action immédiate.', 106),
+                                                                                       (37, '48h', 'Délai court pour vous presser et vous empêcher de contacter le vrai service.', 106),
+                                                                                       (38, 'définitivement', 'Menace de perte irréversible pour amplifier la peur et forcer l\'action immédiate.', 106),
 (39, 'remboursement', 'Appât financier pour vous attirer - les vrais remboursements sont notifiés officiellement par courrier.', 107),
 (40, '327,50$', 'Montant précis pour donner une fausse crédibilité - un vrai remboursement serait notifié différemment.', 107),
 (41, 'erreur', 'Prétexte inventé pour justifier un remboursement surprise et non sollicité.', 107),
 (42, 'automatiquement', 'Excuse pour l\'envoi non sollicité - les impôts ne fonctionnent pas ainsi par email.', 107),
-(43, 'rapidement', 'Promesse de vitesse pour vous inciter à agir vite sans vérifier.', 107),
-(44, 'bancaires', 'Les impôts ont déjà votre RIB - ils ne le redemandent JAMAIS par email.', 107),
-(45, 'expire', 'Fausse date limite pour créer l\'urgence - un vrai remboursement ne \"expire\" pas ainsi.', 107),
+                                                                                       (43, 'rapidement', 'Promesse de vitesse pour vous inciter à agir vite sans vérifier.', 107),
+                                                                                       (44, 'bancaires', 'Les impôts ont déjà votre RIB - ils ne le redemandent JAMAIS par email.', 107),
+                                                                                       (45, 'expire', 'Fausse date limite pour créer l\'urgence - un vrai remboursement ne \"expire\" pas ainsi.', 107),
 (46, 'inhabituelle', 'Alerte fictive pour créer le doute et justifier les demandes suspectes qui suivent.', 108),
-(47, 'détectée', 'Fausse détection technique pour donner une crédibilité au message frauduleux.', 108),
-(48, 'tenté', 'Scénario d\'attaque inventé pour vous faire paniquer et agir rapidement.', 108),
+                                                                                        (47, 'détectée', 'Fausse détection technique pour donner une crédibilité au message frauduleux.', 108),
+                                                                                        (48, 'tenté', 'Scénario d\'attaque inventé pour vous faire paniquer et agir rapidement.', 108),
 (49, '899$', 'Montant élevé pour maximiser la peur d\'une fraude sur votre compte.', 108),
-(50, 'inconnu', 'Détail technique pour renforcer la crédibilité de la fausse alerte de sécurité.', 108),
-(51, 'suspendu', 'Blocage fictif de compte pour créer l\'urgence et justifier la demande d\'informations.', 108),
-(52, 'vérifier', 'Prétexte pour vous faire cliquer sur un lien malveillant déguisé en outil de vérification.', 108),
-(53, 'mot-de-passe', 'Amazon ne demande JAMAIS de confirmer votre mot de passe par email ou lien.', 108),
-(54, 'paiement', 'Demande de données bancaires - Amazon les a déjà et ne les redemande jamais ainsi.', 108),
-(55, 'inconnu', 'Appareil fictif pour créer le doute et justifier l\'alerte de sécurité frauduleuse.', 109),
+                                                                                        (50, 'inconnu', 'Détail technique pour renforcer la crédibilité de la fausse alerte de sécurité.', 108),
+                                                                                        (51, 'suspendu', 'Blocage fictif de compte pour créer l\'urgence et justifier la demande d\'informations.', 108),
+                                                                                        (52, 'vérifier', 'Prétexte pour vous faire cliquer sur un lien malveillant déguisé en outil de vérification.', 108),
+                                                                                        (53, 'mot-de-passe', 'Amazon ne demande JAMAIS de confirmer votre mot de passe par email ou lien.', 108),
+                                                                                        (54, 'paiement', 'Demande de données bancaires - Amazon les a déjà et ne les redemande jamais ainsi.', 108),
+                                                                                        (55, 'inconnu', 'Appareil fictif pour créer le doute et justifier l\'alerte de sécurité frauduleuse.', 109),
 (56, 'Chine', 'Localisation étrangère pour amplifier le sentiment de menace et de piratage.', 109),
 (57, 'piraté', 'Terme alarmiste pour créer la panique maximale et vous faire agir sans réfléchir.', 109),
 (58, 'personnelles', 'Menace sur votre vie privée pour toucher vos émotions et créer la peur.', 109),
 (59, 'publiées', 'Conséquence dramatique inventée pour maximiser votre panique et urgence d\'agir.', 109),
-(60, 'publiquement', 'Amplification de la menace sur votre réputation pour forcer une action immédiate.', 109),
-(61, 'immédiatement', 'Urgence extrême pour court-circuiter votre réflexion et vous faire cliquer.', 109),
-(62, 'secrètes', 'Apple ne demande JAMAIS de changer vos questions de sécurité via un lien email.', 109),
-(63, 'éligible', 'Vous faire croire que vous avez droit à quelque chose pour vous inciter à donner vos informations.', 110),
-(64, 'exceptionnelle', 'Aide \"spéciale\" inventée pour rendre l\'offre unique et urgente.', 110),
+                                                                                        (60, 'publiquement', 'Amplification de la menace sur votre réputation pour forcer une action immédiate.', 109),
+                                                                                        (61, 'immédiatement', 'Urgence extrême pour court-circuiter votre réflexion et vous faire cliquer.', 109),
+                                                                                        (62, 'secrètes', 'Apple ne demande JAMAIS de changer vos questions de sécurité via un lien email.', 109),
+                                                                                        (63, 'éligible', 'Vous faire croire que vous avez droit à quelque chose pour vous inciter à donner vos informations.', 110),
+                                                                                        (64, 'exceptionnelle', 'Aide \"spéciale\" inventée pour rendre l\'offre unique et urgente.', 110),
 (65, '400$', 'Montant attractif mais réaliste pour sembler crédible - les vraies aides sont notifiées officiellement.', 110),
 (66, 'présélectionné', 'Flatterie pour vous faire sentir privilégié et baisser votre vigilance.', 110),
 (67, 'automatiquement', 'Prétexte pour l\'envoi non sollicité - la CAF ne fonctionne pas ainsi.', 110),
-(68, 'urgent', 'Création d\'urgence artificielle pour vous presser et éviter que vous vérifiiez.', 110),
+                                                                                        (68, 'urgent', 'Création d\'urgence artificielle pour vous presser et éviter que vous vérifiiez.', 110),
 (69, 'sécurité-sociale', 'Information ultra-sensible - la CAF l\'a déjà et ne la redemande JAMAIS par email.', 110),
-(70, 'détaillée', 'Demande excessive d\'informations personnelles pour usurpation d\'identité potentielle.', 110),
-(71, 'premiers', 'Fausse rareté pour créer la compétition et vous pousser à agir vite sans réfléchir.', 110);
+                                                                                        (70, 'détaillée', 'Demande excessive d\'informations personnelles pour usurpation d\'identité potentielle.', 110),
+                                                                                        (71, 'premiers', 'Fausse rareté pour créer la compétition et vous pousser à agir vite sans réfléchir.', 110);
 
 -- --------------------------------------------------------
 
@@ -444,19 +444,19 @@ INSERT INTO `erreur` (`numero`, `mot_incorrect`, `explication`, `activite_numero
 
 DROP TABLE IF EXISTS `explication`;
 CREATE TABLE IF NOT EXISTS `explication` (
-  `numero` int NOT NULL AUTO_INCREMENT,
-  `libelle` text NOT NULL,
-  PRIMARY KEY (`numero`)
-) ENGINE=InnoDB AUTO_INCREMENT=605 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+                                             `numero` int NOT NULL AUTO_INCREMENT,
+                                             `libelle` text NOT NULL,
+                                             PRIMARY KEY (`numero`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=605 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `explication`
 --
 
 INSERT INTO `explication` (`numero`, `libelle`) VALUES
-(1, 'Il y a <strong> des étapes </strong> : le but est de trouver les mots de passe à travers des <strong>indices cachés</strong>'),
-(2, 'Étape : Ouvrir la porte à l’aide du code fourni par le détective Fox afin d’entrer dans la salle.'),
-(4, 'Étape : Essaie d\'ouvrir ce coffre avec un code à 6 chiffres. Attention, sois attentif aux éléments dans la pièce !\n'),
+                                                    (1, 'Il y a <strong> des étapes </strong> : le but est de trouver les mots de passe à travers des <strong>indices cachés</strong>'),
+                                                    (2, 'Étape : Ouvrir la porte à l’aide du code fourni par le détective Fox afin d’entrer dans la salle.'),
+                                                    (4, 'Étape : Essaie d\'ouvrir ce coffre avec un code à 6 chiffres. Attention, sois attentif aux éléments dans la pièce !\n'),
 (5, 'Récupère cette mallette qui était dans le coffre. Attention, elle pourrait être ouverte.\r\n'),
 (6, 'Étape : Crée un code Sécurisé pour la malette. Elle te donnera des informations précieuses !\n'),
 (7, 'Étape : Trouve le mot de passe du téléphone pour permettre de trouver des informations cruciales !\n'),
@@ -468,8 +468,8 @@ INSERT INTO `explication` (`numero`, `libelle`) VALUES
 (14, 'Il y a <strong> des étapes </strong> : le but est de trouver les mots de passe à travers des <strong>indices cachés</strong> <br></br>\n\n<strong> Imaginez </strong> qu’un mot de passe se <strong> trouve </strong> sur cette page !<br></br>\n\n D9ns le m1noir où s2 cachent d3s <strong> secrets</strong>, un p6rtail obsc4r révèle un mystérieux mot de passe. \n'),
 (101, 'Le but du jeu est de repérer tous les mots suspects dans la discussion avec le fantôme.\r\nClique sur chaque mot qui te paraît étrange pour avancer dans l’enquête.\r\nAttention, tu es limité dans le temps !\r\nUne fois tous les mots suspects trouvés, un code te sera révélé.\r\nTu pourras alors l’utiliser pour ouvrir la porte… en cliquant sur le cadenas situé en face de toi.\r\n\r\nBonne chance !'),
 (301, 'Cliquez sur les enveloppes et étudiez les pour déterminer s\'il s\'agit d\'un mail frauduleux ou légitime.'),
-(400, 'Accueil Ransomware'),
-(401, '<ul>\n                            <li>D\'abord, Il faut limiter la propagation.</li>\n                            <li>Avant d\'aller plus loin, il faut mettre les spécialistes au courant</li>\n                            <li>Puis analyser les problèmes rencontrés à cause de l\'attaque</li>\n                            <li>Le reste, je vous laisse voir par vous-mêmes !</li>\n                        </ul>'),
+                                                    (400, 'Accueil Ransomware'),
+                                                    (401, '<ul>\n                            <li>D\'abord, Il faut limiter la propagation.</li>\n                            <li>Avant d\'aller plus loin, il faut mettre les spécialistes au courant</li>\n                            <li>Puis analyser les problèmes rencontrés à cause de l\'attaque</li>\n                            <li>Le reste, je vous laisse voir par vous-mêmes !</li>\n                        </ul>'),
 (501, 'Laisser un poste ouvert permet à n’importe qui d’accéder à des données sensibles → toujours verrouiller sa session (Win+L / Ctrl+L). '),
 (502, 'Une clé USB trouvée peut contenir un malware (attaque \"BadUSB\"). Toujours utiliser du matériel fourni par l’entreprise.'),
 (503, 'Un badge d’entreprise est nominatif et doit toujours rester sur soi. Un intrus peut l’utiliser pour pénétrer dans les locaux. '),
@@ -1149,7 +1149,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`numero`, `login`, `mdp`) VALUES
-(1, 'Test', 'Test');
+(1, 'AdminMIVDL', '$2y$10$T.8NjoeOd61dsrQDwPzF8up71iy3xurteaz.smn8VWJPLBbrQu4wC');
 
 -- --------------------------------------------------------
 
