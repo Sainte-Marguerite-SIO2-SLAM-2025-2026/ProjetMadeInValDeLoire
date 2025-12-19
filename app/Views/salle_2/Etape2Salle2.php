@@ -137,15 +137,18 @@
         </div>
     </form>
 
-    <aside id="message-intro" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
-        <p class="tip-desc">
-            <?php if (!empty($indices) && isset($indices->libelle)): ?>
-                <?= $indices->libelle ?>
-            <?php else: ?>
-                Indice non disponible
-            <?php endif; ?>
-        </p>
-    </aside>
+    <?php /* MODIFICATION ICI : On cache l'indice si succès */ ?>
+    <?php if (empty($success)): ?>
+        <aside id="message-intro" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
+            <p class="tip-desc">
+                <?php if (!empty($indices) && isset($indices->libelle)): ?>
+                    <?= $indices->libelle ?>
+                <?php else: ?>
+                    Indice non disponible
+                <?php endif; ?>
+            </p>
+        </aside>
+    <?php endif; ?>
 
     <?php if (empty($success)): ?>
         <div class="mascotte-container">
@@ -174,7 +177,6 @@
 
 
     <?php if (!empty($success)): ?>
-        <!-- Nouveau popup de fin -->
         <div class="final-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="final-title">
             <img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>" alt="Fond" class="accueil-bg">
 
@@ -203,7 +205,7 @@
 
                     <div class="final-actions">
                         <a href="<?= base_url('Salle2/Etape2a') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
-                            Passer a la salle Suivante
+                            Continuer
                         </a>
                     </div>
                 </div>

@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preload" as="image" href="<?= base_url('/images/salle_2/Etape5_Salle3.png') ?>">
     <link rel="stylesheet" href="<?= base_url('styles/salle_2/style_etape_S3.css') ?>?v=21">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="<?= base_url('styles/salle_2/style_fin_S3.css') ?>">
 </head>
 <body>
 
@@ -98,10 +101,16 @@
         </p>
     </aside>
 
-    <div class="validate-container-left">
-        <button id="btn-collecte" class="btn btn-primary">Valider le classement</button>
-        <button id="btn-reset" class="btn btn--ghost" style="margin-left:8px;">Réinitialiser</button>
-    </div>
+    <form action="<?= current_url() ?>" method="post" id="form-jeu-validation">
+
+        <input type="hidden" name="resultat_jeu" id="input-resultat-jeu" value="0">
+
+        <div class="validate-container-left">
+            <button type="button" id="btn-collecte" class="btn btn-primary">Valider le classement</button>
+            <button type="button" id="btn-reset" class="btn btn--ghost" style="margin-left:8px;">Réinitialiser</button>
+        </div>
+
+    </form>
 
     <div id="result-overlay" class="result-overlay is-hidden" aria-live="polite">
         <div class="result-panel">
@@ -128,26 +137,49 @@
         </div>
     </div>
 
-    <div id="code-success-overlay" class="code-success-overlay" role="dialog" aria-modal="true" aria-labelledby="code-success-titre" style="display:none">
-        <aside class="tip-panel code-success-panel" role="note" aria-live="polite">
-            <p id="code-success-titre" class="tip-desc" style="margin-bottom:14px;">
-                <?= esc($success_message ?? 'Bravo ! Le classement est correct. Vous avez fini la salle Mot de Passe.') ?>
-            </p>
-            <a href="<?= esc($next_url ?? site_url('Salle2/Etapeb')) ?>"
-               class="tip-btn btn--xl"
-               id="go-next"
-               aria-label="Passer à la salle suivante">
-                Etape Final
-            </a>
-        </aside>
-    </div>
+    <div id="code-success-overlay" class="final-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="final-title" style="display:none">
 
+        <img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>" alt="Fond" class="accueil-bg">
+
+        <main class="final-screen-wrapper">
+            <div class="particles-layer">
+                <div class="flying-item item-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </div>
+                <div class="flying-item item-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                </div>
+            </div>
+
+            <div class="final-popup-container">
+                <div class="mascot-final-wrapper">
+                    <img src="<?= base_url('/images/salle_2/mascotte/mascotte_contente.svg') ?>" alt="Mascotte Contente">
+                </div>
+
+                <h1 class="final-title" id="final-title">Félicitations !</h1>
+
+                <p class="final-text">
+                    Bravo, détective. Le classement est correct.
+                    <br><br>
+                    Le manoir vous ouvre désormais ses secrets les plus profonds...
+                </p>
+
+                <div class="final-actions">
+                    <button type="button"
+                            class="btn btn--xl btn-nuit trigger-popup"
+                            data-mode="Nuit"
+                            onclick="document.getElementById('input-resultat-jeu').value='1'; document.getElementById('form-jeu-validation').submit();">
+                        Continuer
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
     <div class="mascotte-container">
         <img id="mascotte"
              src="<?= base_url('images/salle_2/mascotte/mascotte_face.svg'); ?>"
              alt="Mascotte">
     </div>
-
 
     <div id="mascotte-bulle">
         <div id="bulle-texte"></div>
@@ -155,24 +187,23 @@
         <div class="bulle-fleche"></div>
     </div>
 
-<?php
-$indices_for_js = is_array($mascotte_i) ? $mascotte_i : [$mascotte_i];
-$libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
-?>
+    <?php
+    $indices_for_js = is_array($mascotte_i) ? $mascotte_i : [$mascotte_i];
+    $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
+    ?>
 
-<script>
-    const INDICES = <?= json_encode($libelles_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
-</script>
+    <script>
+        const INDICES = <?= json_encode($libelles_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
+        const base_url = "<?= base_url() ?>";
+    </script>
 
-
-<script src="<?= base_url('js/salle_2/mascotte.js') ?>"></script>
+    <script src="<?= base_url('js/salle_2/mascotte.js') ?>"></script>
 
 </div> <div class="scroll-flow">
     <div class="scroll-spacer"></div>
 </div>
 
-
-<script>const base_url = "<?= base_url() ?>";</script>
 <script src="<?= base_url('/js/salle_2/postits_drag.js') ?>?v=21"></script>
+
 </body>
 </html>

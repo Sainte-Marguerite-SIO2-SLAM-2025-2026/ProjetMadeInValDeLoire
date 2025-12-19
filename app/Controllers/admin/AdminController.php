@@ -19,18 +19,18 @@ class AdminController extends BaseController
         $userModel = new UserModel();
 
         $username = esc($this->request->getPost('user'));
-        $password = esc($this->request->getPost('mdp'));
+        $password = esc($this->request->getPost('mdp')); // Garder le mot de passe en clair
 
-        // Chercher l’utilisateur
+        // Chercher l'utilisateur
         $user = $userModel->getUser($username);
 
         if (!$user) {
             return redirect()->back()->with('error', 'Utilisateur inconnu');
         }
 
-        // Vérification mot de passe
-        if ($password !== $user['mdp']) {
-            return redirect()->back()->with('error', 'Mot de passe incorrect');
+        // Vérification mot de passe - INVERSER la logique
+        if (!password_verify($password, $user['mdp'])) {
+            return redirect()->back()->with('error','Mot de passe incorrect');
         }
 
         // Connexion OK → enregistrer en session

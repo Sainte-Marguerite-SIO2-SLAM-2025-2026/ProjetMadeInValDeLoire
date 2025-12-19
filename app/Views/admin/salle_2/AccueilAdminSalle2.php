@@ -5,46 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Salle 2</title>
     <?= link_tag('styles/admin/adminAccueil.css'); ?>
+    <?= link_tag('styles/salle_2/salle2Admin'); ?>
 
-    <style>
-        /* CSS Intégré pour la structure (Sidebar + Contenu) */
-        .admin-layout { display: flex; gap: 30px; align-items: flex-start; }
-        .sidebar { flex: 0 0 250px; display: flex; flex-direction: column; gap: 15px; }
-        .main-content { flex: 1; background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 30px; min-height: 500px; border: 1px solid rgba(255, 255, 255, 0.1); }
 
-        /* Navigation */
-        .nav-card { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px; cursor: pointer; transition: 0.3s; border: 1px solid rgba(255, 255, 255, 0.1); color: white; display: flex; align-items: center; gap: 15px; }
-        .nav-card:hover, .nav-card.active { background: rgba(255, 255, 255, 0.2); border-color: #00cec9; transform: translateX(5px); }
 
-        /* Tables */
-        .data-table { width: 100%; border-collapse: collapse; color: white; margin-top: 20px; }
-        .data-table th { background: rgba(0, 0, 0, 0.3); padding: 15px; text-align: left; }
-        .data-table td { padding: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-
-        /* Boutons */
-        .btn-edit { background: #fdcb6e; color: #2d3436; padding: 5px 10px; border-radius: 5px; border: none; cursor: pointer; margin-right: 5px; }
-        .btn-delete { background: #ff7675; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; display: inline-block; }
-        .btn-add { background: #00b894; color: white; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; }
-
-        /* Form & Stats */
-        .hidden { display: none !important; }
-        .hidden-field { display: none; }
-        .form-container { color: white; max-width: 600px; margin: 0 auto; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid #555; color: white; border-radius: 5px; }
-
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
-        .stat-box { background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; text-align: center; color: white; }
-        .stat-number { font-size: 30px; font-weight: bold; color: #00cec9; }
-    </style>
 </head>
 <body>
 
 <div class="dashboard-container">
     <div class="dashboard-header">
         <h1>🔐 Administration Salle 2</h1>
-        <?= anchor('gingembre/accueil', '⬅ Retour', ['class' => 'btn-action']); ?>
+        <?= anchor('gingembre/accueil', '⬅ Retour', ['class' => 'btn-action btn-create']); ?>
     </div>
 
     <div class="admin-layout">
@@ -58,9 +29,6 @@
             </div>
             <div class="nav-card" id="nav-mdp" onclick="showSection('mdp')">
                 <div class="icon">🔑</div><h3>Mots de Passe</h3>
-            </div>
-            <div class="nav-card" id="nav-stats" onclick="showSection('stats')">
-                <div class="icon">📊</div><h3>Statistiques</h3>
             </div>
         </div>
 
@@ -131,12 +99,6 @@
                     <?php endforeach; endif; ?>
                     </tbody>
                 </table>
-            </div>
-
-            <div id="section-stats" class="content-section hidden">
-                <h2>📊 Statistiques Globales</h2>
-
-                </div>
             </div>
 
             <div id="generic-form" class="hidden">
@@ -227,7 +189,10 @@
     window.onload = function() {
         if(window.location.hash) {
             const section = window.location.hash.replace('#section-', '');
-            showSection(section);
+            // Petit fix : si l'URL pointe vers stats (qui n'existe plus), on reste sur defaut
+            if(document.getElementById('section-'+section)) {
+                showSection(section);
+            }
         }
     }
 </script>

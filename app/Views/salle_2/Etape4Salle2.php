@@ -121,7 +121,7 @@
 
                     <div class="final-actions">
                         <a href="<?= base_url('Salle2/Etape5') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
-                            Passer à la salle Suivante
+                            Continuer
                         </a>
                     </div>
                 </div>

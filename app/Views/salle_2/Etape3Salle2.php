@@ -108,7 +108,7 @@
 
                     <div class="final-actions">
                         <a href="<?= esc($next_url ?? site_url('/Salle2/etape4')) ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
-                            Passer à la salle suivante
+                            Continuer
                         </a>
                     </div>
                 </div>
