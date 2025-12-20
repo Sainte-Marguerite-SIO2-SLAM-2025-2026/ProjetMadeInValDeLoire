@@ -77,11 +77,11 @@
                 <image class="lumi-image default"
                        preserveAspectRatio="xMidYMid slice"
                        x="1687.9" y="786.97" width="205" height="252"
-                       xlink:href="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>" />
+                       xlink:href="<?= base_url($mascotte['face']) ?>" />
                 <image class="lumi-image hover"
                        preserveAspectRatio="xMidYMid slice"
                        x="1687.9" y="786.97" width="205" height="252"
-                       xlink:href="<?= base_url('images/commun/mascotte/mascotte_interrogee.svg') ?>" />
+                       xlink:href="<?= base_url($mascotte['interrogee']) ?>" />
                 <rect class="lumi-zone" x="1687.9" y="786.97" width="205" height="252" pointer-events="all"/>
             </g>
         </svg>
@@ -94,6 +94,13 @@
     <?php if ($afficher_popup): ?>
         <div id="popup-explication" class="popup">
             <div class="popup-content">
+                <!-- RADAR -->
+                <div class="radar">
+                    <div class="radar-scan"></div>
+                    <span class="blip blip-1"></span>
+                    <span class="blip blip-2"></span>
+                    <span class="blip blip-3"></span>
+                </div>
                 <span class="close-btn" onclick="closePopup()">&times;</span>
                 <h2>Explication</h2>
                 <p><?= $salle['intro_salle'] ?></p>
@@ -176,7 +183,16 @@
                 <?php endif?>
             </div>
         </div>
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+                if (window.changerMascotte) {
+                    window.changerMascotte('saoulee');
+                }
+            });
+        </script>
     <?php endif; ?>
+
+
 
 </div>
 
