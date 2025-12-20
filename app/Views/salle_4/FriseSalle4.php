@@ -17,18 +17,16 @@
     <div id="gameContainer">
         <canvas id="canvas" width="1300" height="790"></canvas>
 
-        <?php if (!empty($cartes)): ?>
+        <?php if (!empty($cartes) && $activite == 401): ?>
             <?php
             // Positions ajustées pour les cartes plus grandes
             $positions = [
                     ['x' => 4, 'y' => 8],
-                    ['x' => 8, 'y' => 43],
                     ['x' => 35, 'y' => 2],
-                    ['x' => 45, 'y' => 35],
-                    ['x' => 78, 'y' => 24],
-                    ['x' => 57, 'y' => 8],
-                    ['x' => 32, 'y' => 63],
-                    ['x' => 70, 'y' => 66]
+                    ['x' => 12, 'y' => 41],
+                    ['x' => 72, 'y' => 11],
+                    ['x' => 38, 'y' => 63],
+                    ['x' => 70, 'y' => 55]
             ];
 
             foreach ($cartes as $index => $carte):
@@ -47,11 +45,13 @@
                     <div class="explication"><?= $carte['explication'] ?></div>
                 </div>
             <?php endforeach; ?>
+        <?php elseif (!empty($cartes) && $activite == 402): ?>
+        <?php
+            ?>
         <?php else: ?>
-            <p>Aucune carte trouvée pour cette activité.</p>
+            <p>Aucune carte trouvée.</p>
         <?php endif; ?>
 
-        <!-- Zone d'information intégrée en haut du gameContainer -->
 
     </div>
 
@@ -127,15 +127,12 @@
                 <div class="indices-container">
                     <?php if ($activite == 401): ?>
                         <h3>Indices pour l'ordre</h3>
+                    <!-- mis dans la bdd mais faut faire le model-->
                         <ul>
-                            <li>Commence toujours par <strong>isoler</strong> avant d'agir : ça évite la propagation.</li>
-                            <li>Une fois isolé, <strong>couper les accès réseau</strong> empêche l'attaque de continuer.</li>
-                            <li>Avant d'aller plus loin, il faut <strong>prévenir l'équipe spécialisée</strong>, qui pourra superviser.</li>
-                            <li>On <strong>conserve les preuves</strong> avant toute action invasive : sinon elles peuvent être perdues.</li>
-                            <li>On ne peut <strong>bloquer la cause</strong> que lorsqu'on a sécurisé le périmètre.</li>
-                            <li>Le <strong>nettoyage</strong> vient après l'identification du problème.</li>
-                            <li>On <strong>restaure les sauvegardes</strong> seulement une fois sûr que tout est propre.</li>
-                            <li>Le <strong>changement de mots de passe</strong> sert à sécuriser après récupération.</li>
+                            <li>D'abord, Il faut limiter la propagation.</li>
+                            <li>Avant d'aller plus loin, il faut mettre les spécialistes au courant</li>
+                            <li>Puis analyser les problèmes rencontrés à cause de l'attaque</li>
+                            <li>Le reste, je vous laisse voir par vous-mêmes !</li>
                         </ul>
                     <?php else: ?>
                         <h3>Indices pour l'ordre</h3>
@@ -148,7 +145,6 @@
                             <li><strong>Ségmente ton réseau</strong> : une attaque sur une partie ne doit pas contaminer toute l’infrastructure.</li>
                             <li><strong>Forme les utilisateurs</strong> : ils représentent la première barrière contre les cybermenaces.</li>
                             <li>Effectue des <strong>sauvegardes régulières</strong> : elles permettent de récupérer rapidement après une attaque.</li>
-
                         </ul>
                     <?php endif; ?>
                 </div>

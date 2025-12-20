@@ -89,22 +89,33 @@
         </div>
     </form>
 
-    <!-- Message Introduction-->
-    <aside id="intro-tip" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
-        <p class="tip-desc">
-            <?= $libelles->libelle ?>
-        </p>
-    </aside>
+
 
     <?php if (empty($success)): ?>
+        <aside id="intro-tip" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
+            <p class="tip-desc">
+                <?= $libelles->libelle ?>
+            </p>
+        </aside>
+
         <div class="mascotte-container">
-            <img id="mascotte" src="<?= base_url('../images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
+            <img id="mascotte"
+                 src="<?= base_url('images/salle_2/mascotte/mascotte_face.svg'); ?>"
+                 alt="Mascotte">
         </div>
+
 
         <div id="mascotte-bulle">
             <div id="bulle-texte"></div>
             <div id="bulle-actions"></div>
             <div class="bulle-fleche"></div>
+        </div>
+
+        <div class="btn-retour-code">
+            <!-- le lien va directement à Etape1, plus besoin de popup -->
+            <a href="<?= base_url('/Salle2/Etape1') ?>" class="btn btn--xl btn-nuit">
+                Retour
+            </a>
         </div>
 
     <?php
@@ -118,7 +129,6 @@
     <?php endif; ?>
 
     <?php if (!empty($success)): ?>
-        <!-- Nouveau popup de fin -->
         <div class="final-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="final-title">
             <img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>" alt="Fond" class="accueil-bg">
 

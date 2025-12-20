@@ -80,7 +80,6 @@
     </form>
 
     <?php if (!empty($success)): ?>
-        <!-- Nouveau popup de fin (remplace l'ancien message de succès) -->
         <div class="final-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="final-title">
             <img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>" alt="Fond" class="accueil-bg">
 
@@ -117,23 +116,28 @@
         </div>
     <?php endif; ?>
 
-    <aside id="message-intro" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
-        <p class="tip-desc">
-            <?= $libelles->libelle ?>
-        </p>
-    </aside>
+    <?php if (empty($success)): ?>
+        <aside id="message-intro" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
+            <p class="tip-desc">
+                <?= $libelles->libelle ?>
+            </p>
+        </aside>
 
         <div class="mascotte-container">
-        <img id="mascotte" src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
-    </div>
+            <img id="mascotte"
+                 src="<?= base_url('images/salle_2/mascotte/mascotte_face.svg'); ?>"
+                 alt="Mascotte">
+        </div>
 
-    <div id="mascotte-bulle">
-        <div id="bulle-texte"></div>
-        <div id="bulle-actions"></div>
-        <div class="bulle-fleche"></div>
-    </div>
+        <div id="mascotte-bulle">
+            <div id="bulle-texte"></div>
+            <div id="bulle-actions"></div>
+            <div class="bulle-fleche"></div>
+        </div>
+    <?php endif; ?>
 
     <?php
+    // Préparation des données JS (même si caché, on laisse les variables pour éviter les erreurs JS)
     $indices_for_js = is_array($mascotte_i) ? $mascotte_i : [$mascotte_i];
     $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
     ?>
@@ -156,9 +160,11 @@
         try {
             if (!<?= json_encode(!empty($success)) ?>) {
                 const input = document.getElementById('code');
-                input.value = '';
-                input.defaultValue = '';
-                input.focus();
+                if(input) {
+                    input.value = '';
+                    input.defaultValue = '';
+                    input.focus();
+                }
             }
         } catch (e) {}
     })();

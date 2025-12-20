@@ -3,6 +3,7 @@
 namespace App\Controllers\salle_2;
 
 use App\Controllers\BaseController;
+use App\Models\commun\MascotteModel;
 use App\Models\salle_2\Salle2Model;
 
 class Salle2Controller extends BaseController
@@ -11,38 +12,43 @@ class Salle2Controller extends BaseController
     public function Introduction()
     {
         $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
         $introduction =$model->getIntroduction();
         $data = [
             'introduction' => $introduction,
+            'mascotte' => $this->mascotte->getMascottes(),
         ];
 
-        return view('salle_2\IntroductionSalle2',$data);
+        return view('salle_2/IntroductionSalle2',$data);
 
     }
 
     public function Aide()
     {
         $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
         $introduction =$model->getIntroduction();
         $data = [
             'introduction' => $introduction,
-
+            'mascotte' => $this->mascotte->getMascottes(),
         ];
 
-        return view('salle_2\AideSalle2',$data);
+        return view('salle_2/AideSalle2',$data);
     }
 
     public function Etape1()
     {
         $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
         $indice = $model->getIndice(2);
         $mascotte_i = $model->getIndiceMascotte(10);
         $data = [
             'libelles' => $indice
             ,'mascotte_i' => $mascotte_i
+            ,'mascotte' => $this->mascotte->getMascottes()
         ];
-        echo view('salle_2\etape1Salle2', $data);
-        echo view('commun\footer.php');
+        echo view('salle_2/etape1Salle2', $data);
+        echo view('commun/footer.php');
     }
 
 
@@ -52,6 +58,7 @@ class Salle2Controller extends BaseController
     public function Etape1a()
     {
         $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
         $indice = $model->getIndice(2);
         $mascotte_i = $model->getIndiceMascotte(11);
         $mdp = $model->getMotDePasse1a();
@@ -66,6 +73,7 @@ class Salle2Controller extends BaseController
         $data = [
             'libelles' => $indice,
             'mascotte_i' => $mascotte_i,
+            'mascotte' => $this->mascotte->getMascottes(),
             'mdp' => $mdp,
             'title' => 'Code de la Porte | Salle Mot de Passe',
             'mot_de_passe' => '',
@@ -76,13 +84,14 @@ class Salle2Controller extends BaseController
             'next_url' => session()->getFlashdata('next_url') ?? base_url('/Salle2/Etape2'),
         ];
 
-        echo view('salle_2\etape1aSalle2', $data);
-        echo view('commun\footer.php');
+        echo view('salle_2/etape1aSalle2', $data);
+        echo view('commun/footer.php');
     }
 
     public function validerEtape1a()
     {
         $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
         $indice = $model->getIndice(2);
         $mascotte_i = $model->getIndiceMascotte(11);
         $mdp = $model->getMotDePasse1a();
@@ -99,6 +108,7 @@ class Salle2Controller extends BaseController
             $data = [
                 'libelles' => $indice,
                 'mascotte_i' => $mascotte_i,
+                'mascotte' => $this->mascotte->getMascottes(),
                 'mdp' => $mdp,
                 'title' => 'Code de la Porte | Salle Mot de Passe',
                 'mot_de_passe' => '',
@@ -109,13 +119,14 @@ class Salle2Controller extends BaseController
                 'next_url' => base_url('/Salle2/Etape2'),
             ];
 
-            return view('salle_2\etape1aSalle2', $data);
+            return view('salle_2/etape1aSalle2', $data);
         }
 
         // Code incorrect
         $data = [
             'libelles' => $indice,
             'mascotte_i' => $mascotte_i,
+            'mascotte' => $this->mascotte->getMascottes(),
             'title' => 'Code de la Porte | Salle Mot de Passe',
             'mot_de_passe' => '',
             'placeholder_message' => 'Code incorrect. Réessayez.',
@@ -123,14 +134,15 @@ class Salle2Controller extends BaseController
             'success' => false,
         ];
 
-        echo view('salle_2\etape1aSalle2', $data);
-        echo view('commun\footer.php');
+        echo view('salle_2/etape1aSalle2', $data);
+        echo view('commun/footer.php');
     }
 
     /* Etape 2 */
     public function Etape2()
     {
         $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
         $libelles = $model->getDistinctLibelles(4); // récupérer 3 libelles pour la view
         $indices = $model->getIndice(4);
         $mascotte_i = $model->getIndiceMascotte(12);
@@ -140,6 +152,7 @@ class Salle2Controller extends BaseController
             'libelles' => $libelles,
             'indices' => $indices,
             'mascotte_i' => $mascotte_i,
+            'mascotte' => $this->mascotte->getMascottes(),
             'success' => false,
             'success_message' => null,
             'error' => null,
@@ -169,18 +182,20 @@ class Salle2Controller extends BaseController
             $data['code'] = $code;
         }
 
-        return view('salle_2\etape2Salle2', $data);
+        return view('salle_2/etape2Salle2', $data);
     }
 
     public function etape2a()
     {
         $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
         $indice = $model->getIndice(5);
         $data = [
             'libelles' => $indice
+            ,'mascotte' => $this->mascotte->getMascottes()
         ];
-        echo view('salle_2\etape2aSalle2', $data)
-            . view('commun\footer.php');
+        echo view('salle_2/etape2aSalle2', $data)
+            . view('commun/footer.php');
     }
 
 
@@ -188,12 +203,14 @@ class Salle2Controller extends BaseController
     public function Etape3()
     {
         $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
         $indice = $model->getIndice(6);
         $mascotte_i = $model->getIndiceMascotte(13);
 
         $data = [
             'libelles'        => $indice,
             'mascotte_i'        => $mascotte_i,
+            'mascotte'        => $this->mascotte->getMascottes(),
             'title'           => 'Mallette | Salle Mot de Passe',
             'success'         => false,
             'success_message' => null,
@@ -215,7 +232,7 @@ class Salle2Controller extends BaseController
             }
         }
 
-        return view('salle_2\Etape3Salle2', $data);
+        return view('salle_2/Etape3Salle2', $data);
     }
 
     /**
@@ -238,6 +255,7 @@ class Salle2Controller extends BaseController
     public function Etape4()
     {
         $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
         $indice = $model->getIndice(7);
         $mascotte_i = $model->getIndiceMascotte(14);
 
@@ -248,6 +266,7 @@ class Salle2Controller extends BaseController
         $data = [
             'libelles' => $indice,
             'mascotte_i' => $mascotte_i,
+            'mascotte' => $this->mascotte->getMascottes(),
             'title' => 'Téléphone | Salle Mot de Passe',
             'code' => '',
             'error' => '',
@@ -256,40 +275,42 @@ class Salle2Controller extends BaseController
             'next_url' => site_url('Salle2/Etape5'), // a modif ??
         ];
 
-        return view('salle_2\Etape4Salle2', $data);
+        return view('salle_2/Etape4Salle2', $data);
     }
 
     public function validerEtape4()
     {
+        $model = new Salle2Model();
+
+        $indice = $model->getIndice(7);
+        $mascotte_i = $model->getIndiceMascotte(14);
         $code = trim((string) $this->request->getPost('code'));
 
-        $validPasswords = [
-            'Karvion42-b',
-            'Zorliam87ax!@',
-            'Farytek31z-31'
-        ];
-
-        if (in_array($code, $validPasswords, true)) {
+        if ($model->checkPhoneCode($code)) {
             $data = [
-                'title' => 'Téléphone | Salle Mot de Passe',
-                'code' => '',
-                'error' => null,
-                'success' => true,
-                'success_message' => "Bravo ! Le code est correct. Le Téléphone est maintenant déverrouillée.",
-                'next_url' => site_url('Salle2/Etape5'),
+                'libelles'        => $indice,
+                'mascotte_i'      => $mascotte_i,
+                'title'           => 'Téléphone | Salle Mot de Passe',
+                'code'            => '',
+                'error'           => null,
+                'success'         => true,
+                'success_message' => "Bravo ! Le code est correct. Le téléphone est maintenant déverrouillé.",
+                'next_url'        => site_url('Salle2/Etape5'),
             ];
         } else {
             $data = [
-                'title' => 'Téléphone | Salle Mot de Passe',
-                'code' => '',
-                'error' => "Mot de passe incorrect ",
-                'success' => false,
+                'libelles'        => $indice,
+                'mascotte_i'      => $mascotte_i,
+                'title'           => 'Téléphone | Salle Mot de Passe',
+                'code'            => '',
+                'error'           => "Mot de passe incorrect.",
+                'success'         => false,
                 'success_message' => null,
-                'next_url' => site_url('Salle2/Etape5'),
+                'next_url'        => site_url('Salle2/Etape5'),
             ];
         }
 
-        return view('salle_2\Etape4Salle2', $data);
+        return view('salle_2/Etape4Salle2', $data);
     }
 
     public function passwordRandom()
@@ -316,25 +337,38 @@ class Salle2Controller extends BaseController
     public function Etape5()
     {
         $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
         $indice = $model->getIndice(8);
         $mascotte_i = $model->getIndiceMascotte(15);
         $data = [
             'libelles' => $indice,
             'mascotte_i'=> $mascotte_i,
+            'mascotte' => $this->mascotte->getMascottes(),
         ];
-        echo view('salle_2\etape5Salle2', $data)
-            . view('commun\footer.php');
+        echo view('salle_2/etape5Salle2', $data)
+            . view('commun/footer.php');
 
     }
 
     public function Etapeb()
     {
-        return view('salle_2\EtapeBonneSalle2');
+        $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
+        $data = [
+            'mascotte' => $this->mascotte->getMascottes(),
+        ];
+        return view('salle_2/EtapeBonneSalle2',$data);
+
+
     }
     public function Etapef()
     {
-        return view('salle_2\EtapeFausseSalle2');
+        $model = new Salle2Model();
+        $this->mascotte = new MascotteModel();
+        $data = [
+            'mascotte' => $this->mascotte->getMascottes(),
+        ];
+        return view('salle_2/EtapeFausseSalle2',$data);
     }
-
 
 }

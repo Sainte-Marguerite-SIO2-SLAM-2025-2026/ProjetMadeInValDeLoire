@@ -21,10 +21,14 @@
     </div>
 
     <div class="final-popup-container">
-        <div class="mascot-final-wrapper">
-            <img src="<?= base_url('/images/salle_2/mascotte/mascotte_choquee.svg') ?>" alt="Monsieur Fox">
-        </div>
 
+        <div class="mascot-final-wrapper">
+            <?= img([
+                    'src' => $mascotte['choquee'],
+                    'alt' => 'Mascotte',
+                    'class' => 'mascotte-popup'
+            ]) ?>
+        </div>
         <h1 class="final-title">Vous n'avez pas réussi !</h1>
 
         <p class="final-text">
@@ -44,8 +48,8 @@
                 </a>
             <?php endif; ?>
         </div>
-    </div>
-</main>
+
+    </div> </main>
 
 <script>
     const BASE_URL = '<?= base_url(); ?>';

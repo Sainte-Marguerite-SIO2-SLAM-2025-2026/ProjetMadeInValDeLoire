@@ -143,8 +143,11 @@
     </div>
 
     <div class="mascotte-container">
-        <img id="mascotte" src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
+        <img id="mascotte"
+             src="<?= base_url('images/salle_2/mascotte/mascotte_face.svg'); ?>"
+             alt="Mascotte">
     </div>
+
 
     <div id="mascotte-bulle">
         <div id="bulle-texte"></div>
