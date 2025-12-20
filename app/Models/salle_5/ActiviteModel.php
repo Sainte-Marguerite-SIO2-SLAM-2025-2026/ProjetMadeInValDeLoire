@@ -16,7 +16,15 @@ class ActiviteModel extends Model
     ];
 
 
-// Récupérer N activités aléatoires pour une salle
+    /**
+     * Récupérer les activités pour une salle
+     */
+    public function getActivites($salle_numero)
+    {
+        return $this->where('salle_numero', $salle_numero)
+            ->findAll();
+    }
+
     /**
      * Récupérer N activités aléatoires pour une salle
      */
@@ -76,4 +84,9 @@ class ActiviteModel extends Model
                 ($messages[$activite_numero]['error'] ?? 'Mauvaise réponse, réessayez !')
         ];
     }
+
+    public function deleteActivite($numero)
+        {
+           return $this->delete($numero);
+        }
 }

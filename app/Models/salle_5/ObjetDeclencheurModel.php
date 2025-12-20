@@ -14,6 +14,11 @@ class ObjetDeclencheurModel extends Model
         'visible_si_selectionnee', 'visible_si_non_reussie', 'numero_activite'
     ];
 
+    public function getObjetsDeclencheurs()
+        {
+           return $this->findAll();
+        }
+
     /**
      * Récupère uniquement les objets pertinents pour une salle
      * selon les activités sélectionnées et réussies.
@@ -48,5 +53,10 @@ class ObjetDeclencheurModel extends Model
         }
 
         return $resultat;
+    }
+
+    public function deleteObjetDeclencheur($id)
+    {
+        return $this->where('id', $id)->delete();
     }
 }
