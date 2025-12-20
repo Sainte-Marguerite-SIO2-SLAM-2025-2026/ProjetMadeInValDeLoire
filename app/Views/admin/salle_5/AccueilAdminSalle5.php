@@ -49,7 +49,6 @@
                             <td><?= form_open(base_url('admin/supprimerEnigme/'.$e->numero.'#enigmes'), [
                                         'onsubmit' => "return confirm('Confirmer la suppression ?')"
                                 ]) ?>
-                                <?= csrf_field() ?>
                                 <?= form_hidden('id', $e->numero) ?>
                                 <?= form_hidden('section', 'enigmes') ?>
                                 <?= form_button([
@@ -107,7 +106,6 @@
                             <td><?= form_open(base_url('admin/supprimerObjet/'.$o->id.'#objets'), [
                                         'onsubmit' => "return confirm('Confirmer la suppression ?')"
                                 ]) ?>
-                                <?= csrf_field() ?>
                                 <?= form_hidden('id', $o->id) ?>
                                 <?= form_hidden('section', 'objets') ?>
                                 <?= form_button([
@@ -159,7 +157,6 @@
                             <td><?= form_open(base_url('admin/supprimerObjetDeclencheur/'.$oD['id'].'#objets_declencheurs'), [
                                         'onsubmit' => "return confirm('Confirmer la suppression ?')"
                                 ]) ?>
-                                <?= csrf_field() ?>
                                 <?= form_hidden('id', $oD['id']) ?>
                                 <?= form_hidden('section', 'objets_declencheurs') ?>
                                 <?= form_button([
