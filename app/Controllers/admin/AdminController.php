@@ -4,6 +4,9 @@ namespace App\Controllers\admin;
 
 use App\Controllers\BaseController;
 use App\Models\admin\UserModel;
+use App\Models\salle_5\ActiviteModel;
+use App\Models\salle_5\ObjetDeclencheurModel;
+use App\Models\salle_5\ObjetsModel;
 use CodeIgniter\HTTP\RedirectResponse;
 use App\Models\admin\salle_2\Salle2Admin;
 
@@ -20,18 +23,18 @@ class AdminController extends BaseController
         $userModel = new UserModel();
 
         $username = esc($this->request->getPost('user'));
-        $password = esc($this->request->getPost('mdp'));
+        $password = esc($this->request->getPost('mdp')); // Garder le mot de passe en clair
 
-        // Chercher l’utilisateur
+        // Chercher l'utilisateur
         $user = $userModel->getUser($username);
 
         if (!$user) {
             return redirect()->back()->with('error', 'Utilisateur inconnu');
         }
 
-        // Vérification mot de passe
-        if ($password !== $user['mdp']) {
-            return redirect()->back()->with('error', 'Mot de passe incorrect');
+        // Vérification mot de passe - INVERSER la logique
+        if (!password_verify($password, $user['mdp'])) {
+            return redirect()->back()->with('error','Mot de passe incorrect');
         }
 
         // Connexion OK → enregistrer en session
@@ -91,7 +94,15 @@ class AdminController extends BaseController
             return view('admin/salle_4/AccueilAdminSalle4');
         }
         elseif ($numero == 5) {
-            return view('admin/salle_5/AccueilAdminSalle5');
+            $enigmeModel = new ActiviteModel();
+            $objets = new ObjetsModel();
+            $objetsDeclencheurs = new ObjetDeclencheurModel();
+            $data = [
+                'enigme' => $enigmeModel->getActivites(5),
+                'objets' => $objets->getObjets(),
+                'objetsDeclencheurs' => $objetsDeclencheurs->getObjetsDeclencheurs()
+            ];
+            return view('admin/salle_5/AccueilAdminSalle5', $data);
         }
         elseif ($numero == 6) {
             return view('admin/salle_6/AccueilAdminSalle6');
