@@ -30,7 +30,7 @@
         ) ?>
     </div>
 <?php else: ?>
-    <!-- Bouton d’accueil : renvoie vers la racine (mode nuit/valeur par défaut) -->
+    <!-- Bouton d’accueil -->
     <div class="bouton-accueil-cluedo">
         <?= anchor('/',
                 img([
@@ -45,7 +45,7 @@
 
 <div class="game-fixed-wrapper">
 
-    <!-- Arrière-plan principal de l’étape (image définie en inline style) -->
+    <!-- Arrière-plan principal de l’étape  -->
     <div class="accueil-bg" style="background-image:url('<?= base_url('/images/salle_2/Etape1a_Salle3.webp') ?>');"></div>
 
     <!-- Formulaire de saisie du code avec protection CSRF et validation côté client -->
@@ -131,7 +131,7 @@
     $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
     ?>
 
-        <!-- Injection côté client des indices (JSON sécurisé avec options HEX_*) -->
+        <!-- Injection côté client des indices  -->
         <script>
             const INDICES = <?= json_encode($libelles_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
         </script>
@@ -165,7 +165,7 @@
                         Le manoir vous ouvre désormais ses secrets les plus profonds...
                     </p>
 
-                    <!-- Bouton pour passer à la salle suivante (URL dynamique avec valeur par défaut) -->
+                    <!-- Bouton pour passer à la salle suivante -->
                     <div class="final-actions">
                         <a href="<?= esc($next_url ?? base_url('/Salle2/Etape2')) ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
                             Passer a la salle Suivante

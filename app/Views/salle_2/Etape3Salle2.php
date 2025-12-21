@@ -166,40 +166,8 @@
 </div>
 
 
-<script>
-    // Au chargement si pas de succès, champ vidé et focus
-    (function () {
-        try {
-            if (!<?= json_encode(!empty($success)) ?>) {
-                const input = document.getElementById('code');
-                if(input) {
-                    input.value = '';
-                    input.defaultValue = '';
-                    input.focus();
-                }
-            }
-        } catch (e) {}
-    })();
+<script src="<?= base_url('/js/salle_2/Salle2Malette.js') ?>" defer></script>
 
-    // Sur réinitialisation du formulaire, nettoyage du champ et du message
-    document.getElementById('complex-form')?.addEventListener('reset', function () {
-        const input = document.getElementById('code');
-        const labelMsg = document.getElementById('label-message');
-        setTimeout(() => {
-            if (input) {
-                input.value = '';
-                input.defaultValue = '';
-                input.setAttribute('placeholder', input.dataset.defaultPlaceholder || 'Saisissez le mot de passe');
-                input.setAttribute('aria-invalid', 'false');
-                input.focus();
-            }
-            if (labelMsg) {
-                labelMsg.textContent = '';
-                labelMsg.classList.add('is-hidden');
-            }
-        }, 0);
-    });
-</script>
 
 <?php if (empty($success)): ?>
     <!-- Script de mascotte chargé avant succès -->
