@@ -7,6 +7,15 @@ use App\Models\admin\salle_6\VpnAdminModel;
 use App\Models\admin\salle_6\WifiAdminModel;
 use App\Models\admin\salle_6\ProposerVpnAdminModel;
 use App\Models\admin\salle_6\ProposerWifiAdminModel;
+use App\Models\admin\commun\ActiviteAdminModel;
+use App\Models\admin\commun\ExplicationAdminModel;
+use App\Models\admin\commun\IndiceAdminModel;
+use App\Models\admin\commun\AvoirIndiceAdminModel;
+use App\Models\admin\commun\TypeAdminModel;
+use App\Models\admin\commun\ActiviteMessageAdminModel;
+use App\Models\admin\commun\SalleAdminModel;
+
+
 use CodeIgniter\HTTP\RedirectResponse;
 
 class AdminSalle6Controller extends BaseController
@@ -15,6 +24,13 @@ class AdminSalle6Controller extends BaseController
     protected WifiAdminModel $wifiModel;
     protected ProposerVpnAdminModel $proposerVpnModel;
     protected ProposerWifiAdminModel $proposerWifiModel;
+    protected ActiviteAdminModel $activiteModel;
+    protected ExplicationAdminModel $explicationModel;
+    protected IndiceAdminModel $indiceModel;
+    protected AvoirIndiceAdminModel $avoirIndiceModel;
+    protected TypeAdminModel $typeModel;
+    protected ActiviteMessageAdminModel $activiteMessageModel;
+    protected SalleAdminModel $salleModel;
     protected int $perPage = 10;
 
     public function __construct()
@@ -23,6 +39,13 @@ class AdminSalle6Controller extends BaseController
         $this->wifiModel = new WifiAdminModel();
         $this->proposerVpnModel = new ProposerVpnAdminModel();
         $this->proposerWifiModel = new ProposerWifiAdminModel();
+        $this->activiteModel = new ActiviteAdminModel();
+        $this->explicationModel = new ExplicationAdminModel();
+        $this->indiceModel = new IndiceAdminModel();
+        $this->avoirIndiceModel = new AvoirIndiceAdminModel();
+        $this->typeModel = new TypeAdminModel();
+        $this->activiteMessageModel = new ActiviteMessageAdminModel();
+        $this->salleModel = new SalleAdminModel();
     }
 
     /**
@@ -128,6 +151,13 @@ class AdminSalle6Controller extends BaseController
             'total_wifi' => $this->wifiModel->countAll(),
             'total_proposer_vpn' => $this->proposerVpnModel->countAll(),
             'total_proposer_wifi' => $this->proposerWifiModel->countAll(),
+            'total_activite' => $this->activiteModel->countActivites(6),
+            'total_type' => $this->typeModel->countTypes(6),
+            'total_salle' => $this->salleModel->countSalles(6),
+            'total_indice' => $this->indiceModel->countIndices(6),
+            'total_explication' => $this->explicationModel->countExplications(6),
+            'total_avoirIndice' => $this->avoirIndiceModel->countavoirIndices(6),
+            'total_activiteMessage' => $this->activiteMessageModel->countMessages(6),
         ];
 
         return view('admin/salle_6/dashboard', $data);

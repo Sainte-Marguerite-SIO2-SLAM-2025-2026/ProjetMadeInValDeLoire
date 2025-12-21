@@ -9,8 +9,8 @@ class ActiviteAdminModel extends Model
     protected $table = 'activite';
     protected $primaryKey = 'numero';
     protected $allowedFields = [
-        'libelle', 'verrouillage', 'image', 'malveillant', 
-        'difficulte_numero', 'salle_numero', 'auteur_numero', 
+        'libelle', 'verrouillage', 'image', 'malveillant',
+        'difficulte_numero', 'salle_numero', 'auteur_numero',
         'type_numero', 'explication_numero', 'width_img', 'height_img'
     ];
     protected $useTimestamps = false;
@@ -160,8 +160,8 @@ class ActiviteAdminModel extends Model
         $db = \Config\Database::connect('default');
         
         $tables = [
-            'activite_message' => 'activite_numero',
-            'avoir_indice' => 'activite_numero',
+            'activiteMessage' => 'activite_numero',
+            'avoirIndice' => 'activite_numero',
             'avoir_rep' => 'activite_numero',
             'avoir_zone' => 'activite_numero',
             'carte' => 'activite_numero',

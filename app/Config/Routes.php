@@ -13,15 +13,12 @@ $routes->get('/MentionLegale', 'commun\CommunController::MentionLegale');
 /*
  * ROUTES POUR L'ADMINISTRATION SALLE 6
  */
-
-// ========== ROUTES ADMINISTRATION SALLE 6 ==========
-
 $routes->group('/gingembre/salle_6', ['namespace' => 'App\Controllers\admin\salle_6'], function ($routes) {
 
-    // Dashboard Salle 6
-    $routes->get('/accueil', 'AdminSalle6Controller::index');
+    // Accueil Admin Salle 6 (Dashboard)
+    $routes->get('accueil', 'AdminSalle6Controller::index');
 
-    // === GESTION vpn ===
+    // Gestion VPN
     $routes->group('vpn', function ($routes) {
         $routes->get('/', 'AdminSalle6Controller::vpnList');
         $routes->get('create', 'AdminSalle6Controller::vpnCreate');
@@ -31,7 +28,7 @@ $routes->group('/gingembre/salle_6', ['namespace' => 'App\Controllers\admin\sall
         $routes->get('delete/(:num)', 'AdminSalle6Controller::vpnDelete/$1');
     });
 
-    // === GESTION WIFI ===
+    // Gestion WiFi
     $routes->group('wifi', function ($routes) {
         $routes->get('/', 'AdminSalle6Controller::wifiList');
         $routes->get('create', 'AdminSalle6Controller::wifiCreate');
@@ -41,7 +38,7 @@ $routes->group('/gingembre/salle_6', ['namespace' => 'App\Controllers\admin\sall
         $routes->get('delete/(:num)', 'AdminSalle6Controller::wifiDelete/$1');
     });
 
-    // === GESTION PROPOSITIONS vpn ===
+    // Gestion Propositions VPN
     $routes->group('proposer-vpn', function ($routes) {
         $routes->get('/', 'AdminSalle6Controller::proposerVpnList');
         $routes->get('create', 'AdminSalle6Controller::proposerVpnCreate');
@@ -51,7 +48,7 @@ $routes->group('/gingembre/salle_6', ['namespace' => 'App\Controllers\admin\sall
         $routes->get('delete/(:num)/(:num)', 'AdminSalle6Controller::proposerVpnDelete/$1/$2');
     });
 
-    // === GESTION PROPOSITIONS WIFI ===
+    // Gestion Propositions WiFi
     $routes->group('proposer-wifi', function ($routes) {
         $routes->get('/', 'AdminSalle6Controller::proposerWifiList');
         $routes->get('create', 'AdminSalle6Controller::proposerWifiCreate');
@@ -61,7 +58,77 @@ $routes->group('/gingembre/salle_6', ['namespace' => 'App\Controllers\admin\sall
         $routes->get('delete/(:num)/(:num)', 'AdminSalle6Controller::proposerWifiDelete/$1/$2');
     });
 
+    // Gestion Activité
+    $routes->group('activite', function ($routes) {
+        $routes->get('/', 'ActiviteController::index');
+        $routes->get('create', 'ActiviteController::create');
+        $routes->post('store', 'ActiviteController::store');
+        $routes->get('edit/(:num)', 'ActiviteController::edit/$1');
+        $routes->post('update/(:num)', 'ActiviteController::update/$1');
+        $routes->get('delete/(:num)', 'ActiviteController::delete/$1');
+    });
+
+    // Gestion Type
+    $routes->group('type', function ($routes) {
+        $routes->get('/', 'TypeController::index');
+        $routes->get('create', 'TypeController::create');
+        $routes->post('store', 'TypeController::store');
+        $routes->get('edit/(:num)', 'TypeController::edit/$1');
+        $routes->post('update/(:num)', 'TypeController::update/$1');
+        $routes->get('delete/(:num)', 'TypeController::delete/$1');
+    });
+
+    // Gestion Salle
+    $routes->group('salle', function ($routes) {
+        $routes->get('/', 'SalleController::index');
+        $routes->get('create', 'SalleController::create');
+        $routes->post('store', 'SalleController::store');
+        $routes->get('edit/(:num)', 'SalleController::edit/$1');
+        $routes->post('update/(:num)', 'SalleController::update/$1');
+        $routes->get('delete/(:num)', 'SalleController::delete/$1');
+    });
+
+    // Gestion Indice
+    $routes->group('indice', function ($routes) {
+        $routes->get('/', 'IndiceController::index');
+        $routes->get('create', 'IndiceController::create');
+        $routes->post('store', 'IndiceController::store');
+        $routes->get('edit/(:num)', 'IndiceController::edit/$1');
+        $routes->post('update/(:num)', 'IndiceController::update/$1');
+        $routes->get('delete/(:num)', 'IndiceController::delete/$1');
+    });
+
+    // Gestion Explication
+    $routes->group('explication', function ($routes) {
+        $routes->get('/', 'ExplicationController::index');
+        $routes->get('create', 'ExplicationController::create');
+        $routes->post('store', 'ExplicationController::store');
+        $routes->get('edit/(:num)', 'ExplicationController::edit/$1');
+        $routes->post('update/(:num)', 'ExplicationController::update/$1');
+        $routes->get('delete/(:num)', 'ExplicationController::delete/$1');
+    });
+
+    // Gestion Avoir Indice
+    $routes->group('avoir-indice', function ($routes) {
+        $routes->get('/', 'AvoirIndiceController::index');
+        $routes->get('create', 'AvoirIndiceController::create');
+        $routes->post('store', 'AvoirIndiceController::store');
+        $routes->get('edit/(:num)', 'AvoirIndiceController::edit/$1');
+        $routes->post('update/(:num)', 'AvoirIndiceController::update/$1');
+        $routes->get('delete/(:num)', 'AvoirIndiceController::delete/$1');
+    });
+
+    // Gestion Activité Message
+    $routes->group('activite-message', function ($routes) {
+        $routes->get('/', 'ActiviteMessageController::index');
+        $routes->get('create', 'ActiviteMessageController::create');
+        $routes->post('store', 'ActiviteMessageController::store');
+        $routes->get('edit/(:num)', 'ActiviteMessageController::edit/$1');
+        $routes->post('update/(:num)', 'ActiviteMessageController::update/$1');
+        $routes->get('delete/(:num)', 'ActiviteMessageController::delete/$1');
+    });
 });
+
 
 // Routes admin
 $routes->get('/gingembre', 'admin\AdminController::index');

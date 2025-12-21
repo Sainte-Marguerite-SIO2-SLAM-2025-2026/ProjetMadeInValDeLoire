@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class AvoirIndiceAdminModel extends Model
 {
     protected $table = 'avoir_indice';
-    protected $primaryKey = ['activite_numero', 'indice_numero'];
+    protected $primaryKey = ['activite_ numero', 'indice_numero'];
     protected $allowedFields = ['activite_numero', 'indice_numero'];
     protected $useTimestamps = false;
     protected $returnType = 'array';
@@ -117,7 +117,7 @@ class AvoirIndiceAdminModel extends Model
      * @param array $data ['activite_numero' => int, 'indice_numero' => int]
      * @return bool
      */
-    public function createAvoirIndice(array $data): bool
+    public function createavoir_indice(array $data): bool
     {
         // Validation basique
         if (empty($data['activite_numero']) || empty($data['indice_numero'])) {
