@@ -1,0 +1,234 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.content{
+    height: 1080px;
+    width: 1920px;
+    background-image: url("../../images/salle_3/fond/fond.webp");
+    background-size: 1920px 1080px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bureau-wrapper {
+    position: absolute;
+    top: 665px;
+    left: 956px;
+    transform: translate(-50%, -50%);
+    width: auto;
+    max-width: 550px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.bureau-wrapper:hover {
+    transform: translate(-50%, -50%);
+}
+
+.bureau-svg {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.bureau-normal {
+    opacity: 1;
+}
+
+.bureau-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.bureau-wrapper:hover .bureau-normal {
+    opacity: 0;
+}
+
+.bureau-wrapper:hover .bureau-hover {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bureau-wrapper {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .bureau-wrapper {
+        width: 90%;
+    }
+}
+
+.btn-accueil {
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 200px;
+    height: 100px;
+    background-image: url('../../images/commun/btn_retour/home_icone_6.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: black;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-accueil:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* --- MODALE GENERIQUE --- */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+
+    border: 3px solid #000;
+    backdrop-filter: blur(3px);
+    z-index: 2000;
+    opacity: 1;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    width: 500px;
+    max-width: 90%;
+    background-color: #ffff99;
+    padding: 15px 25px;
+    position: relative;
+    box-shadow: 4px 4px 0 #000;
+    border: 3px solid #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #333333;
+}
+
+.modal-content h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.modal-content p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    color: black;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    z-index: 3000;
+    transition: color 0.2s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.mascotte-hidden {
+    display: none !important;
+}
+.mascotte-container {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    width: 180px;
+    z-index: 10000;
+}
+
+.mascotte-container img {
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.mascotte-container img:hover {
+    transform: scale(1.05);
+}
+
+/* Tooltip */
+.toolTip {
+    position: absolute;
+    bottom: 110%;
+    left: 0;
+    background: white;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    width: 200px;
+    font-size: 14px;
+}
+
+.toolTip.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.commencer {
+    background: #dcdcdc;                /* gris clair */
+    border: 2px solid #ffffff;          /* bordure haut / gauche blanche */
+    border-right-color: #7a7a7a;        /* bordure droit sombre */
+    border-bottom-color: #7a7a7a;       /* bordure bas sombre */
+    padding: 8px 20px;
+    font-family: 'Tahoma', sans-serif;  /* police rétro */
+    font-size: 16px;
+    cursor: pointer;
+    color: #000000;
+    box-shadow: 0px 0px 0px 1px #000;
+}
+
+.commencer:hover {
+    background: #e5e5e5;
+}
