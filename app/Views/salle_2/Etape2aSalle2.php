@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preload" as="image" href="<?= base_url('/images/salle_2/Etape2a_Salle3.webp') ?>">
 
-    <!-- Feuille de style de l'étape version v4 -->
+    <!-- Feuille de style de l'étape  -->
     <link rel="stylesheet" href="<?= base_url('/styles/salle_2/Salle2Etapes.css') ?>?v=4">
 </head>
 <body>

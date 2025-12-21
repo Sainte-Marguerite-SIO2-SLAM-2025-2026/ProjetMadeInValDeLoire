@@ -63,7 +63,7 @@ class Salle1Message extends Model
      */
     public function getIndices(int $activite_numero): array
     {
-        return $this->db->table('avoir_indice ai')
+        return $this->db->table('avoirIndice ai')
             ->select('i.numero, i.libelle')
             ->join('indice i', 'i.numero = ai.indice_numero')
             ->where('ai.activite_numero', $activite_numero)
