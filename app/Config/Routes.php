@@ -73,6 +73,12 @@ $routes->get('/gingembre/create-user', 'admin\AdminController::createUser');
 $routes->get('gingembre/quiz', 'admin\AdminController::quiz');
 $routes->get('gingembre/mascotte', 'admin\AdminController::mascotte');
 
+// Admin Salle 2
+$routes->get('gingembre/deleteElement/(:segment)/(:num)', 'salle_2\Salle2AdminController::deleteElement/$1/$2');
+$routes->post('gingembre/saveGeneric', 'salle_2\Salle2AdminController::saveGeneric');
+$routes->get('gingembre/salle/(:num)', 'admin\AdminController::salle/$1');
+$routes->match(['get','post'], 'gingembre/saveGeneric', 'salle_2\Salle2AdminController::saveGeneric');
+
 // Route pour la page d'accueil
 $routes->get('/', 'HomeControlleur::index');
 $routes->get('/manoirJour', 'HomeControlleur::pagejour');
@@ -102,25 +108,23 @@ $routes->get('Salle1/Code', 'salle_1\Salle1Controller::accesCode');
 $routes->get('Salle1/Backend', 'salle_1\Salle1Controller::getBackend');
 
 
-// Routes pour la salle 2
-$routes->get('Salle2', 'accueil\AccueilController::Salle2');
-$routes->get('Salle2/Introduction', 'salle_2\Salle2Controller::Introduction');
-$routes->get('Salle2/Aide', 'salle_2\Salle2Controller::Aide');
-$routes->get('Salle2/Etape1', 'salle_2\Salle2Controller::Etape1');
-$routes->get('Salle2/Etape1a', 'salle_2\Salle2Controller::Etape1a');
-$routes->post('Etape1a', 'salle_2\Salle2Controller::validerEtape1a');
-$routes->get('Salle2/Etape2', 'salle_2\Salle2Controller::Etape2');
-$routes->match(['get', 'post'], '/Salle2/Etape2', 'salle_2\Salle2Controller::Etape2');
-$routes->get('Salle2/Etape2a', 'salle_2\Salle2Controller::Etape2a');
-$routes->match(['get', 'post'], '/Salle2/etape2a', 'salle_2\Salle2Controller::Etape2a');
-$routes->get('Salle2/Etape3', 'salle_2\Salle2Controller::Etape3');
-$routes->match(['get', 'post'], '/Salle2/Etape3', 'salle_2\Salle2Controller::Etape3');
-$routes->get('Salle2/Etape4', 'salle_2\Salle2Controller::Etape4');
-$routes->post('Salle2/Etape4', 'salle_2\Salle2Controller::validerEtape4');
-$routes->get('Salle2/Etape4/password-random', 'salle_2\Salle2Controller::passwordRandom');
-$routes->get('Salle2/Etape5', 'salle_2\Salle2Controller::Etape5');
-$routes->get('Salle2/Etapef', 'salle_2\Salle2Controller::Etapef');
-$routes->get('Salle2/Etapeb', 'salle_2\Salle2Controller::Etapeb');
+$routes->group('Salle2', function($routes) {
+    $routes->get('/', 'accueil\AccueilController::Salle2');
+    $routes->get('Introduction', 'salle_2\Salle2Controller::Introduction');
+    $routes->get('Aide', 'salle_2\Salle2Controller::Aide');
+    $routes->get('Etape1', 'salle_2\Salle2Controller::Etape1');
+    $routes->get('Etape1a', 'salle_2\Salle2Controller::Etape1a');
+    $routes->post('Etape1a', 'salle_2\Salle2Controller::validerEtape1a');
+    $routes->match(['get', 'post'], 'Etape2', 'salle_2\Salle2Controller::Etape2');
+    $routes->match(['get', 'post'], 'Etape2a', 'salle_2\Salle2Controller::Etape2a');
+    $routes->match(['get', 'post'], 'Etape3', 'salle_2\Salle2Controller::Etape3');
+    $routes->get('Etape4', 'salle_2\Salle2Controller::Etape4');
+    $routes->post('Etape4', 'salle_2\Salle2Controller::validerEtape4');
+    $routes->get('Etape4/password-random', 'salle_2\Salle2Controller::passwordRandom');
+    $routes->match(['get', 'post'], 'Etape5', 'salle_2\Salle2Controller::Etape5');
+    $routes->get('Etapef', 'salle_2\Salle2Controller::Etapef');
+    $routes->get('Etapeb', 'salle_2\Salle2Controller::Etapeb');
+});
 
 
 // Routes pour la salle 3

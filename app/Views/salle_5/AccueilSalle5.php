@@ -197,7 +197,7 @@
 </div>
 
 <div id="transition-overlay"></div>
-<?= script_tag('js/salle_5/mascotte.js') ?>
+<?= script_tag('js/salle_5/Salle2Mascotte.js') ?>
 <?= script_tag('js/salle_5/salle5.js') ?>
 
 

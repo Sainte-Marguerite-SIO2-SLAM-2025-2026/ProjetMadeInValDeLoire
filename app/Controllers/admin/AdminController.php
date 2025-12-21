@@ -3,6 +3,7 @@
 namespace App\Controllers\admin;
 
 use App\Controllers\BaseController;
+use App\Models\admin\salle_2\Salle2Admin;
 use App\Models\admin\UserModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ObjetDeclencheurModel;
@@ -79,7 +80,14 @@ class AdminController extends BaseController
             return view('admin/salle_1/AccueilAdminSalle1');
         }
         elseif ($numero == 2) {
-            return view('admin/salle_2/AccueilAdminSalle2');
+            $model = new Salle2Admin();
+            $data = [
+                'explications' => $model->getExplications(),
+                'indices'      => $model->getIndices(),
+                'mdps'         => $model->getMdps()
+            ];
+
+            return view('admin/salle_2/AccueilAdminSalle2', $data);
         }
         elseif ($numero == 3) {
             return view('admin/salle_3/AccueilAdminSalle3');

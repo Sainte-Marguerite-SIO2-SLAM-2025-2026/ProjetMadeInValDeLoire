@@ -5,20 +5,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><?= esc($title ?? 'Code de la Porte | Salle Mot de Passe') ?></title>
-
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="<?= base_url('/images/salle_2/Etape1a_Salle3.webp') ?>">
-    <link rel="stylesheet" href="<?= base_url('/styles/salle_2/style_etape_S3.css') ?>">
+    <!-- Styles principaux de l'étape -->
+    <link rel="stylesheet" href="<?= base_url('/styles/salle_2/Salle2Etapes.css') ?>">
 
     <?php if (!empty($success)): ?>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="<?= base_url('styles/salle_2/style_fin_S3.css') ?>">
+        <link rel="stylesheet" href="<?= base_url('styles/salle_2/Salle2Fin.css') ?>">
     <?php endif; ?>
 </head>
 <body>
 
 <?php if (session()->get('mode') === 'jour'): ?>
+    <!-- Bouton d’accueil : renvoie vers le manoir de jour si le mode = "jour" -->
     <div class="bouton-accueil-cluedo">
         <?= anchor('/manoirJour',
                 img([
@@ -29,6 +30,7 @@
         ) ?>
     </div>
 <?php else: ?>
+    <!-- Bouton d’accueil : renvoie vers la racine (mode nuit/valeur par défaut) -->
     <div class="bouton-accueil-cluedo">
         <?= anchor('/',
                 img([
@@ -43,9 +45,11 @@
 
 <div class="game-fixed-wrapper">
 
+    <!-- Arrière-plan principal de l’étape (image définie en inline style) -->
     <div class="accueil-bg" style="background-image:url('<?= base_url('/images/salle_2/Etape1a_Salle3.webp') ?>');"></div>
 
-    <form id="code-form" method="post" action="<?= base_url('/Etape1a') ?>" autocomplete="off" novalidate>
+    <!-- Formulaire de saisie du code avec protection CSRF et validation côté client -->
+    <form id="code-form" method="post" action="<?= base_url('/Salle2/Etape1a') ?>" autocomplete="off" novalidate>
         <?= function_exists('csrf_field') ? csrf_field() : '' ?>
 
         <input type="hidden" name="etage" value="1">
@@ -92,25 +96,28 @@
 
 
     <?php if (empty($success)): ?>
+        <!-- Panneau d’aide introductif  -->
         <aside id="intro-tip" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
             <p class="tip-desc">
                 <?= $libelles->libelle ?>
             </p>
         </aside>
 
+        <!-- Affichage de la mascotte  -->
         <div class="mascotte-container">
             <img id="mascotte"
                  src="<?= base_url('images/salle_2/mascotte/mascotte_face.svg'); ?>"
                  alt="Mascotte">
         </div>
 
-
+        <!-- Bulle d’aide associée à la mascotte -->
         <div id="mascotte-bulle">
             <div id="bulle-texte"></div>
             <div id="bulle-actions"></div>
             <div class="bulle-fleche"></div>
         </div>
 
+        <!-- Lien de navigation retour vers l’étape 1 -->
         <div class="btn-retour-code">
             <!-- le lien va directement à Etape1, plus besoin de popup -->
             <a href="<?= base_url('/Salle2/Etape1') ?>" class="btn btn--xl btn-nuit">
@@ -119,16 +126,19 @@
         </div>
 
     <?php
+    // Préparation des indices pour le JS : extraction des libellés et encodage des caractères spéciaux
     $indices_for_js = is_array($mascotte_i) ? $mascotte_i : [$mascotte_i];
     $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
     ?>
 
+        <!-- Injection côté client des indices (JSON sécurisé avec options HEX_*) -->
         <script>
             const INDICES = <?= json_encode($libelles_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
         </script>
     <?php endif; ?>
 
     <?php if (!empty($success)): ?>
+        <!-- Écran final en overlay : feedback de réussite et action suivante -->
         <div class="final-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="final-title">
             <img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>" alt="Fond" class="accueil-bg">
 
@@ -155,8 +165,9 @@
                         Le manoir vous ouvre désormais ses secrets les plus profonds...
                     </p>
 
+                    <!-- Bouton pour passer à la salle suivante (URL dynamique avec valeur par défaut) -->
                     <div class="final-actions">
-                        <a href="<?= base_url('Salle2/Etape2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
+                        <a href="<?= esc($next_url ?? base_url('/Salle2/Etape2')) ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
                             Passer a la salle Suivante
                         </a>
                     </div>
@@ -167,12 +178,14 @@
 
 </div>
 
+<!-- Éléments de flux/scroll pour gestion de mise en page -->
 <div class="scroll-flow">
     <div class="scroll-spacer"></div>
 </div>
 
 <?php if (empty($success)): ?>
-    <script src="<?= base_url('/js/salle_2/mascotte.js') ?>" defer></script>
+    <!-- Script d’aide/mascotte chargé uniquement si succès non atteint -->
+    <script src="<?= base_url('/js/salle_2/Salle2Mascotte.js') ?>" defer></script>
 <?php endif; ?>
 
 </body>
