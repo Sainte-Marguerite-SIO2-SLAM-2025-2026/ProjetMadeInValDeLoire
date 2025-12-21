@@ -25,7 +25,7 @@ class ActiviteAdminModel extends Model
     protected function getSalleRange(int $salleNumero): array
     {
         if ($salleNumero === 3) {
-            return ['min' => 1, 'max' => 399];
+            return ['min' => 1, 'max' => 99];
         }
         
         return [
