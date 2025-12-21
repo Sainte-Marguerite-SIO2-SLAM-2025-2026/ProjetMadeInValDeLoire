@@ -11,7 +11,7 @@ use App\Models\salle_2\Salle2Model;
  * - Gestion de l’introduction et de l’aide
  * - Parcours des étapes 1 à 5, validation et navigation
  * - Génération du mot de passe aléatoire (AJAX)
- * - Comptage des échecs et redirection vers les fins
+ * - Comptage des échecs et redirection vers les fins (limité à la nuit)
  */
 class Salle2Controller extends BaseController
 {
@@ -125,7 +125,7 @@ class Salle2Controller extends BaseController
      * Validation Étape 1a:
      * - Normalise la saisie (garde 6 chiffres)
      * - En mode nuit: construit un chemin de 3 étapes (Etape1a + 2), avec contrainte “Etape5 pas en dernier”
-     * - Au succès: prépare la prochaine URL selon le chemin; à l’échec: incrémente et redirige vers fin “Etapef” si max atteint
+     * - Au succès: prépare la prochaine URL selon le chemin; à l’échec: incrémente et redirige vers fin “Etapef” si max atteint (nuit uniquement)
      */
     public function validerEtape1a()
     {
@@ -191,7 +191,7 @@ class Salle2Controller extends BaseController
      * Étape 2 (coffre fort):
      * - Normalise le code en 6 chiffres
      * - Vérifie le code via le modèle, marque l’état et détermine la prochaine URL
-     * - Échec: incrémente et bascule vers fin “Etapef” si max atteint
+     * - Échec: incrémente et bascule vers fin “Etapef” si max atteint (nuit uniquement)
      */
     public function Etape2()
     {
@@ -288,7 +288,7 @@ class Salle2Controller extends BaseController
                 $data['error'] = 'Mot de passe non conforme (12+ char, Maj, min, chiffre, spécial).';
                 $data['code']  = $pwd;
 
-                // Compter les échecs et basculer vers Etapef au 3e
+                // Compter les échecs et basculer vers Etapef au 3e (nuit uniquement)
                 if ($this->checkMaxFailures('Etape3')) {
                     return redirect()->to(base_url('/Salle2/Etapef'));
                 }
@@ -349,7 +349,7 @@ class Salle2Controller extends BaseController
     /**
      * Validation Étape 4:
      * - Vérifie le mot de passe saisi via le modèle
-     * - Au succès: fixe la prochaine URL; à l’échec: incrémente le compteur et bascule vers “Etapef” si max atteint
+     * - Au succès: fixe la prochaine URL; à l’échec: incrémente le compteur et bascule vers “Etapef” si max atteint (nuit uniquement)
      */
     public function validerEtape4()
     {
@@ -405,7 +405,7 @@ class Salle2Controller extends BaseController
     /**
      * Étape 5 (classement des Post-it):
      * - Au succès: en mode nuit, suit le chemin; en mode jour, redirige vers la bonne fin
-     * - À l’échec: incrémente, bascule vers “Etapef” si max atteint
+     * - À l’échec: incrémente, bascule vers “Etapef” si max atteint (nuit uniquement)
      * - Ajoute le footer partagé
      */
     public function Etape5()
@@ -474,11 +474,20 @@ class Salle2Controller extends BaseController
     }
 
     /**
-     * Incrémente et teste le nombre d’échecs d’une étape (jour et nuit).
-     * Retourne true si le maximum (3) est atteint et que le compteur est remis à zéro.
+     * Incrémente et teste le nombre d’échecs d’une étape.
+     * - Nuit: limite à 3 échecs max, puis redirection vers la fin fausse
+     * - Jour: échecs illimités (pas de redirection ni de reset)
+     * Retourne true si le maximum (3) est atteint en mode nuit et que le compteur est remis à zéro.
      */
     private function checkMaxFailures(string $step): bool
     {
+        $mode = session()->get('mode');
+
+        // En mode jour: échecs illimités, on ne compte pas et on ne bloque pas
+        if ($mode !== 'nuit') {
+            return false;
+        }
+
         $key   = 'echecs_' . $step;
         $count = (int) (session()->get($key) ?? 0);
         $count++;
