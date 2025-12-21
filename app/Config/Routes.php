@@ -81,6 +81,8 @@ $routes->get('/quizFin', 'salle_4\Salle4Controller::quizFinal');
 $routes->post('/verifierReponseQuiz', 'salle_4\Salle4Controller::verifierReponseQuiz');
 $routes->get('/resetQuiz', 'accueil\AccueilController::index');
 $routes->get('/resetSalle4', 'salle_4\Salle4Controller::resetSalle');
+$routes->post('verifierCarte402', 'salle_4\Salle4Controller::verifierCarte402');
+$routes->get('resetActivite402', 'salle_4\Salle4Controller::resetActivite402');
 
 
 // Routes pour la salle 5
