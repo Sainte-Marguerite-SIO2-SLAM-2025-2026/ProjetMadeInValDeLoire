@@ -3,63 +3,64 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Félicitations Détective !</title>
+    <title>Échec Détective !</title>
+
+    <!-- Optimisation du chargement des polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Police Cinzel pour les titres -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url('styles/salle_2/Salle2Fin.css') ?>">
-
+    <!-- Styles de l’écran de fin -->
+    <link rel="stylesheet" href="<?= base_url('styles/salle_2/style_fin_S3.css') ?>">
 </head>
 <body>
 
-<!-- Image de fond principale -->
+<!-- Image de fond de l’écran (visuel global du final) -->
 <img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>" alt="Fond" class="accueil-bg">
 
-<!-- Conteneur principal de l’ecran final -->
 <main class="final-screen-wrapper">
-    <!-- Couche decorative avec elements vectoriels -->
+    <!-- Décor d’animation (particules/icônes SVG) -->
     <div class="particles-layer">
         <div class="flying-item item-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
         <div class="flying-item item-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
     </div>
 
-    <!-- Fenetre centrale avec mascotte, titre, texte et actions -->
     <div class="final-popup-container">
-
-        <!-- Image de la mascotte chargee dynamiquement -->
+        <!-- Mascotte (version choquée) fournie par le backend -->
         <div class="mascot-final-wrapper">
             <?= img([
-                    'src' => $mascotte['face'],
+                    'src' => $mascotte['choquee'],
                     'alt' => 'Mascotte',
                     'class' => 'mascotte-popup'
             ]) ?>
         </div>
-        <!-- Titre principal -->
-        <h1 class="final-title">Félicitations !</h1>
 
-        <!-- Texte de conclusion -->
+        <h1 class="final-title">Vous n'avez pas réussi !</h1>
+
+        <!-- Message d’échec (texte central) -->
         <p class="final-text">
-            Bravo, détective. Vous avez terminé avec brio les <strong> étapes</strong>.
+            Malheureusement, détective, vous n'avez pas réussi à compléter les <strong> étapes</strong>.
             <br><br>
-            Le manoir vous ouvre désormais ses secrets les plus profonds...
+            Le manoir garde encore ses secrets pour vous...
         </p>
 
-        <!-- Actions finales selon le mode detecte en session -->
+        <!-- Action de reprise: routes différentes selon le mode (nuit/jour) -->
         <div class="final-actions">
             <?php if (session()->get('mode') === 'nuit'): ?>
-                <a href="<?= base_url('valider/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
-                    Valide
+                <a href="<?= base_url('reset') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
+                    Réessayer
                 </a>
             <?php else: ?>
-                <a href="<?= base_url('validerJour/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Jour">
-                    Valide
+                <a href="<?= base_url('echouerJour/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Jour">
+                    Réessayer
                 </a>
             <?php endif; ?>
         </div>
 
-    </div> </main>
+    </div>
+</main>
 
-<!-- Variables utilitaires pour scripts client -->
+<!-- Variables exposées pour debug/logs éventuels -->
 <script>
     const BASE_URL = '<?= base_url(); ?>';
     const MODE = '<?= session()->get('mode') ?? 'nuit'; ?>';
