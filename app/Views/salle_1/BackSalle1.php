@@ -6,7 +6,7 @@
     <title>Administration Salle 1</title>
 
     <?= link_tag('styles/salle_1/salle1Global.css') ?>
-    <?= link_tag('styles/salle_1/salle1Back.css') ?>
+    <?= link_tag('styles/salle_1/salle1Admin.css') ?>
 </head>
 <body>
 
@@ -116,6 +116,6 @@
 
 </div>
 
-<script src="<?= base_url('js/salle_1/salle1Back.js') ?>"></script>
+<script src="<?= base_url('js/salle_1/salle1Admin.js') ?>"></script>
 </body>
 </html>
