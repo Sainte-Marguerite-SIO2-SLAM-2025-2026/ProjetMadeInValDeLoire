@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Textes pour la bulle
     const texteInitial = bulleTexte ? bulleTexte.textContent : '';
-    const texteCartesAffichees = 'Sélectionnez l\'affirmation qui vous semble correcte sur les VPN !';
+    const texteCartesAffichees = 'Sélectionnez l\'affirmation qui vous semble correcte sur les vpn !';
 
     let carteSelectionnee = null;
     let reponseCorrecte = false;
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Sélection d'une carte VPN
+    // Sélection d'une carte vpn
     cartesVpn.forEach(function(carte) {
         carte.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Ajouter la sélection actuelle
             this.classList.add('carte-selectionnee');
 
-            // Récupérer le numéro du VPN sélectionné
+            // Récupérer le numéro du vpn sélectionné
             carteSelectionnee = this.getAttribute('data-vpn-numero') || this.getAttribute('data-vpn-id');
 
             console.log('Carte sélectionnée:', carteSelectionnee);
@@ -120,13 +120,13 @@ document.addEventListener('DOMContentLoaded', function() {
             resultatContainer.style.display = 'block';
 
             if (estCorrect) {
-                messageResultat.textContent = '✓ Bonne réponse ! Cette affirmation sur les VPN est correcte.';
+                messageResultat.textContent = '✓ Bonne réponse ! Cette affirmation sur les vpn est correcte.';
                 carteElement.classList.add('carte-correcte');
                 // Ajouter la classe correct pour le background vert
                 resultatContainer.classList.remove('incorrect');
                 resultatContainer.classList.add('correct');
             } else {
-                messageResultat.textContent = '✗ Mauvaise réponse. Cette affirmation sur les VPN est incorrecte.';
+                messageResultat.textContent = '✗ Mauvaise réponse. Cette affirmation sur les vpn est incorrecte.';
                 carteElement.classList.add('carte-incorrecte');
                 // Ajouter la classe incorrect pour le background rouge
                 resultatContainer.classList.remove('correct');
