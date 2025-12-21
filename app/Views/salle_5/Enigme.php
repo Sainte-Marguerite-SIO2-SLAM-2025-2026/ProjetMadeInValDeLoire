@@ -192,7 +192,7 @@
 
 <?= script_tag('js/salle_5/enigme.js') ?>
 
-<?= script_tag('js/salle_5/mascotte.js') ?>
+<?= script_tag('js/salle_5/Salle2Mascotte.js') ?>
 
 <?php if ($enigme->type_numero == 402): ?>
     <?= script_tag('js/salle_5/enigme6.js') ?>

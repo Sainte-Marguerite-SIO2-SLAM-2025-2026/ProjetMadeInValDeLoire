@@ -3,7 +3,11 @@
 namespace App\Controllers\admin;
 
 use App\Controllers\BaseController;
+use App\Models\admin\salle_2\Salle2Admin;
 use App\Models\admin\UserModel;
+use App\Models\salle_5\ActiviteModel;
+use App\Models\salle_5\ObjetDeclencheurModel;
+use App\Models\salle_5\ObjetsModel;
 use CodeIgniter\HTTP\RedirectResponse;
 use App\Controllers\admin\salle_6\AdminSalle6Controller;
 
@@ -76,7 +80,14 @@ class AdminController extends BaseController
             return view('admin/salle_1/AccueilAdminSalle1');
         }
         elseif ($numero == 2) {
-            return view('admin/salle_2/AccueilAdminSalle2');
+            $model = new Salle2Admin();
+            $data = [
+                'explications' => $model->getExplications(),
+                'indices'      => $model->getIndices(),
+                'mdps'         => $model->getMdps()
+            ];
+
+            return view('admin/salle_2/AccueilAdminSalle2', $data);
         }
         elseif ($numero == 3) {
             return view('admin/salle_3/AccueilAdminSalle3');
@@ -85,7 +96,15 @@ class AdminController extends BaseController
             return view('admin/salle_4/AccueilAdminSalle4');
         }
         elseif ($numero == 5) {
-            return view('admin/salle_5/AccueilAdminSalle5');
+            $enigmeModel = new ActiviteModel();
+            $objets = new ObjetsModel();
+            $objetsDeclencheurs = new ObjetDeclencheurModel();
+            $data = [
+                'enigme' => $enigmeModel->getActivites(5),
+                'objets' => $objets->getObjets(),
+                'objetsDeclencheurs' => $objetsDeclencheurs->getObjetsDeclencheurs()
+            ];
+            return view('admin/salle_5/AccueilAdminSalle5', $data);
         }
         elseif ($numero == 6) {
             return $salle6Controller->Index();
@@ -113,6 +132,66 @@ class AdminController extends BaseController
             return redirect()->to('/gingembre');
         }
         return view('admin/mascotte/AccueilAdminmascotte');
+    }
+
+    public function supprimerObjetDeclencheur($id)
+    {
+        $id = $this->request->getPost('id');
+        $section = $this->request->getPost('section') ?? 'objets_declencheurs';
+
+        if (!is_numeric($id)) {
+            return redirect()->back()->with('message', 'ID invalide');
+        }
+
+        $objetDeclencheurModel = new ObjetDeclencheurModel();
+
+        if (!$objetDeclencheurModel->find($id)) {
+            return redirect()->back()->with('message', 'Objet introuvable');
+        }
+
+        $objetDeclencheurModel->delete($id);
+
+        return redirect()->back()->with('message', 'Suppression réussie')->with('section', $section);
+    }
+
+    public function supprimerObjet($id)
+    {
+        $id = $this->request->getPost('id');
+        $section = $this->request->getPost('section') ?? 'objets';
+
+        if (!is_numeric($id)) {
+            return redirect()->back()->with('message', 'ID invalide');
+        }
+
+        $objetModel = new ObjetsModel();
+
+        if (!$objetModel->find($id)) {
+            return redirect()->back()->with('message', 'Objet introuvable');
+        }
+
+        $objetModel->delete($id);
+
+        return redirect()->back()->with('message', 'Suppression réussie')->with('section', $section);
+    }
+
+    public function supprimerEnigme($id)
+    {
+        $id = $this->request->getPost('id');
+        $section = $this->request->getPost('section') ?? 'enigmes';
+
+        if (!is_numeric($id)) {
+            return redirect()->back()->with('message', 'ID invalide');
+        }
+
+        $activiteModel = new ActiviteModel();
+
+        if (!$activiteModel->find($id)) {
+            return redirect()->back()->with('message', 'Objet introuvable');
+        }
+
+        $activiteModel->delete($id);
+
+        return redirect()->back()->with('message', 'Suppression réussie')->with('section', $section);
     }
 
 }
