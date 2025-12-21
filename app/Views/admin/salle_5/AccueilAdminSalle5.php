@@ -172,7 +172,7 @@
         </div>
     </div>
 
-    <?= script_tag(base_url('js/salle_5/admin/accueil.js')) ?>
+    <?= script_tag(base_url('js/salle_5/admin/Salle2Accueil.js')) ?>
 
 
 </body>

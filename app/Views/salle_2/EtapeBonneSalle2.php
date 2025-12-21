@@ -4,16 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Félicitations Détective !</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url('styles/salle_2/style_fin_S3.css') ?>">
-
+    <link rel="stylesheet" href="<?= base_url('styles/salle_2/Salle2Fin.css') ?>">
 
 </head>
 <body>
-
 <img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>" alt="Fond" class="accueil-bg">
 
 <main class="final-screen-wrapper">
@@ -23,7 +20,6 @@
     </div>
 
     <div class="final-popup-container">
-
         <div class="mascot-final-wrapper">
             <?= img([
                     'src' => $mascotte['face'],
@@ -31,14 +27,17 @@
                     'class' => 'mascotte-popup'
             ]) ?>
         </div>
+        <!-- Titre principal -->
         <h1 class="final-title">Félicitations !</h1>
 
+        <!-- Texte de conclusion -->
         <p class="final-text">
             Bravo, détective. Vous avez terminé avec brio les <strong> étapes</strong>.
             <br><br>
             Le manoir vous ouvre désormais ses secrets les plus profonds...
         </p>
 
+        <!-- Actions finales selon le mode detecte en session -->
         <div class="final-actions">
             <?php if (session()->get('mode') === 'nuit'): ?>
                 <a href="<?= base_url('valider/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
@@ -53,6 +52,7 @@
 
     </div> </main>
 
+<!-- Variables utilitaires pour scripts client -->
 <script>
     const BASE_URL = '<?= base_url(); ?>';
     const MODE = '<?= session()->get('mode') ?? 'nuit'; ?>';

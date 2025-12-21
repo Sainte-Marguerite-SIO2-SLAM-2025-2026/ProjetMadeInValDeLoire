@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class messageReponseModel extends Model
 {
-    protected $table = 'activite_message';
+    protected $table = 'activiteMessage';
     protected $primaryKey = 'id';
     protected $returnType = 'object';
     protected $allowedFields = ['activite_numero', 'type_message', 'message'];

@@ -3,11 +3,13 @@
 namespace App\Controllers\admin;
 
 use App\Controllers\BaseController;
+use App\Models\admin\salle_2\Salle2Admin;
 use App\Models\admin\UserModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ObjetDeclencheurModel;
 use App\Models\salle_5\ObjetsModel;
 use CodeIgniter\HTTP\RedirectResponse;
+use App\Controllers\admin\salle_6\AdminSalle6Controller;
 
 class AdminController extends BaseController
 {
@@ -67,6 +69,7 @@ class AdminController extends BaseController
 
     public function salle($numero) : string|RedirectResponse
     {
+        $salle6Controller = new AdminSalle6Controller();
         // Test si l'utilisateur est connecté
         if (session()->get('admin_id') == null)
         {
@@ -77,7 +80,14 @@ class AdminController extends BaseController
             return view('admin/salle_1/AccueilAdminSalle1');
         }
         elseif ($numero == 2) {
-            return view('admin/salle_2/AccueilAdminSalle2');
+            $model = new Salle2Admin();
+            $data = [
+                'explications' => $model->getExplications(),
+                'indices'      => $model->getIndices(),
+                'mdps'         => $model->getMdps()
+            ];
+
+            return view('admin/salle_2/AccueilAdminSalle2', $data);
         }
         elseif ($numero == 3) {
             return view('admin/salle_3/AccueilAdminSalle3');
@@ -97,7 +107,7 @@ class AdminController extends BaseController
             return view('admin/salle_5/AccueilAdminSalle5', $data);
         }
         elseif ($numero == 6) {
-            return view('admin/salle_6/AccueilAdminSalle6');
+            return $salle6Controller->Index();
         }
         else {
             return view('admin/accueil');

@@ -4,20 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Téléphone | Salle Mot de Passe</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preload" as="image" href="<?= base_url('/images/salle_2/Etape4_Salle3.webp') ?>">
-    <link rel="stylesheet" href="<?= base_url('/styles/salle_2/style_etape_S3.css') ?>?v=4">
+    <link rel="stylesheet" href="<?= base_url('/styles/salle_2/Salle2Etapes.css') ?>?v=4">
 
     <?php if (!empty($success)): ?>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="<?= base_url('styles/salle_2/style_fin_S3.css') ?>">
+        <link rel="stylesheet" href="<?= base_url('styles/salle_2/Salle2Fin.css') ?>">
     <?php endif; ?>
 </head>
 <body>
 
 <?php if (session()->get('mode') === 'jour'): ?>
+    <!-- Bouton d’accueil vers le manoir de jour -->
     <div class="bouton-accueil-cluedo">
         <?= anchor('/manoirJour',
                 img([
@@ -28,6 +28,7 @@
         ) ?>
     </div>
 <?php else: ?>
+    <!-- Bouton d’accueil vers la racine -->
     <div class="bouton-accueil-cluedo">
         <?= anchor('/',
                 img([
@@ -41,11 +42,14 @@
 
 <div class="game-fixed-wrapper">
 
+    <!-- Arrière plan de la scène -->
     <div class="accueil-bg" style="background-image:url('<?= base_url('/images/salle_2/Etape4_Salle3.webp') ?>');"></div>
 
+    <!-- Formulaire de génération et validation du code -->
     <form method="post" action="<?= site_url('Salle2/Etape4') ?>">
         <?= csrf_field() ?>
 
+        <!-- Déclencheur de génération de mot de passe via telephone.js -->
         <div class="genere-telephone"
              id="genere-telephone"
              data-url="<?= base_url('Salle2/Etape4/password-random') ?>"
@@ -53,6 +57,7 @@
              aria-label="Générer un nouveau mot de passe">
         </div>
 
+        <!-- Affichage du mot de passe généré -->
         <div class="ecran-telephone" aria-live="polite">
             <span id="password-display" class="password-display"></span>
         </div>
@@ -67,6 +72,7 @@
 
     </form>
 
+    <!-- Panneau d’aide masqué automatiquement en cas d’erreur ou de succès -->
     <aside id="message-intro"
            class="tip-panel tip-panel--top tip-panel--autohide"
            role="status"
@@ -77,6 +83,7 @@
         </p>
     </aside>
 
+    <!-- Masque le message d’introduction si la page est rechargée -->
     <script>
         (function() {
             if (performance.getEntriesByType("navigation")[0]?.type === 'reload') {
@@ -86,6 +93,7 @@
         })();
     </script>
 
+    <!-- Aide textuelle expliquant la mécanique de génération de mot de passe -->
     <article class="aide-telephone">
         <p><strong>Information importante à retenir !</strong></p>
         <p>Pour trouver le code, vous devez appuyer sur le bouton en orange. Cette action permet de générer automatiquement un mot de passe sécurisé et unique.</p>
@@ -93,6 +101,7 @@
     </article>
 
     <?php if (!empty($success)): ?>
+        <!-- Overlay de succès avec animation et navigation -->
         <div class="final-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="final-title">
             <img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>" alt="Fond" class="accueil-bg">
 
@@ -119,9 +128,10 @@
                         Le manoir vous ouvre désormais ses secrets les plus profonds...
                     </p>
 
+                    <!-- Action pour continuer vers l’étape suivante -->
                     <div class="final-actions">
-                        <a href="<?= base_url('Salle2/Etape5') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
-                            Passer à la salle Suivante
+                        <a href="<?= esc($next_url ?? base_url('Salle2/Etape5')) ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
+                            Continuer
                         </a>
                     </div>
                 </div>
@@ -130,6 +140,7 @@
     <?php endif; ?>
 
     <?php if (!empty($error)): ?>
+        <!-- Affichage accessible du message d’erreur -->
         <div id="code-error"
              role="alert"
              aria-live="assertive"
@@ -152,10 +163,12 @@
             <?= esc($error) ?>
         </div>
     <?php else: ?>
+        <!-- Zone d’erreur masquée en l’absence d’erreur -->
         <div id="code-error" style="display:none;" aria-live="polite"></div>
     <?php endif; ?>
 
     <?php if (empty($success)): ?>
+        <!-- Mascotte et bulle d’aide visibles avant succès -->
         <div class="mascotte-container">
             <img id="mascotte"
                  src="<?= base_url('images/salle_2/mascotte/mascotte_face.svg'); ?>"
@@ -169,17 +182,19 @@
         </div>
     <?php endif; ?>
     <?php
-    // Préparation des données pour JS
+    // Préparation des données pour le script client
     $indices_for_js = is_array($mascotte_i) ? $mascotte_i : [$mascotte_i];
     $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
     ?>
 
+    <!-- Injection des indices au format JSON sécurisé -->
     <script>
         const INDICES = <?= json_encode($libelles_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
     </script>
 
 </div>
 
+<!-- Gestion du flux et pied de page commun -->
 <div class="scroll-flow">
     <div class="scroll-spacer"></div>
     <footer>
@@ -187,8 +202,9 @@
     </footer>
 </div>
 
-<script src="<?= base_url('/js/salle_2/mascotte.js') ?>" defer></script>
-<script src="<?= base_url('/js/salle_2/telephone.js') ?>" defer></script>
+<!-- Scripts fonctionnels de l’étape -->
+<script src="<?= base_url('/js/salle_2/Salle2Mascotte.js') ?>" defer></script>
+<script src="<?= base_url('/js/salle_2/Salle2Telephone.js') ?>" defer></script>
 
 </body>
 </html>
