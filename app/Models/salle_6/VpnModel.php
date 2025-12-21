@@ -12,7 +12,7 @@ class VpnModel extends Model
     protected $returnType = 'array';
 
     /**
-     * Récupère tous les VPN
+     * Récupère tous les vpn
      * @return array
      */
     public function getVpn()
@@ -21,7 +21,7 @@ class VpnModel extends Model
     }
 
     /**
-     * Récupère un VPN par son numéro
+     * Récupère un vpn par son numéro
      * @param int $numero
      * @return array|null
      */
@@ -31,7 +31,7 @@ class VpnModel extends Model
     }
 
     /**
-     * Récupère un VPN aléatoire
+     * Récupère un vpn aléatoire
      * @return array|null
      */
     public function getVpnAleatoire()
