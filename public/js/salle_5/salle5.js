@@ -82,7 +82,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const bulle = document.getElementById("infobulle");
 
     btn.addEventListener("click", () => {
-        bulle.style.display = (bulle.style.display === "none") ? "block" : "none";
+        if (bulle.style.display === "none" || bulle.style.display === "") {
+            bulle.style.display = "block";
+            setTimeout(() => {
+                bulle.style.display = "none";
+            }, 8000);
+        } else {
+            bulle.style.display = "none";
+        }
     });
 });
 
