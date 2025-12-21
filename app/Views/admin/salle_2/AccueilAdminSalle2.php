@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Salle 2</title>
-    <?= link_tag('styles/admin/adminAccueil.css'); ?> <!-- Styles globaux du dashboard Admin -->
-    <?= link_tag('styles/salle_2/salle2Admin'); ?> <!-- Styles spécifiques Salle 2 (ancienne feuille) -->
-    <link rel="stylesheet" href="<?= base_url('styles/salle_2/Salle2Admin.css') ?>"> <!-- Nouvelle feuille dédiée à l’admin Salle 2 -->
+    <?= link_tag('styles/admin/adminAccueil.css'); ?>
+    <?= link_tag('styles/salle_2/salle2Admin'); ?>
+    <link rel="stylesheet" href="<?= base_url('styles/salle_2/Salle2Admin.css') ?>">
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 pour confirmations et modales -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body data-delete-base="<?= base_url('gingembre/deleteElement') ?>">
 
 <div class="dashboard-container">
     <div class="dashboard-header">
         <h1>🔐 Administration Salle 2</h1>
-        <?= anchor('gingembre/accueil', '⬅ Retour', ['class' => 'btn-action btn-create']); ?> <!-- Lien retour vers l’accueil Admin -->
+        <?= anchor('gingembre/accueil', '⬅ Retour', ['class' => 'btn-action btn-create']); ?>
     </div>
 
     <div class="admin-layout">
@@ -63,7 +63,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <!-- Encodage JSON pour passer des chaînes sûres à JS (évite conflit de quotes) -->
+                                    <!-- Encodage JSON pour passer des chaînes sûres à JS  -->
                                     <button class="btn-edit" onclick='openForm("explication", "edit", <?= $row["id"] ?>, <?= $row["numero"] ?>, <?= json_encode($row["libelle"]) ?>)'>Modif</button>
                                     <button class="btn-delete" onclick="confirmDelete('explication', '<?= $row['id'] ?>', '<?= $row['numero'] ?>', <?= htmlspecialchars(json_encode($row['libelle'])) ?>)">Suppr</button>
                                 </td>
@@ -147,7 +147,7 @@
                 </div>
             </div>
 
-            <!-- Formulaire générique (piloté par JS) -->
+            <!-- Formulaire générique -->
             <div id="generic-form" class="hidden">
                 <h2 id="form-title">Edition</h2>
 
@@ -181,7 +181,7 @@
                 <!-- Champ "Valeur Associée" (utilisé pour MDP) masqué par défaut -->
                 <div class="form-group hidden-field" id="group-valeur">
                     <label id="lbl-valeur">Valeur Associée</label>
-                    <!-- Liste déroulante (combo box) -->
+                    <!-- Liste déroulante -->
                     <select id="inp-valeur" name="valeur">
                         <option value="" disabled selected>Choisir une étape…</option>
                         <option value="Etape1a">Etape1a</option>
@@ -193,7 +193,7 @@
                     </select>
                 </div>
 
-                <!-- Actions du formulaire: sauvegarde (confirmSave) et fermeture (closeForm) -->
+                <!-- Actions du formulaire: sauvegarde et fermeture -->
                 <div style="margin-top:20px; display:flex; gap:10px;">
                     <button type="button" class="btn-add" onclick="confirmSave()">Enregistrer</button>
                     <button type="button" class="btn-delete" onclick="closeForm()" style="border:none">Annuler</button>

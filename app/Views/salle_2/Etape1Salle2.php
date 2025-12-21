@@ -89,7 +89,7 @@
     </script>
 
 
-    <!-- Overlay d’indication de la poignée (dialog accessible, contrôlé par le label ci-dessus) -->
+    <!-- Overlay d’indication de la poignée  -->
     <!-- Div poignet permet d'indique a l'utilisateur d'aller clique sur le digicode -->
     <input type="checkbox" id="poignier-toggle" class="sr-only" aria-hidden="true" />
     <div id="poignier-overlay" class="poignier-overlay" role="dialog" aria-modal="true" aria-labelledby="poignier-texte">
