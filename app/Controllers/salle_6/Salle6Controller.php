@@ -86,7 +86,7 @@ class Salle6Controller extends BaseController
 
         //Si l'utilisateur a fini wifi
         if ($wifiComplete && !$vpnComplete) {
-            return redirect()->to('/Salle6/VPN');
+            return redirect()->to('/Salle6/vpn');
         }
 
         // Si l'utilisateur a fini vpn
@@ -98,7 +98,7 @@ class Salle6Controller extends BaseController
         $numeroEnigme = random_int(1, 2);
 
         if ($numeroEnigme == 1) {
-            return redirect()->to('/Salle6/VPN');
+            return redirect()->to('/Salle6/vpn');
         } else {
             return redirect()->to('/Salle6/Wifi');
         }
@@ -131,7 +131,7 @@ class Salle6Controller extends BaseController
             if ($vpnComplete) {
                 return redirect()->to('/Salle6/Explication');
             } else {
-                return redirect()->to('/Salle6/VPN');
+                return redirect()->to('/Salle6/vpn');
             }
         }
 
@@ -145,7 +145,7 @@ class Salle6Controller extends BaseController
 
         // Récupérer le vpn_numero depuis POST
         $vpn_numero = $this->request->getPost('vpn_numero');
-        $activite_numero = 602; // VPN
+        $activite_numero = 602; // vpn
 
         // Vérifier si la réponse est correcte
         if ($vpn_numero) {
@@ -173,7 +173,7 @@ class Salle6Controller extends BaseController
     {
         // Récupérer l'explication pour la page de fin
         $explication = $this->ExplicationModel->getExplication(602);
-        $data['explication'] = $explication['libelle'] ?? 'Vous maîtrisez maintenant les concepts de sécurité WiFi et VPN.';
+        $data['explication'] = $explication['libelle'] ?? 'Vous maîtrisez maintenant les concepts de sécurité WiFi et vpn.';
 
         // Message de résultat optionnel (peut être personnalisé)
         $data['messageResultat'] = 'Vous avez brillamment résolu toutes les énigmes de cette salle !';
@@ -209,7 +209,7 @@ class Salle6Controller extends BaseController
 
             // Récupérer les félicitations de la BDD
             $explication = $this->ExplicationModel->getExplication(602);
-            $data['explication'] = $explication['libelle'] ?? 'Vous maîtrisez maintenant les concepts de sécurité WiFi et VPN.';
+            $data['explication'] = $explication['libelle'] ?? 'Vous maîtrisez maintenant les concepts de sécurité WiFi et vpn.';
             $data['messageResultat'] = 'Vous avez brillamment résolu toutes les énigmes de cette salle !';
             $data['intituleMessage'] = '🎉 Félicitations ! 🎉';
         }

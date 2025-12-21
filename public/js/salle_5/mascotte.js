@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const mascotteImg = document.querySelector('.lumi-image.hover');
+    const mascotteImg = document.querySelector('.lumi-image');
     const lumiZone = document.querySelector('.lumi-zone');
 
     if (!mascotteImg || !lumiZone) return;
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (duree > 0) {
                 setTimeout(() => {
                     mascotteImg.classList.remove('locked');
-                    mascotteImg.setAttribute('xlink:href', mascotteImages.interrogee);
+                    mascotteImg.setAttribute('xlink:href', mascotteImages.face);
                 }, duree);
             }
         }
@@ -39,6 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ajouter un événement pour le clic sur la zone lumi
     lumiZone.addEventListener('click', () => {
         // Au clic, changer l'image en "contente"
-        changerMascotte('contente', 8000); // L'image "contente" pendant 2 secondes
+        changerMascotte('interrogee', 8000); // L'image "contente" pendant 2 secondes
     });
 });
