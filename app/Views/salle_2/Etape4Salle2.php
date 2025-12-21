@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="<?= base_url('/styles/salle_2/Salle2Etapes.css') ?>?v=4">
 
     <?php if (!empty($success)): ?>
-        <!-- Ressources chargées pour l’écran final en cas de succès -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="<?= base_url('styles/salle_2/Salle2Fin.css') ?>">

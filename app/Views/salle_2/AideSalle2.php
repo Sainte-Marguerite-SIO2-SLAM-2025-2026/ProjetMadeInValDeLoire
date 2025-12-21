@@ -11,12 +11,12 @@
 </head>
 <body>
 
-<!-- Image de fond principale de la page (stylée via .accueil-bg dans le CSS) -->
+<!-- Image de fond principale de la page -->
 <img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>" alt="Fond" class="accueil-bg">
 
 <!-- Conteneur principal de l'écran d'introduction -->
 <main class="final-screen-wrapper">
-    <!-- Couche décorative : effets/particules (SVG) animés -->
+    <!-- Couche décorative : effets/particules -->
     <div class="particles-layer">
         <div class="flying-item item-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div>
         <div class="flying-item item-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
@@ -24,7 +24,7 @@
 
     <!-- Fenêtre centrale contenant la mascotte, le titre, le texte et les actions -->
     <div class="final-popup-container">
-        <!-- Image de la mascotte : source dynamique via $mascotte['face'] -->
+        <!-- Image de la mascotte -->
         <div class="mascot-final-wrapper">
             <?= img([
                     'src' => $mascotte['face'],
@@ -35,7 +35,7 @@
         <!-- Titre principal de la section -->
         <h1 class="final-title">Explication !</h1>
 
-        <!-- Texte d'introduction injecté dynamiquement via $introduction->libelle -->
+        <!-- Texte d'introduction injecté dynamiquement -->
         <p class="final-text">
             <?= $introduction->libelle; ?>
             <br><br>
@@ -46,7 +46,7 @@
 
         <!-- Zone d'actions : lien de navigation vers la première étape de la salle -->
         <div class="final-actions">
-            <!-- Le lien mène directement à /Salle2/Etape1 (label "Retour") -->
+            <!-- Le lien mène directement à /Salle2/Etape1  -->
             <a href="<?= base_url('/Salle2/Etape1') ?>" class="btn btn--xl btn-nuit">
                 Retour
             </a>
