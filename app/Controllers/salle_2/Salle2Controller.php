@@ -11,7 +11,7 @@ use App\Models\salle_2\Salle2Model;
  * - Gestion de l’introduction et de l’aide
  * - Parcours des étapes 1 à 5, validation et navigation
  * - Génération du mot de passe aléatoire (AJAX)
- * - Comptage des échecs en mode nuit et redirection vers les fins
+ * - Comptage des échecs et redirection vers les fins
  */
 class Salle2Controller extends BaseController
 {
@@ -105,17 +105,17 @@ class Salle2Controller extends BaseController
         $common = $this->commonData();
 
         $data = [
-            'libelles'           => $common['model']->getIndice(2),
-            'mascotte_i'         => $common['model']->getIndiceMascotte(11),
-            'mascotte'           => $common['mascotte'],
-            'mdp'                => $common['model']->getMotDePasse1a(),
-            'title'              => 'Code de la Porte | Salle Mot de Passe',
-            'mot_de_passe'       => '',
-            'placeholder_message'=> null,
-            'error'              => null,
-            'success'            => false,
-            'success_message'    => null,
-            'next_url'           => base_url('/Salle2/Etape2'),
+            'libelles'            => $common['model']->getIndice(2),
+            'mascotte_i'          => $common['model']->getIndiceMascotte(11),
+            'mascotte'            => $common['mascotte'],
+            'mdp'                 => $common['model']->getMotDePasse1a(),
+            'title'               => 'Code de la Porte | Salle Mot de Passe',
+            'mot_de_passe'        => '',
+            'placeholder_message' => null,
+            'error'               => null,
+            'success'             => false,
+            'success_message'     => null,
+            'next_url'            => '#',
         ];
 
         return view('salle_2/etape1aSalle2', $data) . view('commun/footer.php');
@@ -173,14 +173,15 @@ class Salle2Controller extends BaseController
             $data['next_url']            = $this->getNextUrl('Etape1a');
         } else {
             if ($this->checkMaxFailures('Etape1a')) {
-                return redirect()->to('Salle2/Etapef');
+                return redirect()->to(base_url('/Salle2/Etapef'));
             }
 
             $data['placeholder_message'] = 'Code incorrect. Réessayez.';
             $data['error']               = 'Code incorrect. Réessayez.';
             $data['success']             = false;
             $data['success_message']     = null;
-            $data['next_url']            = base_url('/Salle2/Etape2');
+            // On reste sur place en cas d’erreur
+            $data['next_url']            = '#';
         }
 
         return view('salle_2/etape1aSalle2', $data) . view('commun/footer.php');
@@ -190,7 +191,7 @@ class Salle2Controller extends BaseController
      * Étape 2 (coffre fort):
      * - Normalise le code en 6 chiffres
      * - Vérifie le code via le modèle, marque l’état et détermine la prochaine URL
-     * - Échec en mode nuit: incrémente et bascule vers fin “Etapef” si max atteint
+     * - Échec: incrémente et bascule vers fin “Etapef” si max atteint
      */
     public function Etape2()
     {
@@ -211,8 +212,8 @@ class Salle2Controller extends BaseController
         ];
 
         if (strtolower($this->request->getMethod()) === 'post') {
-            $code       = preg_replace('/\D+/', '', (string) $this->request->getPost('code'));
-            $code       = mb_substr($code, 0, 6);
+            $code         = preg_replace('/\D+/', '', (string) $this->request->getPost('code'));
+            $code         = mb_substr($code, 0, 6);
             $data['code'] = $code;
 
             if (mb_strlen($code) < 6) {
@@ -225,7 +226,7 @@ class Salle2Controller extends BaseController
                     $data['next_url']        = $this->getNextUrl('Etape2');
                 } else {
                     if ($this->checkMaxFailures('Etape2')) {
-                        return redirect()->to('Salle2/Etapef');
+                        return redirect()->to(base_url('/Salle2/Etapef'));
                     }
                     $data['error'] = "Mot de passe incorrect";
                 }
@@ -244,7 +245,7 @@ class Salle2Controller extends BaseController
     public function etape2a()
     {
         if (session()->get('mode') !== 'jour') {
-            return redirect()->to('Salle2/Etape5');
+            return redirect()->to(base_url('/Salle2/Etape5'));
         }
 
         $common = $this->commonData();
@@ -283,9 +284,16 @@ class Salle2Controller extends BaseController
             $pwd = trim((string) $this->request->getPost('code'));
 
             if (!$this->isStrongPwd($pwd)) {
+                // Échec: message d’erreur
                 $data['error'] = 'Mot de passe non conforme (12+ char, Maj, min, chiffre, spécial).';
                 $data['code']  = $pwd;
+
+                // Compter les échecs et basculer vers Etapef au 3e
+                if ($this->checkMaxFailures('Etape3')) {
+                    return redirect()->to(base_url('/Salle2/Etapef'));
+                }
             } else {
+                // Succès: nettoyer le compteur et préparer la suite
                 session()->remove('echecs_Etape3');
                 $data['success']         = true;
                 $data['success_message'] = 'Bravo ! La mallette est ouverte.';
@@ -341,7 +349,7 @@ class Salle2Controller extends BaseController
     /**
      * Validation Étape 4:
      * - Vérifie le mot de passe saisi via le modèle
-     * - Au succès: fixe la prochaine URL; à l’échec: incrémente le compteur (nuit) et bascule vers “Etapef” si max atteint
+     * - Au succès: fixe la prochaine URL; à l’échec: incrémente le compteur et bascule vers “Etapef” si max atteint
      */
     public function validerEtape4()
     {
@@ -366,7 +374,7 @@ class Salle2Controller extends BaseController
             $data['next_url']        = $this->getNextUrl('Etape4');
         } else {
             if ($this->checkMaxFailures('Etape4')) {
-                return redirect()->to('Salle2/Etapef');
+                return redirect()->to(base_url('/Salle2/Etapef'));
             }
             $data['error']           = "Mot de passe incorrect.";
             $data['success']         = false;
@@ -397,7 +405,7 @@ class Salle2Controller extends BaseController
     /**
      * Étape 5 (classement des Post-it):
      * - Au succès: en mode nuit, suit le chemin; en mode jour, redirige vers la bonne fin
-     * - À l’échec: incrémente en mode nuit, bascule vers “Etapef” si max atteint
+     * - À l’échec: incrémente, bascule vers “Etapef” si max atteint
      * - Ajoute le footer partagé
      */
     public function Etape5()
@@ -426,11 +434,11 @@ class Salle2Controller extends BaseController
                 }
 
                 session()->remove('nuit_chemin');
-                return redirect()->to('Salle2/Etapeb');
+                return redirect()->to(base_url('/Salle2/Etapeb'));
             }
 
             if ($this->checkMaxFailures('Etape5')) {
-                return redirect()->to('Salle2/Etapef');
+                return redirect()->to(base_url('/Salle2/Etapef'));
             }
 
             $data['error'] = "Classement incorrect.";
@@ -466,22 +474,20 @@ class Salle2Controller extends BaseController
     }
 
     /**
-     * Incrémente et teste le nombre d’échecs d’une étape (mode nuit uniquement).
+     * Incrémente et teste le nombre d’échecs d’une étape (jour et nuit).
      * Retourne true si le maximum (3) est atteint et que le compteur est remis à zéro.
      */
     private function checkMaxFailures(string $step): bool
     {
-        if (session()->get('mode') !== 'nuit') {
-            return false;
-        }
-
         $key   = 'echecs_' . $step;
-        $count = session()->get($key) ?? 0;
+        $count = (int) (session()->get($key) ?? 0);
         $count++;
         session()->set($key, $count);
 
         if ($count >= 3) {
+            // On réinitialise le compteur et on nettoie le chemin nuit pour éviter les incohérences
             session()->remove($key);
+            session()->remove('nuit_chemin');
             return true;
         }
 
@@ -545,6 +551,7 @@ class Salle2Controller extends BaseController
             return base_url('/Salle2/' . $prochaineEtape);
         }
 
+        // Fin du parcours nuit -> bonne fin
         return base_url('/Salle2/Etapeb');
     }
 }
