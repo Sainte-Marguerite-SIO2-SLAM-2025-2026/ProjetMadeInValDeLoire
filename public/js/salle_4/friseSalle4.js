@@ -91,7 +91,7 @@ cartes.forEach(carte => {
             };
             this.classList.add('selected');
             ordreSelection.push(parseInt(carteNumero));
-            info.innerHTML = `✅ Carte ${ordreSelection.length}/8 sélectionnée`;
+            info.innerHTML = `✅ Carte ${ordreSelection.length}/6 sélectionnée`;
         } else {
             if (carteId === selectedCarte.id) {
                 info.innerHTML = '⚠️ Vous ne pouvez pas relier une carte à elle-même !';
@@ -124,7 +124,7 @@ cartes.forEach(carte => {
             selectedCarte.element.classList.remove('selected');
 
             ordreSelection.push(parseInt(carteNumero));
-            info.innerHTML = `✅ Carte ${ordreSelection.length}/8 sélectionnée`;
+            info.innerHTML = `✅ Carte ${ordreSelection.length}/6 sélectionnée`;
 
             this.classList.add('selected');
             selectedCarte = {
@@ -220,7 +220,7 @@ undoBtn.addEventListener('click', function() {
 
         validateBtn.disabled = true;
         redrawAll();
-        info.innerHTML = `↶ Dernière ligne annulée - ${ordreSelection.length}/8 cartes sélectionnées`;
+        info.innerHTML = `↶ Dernière ligne annulée - ${ordreSelection.length}/6 cartes sélectionnées`;
     } else if (selectedCarte !== null) {
         selectedCarte.element.classList.remove('selected');
         selectedCarte = null;

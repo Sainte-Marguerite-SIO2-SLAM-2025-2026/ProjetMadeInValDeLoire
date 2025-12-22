@@ -167,7 +167,7 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    max-width: 1100px;
+    max-width: 2000px;
     z-index: 50;
 }
 
@@ -416,7 +416,7 @@ h1 {
     width: 150px;
     height: 180px;
     cursor: pointer;
-    z-index: 100000;
+    z-index: 100;
 }
 
 .mascotte-img {
@@ -437,38 +437,95 @@ h1 {
 .mascotte-zone:hover .mascotte-hover  { opacity: 1; }
 
 /* ===== Modal des règles ===== */
+/* ===== Modal des règles style Note d'enquête ===== */
 .rules-modal-content {
-    max-width: 700px;
+    max-width: 600px;
     max-height: 80vh;
     overflow-y: auto;
+    background: #f5f0e8;
+    border: 3px solid #2c2c2c;
+    border-radius: 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    position: relative;
+    padding: 40px 35px;
+}
+
+/* Lignes de réglure */
+.rules-modal-content::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+            transparent,
+            transparent 29px,
+            #e8dcc8 29px,
+            #e8dcc8 31px
+    );
+    pointer-events: none;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+/* Marge rouge verticale */
+.rules-modal-content::after {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: #d63447;
+    opacity: 0.4;
+    z-index: 0;
 }
 
 .rules-modal-content h2 {
-    color: #2c3e50;
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
-    border-bottom: 3px solid #1abc9c;
-    padding-bottom: 10px;
+    color: #2c2c2c;
+    font-size: 1.6em;
+    margin-bottom: 25px;
+    text-align: left;
+    border-bottom: 2px solid #2c2c2c;
+    padding-bottom: 12px;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
 }
 
 .rules-modal-content h3 {
-    color: #1abc9c;
-    font-size: 1.4em;
+    color: #d63447;
+    font-size: 1.2em;
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-family: 'Courier New', monospace;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    position: relative;
+    z-index: 2;
 }
 
 .rules-content {
     text-align: left;
-    color: #333;
-    font-size: 1.1em;
-    line-height: 1.6;
+    color: #2c2c2c;
+    font-size: 1.05em;
+    line-height: 1.9;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    z-index: 2;
+    padding-left: 25px;
 }
 
 .rules-content p {
-    margin: 10px 0;
+    margin: 15px 0;
+    font-family: 'Courier New', monospace;
 }
+
+
 
 .rules-content ol,
 .rules-content ul {
@@ -477,46 +534,74 @@ h1 {
 }
 
 .rules-content li {
-    margin: 8px 0;
+    margin: 10px 0;
 }
 
 .rules-content strong {
-    color: #2c3e50;
+    color: #2c2c2c;
     font-weight: bold;
+    background: linear-gradient(transparent 60%, #ffeb3b 60%);
 }
 
 .close-rules {
     position: absolute;
     top: 15px;
-    right: 25px;
-    color: #aaa;
-    font-size: 35px;
-    font-weight: bold;
+    right: 15px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
-    transition: color 0.3s;
+    z-index: 100;
+    background: #2c2c2c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .close-rules:hover {
-    color: #e74c3c;
+    background: #d63447;
+    transform: rotate(90deg);
 }
 
-/* Scrollbar */
+.close-rules::before,
+.close-rules::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 18px;
+    height: 3px;
+    background: #f5f0e8;
+    border-radius: 2px;
+}
+
+.close-rules::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-rules::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Scrollbar style dossier pour rules modal */
 .rules-modal-content::-webkit-scrollbar {
-    width: 10px;
+    width: 12px;
 }
 
 .rules-modal-content::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 5px;
+    background: #e8dcc8;
 }
 
 .rules-modal-content::-webkit-scrollbar-thumb {
-    background: #1abc9c;
-    border-radius: 5px;
+    background: #2c2c2c;
+    border-radius: 6px;
+    border: 2px solid #e8dcc8;
 }
 
 .rules-modal-content::-webkit-scrollbar-thumb:hover {
-    background: #16a085;
+    background: #1a1a1a;
 }
 
 /* ===== Responsive adjustments ===== */

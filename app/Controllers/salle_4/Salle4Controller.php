@@ -5,24 +5,24 @@ use App\Controllers\BaseController;
 use App\Models\commun\MascotteModel;
 use App\Models\commun\SalleModel;
 use App\Models\commun\IndiceModel;
+use App\Models\salle_4\ExplicationModel;
 use App\Models\salle_4\Salle4Model;
 use App\Models\salle_4\QuizModel;
 
 class Salle4Controller extends BaseController
 {
     protected SalleModel $salleModel;
+    protected ExplicationModel $explicationModel;
     protected MascotteModel $mascotteModel;
-
     protected IndiceModel $indice;
     protected QuizModel $quizModel;
-
 
     public function __construct()
     {
         $this->salleModel = new SalleModel();
+        $this->explicationModel = new ExplicationModel();
         $this->mascotteModel = new MascotteModel();
         $this->indice = new IndiceModel();
-        //$this->quizModel = new QuizModel();
     }
 
     public function index(): string
@@ -36,9 +36,10 @@ class Salle4Controller extends BaseController
         if ($premiereVisite) {
             $session->set('salle4_visited', true);
         }
+
         $data = [
-            'frise_validee' => true,
-            'quiz_disponible' =>true,
+            'frise_validee' => $session->get('frise_validee') ?? false,
+            'quiz_disponible' => $session->get('quiz_disponible') ?? false,
             'premiere_visite' => $premiereVisite,
             'mascotte' => $this->mascotteModel->getMascottes(),
             'salle' => $this->salleModel->getSalleById(4),
@@ -53,14 +54,26 @@ class Salle4Controller extends BaseController
         $session = session();
         $salle4Model = new Salle4Model();
 
-        // Choisir aléatoirement une activité parmi 1 et 2
+        // Choisir aléatoirement une activité parmi 401 et 402
         if (!$session->has('activite_choisie')) {
             $activitesPossibles = [401, 402];
             $session->set('activite_choisie', $activitesPossibles[array_rand($activitesPossibles)]);
         }
 
         $activiteChoisie = $session->get('activite_choisie');
-        $cartes = $salle4Model->getCartesByActivite($activiteChoisie);
+
+        // Récupérer les cartes selon l'activité
+        if ($activiteChoisie == 402) {
+            // Pour l'activité 402 : récupérer 8 cartes (bonnes pratiques + pièges)
+            $cartes = $salle4Model->getCartesActivite402(402);
+            // Stocker les cartes en session pour la vérification
+            $session->set('cartes_402', $cartes);
+            // Initialiser le tableau des cartes jouées
+            $session->set('cartes_jouees_402', []);
+        } else {
+            // Pour l'activité 401 : récupérer les cartes normalement
+            $cartes = $salle4Model->getCartesByActivite($activiteChoisie);
+        }
 
         // Positions fixes
         $positionsDisponibles = [
@@ -88,6 +101,7 @@ class Salle4Controller extends BaseController
             'positions' => $positions,
             'mascotte' => $this->mascotteModel->getMascottes(),
             'salle' => $this->salleModel->getSalleById(4),
+            'explication' => $this->explicationModel->getExplication($activiteChoisie),
             'indice' => $this->indice->getIndice($activiteChoisie),
         ];
 
@@ -97,8 +111,6 @@ class Salle4Controller extends BaseController
     public function verifierOrdre()
     {
         $session = session();
-
-
         $salle4Model = new Salle4Model();
 
         $activiteChoisie = $session->get('activite_choisie');
@@ -122,6 +134,70 @@ class Salle4Controller extends BaseController
         }
 
         return $this->response->setJSON($resultat);
+    }
+
+    /**
+     * Vérifie une carte pour l'activité 402
+     * Route POST appelée à chaque clic sur une carte
+     */
+    public function verifierCarte402()
+    {
+        $session = session();
+        $salle4Model = new Salle4Model();
+
+        $json = $this->request->getJSON(true);
+        $numeroCarte = $json['numero_carte'] ?? 0;
+
+        // Récupérer les cartes jouées et toutes les cartes de la session
+        $cartesJouees = $session->get('cartes_jouees_402') ?? [];
+        $toutesLesCartes = $session->get('cartes_402') ?? [];
+
+        if (empty($toutesLesCartes)) {
+            return $this->response->setJSON([
+                'erreur' => true,
+                'message' => 'Aucune partie en cours'
+            ]);
+        }
+
+        // Vérifier la carte
+        $resultat = $salle4Model->verifierCarte402($numeroCarte, $cartesJouees, $toutesLesCartes);
+
+        // Mettre à jour la session avec les cartes jouées
+        if (isset($resultat['cartes_jouees'])) {
+            $session->set('cartes_jouees_402', $resultat['cartes_jouees']);
+        }
+
+        // Si le jeu est terminé avec succès, débloquer le quiz
+        if (!$resultat['continuer'] && $resultat['reussi']) {
+            $session->set('frise_validee', true);
+            $session->set('quiz_disponible', true);
+            $session->remove('activite_choisie');
+            $session->remove('positions_cartes_frise');
+            $session->remove('cartes_402');
+            $session->remove('cartes_jouees_402');
+        }
+
+        // Si le jeu est terminé avec échec, nettoyer la session
+        if (!$resultat['continuer'] && !$resultat['reussi']) {
+            $session->remove('activite_choisie');
+            $session->remove('positions_cartes_frise');
+            $session->remove('cartes_402');
+            $session->remove('cartes_jouees_402');
+        }
+
+        return $this->response->setJSON($resultat);
+    }
+
+    /**
+     * Réinitialise l'activité 402
+     */
+    public function resetActivite402()
+    {
+        $session = session();
+        $session->remove('cartes_402');
+        $session->remove('cartes_jouees_402');
+
+        return redirect()->to(base_url('pageFrise'));
     }
 
     public function quizFinal(): string
@@ -199,6 +275,8 @@ class Salle4Controller extends BaseController
         $session->remove('frise_validee');
         $session->remove('activite_choisie');
         $session->remove('positions_cartes_frise');
+        $session->remove('cartes_402');
+        $session->remove('cartes_jouees_402');
         $session->remove('quiz_questions');
         $session->remove('quiz_reponses');
         $session->remove('quiz_score');
