@@ -71,6 +71,7 @@ class Salle5Controller extends BaseController
 
     public function viewModifier($id)
     {
+
         $id = $this->request->getPost('id');
         $section = $this->request->getPost('section') ?? 'enigmes';
 
