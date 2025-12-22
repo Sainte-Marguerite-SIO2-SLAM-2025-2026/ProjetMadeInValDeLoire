@@ -129,6 +129,65 @@ $routes->group('/gingembre/salle_6', ['namespace' => 'App\Controllers\admin\sall
     });
 });
 
+/*
+ * ROUTES POUR L'ADMINISTRATION SALLE 4
+ */
+$routes->group('/gingembre/salle_4', ['namespace' => 'App\Controllers\admin\salle_4'], function ($routes) {
+
+    // Dashboard Salle 4
+    $routes->get('/', 'AdminSalle4Controller::index');
+
+    // Gestion des Cartes
+    $routes->group('carte', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::carteList');
+        $routes->get('create', 'AdminSalle4Controller::carteCreate');
+        $routes->post('store', 'AdminSalle4Controller::carteStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::carteEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::carteUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::carteDelete/$1');
+    });
+
+    // Gestion des Questions
+    $routes->group('question', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::questionList');
+        $routes->get('create', 'AdminSalle4Controller::questionCreate');
+        $routes->post('store', 'AdminSalle4Controller::questionStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::questionEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::questionUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::questionDelete/$1');
+    });
+
+    // Gestion des Activités
+    $routes->group('activite', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::activiteList');
+        $routes->get('create', 'AdminSalle4Controller::activiteCreate');
+        $routes->post('store', 'AdminSalle4Controller::activiteStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::activiteEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::activiteUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::activiteDelete/$1');
+    });
+
+    // Gestion des Explications
+    $routes->group('explication', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::explicationList');
+        $routes->get('create', 'AdminSalle4Controller::explicationCreate');
+        $routes->post('store', 'AdminSalle4Controller::explicationStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::explicationEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::explicationUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::explicationDelete/$1');
+    });
+
+    // Gestion des Indices
+    $routes->group('indice', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::indiceList');
+        $routes->get('create', 'AdminSalle4Controller::indiceCreate');
+        $routes->post('store', 'AdminSalle4Controller::indiceStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::indiceEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::indiceUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::indiceDelete/$1');
+    });
+});
+
 
 // Routes admin
 $routes->get('/gingembre', 'admin\AdminController::index');
