@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\RedirectResponse;
 class TypeController extends AdminSalle6Controller
 {
     protected TypeAdminModel $typeModel;
+    protected const SALLE_NUMERO = 6;
 
     public function __construct()
     {
@@ -20,18 +21,18 @@ class TypeController extends AdminSalle6Controller
             return $redirect;
         }
 
-        $salleNumero = $this->request->getGet('salle') ? (int)$this->request->getGet('salle') : null;
-
+        // Force la salle 6
         $data = $this->getPaginatedData(
             $this->typeModel,
             'getTypeListBuilder',
             'countTypes',
             'numero',
-            $salleNumero
+            self::SALLE_NUMERO
         );
 
         $data['types'] = $data['results'];
         unset($data['results']);
+        $data['current_salle'] = self::SALLE_NUMERO;
 
         return view('admin/salle_6/type/index', $data);
     }
@@ -42,7 +43,8 @@ class TypeController extends AdminSalle6Controller
             return $redirect;
         }
 
-        return view('admin/salle_6/type/create');
+        $data = ['current_salle' => self::SALLE_NUMERO];
+        return view('admin/salle_6/type/create', $data);
     }
 
     public function Store(): RedirectResponse
@@ -52,23 +54,41 @@ class TypeController extends AdminSalle6Controller
         }
 
         $rules = [
+            'numero' => 'required|integer|greater_than_equal_to[600]|less_than_equal_to[699]',
             'libelle' => 'required|min_length[3]|max_length[30]',
-            'explication' => 'required',
-            'numero' => 'permit_empty|integer'
+            'explication' => 'required'
         ];
 
-        if (!$this->validate($rules)) {
+        $messages = [
+            'numero' => [
+                'required' => 'Le numéro est obligatoire',
+                'integer' => 'Le numéro doit être un nombre entier',
+                'greater_than_equal_to' => 'Le numéro doit être supérieur ou égal à 600',
+                'less_than_equal_to' => 'Le numéro doit être inférieur ou égal à 699'
+            ]
+        ];
+
+        if (!$this->validate($rules, $messages)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
+        $numero = (int)$this->request->getPost('numero');
+
+        // Vérifier que le numéro est dans la plage 600-699
+        if ($numero < 600 || $numero > 699) {
+            return redirect()->back()->withInput()->with('error', 'Le numéro doit être entre 600 et 699 pour la salle 6');
+        }
+
+        // Vérifier que le numéro n'existe pas déjà
+        if ($this->typeModel->find($numero)) {
+            return redirect()->back()->withInput()->with('error', "Le type n°{$numero} existe déjà");
+        }
+
         $data = [
+            'numero' => $numero,
             'libelle' => $this->request->getPost('libelle'),
             'explication' => $this->request->getPost('explication')
         ];
-
-        if ($this->request->getPost('numero')) {
-            $data['numero'] = $this->request->getPost('numero');
-        }
 
         if ($this->typeModel->createType($data)) {
             return redirect()->to('/gingembre/salle_6/type')->with('success', 'Type créé avec succès');
@@ -83,18 +103,33 @@ class TypeController extends AdminSalle6Controller
             return $redirect;
         }
 
+        // Vérifier que le type appartient à la salle 6
+        if ($id < 600 || $id > 699) {
+            return redirect()->to('/gingembre/salle_6/type')->with('error', 'Type non accessible');
+        }
+
         $type = $this->typeModel->getTypeByNumero($id);
         if (!$type) {
             return redirect()->to('/gingembre/salle_6/type')->with('error', 'Type introuvable');
         }
 
-        return view('admin/salle_6/type/edit', ['type' => $type]);
+        $data = [
+            'type' => $type,
+            'current_salle' => self::SALLE_NUMERO
+        ];
+
+        return view('admin/salle_6/type/edit', $data);
     }
 
     public function Update($id): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
+        }
+
+        // Vérifier que le type appartient à la salle 6
+        if ($id < 600 || $id > 699) {
+            return redirect()->to('/gingembre/salle_6/type')->with('error', 'Type non accessible');
         }
 
         $rules = [
@@ -122,6 +157,11 @@ class TypeController extends AdminSalle6Controller
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
+        }
+
+        // Vérifier que le type appartient à la salle 6
+        if ($id < 600 || $id > 699) {
+            return redirect()->to('/gingembre/salle_6/type')->with('error', 'Type non accessible');
         }
 
         if ($this->typeModel->deleteType($id)) {

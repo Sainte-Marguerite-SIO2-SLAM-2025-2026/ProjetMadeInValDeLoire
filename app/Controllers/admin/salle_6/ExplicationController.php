@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\RedirectResponse;
 class ExplicationController extends AdminSalle6Controller
 {
     protected ExplicationAdminModel $explicationModel;
+    protected const SALLE_NUMERO = 6;
 
     public function __construct()
     {
@@ -20,18 +21,18 @@ class ExplicationController extends AdminSalle6Controller
             return $redirect;
         }
 
-        $salleNumero = $this->request->getGet('salle') ? (int)$this->request->getGet('salle') : null;
-
+        // Force la salle 6
         $data = $this->getPaginatedData(
             $this->explicationModel,
             'getExplicationListBuilder',
             'countExplications',
             'numero',
-            $salleNumero
+            self::SALLE_NUMERO
         );
 
         $data['explications'] = $data['results'];
         unset($data['results']);
+        $data['current_salle'] = self::SALLE_NUMERO;
 
         return view('admin/salle_6/explication/index', $data);
     }
@@ -42,7 +43,8 @@ class ExplicationController extends AdminSalle6Controller
             return $redirect;
         }
 
-        return view('admin/salle_6/explication/create');
+        $data = ['current_salle' => self::SALLE_NUMERO];
+        return view('admin/salle_6/explication/create', $data);
     }
 
     public function Store(): RedirectResponse
@@ -52,21 +54,39 @@ class ExplicationController extends AdminSalle6Controller
         }
 
         $rules = [
-            'libelle' => 'required|min_length[3]',
-            'numero' => 'permit_empty|integer'
+            'numero' => 'required|integer|greater_than_equal_to[600]|less_than_equal_to[699]',
+            'libelle' => 'required|min_length[3]'
         ];
 
-        if (!$this->validate($rules)) {
+        $messages = [
+            'numero' => [
+                'required' => 'Le numéro est obligatoire',
+                'integer' => 'Le numéro doit être un nombre entier',
+                'greater_than_equal_to' => 'Le numéro doit être supérieur ou égal à 600',
+                'less_than_equal_to' => 'Le numéro doit être inférieur ou égal à 699'
+            ]
+        ];
+
+        if (!$this->validate($rules, $messages)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
+        $numero = (int)$this->request->getPost('numero');
+
+        // Vérifier que le numéro est dans la plage 600-699
+        if ($numero < 600 || $numero > 699) {
+            return redirect()->back()->withInput()->with('error', 'Le numéro doit être entre 600 et 699 pour la salle 6');
+        }
+
+        // Vérifier que le numéro n'existe pas déjà
+        if ($this->explicationModel->find($numero)) {
+            return redirect()->back()->withInput()->with('error', "L'explication n°{$numero} existe déjà");
+        }
+
         $data = [
+            'numero' => $numero,
             'libelle' => $this->request->getPost('libelle')
         ];
-
-        if ($this->request->getPost('numero')) {
-            $data['numero'] = $this->request->getPost('numero');
-        }
 
         if ($this->explicationModel->createExplication($data)) {
             return redirect()->to('/gingembre/salle_6/explication')->with('success', 'Explication créée avec succès');
@@ -81,18 +101,33 @@ class ExplicationController extends AdminSalle6Controller
             return $redirect;
         }
 
+        // Vérifier que l'explication appartient à la salle 6
+        if ($id < 600 || $id > 699) {
+            return redirect()->to('/gingembre/salle_6/explication')->with('error', 'Explication non accessible');
+        }
+
         $explication = $this->explicationModel->getExplicationByNumero($id);
         if (!$explication) {
             return redirect()->to('/gingembre/salle_6/explication')->with('error', 'Explication introuvable');
         }
 
-        return view('admin/salle_6/explication/edit', ['explication' => $explication]);
+        $data = [
+            'explication' => $explication,
+            'current_salle' => self::SALLE_NUMERO
+        ];
+
+        return view('admin/salle_6/explication/edit', $data);
     }
 
     public function Update($id): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
+        }
+
+        // Vérifier que l'explication appartient à la salle 6
+        if ($id < 600 || $id > 699) {
+            return redirect()->to('/gingembre/salle_6/explication')->with('error', 'Explication non accessible');
         }
 
         $rules = [
@@ -114,10 +149,15 @@ class ExplicationController extends AdminSalle6Controller
         }
     }
 
-    public function DSelete($id): RedirectResponse
+    public function Delete($id): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
+        }
+
+        // Vérifier que l'explication appartient à la salle 6
+        if ($id < 600 || $id > 699) {
+            return redirect()->to('/gingembre/salle_6/explication')->with('error', 'Explication non accessible');
         }
 
         if ($this->explicationModel->deleteExplication($id)) {
