@@ -63,25 +63,11 @@ class Salle1Message extends Model
      */
     public function getIndices(int $activite_numero): array
     {
-        return $this->db->table('avoir_indice ai')
+        return $this->db->table('avoirIndice ai')
             ->select('i.numero, i.libelle')
             ->join('indice i', 'i.numero = ai.indice_numero')
             ->where('ai.activite_numero', $activite_numero)
             ->get()
             ->getResultArray();
-    }
-
-    /**
-     * Récupère le mode d'emploi pour une activité.
-     * @param int $activite_numero
-     * @return object|null
-     */
-    public function getModeEmploi(int $activite_numero)
-    {
-        return $this->db->table('mode_emploi')
-            ->select('explication_1, explication_2, explication_3')
-            ->where('activite_numero', $activite_numero)
-            ->get()
-            ->getRow();
     }
 }

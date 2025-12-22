@@ -2,18 +2,6 @@
     <title>Salle 5</title>
 </head>
 <body data-baseurl="<?= base_url() ?>" data-mode="<?= session()->get('mode') ?>">
-<?php
-// On détermine l'image à afficher AVANT d'entrer dans le SVG
-$imageEcranMilieuGauche = null;
-// On détermine l'image à afficher AVANT d'entrer dans le SVG
-$imageEcranMilieuDroite = null;
-
-if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussies)) {
-    $imageEcranMilieuDroite = base_url('images/salle_5/ecran_login_2_v2.webp');
-} elseif (in_array("506", $activites_selectionnees)&& !in_array(506, $activites_reussies)){
-    $imageEcranMilieuGauche = base_url('images/salle_5/ecran_data_2.svg');
-}
-?>
 <div class="plan-container">
     <div class="svg-wrapper">
         <svg width="1920" height="1080" version="1.1" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
@@ -26,156 +14,39 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                     id="image-fond"
                     style="pointer-events: none;"/>
 
-            <?php if ($imageEcranMilieuDroite): ?>
-                <g id="ecran_milieu_droit" class="objet-enigme" data-activite="501">
-                    <image id="image_ecran_milieu_droit"
-                           clip-path="url(#clip_ecran_milieu_droit)"
-                           preserveAspectRatio="none"
-                           x="1018.8" y="523.13"
-                           width="234.28" height="132.24"
-                           xlink:href="<?= $imageEcranMilieuDroite ?>" />
-                    <path class="piece-zone"
-                          d="m1018.8 523.13h233.84l0.4386 132.24-233.84-3.1168z"
-                          fill="transparent"
-                          style="cursor:pointer;" />
-                </g>
-            <?php endif; ?>
+            <?php foreach ($objetDeclencheur as $obj): ?>
 
-            <!-- Écran milieu gauche (Activité 6) -->
-            <?php if ($imageEcranMilieuGauche): ?>
-                <g id="ecran_milieu_gauche" class="objet-enigme" data-activite="506">
-                    <image id="image_ecran_milieu_gauche"
-                           clip-path="url(#clip_ecran_milieu_gauche)"
-                           preserveAspectRatio="none"
-                           x="724.84" y="521.63" width="250" height="134"
-                           xlink:href="<?= $imageEcranMilieuGauche ?>" />
-                    <path class="piece-zone"
-                          d="m724.2 521.63 243.77-0.21573 7.9819 133.97-250.89-0.43145z"
-                          fill="transparent"
-                          style="cursor:pointer;" />
-                </g>
-            <?php endif; ?>
+                <g id="<?= $obj['nom'] ?>" class="objet-enigme" data-activite="<?= $obj['numero_activite'] ?>">
 
-            <!-- Porte (Activité 5) -->
-            <?php if (in_array(505, $activites_selectionnees) && !in_array(505, $activites_reussies)): ?>
-                <g id="porte" class="objet-enigme" data-activite="505">
-                    <image id="image_porte"
-                           x="1592.5" y="237.97"
-                           width="257.49" height="838.37"
-                           clip-path="url(#clip_porte)"
-                           preserveAspectRatio="none"
-                           xlink:href="<?= base_url('images/salle_5/porte_ouverte.svg') ?>" />
-                    <rect class="piece-zone"
-                          x="1592.5" y="237.97" width="257.49" height="838.37"
-                          fill="transparent"
-                          style="cursor:pointer;" />
-                </g>
-            <?php endif; ?>
+                    <image
+                            id="image_<?= $obj['nom'] ?>"
+                            x="<?= $obj['x'] ?>"
+                            y="<?= $obj['y'] ?>"
+                            width="<?= $obj['width'] ?>"
+                            height="<?= $obj['height'] ?>"
+                            preserveAspectRatio="none"
+                            clip-path="url(#<?= $obj['clip_path_name'] ?>)"
+                            xlink:href="<?= base_url($obj['image_path']) ?>"
+                    />
 
-            <!-- Fenêtre (Activité 7) -->
-            <?php if (in_array(507, $activites_selectionnees) && !in_array(507, $activites_reussies)): ?>
-                <g id="fenetre" class="objet-enigme" data-activite="507">
-                    <image id="image_fenetre"
-                           x="64" y="182" width="218" height="458"
-                           clip-path="url(#clip_fenetre)"
-                           preserveAspectRatio="none"
-                           xlink:href="<?= base_url('images/salle_5/fenetre_ouverte.svg') ?>" />
-                    <path class="piece-zone"
-                          d="m68.949 182.44 213.56 48.814-2.4407 340.47-216 68.949h0.61017z"
-                          fill="transparent"
-                          style="cursor:pointer;" />
-                </g>
-            <?php endif; ?>
+                    <?php if (!empty($obj['zone_path'])): ?>
+                        <path class="piece-zone"
+                              d="<?= $obj['zone_path'] ?>"
+                              fill="transparent"
+                              style="cursor:pointer;" />
+                    <?php else: ?>
+                        <rect class="piece-zone"
+                              x="<?= $obj['x'] ?>"
+                              y="<?= $obj['y'] ?>"
+                              width="<?= $obj['width'] ?>"
+                              height="<?= $obj['height'] ?>"
+                              fill="transparent"
+                              style="cursor:pointer;" />
+                    <?php endif; ?>
 
-            <!-- Caméra (Activité 10) -->
-            <?php if (in_array(510, $activites_selectionnees) && !in_array(510, $activites_reussies)): ?>
-                <g id="camera" class="objet-enigme" data-activite="510">
-                    <image id="image_camera"
-                           clip-path="url(#clip_camera)"
-                           preserveAspectRatio="none"
-                           x="1577.1" y="89.952" width="232.99" height="113.9"
-                           xlink:href="<?= base_url('images/salle_5/camera.svg') ?>" />
-                    <rect class="piece-zone"
-                          x="1577.1" y="89.952" width="232.99" height="113.9"
-                          fill="transparent"
-                          style="cursor:pointer;" />
                 </g>
-            <?php endif; ?>
 
-            <!-- Post-it confidentiel (Activité 4) -->
-            <?php if (in_array(504, $activites_selectionnees) && !in_array(504, $activites_reussies)): ?>
-                <g id="post_it_conf" class="objet-enigme" data-activite="504">
-                    <image id="image_post_it_conf"
-                           clip-path="url(#clip_post_it_conf)"
-                           preserveAspectRatio="none"
-                           x="1144.7" y="518.82" width="73.347" height="84.566"
-                           xlink:href="<?= base_url('images/salle_5/post_it_confidentiel.svg') ?>" />
-                    <rect class="piece-zone"
-                          x="1144.7" y="518.82" width="73.347" height="84.566"
-                          fill="transparent"
-                          style="cursor:pointer;" />
-                </g>
-            <?php endif; ?>
-
-            <!-- Clé USB (Activité 2) -->
-            <?php if (in_array(502, $activites_selectionnees) && !in_array(502, $activites_reussies)): ?>
-                <g id="cle_usb" class="objet-enigme" data-activite="502">
-                    <image id="image_cle_usb"
-                           clip-path="url(#clip_cle_usb)"
-                           preserveAspectRatio="none"
-                           x="1228.4" y="701.76" width="63.855" height="21.573"
-                           xlink:href="<?= base_url('images/salle_5/usb_anonyme.svg') ?>" />
-                    <rect class="piece-zone"
-                          x="1228.4" y="701.76" width="63.855" height="21.573"
-                          fill="transparent"
-                          style="cursor:pointer;" />
-                </g>
-            <?php endif; ?>
-
-            <!-- Clé (Activité 3) -->
-            <?php if (in_array(503, $activites_selectionnees) && !in_array(503, $activites_reussies)): ?>
-                <g id="cle" class="objet-enigme" data-activite="503">
-                    <image id="image_cle"
-                           clip-path="url(#clip_cle)"
-                           preserveAspectRatio="none"
-                           x="1507.2" y="702.62" width="69.895" height="23.299"
-                           xlink:href="<?= base_url('images/salle_5/cle.svg') ?>" />
-                    <rect class="piece-zone"
-                          x="1507.2" y="702.62" width="69.895" height="23.299"
-                          fill="transparent"
-                          style="cursor:pointer;" />
-                </g>
-            <?php endif; ?>
-
-            <!-- Dossier (Activité 8) -->
-            <?php if (in_array(508, $activites_selectionnees) && !in_array(508, $activites_reussies)): ?>
-                <g id="dossier" class="objet-enigme" data-activite="508">
-                    <image id="image_dossier"
-                           clip-path="url(#clip_dossier)"
-                           preserveAspectRatio="none"
-                           x="620.95" y="610.29" width="68.17" height="95.783"
-                           xlink:href="<?= base_url('images/salle_5/dossier.svg') ?>" />
-                    <rect class="piece-zone"
-                          x="620.95" y="610.29" width="68.17" height="95.783"
-                          fill="transparent"
-                          style="cursor:pointer;" />
-                </g>
-            <?php endif; ?>
-
-            <!-- Carnet MDP (Activité 9) -->
-            <?php if (in_array(509, $activites_selectionnees) && !in_array(509, $activites_reussies)): ?>
-                <g id="carnet_mdp" class="objet-enigme" data-activite="509">
-                    <image id="image_carnet_mdp"
-                           clip-path="url(#clip_carnet_mdp)"
-                           preserveAspectRatio="none"
-                           x="328.13" y="825.2" width="115.93" height="106.17"
-                           xlink:href="<?= base_url('images/salle_5/carnet_mdp.svg') ?>" />
-                    <rect class="piece-zone"
-                          x="328.13" y="825.2" width="115.93" height="106.17"
-                          fill="transparent"
-                          style="cursor:pointer;" />
-                </g>
-            <?php endif; ?>
+            <?php endforeach; ?>
 
             <g id="accueil" class="zone-accueil" data-piece="retour-accueil">
                 <ellipse class="accueil-zone" cx="150" cy="100" rx="85" ry="85" fill="transparent"/>
@@ -185,7 +56,7 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                        y="15"
                        width="170"
                        height="170"
-                       xlink:href="<?= base_url('images/commun/btn_retour/home_icone_5.webp') ?>" />
+                       xlink:href="<?= base_url($salle['bouton']) ?>" />
             </g>
 
             <g id="infobulle" class="infobulle" style="display:none">
@@ -194,7 +65,7 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                        x="1358.2" y="723.12" width="341.71" height="248.52"
                        xlink:href="<?= base_url('images/salle_6/bulle-salle-6.svg') ?>" />
                 <!-- Bloc texte dans la bulle -->
-                <foreignObject x="1380" y="740" width="300" height="200">
+                <foreignObject x="1380" y="780" width="300" height="200">
                     <div class="texte-indice" xmlns="http://www.w3.org/1999/xhtml"
                          style="font-size:22px; font-weight:600; text-align:center;">
                         <?= $indice->libelle ?>
@@ -206,11 +77,11 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                 <image class="lumi-image default"
                        preserveAspectRatio="xMidYMid slice"
                        x="1687.9" y="786.97" width="205" height="252"
-                       xlink:href="<?= base_url('images/commun/mascotte/mascotte_face.svg') ?>" />
+                       xlink:href="<?= base_url($mascotte['face']) ?>" />
                 <image class="lumi-image hover"
                        preserveAspectRatio="xMidYMid slice"
                        x="1687.9" y="786.97" width="205" height="252"
-                       xlink:href="<?= base_url('images/commun/mascotte/mascotte_interrogee.svg') ?>" />
+                       xlink:href="<?= base_url($mascotte['interrogee']) ?>" />
                 <rect class="lumi-zone" x="1687.9" y="786.97" width="205" height="252" pointer-events="all"/>
             </g>
         </svg>
@@ -223,6 +94,13 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
     <?php if ($afficher_popup): ?>
         <div id="popup-explication" class="popup">
             <div class="popup-content">
+                <!-- RADAR -->
+                <div class="radar">
+                    <div class="radar-scan"></div>
+                    <span class="blip blip-1"></span>
+                    <span class="blip blip-2"></span>
+                    <span class="blip blip-3"></span>
+                </div>
                 <span class="close-btn" onclick="closePopup()">&times;</span>
                 <h2>Explication</h2>
                 <p><?= $salle['intro_salle'] ?></p>
@@ -311,16 +189,15 @@ if (in_array("501", $activites_selectionnees)&& !in_array(501, $activites_reussi
                     window.changerMascotte('saoulee');
                 }
             });
-
-            function closePopupEchec() {
-                document.getElementById('popup-echec').style.display = 'none';
-            }
         </script>
     <?php endif; ?>
+
+
 
 </div>
 
 <div id="transition-overlay"></div>
+<?= script_tag('js/salle_5/Salle2Mascotte.js') ?>
 <?= script_tag('js/salle_5/salle5.js') ?>
 
 

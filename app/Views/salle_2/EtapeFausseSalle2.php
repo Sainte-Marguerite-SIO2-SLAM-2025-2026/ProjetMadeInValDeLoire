@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Échec Détective !</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
@@ -21,21 +20,28 @@
     </div>
 
     <div class="final-popup-container">
+        <!-- Mascotte (version choquée) fournie par le backend -->
         <div class="mascot-final-wrapper">
-            <img src="<?= base_url('/images/salle_2/mascotte/mascotte_choquee.svg') ?>" alt="Monsieur Fox">
+            <?= img([
+                    'src' => $mascotte['choquee'],
+                    'alt' => 'Mascotte',
+                    'class' => 'mascotte-popup'
+            ]) ?>
         </div>
 
         <h1 class="final-title">Vous n'avez pas réussi !</h1>
 
+        <!-- Message d’échec (texte central) -->
         <p class="final-text">
             Malheureusement, détective, vous n'avez pas réussi à compléter les <strong> étapes</strong>.
             <br><br>
             Le manoir garde encore ses secrets pour vous...
         </p>
 
+        <!-- Action de reprise: routes différentes selon le mode (nuit/jour) -->
         <div class="final-actions">
             <?php if (session()->get('mode') === 'nuit'): ?>
-                <a href="<?= base_url('echouer/2') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
+                <a href="<?= base_url('reset') ?>" class="btn btn--xl btn-nuit trigger-popup" data-mode="Nuit">
                     Réessayer
                 </a>
             <?php else: ?>
@@ -44,9 +50,11 @@
                 </a>
             <?php endif; ?>
         </div>
+
     </div>
 </main>
 
+<!-- Variables exposées pour debug/logs éventuels -->
 <script>
     const BASE_URL = '<?= base_url(); ?>';
     const MODE = '<?= session()->get('mode') ?? 'nuit'; ?>';

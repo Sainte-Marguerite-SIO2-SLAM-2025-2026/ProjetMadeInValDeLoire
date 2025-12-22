@@ -95,7 +95,26 @@
 }
 
 
+.mascotte-image {
+    cursor: pointer;
+}
 
+.bulle-mascotte {
+    position: absolute;
+    bottom: 20vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40vh;
+    padding: 15px;
+    color: #111;
+    font-weight: bold;
+    text-align: center;
+    z-index: 50;
+}
+
+.hidden {
+    display: none;
+}
 
 
 

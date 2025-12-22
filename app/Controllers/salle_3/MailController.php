@@ -2,14 +2,17 @@
 namespace App\Controllers\salle_3;
 
 use App\Controllers\BaseController;
+use App\Models\commun\MascotteModel;
 use App\Models\salle_3\MailModel;
 
 class MailController extends BaseController
 {
     protected $mailModel;
+    protected $mascotte;
 
     public function __construct()
     {
+        $this->mascotte = new MascotteModel();
         $this->mailModel = new MailModel();
     }
 
@@ -65,6 +68,7 @@ class MailController extends BaseController
     public function show($id)
     {
         $data['mail'] = $this->mailModel->find($id);
+        $data['mascotte'] = $this->mascotte->getMascottes();
 
         if (!$data['mail']) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Mail non trouvé');
@@ -77,6 +81,7 @@ class MailController extends BaseController
     public function edit($id)
     {
         $data['mail'] = $this->mailModel->find($id);
+        $data['mascotte'] = $this->mascotte->getMascottes();
 
         if (!$data['mail']) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Mail non trouvé');

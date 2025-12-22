@@ -3,20 +3,18 @@
 namespace App\Controllers\salle_5;
 
 use App\Controllers\BaseController;
-//use App\Models\salle_5\MascotteModel;
 use App\Models\commun\MascotteModel;
 use App\Models\commun\SalleModel;
+use App\Models\salle_5\AvoirRepModel;
+use App\Models\commun\IndiceModel;
+use App\Models\salle_5\messageReponseModel;
 use App\Models\salle_5\ModeEmploiModel;
 use App\Models\salle_5\ActiviteModel;
-//use App\Models\salle_5\SalleModel;
 use App\Models\salle_5\ExplicationModel;
-use App\Models\salle_5\ZoneModel;
+use App\Models\salle_5\ObjetsActiviteModel;
 
 class Salle5Controller extends BaseController
 {
-    // Liste des énigmes qui utilisent le fond de bureau
-    private $enigmes_bureau = [502, 503, 504, 508, 509];
-
     public function enigme($activite_numero)
     {
         // Instancier les models
@@ -25,6 +23,8 @@ class Salle5Controller extends BaseController
         $mascotteModel = new MascotteModel();
         $modeEmploiModel = new ModeEmploiModel();
         $explicationModel = new ExplicationModel();
+        $indiceModel = new IndiceModel();
+        $objetsActiviteModel = new ObjetsActiviteModel();
 
         // Vérifier que l'activité fait partie des activités sélectionnées
         $activites_ids = session()->get('activites_salle5') ?? [];
@@ -55,28 +55,20 @@ class Salle5Controller extends BaseController
             $explication = $explicationModel->getExplication($activite->explication_numero);
         }
 
+
         // Données pour la vue
         $data = [
             'enigme' => $activite,
-//            'salle' => $salleModel->getSalle(5),
-//            'mascotte' => $mascotteModel->getMascotteBySalle(5),
             'salle' => $salleModel->getSalleById(5),
             'mascotte' => $mascotteModel->getMascottes(),
             'mode_emploi' => $mode_emploi,
             'explication' => $explication,
+            'indice' => $indiceModel->getIndice($activite_numero),
+            'objets_activite' => $objetsActiviteModel->getObjetsActivite($activite_numero),
         ];
 
-        // Charger la vue selon si c'est une énigme bureau ou pas
-        if (in_array($activite_numero, $this->enigmes_bureau)) {
-            // Énigmes sur fond de bureau (2, 3, 4, 8, 9)
-            return view('commun/header') .
-                view('salle_5/EnigmeBureau', $data) .
-                view('commun/footer');
-        }
-
-        // Vue par défaut pour les autres énigmes
         return view('commun/header') .
-            view('salle_5/EnigmeSalle', $data) .
+            view('salle_5/Enigme', $data) .
             view('commun/footer');
     }
 
@@ -123,28 +115,19 @@ class Salle5Controller extends BaseController
         $reponses_utilisateur = session()->get('reponses_activite_' . $activite_numero) ?? [];
 
         // Vérifier la réponse via les zones de la BDD
-        $zoneModel = new ZoneModel();
-        $resultat = $zoneModel->verifierZone($activite_numero, $reponse);
+        $avoirRepModel = new AvoirRepModel();
+        $resultat = $avoirRepModel->verifierZone($activite_numero, $reponse);
 
-        $messages_echec = [
-            501 => ' Échec ! Ce n\'était pas le bon écran à risque, cet écran est vérouillé',
-            502 => ' Raté ! Vous ne pouvez pas être sur que cette clé USB est sûre. Elle peut contenir un malware (attaque BadUSB) !',
-            503 => ' Incorrect ! Cet objet ne compromet pas directement la sécurité physique.',
-            504 => ' Dommage ! Cette zone ne présente pas d\'information confidentielle visible. Cherchez des post-it ou documents sensibles !',
-            505 => ' Mauvaise réponse ! La porte entrouverte permet le tailgating (intrusion par filature). Une porte doit toujours être fermée !',
-            506 => ' Échec ! Ce n\'est pas la bonne protection contre l\'épaule-surfing (shoulder surfing). Un filtre de confidentialité est nécessaire !',
-            507 => ' Raté ! Cette action n\'est pas une contre-mesure efficace. Pensez à fermer/sécuriser la fenêtre et éloigner le matériel sensible.',
-            508 => ' Incorrect ! Ce n\'est pas une violation de la politique "clean desk". Un bureau propre ne doit avoir AUCUN document, carnet de mots de passe ou clé USB visible.',
-            509 => ' Échec ! Vous n\'avez pas identifié les bonnes erreurs. Les secrets physiques (codes, badges) ne doivent JAMAIS être notés ou affichés, et les mots de passe doivent être forts !',
-            510 => ' Mauvaise réponse ! Une caméra de surveillance interne peut poser des problèmes de conformité RGPD. Sûreté ≠ espionnage ; respectez la proportionnalité !'
-        ];
+        $messageReponse = new messageReponseModel();
+        $msg = $messageReponse->getMessageEchec($activite_numero);
+
 
         if (!$resultat['valid']) {
             // Mauvaise réponse
             return $this->response->setJSON([
                 'success' => false,
                 'is_correct' => false,
-                'message' => $messages_echec[$activite_numero] ?? 'Mauvaise réponse ! Echec de la salle !'
+                'message' => $msg->message ?? 'Mauvaise réponse ! Echec de la salle !'
             ]);
         }
 
@@ -155,7 +138,7 @@ class Salle5Controller extends BaseController
         }
 
         // Compter le nombre de bonnes réponses attendues
-        $nb_bonnes_reponses_attendues = $zoneModel->countBonnesReponses($activite_numero);
+        $nb_bonnes_reponses_attendues = $avoirRepModel->countBonnesReponses($activite_numero);
         $nb_reponses_trouvees = count($reponses_utilisateur);
 
         // Vérifier si toutes les bonnes réponses ont été trouvées
@@ -165,26 +148,14 @@ class Salle5Controller extends BaseController
             session()->set('activites_reussies', $activites_reussies);
             session()->remove('reponses_activite_' . $activite_numero);
 
-            // Messages personnalisés par activité
-            $messages = [
-                501 => 'Excellent ! Laisser un poste ouvert permet l\'accès aux données sensibles. Toujours verrouiller (Win+L) !',
-                502 => 'Bravo ! Une clé USB inconnue peut contenir un malware (attaque BadUSB).',
-                503 => 'Parfait ! Un badge d\'entreprise ne doit jamais être laissé sans surveillance.',
-                504 => 'Bien vu ! Les informations confidentielles ne doivent jamais être visibles.',
-                505 => 'Excellent ! Les portes doivent être fermées pour éviter les intrusions (tailgating).',
-                506 => 'Bravo ! L\'épaule-surfing est un risque physique simple à exploiter.',
-                507 => 'Parfait ! La sécurité physique inclut aussi les ouvrants (risque de vol).',
-                508 => 'Félicitations ! La politique "clean desk" réduit le risque de perte/vol d\'infos.  
-                Ce terme désigne une approche systématique visant à garantir la sécurité des données sensibles et la confidentialité des informations critiques pour l\'entreprise.',
-                509 => 'Super ! Les secrets physiques ne doivent jamais être affichés et les MDP doivent être forts.',
-                510 => 'Bien vu ! Sûreté ≠ espionnage interne ; respecter le principe de proportionnalité.'
-            ];
+
+            $msg = $messageReponse->getMessageSucces($activite_numero);
 
             return $this->response->setJSON([
                 'success' => true,
                 'is_correct' => true,
                 'completed' => true,
-                'message' => $messages[$activite_numero] ?? 'Félicitations ! Énigme réussie !',
+                'message' => $msg->message ?? 'Félicitations ! Énigme réussie !',
                 'enigmes_restantes' => 2 - count($activites_reussies)
             ]);
         }
@@ -199,14 +170,4 @@ class Salle5Controller extends BaseController
             'total_attendu' => $nb_bonnes_reponses_attendues
         ]);
     }
-
-    public function resetSalle()
-    {
-        session()->remove('activites_salle5');
-        session()->remove('activites_reussies');
-        return redirect()->to(base_url('Salle5'));
-    }
-
-
-
 }

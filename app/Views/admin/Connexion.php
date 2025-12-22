@@ -19,24 +19,26 @@
 
     <div class="input-field">
         <?= form_input([
-            'name' => 'user',
-            'placeholder' => "Nom d'utilisateur",
-            'required' => true,
-            'value' => set_value('user')
+                'name' => 'user',
+                'placeholder' => "Nom d'utilisateur",
+                'required' => true,
+                'value' => set_value('user')
         ]); ?>
     </div>
 
     <div class="input-field">
         <?= form_password([
-            'name' => 'mdp',
-            'placeholder' => "Mot de passe",
-            'required' => true
+                'name' => 'mdp',
+                'placeholder' => "Mot de passe",
+                'required' => true
         ]); ?>
     </div>
 
     <button class="btn-submit" type="submit">Se connecter</button>
 
     <?= form_close(); ?>
+
+    <?= anchor('/', '⬅️ Retour au site', ['class' => 'btn-back']); ?>
 
 </div>
 
