@@ -41,7 +41,6 @@
     </div>
 <?php endif?>
 
-<!-- Image de fond principale (peut être stylée via CSS plutôt que le style inline selon besoins) -->
 <img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>"
      alt="Fond"
      class="accueil-bg"

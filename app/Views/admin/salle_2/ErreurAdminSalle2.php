@@ -2,9 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <!-- Responsive pour mobiles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Feuille de style dédiée à l'erreur Admin Salle 2 -->
     <link rel="stylesheet" href="<?= base_url('styles/salle_2/Salle2Erreur.css') ?>">
 
     <title>Erreur - Administration</title>
@@ -22,7 +20,7 @@
     <!-- Message d'erreur injecté depuis le backend -->
     <p class="message"><?= esc($message) ?></p>
 
-    <!-- Bloc détails techniques (affiché uniquement si disponible) -->
+    <!-- Bloc détails techniques  -->
     <?php if(isset($details)): ?>
         <div class="details-container">
             <strong>Détails techniques :</strong><br>
