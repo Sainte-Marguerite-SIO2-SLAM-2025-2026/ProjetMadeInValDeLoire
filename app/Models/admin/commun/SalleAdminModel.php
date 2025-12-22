@@ -15,12 +15,13 @@ class SalleAdminModel extends Model
 
     /**
      * Obtenir un Query Builder avec recherche et tri
+     * @param int|null $salleNumero Numéro de salle (non utilisé pour cette table)
      * @param string|null $search Terme de recherche
      * @param string $sort Colonne de tri
      * @param string $order Ordre (ASC/DESC)
      * @return \CodeIgniter\Database\BaseBuilder
      */
-    public function getSalleListBuilder(?string $search = null, string $sort = 'numero', string $order = 'ASC')
+    public function getSalleListBuilder(?int $salleNumero = null, ?string $search = null, string $sort = 'numero', string $order = 'ASC')
     {
         $builder = $this->builder();
 
@@ -29,12 +30,18 @@ class SalleAdminModel extends Model
             $builder->groupStart()
                 ->like('numero', $search)
                 ->orLike('libelle', $search)
+                ->orLike('bouton', $search)
                 ->orLike('intro_salle', $search)
                 ->groupEnd();
         }
 
-        // Tri
-        $builder->orderBy($sort, $order);
+        // Tri - Validation des colonnes autorisées
+        $allowedSorts = ['numero', 'libelle', 'bouton', 'intro_salle'];
+        if (in_array($sort, $allowedSorts)) {
+            $builder->orderBy($sort, $order);
+        } else {
+            $builder->orderBy('numero', 'ASC');
+        }
 
         return $builder;
     }
@@ -103,13 +110,13 @@ class SalleAdminModel extends Model
     public function isSalleUsed(int $numero): bool
     {
         $db = \Config\Database::connect('default');
-        
+
         // Vérifier dans activite
         $activiteCount = $db->table('activite')->where('salle_numero', $numero)->countAllResults();
         if ($activiteCount > 0) {
             return true;
         }
-        
+
         // Vérifier dans mascotte
         $mascotteCount = $db->table('mascotte')->where('salle_numero', $numero)->countAllResults();
         if ($mascotteCount > 0) {
@@ -140,10 +147,11 @@ class SalleAdminModel extends Model
 
     /**
      * Compter les salles avec recherche
-     * @param string|null $search
+     * @param int|null $salleNumero Numéro de salle (non utilisé pour cette table)
+     * @param string|null $search Terme de recherche
      * @return int
      */
-    public function countSalles(?string $search = null): int
+    public function countSalles(?int $salleNumero = null, ?string $search = null): int
     {
         $builder = $this->builder();
 
@@ -151,6 +159,7 @@ class SalleAdminModel extends Model
             $builder->groupStart()
                 ->like('numero', $search)
                 ->orLike('libelle', $search)
+                ->orLike('bouton', $search)
                 ->orLike('intro_salle', $search)
                 ->groupEnd();
         }
@@ -166,7 +175,7 @@ class SalleAdminModel extends Model
     public function getActiviteCountBySalle(int $numero): int
     {
         $db = \Config\Database::connect('default');
-        
+
         // Déterminer la plage pour la salle
         if ($numero === 3) {
             $min = 1;
@@ -177,9 +186,9 @@ class SalleAdminModel extends Model
         }
 
         return $db->table('activite')
-                  ->where('numero >=', $min)
-                  ->where('numero <=', $max)
-                  ->countAllResults();
+            ->where('numero >=', $min)
+            ->where('numero <=', $max)
+            ->countAllResults();
     }
 
     /**
@@ -232,7 +241,7 @@ class SalleAdminModel extends Model
     public function getSalleWithStats(int $numero): ?array
     {
         $salle = $this->find($numero);
-        
+
         if (!$salle) {
             return null;
         }
@@ -250,7 +259,7 @@ class SalleAdminModel extends Model
     public function getNextNumero(): int
     {
         $lastSalle = $this->orderBy('numero', 'DESC')->first();
-        
+
         if ($lastSalle) {
             return $lastSalle['numero'] + 1;
         }

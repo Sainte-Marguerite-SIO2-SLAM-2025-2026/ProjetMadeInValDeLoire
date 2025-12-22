@@ -2,75 +2,19 @@
 
 namespace App\Controllers\admin\salle_6;
 
-use App\Controllers\BaseController;
 use App\Models\admin\commun\ActiviteMessageAdminModel;
 use App\Models\admin\commun\ActiviteAdminModel;
 use CodeIgniter\HTTP\RedirectResponse;
 
-class ActiviteMessageAdminController extends BaseController
+class ActiviteMessageController extends AdminSalle6Controller
 {
     protected ActiviteMessageAdminModel $messageModel;
     protected ActiviteAdminModel $activiteModel;
-    protected int $perPage = 10;
 
     public function __construct()
     {
         $this->messageModel = new ActiviteMessageAdminModel();
         $this->activiteModel = new ActiviteAdminModel();
-    }
-
-    private function checkAuth(): ?RedirectResponse
-    {
-        if (session()->get('admin_id') === null) {
-            return redirect()->to('/gingembre');
-        }
-        return null;
-    }
-
-    private function getPaginatedData(?int $salleNumero = null): array
-    {
-        $search = $this->request->getGet('search') ?? '';
-        $sort = $this->request->getGet('sort') ?? 'id';
-        $order = $this->request->getGet('order') ?? 'ASC';
-        $page = (int)($this->request->getGet('page') ?? 1);
-
-        $order = strtoupper($order);
-        if (!in_array($order, ['ASC', 'DESC'])) {
-            $order = 'ASC';
-        }
-
-        if ($page < 1) {
-            $page = 1;
-        }
-
-        $total = $this->messageModel->countMessages($salleNumero, $search);
-        $offset = max(0, ($page - 1) * $this->perPage);
-        
-        $builder = $this->messageModel->getMessageListBuilder($salleNumero, $search, $sort, $order);
-        $results = $builder->limit($this->perPage, $offset)->get()->getResultArray();
-
-        $pager = service('pager');
-
-        $queryParams = [];
-        if ($search) $queryParams['search'] = $search;
-        if ($sort !== 'id') $queryParams['sort'] = $sort;
-        if ($order !== 'ASC') $queryParams['order'] = $order;
-        if ($salleNumero) $queryParams['salle'] = $salleNumero;
-
-        $queryString = !empty($queryParams) ? '?' . http_build_query($queryParams) : '';
-
-        return [
-            'messages' => $results,
-            'pager' => $pager,
-            'search' => $search,
-            'sort' => $sort,
-            'order' => $order,
-            'total' => $total,
-            'currentPage' => $page,
-            'perPage' => $this->perPage,
-            'queryString' => $queryString,
-            'salleNumero' => $salleNumero
-        ];
     }
 
     public function index(): string|RedirectResponse
@@ -80,7 +24,17 @@ class ActiviteMessageAdminController extends BaseController
         }
 
         $salleNumero = $this->request->getGet('salle') ? (int)$this->request->getGet('salle') : null;
-        $data = $this->getPaginatedData($salleNumero);
+
+        $data = $this->getPaginatedData(
+            $this->messageModel,
+            'getMessageListBuilder',
+            'countMessages',
+            'id',
+            $salleNumero
+        );
+
+        $data['messages'] = $data['results'];
+        unset($data['results']);
 
         return view('admin/salle_6/activiteMessage/index', $data);
     }

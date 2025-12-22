@@ -17,12 +17,13 @@ class ProposerWifiAdminModel extends Model
 
     /**
      * Obtenir un Query Builder avec recherche, tri et jointure
+     * @param int|null $salleNumero Numéro de salle (non utilisé pour cette table)
      * @param string|null $search Terme de recherche
      * @param string $sort Colonne de tri
      * @param string $order Ordre (ASC/DESC)
      * @return \CodeIgniter\Database\BaseBuilder
      */
-    public function getPropositionsListBuilder(?string $search = null, string $sort = 'wifi_numero', string $order = 'ASC')
+    public function getPropositionsListBuilder(?int $salleNumero = null, ?string $search = null, string $sort = 'wifi_numero', string $order = 'ASC')
     {
         $builder = $this->builder();
 
@@ -205,26 +206,23 @@ class ProposerWifiAdminModel extends Model
     }
 
     /**
-     * Compter les propositions avec recherche (SANS jointure pour éviter les doublons)
-     * @param string|null $search
+     * Compter les propositions avec recherche
+     * @param int|null $salleNumero Numéro de salle (non utilisé pour cette table)
+     * @param string|null $search Terme de recherche
      * @return int
      */
-    public function countPropositions(?string $search = null): int
+    public function countPropositions(?int $salleNumero = null, ?string $search = null): int
     {
         $builder = $this->db->table('proposer_wifi');
+        $builder->select('proposer_wifi.*');
+        $builder->join('wifi', 'wifi.numero = proposer_wifi.wifi_numero', 'left');
 
         if ($search) {
-            // Sous-requête pour récupérer les IDs des WiFi correspondants
-            $subQuery = $this->db->table('wifi')
-                ->select('numero')
-                ->like('nom', $search)
-                ->getCompiledSelect();
-
             $builder->groupStart()
-                ->like('wifi_numero', $search)
-                ->orLike('activite_numero', $search)
-                ->orLike('zone_clique', $search)
-                ->orWhere("wifi_numero IN ($subQuery)", null, false)
+                ->like('proposer_wifi.wifi_numero', $search)
+                ->orLike('proposer_wifi.activite_numero', $search)
+                ->orLike('proposer_wifi.zone_clique', $search)
+                ->orLike('wifi.nom', $search)
                 ->groupEnd();
         }
 
