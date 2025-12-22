@@ -17,12 +17,13 @@ class VpnAdminModel extends Model
 
     /**
      * Obtenir un Query Builder avec recherche et tri
+     * @param int|null $salleNumero Numéro de salle (non utilisé pour cette table)
      * @param string|null $search Terme de recherche
      * @param string $sort Colonne de tri
      * @param string $order Ordre (ASC/DESC)
      * @return \CodeIgniter\Database\BaseBuilder
      */
-    public function getVpnListBuilder(?string $search = null, string $sort = 'numero', string $order = 'ASC')
+    public function getVpnListBuilder(?int $salleNumero = null, ?string $search = null, string $sort = 'numero', string $order = 'ASC')
     {
         $builder = $this->builder();
 
@@ -125,10 +126,11 @@ class VpnAdminModel extends Model
 
     /**
      * Compter les VPN avec recherche
-     * @param string|null $search
+     * @param int|null $salleNumero Numéro de salle (non utilisé pour cette table)
+     * @param string|null $search Terme de recherche
      * @return int
      */
-    public function countVpns(?string $search = null): int
+    public function countVpns(?int $salleNumero = null, ?string $search = null): int
     {
         $builder = $this->builder();
 

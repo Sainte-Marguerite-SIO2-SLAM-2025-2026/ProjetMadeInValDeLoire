@@ -2,70 +2,16 @@
 
 namespace App\Controllers\admin\salle_6;
 
-use App\Controllers\BaseController;
 use App\Models\admin\commun\SalleAdminModel;
 use CodeIgniter\HTTP\RedirectResponse;
 
-class SalleAdminController extends BaseController
+class SalleController extends AdminSalle6Controller
 {
     protected SalleAdminModel $salleModel;
-    protected int $perPage = 10;
 
     public function __construct()
     {
         $this->salleModel = new SalleAdminModel();
-    }
-
-    private function checkAuth(): ?RedirectResponse
-    {
-        if (session()->get('admin_id') === null) {
-            return redirect()->to('/gingembre');
-        }
-        return null;
-    }
-
-    private function getPaginatedData(): array
-    {
-        $search = $this->request->getGet('search') ?? '';
-        $sort = $this->request->getGet('sort') ?? 'numero';
-        $order = $this->request->getGet('order') ?? 'ASC';
-        $page = (int)($this->request->getGet('page') ?? 1);
-
-        $order = strtoupper($order);
-        if (!in_array($order, ['ASC', 'DESC'])) {
-            $order = 'ASC';
-        }
-
-        if ($page < 1) {
-            $page = 1;
-        }
-
-        $total = $this->salleModel->countSalles($search);
-        $offset = max(0, ($page - 1) * $this->perPage);
-        
-        $builder = $this->salleModel->getSalleListBuilder($search, $sort, $order);
-        $results = $builder->limit($this->perPage, $offset)->get()->getResultArray();
-
-        $pager = service('pager');
-
-        $queryParams = [];
-        if ($search) $queryParams['search'] = $search;
-        if ($sort !== 'numero') $queryParams['sort'] = $sort;
-        if ($order !== 'ASC') $queryParams['order'] = $order;
-
-        $queryString = !empty($queryParams) ? '?' . http_build_query($queryParams) : '';
-
-        return [
-            'salles' => $results,
-            'pager' => $pager,
-            'search' => $search,
-            'sort' => $sort,
-            'order' => $order,
-            'total' => $total,
-            'currentPage' => $page,
-            'perPage' => $this->perPage,
-            'queryString' => $queryString
-        ];
     }
 
     public function index(): string|RedirectResponse
@@ -74,11 +20,22 @@ class SalleAdminController extends BaseController
             return $redirect;
         }
 
-        $data = $this->getPaginatedData();
+        // SalleModel n'a pas de paramètre salleNumero car c'est la table principale
+        $data = $this->getPaginatedData(
+            $this->salleModel,
+            'getSalleListBuilder',
+            'countSalles',
+            'numero',
+            null
+        );
+
+        $data['salles'] = $data['results'];
+        unset($data['results']);
+
         return view('admin/salle_6/salle/index', $data);
     }
 
-    public function create(): string|RedirectResponse
+    public function Create(): string|RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -87,7 +44,7 @@ class SalleAdminController extends BaseController
         return view('admin/salle_6/salle/create');
     }
 
-    public function store(): RedirectResponse
+    public function Store(): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -121,7 +78,7 @@ class SalleAdminController extends BaseController
         }
     }
 
-    public function edit($id): string|RedirectResponse
+    public function Edit($id): string|RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -135,7 +92,7 @@ class SalleAdminController extends BaseController
         return view('admin/salle_6/salle/edit', ['salle' => $salle]);
     }
 
-    public function update($id): RedirectResponse
+    public function Update($id): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -164,7 +121,7 @@ class SalleAdminController extends BaseController
         }
     }
 
-    public function delete($id): RedirectResponse
+    public function Delete($id): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;

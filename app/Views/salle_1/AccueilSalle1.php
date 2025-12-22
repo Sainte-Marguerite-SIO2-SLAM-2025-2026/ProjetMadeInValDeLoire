@@ -22,7 +22,7 @@
             ]) ?>
             <h2>Bienvenue dans la salle de l'ingénierie sociale !</h2>
             <?php if (isset($explication) && !empty($explication)): ?>
-                <p><?= esc($explication) ?></p>
+                <p><?= $explication ?></p>
             <?php endif; ?>
         </div>
     </div>
@@ -68,8 +68,6 @@
                 'alt' => 'Mascotte',
                 'class' => 'mascotte-image'
         ])?>
-
-        <?= anchor(base_url('Salle1/Backend')) ?>
 
     </div>
 </div>
