@@ -17,12 +17,13 @@ class WifiAdminModel extends Model
 
     /**
      * Obtenir un Query Builder avec recherche et tri
+     * @param int|null $salleNumero Numéro de salle (non utilisé pour cette table)
      * @param string|null $search Terme de recherche
      * @param string $sort Colonne de tri
      * @param string $order Ordre (ASC/DESC)
      * @return \CodeIgniter\Database\BaseBuilder
      */
-    public function getWifiListBuilder(?string $search = null, string $sort = 'numero', string $order = 'ASC')
+    public function getWifiListBuilder(?int $salleNumero = null, ?string $search = null, string $sort = 'numero', string $order = 'ASC')
     {
         $builder = $this->builder();
 
@@ -158,10 +159,11 @@ class WifiAdminModel extends Model
 
     /**
      * Compter les WiFi avec recherche
-     * @param string|null $search
+     * @param int|null $salleNumero Numéro de salle (non utilisé pour cette table)
+     * @param string|null $search Terme de recherche
      * @return int
      */
-    public function countWifis(?string $search = null): int
+    public function countWifis(?int $salleNumero = null, ?string $search = null): int
     {
         $builder = $this->builder();
 

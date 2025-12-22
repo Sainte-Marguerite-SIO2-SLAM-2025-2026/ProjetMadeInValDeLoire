@@ -20,42 +20,42 @@ $routes->group('/gingembre/salle_6', ['namespace' => 'App\Controllers\admin\sall
 
     // Gestion VPN
     $routes->group('vpn', function ($routes) {
-        $routes->get('/', 'AdminSalle6Controller::vpnList');
-        $routes->get('create', 'AdminSalle6Controller::vpnCreate');
-        $routes->post('store', 'AdminSalle6Controller::vpnStore');
-        $routes->get('edit/(:num)', 'AdminSalle6Controller::vpnEdit/$1');
-        $routes->post('update/(:num)', 'AdminSalle6Controller::vpnUpdate/$1');
-        $routes->get('delete/(:num)', 'AdminSalle6Controller::vpnDelete/$1');
+        $routes->get('/', 'VpnController::index');
+        $routes->get('create', 'VpnController::Create');
+        $routes->post('store', 'VpnController::Store');
+        $routes->get('edit/(:num)', 'VpnController::Edit/$1');
+        $routes->post('update/(:num)', 'VpnController::Update/$1');
+        $routes->get('delete/(:num)', 'VpnController::Delete/$1');
     });
 
     // Gestion WiFi
     $routes->group('wifi', function ($routes) {
-        $routes->get('/', 'AdminSalle6Controller::wifiList');
-        $routes->get('create', 'AdminSalle6Controller::wifiCreate');
-        $routes->post('store', 'AdminSalle6Controller::wifiStore');
-        $routes->get('edit/(:num)', 'AdminSalle6Controller::wifiEdit/$1');
-        $routes->post('update/(:num)', 'AdminSalle6Controller::wifiUpdate/$1');
-        $routes->get('delete/(:num)', 'AdminSalle6Controller::wifiDelete/$1');
+        $routes->get('/', 'WifiController::index');
+        $routes->get('create', 'WifiController::Create');
+        $routes->post('store', 'WifiController::Store');
+        $routes->get('edit/(:num)', 'WifiController::Edit/$1');
+        $routes->post('update/(:num)', 'WifiController::Update/$1');
+        $routes->get('delete/(:num)', 'WifiController::Delete/$1');
     });
 
     // Gestion Propositions VPN
     $routes->group('proposer-vpn', function ($routes) {
-        $routes->get('/', 'AdminSalle6Controller::proposerVpnList');
-        $routes->get('create', 'AdminSalle6Controller::proposerVpnCreate');
-        $routes->post('store', 'AdminSalle6Controller::proposerVpnStore');
-        $routes->get('edit/(:num)/(:num)', 'AdminSalle6Controller::proposerVpnEdit/$1/$2');
-        $routes->post('update/(:num)/(:num)', 'AdminSalle6Controller::proposerVpnUpdate/$1/$2');
-        $routes->get('delete/(:num)/(:num)', 'AdminSalle6Controller::proposerVpnDelete/$1/$2');
+        $routes->get('/', 'ProposerVpnController::index');
+        $routes->get('create', 'ProposerVpnController::Create');
+        $routes->post('store', 'ProposerVpnController::Store');
+        $routes->get('edit/(:num)/(:num)', 'ProposerVpnController::Edit/$1/$2');
+        $routes->post('update/(:num)/(:num)', 'ProposerVpnController::proposerVpnUpdate/$1/$2');
+        $routes->get('delete/(:num)/(:num)', 'ProposerVpnController::proposerVpnDelete/$1/$2');
     });
 
     // Gestion Propositions WiFi
     $routes->group('proposer-wifi', function ($routes) {
-        $routes->get('/', 'AdminSalle6Controller::proposerWifiList');
-        $routes->get('create', 'AdminSalle6Controller::proposerWifiCreate');
-        $routes->post('store', 'AdminSalle6Controller::proposerWifiStore');
-        $routes->get('edit/(:num)/(:num)', 'AdminSalle6Controller::proposerWifiEdit/$1/$2');
-        $routes->post('update/(:num)/(:num)', 'AdminSalle6Controller::proposerWifiUpdate/$1/$2');
-        $routes->get('delete/(:num)/(:num)', 'AdminSalle6Controller::proposerWifiDelete/$1/$2');
+        $routes->get('/', 'ProposerWifiController::index');
+        $routes->get('create', 'ProposerWifiController::Create');
+        $routes->post('store', 'ProposerWifiController::Store');
+        $routes->get('edit/(:num)/(:num)', 'ProposerWifiController::Edit/$1/$2');
+        $routes->post('update/(:num)/(:num)', 'ProposerWifiController::Update/$1/$2');
+        $routes->get('delete/(:num)/(:num)', 'ProposerWifiController::Delete/$1/$2');
     });
 
     // Gestion Activité
