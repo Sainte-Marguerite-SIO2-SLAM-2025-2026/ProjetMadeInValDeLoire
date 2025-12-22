@@ -10,14 +10,20 @@ class ObjetDeclencheurModel extends Model
     protected $primaryKey = 'id';
 
     protected $allowedFields = [
+        'id', 'nom', 'x', 'y', 'image_path',
         'width', 'height', 'zone_path', 'clip_path_name',
         'visible_si_selectionnee', 'visible_si_non_reussie', 'numero_activite'
     ];
 
     public function getObjetsDeclencheurs()
-        {
-           return $this->findAll();
-        }
+    {
+        return $this->findAll();
+    }
+
+    public function getObjetsDeclencheursById($id)
+    {
+        return $this->find($id);
+    }
 
     /**
      * Récupère uniquement les objets pertinents pour une salle

@@ -35,8 +35,13 @@ class ObjetsModel extends Model
         return $this->findAll();
     }
 
+    public function getObjetById($id)
+    {
+        return $this->find($id);
+    }
+
     public function deleteObjet($id)
-        {
-           return $this->where('id', $id)->delete();
-        }
+    {
+        return $this->where('id', $id)->delete();
+    }
 }
