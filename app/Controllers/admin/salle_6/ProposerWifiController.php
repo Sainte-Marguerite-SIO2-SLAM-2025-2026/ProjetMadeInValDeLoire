@@ -36,7 +36,7 @@ class ProposerWifiController extends AdminSalle6Controller
         return view('admin/salle_6/proposerWifi/index', $data);
     }
 
-    public function create(): string|RedirectResponse
+    public function Create(): string|RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -48,7 +48,7 @@ class ProposerWifiController extends AdminSalle6Controller
         return view('admin/salle_6/proposerWifi/create', $data);
     }
 
-    public function store(): RedirectResponse
+    public function Store(): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -79,7 +79,7 @@ class ProposerWifiController extends AdminSalle6Controller
         }
     }
 
-    public function edit($wifi_numero, $activite_numero): string|RedirectResponse
+    public function Edit($wifi_numero, $activite_numero): string|RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -98,7 +98,7 @@ class ProposerWifiController extends AdminSalle6Controller
         return view('admin/salle_6/proposerWifi/edit', $data);
     }
 
-    public function update($wifi_numero, $activite_numero): RedirectResponse
+    public function Update($wifi_numero, $activite_numero): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -125,7 +125,7 @@ class ProposerWifiController extends AdminSalle6Controller
         }
     }
 
-    public function delete($wifi_numero, $activite_numero): RedirectResponse
+    public function Delete($wifi_numero, $activite_numero): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;

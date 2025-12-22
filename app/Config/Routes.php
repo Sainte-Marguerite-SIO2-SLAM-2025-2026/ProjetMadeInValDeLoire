@@ -44,8 +44,8 @@ $routes->group('/gingembre/salle_6', ['namespace' => 'App\Controllers\admin\sall
         $routes->get('create', 'ProposerVpnController::Create');
         $routes->post('store', 'ProposerVpnController::Store');
         $routes->get('edit/(:num)/(:num)', 'ProposerVpnController::Edit/$1/$2');
-        $routes->post('update/(:num)/(:num)', 'ProposerVpnController::proposerVpnUpdate/$1/$2');
-        $routes->get('delete/(:num)/(:num)', 'ProposerVpnController::proposerVpnDelete/$1/$2');
+        $routes->post('update/(:num)/(:num)', 'ProposerVpnController::Update/$1/$2');
+        $routes->get('delete/(:num)/(:num)', 'ProposerVpnController::Delete/$1/$2');
     });
 
     // Gestion Propositions WiFi
@@ -61,71 +61,71 @@ $routes->group('/gingembre/salle_6', ['namespace' => 'App\Controllers\admin\sall
     // Gestion Activité
     $routes->group('activite', function ($routes) {
         $routes->get('/', 'ActiviteController::index');
-        $routes->get('create', 'ActiviteController::create');
-        $routes->post('store', 'ActiviteController::store');
-        $routes->get('edit/(:num)', 'ActiviteController::edit/$1');
-        $routes->post('update/(:num)', 'ActiviteController::update/$1');
-        $routes->get('delete/(:num)', 'ActiviteController::delete/$1');
+        $routes->get('create', 'ActiviteController::Create');
+        $routes->post('store', 'ActiviteController::Store');
+        $routes->get('edit/(:num)', 'ActiviteController::Edit/$1');
+        $routes->post('update/(:num)', 'ActiviteController::Update/$1');
+        $routes->get('delete/(:num)', 'ActiviteController::Delete/$1');
     });
 
     // Gestion Type
     $routes->group('type', function ($routes) {
         $routes->get('/', 'TypeController::index');
-        $routes->get('create', 'TypeController::create');
-        $routes->post('store', 'TypeController::store');
-        $routes->get('edit/(:num)', 'TypeController::edit/$1');
-        $routes->post('update/(:num)', 'TypeController::update/$1');
-        $routes->get('delete/(:num)', 'TypeController::delete/$1');
+        $routes->get('create', 'TypeController::Create');
+        $routes->post('store', 'TypeController::Store');
+        $routes->get('edit/(:num)', 'TypeController::Edit/$1');
+        $routes->post('update/(:num)', 'TypeController::Update/$1');
+        $routes->get('delete/(:num)', 'TypeController::Delete/$1');
     });
 
     // Gestion Salle
     $routes->group('salle', function ($routes) {
         $routes->get('/', 'SalleController::index');
-        $routes->get('create', 'SalleController::create');
-        $routes->post('store', 'SalleController::store');
-        $routes->get('edit/(:num)', 'SalleController::edit/$1');
-        $routes->post('update/(:num)', 'SalleController::update/$1');
-        $routes->get('delete/(:num)', 'SalleController::delete/$1');
+        $routes->get('create', 'SalleController::Create');
+        $routes->post('store', 'SalleController::Store');
+        $routes->get('edit/(:num)', 'SalleController::Edit/$1');
+        $routes->post('update/(:num)', 'SalleController::Update/$1');
+        $routes->get('delete/(:num)', 'SalleController::Delete/$1');
     });
 
     // Gestion Indice
     $routes->group('indice', function ($routes) {
         $routes->get('/', 'IndiceController::index');
-        $routes->get('create', 'IndiceController::create');
-        $routes->post('store', 'IndiceController::store');
-        $routes->get('edit/(:num)', 'IndiceController::edit/$1');
-        $routes->post('update/(:num)', 'IndiceController::update/$1');
-        $routes->get('delete/(:num)', 'IndiceController::delete/$1');
+        $routes->get('create', 'IndiceController::Create');
+        $routes->post('store', 'IndiceController::Store');
+        $routes->get('edit/(:num)', 'IndiceController::Edit/$1');
+        $routes->post('update/(:num)', 'IndiceController::Update/$1');
+        $routes->get('delete/(:num)', 'IndiceController::Delete/$1');
     });
 
     // Gestion Explication
     $routes->group('explication', function ($routes) {
         $routes->get('/', 'ExplicationController::index');
-        $routes->get('create', 'ExplicationController::create');
-        $routes->post('store', 'ExplicationController::store');
-        $routes->get('edit/(:num)', 'ExplicationController::edit/$1');
-        $routes->post('update/(:num)', 'ExplicationController::update/$1');
-        $routes->get('delete/(:num)', 'ExplicationController::delete/$1');
+        $routes->get('create', 'ExplicationController::Create');
+        $routes->post('store', 'ExplicationController::Store');
+        $routes->get('edit/(:num)', 'ExplicationController::Edit/$1');
+        $routes->post('update/(:num)', 'ExplicationController::Update/$1');
+        $routes->get('delete/(:num)', 'ExplicationController::Delete/$1');
     });
 
     // Gestion Avoir Indice
     $routes->group('avoir-indice', function ($routes) {
         $routes->get('/', 'AvoirIndiceController::index');
-        $routes->get('create', 'AvoirIndiceController::create');
-        $routes->post('store', 'AvoirIndiceController::store');
-        $routes->get('edit/(:num)', 'AvoirIndiceController::edit/$1');
-        $routes->post('update/(:num)', 'AvoirIndiceController::update/$1');
-        $routes->get('delete/(:num)', 'AvoirIndiceController::delete/$1');
+        $routes->get('create', 'AvoirIndiceController::Create');
+        $routes->post('store', 'AvoirIndiceController::Store');
+        $routes->get('edit/(:num)', 'AvoirIndiceController::Edit/$1');
+        $routes->post('update/(:num)', 'AvoirIndiceController::Update/$1');
+        $routes->get('delete/(:num)', 'AvoirIndiceController::Delete/$1');
     });
 
     // Gestion Activité Message
     $routes->group('activite-message', function ($routes) {
         $routes->get('/', 'ActiviteMessageController::index');
-        $routes->get('create', 'ActiviteMessageController::create');
-        $routes->post('store', 'ActiviteMessageController::store');
-        $routes->get('edit/(:num)', 'ActiviteMessageController::edit/$1');
-        $routes->post('update/(:num)', 'ActiviteMessageController::update/$1');
-        $routes->get('delete/(:num)', 'ActiviteMessageController::delete/$1');
+        $routes->get('create', 'ActiviteMessageController::Create');
+        $routes->post('store', 'ActiviteMessageController::Store');
+        $routes->get('edit/(:num)', 'ActiviteMessageController::Edit/$1');
+        $routes->post('update/(:num)', 'ActiviteMessageController::Update/$1');
+        $routes->get('delete/(:num)', 'ActiviteMessageController::Delete/$1');
     });
 });
 

@@ -49,7 +49,7 @@ class ActiviteController extends AdminSalle6Controller
         return view('admin/salle_6/activite/index', $data);
     }
 
-    public function create(): string|RedirectResponse
+    public function Create(): string|RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -65,7 +65,7 @@ class ActiviteController extends AdminSalle6Controller
         return view('admin/salle_6/activite/create', $data);
     }
 
-    public function store(): RedirectResponse
+    public function Store(): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -106,7 +106,7 @@ class ActiviteController extends AdminSalle6Controller
         }
     }
 
-    public function edit($id): string|RedirectResponse
+    public function Edit($id): string|RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -128,7 +128,7 @@ class ActiviteController extends AdminSalle6Controller
         return view('admin/salle_6/activite/edit', $data);
     }
 
-    public function update($id): RedirectResponse
+    public function Update($id): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -169,7 +169,7 @@ class ActiviteController extends AdminSalle6Controller
         }
     }
 
-    public function delete($id): RedirectResponse
+    public function Delete($id): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;

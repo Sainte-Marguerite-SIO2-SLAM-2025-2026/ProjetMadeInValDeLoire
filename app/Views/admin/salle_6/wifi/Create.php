@@ -100,8 +100,7 @@
                             'class' => 'btn btn-success',
                             'content' => '<i class="fas fa-save"></i> Enregistrer'
                     ]) ?>
-                    <?= anchor('/admin/wifi', '<i class="fas fa-times"></i> Annuler', ['class' => 'btn btn-secondary']) ?>
-                </div>
+                    <?= anchor('/gingembre/salle_6/wifi', '<i class="fas fa-times"></i> Annuler', ['class' => 'btn btn-secondary']) ?>                </div>
 
                 <?= form_close() ?>
             </div>

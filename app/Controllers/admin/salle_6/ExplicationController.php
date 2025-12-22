@@ -45,7 +45,7 @@ class ExplicationController extends AdminSalle6Controller
         return view('admin/salle_6/explication/create');
     }
 
-    public function store(): RedirectResponse
+    public function Store(): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -75,7 +75,7 @@ class ExplicationController extends AdminSalle6Controller
         }
     }
 
-    public function edit($id): string|RedirectResponse
+    public function Edit($id): string|RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -89,7 +89,7 @@ class ExplicationController extends AdminSalle6Controller
         return view('admin/salle_6/explication/edit', ['explication' => $explication]);
     }
 
-    public function update($id): RedirectResponse
+    public function Update($id): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -114,7 +114,7 @@ class ExplicationController extends AdminSalle6Controller
         }
     }
 
-    public function delete($id): RedirectResponse
+    public function DSelete($id): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
