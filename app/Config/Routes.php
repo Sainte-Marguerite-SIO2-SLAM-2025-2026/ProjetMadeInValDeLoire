@@ -129,6 +129,65 @@ $routes->group('/gingembre/salle_6', ['namespace' => 'App\Controllers\admin\sall
     });
 });
 
+/*
+ * ROUTES POUR L'ADMINISTRATION SALLE 4
+ */
+$routes->group('/gingembre/salle_4', ['namespace' => 'App\Controllers\admin\salle_4'], function ($routes) {
+
+    // Dashboard Salle 4
+    $routes->get('/', 'AdminSalle4Controller::index');
+
+    // Gestion des Cartes
+    $routes->group('carte', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::carteList');
+        $routes->get('create', 'AdminSalle4Controller::carteCreate');
+        $routes->post('store', 'AdminSalle4Controller::carteStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::carteEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::carteUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::carteDelete/$1');
+    });
+
+    // Gestion des Questions
+    $routes->group('question', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::questionList');
+        $routes->get('create', 'AdminSalle4Controller::questionCreate');
+        $routes->post('store', 'AdminSalle4Controller::questionStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::questionEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::questionUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::questionDelete/$1');
+    });
+
+    // Gestion des Activités
+    $routes->group('activite', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::activiteList');
+        $routes->get('create', 'AdminSalle4Controller::activiteCreate');
+        $routes->post('store', 'AdminSalle4Controller::activiteStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::activiteEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::activiteUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::activiteDelete/$1');
+    });
+
+    // Gestion des Explications
+    $routes->group('explication', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::explicationList');
+        $routes->get('create', 'AdminSalle4Controller::explicationCreate');
+        $routes->post('store', 'AdminSalle4Controller::explicationStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::explicationEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::explicationUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::explicationDelete/$1');
+    });
+
+    // Gestion des Indices
+    $routes->group('indice', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::indiceList');
+        $routes->get('create', 'AdminSalle4Controller::indiceCreate');
+        $routes->post('store', 'AdminSalle4Controller::indiceStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::indiceEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::indiceUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::indiceDelete/$1');
+    });
+});
+
 
 // Routes admin
 $routes->get('/gingembre', 'admin\AdminController::index');
@@ -209,6 +268,8 @@ $routes->get('/quizFin', 'salle_4\Salle4Controller::quizFinal');
 $routes->post('/verifierReponseQuiz', 'salle_4\Salle4Controller::verifierReponseQuiz');
 $routes->get('/resetQuiz', 'accueil\AccueilController::index');
 $routes->get('/resetSalle4', 'salle_4\Salle4Controller::resetSalle');
+$routes->post('verifierCarte402', 'salle_4\Salle4Controller::verifierCarte402');
+$routes->get('resetActivite402', 'salle_4\Salle4Controller::resetActivite402');
 
 
 // Routes pour la salle 5
@@ -218,10 +279,20 @@ $routes->get('/resetSalle5', 'salle_5\Salle5Controller::resetSalle');
 $routes->get('/finSalle5', 'salle_5\Salle5Controller::finSalle');
 
 // Routes admin pour la salle 5
-$routes->post('/admin/supprimerEnigme/(:num)', 'admin\AdminController::supprimerEnigme/$1');
-$routes->post('/admin/supprimerObjet/(:num)', 'admin\AdminController::supprimerObjet/$1');
-$routes->post('/admin/supprimerObjetDeclencheur/(:num)', 'admin\AdminController::supprimerObjetDeclencheur/$1');
-
+$routes->post('/admin/supprimerEnigme/(:num)', 'admin\salle_5\Salle5Controller::supprimerEnigme/$1');
+$routes->post('/admin/supprimerObjet/(:num)', 'admin\salle_5\Salle5Controller::supprimerObjet/$1');
+$routes->post('/admin/supprimerObjetDeclencheur/(:num)', 'admin\salle_5\Salle5Controller::supprimerObjetDeclencheur/$1');
+$routes->post('/admin/modifier/(:num)', 'admin\salle_5\Salle5Controller::viewModifier/$1');
+$routes->post('/admin/modifierEnigme/(:num)', 'admin\salle_5\Salle5Controller::modifierEnigme/$1');
+$routes->post('/admin/modifierObjet/(:num)', 'admin\salle_5\Salle5Controller::modifierObjet/$1');
+$routes->post('/admin/modifierObjetDeclencheur/(:num)', 'admin\salle_5\Salle5Controller::modifierObjetDeclencheur/$1');
+$routes->post('/admin/validerModifObjet', 'admin\salle_5\Salle5Controller::validerModifObjet');
+$routes->post('/admin/validerModifObjetDeclencheur', 'admin\salle_5\Salle5Controller::validerModifObjetDeclencheur');
+$routes->post('/admin/validerModifEnigme', 'admin\salle_5\Salle5Controller::validerModifEnigme');
+$routes->post('/admin/validerAjoutObjet', 'admin\salle_5\Salle5Controller::validerAjoutObjet');
+$routes->post('/admin/validerAjoutObjetDeclencheur', 'admin\salle_5\Salle5Controller::validerAjoutObjetDeclencheur');
+$routes->post('/admin/validerAjoutEnigme', 'admin\salle_5\Salle5Controller::validerAjoutEnigme');
+$routes->get('admin/viewAjouter/(:any)', 'admin\salle_5\Salle5Controller::viewAjouter/$1');
 
 
 // Routes pour la salle 6
