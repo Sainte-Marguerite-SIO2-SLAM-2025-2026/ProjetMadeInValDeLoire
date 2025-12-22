@@ -36,7 +36,7 @@ class ProposerVpnController extends AdminSalle6Controller
         return view('admin/salle_6/proposerVpn/index', $data);
     }
 
-    public function create(): string|RedirectResponse
+    public function Create(): string|RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -48,7 +48,7 @@ class ProposerVpnController extends AdminSalle6Controller
         return view('admin/salle_6/proposerVpn/create', $data);
     }
 
-    public function store(): RedirectResponse
+    public function Store(): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -77,7 +77,7 @@ class ProposerVpnController extends AdminSalle6Controller
         }
     }
 
-    public function edit($vpn_numero, $activite_numero): string|RedirectResponse
+    public function Edit($vpn_numero, $activite_numero): string|RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -96,7 +96,7 @@ class ProposerVpnController extends AdminSalle6Controller
         return view('admin/salle_6/proposerVpn/edit', $data);
     }
 
-    public function update($vpn_numero, $activite_numero): RedirectResponse
+    public function Update($vpn_numero, $activite_numero): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
@@ -121,7 +121,7 @@ class ProposerVpnController extends AdminSalle6Controller
         }
     }
 
-    public function delete($vpn_numero, $activite_numero): RedirectResponse
+    public function Delete($vpn_numero, $activite_numero): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
