@@ -16,10 +16,25 @@ class MailController extends BaseController
         $this->mailModel = new MailModel();
     }
 
+
+// Page listant les mails pour édition
+    public function listEdit()
+    {
+        $data['mails'] = $this->mailModel->findAll();
+        return view('salle_3/ListEditMailsSalle3', $data);
+    }
+
+// Page listant les mails pour suppression
+    public function listDelete()
+    {
+        $data['mails'] = $this->mailModel->findAll();
+        return view('salle_3/ListDeleteMailsSalle3', $data);
+    }
+
     // Afficher le formulaire
     public function create()
     {
-        return view('salle_3/BackendListeMailsSalle3');
+        return view('admin/salle_3/AjoutAdminSalle3');
     }
 
     // Enregistrer un nouveau mail
@@ -34,7 +49,7 @@ class MailController extends BaseController
         ];
 
         if ($this->mailModel->insert($data)) {
-            return redirect()->to('/salle_3/mails')->with('success', 'Mail enregistré avec succès');
+            return redirect()->to('/salle_3')->with('success', 'Mail enregistré avec succès');
         } else {
             return redirect()->back()
                 ->withInput()
@@ -46,8 +61,7 @@ class MailController extends BaseController
     public function index()
     {
         $data['mails'] = $this->mailModel->findAll();
-        $data['mascotte'] = $this->mascotte->getMascottes();
-        return view('salle_3/BackendMailsSalle3', $data);
+        return view('admin/salle_3/ListeMailsAdminSalle3', $data);
     }
 
     // Afficher un mail spécifique

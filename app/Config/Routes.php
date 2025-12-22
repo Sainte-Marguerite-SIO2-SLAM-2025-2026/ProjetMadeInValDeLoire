@@ -197,6 +197,9 @@ $routes->group('Salle2', function($routes) {
 // Routes pour la salle 3
 $routes->get('/Salle3', 'accueil\AccueilController::Salle3');
 $routes->get('/Salle3/Enigme', 'salle_3\Salle3Controller::index');
+$routes->get('/Salle3/mails/create', 'salle_3\MailController::create');
+$routes->post('/Salle3/store', 'salle_3\MailController::store');
+$routes->get('Salle3/mails', 'salle_3\MailController::index');
 
 // Routes pour la salle 4
 $routes->get('/Salle4', 'salle_4\Salle4Controller::index');

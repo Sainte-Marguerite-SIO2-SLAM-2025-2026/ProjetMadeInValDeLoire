@@ -5,6 +5,7 @@ namespace App\Controllers\admin;
 use App\Controllers\BaseController;
 use App\Models\admin\salle_2\Salle2Admin;
 use App\Models\admin\UserModel;
+use App\Controllers\salle_3\MailController;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ObjetDeclencheurModel;
 use App\Models\salle_5\ObjetsModel;
@@ -69,6 +70,7 @@ class AdminController extends BaseController
 
     public function salle($numero) : string|RedirectResponse
     {
+        $mailController = new MailController();
         $salle6Controller = new AdminSalle6Controller();
         // Test si l'utilisateur est connecté
         if (session()->get('admin_id') == null)
@@ -90,7 +92,7 @@ class AdminController extends BaseController
             return view('admin/salle_2/AccueilAdminSalle2', $data);
         }
         elseif ($numero == 3) {
-            return view('admin/salle_3/AccueilAdminSalle3');
+            return $mailController->index();
         }
         elseif ($numero == 4) {
             return view('admin/salle_4/AccueilAdminSalle4');
