@@ -1,9 +1,0 @@
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg width="1920mm" height="1080mm" version="1.1" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
- <path id="bulle" class="cls-134" d="m1438.1 64.948v616.45l80.248 62.251h-1445.7c-11.089 0-20.071-9.4722-20.071-21.154v-657.54c0-11.682 8.9818-21.154 20.071-21.154h1345.4c11.089 0 20.07 9.4722 20.07 21.154z" fill="#fff" stroke-width="1.1537"/>
- <rect id="zone-texte" x="83.06" y="72.965" width="1328.2" height="502.03" fill-opacity="0" stroke-width="1.0028"/>
- <g id="bouton-commencer" transform="matrix(-1.1326 0 0 1.1752 2050.6 -106.86)" fill="#e86f04" fill-opacity=".93">
-  <polygon id="btn-valider" class="cls-160" points="1351.6 670.99 851.56 670.99 861.56 600.99 1361.6 600.99" fill="#e86f04" fill-opacity=".93"/>
- </g>
- <rect id="mascotte" x="1524.8" y="528.53" width="390.55" height="547.23" fill-opacity="0" stroke-width=".26458"/>
-</svg>

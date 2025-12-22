@@ -1,186 +1,165 @@
-/* Styles généraux */
+/* ==== Corps de page ==== */
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
     margin: 0;
-    font-family: "Inter", Arial, sans-serif;
-    background: #000428;
-    color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    padding: 0;
 }
 
-/* Titre principal */
 header {
+    background-color: #34495e;
+    color: #fff;
+    padding: 15px 20px;
     text-align: center;
-    padding: 20px;
 }
 
 header h1 {
-    font-size: 32px;
-    font-weight: 600;
     margin: 0;
+    font-size: 1.8em;
 }
 
-/* Zone principale */
+/* ==== Zone admin ==== */
 .zone-admin {
-    flex: 1;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
+    width: 95%;
+    max-width: 1400px;
     margin: 20px auto;
-    max-width: 95%;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-/* Boutons de sélection en haut */
+/* ==== Sélection boutons ==== */
 .selection-buttons {
+    margin-bottom: 20px;
     display: flex;
     gap: 15px;
-    justify-content: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
 }
 
 .selection-buttons button {
-    padding: 20px 30px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
     border: none;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.2);
-    color: white;
+    border-radius: 6px;
     cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.selection-buttons button:hover,
-.selection-buttons button.active {
-    background: rgba(255,255,255,0.4);
+.selection-buttons button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
 }
 
-/* Tables */
-table {
-    width: 100%;
-    max-width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+/* ==== Bouton Ajouter ==== */
+.btn-add {
+    display: inline-block;
+    padding: 8px 18px;
+    background-color: #27ae60;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-th, td {
-    padding: 10px 12px;
-    text-align: left;
-    background: rgba(255,255,255,0.1);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.1);
+.btn-add:hover {
+    background-color: #219150;
+    transform: translateY(-2px);
 }
 
-th {
-    background: rgba(255,255,255,0.2);
+/* ==== Boutons modifier / supprimer ==== */
+.btn-modifier,
+.btn-delete {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 5px;
+    transition: background-color 0.3s;
 }
 
-tr:hover td {
-    background: rgba(255,255,255,0.18);
-    transition: 0.3s;
+.btn-modifier {
+    background-color: #f39c12;
+    color: #fff;
 }
 
-/* Tables invisibles par défaut */
-.table-section {
-    display: none;
-}
-
-/* Scroll horizontal si table trop large */
-.zone-admin {
-    overflow-x: auto;
+.btn-modifier:hover {
+    background-color: #e67e22;
 }
 
 .btn-delete {
-    display: inline-block;
-    padding: 5px 10px;
-    background: #d63031;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: 0.3s;
+    background-color: #c0392b;
+    color: #fff;
 }
 
 .btn-delete:hover {
-    background: #ff7675;
+    background-color: #a93226;
 }
 
+/* ==== Tableaux ==== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #ecf0f1;
+}
+
+/* ==== Alertes ==== */
 .alert-success {
-    position: relative;
-    padding: 14px 20px;
-    margin: 20px auto;
-    max-width: 900px;
-
-    background: linear-gradient(
-            135deg,
-            rgba(0, 184, 148, 0.25),
-            rgba(0, 206, 201, 0.15)
-    );
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    border-radius: 14px;
-    border: 1px solid rgba(0, 206, 201, 0.35);
-
-    color: #eafffa;
-    font-weight: 500;
-    font-size: 15px;
-    letter-spacing: 0.2px;
-
-    box-shadow:
-            0 8px 24px rgba(0, 206, 201, 0.15),
-            inset 0 0 0 1px rgba(255,255,255,0.08);
-
-    animation: slideFade 0.4s ease-out;
-}
-@keyframes slideFade {
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-.alert-success::before {
-    content: "✔";
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 16px;
-    color: #00cec9;
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
 }
 
-.alert-success {
-    padding-left: 44px;
+/* ==== Sections ==== */
+.table-section h2 {
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
-.alert-success::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 10%;
-    height: 80%;
-    width: 4px;
-    border-radius: 4px;
-    background: linear-gradient(
-            to bottom,
-            #00cec9,
-            #00b894
-    );
+/* ==== Formulaire ==== */
+.form-objet input,
+.form-objet textarea,
+.form-objet select {
+    width: 100%;
+    padding: 6px 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
+.form-objet button,
+.form-objet input[type="submit"] {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+    background-color: #3498db;
+    transition: background-color 0.3s, transform 0.2s;
+}
 
+.form-objet button:hover,
+.form-objet input[type="submit"]:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+}
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-    .selection-buttons {
-        flex-direction: column;
-    }
+/* ==== Zone texte optionnelle ==== */
+#zoneTexte,
+#zoneTexteHover {
+    margin-top: 10px;
 }
