@@ -279,10 +279,20 @@ $routes->get('/resetSalle5', 'salle_5\Salle5Controller::resetSalle');
 $routes->get('/finSalle5', 'salle_5\Salle5Controller::finSalle');
 
 // Routes admin pour la salle 5
-$routes->post('/admin/supprimerEnigme/(:num)', 'admin\AdminController::supprimerEnigme/$1');
-$routes->post('/admin/supprimerObjet/(:num)', 'admin\AdminController::supprimerObjet/$1');
-$routes->post('/admin/supprimerObjetDeclencheur/(:num)', 'admin\AdminController::supprimerObjetDeclencheur/$1');
-
+$routes->post('/admin/supprimerEnigme/(:num)', 'admin\salle_5\Salle5Controller::supprimerEnigme/$1');
+$routes->post('/admin/supprimerObjet/(:num)', 'admin\salle_5\Salle5Controller::supprimerObjet/$1');
+$routes->post('/admin/supprimerObjetDeclencheur/(:num)', 'admin\salle_5\Salle5Controller::supprimerObjetDeclencheur/$1');
+$routes->post('/admin/modifier/(:num)', 'admin\salle_5\Salle5Controller::viewModifier/$1');
+$routes->post('/admin/modifierEnigme/(:num)', 'admin\salle_5\Salle5Controller::modifierEnigme/$1');
+$routes->post('/admin/modifierObjet/(:num)', 'admin\salle_5\Salle5Controller::modifierObjet/$1');
+$routes->post('/admin/modifierObjetDeclencheur/(:num)', 'admin\salle_5\Salle5Controller::modifierObjetDeclencheur/$1');
+$routes->post('/admin/validerModifObjet', 'admin\salle_5\Salle5Controller::validerModifObjet');
+$routes->post('/admin/validerModifObjetDeclencheur', 'admin\salle_5\Salle5Controller::validerModifObjetDeclencheur');
+$routes->post('/admin/validerModifEnigme', 'admin\salle_5\Salle5Controller::validerModifEnigme');
+$routes->post('/admin/validerAjoutObjet', 'admin\salle_5\Salle5Controller::validerAjoutObjet');
+$routes->post('/admin/validerAjoutObjetDeclencheur', 'admin\salle_5\Salle5Controller::validerAjoutObjetDeclencheur');
+$routes->post('/admin/validerAjoutEnigme', 'admin\salle_5\Salle5Controller::validerAjoutEnigme');
+$routes->get('admin/viewAjouter/(:any)', 'admin\salle_5\Salle5Controller::viewAjouter/$1');
 
 
 // Routes pour la salle 6
