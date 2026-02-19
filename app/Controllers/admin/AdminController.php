@@ -96,15 +96,8 @@ class AdminController extends BaseController
             return view('admin/salle_4/AccueilAdminSalle4');
         }
         elseif ($numero == 5) {
-            $enigmeModel = new ActiviteModel();
-            $objets = new ObjetsModel();
-            $objetsDeclencheurs = new ObjetDeclencheurModel();
-            $data = [
-                'enigme' => $enigmeModel->getActivites(5),
-                'objets' => $objets->getObjets(),
-                'objetsDeclencheurs' => $objetsDeclencheurs->getObjetsDeclencheurs()
-            ];
-            return view('admin/salle_5/AccueilAdminSalle5', $data);
+
+            return view('admin/salle_5/AccueilAdminSalle5');
         }
         elseif ($numero == 6) {
             return $salle6Controller->Index();

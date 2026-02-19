@@ -2,13 +2,56 @@
 namespace App\Controllers\admin\salle_5;
 
 use App\Controllers\BaseController;
+use App\Models\admin\commun\ActiviteAdminModel;
+use App\Models\admin\commun\ExplicationAdminModel;
+use App\Models\admin\commun\IndiceAdminModel;
+use App\Models\admin\commun\SalleAdminModel;
+use App\Models\admin\salle_5\ModeEmploiAdminModel;
+use App\Models\admin\salle_5\objetAdminModel;
+use App\Models\admin\salle_5\ObjetsDeclencheursAdminModel;
 use App\Models\salle_5\ActiviteModel;
-use App\Models\salle_5\ObjetDeclencheurModel;
-use App\Models\salle_5\ObjetsModel;
+use CodeIgniter\HTTP\RedirectResponse;
 
-class Salle5Controller extends BaseController
+class AdminSalle5Controller extends BaseController
 {
 
+    protected $objets;
+    protected $objetsDeclencheurs;
+    protected $activiteModel;
+    protected $explicationModel;
+    protected $indiceModel;
+    protected $salleModel;
+    protected $salleNumero = 5;
+
+    public function __construct()
+    {
+        $this->objets = new ObjetAdminModel();
+        $this->objetsDeclencheurs = new ObjetsDeclencheursAdminModel();
+        $this->activiteModel = new ActiviteAdminModel();
+        $this->explicationModel = new ExplicationAdminModel();
+        $this->indiceModel = new IndiceAdminModel();
+        $this->salleModel = new SalleAdminModel();
+        $this->modeEmploiModel = new ModeEmploiAdminModel();
+    }
+
+    public function index(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data=[
+        "totalObjets" => $this->objets->getNbObjets(),
+            "totalObjetsDeclencheurs" => $this->objetsDeclencheurs->getNbObjetsDeclencheurs(),
+            "totalActivites" => $this->activiteModel->countActivites($this->salleNumero),
+                'totalExplications' => $this->explicationModel->countExplications($this->salleNumero),
+            'totalIndices' => $this->indiceModel->countIndices($this->salleNumero),
+            'totalModeEmploi' => $this->modeEmploiModel->getNbModeEmploi(),
+        ];
+
+
+        return view('admin/salle_5/dashboard', $data);
+    }
     public function supprimerObjetDeclencheur($id)
     {
         $id = $this->request->getPost('id');
