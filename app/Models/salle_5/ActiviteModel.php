@@ -36,6 +36,9 @@ class ActiviteModel extends Model
             ->findAll();
     }
 
+
+
+
     /**
      * Récupérer plusieurs activités par leurs IDs
      */
