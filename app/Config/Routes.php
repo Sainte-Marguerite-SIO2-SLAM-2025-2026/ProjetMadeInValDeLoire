@@ -196,6 +196,16 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
     // Dashboard Salle 5
     $routes->get('/', 'AdminSalle5Controller::index');
 
+    // Gestion des Objets
+    $routes->group('objet', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::objetList');
+        $routes->get('create', 'AdminSalle5Controller::objetCreate');
+        $routes->post('store', 'AdminSalle5Controller::objetStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::objetEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::objetUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle5Controller::objetDelete/$1');
+    });
+
 });
 
 // Routes admin

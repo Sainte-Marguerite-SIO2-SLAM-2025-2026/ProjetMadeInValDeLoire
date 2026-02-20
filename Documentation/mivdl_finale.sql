@@ -707,7 +707,7 @@ INSERT INTO `mot_de_passe` (`numero`, `motPasse`, `valeur`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `objets`
+-- Structure de la table `objet`
 --
 
 DROP TABLE IF EXISTS `objets`;
@@ -733,7 +733,7 @@ CREATE TABLE IF NOT EXISTS `objets` (
 ) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `objets`
+-- Déchargement des données de la table `objet`
 --
 
 INSERT INTO `objets` (`id`, `nom`, `x`, `y`, `width`, `height`, `image`, `reponse`, `zone_path`, `texte`, `texte_x`, `texte_y`, `rotate`, `drag`, `hover`, `cliquable`, `ratio`) VALUES

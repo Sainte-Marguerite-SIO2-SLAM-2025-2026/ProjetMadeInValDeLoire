@@ -12,7 +12,7 @@ class ObjetsActiviteModel extends Model
     protected $allowedFields = ['numero_activite', 'objet_id'];
 
     /**
-     * Retourne la liste des objets associés à une activité
+     * Retourne la liste des objet associés à une activité
      *
      * @param int $numero_activite
      * @return array

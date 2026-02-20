@@ -79,7 +79,7 @@
 
     <div class="table-section">
         <h2>Objets</h2>
-        <?= anchor('admin/viewAjouter/objets', 'Ajouter', ['class' => 'btn-add']) ?>
+        <?= anchor('admin/viewAjouter/objet', 'Ajouter', ['class' => 'btn-add']) ?>
         <?php if($objets == false):
             echo "Aucun objet trouvée";
         else:?>
@@ -117,11 +117,11 @@
                         <td><?= $o->hover ?></td>
                         <td><?= $o->cliquable ?></td>
                         <td><?= $o->ratio ?></td>
-                        <td><?= form_open(base_url('admin/supprimerObjet/'.$o->id.'#objets'), [
+                        <td><?= form_open(base_url('admin/supprimerObjet/'.$o->id.'#objet'), [
                                     'onsubmit' => "return confirm('Confirmer la suppression ?')"
                             ]) ?>
                             <?= form_hidden('id', $o->id) ?>
-                            <?= form_hidden('section', 'objets') ?>
+                            <?= form_hidden('section', 'objet') ?>
                             <?= form_button([
                                     'type'    => 'submit',
                                     'content' => 'Supprimer',
@@ -129,9 +129,9 @@
                             ])?>
                             <?= form_close() ?>
 
-                            <?= form_open(base_url('admin/modifier/'.$o->id.'#objets')) ?>
+                            <?= form_open(base_url('admin/modifier/'.$o->id.'#objet')) ?>
                             <?= form_hidden('id', $o->id) ?>
-                            <?= form_hidden('section', 'objets') ?>
+                            <?= form_hidden('section', 'objet') ?>
                             <?= form_button([
                                     'type'    => 'submit',
                                     'content' => 'Modifier',

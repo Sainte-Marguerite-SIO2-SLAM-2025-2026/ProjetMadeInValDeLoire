@@ -48,9 +48,9 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="nav-header">DONNÉES RANSOMWARE</li>
+                    <li class="nav-header">DONNÉES SÉCURITÉ</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objets') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/objet') ?>" class="nav-link">
                             <i class="nav-icon fas fa-id-card"></i>
                             <p>Objets</p>
                         </a>
@@ -59,6 +59,30 @@
                         <a href="<?= base_url('/gingembre/salle_5/objets_declencheurs') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Objets déclencheurs</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/gingembre/salle_5/objets_declencheurs') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Objets Activité</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/gingembre/salle_5/objets_declencheurs') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Questions</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/gingembre/salle_5/objets_declencheurs') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Réponses</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/gingembre/salle_5/objets_declencheurs') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Liaison quest/rép</p>
                         </a>
                     </li>
                     <li class="nav-header">DONNÉES COMMUNES</li>
@@ -110,7 +134,7 @@
                             <div class="icon">
                                 <i class="fas fa-id-card"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/objets') ?>" class="small-box-footer">
+                            <a href="<?= base_url('/gingembre/salle_5/objet') ?>" class="small-box-footer">
                                 Gérer <i class="fas fa-arrow-circle-right"></i>
                             </a>
                         </div>
@@ -132,6 +156,21 @@
                     </div>
 
                     <div class="col-lg-3 col-6">
+                        <div class="small-box bg-danger">
+                            <div class="inner">
+                                <h3><?= $totalObjetsActivites ?></h3>
+                                <p>Objets utilisés dans activités</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <a href="<?= base_url('/gingembre/salle_4/question') ?>" class="small-box-footer">
+                                Gérer <i class="fas fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-6">
                         <div class="small-box bg-purple">
                             <div class="inner">
                                 <h3><?= $totalModeEmploi ?></h3>
@@ -146,37 +185,54 @@
                         </div>
                     </div>
 
-<!--                    <div class="col-lg-3 col-6">-->
-<!--                        <div class="small-box bg-warning">-->
-<!--                            <div class="inner">-->
-<!--                                <h3>--><?php //= $cartes_pieges ?><!--</h3>-->
-<!--                                <p>Pièges</p>-->
-<!--                            </div>-->
-<!--                            <div class="icon">-->
-<!--                                <i class="fas fa-exclamation-triangle"></i>-->
-<!--                            </div>-->
-<!--                            <a href="--><?php //= base_url('/gingembre/salle_4/carte') ?><!--" class="small-box-footer">-->
-<!--                                Voir <i class="fas fa-arrow-circle-right"></i>-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="col-lg-3 col-6">-->
-<!--                        <div class="small-box bg-danger">-->
-<!--                            <div class="inner">-->
-<!--                                <h3>--><?php //= $total_questions ?><!--</h3>-->
-<!--                                <p>Questions Quiz</p>-->
-<!--                            </div>-->
-<!--                            <div class="icon">-->
-<!--                                <i class="fas fa-question-circle"></i>-->
-<!--                            </div>-->
-<!--                            <a href="--><?php //= base_url('/gingembre/salle_4/question') ?><!--" class="small-box-footer">-->
-<!--                                Gérer <i class="fas fa-arrow-circle-right"></i>-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-danger">
+                            <div class="inner">
+                                <h3><?= $messageVrai ?></h3>
+                                <p>Explication bonne réponse</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <a href="<?= base_url('/gingembre/salle_4/question') ?>" class="small-box-footer">
+                                Gérer <i class="fas fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-danger">
+                            <div class="inner">
+                                <h3><?= $messageFaux ?></h3>
+                                <p>Explication mauvaise réponse</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <a href="<?= base_url('/gingembre/salle_4/question') ?>" class="small-box-footer">
+                                Gérer <i class="fas fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-danger">
+                            <div class="inner">
+                                <h3><?= $avoirRep ?></h3>
+                                <p>Liaison questions/réponses</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <a href="<?= base_url('/gingembre/salle_4/question') ?>" class="small-box-footer">
+                                Gérer <i class="fas fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-<!---->
+
                 <!-- Statistiques Données Communes -->
                 <div class="row">
                     <div class="col-12">
@@ -283,7 +339,7 @@
 
     <!-- Footer -->
     <footer class="main-footer">
-        <strong>Administration Salle 4</strong> - Made in Val de Loire
+        <strong>Administration Salle 5</strong> - Made in Val de Loire
     </footer>
 </div>
 
