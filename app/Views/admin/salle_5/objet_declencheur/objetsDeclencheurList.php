@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gestion des Objets - Salle 5</title>
+    <title>Gestion des Objets Déclencheurs - Salle 5</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -116,11 +116,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Gestion des Objets</h1>
+                        <h1>Gestion des Objets déclencheurs d'activités</h1>
                     </div>
                     <div class="col-sm-6">
-                        <a href="<?= base_url('/gingembre/salle_5/objet/create') ?>" class="btn btn-success float-right">
-                            <i class="fas fa-plus"></i> Nouvel objet
+                        <a href="<?= base_url('/gingembre/salle_5/objet_declencheur/create') ?>" class="btn btn-success float-right">
+                            <i class="fas fa-plus"></i> Nouvel objet déclencheur
                         </a>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Liste des Objets</h3>
+                        <h3 class="card-title">Liste des Objets Déclencheurs</h3>
                     </div>
                     <div class="card-body">
                         <table id="objetsTable" class="table table-bordered table-striped">
@@ -154,57 +154,49 @@
                             <tr>
                                 <th>id</th>
                                 <th>nom</th>
+                                <th>image</th>
                                 <th>x</th>
                                 <th>y</th>
                                 <th>width</th>
                                 <th>height</th>
-                                <th>image</th>
                                 <th>zone_path</th>
-                                <th>texte</th>
-                                <th>rotate</th>
-                                <th>drag</th>
-                                <th>hover</th>
-                                <th>cliquable</th>
+                                <th>numéro activité</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($objets as $objet): ?>
+                            <?php foreach ($objetsDeclencheurs as $objetD): ?>
                                 <tr>
-                                    <td><?= $objet->id ?></td>
-                                    <td><?= esc($objet->nom) ?></td>
-                                    <td><?= esc($objet->x) ?></td>
-                                    <td><?= esc($objet->y) ?></td>
-                                    <td><?= esc($objet->width) ?></td>
-                                    <td><?= esc($objet->height) ?></td>
-                                    <td><?= esc(substr($objet->image,15)) ?></td>
-                                    <td><?= esc($objet->zone_path) ?></td>
-                                    <td><?= esc($objet->texte) ?></td>
-                                    <td><?= esc($objet->rotate) ?></td>
-                                    <td><?= esc($objet->drag) ?></td>
-                                    <td><?= esc($objet->hover) ?></td>
-                                    <td><?= esc($objet->cliquable) ?></td>
+                                    <td><?= $objetD->id ?></td>
+                                    <td><?= esc($objetD->nom) ?></td>
+                                    <td><?= esc(substr($objetD->image_path,15)) ?></td>
+                                    <td><?= esc($objetD->x) ?></td>
+                                    <td><?= esc($objetD->y) ?></td>
+                                    <td><?= esc($objetD->width) ?></td>
+                                    <td><?= esc($objetD->height) ?></td>
+                                    <td><?= esc($objetD->zone_path) ?></td>
+                                    <td><?= esc($objetD->numero_activite) ?></td>
                                     <!--                                    <td>--><?php //= substr(esc($objet['explication']), 0, 50) ?><!--...</td>-->
-<!--                                    <td>-->
-<!--                                        --><?php //if ($objet['type_carte'] == 'bonne_pratique'): ?>
-<!--                                            <span class="badge badge-success">Bonne pratique</span>-->
-<!--                                        --><?php //else: ?>
-<!--                                            <span class="badge badge-warning">Piège</span>-->
-<!--                                        --><?php //endif; ?>
-<!--                                    </td>-->
-<!--                                    <td>-->
-<!--                                        --><?php //if ($objet['activite_numero']): ?>
-<!--                                            <small>--><?php //= esc($objet['activite_libelle']) ?><!--</small>-->
-<!--                                        --><?php //else: ?>
-<!--                                            <span class="text-muted">-</span>-->
-<!--                                        --><?php //endif; ?>
-<!--                                    </td>-->
+                                    <!--                                    <td>-->
+                                    <!--                                        --><?php //if ($objet['type_carte'] == 'bonne_pratique'): ?>
+                                    <!--                                            <span class="badge badge-success">Bonne pratique</span>-->
+                                    <!--                                        --><?php //else: ?>
+                                    <!--                                            <span class="badge badge-warning">Piège</span>-->
+                                    <!--                                        --><?php //endif; ?>
+                                    <!--                                    </td>-->
+                                    <!--                                    <td>-->
+                                    <!--                                        --><?php //if ($objet['activite_numero']): ?>
+                                    <!--                                            <small>--><?php //= esc($objet['activite_libelle']) ?><!--</small>-->
+                                    <!--                                        --><?php //else: ?>
+                                    <!--                                            <span class="text-muted">-</span>-->
+                                    <!--                                        --><?php //endif; ?>
+                                    <!--                                    </td>-->
                                     <td>
-                                        <a href="<?= base_url('/gingembre/salle_5/objet/edit/' . $objet->id) ?>"
+                                        <a href="<?= base_url('/gingembre/salle_5/objet_declencheur/edit/' . $objetD->id) ?>"
                                            class="btn btn-sm btn-primary">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="<?= base_url('/gingembre/salle_5/objet/delete/' . $objet->id) ?>"
+                                        <a href="<?= base_url('/gingembre/salle_5/objet_declencheur/delete/' . $objetD->id) ?>"
                                            class="btn btn-sm btn-danger"
                                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet objet ?')">
                                             <i class="fas fa-trash"></i>

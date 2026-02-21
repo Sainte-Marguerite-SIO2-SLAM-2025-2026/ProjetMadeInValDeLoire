@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= isset($carte) ? 'Modifier' : 'Ajouter' ?> une Carte - Salle 4</title>
+    <title><?= isset($objet) ? 'Modifier' : 'Ajouter' ?> un Objet - Salle 5</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -56,7 +56,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objets_declencheurs') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/objet_declencheur') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Objets déclencheurs</p>
                         </a>

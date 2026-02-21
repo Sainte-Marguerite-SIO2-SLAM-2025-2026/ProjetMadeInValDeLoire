@@ -206,6 +206,15 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
         $routes->get('delete/(:num)', 'AdminSalle5Controller::objetDelete/$1');
     });
 
+    $routes->group('objet_declencheur', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::objetDeclencheurList');
+        $routes->get('create', 'AdminSalle5Controller::objetDeclencheurCreate');
+        $routes->post('store', 'AdminSalle5Controller::objetDeclencheurStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::objetDeclencheurEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::objetDeclencheurUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle5Controller::objetDeclencheurDelete/$1');
+    });
+
 });
 
 // Routes admin

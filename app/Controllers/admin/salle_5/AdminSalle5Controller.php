@@ -222,7 +222,7 @@ class AdminSalle5Controller extends BaseController
     }
 
     /**
-     * Suppression d'une carte
+     * Suppression d'un objet
      */
     public function objetDelete($id): RedirectResponse
     {
@@ -233,9 +233,148 @@ class AdminSalle5Controller extends BaseController
         $this->objetsModel->delete($id);
         return redirect()->to('/gingembre/salle_5/objet')->with('success', 'Objet supprimé avec succès');
     }
+
+
+
+//
+
+    public function objetDeclencheurList(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['objetsDeclencheurs'] = $this->objetsDeclencheursModel->getObjetsDeclencheurs();
+        return view('admin/salle_5/objet_declencheur/ObjetsDeclencheurList', $data);
+    }
+
+    /**
+     * Formulaire de création d'un objet declencheur
+     */
+    public function objetDeclencheurCreate(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data =[
+            'activites' => $this->activiteModel->getActivitesBySalle($this->salleNumero),
+            ];
+
+        return view('admin/salle_5/objet_declencheur/objetsDeclencheurForm', $data);
+    }
+
+    /**
+     * Enregistrement d'un nouvel objet declencheur
+     */
+    public function objetDeclencheurStore(): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'nom' => 'required|max_length[50]',
+            'image' => 'required|max_length[50]',
+            'x' => 'permit_empty|numeric|max_length[50]',
+            'y' => 'permit_empty|numeric|max_length[50]',
+            'width' => 'permit_empty|numeric|max_length[50]',
+            'height' => 'permit_empty|numeric|max_length[50]',
+            'zone_path' => 'max_length[80]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'nom' => $this->request->getPost('nom'),
+            'image_path' => $this->request->getPost('image'),
+            'x' => $this->request->getPost('x'),
+            'y' => $this->request->getPost('y'),
+            'width' => $this->request->getPost('width'),
+            'height' => $this->request->getPost('height'),
+            'zone_path' => $this->request->getPost('zone_path')? $this->request->getPost('zone_path') : null,
+            'numero_activite' => $this->request->getPost('numero_activite'),
+
+        ];
+
+        $this->objetsDeclencheursModel->insert($data);
+        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet créé avec succès');
+    }
+
+    /**
+     * Formulaire d'édition d'un objet declencheur
+     */
+    public function objetDeclencheurEdit($id): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['objetDeclencheur'] = $this->objetsDeclencheursModel->getObjetsDeclencheursById($id);
+        $data ['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
+
+        if (!$data['objetDeclencheur']) {
+            return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('error', 'Objet introuvable');
+        }
+
+        return view('admin/salle_5/objet_declencheur/objetsDeclencheurForm', $data);
+    }
+
+    /**
+     * Mise à jour d'un objet declencheur
+     */
+    public function objetDeclencheurUpdate($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'nom' => 'required|max_length[50]',
+            'image' => 'required|max_length[50]',
+            'x' => 'permit_empty|numeric|max_length[50]',
+            'y' => 'permit_empty|numeric|max_length[50]',
+            'width' => 'permit_empty|numeric|max_length[50]',
+            'height' => 'permit_empty|numeric|max_length[50]',
+            'zone_path' => 'max_length[80]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'nom' => $this->request->getPost('nom'),
+            'image_path' => $this->request->getPost('image'),
+            'x' => $this->request->getPost('x'),
+            'y' => $this->request->getPost('y'),
+            'width' => $this->request->getPost('width'),
+            'height' => $this->request->getPost('height'),
+            'zone_path' => $this->request->getPost('zone_path')? $this->request->getPost('zone_path') : null,
+            'numero_activite' => $this->request->getPost('numero_activite'),
+
+        ];
+
+        $this->objetsDeclencheursModel->update($id, $data);
+        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet modifié avec succès');
+    }
+
+    /**
+     * Suppression d'un objet declencheur
+     */
+    public function objetDeclencheurDelete($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $this->objetsDeclencheursModel->delete($id);
+        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet supprimé avec succès');
+    }
 }
-
-
+//
 //    public function supprimerObjetDeclencheur($id)
 //    {
 //        $id = $this->request->getPost('id');
