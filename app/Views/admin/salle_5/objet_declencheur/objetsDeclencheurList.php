@@ -63,7 +63,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objets_activites') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/objet_activite') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Objets Activité</p>
                         </a>
