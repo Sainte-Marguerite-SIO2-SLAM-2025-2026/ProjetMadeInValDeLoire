@@ -215,6 +215,16 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
         $routes->get('delete/(:num)', 'AdminSalle5Controller::objetDeclencheurDelete/$1');
     });
 
+    // Gestion des Indices
+    $routes->group('objet_activite', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::objetActiviteList');
+        $routes->get('create', 'AdminSalle5Controller::objetActiviteCreate');
+        $routes->post('store', 'AdminSalle5Controller::objetActiviteStore');
+        $routes->get('edit/(:num)/(:num)', 'AdminSalle5Controller::objetActiviteEdit/$1/$2');
+        $routes->post('update/(:num)/(:num)', 'AdminSalle5Controller::objetActiviteUpdate/$1/$2');
+        $routes->get('delete/(:num)/(:num)', 'AdminSalle5Controller::objetActiviteDelete/$1/$2');
+    });
+
 });
 
 // Routes admin

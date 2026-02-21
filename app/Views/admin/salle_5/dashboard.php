@@ -62,7 +62,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objets_declencheurs') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/objet_activite') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Objets Activité</p>
                         </a>
@@ -164,7 +164,7 @@
                             <div class="icon">
                                 <i class="fas fa-question-circle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/question') ?>" class="small-box-footer">
+                            <a href="<?= base_url('/gingembre/salle_5/objet_activite') ?>" class="small-box-footer">
                                 Gérer <i class="fas fa-arrow-circle-right"></i>
                             </a>
                         </div>

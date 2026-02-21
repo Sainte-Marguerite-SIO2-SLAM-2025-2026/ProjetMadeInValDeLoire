@@ -373,6 +373,141 @@ class AdminSalle5Controller extends BaseController
         $this->objetsDeclencheursModel->delete($id);
         return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet supprimé avec succès');
     }
+
+    //
+
+    public function objetActiviteList(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['objetsActivites'] = $this->objetsActiviteModel->getAllObjetsActivite();
+        return view('admin/salle_5/objet_activite/ObjetsActiviteList', $data);
+    }
+
+    /**
+     * Formulaire de création d'un objet Activite
+     */
+    public function objetActiviteCreate(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data =[
+            'objets' => $this->objetsModel->getAllObjets(),
+            'activites' => $this->activiteModel->getActivitesBySalle($this->salleNumero),
+        ];
+
+        return view('admin/salle_5/objet_activite/objetsActiviteForm', $data);
+    }
+
+    /**
+     * Enregistrement d'un nouvel objet Activite
+     */
+    public function objetActiviteStore(): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'numero_activite' => 'required|max_length[50]',
+            'objet_id' => 'required|max_length[50]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'numero_activite' => $this->request->getPost('numero_activite'),
+            'objet_id' => $this->request->getPost('objet_id'),
+        ];
+
+        $this->objetsActiviteModel->insert($data);
+        return redirect()->to('/gingembre/salle_5/objet_activite')->with('success', 'Objet créé avec succès');
+    }
+
+    /**
+     * Formulaire d'édition d'un objet Activite
+     */
+    public function objetActiviteEdit($numero, $id): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data =[
+            'objets' => $this->objetsModel->getAllObjets(),
+            'objetActivite' => $this->objetsActiviteModel->getObjetsActivite($numero, $id),
+            'activites' => $this->activiteModel->getActivitesBySalle($this->salleNumero),
+        ];
+
+        if (!$data['objetActivite']) {
+            return redirect()->to('/gingembre/salle_5/objet_activite')->with('error', 'Objet introuvable');
+        }
+
+        return view('admin/salle_5/objet_activite/objetsActiviteForm', $data);
+    }
+
+    /**
+     * Mise à jour d'un objet Activite
+     */
+    public function objetActiviteUpdate($numero, $id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'numero_activite' => 'required|max_length[50]',
+            'objet_id' => 'required|max_length[50]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'numero_activite' => $this->request->getPost('numero_activite'),
+            'objet_id' => $this->request->getPost('objet_id'),
+        ];
+
+        // Mise à jour avec clé composite
+        $this->objetsActiviteModel
+            ->where('numero_activite', $numero)
+            ->where('objet_id', $id)
+            ->set($data)
+            ->update();
+
+        return redirect()->to('/gingembre/salle_5/objet_activite')->with('success', 'Objet modifié avec succès');
+    }
+
+    /**
+     * Suppression d'un objet Activite
+     */
+    public function objetActiviteDelete($numero, $id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        // Suppression avec clé composite
+        $this->objetsActiviteModel
+            ->where('numero_activite', $numero)
+            ->where('objet_id', $id)
+            ->delete();
+
+        return redirect()
+            ->to('/gingembre/salle_5/objet_activite')
+            ->with('success', 'Objet supprimé avec succès');
+    }
+
+
+
+
 }
 //
 //    public function supprimerObjetDeclencheur($id)
