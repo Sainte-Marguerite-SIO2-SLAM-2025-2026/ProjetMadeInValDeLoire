@@ -33,4 +33,14 @@ class objetAdminModel extends Model
     public function getNbObjets(){
         return $this->countAllResults();
     }
+
+    public function getAllObjets()
+    {
+        return $this->findAll();
+    }
+
+    public function getObjetById($id)
+    {
+        return $this->find($id);
+    }
 }

@@ -26,7 +26,7 @@ class ObjetDeclencheurModel extends Model
     }
 
     /**
-     * Récupère uniquement les objets pertinents pour une salle
+     * Récupère uniquement les objet pertinents pour une salle
      * selon les activités sélectionnées et réussies.
      */
     public function getObjetsPourSalle($activites_selectionnees, $activites_reussies)

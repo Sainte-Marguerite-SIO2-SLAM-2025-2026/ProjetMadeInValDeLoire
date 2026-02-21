@@ -196,6 +196,35 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
     // Dashboard Salle 5
     $routes->get('/', 'AdminSalle5Controller::index');
 
+    // Gestion des Objets
+    $routes->group('objet', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::objetList');
+        $routes->get('create', 'AdminSalle5Controller::objetCreate');
+        $routes->post('store', 'AdminSalle5Controller::objetStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::objetEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::objetUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle5Controller::objetDelete/$1');
+    });
+
+    $routes->group('objet_declencheur', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::objetDeclencheurList');
+        $routes->get('create', 'AdminSalle5Controller::objetDeclencheurCreate');
+        $routes->post('store', 'AdminSalle5Controller::objetDeclencheurStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::objetDeclencheurEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::objetDeclencheurUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle5Controller::objetDeclencheurDelete/$1');
+    });
+
+    // Gestion des Indices
+    $routes->group('objet_activite', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::objetActiviteList');
+        $routes->get('create', 'AdminSalle5Controller::objetActiviteCreate');
+        $routes->post('store', 'AdminSalle5Controller::objetActiviteStore');
+        $routes->get('edit/(:num)/(:num)', 'AdminSalle5Controller::objetActiviteEdit/$1/$2');
+        $routes->post('update/(:num)/(:num)', 'AdminSalle5Controller::objetActiviteUpdate/$1/$2');
+        $routes->get('delete/(:num)/(:num)', 'AdminSalle5Controller::objetActiviteDelete/$1/$2');
+    });
+
 });
 
 // Routes admin
