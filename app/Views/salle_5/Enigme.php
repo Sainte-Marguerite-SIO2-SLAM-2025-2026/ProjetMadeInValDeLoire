@@ -108,19 +108,38 @@
 
             <!-- ===== INFOBULLE ===== -->
             <?php if ($indice): ?>
+                <?php
+                $isCompil = str_contains($enigme->image, 'compil');
+
+                $xImage = $isCompil ? '1358' : '1100';
+                $yImage = $isCompil ? '723'    : '680';
+
+                $xText  = $isCompil ? '1380'   : '1120';
+                $yText  = $isCompil ? '780'    : '750';
+                ?>
+
                 <g id="infobulle" class="infobulle" style="display:none">
                     <image
                             href="<?= base_url('images/salle_6/bulle-salle-6.svg') ?>"
-                            x="1100" y="680"
-                            width="340" height="250" />
-                    <foreignObject x="1120" y="770" width="300" height="180">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                             class="texte-indice">
+                            x="<?= $xImage ?>"
+                            y="<?= $yImage ?>"
+                            width="340"
+                            height="250"
+                    />
+
+                    <foreignObject
+                            x="<?= $xText ?>"
+                            y="<?= $yText ?>"
+                            width="300"
+                            height="180"
+                    >
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="texte-indice">
                             <?= esc($indice->libelle) ?>
                         </div>
                     </foreignObject>
                 </g>
             <?php endif; ?>
+
 
             <!-- ===== LUMI ===== -->
             <g id="lumi" class="zone-lumi" data-piece="Lumi">

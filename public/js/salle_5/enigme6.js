@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 }, 500);
                             });
                         } else {
-                            // Bonne réponse mais pas fini - réactiver les objets non déposés
+                            // Bonne réponse mais pas fini - réactiver les objet non déposés
                             dragDisabled = false;
                             objetsDrag.forEach(obj => {
                                 if (obj.style.visibility !== 'hidden') {
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     feedback.className = 'feedback error show';
 
                     document.getElementById('retry-btn').addEventListener('click', () => {
-                        // Réactiver les objets non déposés
+                        // Réactiver les objet non déposés
                         dragDisabled = false;
                         objetsDrag.forEach(obj => {
                             if (obj.style.visibility !== 'hidden') {
