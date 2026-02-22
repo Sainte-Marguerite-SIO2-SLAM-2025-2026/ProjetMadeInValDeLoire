@@ -505,7 +505,117 @@ class AdminSalle5Controller extends BaseController
             ->with('success', 'Objet supprimé avec succès');
     }
 
+// ==================== GESTION QUESTION ====================
 
+    /**
+     * Liste des question
+     */
+    public function questionList(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['questions'] = $this->modeEmploiModel->getAllModeEmploi();
+        return view('admin/salle_5/question/QuestionsList', $data);
+    }
+
+    /**
+     * Formulaire de création d'une question
+     */
+    public function questionCreate(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
+
+        return view('admin/salle_5/question/questionsForm', $data);
+    }
+
+    /**
+     * Enregistrement d'une nouvelle question
+     */
+    public function questionStore(): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'libelle' => 'required',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'explication_2' => $this->request->getPost('libelle'),
+            'activite_numero' => $this->request->getPost('activite_numero')? $this->request->getPost('activite_numero') : null,
+        ];
+
+        $this->modeEmploiModel->insert($data);
+        return redirect()->to('/gingembre/salle_5/question')->with('success', 'Question créé avec succès');
+    }
+
+    /**
+     * Formulaire d'édition d'une question
+     */
+    public function questionEdit($id): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['questions'] = $this->modeEmploiModel->getModeEmploiByActivite($id);
+        $data['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
+        if (!$data['questions']) {
+            return redirect()->to('/gingembre/salle_5/question')->with('error', 'Objet introuvable');
+        }
+
+        return view('admin/salle_5/question/questionsForm', $data);
+    }
+
+    /**
+     * Mise à jour d'une question
+     */
+    public function questionUpdate($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'libelle' => 'required',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'explication_2' => $this->request->getPost('libelle'),
+            'activite_numero' => $this->request->getPost('activite_numero')? $this->request->getPost('activite_numero') : null,
+        ];
+
+        $this->modeEmploiModel->update($id, $data);
+        return redirect()->to('/gingembre/salle_5/question')->with('success', 'Objet modifié avec succès');
+    }
+
+    /**
+     * Suppression d'une question
+     */
+    public function questionDelete($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $this->modeEmploiModel->delete($id);
+        return redirect()->to('/gingembre/salle_5/question')->with('success', 'Objet supprimé avec succès');
+    }
 
 
 }

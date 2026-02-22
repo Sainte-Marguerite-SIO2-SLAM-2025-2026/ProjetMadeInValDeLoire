@@ -14,4 +14,20 @@ class ModeEmploiAdminModel extends Model
     public function getNbModeEmploi(){
         return $this->countAllResults();
     }
+
+    /**
+     * Récupérer le mode d'emploi d'une activité
+     */
+    public function getAllModeEmploi()
+    {
+        return $this->findAll();
+    }
+
+    /**
+     * Récupérer le mode d'emploi en fonction de son numero
+     */
+    public function getModeEmploiByActivite($numero)
+    {
+        return $this->where('numero', $numero)->first();
+    }
 }
