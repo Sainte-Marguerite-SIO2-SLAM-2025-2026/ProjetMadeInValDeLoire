@@ -58,7 +58,7 @@ class AvoirRepModel extends Model
     public function getBonnesReponsesByActivite($activite_numero)
     {
         return $this->db->table('objets')
-            ->select('objets.reponse')
+            ->select('objet.reponse')
             ->join('avoir_rep', 'avoir_rep.objet_id = objets.id')
             ->where('avoir_rep.activite_numero', $activite_numero)
             ->get()
