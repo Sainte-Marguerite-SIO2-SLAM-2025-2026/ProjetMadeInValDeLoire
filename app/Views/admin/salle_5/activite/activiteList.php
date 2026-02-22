@@ -168,7 +168,7 @@
                                     <td><?= esc(substr($activite['libelle'], 0, 80)) ?><?= strlen($activite['libelle']) > 80 ? '...' : '' ?></td>
                                     <td>
                                         <?php if ($activite['image']): ?>
-                                            <small><?= esc(substr($activite['image'],15)) ?></small>
+                                            <small><?= esc(substr($activite['image'],18)) ?></small>
                                         <?php else: ?>
                                             <span class="text-muted">-</span>
                                         <?php endif; ?>

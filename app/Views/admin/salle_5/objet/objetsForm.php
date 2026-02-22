@@ -218,7 +218,7 @@
                                        class="form-control"
                                        id="image"
                                        name="image"
-                                       value="<?= old('image', isset($objet) ? $objet->image : '') ?>"
+                                       value="<?= old('image', isset($objet) ? substr($objet->image, 15) : '') ?>"
                                        placeholder="carte_pins_01.png"
                                        maxlength="50"
                                        required>

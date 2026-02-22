@@ -181,7 +181,7 @@
                                        class="form-control"
                                        id="image"
                                        name="image"
-                                       value="<?= old('image', isset($activite) ? $activite['image'] : '') ?>"
+                                       value="<?= old('image', isset($activite) ? substr($activite['image'], 18) : '') ?>"
                                        placeholder="frise_reaction_ransomware.png">
                                 <small class="form-text text-muted">Nom du fichier image</small>
                             </div>

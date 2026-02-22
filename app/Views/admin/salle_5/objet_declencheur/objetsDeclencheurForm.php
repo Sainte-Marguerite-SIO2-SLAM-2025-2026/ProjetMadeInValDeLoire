@@ -166,7 +166,7 @@
                                        class="form-control"
                                        id="image"
                                        name="image"
-                                       value="<?= old('image', isset($objetDeclencheur) ? $objetDeclencheur->image_path : '') ?>"
+                                       value="<?= old('image', isset($objetDeclencheur) ? substr($objetDeclencheur->image_path, 15) : '') ?>"
                                        placeholder="carte_pins_01.png"
                                        maxlength="50"
                                        required>
