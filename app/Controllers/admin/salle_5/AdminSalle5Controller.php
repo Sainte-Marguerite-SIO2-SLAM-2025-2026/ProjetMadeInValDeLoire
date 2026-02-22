@@ -923,6 +923,7 @@ class AdminSalle5Controller extends BaseController
             'salle_numero' => $this->salleNumero
         ];
 
+
         if ($this->activiteModel->createActivite($data)) {
             return redirect()->to('/gingembre/salle_5/activite')->with('success', 'Activité créée avec succès');
         }
