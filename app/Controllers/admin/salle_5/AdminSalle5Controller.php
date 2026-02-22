@@ -57,8 +57,7 @@ class AdminSalle5Controller extends BaseController
             'totalExplications' => $this->explicationModel->countExplications($this->salleNumero),
             'totalIndices' => $this->indiceModel->countIndices($this->salleNumero),
             'totalModeEmploi' => $this->modeEmploiModel->getNbModeEmploi(),
-            'messageFaux' => $this->activiteMessageModel->getNbMessageEchec(),
-            'messageVrai' => $this->activiteMessageModel->getNbMessageSucces(),
+            'message' => $this->activiteMessageModel->getNbMessage(),
             'totalObjetsActivites' => $this->objetsActiviteModel->getNbObjetActivite(),
             'avoirRep' => $this->avoirRepModel->getNbRep()
         ];
@@ -235,8 +234,7 @@ class AdminSalle5Controller extends BaseController
     }
 
 
-
-//
+// ==================== GESTION OBJETS DECLENCHEURS ====================
 
     public function objetDeclencheurList(): string|RedirectResponse
     {
@@ -300,7 +298,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         $this->objetsDeclencheursModel->insert($data);
-        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet créé avec succès');
+        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet déclencheur créé avec succès');
     }
 
     /**
@@ -316,7 +314,7 @@ class AdminSalle5Controller extends BaseController
         $data ['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
 
         if (!$data['objetDeclencheur']) {
-            return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('error', 'Objet introuvable');
+            return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('error', 'Objet déclencheur introuvable');
         }
 
         return view('admin/salle_5/objet_declencheur/objetsDeclencheurForm', $data);
@@ -358,7 +356,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         $this->objetsDeclencheursModel->update($id, $data);
-        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet modifié avec succès');
+        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet déclencheur modifié avec succès');
     }
 
     /**
@@ -371,10 +369,11 @@ class AdminSalle5Controller extends BaseController
         }
 
         $this->objetsDeclencheursModel->delete($id);
-        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet supprimé avec succès');
+        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet déclencheur supprimé avec succès');
     }
 
-    //
+
+    // ==================== GESTION OBJETS D'ACTIVITE ====================
 
     public function objetActiviteList(): string|RedirectResponse
     {
@@ -427,7 +426,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         $this->objetsActiviteModel->insert($data);
-        return redirect()->to('/gingembre/salle_5/objet_activite')->with('success', 'Objet créé avec succès');
+        return redirect()->to('/gingembre/salle_5/objet_activite')->with('success', 'Objet activité créé avec succès');
     }
 
     /**
@@ -446,7 +445,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         if (!$data['objetActivite']) {
-            return redirect()->to('/gingembre/salle_5/objet_activite')->with('error', 'Objet introuvable');
+            return redirect()->to('/gingembre/salle_5/objet_activite')->with('error', 'Objet activité introuvable');
         }
 
         return view('admin/salle_5/objet_activite/objetsActiviteForm', $data);
@@ -482,7 +481,7 @@ class AdminSalle5Controller extends BaseController
             ->set($data)
             ->update();
 
-        return redirect()->to('/gingembre/salle_5/objet_activite')->with('success', 'Objet modifié avec succès');
+        return redirect()->to('/gingembre/salle_5/objet_activite')->with('success', 'Objet activité modifié avec succès');
     }
 
     /**
@@ -502,7 +501,7 @@ class AdminSalle5Controller extends BaseController
 
         return redirect()
             ->to('/gingembre/salle_5/objet_activite')
-            ->with('success', 'Objet supprimé avec succès');
+            ->with('success', 'Objet activité supprimé avec succès');
     }
 
 // ==================== GESTION QUESTION ====================
@@ -572,7 +571,7 @@ class AdminSalle5Controller extends BaseController
         $data['questions'] = $this->modeEmploiModel->getModeEmploiByActivite($id);
         $data['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
         if (!$data['questions']) {
-            return redirect()->to('/gingembre/salle_5/question')->with('error', 'Objet introuvable');
+            return redirect()->to('/gingembre/salle_5/question')->with('error', 'Question introuvable');
         }
 
         return view('admin/salle_5/question/questionsForm', $data);
@@ -601,7 +600,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         $this->modeEmploiModel->update($id, $data);
-        return redirect()->to('/gingembre/salle_5/question')->with('success', 'Objet modifié avec succès');
+        return redirect()->to('/gingembre/salle_5/question')->with('success', 'Question modifié avec succès');
     }
 
     /**
@@ -614,7 +613,626 @@ class AdminSalle5Controller extends BaseController
         }
 
         $this->modeEmploiModel->delete($id);
-        return redirect()->to('/gingembre/salle_5/question')->with('success', 'Objet supprimé avec succès');
+        return redirect()->to('/gingembre/salle_5/question')->with('success', 'Question supprimé avec succès');
+    }
+
+    // ==================== GESTION REPONSES ====================
+
+    /**
+     * Liste des réponses
+     */
+    public function reponseList(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['reponses'] = $this->activiteMessageModel->getAllMessage();
+        return view('admin/salle_5/reponse/reponsesList', $data);
+    }
+
+    /**
+     * Formulaire de création d'une réponses
+     */
+    public function reponseCreate(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
+
+        return view('admin/salle_5/reponse/reponsesForm', $data);
+    }
+
+    /**
+     * Enregistrement d'une nouvelle réponses
+     */
+    public function reponseStore(): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'activite_numero' => 'required|numeric',
+            'reponse' => 'required|in_list[succes,echec]',
+            'message' => 'required',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'activite_numero' => $this->request->getPost('activite_numero')? $this->request->getPost('activite_numero') : null,
+            'type_message' => $this->request->getPost('reponse'),
+            'message' => $this->request->getPost('message'),
+        ];
+
+        $this->activiteMessageModel->insert($data);
+        return redirect()->to('/gingembre/salle_5/reponse')->with('success', 'Réponse créé avec succès');
+    }
+
+    /**
+     * Formulaire d'édition d'une réponses
+     */
+    public function reponseEdit($id): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['reponses'] = $this->activiteMessageModel->getMessage($id);
+        $data['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
+        if (!$data['reponses']) {
+            return redirect()->to('/gingembre/salle_5/reponse')->with('error', 'Réponse introuvable');
+        }
+
+        return view('admin/salle_5/reponse/reponsesForm', $data);
+    }
+
+    /**
+     * Mise à jour d'une réponses
+     */
+    public function reponseUpdate($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'activite_numero' => 'required|numeric',
+            'reponse' => 'required|in_list[succes,echec]',
+            'message' => 'required',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'activite_numero' => $this->request->getPost('activite_numero')? $this->request->getPost('activite_numero') : null,
+            'type_message' => $this->request->getPost('reponse'),
+            'message' => $this->request->getPost('message'),
+        ];
+
+        $this->activiteMessageModel->update($id, $data);
+        return redirect()->to('/gingembre/salle_5/reponse')->with('success', 'Réponse modifié avec succès');
+    }
+
+    /**
+     * Suppression d'une réponses
+     */
+    public function reponseDelete($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $this->activiteMessageModel->delete($id);
+        return redirect()->to('/gingembre/salle_5/reponse')->with('success', 'Réponse supprimé avec succès');
+    }
+
+    // ==================== GESTION LIAISON ACTIVITE/OBJET REPONSE (avoirRep) ====================
+
+    public function avoirRepList(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['avoirRep'] = $this->avoirRepModel->getAllRep();
+        return view('admin/salle_5/avoir_rep/avoirRepList', $data);
+    }
+
+    /**
+     * Formulaire de création d'un objet reponse
+     */
+    public function avoirRepCreate(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data =[
+            'objets' => $this->objetsModel->getAllObjets(),
+            'activites' => $this->activiteModel->getActivitesBySalle($this->salleNumero),
+        ];
+
+        return view('admin/salle_5/avoir_rep/avoirRepForm', $data);
+    }
+
+    /**
+     * Enregistrement d'un nouvel objet reponse
+     */
+    public function avoirRepStore(): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'objet_id' => 'required|max_length[50]',
+            'activite_numero' => 'required|max_length[50]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'objet_id' => $this->request->getPost('objet_id'),
+            'activite_numero' => $this->request->getPost('activite_numero'),
+        ];
+
+        $this->avoirRepModel->insert($data);
+        return redirect()->to('/gingembre/salle_5/avoir_rep')->with('success', 'Objet reponse créé avec succès');
+    }
+
+    /**
+     * Formulaire d'édition d'un objet reponse
+     */
+    public function avoirRepEdit($numero, $id): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data =[
+            'objets' => $this->objetsModel->getAllObjets(),
+            'avoirRep' => $this->avoirRepModel->getRepActivite($numero, $id),
+            'activites' => $this->activiteModel->getActivitesBySalle($this->salleNumero),
+        ];
+
+        if (!$data['avoirRep']) {
+            return redirect()->to('/gingembre/salle_5/avoir_rep')->with('error', 'Objet reponse introuvable');
+        }
+
+        return view('admin/salle_5/avoir_rep/avoirRepForm', $data);
+    }
+
+    /**
+     * Mise à jour d'un objet reponse
+     */
+    public function avoirRepUpdate($numero, $id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'objet_id' => 'required|max_length[50]',
+            'activite_numero' => 'required|max_length[50]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'objet_id' => $this->request->getPost('objet_id'),
+            'activite_numero' => $this->request->getPost('activite_numero'),
+        ];
+
+        $this->avoirRepModel
+            ->where('objet_id', $id)
+            ->where('activite_numero', $numero)
+            ->set($data)
+            ->update();
+
+        return redirect()->to('/gingembre/salle_5/avoir_rep')->with('success', 'Objet reponse modifié avec succès');
+    }
+
+    /**
+     * Suppression d'un objet reponse
+     */
+    public function avoirRepDelete($numero, $id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        // Suppression avec clé composite
+        $this->avoirRepModel
+            ->where('objet_id', $id)
+            ->where('activite_numero', $numero)
+            ->delete();
+
+        return redirect()
+            ->to('/gingembre/salle_5/avoir_rep')
+            ->with('success', 'Objet reponse supprimé avec succès');
+    }
+
+    // ==================== GESTION ACTIVITÉS ====================
+
+    /**
+     * Liste des activités de la salle 5
+     */
+    public function activiteList(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
+        return view('admin/salle_5/activite/activiteList', $data);
+    }
+
+    /**
+     * Formulaire de création d'une activité
+     */
+    public function activiteCreate(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data = [
+            'explications' => $this->explicationModel->getExplicationsBySalle($this->salleNumero),
+            'next_numero' => $this->activiteModel->getNextNumeroForSalle($this->salleNumero)
+        ];
+        return view('admin/salle_5/activite/activiteForm', $data);
+    }
+
+    /**
+     * Enregistrement d'une nouvelle activité
+     */
+    public function activiteStore(): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'libelle' => 'required'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+
+        $data = [
+            'numero' => $this->request->getPost('numero'),
+            'libelle' => $this->request->getPost('libelle'),
+            'image' => $this->request->getPost('image') ?: null,
+            'explication_numero' => $this->request->getPost('explication_numero') ?: null,
+            'width_img' => $this->request->getPost('width_img') ?: null,
+            'height_img' => $this->request->getPost('height_img') ?: null,
+            'salle_numero' => $this->salleNumero
+        ];
+
+        if ($this->activiteModel->createActivite($data)) {
+            return redirect()->to('/gingembre/salle_5/activite')->with('success', 'Activité créée avec succès');
+        }
+
+        return redirect()->back()->withInput()->with('error', 'Erreur lors de la création de l\'activité');
+    }
+
+    /**
+     * Formulaire d'édition d'une activité
+     */
+    public function activiteEdit($id): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['activite'] = $this->activiteModel->find($id);
+        if (!$data['activite']) {
+            return redirect()->to('/gingembre/salle_5/activite')->with('error', 'Activité introuvable');
+        }
+
+        $data['explications'] = $this->explicationModel->getExplicationsBySalle($this->salleNumero);
+        return view('admin/salle_5/activite/activiteForm', $data);
+    }
+
+    /**
+     * Mise à jour d'une activité
+     */
+    public function activiteUpdate($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'libelle' => 'required'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'libelle' => $this->request->getPost('libelle'),
+            'image' => $this->request->getPost('image') ?: null,
+            'explication_numero' => $this->request->getPost('explication_numero') ?: null,
+            'width_img' => $this->request->getPost('width_img') ?: null,
+            'height_img' => $this->request->getPost('height_img') ?: null,
+            'salle_numero' => $this->salleNumero
+        ];
+
+        if ($this->activiteModel->updateActivite($id, $data)) {
+            return redirect()->to('/gingembre/salle_5/activite')->with('success', 'Activité modifiée avec succès');
+        }
+
+        return redirect()->back()->withInput()->with('error', 'Erreur lors de la modification de l\'activité');
+    }
+
+    /**
+     * Suppression d'une activité
+     */
+    public function activiteDelete($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        if ($this->activiteModel->deleteActivite($id)) {
+            return redirect()->to('/gingembre/salle_5/activite')->with('success', 'Activité supprimée avec succès');
+        }
+
+        return redirect()->to('/gingembre/salle_5/activite')->with('error', 'Impossible de supprimer cette activité (utilisée ailleurs)');
+    }
+
+    // ==================== GESTION EXPLICATIONS ====================
+
+    /**
+     * Liste des explications de la salle 5
+     */
+    public function explicationList(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['explications'] = $this->explicationModel->getExplicationsBySalle($this->salleNumero);
+        return view('admin/salle_5/explication/explicationList', $data);
+    }
+
+    /**
+     * Formulaire de création d'une explication
+     */
+    public function explicationCreate(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['next_numero'] = $this->explicationModel->getNextNumeroForSalle($this->salleNumero);
+        return view('admin/salle_5/explication/explicationForm', $data);
+    }
+
+    /**
+     * Enregistrement d'une nouvelle explication
+     */
+    public function explicationStore(): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'numero' => 'required|numeric|is_unique[explication.numero]',
+            'libelle' => 'required'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'numero' => $this->request->getPost('numero'),
+            'libelle' => $this->request->getPost('libelle')
+        ];
+
+        if ($this->explicationModel->createExplication($data)) {
+            return redirect()->to('/gingembre/salle_5/explication')->with('success', 'Explication créée avec succès');
+        }
+
+        return redirect()->back()->withInput()->with('error', 'Erreur lors de la création de l\'explication');
+    }
+
+    /**
+     * Formulaire d'édition d'une explication
+     */
+    public function explicationEdit($id): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['explication'] = $this->explicationModel->find($id);
+        if (!$data['explication']) {
+            return redirect()->to('/gingembre/salle_5/explication')->with('error', 'Explication introuvable');
+        }
+
+        return view('admin/salle_5/explication/explicationForm', $data);
+    }
+
+    /**
+     * Mise à jour d'une explication
+     */
+    public function explicationUpdate($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'libelle' => 'required'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'libelle' => $this->request->getPost('libelle')
+        ];
+
+        if ($this->explicationModel->updateExplication($id, $data)) {
+            return redirect()->to('/gingembre/salle_5/explication')->with('success', 'Explication modifiée avec succès');
+        }
+
+        return redirect()->back()->withInput()->with('error', 'Erreur lors de la modification de l\'explication');
+    }
+
+    /**
+     * Suppression d'une explication
+     */
+    public function explicationDelete($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        if ($this->explicationModel->deleteExplication($id)) {
+            return redirect()->to('/gingembre/salle_5/explication')->with('success', 'Explication supprimée avec succès');
+        }
+
+        return redirect()->to('/gingembre/salle_5/explication')->with('error', 'Impossible de supprimer cette explication (utilisée ailleurs)');
+    }
+
+    // ==================== GESTION INDICES ====================
+
+    /**
+     * Liste des indices de la salle 5
+     */
+    public function indiceList(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['indices'] = $this->indiceModel->getIndicesBySalle($this->salleNumero);
+        return view('admin/salle_5/indice/indiceList', $data);
+    }
+
+    /**
+     * Formulaire de création d'un indice
+     */
+    public function indiceCreate(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['next_numero'] = $this->indiceModel->getNextNumeroForSalle($this->salleNumero);
+        return view('admin/salle_5/indice/indiceForm', $data);
+    }
+
+    /**
+     * Enregistrement d'un nouvel indice
+     */
+    public function indiceStore(): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'numero' => 'required|numeric|is_unique[indice.numero]',
+            'libelle' => 'required'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'numero' => $this->request->getPost('numero'),
+            'libelle' => $this->request->getPost('libelle')
+        ];
+
+        if ($this->indiceModel->createIndice($data)) {
+            return redirect()->to('/gingembre/salle_5/indice')->with('success', 'Indice créé avec succès');
+        }
+
+        return redirect()->back()->withInput()->with('error', 'Erreur lors de la création de l\'indice');
+    }
+
+    /**
+     * Formulaire d'édition d'un indice
+     */
+    public function indiceEdit($id): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['indice'] = $this->indiceModel->find($id);
+        if (!$data['indice']) {
+            return redirect()->to('/gingembre/salle_5/indice')->with('error', 'Indice introuvable');
+        }
+
+        return view('admin/salle_5/indice/indiceForm', $data);
+    }
+
+    /**
+     * Mise à jour d'un indice
+     */
+    public function indiceUpdate($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'libelle' => 'required'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'libelle' => $this->request->getPost('libelle')
+        ];
+
+        if ($this->indiceModel->updateIndice($id, $data)) {
+            return redirect()->to('/gingembre/salle_5/indice')->with('success', 'Indice modifié avec succès');
+        }
+
+        return redirect()->back()->withInput()->with('error', 'Erreur lors de la modification de l\'indice');
+    }
+
+    /**
+     * Suppression d'un indice
+     */
+    public function indiceDelete($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        if ($this->indiceModel->deleteIndice($id)) {
+            return redirect()->to('/gingembre/salle_5/indice')->with('success', 'Indice supprimé avec succès');
+        }
+
+        return redirect()->to('/gingembre/salle_5/indice')->with('error', 'Impossible de supprimer cet indice (utilisé ailleurs)');
     }
 
 

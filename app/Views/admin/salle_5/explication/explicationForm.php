@@ -3,13 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gestion des Questions - Salle 5</title>
+    <title><?= isset($explication) ? 'Modifier' : 'Ajouter' ?> une Explication - Admin Salle 5</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -35,6 +33,7 @@
         </ul>
     </nav>
 
+    <!-- Sidebar -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="<?= base_url('/gingembre/salle_5') ?>" class="brand-link">
             <span class="brand-text font-weight-light">Admin Salle 5</span>
@@ -116,11 +115,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Gestion des Questions</h1>
+                        <h1><?= isset($explication) ? 'Modifier' : 'Ajouter' ?> une Explication</h1>
                     </div>
                     <div class="col-sm-6">
-                        <a href="<?= base_url('/gingembre/salle_5/question/create') ?>" class="btn btn-success float-right">
-                            <i class="fas fa-plus"></i> Nouvelle question
+                        <a href="<?= base_url('/gingembre/salle_5/explication') ?>" class="btn btn-secondary float-right">
+                            <i class="fas fa-arrow-left"></i> Retour
                         </a>
                     </div>
                 </div>
@@ -130,77 +129,77 @@
         <section class="content">
             <div class="container-fluid">
 
-                <?php if (session()->getFlashdata('success')): ?>
-                    <div class="alert alert-success alert-dismissible fade show">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <?= session()->getFlashdata('success') ?>
-                    </div>
-                <?php endif; ?>
-
-                <?php if (session()->getFlashdata('error')): ?>
+                <?php if (session()->getFlashdata('errors')): ?>
                     <div class="alert alert-danger alert-dismissible fade show">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <?= session()->getFlashdata('error') ?>
+                        <ul class="mb-0">
+                            <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                                <li><?= esc($error) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
                     </div>
                 <?php endif; ?>
 
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Liste des Question</h3>
-                    </div>
-                    <div class="card-body">
-                        <table id="objetsTable" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th>numéro</th>
-                                <th>question</th>
-                                <th>activite_numero</th>
-                                <th>Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach ($questions as $question): ?>
-                                <tr>
-                                    <td><?= $question->numero ?></td>
-                                    <td><?= esc($question->explication_2) ?></td>
-                                    <td><?= esc($question->activite_numero) ?></td>
-                                    <!--                                    <td>--><?php //= substr(esc($objet['explication']), 0, 50) ?><!--...</td>-->
-                                    <!--                                    <td>-->
-                                    <!--                                        --><?php //if ($objet['type_carte'] == 'bonne_pratique'): ?>
-                                    <!--                                            <span class="badge badge-success">Bonne pratique</span>-->
-                                    <!--                                        --><?php //else: ?>
-                                    <!--                                            <span class="badge badge-warning">Piège</span>-->
-                                    <!--                                        --><?php //endif; ?>
-                                    <!--                                    </td>-->
-                                    <!--                                    <td>-->
-                                    <!--                                        --><?php //if ($objet['activite_numero']): ?>
-                                    <!--                                            <small>--><?php //= esc($objet['activite_libelle']) ?><!--</small>-->
-                                    <!--                                        --><?php //else: ?>
-                                    <!--                                            <span class="text-muted">-</span>-->
-                                    <!--                                        --><?php //endif; ?>
-                                    <!--                                    </td>-->
-                                    <td>
-                                        <a href="<?= base_url('/gingembre/salle_5/question/edit/' . $question->numero) ?>"
-                                           class="btn btn-sm btn-primary">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <a href="<?= base_url('/gingembre/salle_5/question/delete/' . $question->numero) ?>"
-                                           class="btn btn-sm btn-danger"
-                                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette question ?')">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                    <form action="<?= isset($explication) ? base_url('/gingembre/salle_5/explication/update/' . $explication['numero']) : base_url('/gingembre/salle_5/explication/store') ?>"
+                          method="post">
+                        <?= csrf_field() ?>
+
+                        <div class="card-body">
+
+                            <div class="form-group">
+                                <label for="numero">Numéro <span class="text-danger">*</span></label>
+                                <?php if (isset($explication)): ?>
+                                    <input type="number" class="form-control" value="<?= $explication['numero'] ?>" readonly>
+                                    <small class="form-text text-muted">Le numéro ne peut pas être modifié</small>
+                                <?php else: ?>
+                                    <input type="number"
+                                           class="form-control"
+                                           id="numero"
+                                           name="numero"
+                                           value="<?= old('numero', $next_numero ?? '') ?>"
+                                           min="500"
+                                           max="599"
+                                           required>
+                                    <small class="form-text text-muted">Numéro suggéré: <?= $next_numero ?? '' ?> (plage 500-599)</small>
+                                <?php endif; ?>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="libelle">Contenu de l'Explication <span class="text-danger">*</span></label>
+                                <textarea class="form-control"
+                                          id="libelle"
+                                          name="libelle"
+                                          rows="10"
+                                          required><?= old('libelle', isset($explication) ? $explication['libelle'] : '') ?></textarea>
+                                <small class="form-text text-muted">
+                                    Supporte le HTML. Utilisez des balises comme &lt;strong&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;li&gt; etc.
+                                </small>
+                            </div>
+
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle"></i>
+                                <strong>Aperçu HTML :</strong> Le contenu ci-dessus sera affiché avec le HTML interprété dans l'application.
+                            </div>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Enregistrer
+                            </button>
+                            <a href="<?= base_url('/gingembre/salle_5/explication') ?>" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> Annuler
+                            </a>
+                        </div>
+                    </form>
                 </div>
 
             </div>
         </section>
     </div>
 
+    <!-- Footer -->
     <footer class="main-footer">
         <strong>Administration Salle 5</strong> - Made in Val de Loire
     </footer>
@@ -209,18 +208,5 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
-<!-- DataTables -->
-<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#objetsTable').DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/fr-FR.json"
-            },
-            "order": [[0, "asc"]]
-        });
-    });
-</script>
 </body>
 </html>

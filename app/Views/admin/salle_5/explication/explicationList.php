@@ -3,12 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gestion des Questions - Salle 5</title>
+    <title>Gestion des Explications - Admin Salle 5</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-    <!-- DataTables -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
@@ -35,6 +34,7 @@
         </ul>
     </nav>
 
+    <!-- Sidebar -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="<?= base_url('/gingembre/salle_5') ?>" class="brand-link">
             <span class="brand-text font-weight-light">Admin Salle 5</span>
@@ -116,11 +116,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Gestion des Questions</h1>
+                        <h1>Gestion des Explications (500-599)</h1>
                     </div>
                     <div class="col-sm-6">
-                        <a href="<?= base_url('/gingembre/salle_5/question/create') ?>" class="btn btn-success float-right">
-                            <i class="fas fa-plus"></i> Nouvelle question
+                        <a href="<?= base_url('/gingembre/salle_5/explication/create') ?>" class="btn btn-success float-right">
+                            <i class="fas fa-plus"></i> Nouvelle Explication
                         </a>
                     </div>
                 </div>
@@ -146,47 +146,32 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Liste des Question</h3>
+                        <h3 class="card-title">Liste des Explications de la Salle 5</h3>
                     </div>
                     <div class="card-body">
-                        <table id="objetsTable" class="table table-bordered table-striped">
+                        <table id="explicationsTable" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th>numéro</th>
-                                <th>question</th>
-                                <th>activite_numero</th>
-                                <th>Actions</th>
+                                <th style="width: 80px;">N°</th>
+                                <th>Libellé</th>
+                                <th style="width: 150px;">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($questions as $question): ?>
+                            <?php foreach ($explications as $explication): ?>
                                 <tr>
-                                    <td><?= $question->numero ?></td>
-                                    <td><?= esc($question->explication_2) ?></td>
-                                    <td><?= esc($question->activite_numero) ?></td>
-                                    <!--                                    <td>--><?php //= substr(esc($objet['explication']), 0, 50) ?><!--...</td>-->
-                                    <!--                                    <td>-->
-                                    <!--                                        --><?php //if ($objet['type_carte'] == 'bonne_pratique'): ?>
-                                    <!--                                            <span class="badge badge-success">Bonne pratique</span>-->
-                                    <!--                                        --><?php //else: ?>
-                                    <!--                                            <span class="badge badge-warning">Piège</span>-->
-                                    <!--                                        --><?php //endif; ?>
-                                    <!--                                    </td>-->
-                                    <!--                                    <td>-->
-                                    <!--                                        --><?php //if ($objet['activite_numero']): ?>
-                                    <!--                                            <small>--><?php //= esc($objet['activite_libelle']) ?><!--</small>-->
-                                    <!--                                        --><?php //else: ?>
-                                    <!--                                            <span class="text-muted">-</span>-->
-                                    <!--                                        --><?php //endif; ?>
-                                    <!--                                    </td>-->
+                                    <td><strong><?= $explication['numero'] ?></strong></td>
+                                    <td><?= substr(strip_tags($explication['libelle']), 0, 150) ?><?= strlen($explication['libelle']) > 150 ? '...' : '' ?></td>
                                     <td>
-                                        <a href="<?= base_url('/gingembre/salle_5/question/edit/' . $question->numero) ?>"
-                                           class="btn btn-sm btn-primary">
+                                        <a href="<?= base_url('/gingembre/salle_5/explication/edit/' . $explication['numero']) ?>"
+                                           class="btn btn-sm btn-primary"
+                                           title="Modifier">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="<?= base_url('/gingembre/salle_5/question/delete/' . $question->numero) ?>"
+                                        <a href="<?= base_url('/gingembre/salle_5/explication/delete/' . $explication['numero']) ?>"
                                            class="btn btn-sm btn-danger"
-                                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette question ?')">
+                                           title="Supprimer"
+                                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette explication ? Cette action supprimera aussi ses liens avec les activités.')">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -201,6 +186,7 @@
         </section>
     </div>
 
+    <!-- Footer -->
     <footer class="main-footer">
         <strong>Administration Salle 5</strong> - Made in Val de Loire
     </footer>
@@ -209,12 +195,11 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
-<!-- DataTables -->
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#objetsTable').DataTable({
+        $('#explicationsTable').DataTable({
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/fr-FR.json"
             },

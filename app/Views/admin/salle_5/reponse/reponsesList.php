@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gestion des Questions - Salle 5</title>
+    <title>Gestion des Réponses - Salle 5</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -116,11 +116,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Gestion des Questions</h1>
+                        <h1>Gestion des reponses</h1>
                     </div>
                     <div class="col-sm-6">
-                        <a href="<?= base_url('/gingembre/salle_5/question/create') ?>" class="btn btn-success float-right">
-                            <i class="fas fa-plus"></i> Nouvelle question
+                        <a href="<?= base_url('/gingembre/salle_5/reponse/create') ?>" class="btn btn-success float-right">
+                            <i class="fas fa-plus"></i> Nouvelle reponse
                         </a>
                     </div>
                 </div>
@@ -146,24 +146,27 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Liste des Question</h3>
+                        <h3 class="card-title">Liste des reponses</h3>
                     </div>
                     <div class="card-body">
                         <table id="objetsTable" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th>numéro</th>
-                                <th>question</th>
+                                <th>id</th>
                                 <th>activite_numero</th>
+                                <th>type_message</th>
+                                <th>message</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($questions as $question): ?>
+                            <?php foreach ($reponses as $reponse): ?>
                                 <tr>
-                                    <td><?= $question->numero ?></td>
-                                    <td><?= esc($question->explication_2) ?></td>
-                                    <td><?= esc($question->activite_numero) ?></td>
+                                    <td><?= $reponse->id ?></td>
+                                    <td><?= esc($reponse->activite_numero) ?></td>
+                                    <td><?= esc($reponse->type_message) ?></td>
+                                    <td><?= esc($reponse->message) ?></td>
+
                                     <!--                                    <td>--><?php //= substr(esc($objet['explication']), 0, 50) ?><!--...</td>-->
                                     <!--                                    <td>-->
                                     <!--                                        --><?php //if ($objet['type_carte'] == 'bonne_pratique'): ?>
@@ -180,13 +183,13 @@
                                     <!--                                        --><?php //endif; ?>
                                     <!--                                    </td>-->
                                     <td>
-                                        <a href="<?= base_url('/gingembre/salle_5/question/edit/' . $question->numero) ?>"
+                                        <a href="<?= base_url('/gingembre/salle_5/reponse/edit/' . $reponse->id) ?>"
                                            class="btn btn-sm btn-primary">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="<?= base_url('/gingembre/salle_5/question/delete/' . $question->numero) ?>"
+                                        <a href="<?= base_url('/gingembre/salle_5/reponse/delete/' . $reponse->id) ?>"
                                            class="btn btn-sm btn-danger"
-                                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette question ?')">
+                                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette reponse ?')">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>

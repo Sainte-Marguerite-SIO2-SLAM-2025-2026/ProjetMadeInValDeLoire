@@ -1,15 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gestion des Questions - Salle 5</title>
+    <title><?= isset($reponses) ? 'Modifier' : 'Ajouter' ?> une reponse - Salle 5</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -116,11 +115,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Gestion des Questions</h1>
+                        <h1><?= isset($reponses) ? 'Modifier' : 'Ajouter' ?> une reponse</h1>
                     </div>
                     <div class="col-sm-6">
-                        <a href="<?= base_url('/gingembre/salle_5/question/create') ?>" class="btn btn-success float-right">
-                            <i class="fas fa-plus"></i> Nouvelle question
+                        <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="btn btn-secondary float-right">
+                            <i class="fas fa-arrow-left"></i> Retour
                         </a>
                     </div>
                 </div>
@@ -130,71 +129,86 @@
         <section class="content">
             <div class="container-fluid">
 
-                <?php if (session()->getFlashdata('success')): ?>
-                    <div class="alert alert-success alert-dismissible fade show">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <?= session()->getFlashdata('success') ?>
-                    </div>
-                <?php endif; ?>
-
-                <?php if (session()->getFlashdata('error')): ?>
+                <?php if (session()->getFlashdata('errors')): ?>
                     <div class="alert alert-danger alert-dismissible fade show">
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <?= session()->getFlashdata('error') ?>
+                        <ul class="mb-0">
+                            <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                                <li><?= esc($error) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
                     </div>
                 <?php endif; ?>
 
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Liste des Question</h3>
-                    </div>
-                    <div class="card-body">
-                        <table id="objetsTable" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th>numéro</th>
-                                <th>question</th>
-                                <th>activite_numero</th>
-                                <th>Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach ($questions as $question): ?>
-                                <tr>
-                                    <td><?= $question->numero ?></td>
-                                    <td><?= esc($question->explication_2) ?></td>
-                                    <td><?= esc($question->activite_numero) ?></td>
-                                    <!--                                    <td>--><?php //= substr(esc($objet['explication']), 0, 50) ?><!--...</td>-->
-                                    <!--                                    <td>-->
-                                    <!--                                        --><?php //if ($objet['type_carte'] == 'bonne_pratique'): ?>
-                                    <!--                                            <span class="badge badge-success">Bonne pratique</span>-->
-                                    <!--                                        --><?php //else: ?>
-                                    <!--                                            <span class="badge badge-warning">Piège</span>-->
-                                    <!--                                        --><?php //endif; ?>
-                                    <!--                                    </td>-->
-                                    <!--                                    <td>-->
-                                    <!--                                        --><?php //if ($objet['activite_numero']): ?>
-                                    <!--                                            <small>--><?php //= esc($objet['activite_libelle']) ?><!--</small>-->
-                                    <!--                                        --><?php //else: ?>
-                                    <!--                                            <span class="text-muted">-</span>-->
-                                    <!--                                        --><?php //endif; ?>
-                                    <!--                                    </td>-->
-                                    <td>
-                                        <a href="<?= base_url('/gingembre/salle_5/question/edit/' . $question->numero) ?>"
-                                           class="btn btn-sm btn-primary">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <a href="<?= base_url('/gingembre/salle_5/question/delete/' . $question->numero) ?>"
-                                           class="btn btn-sm btn-danger"
-                                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette question ?')">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                    <form action="<?= isset($reponses) ? base_url('/gingembre/salle_5/reponse/update/' . $reponses->id) : base_url('/gingembre/salle_5/reponse/store') ?>"
+                          method="post">
+                        <?= csrf_field() ?>
+
+                        <div class="card-body">
+
+                            <div class="form-group">
+                                <label for="activite_numero">Activité</label>
+                                <select class="form-control" id="activite_numero" name="activite_numero" required>
+                                    <option value="">Aucune activité</option>
+                                    <?php foreach ($activites as $activite): ?>
+                                        <option value="<?= $activite['numero'] ?>"
+                                            <?= old('activite_numero', isset($reponses) ? $reponses->activite_numero : '') == $activite['numero'] ? 'selected' : '' ?>>
+                                            [<?= $activite['numero'] ?>] <?= esc(substr($activite['libelle'], 0, 50)) ?>...
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reponse">Réponse Correcte ? <span class="text-danger">*</span></label>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="radio"
+                                           name="reponse"
+                                           id="reponse_vrai"
+                                           value="succes"
+                                        <?= old('reponse', isset($reponses) ? $reponses->type_message : '') == 'succes' ? 'checked' : '' ?>
+                                           required>
+                                    <label class="form-check-label" for="reponse_vrai">
+                                        <span class="badge badge-success"><i class="fas fa-check"></i> VRAI</span>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="radio"
+                                           name="reponse"
+                                           id="reponse_faux"
+                                           value="echec"
+                                        <?= old('reponse', isset($reponses) ? $reponses->type_message : '') === 'echec' ? 'checked' : '' ?>>
+                                    <label class="form-check-label" for="reponse_faux">
+                                        <span class="badge badge-danger"><i class="fas fa-times"></i> FAUX</span>
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="message">Message <span class="text-danger">*</span></label>
+                                <textarea class="form-control"
+                                          id="message"
+                                          name="message"
+                                          rows="3"
+                                          placeholder="Ecrivez le message souhaité..."
+                                          required><?= old('message', isset($reponses) ? $reponses->message : '') ?></textarea>
+                                <small class="form-text text-muted">Libelle du message reponse</small>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Enregistrer
+                            </button>
+                            <a href="<?= base_url('/gingembre/salle_5/reponses') ?>" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> Annuler
+                            </a>
+                        </div>
+                    </form>
                 </div>
 
             </div>
@@ -209,18 +223,5 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
-<!-- DataTables -->
-<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#objetsTable').DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.13.4/i18n/fr-FR.json"
-            },
-            "order": [[0, "asc"]]
-        });
-    });
-</script>
 </body>
 </html>
