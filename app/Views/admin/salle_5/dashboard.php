@@ -21,88 +21,93 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="<?= base_url('/gingembre/accueil') ?>" class="nav-link">
-                    <i class="fas fa-home"></i> Accueil Admin
-                </a>
+                <?= anchor('/gingembre/accueil',
+                        '<i class="fas fa-home"></i> Accueil Admin',
+                        ['class' => 'nav-link']
+                ) ?>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url('/gingembre/logout') ?>" class="nav-link">
-                    <i class="fas fa-sign-out-alt"></i> Déconnexion
-                </a>
+                <?= anchor('/gingembre/logout',
+                        '<i class="fas fa-sign-out-alt"></i> Déconnexion',
+                        ['class' => 'nav-link']
+                ) ?>
             </li>
         </ul>
     </nav>
 
     <!-- Sidebar -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="<?= base_url('/gingembre/salle_5') ?>" class="brand-link">
-            <span class="brand-text font-weight-light">Admin Salle 5</span>
-        </a>
+        <?= anchor('/gingembre/salle_5',
+                '<span class="brand-text font-weight-light">Admin Salle 5</span>',
+                ['class' => 'brand-link']
+        ) ?>
 
         <div class="sidebar">
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5') ?>" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>Dashboard</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5',
+                                '<i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p>',
+                                ['class' => 'nav-link active']
+                        ) ?>
+
                     </li>
                     <li class="nav-header">DONNÉES SÉCURITÉ</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objet') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-id-card"></i>
-                            <p>Objets</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/objet',
+                                '<i class="nav-icon fas fa-id-card"></i><p>Objets</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objet_declencheur') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Objets déclencheurs</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/objet_declencheur',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Objets déclencheurs</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objet_activite') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Objets Activité</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/objet_activite',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Objets Activité</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/question') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Questions</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/question',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Questions</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Réponses</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/reponse',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Réponses</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Liaison act/rép</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/avoir_rep',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Liaison act/rép</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
+
                     </li>
                     <li class="nav-header">DONNÉES COMMUNES</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/activite') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-tasks"></i>
-                            <p>Activités</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/activite',
+                                '<i class="nav-icon fas fa-tasks"></i><p>Activités</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/explication') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-info-circle"></i>
-                            <p>Explications</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/explication',
+                                '<i class="nav-icon fas fa-info-circle"></i><p>Explications</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/indice') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-lightbulb"></i>
-                            <p>Indices</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/indice',
+                                '<i class="nav-icon fas fa-lightbulb"></i><p>Indices</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                 </ul>
             </nav>
@@ -134,9 +139,11 @@
                             <div class="icon">
                                 <i class="fas fa-id-card"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_5/objet') ?>" class="small-box-footer">
-                                Gérer <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor(
+                                    '/gingembre/salle_5/objet',
+                                    'Gérer <i class="fas fa-arrow-circle-right"></i>',
+                                    ['class' => 'small-box-footer']
+                            ) ?>
                         </div>
                     </div>
 
@@ -149,9 +156,11 @@
                             <div class="icon">
                                 <i class="fas fa-check-circle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_5/objet_declencheur') ?>" class="small-box-footer">
-                                Voir <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor(
+                                    '/gingembre/salle_5/objet_declencheur',
+                                    'Voir <i class="fas fa-arrow-circle-right"></i>',
+                                    ['class' => 'small-box-footer']
+                            ) ?>
                         </div>
                     </div>
 
@@ -164,9 +173,11 @@
                             <div class="icon">
                                 <i class="fas fa-question-circle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_5/objet_activite') ?>" class="small-box-footer">
-                                Gérer <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor(
+                                    '/gingembre/salle_5/objet_activite',
+                                    'Gérer <i class="fas fa-arrow-circle-right"></i>',
+                                    ['class' => 'small-box-footer']
+                            ) ?>
                         </div>
                     </div>
 
@@ -179,9 +190,11 @@
                             <div class="icon">
                                 <i class="fas fa-question-circle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_5/question') ?>" class="small-box-footer">
-                                Voir <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor(
+                                    '/gingembre/salle_5/question',
+                                    'Voir <i class="fas fa-arrow-circle-right"></i>',
+                                    ['class' => 'small-box-footer']
+                            ) ?>
                         </div>
                     </div>
 
@@ -194,9 +207,11 @@
                             <div class="icon">
                                 <i class="fas fa-question-circle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="small-box-footer">
-                                Gérer <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor(
+                                    '/gingembre/salle_5/reponse',
+                                    'Gérer <i class="fas fa-arrow-circle-right"></i>',
+                                    ['class' => 'small-box-footer']
+                            ) ?>
                         </div>
                     </div>
 
@@ -209,9 +224,11 @@
                             <div class="icon">
                                 <i class="fas fa-question-circle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="small-box-footer">
-                                Gérer <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor(
+                                    '/gingembre/salle_5/avoir_rep',
+                                    'Gérer <i class="fas fa-arrow-circle-right"></i>',
+                                    ['class' => 'small-box-footer']
+                            ) ?>
                         </div>
                     </div>
                 </div>
@@ -230,9 +247,11 @@
                             <div class="icon">
                                 <i class="fas fa-tasks"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_5/activite') ?>" class="small-box-footer">
-                                Gérer <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor(
+                                    '/gingembre/salle_5/activite',
+                                    'Gérer <i class="fas fa-arrow-circle-right"></i>',
+                                    ['class' => 'small-box-footer']
+                            ) ?>
                         </div>
                     </div>
 
@@ -245,9 +264,11 @@
                             <div class="icon">
                                 <i class="fas fa-info-circle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/explication') ?>" class="small-box-footer">
-                                Gérer <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor(
+                                    '/gingembre/salle_5/explication',
+                                    'Gérer <i class="fas fa-arrow-circle-right"></i>',
+                                    ['class' => 'small-box-footer']
+                            ) ?>
                         </div>
                     </div>
 
@@ -260,65 +281,17 @@
                             <div class="icon">
                                 <i class="fas fa-lightbulb"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/indice') ?>" class="small-box-footer">
-                                Gérer <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor(
+                                    '/gingembre/salle_5/indice',
+                                    'Gérer <i class="fas fa-arrow-circle-right"></i>',
+                                    ['class' => 'small-box-footer']
+                            ) ?>
                         </div>
                     </div>
                 </div>
                 </div>
         </section>
     </div>
-<!---->
-<!--                <!-- Détails et Actions -->-->
-<!--                <div class="row">-->
-<!--                    <div class="col-md-6">-->
-<!--                        <div class="card">-->
-<!--                            <div class="card-header bg-primary">-->
-<!--                                <h3 class="card-title">Répartition des réponses du Quiz</h3>-->
-<!--                            </div>-->
-<!--                            <div class="card-body">-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-6 text-center">-->
-<!--                                        <div class="text-success">-->
-<!--                                            <i class="fas fa-check-circle fa-3x"></i>-->
-<!--                                            <h4>--><?php //= $stats_reponses['vrai'] ?><!--</h4>-->
-<!--                                            <p>Questions VRAI</p>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-6 text-center">-->
-<!--                                        <div class="text-danger">-->
-<!--                                            <i class="fas fa-times-circle fa-3x"></i>-->
-<!--                                            <h4>--><?php //= $stats_reponses['faux'] ?><!--</h4>-->
-<!--                                            <p>Questions FAUX</p>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!---->
-<!--                    <div class="col-md-6">-->
-<!--                        <div class="card">-->
-<!--                            <div class="card-header bg-info">-->
-<!--                                <h3 class="card-title">Actions rapides</h3>-->
-<!--                            </div>-->
-<!--                            <div class="card-body">-->
-<!--                                <a href="--><?php //= base_url('/gingembre/salle_4/carte/create') ?><!--" class="btn btn-success btn-block mb-2">-->
-<!--                                    <i class="fas fa-plus"></i> Ajouter une Carte-->
-<!--                                </a>-->
-<!--                                <a href="--><?php //= base_url('/gingembre/salle_4/question/create') ?><!--" class="btn btn-primary btn-block mb-2">-->
-<!--                                    <i class="fas fa-plus"></i> Ajouter une Question-->
-<!--                                </a>-->
-<!--                                <a href="--><?php //= base_url('/gingembre/salle_4/activite/create') ?><!--" class="btn btn-secondary btn-block">-->
-<!--                                    <i class="fas fa-plus"></i> Ajouter une Activité-->
-<!--                                </a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-
 
     <!-- Footer -->
     <footer class="main-footer">

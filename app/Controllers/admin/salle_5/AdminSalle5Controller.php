@@ -123,7 +123,7 @@ class AdminSalle5Controller extends BaseController
         $width = (float)$this->request->getPost('width');
         $height = (float)$this->request->getPost('height');
 
-        $drag = (empty($x) && empty($y) && empty($width) && empty($height)) ? 'oui' : 'non';
+        $drag = (empty($x) && empty($y) && empty($width) && empty($height)) ? 'oui' : null;
 
         $data = [
             'nom' => $this->request->getPost('nom'),
@@ -137,7 +137,7 @@ class AdminSalle5Controller extends BaseController
             'texte' => $this->request->getPost('texte_image'),
             'texte_x' => null,
             'texte_y' => null,
-            'rotate' => '0',
+            'rotate' => null,
             'drag' => $drag,
             'hover' => $this->request->getPost('hover'),
             'cliquable' => $this->request->getPost('cliquable'),
@@ -255,9 +255,7 @@ class AdminSalle5Controller extends BaseController
             return redirect()->to('/gingembre');
         }
 
-        $data =[
-            'activites' => $this->activiteModel->getActivitesBySalle($this->salleNumero),
-            ];
+        $data['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
 
         return view('admin/salle_5/objet_declencheur/objetsDeclencheurForm', $data);
     }
@@ -310,8 +308,10 @@ class AdminSalle5Controller extends BaseController
             return redirect()->to('/gingembre');
         }
 
-        $data['objetDeclencheur'] = $this->objetsDeclencheursModel->getObjetsDeclencheursById($id);
-        $data ['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
+        $data = [
+            'objetDeclencheur' => $this->objetsDeclencheursModel->getObjetsDeclencheursById($id),
+            'activites' => $this->activiteModel->getActivitesBySalle($this->salleNumero)
+            ];
 
         if (!$data['objetDeclencheur']) {
             return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('error', 'Objet déclencheur introuvable');
@@ -568,8 +568,10 @@ class AdminSalle5Controller extends BaseController
             return redirect()->to('/gingembre');
         }
 
-        $data['questions'] = $this->modeEmploiModel->getModeEmploiByActivite($id);
-        $data['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
+        $data = [
+            'questions' => $this->modeEmploiModel->getModeEmploiByActivite($id),
+            'activites' => $this->activiteModel->getActivitesBySalle($this->salleNumero)
+            ];
         if (!$data['questions']) {
             return redirect()->to('/gingembre/salle_5/question')->with('error', 'Question introuvable');
         }
@@ -683,8 +685,10 @@ class AdminSalle5Controller extends BaseController
             return redirect()->to('/gingembre');
         }
 
-        $data['reponses'] = $this->activiteMessageModel->getMessage($id);
-        $data['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
+        $data = [
+            'reponses' => $this->activiteMessageModel->getMessage($id),
+            'activites' => $this->activiteModel->getActivitesBySalle($this->salleNumero)
+        ];
         if (!$data['reponses']) {
             return redirect()->to('/gingembre/salle_5/reponse')->with('error', 'Réponse introuvable');
         }
@@ -940,12 +944,15 @@ class AdminSalle5Controller extends BaseController
             return redirect()->to('/gingembre');
         }
 
-        $data['activite'] = $this->activiteModel->find($id);
+        $data = [
+            'activite' => $this->activiteModel->find($id),
+            'explications' => $this->explicationModel->getExplicationsBySalle($this->salleNumero)
+        ];
+
         if (!$data['activite']) {
             return redirect()->to('/gingembre/salle_5/activite')->with('error', 'Activité introuvable');
         }
 
-        $data['explications'] = $this->explicationModel->getExplicationsBySalle($this->salleNumero);
         return view('admin/salle_5/activite/activiteForm', $data);
     }
 
