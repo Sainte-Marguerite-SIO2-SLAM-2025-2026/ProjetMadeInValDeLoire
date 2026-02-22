@@ -80,9 +80,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objets_declencheurs') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Liaison quest/rép</p>
+                            <p>Liaison act/rép</p>
                         </a>
                     </li>
                     <li class="nav-header">DONNÉES COMMUNES</li>
@@ -204,12 +204,12 @@
                         <div class="small-box bg-danger">
                             <div class="inner">
                                 <h3><?= $avoirRep ?></h3>
-                                <p>Liaison questions/réponses</p>
+                                <p>Liaison activités/réponses</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-question-circle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/question') ?>" class="small-box-footer">
+                            <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="small-box-footer">
                                 Gérer <i class="fas fa-arrow-circle-right"></i>
                             </a>
                         </div>

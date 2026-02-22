@@ -15,4 +15,18 @@ class AvoirRepAdminModel extends Model
     {
         return $this->countAllResults();
     }
+
+    public function getAllRep()
+    {
+        return $this->findAll();
+    }
+
+    public function getRepActivite($numero, $objet_id)
+    {
+        return $this->where([
+            'objet_id' => $objet_id,
+            'activite_numero' => $numero,
+
+        ])->first();
+    }
 }

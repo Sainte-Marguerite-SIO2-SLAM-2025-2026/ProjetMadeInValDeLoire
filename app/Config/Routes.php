@@ -245,6 +245,16 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
         $routes->get('delete/(:num)', 'AdminSalle5Controller::reponseDelete/$1');
     });
 
+    // Gestion des objets réponses
+    $routes->group('avoir_rep', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::avoirRepList');
+        $routes->get('create', 'AdminSalle5Controller::avoirRepCreate');
+        $routes->post('store', 'AdminSalle5Controller::avoirRepStore');
+        $routes->get('edit/(:num)/(:num)', 'AdminSalle5Controller::avoirRepEdit/$1/$2');
+        $routes->post('update/(:num)/(:num)', 'AdminSalle5Controller::avoirRepUpdate/$1/$2');
+        $routes->get('delete/(:num)/(:num)', 'AdminSalle5Controller::avoirRepDelete/$1/$2');
+    });
+
 });
 
 // Routes admin

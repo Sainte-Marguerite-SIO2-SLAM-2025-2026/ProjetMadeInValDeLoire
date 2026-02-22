@@ -734,6 +734,136 @@ class AdminSalle5Controller extends BaseController
         return redirect()->to('/gingembre/salle_5/reponse')->with('success', 'Objet supprimé avec succès');
     }
 
+    //
+
+    public function avoirRepList(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['avoirRep'] = $this->avoirRepModel->getAllRep();
+        return view('admin/salle_5/avoir_rep/avoirRepList', $data);
+    }
+
+    /**
+     * Formulaire de création d'un objet reponse
+     */
+    public function avoirRepCreate(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data =[
+            'objets' => $this->objetsModel->getAllObjets(),
+            'activites' => $this->activiteModel->getActivitesBySalle($this->salleNumero),
+        ];
+
+        return view('admin/salle_5/avoir_rep/avoirRepForm', $data);
+    }
+
+    /**
+     * Enregistrement d'un nouvel objet reponse
+     */
+    public function avoirRepStore(): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'objet_id' => 'required|max_length[50]',
+            'activite_numero' => 'required|max_length[50]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'objet_id' => $this->request->getPost('objet_id'),
+            'activite_numero' => $this->request->getPost('activite_numero'),
+        ];
+
+        $this->avoirRepModel->insert($data);
+        return redirect()->to('/gingembre/salle_5/avoir_rep')->with('success', 'Objet créé avec succès');
+    }
+
+    /**
+     * Formulaire d'édition d'un objet reponse
+     */
+    public function avoirRepEdit($numero, $id): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data =[
+            'objets' => $this->objetsModel->getAllObjets(),
+            'avoirRep' => $this->avoirRepModel->getRepActivite($numero, $id),
+            'activites' => $this->activiteModel->getActivitesBySalle($this->salleNumero),
+        ];
+
+        if (!$data['avoirRep']) {
+            return redirect()->to('/gingembre/salle_5/avoir_rep')->with('error', 'Objet introuvable');
+        }
+
+        return view('admin/salle_5/avoir_rep/avoirRepForm', $data);
+    }
+
+    /**
+     * Mise à jour d'un objet reponse
+     */
+    public function avoirRepUpdate($numero, $id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'objet_id' => 'required|max_length[50]',
+            'activite_numero' => 'required|max_length[50]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'objet_id' => $this->request->getPost('objet_id'),
+            'activite_numero' => $this->request->getPost('activite_numero'),
+        ];
+
+        $this->avoirRepModel
+            ->where('objet_id', $id)
+            ->where('activite_numero', $numero)
+            ->set($data)
+            ->update();
+
+        return redirect()->to('/gingembre/salle_5/avoir_rep')->with('success', 'Objet modifié avec succès');
+    }
+
+    /**
+     * Suppression d'un objet reponse
+     */
+    public function avoirRepDelete($numero, $id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        // Suppression avec clé composite
+        $this->avoirRepModel
+            ->where('objet_id', $id)
+            ->where('activite_numero', $numero)
+            ->delete();
+
+        return redirect()
+            ->to('/gingembre/salle_5/avoir_rep')
+            ->with('success', 'Objet supprimé avec succès');
+    }
+
 
 }
 //
