@@ -234,8 +234,7 @@ class AdminSalle5Controller extends BaseController
     }
 
 
-
-//
+// ==================== GESTION OBJETS DECLENCHEURS ====================
 
     public function objetDeclencheurList(): string|RedirectResponse
     {
@@ -299,7 +298,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         $this->objetsDeclencheursModel->insert($data);
-        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet créé avec succès');
+        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet déclencheur créé avec succès');
     }
 
     /**
@@ -315,7 +314,7 @@ class AdminSalle5Controller extends BaseController
         $data ['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
 
         if (!$data['objetDeclencheur']) {
-            return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('error', 'Objet introuvable');
+            return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('error', 'Objet déclencheur introuvable');
         }
 
         return view('admin/salle_5/objet_declencheur/objetsDeclencheurForm', $data);
@@ -357,7 +356,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         $this->objetsDeclencheursModel->update($id, $data);
-        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet modifié avec succès');
+        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet déclencheur modifié avec succès');
     }
 
     /**
@@ -370,10 +369,11 @@ class AdminSalle5Controller extends BaseController
         }
 
         $this->objetsDeclencheursModel->delete($id);
-        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet supprimé avec succès');
+        return redirect()->to('/gingembre/salle_5/objet_declencheur')->with('success', 'Objet déclencheur supprimé avec succès');
     }
 
-    //
+
+    // ==================== GESTION OBJETS D'ACTIVITE ====================
 
     public function objetActiviteList(): string|RedirectResponse
     {
@@ -426,7 +426,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         $this->objetsActiviteModel->insert($data);
-        return redirect()->to('/gingembre/salle_5/objet_activite')->with('success', 'Objet créé avec succès');
+        return redirect()->to('/gingembre/salle_5/objet_activite')->with('success', 'Objet activité créé avec succès');
     }
 
     /**
@@ -445,7 +445,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         if (!$data['objetActivite']) {
-            return redirect()->to('/gingembre/salle_5/objet_activite')->with('error', 'Objet introuvable');
+            return redirect()->to('/gingembre/salle_5/objet_activite')->with('error', 'Objet activité introuvable');
         }
 
         return view('admin/salle_5/objet_activite/objetsActiviteForm', $data);
@@ -481,7 +481,7 @@ class AdminSalle5Controller extends BaseController
             ->set($data)
             ->update();
 
-        return redirect()->to('/gingembre/salle_5/objet_activite')->with('success', 'Objet modifié avec succès');
+        return redirect()->to('/gingembre/salle_5/objet_activite')->with('success', 'Objet activité modifié avec succès');
     }
 
     /**
@@ -501,7 +501,7 @@ class AdminSalle5Controller extends BaseController
 
         return redirect()
             ->to('/gingembre/salle_5/objet_activite')
-            ->with('success', 'Objet supprimé avec succès');
+            ->with('success', 'Objet activité supprimé avec succès');
     }
 
 // ==================== GESTION QUESTION ====================
@@ -571,7 +571,7 @@ class AdminSalle5Controller extends BaseController
         $data['questions'] = $this->modeEmploiModel->getModeEmploiByActivite($id);
         $data['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
         if (!$data['questions']) {
-            return redirect()->to('/gingembre/salle_5/question')->with('error', 'Objet introuvable');
+            return redirect()->to('/gingembre/salle_5/question')->with('error', 'Question introuvable');
         }
 
         return view('admin/salle_5/question/questionsForm', $data);
@@ -600,7 +600,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         $this->modeEmploiModel->update($id, $data);
-        return redirect()->to('/gingembre/salle_5/question')->with('success', 'Objet modifié avec succès');
+        return redirect()->to('/gingembre/salle_5/question')->with('success', 'Question modifié avec succès');
     }
 
     /**
@@ -613,7 +613,7 @@ class AdminSalle5Controller extends BaseController
         }
 
         $this->modeEmploiModel->delete($id);
-        return redirect()->to('/gingembre/salle_5/question')->with('success', 'Objet supprimé avec succès');
+        return redirect()->to('/gingembre/salle_5/question')->with('success', 'Question supprimé avec succès');
     }
 
     // ==================== GESTION REPONSES ====================
@@ -671,7 +671,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         $this->activiteMessageModel->insert($data);
-        return redirect()->to('/gingembre/salle_5/reponse')->with('success', 'Question créé avec succès');
+        return redirect()->to('/gingembre/salle_5/reponse')->with('success', 'Réponse créé avec succès');
     }
 
     /**
@@ -686,7 +686,7 @@ class AdminSalle5Controller extends BaseController
         $data['reponses'] = $this->activiteMessageModel->getMessage($id);
         $data['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
         if (!$data['reponses']) {
-            return redirect()->to('/gingembre/salle_5/reponse')->with('error', 'Objet introuvable');
+            return redirect()->to('/gingembre/salle_5/reponse')->with('error', 'Réponse introuvable');
         }
 
         return view('admin/salle_5/reponse/reponsesForm', $data);
@@ -718,7 +718,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         $this->activiteMessageModel->update($id, $data);
-        return redirect()->to('/gingembre/salle_5/reponse')->with('success', 'Objet modifié avec succès');
+        return redirect()->to('/gingembre/salle_5/reponse')->with('success', 'Réponse modifié avec succès');
     }
 
     /**
@@ -731,10 +731,10 @@ class AdminSalle5Controller extends BaseController
         }
 
         $this->activiteMessageModel->delete($id);
-        return redirect()->to('/gingembre/salle_5/reponse')->with('success', 'Objet supprimé avec succès');
+        return redirect()->to('/gingembre/salle_5/reponse')->with('success', 'Réponse supprimé avec succès');
     }
 
-    //
+    // ==================== GESTION LIAISON ACTIVITE/OBJET REPONSE (avoirRep) ====================
 
     public function avoirRepList(): string|RedirectResponse
     {
@@ -787,7 +787,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         $this->avoirRepModel->insert($data);
-        return redirect()->to('/gingembre/salle_5/avoir_rep')->with('success', 'Objet créé avec succès');
+        return redirect()->to('/gingembre/salle_5/avoir_rep')->with('success', 'Objet reponse créé avec succès');
     }
 
     /**
@@ -806,7 +806,7 @@ class AdminSalle5Controller extends BaseController
         ];
 
         if (!$data['avoirRep']) {
-            return redirect()->to('/gingembre/salle_5/avoir_rep')->with('error', 'Objet introuvable');
+            return redirect()->to('/gingembre/salle_5/avoir_rep')->with('error', 'Objet reponse introuvable');
         }
 
         return view('admin/salle_5/avoir_rep/avoirRepForm', $data);
@@ -841,7 +841,7 @@ class AdminSalle5Controller extends BaseController
             ->set($data)
             ->update();
 
-        return redirect()->to('/gingembre/salle_5/avoir_rep')->with('success', 'Objet modifié avec succès');
+        return redirect()->to('/gingembre/salle_5/avoir_rep')->with('success', 'Objet reponse modifié avec succès');
     }
 
     /**
@@ -861,7 +861,7 @@ class AdminSalle5Controller extends BaseController
 
         return redirect()
             ->to('/gingembre/salle_5/avoir_rep')
-            ->with('success', 'Objet supprimé avec succès');
+            ->with('success', 'Objet reponse supprimé avec succès');
     }
 
     // ==================== GESTION ACTIVITÉS ====================
