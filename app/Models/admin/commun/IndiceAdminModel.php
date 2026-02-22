@@ -8,7 +8,7 @@ class IndiceAdminModel extends Model
 {
     protected $table = 'indice';
     protected $primaryKey = 'numero';
-    protected $allowedFields = ['libelle'];
+    protected $allowedFields = ['numero', 'libelle'];
     protected $useTimestamps = false;
     protected $returnType = 'array';
     protected $DBGroup = 'default';
@@ -125,7 +125,7 @@ class IndiceAdminModel extends Model
             return false;
         }
 
-        // Vérifier si l'indice est utilisé dans avoirIndice
+        // Vérifier si l'indice est utilisé dans avoir_indice
         if ($this->isIndiceUsed($numero)) {
             log_message('warning', "Impossible de supprimer l'indice #{$numero} : utilisé dans des activités");
             return false;
@@ -135,14 +135,14 @@ class IndiceAdminModel extends Model
     }
 
     /**
-     * Vérifier si un indice est utilisé dans avoirIndice
+     * Vérifier si un indice est utilisé dans avoir_indice
      * @param int $numero
      * @return bool
      */
     public function isIndiceUsed(int $numero): bool
     {
         $db = \Config\Database::connect('default');
-        $count = $db->table('avoirIndice')->where('indice_numero', $numero)->countAllResults();
+        $count = $db->table('avoir_indice')->where('indice_numero', $numero)->countAllResults();
         return $count > 0;
     }
 
@@ -237,7 +237,7 @@ class IndiceAdminModel extends Model
     public function getActiviteCountByIndice(int $numero): int
     {
         $db = \Config\Database::connect('default');
-        return $db->table('avoirIndice')->where('indice_numero', $numero)->countAllResults();
+        return $db->table('avoir_indice')->where('indice_numero', $numero)->countAllResults();
     }
 
     /**
@@ -249,10 +249,10 @@ class IndiceAdminModel extends Model
     {
         $db = \Config\Database::connect('default');
         
-        return $db->table('avoirIndice')
+        return $db->table('avoir_indice')
                   ->select('activite.numero, activite.libelle')
-                  ->join('activite', 'activite.numero = avoirIndice.activite_numero', 'left')
-                  ->where('avoirIndice.indice_numero', $numero)
+                  ->join('activite', 'activite.numero = avoir_indice.activite_numero', 'left')
+                  ->where('avoir_indice.indice_numero', $numero)
                   ->orderBy('activite.numero', 'ASC')
                   ->get()
                   ->getResultArray();
