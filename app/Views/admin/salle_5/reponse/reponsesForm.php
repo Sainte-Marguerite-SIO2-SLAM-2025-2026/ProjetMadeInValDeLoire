@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= isset($questions) ? 'Modifier' : 'Ajouter' ?> une Question - Salle 5</title>
+    <title><?= isset($reponses) ? 'Modifier' : 'Ajouter' ?> une reponse - Salle 5</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -74,7 +74,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/reponses') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Réponses</p>
                         </a>
@@ -115,10 +115,10 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><?= isset($questions) ? 'Modifier' : 'Ajouter' ?> une Question</h1>
+                        <h1><?= isset($reponses) ? 'Modifier' : 'Ajouter' ?> une reponse</h1>
                     </div>
                     <div class="col-sm-6">
-                        <a href="<?= base_url('/gingembre/salle_5/question') ?>" class="btn btn-secondary float-right">
+                        <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="btn btn-secondary float-right">
                             <i class="fas fa-arrow-left"></i> Retour
                         </a>
                     </div>
@@ -141,34 +141,62 @@
                 <?php endif; ?>
 
                 <div class="card">
-                    <form action="<?= isset($questions) ? base_url('/gingembre/salle_5/question/update/' . $questions->numero) : base_url('/gingembre/salle_5/question/store') ?>"
+                    <form action="<?= isset($reponses) ? base_url('/gingembre/salle_5/reponse/update/' . $reponses->id) : base_url('/gingembre/salle_5/reponse/store') ?>"
                           method="post">
                         <?= csrf_field() ?>
 
                         <div class="card-body">
 
                             <div class="form-group">
-                                <label for="libelle">Question <span class="text-danger">*</span></label>
-                                <textarea class="form-control"
-                                          id="libelle"
-                                          name="libelle"
-                                          rows="3"
-                                          placeholder="Cette action est ette possible ?"
-                                          required><?= old('libelle', isset($questions) ? $questions->explication_2 : '') ?></textarea>
-                                <small class="form-text text-muted">Énoncé de la question pour le quiz</small>
-                            </div>
-
-                            <div class="form-group">
                                 <label for="activite_numero">Activité</label>
-                                <select class="form-control" id="activite_numero" name="activite_numero">
+                                <select class="form-control" id="activite_numero" name="activite_numero" required>
                                     <option value="">Aucune activité</option>
                                     <?php foreach ($activites as $activite): ?>
                                         <option value="<?= $activite['numero'] ?>"
-                                            <?= old('activite_numero', isset($questions) ? $questions->activite_numero : '') == $activite['numero'] ? 'selected' : '' ?>>
+                                            <?= old('activite_numero', isset($reponses) ? $reponses->activite_numero : '') == $activite['numero'] ? 'selected' : '' ?>>
                                             [<?= $activite['numero'] ?>] <?= esc(substr($activite['libelle'], 0, 50)) ?>...
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reponse">Réponse Correcte ? <span class="text-danger">*</span></label>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="radio"
+                                           name="reponse"
+                                           id="reponse_vrai"
+                                           value="succes"
+                                        <?= old('reponse', isset($reponses) ? $reponses->type_message : '') == 'succes' ? 'checked' : '' ?>
+                                           required>
+                                    <label class="form-check-label" for="reponse_vrai">
+                                        <span class="badge badge-success"><i class="fas fa-check"></i> VRAI</span>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="radio"
+                                           name="reponse"
+                                           id="reponse_faux"
+                                           value="echec"
+                                        <?= old('reponse', isset($reponses) ? $reponses->type_message : '') === 'echec' ? 'checked' : '' ?>>
+                                    <label class="form-check-label" for="reponse_faux">
+                                        <span class="badge badge-danger"><i class="fas fa-times"></i> FAUX</span>
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="message">Message <span class="text-danger">*</span></label>
+                                <textarea class="form-control"
+                                          id="message"
+                                          name="message"
+                                          rows="3"
+                                          placeholder="Ecrivez le message souhaité..."
+                                          required><?= old('message', isset($reponses) ? $reponses->message : '') ?></textarea>
+                                <small class="form-text text-muted">Libelle du message reponse</small>
                             </div>
                         </div>
 
@@ -176,7 +204,7 @@
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-save"></i> Enregistrer
                             </button>
-                            <a href="<?= base_url('/gingembre/salle_5/question') ?>" class="btn btn-secondary">
+                            <a href="<?= base_url('/gingembre/salle_5/reponses') ?>" class="btn btn-secondary">
                                 <i class="fas fa-times"></i> Annuler
                             </a>
                         </div>

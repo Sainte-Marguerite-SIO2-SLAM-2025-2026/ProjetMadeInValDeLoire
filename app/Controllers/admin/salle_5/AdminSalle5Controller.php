@@ -57,8 +57,7 @@ class AdminSalle5Controller extends BaseController
             'totalExplications' => $this->explicationModel->countExplications($this->salleNumero),
             'totalIndices' => $this->indiceModel->countIndices($this->salleNumero),
             'totalModeEmploi' => $this->modeEmploiModel->getNbModeEmploi(),
-            'messageFaux' => $this->activiteMessageModel->getNbMessageEchec(),
-            'messageVrai' => $this->activiteMessageModel->getNbMessageSucces(),
+            'message' => $this->activiteMessageModel->getNbMessage(),
             'totalObjetsActivites' => $this->objetsActiviteModel->getNbObjetActivite(),
             'avoirRep' => $this->avoirRepModel->getNbRep()
         ];
@@ -615,6 +614,124 @@ class AdminSalle5Controller extends BaseController
 
         $this->modeEmploiModel->delete($id);
         return redirect()->to('/gingembre/salle_5/question')->with('success', 'Objet supprimé avec succès');
+    }
+
+    // ==================== GESTION REPONSES ====================
+
+    /**
+     * Liste des réponses
+     */
+    public function reponseList(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['reponses'] = $this->activiteMessageModel->getAllMessage();
+        return view('admin/salle_5/reponse/reponsesList', $data);
+    }
+
+    /**
+     * Formulaire de création d'une réponses
+     */
+    public function reponseCreate(): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
+
+        return view('admin/salle_5/reponse/reponsesForm', $data);
+    }
+
+    /**
+     * Enregistrement d'une nouvelle réponses
+     */
+    public function reponseStore(): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'activite_numero' => 'required|numeric',
+            'reponse' => 'required|in_list[succes,echec]',
+            'message' => 'required',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'activite_numero' => $this->request->getPost('activite_numero')? $this->request->getPost('activite_numero') : null,
+            'type_message' => $this->request->getPost('reponse'),
+            'message' => $this->request->getPost('message'),
+        ];
+
+        $this->activiteMessageModel->insert($data);
+        return redirect()->to('/gingembre/salle_5/reponse')->with('success', 'Question créé avec succès');
+    }
+
+    /**
+     * Formulaire d'édition d'une réponses
+     */
+    public function reponseEdit($id): string|RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $data['reponses'] = $this->activiteMessageModel->getMessage($id);
+        $data['activites'] = $this->activiteModel->getActivitesBySalle($this->salleNumero);
+        if (!$data['reponses']) {
+            return redirect()->to('/gingembre/salle_5/reponse')->with('error', 'Objet introuvable');
+        }
+
+        return view('admin/salle_5/reponse/reponsesForm', $data);
+    }
+
+    /**
+     * Mise à jour d'une réponses
+     */
+    public function reponseUpdate($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $rules = [
+            'activite_numero' => 'required|numeric',
+            'reponse' => 'required|in_list[succes,echec]',
+            'message' => 'required',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'activite_numero' => $this->request->getPost('activite_numero')? $this->request->getPost('activite_numero') : null,
+            'type_message' => $this->request->getPost('reponse'),
+            'message' => $this->request->getPost('message'),
+        ];
+
+        $this->activiteMessageModel->update($id, $data);
+        return redirect()->to('/gingembre/salle_5/reponse')->with('success', 'Objet modifié avec succès');
+    }
+
+    /**
+     * Suppression d'une réponses
+     */
+    public function reponseDelete($id): RedirectResponse
+    {
+        if (session()->get('admin_id') == null) {
+            return redirect()->to('/gingembre');
+        }
+
+        $this->activiteMessageModel->delete($id);
+        return redirect()->to('/gingembre/salle_5/reponse')->with('success', 'Objet supprimé avec succès');
     }
 
 

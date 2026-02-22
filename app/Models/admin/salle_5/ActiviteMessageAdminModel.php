@@ -11,15 +11,26 @@ class ActiviteMessageAdminModel extends Model
     protected $returnType = 'object';
     protected $allowedFields = ['activite_numero', 'type_message', 'message'];
 
-    public function getNbMessageSucces()
+    public function getNbMessage()
     {
-        return $this->where('type_message', "succes")
-            ->countAllResults();
+        return $this->countAllResults();
     }
 
-    public function getNbMessageEchec()
+    /**
+     * Récupère les messages
+     */
+    public function getAllMessage()
     {
-        return $this->where('type_message', "echec")
-        ->countAllResults();
+        return $this->FindAll();
     }
+
+    /**
+     * Récupère un message selon son id
+     */
+    public function getMessage(int $id)
+    {
+        return $this->where('id', $id)
+            ->first();
+    }
+
 }
