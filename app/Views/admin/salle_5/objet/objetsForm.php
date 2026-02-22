@@ -62,27 +62,27 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objets_activites') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/objet_activite') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Objets Activité</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/questions') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/question') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Questions</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/reponses') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Réponses</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/liaisons') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Liaison quest/rép</p>
+                            <p>Liaison act/rép</p>
                         </a>
                     </li>
                     <li class="nav-header">DONNÉES COMMUNES</li>

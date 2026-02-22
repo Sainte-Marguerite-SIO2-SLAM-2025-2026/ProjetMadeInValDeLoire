@@ -69,13 +69,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/questions') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/question') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Questions</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/reponses') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Réponses</p>
                         </a>
@@ -116,7 +116,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Gestion des Objets d'activités</h1>
+                        <h1>Gestion des Objets réponses</h1>
                     </div>
                     <div class="col-sm-6">
                         <a href="<?= base_url('/gingembre/salle_5/avoir_rep/create') ?>" class="btn btn-success float-right">

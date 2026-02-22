@@ -43,16 +43,28 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5') ?>" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="nav-header">DONNÉES RANSOMWARE</li>
+                    <li class="nav-header">DONNÉES SÉCURITÉ</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/carte') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/objet') ?>" class="nav-link">
                             <i class="nav-icon fas fa-id-card"></i>
-                            <p>Cartes</p>
+                            <p>Objets</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/gingembre/salle_5/objet_declencheur') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Objets déclencheurs</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/gingembre/salle_5/objet_activite') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Objets Activité</p>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -61,9 +73,21 @@
                             <p>Questions</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Réponses</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Liaison act/rép</p>
+                        </a>
+                    </li>
                     <li class="nav-header">DONNÉES COMMUNES</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/activite') ?>" class="nav-link active">
+                        <a href="<?= base_url('/gingembre/salle_5/activite') ?>" class="nav-link">
                             <i class="nav-icon fas fa-tasks"></i>
                             <p>Activités</p>
                         </a>

@@ -68,7 +68,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/questions') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/question') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Questions</p>
                         </a>
@@ -80,9 +80,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/liaisons') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Liaison quest/rép</p>
+                            <p>Liaison act/rép</p>
                         </a>
                     </li>
                     <li class="nav-header">DONNÉES COMMUNES</li>
