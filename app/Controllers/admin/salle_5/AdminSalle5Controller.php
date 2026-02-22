@@ -123,7 +123,7 @@ class AdminSalle5Controller extends BaseController
         $width = (float)$this->request->getPost('width');
         $height = (float)$this->request->getPost('height');
 
-        $drag = (empty($x) && empty($y) && empty($width) && empty($height)) ? 'oui' : 'non';
+        $drag = (empty($x) && empty($y) && empty($width) && empty($height)) ? 'oui' : null;
 
         $data = [
             'nom' => $this->request->getPost('nom'),
@@ -137,7 +137,7 @@ class AdminSalle5Controller extends BaseController
             'texte' => $this->request->getPost('texte_image'),
             'texte_x' => null,
             'texte_y' => null,
-            'rotate' => '0',
+            'rotate' => null,
             'drag' => $drag,
             'hover' => $this->request->getPost('hover'),
             'cliquable' => $this->request->getPost('cliquable'),

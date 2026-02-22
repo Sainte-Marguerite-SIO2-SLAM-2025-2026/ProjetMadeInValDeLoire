@@ -22,88 +22,93 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="<?= base_url('/gingembre/accueil') ?>" class="nav-link">
-                    <i class="fas fa-home"></i> Accueil Admin
-                </a>
+                <?= anchor('/gingembre/accueil',
+                        '<i class="fas fa-home"></i> Accueil Admin',
+                        ['class' => 'nav-link']
+                ) ?>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url('/gingembre/logout') ?>" class="nav-link">
-                    <i class="fas fa-sign-out-alt"></i> Déconnexion
-                </a>
+                <?= anchor('/gingembre/logout',
+                        '<i class="fas fa-sign-out-alt"></i> Déconnexion',
+                        ['class' => 'nav-link']
+                ) ?>
             </li>
         </ul>
     </nav>
 
     <!-- Sidebar -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="<?= base_url('/gingembre/salle_5') ?>" class="brand-link">
-            <span class="brand-text font-weight-light">Admin Salle 5</span>
-        </a>
+        <?= anchor('/gingembre/salle_5',
+                '<span class="brand-text font-weight-light">Admin Salle 5</span>',
+                ['class' => 'brand-link']
+        ) ?>
 
         <div class="sidebar">
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5') ?>" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>Dashboard</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5',
+                                '<i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p>',
+                                ['class' => 'nav-link active']
+                        ) ?>
+
                     </li>
                     <li class="nav-header">DONNÉES SÉCURITÉ</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objet') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-id-card"></i>
-                            <p>Objets</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/objet',
+                                '<i class="nav-icon fas fa-id-card"></i><p>Objets</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objet_declencheur') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Objets déclencheurs</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/objet_declencheur',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Objets déclencheurs</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objet_activite') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Objets Activité</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/objet_activite',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Objets Activité</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/question') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Questions</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/question',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Questions</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Réponses</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/reponse',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Réponses</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Liaison act/rép</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/avoir_rep',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Liaison act/rép</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
+
                     </li>
                     <li class="nav-header">DONNÉES COMMUNES</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/activite') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-tasks"></i>
-                            <p>Activités</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/activite',
+                                '<i class="nav-icon fas fa-tasks"></i><p>Activités</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/explication') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-info-circle"></i>
-                            <p>Explications</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/explication',
+                                '<i class="nav-icon fas fa-info-circle"></i><p>Explications</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/indice') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-lightbulb"></i>
-                            <p>Indices</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/indice',
+                                '<i class="nav-icon fas fa-lightbulb"></i><p>Indices</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                 </ul>
             </nav>
@@ -119,9 +124,11 @@
                         <h1>Gestion des Indices (500-599)</h1>
                     </div>
                     <div class="col-sm-6">
-                        <a href="<?= base_url('/gingembre/salle_5/indice/create') ?>" class="btn btn-success float-right">
-                            <i class="fas fa-plus"></i> Nouvel Indice
-                        </a>
+                        <?= anchor(
+                                '/gingembre/salle_5/indice/create',
+                                '<i class="fas fa-plus"></i> Nouvel Indice',
+                                ['class' => 'btn btn-success float-right']
+                        ) ?>
                     </div>
                 </div>
             </div>
@@ -163,17 +170,23 @@
                                     <td><strong><?= $indice['numero'] ?></strong></td>
                                     <td><?= substr(strip_tags($indice['libelle']), 0, 150) ?><?= strlen($indice['libelle']) > 150 ? '...' : '' ?></td>
                                     <td>
-                                        <a href="<?= base_url('/gingembre/salle_5/indice/edit/' . $indice['numero']) ?>"
-                                           class="btn btn-sm btn-primary"
-                                           title="Modifier">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <a href="<?= base_url('/gingembre/salle_5/indice/delete/' . $indice['numero']) ?>"
-                                           class="btn btn-sm btn-danger"
-                                           title="Supprimer"
-                                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet indice ?')">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
+                                        <?= anchor(
+                                                '/gingembre/salle_5/indice/edit/' . $indice['numero'],
+                                                '<i class="fas fa-edit"></i>',
+                                                [
+                                                        'class' => 'btn btn-sm btn-primary',
+                                                        'title' => 'Modifier'
+                                                ]
+                                        ) ?>
+                                        <?= anchor(
+                                                '/gingembre/salle_5/indice/delete/' . $indice['numero'],
+                                                '<i class="fas fa-trash"></i>',
+                                                [
+                                                        'class'   => 'btn btn-sm btn-danger',
+                                                        'title'   => 'Supprimer',
+                                                        'onclick' => "return confirm('Êtes-vous sûr de vouloir supprimer cet indice ? Cette action supprimera aussi ses liens avec les activités.')"
+                                                ]
+                                        ) ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
