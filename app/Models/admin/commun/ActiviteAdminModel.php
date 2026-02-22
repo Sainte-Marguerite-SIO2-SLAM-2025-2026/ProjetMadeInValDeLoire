@@ -161,8 +161,8 @@ class ActiviteAdminModel extends Model
         $db = \Config\Database::connect('default');
         
         $tables = [
-            'activiteMessage' => 'activite_numero',
-            'avoirIndice' => 'activite_numero',
+            'activite_message' => 'activite_numero',
+            'avoir_indice' => 'activite_numero',
             'avoir_rep' => 'activite_numero',
             'avoir_zone' => 'activite_numero',
             'carte' => 'activite_numero',
