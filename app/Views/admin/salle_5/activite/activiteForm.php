@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= isset($objet) ? 'Modifier' : 'Ajouter' ?> un Objet - Salle 5</title>
+    <title><?= isset($activite) ? 'Modifier' : 'Ajouter' ?> une Activité - Admin Salle 5</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -34,6 +33,7 @@
         </ul>
     </nav>
 
+    <!-- Sidebar -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="<?= base_url('/gingembre/salle_5') ?>" class="brand-link">
             <span class="brand-text font-weight-light">Admin Salle 5</span>
@@ -115,10 +115,10 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><?= isset($objet) ? 'Modifier' : 'Ajouter' ?> un Objet</h1>
+                        <h1><?= isset($activite) ? 'Modifier' : 'Ajouter' ?> une Activité</h1>
                     </div>
                     <div class="col-sm-6">
-                        <a href="<?= base_url('/gingembre/salle_5/objet') ?>" class="btn btn-secondary float-right">
+                        <a href="<?= base_url('/gingembre/salle_5/activite') ?>" class="btn btn-secondary float-right">
                             <i class="fas fa-arrow-left"></i> Retour
                         </a>
                     </div>
@@ -141,149 +141,97 @@
                 <?php endif; ?>
 
                 <div class="card">
-                    <form action="<?= isset($objet) ? base_url('/gingembre/salle_5/objet/update/' . $objet->id) : base_url('/gingembre/salle_5/objet/store') ?>"
+                    <form action="<?= isset($activite) ? base_url('/gingembre/salle_5/activite/update/' . $activite['numero']) : base_url('/gingembre/salle_5/activite/store') ?>"
                           method="post">
                         <?= csrf_field() ?>
 
                         <div class="card-body">
 
                             <div class="form-group">
-                                <label for="nom">Nom <span class="text-danger">*</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="nom"
-                                       name="nom"
-                                       value="<?= old('nom', isset($objet) ? $objet->nom : '') ?>"
-                                       placeholder="Téléphone_mobile"
-                                       maxlength="50"
-                                       required>
-                                <small class="form-text text-muted">Nom de l'objet (max 50 caractères)</small>
+                                <label for="numero">Numéro <span class="text-danger">*</span></label>
+                                <?php if (isset($activite)): ?>
+                                    <input type="number" class="form-control" value="<?= $activite['numero'] ?>" readonly>
+                                    <small class="form-text text-muted">Le numéro ne peut pas être modifié</small>
+                                <?php else: ?>
+                                    <input type="number"
+                                           class="form-control"
+                                           id="numero"
+                                           name="numero"
+                                           value="<?= old('numero', $next_numero ?? '') ?>"
+                                           min="500"
+                                           max="599"
+                                           required>
+                                    <small class="form-text text-muted">Numéro suggéré: <?= $next_numero ?? '' ?> (plage 500-599)</small>
+                                <?php endif; ?>
                             </div>
 
                             <div class="form-group">
-                                <label for="x">Position X<span class="text-danger"> sauf objet drag n drop</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="x"
-                                       name="x"
-                                       value="<?= old('x', isset($objet) ? $objet->x : '') ?>"
-                                       placeholder="192.63"
-                                       maxlength="50"
-                                       >
-                                <small class="form-text text-muted">Position X de l'objet</small>
+                                <label for="libelle">Libellé <span class="text-danger">*</span></label>
+                                <textarea class="form-control"
+                                          id="libelle"
+                                          name="libelle"
+                                          rows="4"
+                                          required><?= old('libelle', isset($activite) ? $activite['libelle'] : '') ?></textarea>
+                                <small class="form-text text-muted">Description de l'activité</small>
                             </div>
 
                             <div class="form-group">
-                                <label for="y">Position Y<span class="text-danger"> sauf objet drag n drop</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="y"
-                                       name="y"
-                                       value="<?= old('y', isset($objet) ? $objet->y : '') ?>"
-                                       placeholder="192.63"
-                                       maxlength="50"
-                                       >
-                                <small class="form-text text-muted">Position Y de l'objet</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="width">Largeur <span class="text-danger"> sauf objet drag n drop</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="width"
-                                       name="width"
-                                       value="<?= old('width', isset($objet) ? $objet->width : '') ?>"
-                                       placeholder="200"
-                                       maxlength="50"
-                                       >
-                                <small class="form-text text-muted">Largeur de l'objet</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="height">Hauteur <span class="text-danger"> sauf objet drag n drop</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="height"
-                                       name="height"
-                                       value="<?= old('height', isset($objet) ? $objet->height : '') ?>"
-                                       placeholder="200"
-                                       maxlength="50"
-                                       >
-                                <small class="form-text text-muted">Hauteur de l'objet</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="image">Image <span class="text-danger">*</span></label>
+                                <label for="image">Image de fond<span class="text-danger">*</span></label>
                                 <input type="text"
                                        class="form-control"
                                        id="image"
                                        name="image"
-                                       value="<?= old('image', isset($objet) ? substr($objet->image, 15) : '') ?>"
-                                       placeholder="carte_pins_01.png"
-                                       maxlength="50"
-                                       required>
-                                <small class="form-text text-muted">Nom du fichier image (max 50 caractères)</small>
+                                       value="<?= old('image', isset($activite) ? substr($activite['image'], 18) : '') ?>"
+                                       placeholder="frise_reaction_ransomware.png">
+                                <small class="form-text text-muted">Nom du fichier image</small>
                             </div>
 
                             <div class="form-group">
-                                <label for="texte_image">Texte sur l'objet</label>
+                                <label for="explication_numero">Explication Associée</label>
+                                <select class="form-control" id="explication_numero" name="explication_numero">
+                                    <option value="">Aucune explication</option>
+                                    <?php foreach ($explications as $explication): ?>
+                                        <option value="<?= $explication['numero'] ?>"
+                                            <?= old('explication_numero', isset($activite) ? $activite['explication_numero'] : '') == $explication['numero'] ? 'selected' : '' ?>>
+                                            [<?= $explication['numero'] ?>] <?= esc(substr(strip_tags($explication['libelle']), 0, 60)) ?>...
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="width_img">Largeur de l'image de fond<span class="text-danger">*</span></label>
                                 <input type="text"
                                        class="form-control"
-                                       id="texte_image"
-                                       name="texte_image"
-                                       value="<?= old('texte_image', isset($objet) ? $objet->texte : '') ?>"
-                                       placeholder="une clé est utile..."
-                                       maxlength="80"
-                                       >
-                                <small class="form-text text-muted">max 80 caractères</small>
+                                       id="width_img"
+                                       name="width_img"
+                                       value="<?= old('width_img', isset($activite) ? $activite['width_img'] : '') ?>"
+                                       placeholder="1920">
+                                <small class="form-text text-muted">Largeur de l'image de fond</small>
                             </div>
 
                             <div class="form-group">
-                                <label for="hover">Texte au survol</label>
+                                <label for="height_img">Taille de l'image de fond<span class="text-danger">*</span></label>
                                 <input type="text"
                                        class="form-control"
-                                       id="hover"
-                                       name="hover"
-                                       value="<?= old('hover', isset($objet) ? $objet->hover : '') ?>"
-                                       placeholder="une clé est utile..."
-                                       maxlength="80"
-                                       >
-                                <small class="form-text text-muted">Texte au survol de l'objet (max 80 caractères)</small>
+                                       id="height_img"
+                                       name="height_img"
+                                       value="<?= old('height_img', isset($activite) ? $activite['height_img'] : '') ?>"
+                                       placeholder="1080">
+                                <small class="form-text text-muted">Hauteur de l'image de fond</small>
                             </div>
 
-                            <div class="form-group">
-                                <label for="cliquable">Objet cliquable <span class="text-danger">*</span></label>
-                                <div class="form-check">
-                                    <input class="form-check-input"
-                                           type="radio"
-                                           name="cliquable"
-                                           id="cliquable_vrai"
-                                           value="1"
-                                            <?= old('cliquable', isset($objet) ? $objet->cliquable : '') == '1' ? 'checked' : '' ?>
-                                           required>
-                                    <label class="form-check-label" for="reponse_vrai">
-                                        Oui
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input"
-                                           type="radio"
-                                           name="cliquable"
-                                           id="cliquable_faux"
-                                           value="0"
-                                            <?= old('cliquable', isset($objet) ? $objet->cliquable : '') === '0' ? 'checked' : '' ?>>
-                                    <label class="form-check-label" for="reponse_faux">
-                                        Non
-                                    </label>
-                                </div>
-                            </div>
+                            <label><span class="text-danger">Il est recommandé de mettre une largeur de
+                                    1920 pour une hauteur de 1080 pour l'image de fond : salle_bureau_compil.svg
+                                et 1375 917 pour : bureau.svg</span></label>
+
                         </div>
 
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-save"></i> Enregistrer
                             </button>
-                            <a href="<?= base_url('/gingembre/salle_5/objet') ?>" class="btn btn-secondary">
+                            <a href="<?= base_url('/gingembre/salle_5/activite') ?>" class="btn btn-secondary">
                                 <i class="fas fa-times"></i> Annuler
                             </a>
                         </div>
@@ -294,6 +242,7 @@
         </section>
     </div>
 
+    <!-- Footer -->
     <footer class="main-footer">
         <strong>Administration Salle 5</strong> - Made in Val de Loire
     </footer>

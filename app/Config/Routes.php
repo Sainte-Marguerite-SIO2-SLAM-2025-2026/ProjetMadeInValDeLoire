@@ -235,6 +235,56 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
         $routes->get('delete/(:num)', 'AdminSalle5Controller::questionDelete/$1');
     });
 
+    // Gestion des réponses
+    $routes->group('reponse', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::reponseList');
+        $routes->get('create', 'AdminSalle5Controller::reponseCreate');
+        $routes->post('store', 'AdminSalle5Controller::reponseStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::reponseEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::reponseUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle5Controller::reponseDelete/$1');
+    });
+
+    // Gestion des objets réponses
+    $routes->group('avoir_rep', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::avoirRepList');
+        $routes->get('create', 'AdminSalle5Controller::avoirRepCreate');
+        $routes->post('store', 'AdminSalle5Controller::avoirRepStore');
+        $routes->get('edit/(:num)/(:num)', 'AdminSalle5Controller::avoirRepEdit/$1/$2');
+        $routes->post('update/(:num)/(:num)', 'AdminSalle5Controller::avoirRepUpdate/$1/$2');
+        $routes->get('delete/(:num)/(:num)', 'AdminSalle5Controller::avoirRepDelete/$1/$2');
+    });
+
+    // Gestion des Activités
+    $routes->group('activite', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::activiteList');
+        $routes->get('create', 'AdminSalle5Controller::activiteCreate');
+        $routes->post('store', 'AdminSalle5Controller::activiteStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::activiteEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::activiteUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle5Controller::activiteDelete/$1');
+    });
+
+    // Gestion des Explications
+    $routes->group('explication', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::explicationList');
+        $routes->get('create', 'AdminSalle5Controller::explicationCreate');
+        $routes->post('store', 'AdminSalle5Controller::explicationStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::explicationEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::explicationUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle5Controller::explicationDelete/$1');
+    });
+
+    // Gestion des Indices
+    $routes->group('indice', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::indiceList');
+        $routes->get('create', 'AdminSalle5Controller::indiceCreate');
+        $routes->post('store', 'AdminSalle5Controller::indiceStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::indiceEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::indiceUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle5Controller::indiceDelete/$1');
+    });
+
 });
 
 // Routes admin

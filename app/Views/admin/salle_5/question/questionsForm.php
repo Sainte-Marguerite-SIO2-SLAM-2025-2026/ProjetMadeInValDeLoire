@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= isset($objet) ? 'Modifier' : 'Ajouter' ?> une Question - Salle 5</title>
+    <title><?= isset($questions) ? 'Modifier' : 'Ajouter' ?> une Question - Salle 5</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -62,7 +62,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objets_activites') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/objet_activite') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Objets Activité</p>
                         </a>
@@ -74,15 +74,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/reponses') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Réponses</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/liaisons') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Liaison quest/rép</p>
+                            <p>Liaison act/rép</p>
                         </a>
                     </li>
                     <li class="nav-header">DONNÉES COMMUNES</li>
@@ -115,7 +115,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><?= isset($objet) ? 'Modifier' : 'Ajouter' ?> une Question</h1>
+                        <h1><?= isset($questions) ? 'Modifier' : 'Ajouter' ?> une Question</h1>
                     </div>
                     <div class="col-sm-6">
                         <a href="<?= base_url('/gingembre/salle_5/question') ?>" class="btn btn-secondary float-right">

@@ -74,15 +74,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objets_declencheurs') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Réponses</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objets_declencheurs') ?>" class="nav-link">
+                        <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="nav-link">
                             <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Liaison quest/rép</p>
+                            <p>Liaison act/rép</p>
                         </a>
                     </li>
                     <li class="nav-header">DONNÉES COMMUNES</li>
@@ -188,45 +188,28 @@
                     <div class="col-lg-3 col-6">
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3><?= $messageVrai ?></h3>
-                                <p>Explication bonne réponse</p>
+                                <h3><?= $message ?></h3>
+                                <p>Explication réponse</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-question-circle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/question') ?>" class="small-box-footer">
+                            <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="small-box-footer">
                                 Gérer <i class="fas fa-arrow-circle-right"></i>
                             </a>
                         </div>
                     </div>
-
-                    <div class="col-lg-3 col-6">
-                        <div class="small-box bg-danger">
-                            <div class="inner">
-                                <h3><?= $messageFaux ?></h3>
-                                <p>Explication mauvaise réponse</p>
-                            </div>
-                            <div class="icon">
-                                <i class="fas fa-question-circle"></i>
-                            </div>
-                            <a href="<?= base_url('/gingembre/salle_4/question') ?>" class="small-box-footer">
-                                Gérer <i class="fas fa-arrow-circle-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-
 
                     <div class="col-lg-3 col-6">
                         <div class="small-box bg-danger">
                             <div class="inner">
                                 <h3><?= $avoirRep ?></h3>
-                                <p>Liaison questions/réponses</p>
+                                <p>Liaison activités/réponses</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-question-circle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/question') ?>" class="small-box-footer">
+                            <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="small-box-footer">
                                 Gérer <i class="fas fa-arrow-circle-right"></i>
                             </a>
                         </div>
