@@ -161,7 +161,7 @@
 
                         <!-- NUMERO ACTIVITE -->
                         <div class="form-group">
-                            <label for="numero_activite">Numéro Activité</label>
+                            <label for="numero_activite">Numéro Activité <span class="text-danger">*</span></label>
                             <?php
                             $options = ['' => 'Aucune activité'];
                             foreach ($activites as $activite) {
@@ -178,7 +178,7 @@
 
                         <!-- NUMERO OBJET -->
                         <div class="form-group">
-                            <label for="objet_id">Numéro Objet</label>
+                            <label for="objet_id">Numéro Objet <span class="text-danger">*</span></label>
                             <?php
                             $options = ['' => 'Aucun objet'];
                             foreach ($objets as $objet) {

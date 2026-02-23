@@ -232,7 +232,7 @@
 
                         <!-- EXPLICATION -->
                         <div class="form-group">
-                            <label for="explication_numero">Explication associée</label>
+                            <label for="explication_numero">Explication associée <span class="text-danger">*</span></label>
 
                             <?php
                             $options = ['' => 'Aucune explication'];

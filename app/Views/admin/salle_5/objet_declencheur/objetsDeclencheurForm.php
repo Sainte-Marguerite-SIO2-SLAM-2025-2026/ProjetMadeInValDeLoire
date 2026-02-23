@@ -191,52 +191,56 @@
 
                         <!-- POSITION X -->
                         <div class="form-group">
-                            <label for="x">Position X</label>
+                            <label for="x">Position X <span class="text-danger">*</span></label>
                             <?= form_input([
                                     'name'  => 'x',
                                     'id'    => 'x',
                                     'class' => 'form-control',
                                     'value' => old('x', $objetDeclencheur->x ?? ''),
-                                    'placeholder' => '192.63'
+                                    'placeholder' => '192.63',
+                                    'required'    => true
                             ]) ?>
                             <small class="form-text text-muted">Position X de l'objet</small>
                         </div>
 
                         <!-- POSITION Y -->
                         <div class="form-group">
-                            <label for="y">Position Y</label>
+                            <label for="y">Position Y <span class="text-danger">*</span></label>
                             <?= form_input([
                                     'name'  => 'y',
                                     'id'    => 'y',
                                     'class' => 'form-control',
                                     'value' => old('y', $objetDeclencheur->y ?? ''),
-                                    'placeholder' => '192.63'
+                                    'placeholder' => '192.63',
+                                    'required'    => true
                             ]) ?>
                             <small class="form-text text-muted">Position Y de l'objet</small>
                         </div>
 
                         <!-- LARGEUR -->
                         <div class="form-group">
-                            <label for="width">Largeur</label>
+                            <label for="width">Largeur <span class="text-danger">*</span></label>
                             <?= form_input([
                                     'name'  => 'width',
                                     'id'    => 'width',
                                     'class' => 'form-control',
                                     'value' => old('width', $objetDeclencheur->width ?? ''),
-                                    'placeholder' => '200'
+                                    'placeholder' => '200',
+                                    'required'    => true
                             ]) ?>
                             <small class="form-text text-muted">Largeur de l'objet</small>
                         </div>
 
                         <!-- HAUTEUR -->
                         <div class="form-group">
-                            <label for="height">Hauteur</label>
+                            <label for="height">Hauteur <span class="text-danger">*</span></label>
                             <?= form_input([
                                     'name'  => 'height',
                                     'id'    => 'height',
                                     'class' => 'form-control',
                                     'value' => old('height', $objetDeclencheur->height ?? ''),
-                                    'placeholder' => '200'
+                                    'placeholder' => '200',
+                                    'required'    => true
                             ]) ?>
                             <small class="form-text text-muted">Hauteur de l'objet</small>
                         </div>

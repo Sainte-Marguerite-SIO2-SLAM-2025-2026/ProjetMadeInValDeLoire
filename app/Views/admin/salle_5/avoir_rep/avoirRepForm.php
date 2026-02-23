@@ -161,7 +161,7 @@
 
                         <!-- OBJET -->
                         <div class="form-group">
-                            <label for="objet_id">Numéro Objet</label>
+                            <label for="objet_id">Numéro Objet <span class="text-danger">*</span></label>
 
                             <?php
                             $optionsObjets = ['' => 'Aucun objet'];
@@ -182,7 +182,7 @@
 
                         <!-- ACTIVITE -->
                         <div class="form-group">
-                            <label for="activite_numero">Numéro Activité</label>
+                            <label for="activite_numero">Numéro Activité <span class="text-danger">*</span></label>
 
                             <?php
                             $optionsActivites = ['' => 'Aucune activité'];
