@@ -174,22 +174,6 @@
                                     <td><?= esc($reponse->activite_numero) ?></td>
                                     <td><?= esc($reponse->type_message) ?></td>
                                     <td><?= esc($reponse->message) ?></td>
-
-                                    <!--                                    <td>--><?php //= substr(esc($objet['explication']), 0, 50) ?><!--...</td>-->
-                                    <!--                                    <td>-->
-                                    <!--                                        --><?php //if ($objet['type_carte'] == 'bonne_pratique'): ?>
-                                    <!--                                            <span class="badge badge-success">Bonne pratique</span>-->
-                                    <!--                                        --><?php //else: ?>
-                                    <!--                                            <span class="badge badge-warning">Piège</span>-->
-                                    <!--                                        --><?php //endif; ?>
-                                    <!--                                    </td>-->
-                                    <!--                                    <td>-->
-                                    <!--                                        --><?php //if ($objet['activite_numero']): ?>
-                                    <!--                                            <small>--><?php //= esc($objet['activite_libelle']) ?><!--</small>-->
-                                    <!--                                        --><?php //else: ?>
-                                    <!--                                            <span class="text-muted">-</span>-->
-                                    <!--                                        --><?php //endif; ?>
-                                    <!--                                    </td>-->
                                     <td>
                                         <div class="btn-group" >
                                             <?= anchor(
