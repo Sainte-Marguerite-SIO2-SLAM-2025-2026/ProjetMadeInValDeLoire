@@ -147,105 +147,162 @@
                 <?php endif; ?>
 
                 <div class="card">
-                    <form action="<?= isset($activite) ? base_url('/gingembre/salle_5/activite/update/' . $activite['numero']) : base_url('/gingembre/salle_5/activite/store') ?>"
-                          method="post">
-                        <?= csrf_field() ?>
+                    <?= form_open(
+                            isset($activite)
+                                    ? '/gingembre/salle_5/activite/update/' . $activite['numero']
+                                    : '/gingembre/salle_5/activite/store'
+                    ) ?>
 
-                        <div class="card-body">
+                    <?= csrf_field() ?>
 
-                            <div class="form-group">
-                                <label for="numero">Numéro <span class="text-danger">*</span></label>
-                                <?php if (isset($activite)): ?>
-                                    <input type="number" class="form-control" value="<?= $activite['numero'] ?>" readonly>
-                                    <small class="form-text text-muted">Le numéro ne peut pas être modifié</small>
-                                <?php else: ?>
-                                    <input type="number"
-                                           class="form-control"
-                                           id="numero"
-                                           name="numero"
-                                           value="<?= old('numero', $next_numero ?? '') ?>"
-                                           min="500"
-                                           max="599"
-                                           required>
-                                    <small class="form-text text-muted">Numéro suggéré: <?= $next_numero ?? '' ?> (plage 500-599)</small>
-                                <?php endif; ?>
-                            </div>
+                    <div class="card-body">
 
-                            <div class="form-group">
-                                <label for="libelle">Libellé <span class="text-danger">*</span></label>
-                                <textarea class="form-control"
-                                          id="libelle"
-                                          name="libelle"
-                                          rows="4"
-                                          required><?= old('libelle', isset($activite) ? $activite['libelle'] : '') ?></textarea>
-                                <small class="form-text text-muted">Description de l'activité</small>
-                            </div>
+                        <!-- NUMERO -->
+                        <div class="form-group">
+                            <label for="numero">Numéro <span class="text-danger">*</span></label>
 
-                            <div class="form-group">
-                                <label for="image">Image de fond<span class="text-danger">*</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="image"
-                                       name="image"
-                                       value="<?= old('image', isset($activite) ? substr($activite['image'], 18) : '') ?>"
-                                       placeholder="frise_reaction_ransomware.png">
-                                <small class="form-text text-muted">Nom du fichier image</small>
-                            </div>
+                            <?php if (isset($activite)): ?>
 
-                            <div class="form-group">
-                                <label for="explication_numero">Explication Associée</label>
-                                <select class="form-control" id="explication_numero" name="explication_numero">
-                                    <option value="">Aucune explication</option>
-                                    <?php foreach ($explications as $explication): ?>
-                                        <option value="<?= $explication['numero'] ?>"
-                                            <?= old('explication_numero', isset($activite) ? $activite['explication_numero'] : '') == $explication['numero'] ? 'selected' : '' ?>>
-                                            [<?= $explication['numero'] ?>] <?= esc(substr(strip_tags($explication['libelle']), 0, 60)) ?>...
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+                                <?= form_input([
+                                        'type'     => 'number',
+                                        'class'    => 'form-control',
+                                        'value'    => $activite['numero'],
+                                        'readonly' => true
+                                ]) ?>
 
-                            <div class="form-group">
-                                <label for="width_img">Largeur de l'image de fond<span class="text-danger">*</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="width_img"
-                                       name="width_img"
-                                       value="<?= old('width_img', isset($activite) ? $activite['width_img'] : '') ?>"
-                                       placeholder="1920">
-                                <small class="form-text text-muted">Largeur de l'image de fond</small>
-                            </div>
+                                <small class="form-text text-muted">
+                                    Le numéro ne peut pas être modifié
+                                </small>
 
-                            <div class="form-group">
-                                <label for="height_img">Taille de l'image de fond<span class="text-danger">*</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="height_img"
-                                       name="height_img"
-                                       value="<?= old('height_img', isset($activite) ? $activite['height_img'] : '') ?>"
-                                       placeholder="1080">
-                                <small class="form-text text-muted">Hauteur de l'image de fond</small>
-                            </div>
+                            <?php else: ?>
 
-                            <div class="alert alert-info">
-                                <i class="fas fa-info-circle"></i>
-                               <span>Il est recommandé de mettre une largeur de
-                                   1920 pour une hauteur de 1080 pour l'image de fond : salle_bureau_compil.svg
-                                   et 1375 et 917 pour : bureau.svg</span>
-                            </div>
+                                <?= form_input([
+                                        'type'  => 'number',
+                                        'name'  => 'numero',
+                                        'id'    => 'numero',
+                                        'class' => 'form-control',
+                                        'value' => old('numero', $next_numero ?? ''),
+                                        'min'   => 500,
+                                        'max'   => 599,
+                                        'required' => true
+                                ]) ?>
 
+                                <small class="form-text text-muted">
+                                    Numéro suggéré : <?= $next_numero ?? '' ?> (plage 500-599)
+                                </small>
+
+                            <?php endif; ?>
                         </div>
 
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Enregistrer
-                            </button>
-                            <?= anchor('/gingembre/salle_5/activite',
-                                    '<i class="fas fa-times"></i> Annuler',
-                                    ['class' => 'btn btn-secondary']
-                            ) ?>
+                        <!-- LIBELLE -->
+                        <div class="form-group">
+                            <label for="libelle">Libellé <span class="text-danger">*</span></label>
+
+                            <?= form_textarea([
+                                    'name'  => 'libelle',
+                                    'id'    => 'libelle',
+                                    'class' => 'form-control',
+                                    'rows'  => 4,
+                                    'required' => true,
+                                    'value' => old('libelle', $activite['libelle'] ?? '')
+                            ]) ?>
+
+                            <small class="form-text text-muted">
+                                Description de l'activité
+                            </small>
                         </div>
-                    </form>
+
+                        <!-- IMAGE -->
+                        <div class="form-group">
+                            <label for="image">Image de fond <span class="text-danger">*</span></label>
+
+                            <?= form_input([
+                                    'type'  => 'text',
+                                    'name'  => 'image',
+                                    'id'    => 'image',
+                                    'class' => 'form-control',
+                                    'placeholder' => 'frise_reaction_ransomware.png',
+                                    'value' => old('image', isset($activite) ? substr($activite['image'], 18) : '')
+                            ]) ?>
+
+                            <small class="form-text text-muted">
+                                Nom du fichier image
+                            </small>
+                        </div>
+
+                        <!-- EXPLICATION -->
+                        <div class="form-group">
+                            <label for="explication_numero">Explication associée <span class="text-danger">*</span></label>
+
+                            <?php
+                            $options = ['' => 'Aucune explication'];
+
+                            foreach ($explications as $explication) {
+                                $options[$explication['numero']] =
+                                        '[' . $explication['numero'] . '] ' .
+                                        substr(strip_tags($explication['libelle']), 0, 60) . '...';
+                            }
+
+                            echo form_dropdown(
+                                    'explication_numero',
+                                    $options,
+                                    old('explication_numero', $activite['explication_numero'] ?? ''),
+                                    ['class' => 'form-control', 'id' => 'explication_numero']
+                            );
+                            ?>
+                        </div>
+
+                        <!-- WIDTH -->
+                        <div class="form-group">
+                            <label for="width_img">Largeur image <span class="text-danger">*</span></label>
+
+                            <?= form_input([
+                                    'type'  => 'text',
+                                    'name'  => 'width_img',
+                                    'id'    => 'width_img',
+                                    'class' => 'form-control',
+                                    'placeholder' => '1920',
+                                    'value' => old('width_img', $activite['width_img'] ?? '')
+                            ]) ?>
+                        </div>
+
+                        <!-- HEIGHT -->
+                        <div class="form-group">
+                            <label for="height_img">Hauteur image <span class="text-danger">*</span></label>
+
+                            <?= form_input([
+                                    'type'  => 'text',
+                                    'name'  => 'height_img',
+                                    'id'    => 'height_img',
+                                    'class' => 'form-control',
+                                    'placeholder' => '1080',
+                                    'value' => old('height_img', $activite['height_img'] ?? '')
+                            ]) ?>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            Il est recommandé d'utiliser 1920x1080 pour salle_bureau_compil.svg
+                            et 1375x917 pour bureau.svg
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer">
+                        <?= form_button([
+                                'type'    => 'submit',
+                                'class'   => 'btn btn-primary',
+                                'content' => '<i class="fas fa-save"></i> Enregistrer'
+                        ]) ?>
+
+                        <?= anchor(
+                                '/gingembre/salle_5/activite',
+                                '<i class="fas fa-times"></i> Annuler',
+                                ['class' => 'btn btn-secondary']
+                        ) ?>
+                    </div>
+
+                    <?= form_close() ?>
                 </div>
 
             </div>

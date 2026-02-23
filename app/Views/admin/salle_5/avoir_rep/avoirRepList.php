@@ -169,40 +169,30 @@
                                 <tr>
                                     <td><?= $avoirR->objet_id ?></td>
                                     <td><?= esc($avoirR->activite_numero) ?></td>
-
-                                    <!--                                    <td>--><?php //= substr(esc($objet['explication']), 0, 50) ?><!--...</td>-->
-                                    <!--                                    <td>-->
-                                    <!--                                        --><?php //if ($objet['type_carte'] == 'bonne_pratique'): ?>
-                                    <!--                                            <span class="badge badge-success">Bonne pratique</span>-->
-                                    <!--                                        --><?php //else: ?>
-                                    <!--                                            <span class="badge badge-warning">Piège</span>-->
-                                    <!--                                        --><?php //endif; ?>
-                                    <!--                                    </td>-->
-                                    <!--                                    <td>-->
-                                    <!--                                        --><?php //if ($objet['activite_numero']): ?>
-                                    <!--                                            <small>--><?php //= esc($objet['activite_libelle']) ?><!--</small>-->
-                                    <!--                                        --><?php //else: ?>
-                                    <!--                                            <span class="text-muted">-</span>-->
-                                    <!--                                        --><?php //endif; ?>
-                                    <!--                                    </td>-->
                                     <td>
+                                        <div class="btn-group" >
                                         <?= anchor(
                                                 '/gingembre/salle_5/avoir_rep/edit/' . $avoirR->activite_numero . '/' . $avoirR->objet_id,
                                                 '<i class="fas fa-edit"></i>',
                                                 [
-                                                        'class' => 'btn btn-sm btn-primary',
+                                                        'class' => 'btn btn-sm btn-primary mr-1',
                                                         'title' => 'Modifier'
                                                 ]
                                         ) ?>
-                                        <?= anchor(
+                                        <?= form_open(
                                                 '/gingembre/salle_5/avoir_rep/delete/' . $avoirR->activite_numero . '/' . $avoirR->objet_id,
-                                                '<i class="fas fa-trash"></i>',
-                                                [
-                                                        'class'   => 'btn btn-sm btn-danger',
-                                                        'title'   => 'Supprimer',
-                                                        'onclick' => "return confirm('Êtes-vous sûr de vouloir supprimer cet objet ?')"
-                                                ]
-                                        ) ?>
+                                                ['onsubmit' => "return confirm('Êtes-vous sûr de vouloir supprimer cet objet ?')"]
+                                        )
+                                        ?>
+                                        <?= csrf_field() ?>
+                                        <?= form_button([
+                                                'type'    => 'submit',
+                                                'class'   => 'btn btn-sm btn-danger',
+                                                'title'   => 'Supprimer',
+                                                'content' => '<i class="fas fa-trash"></i>'
+                                        ]) ?>
+                                        <?= form_close() ?>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

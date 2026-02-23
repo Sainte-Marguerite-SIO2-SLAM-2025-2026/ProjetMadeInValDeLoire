@@ -148,61 +148,100 @@
                 <?php endif; ?>
 
                 <div class="card">
-                    <form action="<?= isset($indice) ? base_url('/gingembre/salle_5/indice/update/' . $indice['numero']) : base_url('/gingembre/salle_5/indice/store') ?>"
-                          method="post">
-                        <?= csrf_field() ?>
+                    <?= form_open(
+                            isset($indice)
+                                    ? '/gingembre/salle_5/indice/update/' . $indice['numero']
+                                    : '/gingembre/salle_5/indice/store'
+                    ) ?>
 
-                        <div class="card-body">
+                    <?= csrf_field() ?>
 
-                            <div class="form-group">
-                                <label for="numero">Numéro <span class="text-danger">*</span></label>
-                                <?php if (isset($indice)): ?>
-                                    <input type="number" class="form-control" value="<?= $indice['numero'] ?>" readonly>
-                                    <small class="form-text text-muted">Le numéro ne peut pas être modifié</small>
-                                <?php else: ?>
-                                    <input type="number"
-                                           class="form-control"
-                                           id="numero"
-                                           name="numero"
-                                           value="<?= old('numero', $next_numero ?? '') ?>"
-                                           min="500"
-                                           max="599"
-                                           required>
-                                    <small class="form-text text-muted">Numéro suggéré: <?= $next_numero ?? '' ?> (plage 500-599)</small>
-                                <?php endif; ?>
-                            </div>
+                    <div class="card-body">
 
-                            <div class="form-group">
-                                <label for="libelle">Contenu de l'Indice <span class="text-danger">*</span></label>
-                                <textarea class="form-control"
-                                          id="libelle"
-                                          name="libelle"
-                                          rows="6"
-                                          required><?= old('libelle', isset($indice) ? $indice['libelle'] : '') ?></textarea>
+                        <!-- NUMERO -->
+                        <div class="form-group">
+                            <label for="numero">Numéro <span class="text-danger">*</span></label>
+
+                            <?php if (isset($indice)): ?>
+
+                                <?= form_input([
+                                        'type'     => 'number',
+                                        'class'    => 'form-control',
+                                        'value'    => $indice['numero'],
+                                        'readonly' => true
+                                ]) ?>
+
                                 <small class="form-text text-muted">
-                                    Texte d'aide qui sera affiché aux joueurs
+                                    Le numéro ne peut pas être modifié
                                 </small>
-                            </div>
 
-                            <div class="alert alert-info">
-                                <i class="fas fa-lightbulb"></i>
-                                <strong>Conseil :</strong> Un bon indice guide le joueur sans donner directement la réponse.
-                                Soyez suffisamment clair pour aider, mais gardez une part de challenge.
-                            </div>
+                            <?php else: ?>
 
+                                <?= form_input([
+                                        'type'     => 'number',
+                                        'name'     => 'numero',
+                                        'id'       => 'numero',
+                                        'class'    => 'form-control',
+                                        'value'    => old('numero', $next_numero ?? ''),
+                                        'min'      => 500,
+                                        'max'      => 599,
+                                        'required' => true
+                                ]) ?>
+
+                                <small class="form-text text-muted">
+                                    Numéro suggéré : <?= $next_numero ?? '' ?> (plage 500-599)
+                                </small>
+
+                            <?php endif; ?>
                         </div>
 
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Enregistrer
-                            </button>
-                            <?= anchor(
-                                    '/gingembre/salle_5/indice',
-                                    '<i class="fas fa-times"></i> Annuler',
-                                    ['class' => 'btn btn-secondary']
-                            ) ?>
+                        <!-- LIBELLE -->
+                        <div class="form-group">
+                            <label for="libelle">
+                                Contenu de l'Indice <span class="text-danger">*</span>
+                            </label>
+
+                            <?= form_textarea([
+                                    'name'     => 'libelle',
+                                    'id'       => 'libelle',
+                                    'class'    => 'form-control',
+                                    'rows'     => 6,
+                                    'required' => true,
+                                    'value'    => old('libelle', $indice['libelle'] ?? '')
+                            ]) ?>
+
+                            <small class="form-text text-muted">
+                                Texte d'aide qui sera affiché aux joueurs
+                            </small>
                         </div>
-                    </form>
+
+                        <div class="alert alert-info">
+                            <i class="fas fa-lightbulb"></i>
+                            <strong>Conseil :</strong>
+                            Un bon indice guide le joueur sans donner directement la réponse.
+                            Soyez suffisamment clair pour aider, mais gardez une part de challenge.
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <?= form_button([
+                                'type'    => 'submit',
+                                'class'   => 'btn btn-primary',
+                                'content' => '<i class="fas fa-save"></i> Enregistrer',
+                                'escape'  => false
+                        ]) ?>
+
+                        <?= anchor(
+                                '/gingembre/salle_5/indice',
+                                '<i class="fas fa-times"></i> Annuler',
+                                ['class' => 'btn btn-secondary']
+                        ) ?>
+
+                    </div>
+
+                    <?= form_close() ?>
                 </div>
 
             </div>

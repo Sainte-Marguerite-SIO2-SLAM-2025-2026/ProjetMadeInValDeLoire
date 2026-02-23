@@ -137,7 +137,7 @@
                                 <p>Total Objets</p>
                             </div>
                             <div class="icon">
-                                <i class="fas fa-id-card"></i>
+                                <i class="fas fa-box"></i>
                             </div>
                             <?= anchor(
                                     '/gingembre/salle_5/objet',
@@ -154,7 +154,7 @@
                                 <p>Objets déclencheurs d'activité</p>
                             </div>
                             <div class="icon">
-                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-bolt"></i>
                             </div>
                             <?= anchor(
                                     '/gingembre/salle_5/objet_declencheur',
@@ -165,13 +165,13 @@
                     </div>
 
                     <div class="col-lg-3 col-6">
-                        <div class="small-box bg-danger">
+                        <div class="small-box bg-warning">
                             <div class="inner">
                                 <h3><?= $totalObjetsActivites ?></h3>
                                 <p>Objets utilisés dans activités</p>
                             </div>
                             <div class="icon">
-                                <i class="fas fa-question-circle"></i>
+                                <i class="fas fa-cogs"></i>
                             </div>
                             <?= anchor(
                                     '/gingembre/salle_5/objet_activite',
@@ -199,13 +199,13 @@
                     </div>
 
                     <div class="col-lg-3 col-6">
-                        <div class="small-box bg-danger">
+                        <div class="small-box bg-teal">
                             <div class="inner">
                                 <h3><?= $message ?></h3>
                                 <p>Explication réponse</p>
                             </div>
                             <div class="icon">
-                                <i class="fas fa-question-circle"></i>
+                                <i class="fas fa-comment"></i>
                             </div>
                             <?= anchor(
                                     '/gingembre/salle_5/reponse',
@@ -216,13 +216,13 @@
                     </div>
 
                     <div class="col-lg-3 col-6">
-                        <div class="small-box bg-danger">
+                        <div class="small-box bg-indigo">
                             <div class="inner">
                                 <h3><?= $avoirRep ?></h3>
                                 <p>Liaison activités/réponses</p>
                             </div>
                             <div class="icon">
-                                <i class="fas fa-question-circle"></i>
+                                <i class="fas fa-link"></i>
                             </div>
                             <?= anchor(
                                     '/gingembre/salle_5/avoir_rep',
@@ -288,7 +288,6 @@
                             ) ?>
                         </div>
                     </div>
-                </div>
                 </div>
         </section>
     </div>

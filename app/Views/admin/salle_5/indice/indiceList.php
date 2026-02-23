@@ -170,23 +170,29 @@
                                     <td><strong><?= $indice['numero'] ?></strong></td>
                                     <td><?= substr(strip_tags($indice['libelle']), 0, 150) ?><?= strlen($indice['libelle']) > 150 ? '...' : '' ?></td>
                                     <td>
+                                        <div class="btn-group" >
                                         <?= anchor(
                                                 '/gingembre/salle_5/indice/edit/' . $indice['numero'],
                                                 '<i class="fas fa-edit"></i>',
                                                 [
-                                                        'class' => 'btn btn-sm btn-primary',
+                                                        'class' => 'btn btn-sm btn-primary mr-1',
                                                         'title' => 'Modifier'
                                                 ]
                                         ) ?>
-                                        <?= anchor(
+                                        <?= form_open(
                                                 '/gingembre/salle_5/indice/delete/' . $indice['numero'],
-                                                '<i class="fas fa-trash"></i>',
-                                                [
-                                                        'class'   => 'btn btn-sm btn-danger',
-                                                        'title'   => 'Supprimer',
-                                                        'onclick' => "return confirm('Êtes-vous sûr de vouloir supprimer cet indice ? Cette action supprimera aussi ses liens avec les activités.')"
-                                                ]
-                                        ) ?>
+                                                ['onsubmit' => "return confirm('Êtes-vous sûr de vouloir supprimer cet indice ? Cette action supprimera aussi ses liens avec les activités.')"]
+                                        )
+                                        ?>
+                                        <?= csrf_field() ?>
+                                        <?= form_button([
+                                                'type'    => 'submit',
+                                                'class'   => 'btn btn-sm btn-danger',
+                                                'title'   => 'Supprimer',
+                                                'content' => '<i class="fas fa-trash"></i>'
+                                        ]) ?>
+                                        <?= form_close() ?>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

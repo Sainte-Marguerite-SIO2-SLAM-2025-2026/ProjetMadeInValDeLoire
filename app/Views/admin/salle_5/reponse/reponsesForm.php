@@ -149,76 +149,100 @@
                 <?php endif; ?>
 
                 <div class="card">
-                    <form action="<?= isset($reponses) ? base_url('/gingembre/salle_5/reponse/update/' . $reponses->id) : base_url('/gingembre/salle_5/reponse/store') ?>"
-                          method="post">
-                        <?= csrf_field() ?>
+                    <?= form_open(
+                            isset($reponses)
+                                    ? '/gingembre/salle_5/reponse/update/' . $reponses->id
+                                    : '/gingembre/salle_5/reponse/store'
+                    ) ?>
 
-                        <div class="card-body">
+                    <?= csrf_field() ?>
 
-                            <div class="form-group">
-                                <label for="activite_numero">Activité</label>
-                                <select class="form-control" id="activite_numero" name="activite_numero" required>
-                                    <option value="">Aucune activité</option>
-                                    <?php foreach ($activites as $activite): ?>
-                                        <option value="<?= $activite['numero'] ?>"
-                                            <?= old('activite_numero', isset($reponses) ? $reponses->activite_numero : '') == $activite['numero'] ? 'selected' : '' ?>>
-                                            [<?= $activite['numero'] ?>] <?= esc(substr($activite['libelle'], 0, 50)) ?>...
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+                    <div class="card-body">
 
-                            <div class="form-group">
-                                <label for="reponse">Réponse Correcte ? <span class="text-danger">*</span></label>
-                                <div class="form-check">
-                                    <input class="form-check-input"
-                                           type="radio"
-                                           name="reponse"
-                                           id="reponse_vrai"
-                                           value="succes"
-                                        <?= old('reponse', isset($reponses) ? $reponses->type_message : '') == 'succes' ? 'checked' : '' ?>
-                                           required>
-                                    <label class="form-check-label" for="reponse_vrai">
-                                        <span class="badge badge-success"><i class="fas fa-check"></i> VRAI</span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input"
-                                           type="radio"
-                                           name="reponse"
-                                           id="reponse_faux"
-                                           value="echec"
-                                        <?= old('reponse', isset($reponses) ? $reponses->type_message : '') === 'echec' ? 'checked' : '' ?>>
-                                    <label class="form-check-label" for="reponse_faux">
-                                        <span class="badge badge-danger"><i class="fas fa-times"></i> FAUX</span>
-                                    </label>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="message">Message <span class="text-danger">*</span></label>
-                                <textarea class="form-control"
-                                          id="message"
-                                          name="message"
-                                          rows="3"
-                                          placeholder="Ecrivez le message souhaité..."
-                                          required><?= old('message', isset($reponses) ? $reponses->message : '') ?></textarea>
-                                <small class="form-text text-muted">Libelle du message reponse</small>
-                            </div>
-                        </div>
-
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Enregistrer
-                            </button>
-                            <?= anchor(
-                                    '/gingembre/salle_5/reponse',
-                                    '<i class="fas fa-times"></i> Annuler',
-                                    ['class' => 'btn btn-secondary']
+                        <!-- ACTIVITE -->
+                        <div class="form-group">
+                            <label for="activite_numero">Activité <span class="text-danger">*</span></label>
+                            <?php
+                            $options = ['' => 'Aucune activité'];
+                            foreach ($activites as $activite) {
+                                $options[$activite['numero']] = "[{$activite['numero']}] " . esc(substr($activite['libelle'], 0, 50)) . "...";
+                            }
+                            ?>
+                            <?= form_dropdown(
+                                    'activite_numero',
+                                    $options,
+                                    old('activite_numero', $reponses->activite_numero ?? ''),
+                                    ['class' => 'form-control', 'id' => 'activite_numero', 'required' => true]
                             ) ?>
                         </div>
-                    </form>
+
+                        <!-- REPONSE VRAI/FAUX -->
+                        <div class="form-group">
+                            <label>Réponse Correcte ? <span class="text-danger">*</span></label>
+
+                            <div class="form-check">
+                                <?= form_radio([
+                                        'name'    => 'reponse',
+                                        'id'      => 'reponse_vrai',
+                                        'value'   => 'succes',
+                                        'checked' => old('reponse', $reponses->type_message ?? '') === 'succes',
+                                        'class'   => 'form-check-input',
+                                        'required'=> true
+                                ]) ?>
+                                <label class="form-check-label" for="reponse_vrai">
+                                    <span class="badge badge-success"><i class="fas fa-check"></i> VRAI</span>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <?= form_radio([
+                                        'name'    => 'reponse',
+                                        'id'      => 'reponse_faux',
+                                        'value'   => 'echec',
+                                        'checked' => old('reponse', $reponses->type_message ?? '') === 'echec',
+                                        'class'   => 'form-check-input'
+                                ]) ?>
+                                <label class="form-check-label" for="reponse_faux">
+                                    <span class="badge badge-danger"><i class="fas fa-times"></i> FAUX</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- MESSAGE -->
+                        <div class="form-group">
+                            <label for="message">Message <span class="text-danger">*</span></label>
+                            <?= form_textarea([
+                                    'name'        => 'message',
+                                    'id'          => 'message',
+                                    'class'       => 'form-control',
+                                    'rows'        => 3,
+                                    'placeholder' => 'Ecrivez le message souhaité...',
+                                    'required'    => true,
+                                    'value'       => old('message', $reponses->message ?? '')
+                            ]) ?>
+                            <small class="form-text text-muted">Libellé du message réponse</small>
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <?= form_button([
+                                'type'    => 'submit',
+                                'class'   => 'btn btn-primary',
+                                'content' => '<i class="fas fa-save"></i> Enregistrer',
+                                'escape'  => false
+                        ]) ?>
+
+                        <?= anchor(
+                                '/gingembre/salle_5/reponse',
+                                '<i class="fas fa-times"></i> Annuler',
+                                ['class' => 'btn btn-secondary']
+                        ) ?>
+
+                    </div>
+
+                    <?= form_close() ?>
                 </div>
 
             </div>

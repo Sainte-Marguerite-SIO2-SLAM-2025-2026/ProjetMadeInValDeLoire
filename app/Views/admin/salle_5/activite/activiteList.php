@@ -183,22 +183,25 @@
                                     <td><?= $activite['width_img'] ?></td>
                                     <td><?= $activite['height_img'] ?></td>
                                     <td>
+                                        <div class="btn-group" >
                                         <?= anchor('/gingembre/salle_5/activite/edit/' . $activite['numero'],
                                                 '<i class="fas fa-edit"></i>',
                                                 [
-                                                        'class' => 'btn btn-sm btn-primary',
+                                                        'class' => 'btn btn-sm btn-primary mr-1',
                                                         'title' => 'Modifier'
                                                 ]
                                         ) ?>
 
-                                        <?= anchor('/gingembre/salle_5/activite/delete/' . $activite['numero'],
-                                                '<i class="fas fa-trash"></i>',
-                                                [
-                                                        'class' => 'btn btn-sm btn-danger',
-                                                        'title'   => 'Supprimer',
-                                                        'onclick' => "return confirm('Êtes-vous sûr de vouloir supprimer cette activité ?')"
-                                                ]
-                                        ) ?>
+                                        <?= form_open('/gingembre/salle_5/activite/delete/' . $activite['numero'], ['onsubmit' => "return confirm('Êtes-vous sûr de vouloir supprimer cette activité ?')"]) ?>
+                                        <?= csrf_field() ?>
+                                        <?= form_button([
+                                                'type'    => 'submit',
+                                                'class'   => 'btn btn-sm btn-danger',
+                                                'title'   => 'Supprimer',
+                                                'content' => '<i class="fas fa-trash"></i>'
+                                        ]) ?>
+                                        <?= form_close() ?>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

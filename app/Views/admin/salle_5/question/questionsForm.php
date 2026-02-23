@@ -149,48 +149,68 @@
                 <?php endif; ?>
 
                 <div class="card">
-                    <form action="<?= isset($questions) ? base_url('/gingembre/salle_5/question/update/' . $questions->numero) : base_url('/gingembre/salle_5/question/store') ?>"
-                          method="post">
-                        <?= csrf_field() ?>
+                    <?= form_open(
+                            isset($questions)
+                                    ? '/gingembre/salle_5/question/update/' . $questions->numero
+                                    : '/gingembre/salle_5/question/store'
+                    ) ?>
 
-                        <div class="card-body">
+                    <?= csrf_field() ?>
 
-                            <div class="form-group">
-                                <label for="libelle">Question <span class="text-danger">*</span></label>
-                                <textarea class="form-control"
-                                          id="libelle"
-                                          name="libelle"
-                                          rows="3"
-                                          placeholder="Cette action est ette possible ?"
-                                          required><?= old('libelle', isset($questions) ? $questions->explication_2 : '') ?></textarea>
-                                <small class="form-text text-muted">Énoncé de la question pour le quiz</small>
-                            </div>
+                    <div class="card-body">
 
-                            <div class="form-group">
-                                <label for="activite_numero">Activité</label>
-                                <select class="form-control" id="activite_numero" name="activite_numero">
-                                    <option value="">Aucune activité</option>
-                                    <?php foreach ($activites as $activite): ?>
-                                        <option value="<?= $activite['numero'] ?>"
-                                            <?= old('activite_numero', isset($questions) ? $questions->activite_numero : '') == $activite['numero'] ? 'selected' : '' ?>>
-                                            [<?= $activite['numero'] ?>] <?= esc(substr($activite['libelle'], 0, 50)) ?>...
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+                        <!-- QUESTION -->
+                        <div class="form-group">
+                            <label for="libelle">Question <span class="text-danger">*</span></label>
+                            <?= form_textarea([
+                                    'name'        => 'libelle',
+                                    'id'          => 'libelle',
+                                    'class'       => 'form-control',
+                                    'rows'        => 3,
+                                    'placeholder' => 'Cette action est-elle possible ?',
+                                    'required'    => true,
+                                    'value'       => old('libelle', $questions->explication_2 ?? '')
+                            ]) ?>
+                            <small class="form-text text-muted">Énoncé de la question pour le quiz</small>
                         </div>
 
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Enregistrer
-                            </button>
-                            <?= anchor(
-                                    '/gingembre/salle_5/question',
-                                    '<i class="fas fa-times"></i> Annuler',
-                                    ['class' => 'btn btn-secondary']
+                        <!-- ACTIVITE -->
+                        <div class="form-group">
+                            <label for="activite_numero">Activité</label>
+                            <?php
+                            $options = ['' => 'Aucune activité'];
+                            foreach ($activites as $activite) {
+                                $options[$activite['numero']] = "[{$activite['numero']}] " . esc(substr($activite['libelle'], 0, 50)) . "...";
+                            }
+                            ?>
+                            <?= form_dropdown(
+                                    'activite_numero',
+                                    $options,
+                                    old('activite_numero', $questions->activite_numero ?? ''),
+                                    ['class' => 'form-control', 'id' => 'activite_numero']
                             ) ?>
                         </div>
-                    </form>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <?= form_button([
+                                'type'    => 'submit',
+                                'class'   => 'btn btn-primary',
+                                'content' => '<i class="fas fa-save"></i> Enregistrer',
+                                'escape'  => false
+                        ]) ?>
+
+                        <?= anchor(
+                                '/gingembre/salle_5/question',
+                                '<i class="fas fa-times"></i> Annuler',
+                                ['class' => 'btn btn-secondary']
+                        ) ?>
+
+                    </div>
+
+                    <?= form_close() ?>
                 </div>
 
             </div>

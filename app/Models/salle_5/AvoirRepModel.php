@@ -51,17 +51,4 @@ class AvoirRepModel extends Model
             ->where('activite_numero', $activite_numero)
             ->countAllResults();
     }
-
-    /**
-     * Récupérer toutes les bonnes réponses d'une activité (optionnel)
-     */
-    public function getBonnesReponsesByActivite($activite_numero)
-    {
-        return $this->db->table('objets')
-            ->select('objet.reponse')
-            ->join('avoir_rep', 'avoir_rep.objet_id = objets.id')
-            ->where('avoir_rep.activite_numero', $activite_numero)
-            ->get()
-            ->getResult();
-    }
 }

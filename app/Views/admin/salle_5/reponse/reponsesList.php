@@ -174,40 +174,30 @@
                                     <td><?= esc($reponse->activite_numero) ?></td>
                                     <td><?= esc($reponse->type_message) ?></td>
                                     <td><?= esc($reponse->message) ?></td>
-
-                                    <!--                                    <td>--><?php //= substr(esc($objet['explication']), 0, 50) ?><!--...</td>-->
-                                    <!--                                    <td>-->
-                                    <!--                                        --><?php //if ($objet['type_carte'] == 'bonne_pratique'): ?>
-                                    <!--                                            <span class="badge badge-success">Bonne pratique</span>-->
-                                    <!--                                        --><?php //else: ?>
-                                    <!--                                            <span class="badge badge-warning">Piège</span>-->
-                                    <!--                                        --><?php //endif; ?>
-                                    <!--                                    </td>-->
-                                    <!--                                    <td>-->
-                                    <!--                                        --><?php //if ($objet['activite_numero']): ?>
-                                    <!--                                            <small>--><?php //= esc($objet['activite_libelle']) ?><!--</small>-->
-                                    <!--                                        --><?php //else: ?>
-                                    <!--                                            <span class="text-muted">-</span>-->
-                                    <!--                                        --><?php //endif; ?>
-                                    <!--                                    </td>-->
                                     <td>
-                                        <?= anchor(
-                                                '/gingembre/salle_5/reponse/edit/' . $reponse->id,
-                                                '<i class="fas fa-edit"></i>',
-                                                [
-                                                        'class' => 'btn btn-sm btn-primary',
-                                                        'title' => 'Modifier'
-                                                ]
-                                        ) ?>
-                                        <?= anchor(
-                                                '/gingembre/salle_5/reponse/delete/' . $reponse->id,
-                                                '<i class="fas fa-trash"></i>',
-                                                [
-                                                        'class'   => 'btn btn-sm btn-danger',
-                                                        'title'   => 'Supprimer',
-                                                        'onclick' => "return confirm('Êtes-vous sûr de vouloir supprimer cette reponse ? Cette action supprimera aussi ses liens avec les activités.')"
-                                                ]
-                                        ) ?>
+                                        <div class="btn-group" >
+                                            <?= anchor(
+                                                    '/gingembre/salle_5/reponse/edit/' . $reponse->id,
+                                                    '<i class="fas fa-edit"></i>',
+                                                    [
+                                                            'class' => 'btn btn-sm btn-primary mr-1',
+                                                            'title' => 'Modifier'
+                                                    ]
+                                            ) ?>
+                                            <?= form_open(
+                                                    '/gingembre/salle_5/reponse/delete/' . $reponse->id,
+                                                    ['onsubmit' => "return confirm('Êtes-vous sûr de vouloir supprimer cette réponse ? Cette action supprimera aussi ses liens avec les activités.')"]
+                                            )
+                                            ?>
+                                            <?= csrf_field() ?>
+                                            <?= form_button([
+                                                    'type' => 'submit',
+                                                    'class' => 'btn btn-sm btn-danger',
+                                                    'title' => 'Supprimer',
+                                                    'content' => '<i class="fas fa-trash"></i>'
+                                            ]) ?>
+                                            <?= form_close() ?>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
