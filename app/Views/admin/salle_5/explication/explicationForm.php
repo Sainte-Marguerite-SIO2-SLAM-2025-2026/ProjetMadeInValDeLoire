@@ -148,62 +148,100 @@
                 <?php endif; ?>
 
                 <div class="card">
-                    <form action="<?= isset($explication)
-                            ? site_url('/gingembre/salle_5/explication/update/' . $explication['numero'])
-                            : site_url('/gingembre/salle_5/explication/store') ?>"
-                          method="post">
-                        <?= csrf_field() ?>
+                    <?= form_open(
+                            isset($explication)
+                                    ? '/gingembre/salle_5/explication/update/' . $explication['numero']
+                                    : '/gingembre/salle_5/explication/store'
+                    ) ?>
 
-                        <div class="card-body">
+                    <?= csrf_field() ?>
 
-                            <div class="form-group">
-                                <label for="numero">Numéro <span class="text-danger">*</span></label>
-                                <?php if (isset($explication)): ?>
-                                    <input type="number" class="form-control" value="<?= $explication['numero'] ?>" readonly>
-                                    <small class="form-text text-muted">Le numéro ne peut pas être modifié</small>
-                                <?php else: ?>
-                                    <input type="number"
-                                           class="form-control"
-                                           id="numero"
-                                           name="numero"
-                                           value="<?= old('numero', $next_numero ?? '') ?>"
-                                           min="500"
-                                           max="599"
-                                           required>
-                                    <small class="form-text text-muted">Numéro suggéré: <?= $next_numero ?? '' ?> (plage 500-599)</small>
-                                <?php endif; ?>
-                            </div>
+                    <div class="card-body">
 
-                            <div class="form-group">
-                                <label for="libelle">Contenu de l'Explication <span class="text-danger">*</span></label>
-                                <textarea class="form-control"
-                                          id="libelle"
-                                          name="libelle"
-                                          rows="10"
-                                          required><?= old('libelle', isset($explication) ? $explication['libelle'] : '') ?></textarea>
+                        <!-- NUMERO -->
+                        <div class="form-group">
+                            <label for="numero">Numéro <span class="text-danger">*</span></label>
+
+                            <?php if (isset($explication)): ?>
+
+                                <?= form_input([
+                                        'type'     => 'number',
+                                        'class'    => 'form-control',
+                                        'value'    => $explication['numero'],
+                                        'readonly' => true
+                                ]) ?>
+
                                 <small class="form-text text-muted">
-                                    Supporte le HTML. Utilisez des balises comme &lt;strong&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;li&gt; etc.
+                                    Le numéro ne peut pas être modifié
                                 </small>
-                            </div>
 
-                            <div class="alert alert-info">
-                                <i class="fas fa-info-circle"></i>
-                                <strong>Aperçu HTML :</strong> Le contenu ci-dessus sera affiché avec le HTML interprété dans l'application.
-                            </div>
+                            <?php else: ?>
 
+                                <?= form_input([
+                                        'type'     => 'number',
+                                        'name'     => 'numero',
+                                        'id'       => 'numero',
+                                        'class'    => 'form-control',
+                                        'value'    => old('numero', $next_numero ?? ''),
+                                        'min'      => 500,
+                                        'max'      => 599,
+                                        'required' => true
+                                ]) ?>
+
+                                <small class="form-text text-muted">
+                                    Numéro suggéré : <?= $next_numero ?? '' ?> (plage 500-599)
+                                </small>
+
+                            <?php endif; ?>
                         </div>
 
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Enregistrer
-                            </button>
-                            <?= anchor(
-                                    '/gingembre/salle_5/explication',
-                                    '<i class="fas fa-times"></i> Annuler',
-                                    ['class' => 'btn btn-secondary']
-                            ) ?>
+                        <!-- LIBELLE -->
+                        <div class="form-group">
+                            <label for="libelle">
+                                Contenu de l'Explication <span class="text-danger">*</span>
+                            </label>
+
+                            <?= form_textarea([
+                                    'name'     => 'libelle',
+                                    'id'       => 'libelle',
+                                    'class'    => 'form-control',
+                                    'rows'     => 10,
+                                    'required' => true,
+                                    'value'    => old('libelle', $explication['libelle'] ?? '')
+                            ]) ?>
+
+                            <small class="form-text text-muted">
+                                Supporte le HTML. Utilisez des balises comme
+                                &lt;strong&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;li&gt; etc.
+                            </small>
                         </div>
-                    </form>
+
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            <strong>Aperçu HTML :</strong>
+                            Le contenu ci-dessus sera affiché avec le HTML interprété dans l'application.
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <?= form_button([
+                                'type'    => 'submit',
+                                'class'   => 'btn btn-primary',
+                                'content' => '<i class="fas fa-save"></i> Enregistrer',
+                                'escape'  => false
+                        ]) ?>
+
+                        <?= anchor(
+                                '/gingembre/salle_5/explication',
+                                '<i class="fas fa-times"></i> Annuler',
+                                ['class' => 'btn btn-secondary']
+                        ) ?>
+
+                    </div>
+
+                    <?= form_close() ?>
                 </div>
 
             </div>

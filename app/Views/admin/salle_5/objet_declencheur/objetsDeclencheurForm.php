@@ -149,129 +149,149 @@
                 <?php endif; ?>
 
                 <div class="card">
-                    <form action="<?= isset($objetDeclencheur) ? base_url('/gingembre/salle_5/objet_declencheur/update/' . $objetDeclencheur->id) : base_url('/gingembre/salle_5/objet_declencheur/store') ?>"
-                          method="post">
-                        <?= csrf_field() ?>
+                    <?= form_open(
+                            isset($objetDeclencheur)
+                                    ? '/gingembre/salle_5/objet_declencheur/update/' . $objetDeclencheur->id
+                                    : '/gingembre/salle_5/objet_declencheur/store'
+                    ) ?>
 
-                        <div class="card-body">
+                    <?= csrf_field() ?>
 
-                            <div class="form-group">
-                                <label for="nom">Nom <span class="text-danger">*</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="nom"
-                                       name="nom"
-                                       value="<?= old('nom', isset($objetDeclencheur) ? $objetDeclencheur->nom : '') ?>"
-                                       placeholder="Téléphone_mobile"
-                                       maxlength="50"
-                                       required>
-                                <small class="form-text text-muted">Nom de l'objet (max 50 caractères)</small>
-                            </div>
+                    <div class="card-body">
 
-                            <div class="form-group">
-                                <label for="image">Image <span class="text-danger">*</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="image"
-                                       name="image"
-                                       value="<?= old('image', isset($objetDeclencheur) ? substr($objetDeclencheur->image_path, 15) : '') ?>"
-                                       placeholder="carte_pins_01.png"
-                                       maxlength="50"
-                                       required>
-                                <small class="form-text text-muted">Nom du fichier image (max 50 caractères)</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="x">Position X<span class="text-danger">*</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="x"
-                                       name="x"
-                                       value="<?= old('x', isset($objetDeclencheur) ? $objetDeclencheur->x : '') ?>"
-                                       placeholder="192.63"
-                                       maxlength="50"
-                                >
-                                <small class="form-text text-muted">Position X de l'objet</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="y">Position Y<span class="text-danger">*</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="y"
-                                       name="y"
-                                       value="<?= old('y', isset($objetDeclencheur) ? $objetDeclencheur->y : '') ?>"
-                                       placeholder="192.63"
-                                       maxlength="50"
-                                >
-                                <small class="form-text text-muted">Position Y de l'objet</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="width">Largeur <span class="text-danger">*</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="width"
-                                       name="width"
-                                       value="<?= old('width', isset($objetDeclencheur) ? $objetDeclencheur->width : '') ?>"
-                                       placeholder="200"
-                                       maxlength="50"
-                                >
-                                <small class="form-text text-muted">Largeur de l'objet</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="height">Hauteur <span class="text-danger">*</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="height"
-                                       name="height"
-                                       value="<?= old('height', isset($objetDeclencheur) ? $objetDeclencheur->height : '') ?>"
-                                       placeholder="200"
-                                       maxlength="50"
-                                >
-                                <small class="form-text text-muted">Hauteur de l'objet</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="zone_path">Zone</label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="zone_path"
-                                       name="zone_path"
-                                       value="<?= old('zone_path', isset($objetDeclencheur) ? $objetDeclencheur->zone_path : '') ?>"
-                                       placeholder="m200....."
-                                       maxlength="80"
-                                >
-                                <small class="form-text text-muted">Zone de l'objet</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="numero_activite">Activité Déclenchée</label>
-                                <select class="form-control" id="numero_activite" name="numero_activite">
-                                    <option value="">Aucune activité</option>
-                                    <?php foreach ($activites as $activite): ?>
-                                        <option value="<?= $activite['numero'] ?>"
-                                                <?= old('numero_activite', isset($objetDeclencheur) ? $objetDeclencheur->numero_activite : '') == $activite['numero'] ? 'selected' : '' ?>>
-                                            [<?= $activite['numero'] ?>] <?= esc(substr($activite['libelle'], 0, 50)) ?>...
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-
+                        <!-- NOM -->
+                        <div class="form-group">
+                            <label for="nom">Nom <span class="text-danger">*</span></label>
+                            <?= form_input([
+                                    'name'        => 'nom',
+                                    'id'          => 'nom',
+                                    'class'       => 'form-control',
+                                    'value'       => old('nom', $objetDeclencheur->nom ?? ''),
+                                    'placeholder' => 'Téléphone_mobile',
+                                    'maxlength'   => 50,
+                                    'required'    => true
+                            ]) ?>
+                            <small class="form-text text-muted">Nom de l'objet (max 50 caractères)</small>
                         </div>
 
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Enregistrer
-                            </button>
-                            <?= anchor(
-                                    '/gingembre/salle_5/objet_declencheur',
-                                    '<i class="fas fa-times"></i> Annuler',
-                                    ['class' => 'btn btn-secondary']
+                        <!-- IMAGE -->
+                        <div class="form-group">
+                            <label for="image">Image <span class="text-danger">*</span></label>
+                            <?= form_input([
+                                    'name'        => 'image',
+                                    'id'          => 'image',
+                                    'class'       => 'form-control',
+                                    'value'       => old('image', isset($objetDeclencheur) ? substr($objetDeclencheur->image_path, 15) : ''),
+                                    'placeholder' => 'carte_pins_01.png',
+                                    'maxlength'   => 50,
+                                    'required'    => true
+                            ]) ?>
+                            <small class="form-text text-muted">Nom du fichier image (max 50 caractères)</small>
+                        </div>
+
+                        <!-- POSITION X -->
+                        <div class="form-group">
+                            <label for="x">Position X</label>
+                            <?= form_input([
+                                    'name'  => 'x',
+                                    'id'    => 'x',
+                                    'class' => 'form-control',
+                                    'value' => old('x', $objetDeclencheur->x ?? ''),
+                                    'placeholder' => '192.63'
+                            ]) ?>
+                            <small class="form-text text-muted">Position X de l'objet</small>
+                        </div>
+
+                        <!-- POSITION Y -->
+                        <div class="form-group">
+                            <label for="y">Position Y</label>
+                            <?= form_input([
+                                    'name'  => 'y',
+                                    'id'    => 'y',
+                                    'class' => 'form-control',
+                                    'value' => old('y', $objetDeclencheur->y ?? ''),
+                                    'placeholder' => '192.63'
+                            ]) ?>
+                            <small class="form-text text-muted">Position Y de l'objet</small>
+                        </div>
+
+                        <!-- LARGEUR -->
+                        <div class="form-group">
+                            <label for="width">Largeur</label>
+                            <?= form_input([
+                                    'name'  => 'width',
+                                    'id'    => 'width',
+                                    'class' => 'form-control',
+                                    'value' => old('width', $objetDeclencheur->width ?? ''),
+                                    'placeholder' => '200'
+                            ]) ?>
+                            <small class="form-text text-muted">Largeur de l'objet</small>
+                        </div>
+
+                        <!-- HAUTEUR -->
+                        <div class="form-group">
+                            <label for="height">Hauteur</label>
+                            <?= form_input([
+                                    'name'  => 'height',
+                                    'id'    => 'height',
+                                    'class' => 'form-control',
+                                    'value' => old('height', $objetDeclencheur->height ?? ''),
+                                    'placeholder' => '200'
+                            ]) ?>
+                            <small class="form-text text-muted">Hauteur de l'objet</small>
+                        </div>
+
+                        <!-- ZONE -->
+                        <div class="form-group">
+                            <label for="zone_path">Zone</label>
+                            <?= form_input([
+                                    'name'  => 'zone_path',
+                                    'id'    => 'zone_path',
+                                    'class' => 'form-control',
+                                    'value' => old('zone_path', $objetDeclencheur->zone_path ?? ''),
+                                    'placeholder' => 'm200.....',
+                                    'maxlength' => 80
+                            ]) ?>
+                            <small class="form-text text-muted">Zone de l'objet</small>
+                        </div>
+
+                        <!-- ACTIVITE DECLENCHEE -->
+                        <div class="form-group">
+                            <label for="numero_activite">Activité Déclenchée</label>
+                            <?php
+                            $options = ['' => 'Aucune activité'];
+                            foreach ($activites as $activite) {
+                                $options[$activite['numero']] = "[{$activite['numero']}] " . esc(substr($activite['libelle'], 0, 50)) . "...";
+                            }
+                            ?>
+                            <?= form_dropdown(
+                                    'numero_activite',
+                                    $options,
+                                    old('numero_activite', $objetDeclencheur->numero_activite ?? ''),
+                                    ['class' => 'form-control', 'id' => 'numero_activite']
                             ) ?>
                         </div>
-                    </form>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <?= form_button([
+                                'type'    => 'submit',
+                                'class'   => 'btn btn-primary',
+                                'content' => '<i class="fas fa-save"></i> Enregistrer',
+                                'escape'  => false
+                        ]) ?>
+
+                        <?= anchor(
+                                '/gingembre/salle_5/objet_declencheur',
+                                '<i class="fas fa-times"></i> Annuler',
+                                ['class' => 'btn btn-secondary']
+                        ) ?>
+
+                    </div>
+
+                    <?= form_close() ?>
                 </div>
 
             </div>

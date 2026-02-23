@@ -149,155 +149,165 @@
                 <?php endif; ?>
 
                 <div class="card">
-                    <form action="<?= isset($objet) ? base_url('/gingembre/salle_5/objet/update/' . $objet->id) : base_url('/gingembre/salle_5/objet/store') ?>"
-                          method="post">
-                        <?= csrf_field() ?>
+                    <?= form_open(
+                            isset($objet)
+                                    ? '/gingembre/salle_5/objet/update/' . $objet->id
+                                    : '/gingembre/salle_5/objet/store'
+                    ) ?>
 
-                        <div class="card-body">
+                    <?= csrf_field() ?>
 
-                            <div class="form-group">
-                                <label for="nom">Nom <span class="text-danger">*</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="nom"
-                                       name="nom"
-                                       value="<?= old('nom', isset($objet) ? $objet->nom : '') ?>"
-                                       placeholder="Téléphone_mobile"
-                                       maxlength="50"
+                    <div class="card-body">
+
+                        <!-- NOM -->
+                        <div class="form-group">
+                            <label for="nom">Nom <span class="text-danger">*</span></label>
+                            <?= form_input([
+                                    'name'        => 'nom',
+                                    'id'          => 'nom',
+                                    'class'       => 'form-control',
+                                    'value'       => old('nom', $objet->nom ?? ''),
+                                    'placeholder' => 'Telephone_mobile',
+                                    'maxlength'   => 50,
+                                    'required'    => true
+                            ]) ?>
+                            <small class="form-text text-muted">Nom de l'objet (max 50 caractères)</small>
+                        </div>
+
+                        <!-- POSITION X -->
+                        <div class="form-group">
+                            <label for="x">Position X <span class="text-danger">sauf objet drag n drop</span></label>
+                            <?= form_input([
+                                    'name'  => 'x',
+                                    'id'    => 'x',
+                                    'class' => 'form-control',
+                                    'value' => old('x', $objet->x ?? ''),
+                                    'placeholder' => '192.63'
+                            ]) ?>
+                        </div>
+
+                        <!-- POSITION Y -->
+                        <div class="form-group">
+                            <label for="y">Position Y <span class="text-danger">sauf objet drag n drop</span></label>
+                            <?= form_input([
+                                    'name'  => 'y',
+                                    'id'    => 'y',
+                                    'class' => 'form-control',
+                                    'value' => old('y', $objet->y ?? ''),
+                                    'placeholder' => '192.63'
+                            ]) ?>
+                        </div>
+
+                        <!-- WIDTH -->
+                        <div class="form-group">
+                            <label for="width">Largeur <span class="text-danger">sauf objet drag n drop</span></label>
+                            <?= form_input([
+                                    'name'  => 'width',
+                                    'id'    => 'width',
+                                    'class' => 'form-control',
+                                    'value' => old('width', $objet->width ?? ''),
+                                    'placeholder' => '200'
+                            ]) ?>
+                        </div>
+
+                        <!-- HEIGHT -->
+                        <div class="form-group">
+                            <label for="height">Hauteur <span class="text-danger">sauf objet drag n drop</span></label>
+                            <?= form_input([
+                                    'name'  => 'height',
+                                    'id'    => 'height',
+                                    'class' => 'form-control',
+                                    'value' => old('height', $objet->height ?? ''),
+                                    'placeholder' => '200'
+                            ]) ?>
+                        </div>
+
+                        <!-- IMAGE -->
+                        <div class="form-group">
+                            <label for="image">Image <span class="text-danger">*</span></label>
+                            <?= form_input([
+                                    'name'        => 'image',
+                                    'id'          => 'image',
+                                    'class'       => 'form-control',
+                                    'value'       => old('image', isset($objet) ? substr($objet->image, 15) : ''),
+                                    'placeholder' => 'carte_pins_01.png',
+                                    'maxlength'   => 50,
+                                    'required'    => true
+                            ]) ?>
+                        </div>
+
+                        <!-- TEXTE IMAGE -->
+                        <div class="form-group">
+                            <label for="texte_image">Texte sur l'objet</label>
+                            <?= form_input([
+                                    'name'  => 'texte_image',
+                                    'id'    => 'texte_image',
+                                    'class' => 'form-control',
+                                    'value' => old('texte_image', $objet->texte ?? ''),
+                                    'maxlength' => 80
+                            ]) ?>
+                        </div>
+
+                        <!-- HOVER -->
+                        <div class="form-group">
+                            <label for="hover">Texte au survol</label>
+                            <?= form_input([
+                                    'name'  => 'hover',
+                                    'id'    => 'hover',
+                                    'class' => 'form-control',
+                                    'value' => old('hover', $objet->hover ?? ''),
+                                    'maxlength' => 80
+                            ]) ?>
+                        </div>
+
+                        <!-- CLIQUABLE -->
+                        <div class="form-group">
+                            <label for="cliquable">Objet cliquable <span class="text-danger">*</span></label>
+                            <div class="form-check">
+                                <input class="form-check-input"
+                                       type="radio"
+                                       name="cliquable"
+                                       id="cliquable_vrai"
+                                       value=""
+                                        <?= old('cliquable', isset($objet) ? $objet->cliquable : '') == null ? 'checked' : '' ?>
                                        required>
-                                <small class="form-text text-muted">Nom de l'objet (max 50 caractères)</small>
+                                <label class="form-check-label" for="cliquable_vrai">
+                                    Oui
+                                </label>
                             </div>
-
-                            <div class="form-group">
-                                <label for="x">Position X<span class="text-danger"> sauf objet drag n drop</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="x"
-                                       name="x"
-                                       value="<?= old('x', isset($objet) ? $objet->x : '') ?>"
-                                       placeholder="192.63"
-                                       maxlength="50"
-                                       >
-                                <small class="form-text text-muted">Position X de l'objet</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="y">Position Y<span class="text-danger"> sauf objet drag n drop</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="y"
-                                       name="y"
-                                       value="<?= old('y', isset($objet) ? $objet->y : '') ?>"
-                                       placeholder="192.63"
-                                       maxlength="50"
-                                       >
-                                <small class="form-text text-muted">Position Y de l'objet</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="width">Largeur <span class="text-danger"> sauf objet drag n drop</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="width"
-                                       name="width"
-                                       value="<?= old('width', isset($objet) ? $objet->width : '') ?>"
-                                       placeholder="200"
-                                       maxlength="50"
-                                       >
-                                <small class="form-text text-muted">Largeur de l'objet</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="height">Hauteur <span class="text-danger"> sauf objet drag n drop</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="height"
-                                       name="height"
-                                       value="<?= old('height', isset($objet) ? $objet->height : '') ?>"
-                                       placeholder="200"
-                                       maxlength="50"
-                                       >
-                                <small class="form-text text-muted">Hauteur de l'objet</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="image">Image <span class="text-danger">*</span></label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="image"
-                                       name="image"
-                                       value="<?= old('image', isset($objet) ? substr($objet->image, 15) : '') ?>"
-                                       placeholder="carte_pins_01.png"
-                                       maxlength="50"
-                                       required>
-                                <small class="form-text text-muted">Nom du fichier image (max 50 caractères)</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="texte_image">Texte sur l'objet</label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="texte_image"
-                                       name="texte_image"
-                                       value="<?= old('texte_image', isset($objet) ? $objet->texte : '') ?>"
-                                       placeholder="une clé est utile..."
-                                       maxlength="80"
-                                       >
-                                <small class="form-text text-muted">max 80 caractères</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="hover">Texte au survol</label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="hover"
-                                       name="hover"
-                                       value="<?= old('hover', isset($objet) ? $objet->hover : '') ?>"
-                                       placeholder="une clé est utile..."
-                                       maxlength="80"
-                                       >
-                                <small class="form-text text-muted">Texte au survol de l'objet (max 80 caractères)</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="cliquable">Objet cliquable <span class="text-danger">*</span></label>
-                                <div class="form-check">
-                                    <input class="form-check-input"
-                                           type="radio"
-                                           name="cliquable"
-                                           id="cliquable_vrai"
-                                           value=null
-                                            <?= old('cliquable', isset($objet) ? $objet->cliquable : '') == null ? 'checked' : '' ?>
-                                           required>
-                                    <label class="form-check-label" for="reponse_vrai">
-                                        Oui
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input"
-                                           type="radio"
-                                           name="cliquable"
-                                           id="cliquable_faux"
-                                           value="non"
-                                            <?= old('cliquable', isset($objet) ? $objet->cliquable : '') === 'non' ? 'checked' : '' ?>>
-                                    <label class="form-check-label" for="reponse_faux">
-                                        Non
-                                    </label>
-                                </div>
+                            <div class="form-check">
+                                <input class="form-check-input"
+                                       type="radio"
+                                       name="cliquable"
+                                       id="cliquable_faux"
+                                       value="non"
+                                        <?= old('cliquable', isset($objet) ? $objet->cliquable : '') === 'non' ? 'checked' : '' ?>>
+                                <label class="form-check-label" for="cliquable_faux">
+                                    Non
+                                </label>
                             </div>
                         </div>
 
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Enregistrer
-                            </button>
-                            <?= anchor(
-                                    '/gingembre/salle_5/objet',
-                                    '<i class="fas fa-times"></i> Annuler',
-                                    ['class' => 'btn btn-secondary']
-                            ) ?>
-                        </div>
-                    </form>
+                    </div>
+
+                    <div class="card-footer">
+
+                        <?= form_button([
+                                'type'    => 'submit',
+                                'class'   => 'btn btn-primary',
+                                'content' => '<i class="fas fa-save"></i> Enregistrer',
+                                'escape'  => false
+                        ]) ?>
+
+                        <?= anchor(
+                                '/gingembre/salle_5/objet',
+                                '<i class="fas fa-times"></i> Annuler',
+                                ['class' => 'btn btn-secondary']
+                        ) ?>
+
+                    </div>
+
+                    <?= form_close() ?>
                 </div>
 
             </div>

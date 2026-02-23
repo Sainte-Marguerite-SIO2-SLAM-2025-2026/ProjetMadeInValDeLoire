@@ -149,53 +149,78 @@
                 <?php endif; ?>
 
                 <div class="card">
-                    <form action="<?= isset($avoirRep) ? base_url('/gingembre/salle_5/avoir_rep/update/' . $avoirRep->activite_numero .'/'. $avoirRep->objet_id) : base_url('/gingembre/salle_5/avoir_rep/store') ?>"
-                          method="post">
-                        <?= csrf_field() ?>
+                    <?= form_open(
+                            isset($avoirRep)
+                                    ? '/gingembre/salle_5/avoir_rep/update/' . $avoirRep->activite_numero . '/' . $avoirRep->objet_id
+                                    : '/gingembre/salle_5/avoir_rep/store'
+                    ) ?>
 
-                        <div class="card-body">
+                    <?= csrf_field() ?>
 
-                            <div class="form-group">
-                                <label for="objet_id">Numéro Objet</label>
-                                <select class="form-control" id="objet_id" name="objet_id">
-                                    <option value="">Aucun objet</option>
+                    <div class="card-body">
 
-                                    <?php foreach ($objets as $objet): ?>
-                                        <option value="<?= $objet->id ?>"
-                                            <?= old('objet_id', isset($avoirRep) ? $avoirRep->objet_id : '') == $objet->id ? 'selected' : '' ?>>
-                                            [<?= $objet->id ?>] <?= esc(substr($objet->nom, 0, 50)) ?>...
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+                        <!-- OBJET -->
+                        <div class="form-group">
+                            <label for="objet_id">Numéro Objet</label>
 
-                            <div class="form-group">
-                                <label for="activite_numero">Numéro Activité</label>
-                                <select class="form-control" id="activite_numero" name="activite_numero">
-                                    <option value="">Aucune activité</option>
-                                    <?php foreach ($activites as $activite): ?>
-                                        <option value="<?= $activite['numero'] ?>"
-                                            <?= old('activite_numero', isset($avoirRep) ? $avoirRep->activite_numero : '') == $activite['numero'] ? 'selected' : '' ?>>
-                                            [<?= $activite['numero'] ?>] <?= esc(substr($activite['libelle'], 0, 50)) ?>...
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+                            <?php
+                            $optionsObjets = ['' => 'Aucun objet'];
+                            foreach ($objets as $objet) {
+                                $optionsObjets[$objet->id] =
+                                        '[' . $objet->id . '] ' .
+                                        substr($objet->nom, 0, 50) . '...';
+                            }
 
-
+                            echo form_dropdown(
+                                    'objet_id',
+                                    $optionsObjets,
+                                    old('objet_id', $avoirRep->objet_id ?? ''),
+                                    ['class' => 'form-control', 'id' => 'objet_id']
+                            );
+                            ?>
                         </div>
 
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Enregistrer
-                            </button>
-                            <?= anchor(
-                                    '/gingembre/salle_5/avoir_rep',
-                                    '<i class="fas fa-times"></i> Annuler',
-                                    ['class' => 'btn btn-secondary']
-                            ) ?>
+                        <!-- ACTIVITE -->
+                        <div class="form-group">
+                            <label for="activite_numero">Numéro Activité</label>
+
+                            <?php
+                            $optionsActivites = ['' => 'Aucune activité'];
+                            foreach ($activites as $activite) {
+                                $optionsActivites[$activite['numero']] =
+                                        '[' . $activite['numero'] . '] ' .
+                                        substr($activite['libelle'], 0, 50) . '...';
+                            }
+
+                            echo form_dropdown(
+                                    'activite_numero',
+                                    $optionsActivites,
+                                    old('activite_numero', $avoirRep->activite_numero ?? ''),
+                                    ['class' => 'form-control', 'id' => 'activite_numero']
+                            );
+                            ?>
                         </div>
-                    </form>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <?= form_button([
+                                'type'    => 'submit',
+                                'class'   => 'btn btn-primary',
+                                'content' => '<i class="fas fa-save"></i> Enregistrer',
+                                'escape'  => false
+                        ]) ?>
+
+                        <?= anchor(
+                                '/gingembre/salle_5/avoir_rep',
+                                '<i class="fas fa-times"></i> Annuler',
+                                ['class' => 'btn btn-secondary']
+                        ) ?>
+
+                    </div>
+
+                    <?= form_close() ?>
                 </div>
 
             </div>
