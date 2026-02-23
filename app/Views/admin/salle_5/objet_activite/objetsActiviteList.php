@@ -187,23 +187,29 @@
                                     <!--                                        --><?php //endif; ?>
                                     <!--                                    </td>-->
                                     <td>
+                                        <div class="btn-group" >
                                         <?= anchor(
                                                 '/gingembre/salle_5/objet_activite/edit/' . $objetA->numero_activite ."/". $objetA->objet_id,
                                                 '<i class="fas fa-edit"></i>',
                                                 [
-                                                        'class' => 'btn btn-sm btn-primary',
+                                                        'class' => 'btn btn-sm btn-primary mr-1',
                                                         'title' => 'Modifier'
                                                 ]
                                         ) ?>
-                                        <?= anchor(
-                                                '/gingembre/salle_5/objet_activite/delete/' . $objetA->numero_activite ."/". $objetA->objet_id,
-                                                '<i class="fas fa-trash"></i>',
-                                                [
-                                                        'class'   => 'btn btn-sm btn-danger',
-                                                        'title'   => 'Supprimer',
-                                                        'onclick' => "return confirm('Êtes-vous sûr de vouloir supprimer cet objet d\\'activité ? Cette action supprimera aussi ses liens avec les activités.')"
-                                                ]
-                                        ) ?>
+                                        <?= form_open(
+                                                '/gingembre/salle_5/objet_activite/delete/' . $objetA->numero_activite . '/' . $objetA->objet_id,
+                                                ['onsubmit' => "return confirm('Êtes-vous sûr de vouloir supprimer cet objet d\\'activité ? Cette action supprimera aussi ses liens avec les activités.')"]
+                                        )
+                                        ?>
+                                        <?= csrf_field() ?>
+                                        <?= form_button([
+                                                'type'    => 'submit',
+                                                'class'   => 'btn btn-sm btn-danger',
+                                                'title'   => 'Supprimer',
+                                                'content' => '<i class="fas fa-trash"></i>'
+                                        ]) ?>
+                                        <?= form_close() ?>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
