@@ -22,87 +22,93 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="<?= base_url('/gingembre/accueil') ?>" class="nav-link">
-                    <i class="fas fa-home"></i> Accueil Admin
-                </a>
+                <?= anchor('/gingembre/accueil',
+                        '<i class="fas fa-home"></i> Accueil Admin',
+                        ['class' => 'nav-link']
+                ) ?>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url('/gingembre/logout') ?>" class="nav-link">
-                    <i class="fas fa-sign-out-alt"></i> Déconnexion
-                </a>
+                <?= anchor('/gingembre/logout',
+                        '<i class="fas fa-sign-out-alt"></i> Déconnexion',
+                        ['class' => 'nav-link']
+                ) ?>
             </li>
         </ul>
     </nav>
 
+    <!-- Sidebar -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="<?= base_url('/gingembre/salle_5') ?>" class="brand-link">
-            <span class="brand-text font-weight-light">Admin Salle 5</span>
-        </a>
+        <?= anchor('/gingembre/salle_5',
+                '<span class="brand-text font-weight-light">Admin Salle 5</span>',
+                ['class' => 'brand-link']
+        ) ?>
 
         <div class="sidebar">
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5') ?>" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>Dashboard</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5',
+                                '<i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p>',
+                                ['class' => 'nav-link active']
+                        ) ?>
+
                     </li>
                     <li class="nav-header">DONNÉES SÉCURITÉ</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objet') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-id-card"></i>
-                            <p>Objets</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/objet',
+                                '<i class="nav-icon fas fa-id-card"></i><p>Objets</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objet_declencheur') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Objets déclencheurs</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/objet_declencheur',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Objets déclencheurs</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objet_activite') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Objets Activité</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/objet_activite',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Objets Activité</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/question') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Questions</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/question',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Questions</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Réponses</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/reponse',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Réponses</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Liaison act/rép</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/avoir_rep',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Liaison act/rép</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
+
                     </li>
                     <li class="nav-header">DONNÉES COMMUNES</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/activite') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-tasks"></i>
-                            <p>Activités</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/activite',
+                                '<i class="nav-icon fas fa-tasks"></i><p>Activités</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/explication') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-info-circle"></i>
-                            <p>Explications</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/explication',
+                                '<i class="nav-icon fas fa-info-circle"></i><p>Explications</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/indice') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-lightbulb"></i>
-                            <p>Indices</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/indice',
+                                '<i class="nav-icon fas fa-lightbulb"></i><p>Indices</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                 </ul>
             </nav>
@@ -118,9 +124,11 @@
                         <h1><?= isset($avoirRep) ? 'Modifier' : 'Ajouter' ?> un Objet réponse</h1>
                     </div>
                     <div class="col-sm-6">
-                        <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="btn btn-secondary float-right">
-                            <i class="fas fa-arrow-left"></i> Retour
-                        </a>
+                        <?= anchor(
+                                '/gingembre/salle_5/avoir_rep',
+                                '<i class="fas fa-arrow-left"></i> Retour',
+                                ['class' => 'btn btn-secondary float-right']
+                        ) ?>
                     </div>
                 </div>
             </div>
@@ -141,51 +149,78 @@
                 <?php endif; ?>
 
                 <div class="card">
-                    <form action="<?= isset($avoirRep) ? base_url('/gingembre/salle_5/avoir_rep/update/' . $avoirRep->activite_numero .'/'. $avoirRep->objet_id) : base_url('/gingembre/salle_5/avoir_rep/store') ?>"
-                          method="post">
-                        <?= csrf_field() ?>
+                    <?= form_open(
+                            isset($avoirRep)
+                                    ? '/gingembre/salle_5/avoir_rep/update/' . $avoirRep->activite_numero . '/' . $avoirRep->objet_id
+                                    : '/gingembre/salle_5/avoir_rep/store'
+                    ) ?>
 
-                        <div class="card-body">
+                    <?= csrf_field() ?>
 
-                            <div class="form-group">
-                                <label for="objet_id">Numéro Objet</label>
-                                <select class="form-control" id="objet_id" name="objet_id">
-                                    <option value="">Aucun objet</option>
+                    <div class="card-body">
 
-                                    <?php foreach ($objets as $objet): ?>
-                                        <option value="<?= $objet->id ?>"
-                                            <?= old('objet_id', isset($avoirRep) ? $avoirRep->objet_id : '') == $objet->id ? 'selected' : '' ?>>
-                                            [<?= $objet->id ?>] <?= esc(substr($objet->nom, 0, 50)) ?>...
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+                        <!-- OBJET -->
+                        <div class="form-group">
+                            <label for="objet_id">Numéro Objet <span class="text-danger">*</span></label>
 
-                            <div class="form-group">
-                                <label for="activite_numero">Numéro Activité</label>
-                                <select class="form-control" id="activite_numero" name="activite_numero">
-                                    <option value="">Aucune activité</option>
-                                    <?php foreach ($activites as $activite): ?>
-                                        <option value="<?= $activite['numero'] ?>"
-                                            <?= old('activite_numero', isset($avoirRep) ? $avoirRep->activite_numero : '') == $activite['numero'] ? 'selected' : '' ?>>
-                                            [<?= $activite['numero'] ?>] <?= esc(substr($activite['libelle'], 0, 50)) ?>...
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+                            <?php
+                            $optionsObjets = ['' => 'Aucun objet'];
+                            foreach ($objets as $objet) {
+                                $optionsObjets[$objet->id] =
+                                        '[' . $objet->id . '] ' .
+                                        substr($objet->nom, 0, 50) . '...';
+                            }
 
-
+                            echo form_dropdown(
+                                    'objet_id',
+                                    $optionsObjets,
+                                    old('objet_id', $avoirRep->objet_id ?? ''),
+                                    ['class' => 'form-control', 'id' => 'objet_id']
+                            );
+                            ?>
                         </div>
 
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Enregistrer
-                            </button>
-                            <a href="<?= base_url('/gingembre/salle_5/activite_numero') ?>" class="btn btn-secondary">
-                                <i class="fas fa-times"></i> Annuler
-                            </a>
+                        <!-- ACTIVITE -->
+                        <div class="form-group">
+                            <label for="activite_numero">Numéro Activité <span class="text-danger">*</span></label>
+
+                            <?php
+                            $optionsActivites = ['' => 'Aucune activité'];
+                            foreach ($activites as $activite) {
+                                $optionsActivites[$activite['numero']] =
+                                        '[' . $activite['numero'] . '] ' .
+                                        substr($activite['libelle'], 0, 50) . '...';
+                            }
+
+                            echo form_dropdown(
+                                    'activite_numero',
+                                    $optionsActivites,
+                                    old('activite_numero', $avoirRep->activite_numero ?? ''),
+                                    ['class' => 'form-control', 'id' => 'activite_numero']
+                            );
+                            ?>
                         </div>
-                    </form>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <?= form_button([
+                                'type'    => 'submit',
+                                'class'   => 'btn btn-primary',
+                                'content' => '<i class="fas fa-save"></i> Enregistrer',
+                                'escape'  => false
+                        ]) ?>
+
+                        <?= anchor(
+                                '/gingembre/salle_5/avoir_rep',
+                                '<i class="fas fa-times"></i> Annuler',
+                                ['class' => 'btn btn-secondary']
+                        ) ?>
+
+                    </div>
+
+                    <?= form_close() ?>
                 </div>
 
             </div>

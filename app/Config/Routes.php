@@ -203,7 +203,7 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
         $routes->post('store', 'AdminSalle5Controller::objetStore');
         $routes->get('edit/(:num)', 'AdminSalle5Controller::objetEdit/$1');
         $routes->post('update/(:num)', 'AdminSalle5Controller::objetUpdate/$1');
-        $routes->get('delete/(:num)', 'AdminSalle5Controller::objetDelete/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::objetDelete/$1');
     });
 
     $routes->group('objet_declencheur', function ($routes) {
@@ -212,7 +212,7 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
         $routes->post('store', 'AdminSalle5Controller::objetDeclencheurStore');
         $routes->get('edit/(:num)', 'AdminSalle5Controller::objetDeclencheurEdit/$1');
         $routes->post('update/(:num)', 'AdminSalle5Controller::objetDeclencheurUpdate/$1');
-        $routes->get('delete/(:num)', 'AdminSalle5Controller::objetDeclencheurDelete/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::objetDeclencheurDelete/$1');
     });
 
     // Gestion des objets d'activité
@@ -222,7 +222,7 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
         $routes->post('store', 'AdminSalle5Controller::objetActiviteStore');
         $routes->get('edit/(:num)/(:num)', 'AdminSalle5Controller::objetActiviteEdit/$1/$2');
         $routes->post('update/(:num)/(:num)', 'AdminSalle5Controller::objetActiviteUpdate/$1/$2');
-        $routes->get('delete/(:num)/(:num)', 'AdminSalle5Controller::objetActiviteDelete/$1/$2');
+        $routes->post('delete/(:num)/(:num)', 'AdminSalle5Controller::objetActiviteDelete/$1/$2');
     });
 
     // Gestion des questions
@@ -232,7 +232,7 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
         $routes->post('store', 'AdminSalle5Controller::questionStore');
         $routes->get('edit/(:num)', 'AdminSalle5Controller::questionEdit/$1');
         $routes->post('update/(:num)', 'AdminSalle5Controller::questionUpdate/$1');
-        $routes->get('delete/(:num)', 'AdminSalle5Controller::questionDelete/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::questionDelete/$1');
     });
 
     // Gestion des réponses
@@ -242,7 +242,7 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
         $routes->post('store', 'AdminSalle5Controller::reponseStore');
         $routes->get('edit/(:num)', 'AdminSalle5Controller::reponseEdit/$1');
         $routes->post('update/(:num)', 'AdminSalle5Controller::reponseUpdate/$1');
-        $routes->get('delete/(:num)', 'AdminSalle5Controller::reponseDelete/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::reponseDelete/$1');
     });
 
     // Gestion des objets réponses
@@ -252,7 +252,7 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
         $routes->post('store', 'AdminSalle5Controller::avoirRepStore');
         $routes->get('edit/(:num)/(:num)', 'AdminSalle5Controller::avoirRepEdit/$1/$2');
         $routes->post('update/(:num)/(:num)', 'AdminSalle5Controller::avoirRepUpdate/$1/$2');
-        $routes->get('delete/(:num)/(:num)', 'AdminSalle5Controller::avoirRepDelete/$1/$2');
+        $routes->post('delete/(:num)/(:num)', 'AdminSalle5Controller::avoirRepDelete/$1/$2');
     });
 
     // Gestion des Activités
@@ -262,7 +262,7 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
         $routes->post('store', 'AdminSalle5Controller::activiteStore');
         $routes->get('edit/(:num)', 'AdminSalle5Controller::activiteEdit/$1');
         $routes->post('update/(:num)', 'AdminSalle5Controller::activiteUpdate/$1');
-        $routes->get('delete/(:num)', 'AdminSalle5Controller::activiteDelete/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::activiteDelete/$1');
     });
 
     // Gestion des Explications
@@ -272,7 +272,7 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
         $routes->post('store', 'AdminSalle5Controller::explicationStore');
         $routes->get('edit/(:num)', 'AdminSalle5Controller::explicationEdit/$1');
         $routes->post('update/(:num)', 'AdminSalle5Controller::explicationUpdate/$1');
-        $routes->get('delete/(:num)', 'AdminSalle5Controller::explicationDelete/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::explicationDelete/$1');
     });
 
     // Gestion des Indices
@@ -282,7 +282,7 @@ $routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\sall
         $routes->post('store', 'AdminSalle5Controller::indiceStore');
         $routes->get('edit/(:num)', 'AdminSalle5Controller::indiceEdit/$1');
         $routes->post('update/(:num)', 'AdminSalle5Controller::indiceUpdate/$1');
-        $routes->get('delete/(:num)', 'AdminSalle5Controller::indiceDelete/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::indiceDelete/$1');
     });
 
 });

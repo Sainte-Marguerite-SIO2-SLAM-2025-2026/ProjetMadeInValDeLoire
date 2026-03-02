@@ -23,87 +23,93 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="<?= base_url('/gingembre/accueil') ?>" class="nav-link">
-                    <i class="fas fa-home"></i> Accueil Admin
-                </a>
+                <?= anchor('/gingembre/accueil',
+                        '<i class="fas fa-home"></i> Accueil Admin',
+                        ['class' => 'nav-link']
+                ) ?>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url('/gingembre/logout') ?>" class="nav-link">
-                    <i class="fas fa-sign-out-alt"></i> Déconnexion
-                </a>
+                <?= anchor('/gingembre/logout',
+                        '<i class="fas fa-sign-out-alt"></i> Déconnexion',
+                        ['class' => 'nav-link']
+                ) ?>
             </li>
         </ul>
     </nav>
 
+    <!-- Sidebar -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="<?= base_url('/gingembre/salle_5') ?>" class="brand-link">
-            <span class="brand-text font-weight-light">Admin Salle 5</span>
-        </a>
+        <?= anchor('/gingembre/salle_5',
+                '<span class="brand-text font-weight-light">Admin Salle 5</span>',
+                ['class' => 'brand-link']
+        ) ?>
 
         <div class="sidebar">
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5') ?>" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>Dashboard</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5',
+                                '<i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p>',
+                                ['class' => 'nav-link active']
+                        ) ?>
+
                     </li>
                     <li class="nav-header">DONNÉES SÉCURITÉ</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objet') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-id-card"></i>
-                            <p>Objets</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/objet',
+                                '<i class="nav-icon fas fa-id-card"></i><p>Objets</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objet_declencheur') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Objets déclencheurs</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/objet_declencheur',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Objets déclencheurs</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/objet_activite') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Objets Activité</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/objet_activite',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Objets Activité</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/question') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Questions</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/question',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Questions</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/reponse') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Réponses</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/reponse',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Réponses</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/avoir_rep') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Liaison act/rép</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/avoir_rep',
+                                '<i class="nav-icon fas fa-question-circle"></i><p>Liaison act/rép</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
+
                     </li>
                     <li class="nav-header">DONNÉES COMMUNES</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/activite') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-tasks"></i>
-                            <p>Activités</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/activite',
+                                '<i class="nav-icon fas fa-tasks"></i><p>Activités</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/explication') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-info-circle"></i>
-                            <p>Explications</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/explication',
+                                '<i class="nav-icon fas fa-info-circle"></i><p>Explications</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_5/indice') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-lightbulb"></i>
-                            <p>Indices</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_5/indice',
+                                '<i class="nav-icon fas fa-lightbulb"></i><p>Indices</p>',
+                                ['class' => 'nav-link']
+                        ) ?>
                     </li>
                 </ul>
             </nav>
@@ -119,9 +125,11 @@
                         <h1>Gestion des Objets</h1>
                     </div>
                     <div class="col-sm-6">
-                        <a href="<?= base_url('/gingembre/salle_5/objet/create') ?>" class="btn btn-success float-right">
-                            <i class="fas fa-plus"></i> Nouvel objet
-                        </a>
+                        <?= anchor(
+                                '/gingembre/salle_5/objet/create',
+                                '<i class="fas fa-plus"></i> Nouvel Objet',
+                                ['class' => 'btn btn-success float-right']
+                        ) ?>
                     </div>
                 </div>
             </div>
@@ -184,31 +192,30 @@
                                     <td><?= esc($objet->drag) ?></td>
                                     <td><?= esc($objet->hover) ?></td>
                                     <td><?= esc($objet->cliquable) ?></td>
-                                    <!--                                    <td>--><?php //= substr(esc($objet['explication']), 0, 50) ?><!--...</td>-->
-<!--                                    <td>-->
-<!--                                        --><?php //if ($objet['type_carte'] == 'bonne_pratique'): ?>
-<!--                                            <span class="badge badge-success">Bonne pratique</span>-->
-<!--                                        --><?php //else: ?>
-<!--                                            <span class="badge badge-warning">Piège</span>-->
-<!--                                        --><?php //endif; ?>
-<!--                                    </td>-->
-<!--                                    <td>-->
-<!--                                        --><?php //if ($objet['activite_numero']): ?>
-<!--                                            <small>--><?php //= esc($objet['activite_libelle']) ?><!--</small>-->
-<!--                                        --><?php //else: ?>
-<!--                                            <span class="text-muted">-</span>-->
-<!--                                        --><?php //endif; ?>
-<!--                                    </td>-->
                                     <td>
-                                        <a href="<?= base_url('/gingembre/salle_5/objet/edit/' . $objet->id) ?>"
-                                           class="btn btn-sm btn-primary">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <a href="<?= base_url('/gingembre/salle_5/objet/delete/' . $objet->id) ?>"
-                                           class="btn btn-sm btn-danger"
-                                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet objet ?')">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
+                                        <div class="btn-group" >
+                                        <?= anchor(
+                                                '/gingembre/salle_5/objet/edit/' . $objet->id,
+                                                '<i class="fas fa-edit"></i>',
+                                                [
+                                                        'class' => 'btn btn-sm btn-primary mr-1',
+                                                        'title' => 'Modifier'
+                                                ]
+                                        ) ?>
+                                        <?= form_open(
+                                                '/gingembre/salle_5/objet/delete/' . $objet->id,
+                                                ['onsubmit' => "return confirm('Êtes-vous sûr de vouloir supprimer cet objet ? Cette action supprimera aussi ses liens avec les activités.')"]
+                                        )
+                                        ?>
+                                        <?= csrf_field() ?>
+                                        <?= form_button([
+                                                'type'    => 'submit',
+                                                'class'   => 'btn btn-sm btn-danger',
+                                                'title'   => 'Supprimer',
+                                                'content' => '<i class="fas fa-trash"></i>'
+                                        ]) ?>
+                                        <?= form_close() ?>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
