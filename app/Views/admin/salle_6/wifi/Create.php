@@ -1,12 +1,8 @@
 <?= $this->extend('admin/salle_6/layout') ?>
 
-<?= $this->section('title') ?>
-    Nouveau WiFi
-<?= $this->endSection() ?>
+<?= $this->section('title') ?>Nouveau WiFi<?= $this->endSection() ?>
 
-<?= $this->section('page_title') ?>
-    Créer un WiFi
-<?= $this->endSection() ?>
+<?= $this->section('page_title') ?>Créer un WiFi<?= $this->endSection() ?>
 
 <?= $this->section('breadcrumb') ?>
     <li class="breadcrumb-item"><?= anchor('/gingembre/salle_6', 'Accueil') ?></li>
@@ -25,82 +21,59 @@
                 <?= form_open(base_url('/gingembre/salle_6/wifi/store')) ?>
 
                 <div class="card-body">
+                    <?php if (session('error') || session('errors')): ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <?= session('error') ?>
+                            <?php if (session('errors')): ?>
+                                <ul class="mb-0">
+                                    <?php foreach (session('errors') as $error): ?>
+                                        <li><?= esc($error) ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
+
                     <div class="form-group">
-                        <?= form_label('Nom du réseau <span class="text-danger">*</span>', 'nom') ?>
+                        <?= form_label('Nom du réseau (SSID) <span class="text-danger">*</span>', 'nom') ?>
                         <?= form_input([
-                                'name' => 'nom',
-                                'id' => 'nom',
-                                'class' => 'form-control' . (session('errors.nom') ? ' is-invalid' : ''),
-                                'value' => old('nom'),
-                                'required' => true,
-                                'placeholder' => 'Entrez le nom du réseau WiFi'
+                                'name'        => 'nom',
+                                'id'          => 'nom',
+                                'class'       => 'form-control' . (session('errors.nom') ? ' is-invalid' : ''),
+                                'value'       => old('nom'),
+                                'required'    => true,
+                                'placeholder' => 'Ex: Guest_WiFi'
                         ]) ?>
                         <?php if (session('errors.nom')): ?>
-                            <div class="invalid-feedback">
-                                <?= session('errors.nom') ?>
-                            </div>
+                            <div class="invalid-feedback"><?= session('errors.nom') ?></div>
                         <?php endif; ?>
                     </div>
 
                     <div class="form-group">
-                        <?= form_label('Réseau public <span class="text-danger">*</span>', 'public') ?>
-                        <?= form_dropdown(
-                                'public',
-                                [
-                                        '' => '-- Sélectionner --',
-                                        '1' => 'Oui',
-                                        '0' => 'Non'
-                                ],
-                                old('public'),
-                                [
-                                        'id' => 'public',
-                                        'class' => 'form-control' . (session('errors.public') ? ' is-invalid' : ''),
-                                        'required' => true
-                                ]
-                        ) ?>
-                        <?php if (session('errors.public')): ?>
-                            <div class="invalid-feedback">
-                                <?= session('errors.public') ?>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-
-                    <div class="form-group">
-                        <?= form_label('Type de chiffrement <span class="text-danger">*</span>', 'chiffrement') ?>
-                        <?php
-                        $chiffrementOptions = ['' => '-- Sélectionner --'];
-                        foreach ($chiffrements as $chiff) {
-                            $chiffrementOptions[$chiff] = $chiff;
-                        }
-                        ?>
+                        <?= form_label('Type de Chiffrement <span class="text-danger">*</span>', 'chiffrement') ?>
                         <?= form_dropdown(
                                 'chiffrement',
-                                $chiffrementOptions,
+                                ['' => '-- Sélectionner --', 'OPEN' => 'OPEN', 'WEP' => 'WEP', 'WPA' => 'WPA', 'WPA2' => 'WPA2', 'WPA3' => 'WPA3'],
                                 old('chiffrement'),
-                                [
-                                        'id' => 'chiffrement',
-                                        'class' => 'form-control' . (session('errors.chiffrement') ? ' is-invalid' : ''),
-                                        'required' => true
-                                ]
+                                ['class' => 'form-control' . (session('errors.chiffrement') ? ' is-invalid' : ''), 'id' => 'chiffrement', 'required' => true]
                         ) ?>
                         <?php if (session('errors.chiffrement')): ?>
-                            <div class="invalid-feedback">
-                                <?= session('errors.chiffrement') ?>
-                            </div>
+                            <div class="invalid-feedback"><?= session('errors.chiffrement') ?></div>
                         <?php endif; ?>
-                        <small class="form-text text-muted">
-                            Types disponibles: OPEN, WEP, WPA, WPA2, WPA3
-                        </small>
                     </div>
                 </div>
 
                 <div class="card-footer">
                     <?= form_button([
-                            'type' => 'submit',
-                            'class' => 'btn btn-success',
+                            'type'    => 'submit',
+                            'class'   => 'btn btn-success',
                             'content' => '<i class="fas fa-save"></i> Enregistrer'
                     ]) ?>
-                    <?= anchor('/gingembre/salle_6/wifi', '<i class="fas fa-times"></i> Annuler', ['class' => 'btn btn-secondary']) ?>                </div>
+                    <?= anchor('/gingembre/salle_6/wifi', '<i class="fas fa-times"></i> Annuler', ['class' => 'btn btn-secondary']) ?>
+                </div>
 
                 <?= form_close() ?>
             </div>

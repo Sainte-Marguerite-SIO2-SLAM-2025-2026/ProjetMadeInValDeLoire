@@ -8,7 +8,7 @@ class ExplicationAdminModel extends Model
 {
     protected $table = 'explication';
     protected $primaryKey = 'numero';
-    protected $allowedFields = ['libelle'];
+    protected $allowedFields = ['numero', 'libelle'];
     protected $useTimestamps = false;
     protected $returnType = 'array';
     protected $DBGroup = 'default';

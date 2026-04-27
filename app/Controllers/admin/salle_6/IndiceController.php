@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\RedirectResponse;
 class IndiceController extends AdminSalle6Controller
 {
     protected IndiceAdminModel $indiceModel;
+    protected const SALLE_NUMERO = 6;
 
     public function __construct()
     {
@@ -20,18 +21,18 @@ class IndiceController extends AdminSalle6Controller
             return $redirect;
         }
 
-        $salleNumero = $this->request->getGet('salle') ? (int)$this->request->getGet('salle') : null;
-
+        // Force la salle 6
         $data = $this->getPaginatedData(
             $this->indiceModel,
             'getIndiceListBuilder',
             'countIndices',
             'numero',
-            $salleNumero
+            self::SALLE_NUMERO
         );
 
         $data['indices'] = $data['results'];
         unset($data['results']);
+        $data['current_salle'] = self::SALLE_NUMERO;
 
         return view('admin/salle_6/indice/index', $data);
     }
@@ -42,7 +43,8 @@ class IndiceController extends AdminSalle6Controller
             return $redirect;
         }
 
-        return view('admin/salle_6/indice/create');
+        $data = ['current_salle' => self::SALLE_NUMERO];
+        return view('admin/salle_6/indice/create', $data);
     }
 
     public function Store(): RedirectResponse
@@ -52,21 +54,39 @@ class IndiceController extends AdminSalle6Controller
         }
 
         $rules = [
-            'libelle' => 'required|min_length[3]',
-            'numero' => 'permit_empty|integer'
+            'numero' => 'required|integer|greater_than_equal_to[600]|less_than_equal_to[699]',
+            'libelle' => 'required|min_length[3]'
         ];
 
-        if (!$this->validate($rules)) {
+        $messages = [
+            'numero' => [
+                'required' => 'Le numéro est obligatoire',
+                'integer' => 'Le numéro doit être un nombre entier',
+                'greater_than_equal_to' => 'Le numéro doit être supérieur ou égal à 600',
+                'less_than_equal_to' => 'Le numéro doit être inférieur ou égal à 699'
+            ]
+        ];
+
+        if (!$this->validate($rules, $messages)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
+        $numero = (int)$this->request->getPost('numero');
+
+        // Vérifier que le numéro est dans la plage 600-699
+        if ($numero < 600 || $numero > 699) {
+            return redirect()->back()->withInput()->with('error', 'Le numéro doit être entre 600 et 699 pour la salle 6');
+        }
+
+        // Vérifier que le numéro n'existe pas déjà
+        if ($this->indiceModel->find($numero)) {
+            return redirect()->back()->withInput()->with('error', "L'indice n°{$numero} existe déjà");
+        }
+
         $data = [
+            'numero' => $numero,
             'libelle' => $this->request->getPost('libelle')
         ];
-
-        if ($this->request->getPost('numero')) {
-            $data['numero'] = $this->request->getPost('numero');
-        }
 
         if ($this->indiceModel->createIndice($data)) {
             return redirect()->to('/gingembre/salle_6/indice')->with('success', 'Indice créé avec succès');
@@ -81,18 +101,33 @@ class IndiceController extends AdminSalle6Controller
             return $redirect;
         }
 
+        // Vérifier que l'indice appartient à la salle 6
+        if ($id < 600 || $id > 699) {
+            return redirect()->to('/gingembre/salle_6/indice')->with('error', 'Indice non accessible');
+        }
+
         $indice = $this->indiceModel->getIndiceByNumero($id);
         if (!$indice) {
             return redirect()->to('/gingembre/salle_6/indice')->with('error', 'Indice introuvable');
         }
 
-        return view('admin/salle_6/indice/edit', ['indice' => $indice]);
+        $data = [
+            'indice' => $indice,
+            'current_salle' => self::SALLE_NUMERO
+        ];
+
+        return view('admin/salle_6/indice/edit', $data);
     }
 
     public function Update($id): RedirectResponse
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
+        }
+
+        // Vérifier que l'indice appartient à la salle 6
+        if ($id < 600 || $id > 699) {
+            return redirect()->to('/gingembre/salle_6/indice')->with('error', 'Indice non accessible');
         }
 
         $rules = [
@@ -118,6 +153,11 @@ class IndiceController extends AdminSalle6Controller
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
+        }
+
+        // Vérifier que l'indice appartient à la salle 6
+        if ($id < 600 || $id > 699) {
+            return redirect()->to('/gingembre/salle_6/indice')->with('error', 'Indice non accessible');
         }
 
         if ($this->indiceModel->deleteIndice($id)) {

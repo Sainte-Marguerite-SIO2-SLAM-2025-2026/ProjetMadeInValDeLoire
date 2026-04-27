@@ -9,6 +9,7 @@ class ActiviteAdminModel extends Model
     protected $table = 'activite';
     protected $primaryKey = 'numero';
     protected $allowedFields = [
+        'numero',
         'libelle', 'verrouillage', 'image', 'malveillant',
         'difficulte_numero', 'salle_numero', 'auteur_numero',
         'type_numero', 'explication_numero', 'width_img', 'height_img'
@@ -87,6 +88,7 @@ class ActiviteAdminModel extends Model
      * Créer une nouvelle activité
      * @param array $data
      * @return int|false L'ID inséré ou false en cas d'échec
+     * @throws \ReflectionException
      */
     public function createActivite(array $data)
     {
@@ -102,7 +104,6 @@ class ActiviteAdminModel extends Model
                 return false;
             }
         }
-
         return $this->insert($data);
     }
 
@@ -160,8 +161,8 @@ class ActiviteAdminModel extends Model
         $db = \Config\Database::connect('default');
         
         $tables = [
-            'activiteMessage' => 'activite_numero',
-            'avoirIndice' => 'activite_numero',
+            'activite_message' => 'activite_numero',
+            'avoir_indice' => 'activite_numero',
             'avoir_rep' => 'activite_numero',
             'avoir_zone' => 'activite_numero',
             'carte' => 'activite_numero',

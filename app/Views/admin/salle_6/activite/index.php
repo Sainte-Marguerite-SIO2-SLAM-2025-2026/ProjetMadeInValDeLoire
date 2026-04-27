@@ -53,9 +53,9 @@
                             <tr>
                                 <td><?= esc($activite['numero']) ?></td>
                                 <td><?= esc($activite['libelle']) ?></td>
-                                <td><?= esc($activite['type_libelle'] ?? '-') ?></td>
-                                <td><?= esc($activite['difficulte_libelle'] ?? '-') ?></td>
-                                <td><?= esc($activite['salle_libelle'] ?? '-') ?></td>
+                                <td><?= esc($activite['type_numero'] ?? '-') ?></td>
+                                <td><?= esc($activite['difficulte_numero'] ?? '-') ?></td>
+                                <td><?= esc($activite['salle_numero'] ?? '-') ?></td>
                                 <td class="text-center">
                                     <span class="badge badge-<?= ($activite['verrouillage'] == 1) ? 'warning' : 'success' ?>">
                                         <?= ($activite['verrouillage'] == 1) ? 'Oui' : 'Non' ?>

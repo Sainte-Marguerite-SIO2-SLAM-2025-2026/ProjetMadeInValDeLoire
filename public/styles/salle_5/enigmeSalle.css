@@ -274,7 +274,7 @@ svg {
     drop-shadow(0 0 25px rgba(0, 255, 0, 0.8)) !important;
 }
 
-/* Désactiver hover sur objets normaux mais NE PAS toucher aux correct */
+/* Désactiver hover sur objet normaux mais NE PAS toucher aux correct */
 .objet-cliquable.disabled:not(.correct) {
 }
 

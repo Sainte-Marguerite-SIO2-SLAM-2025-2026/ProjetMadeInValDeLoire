@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salle 4</title>
+    <title>Lockdown - Accueil</title>
     <?= link_tag('styles/salle_4/salle4.css'); ?>
 </head>
 <body>

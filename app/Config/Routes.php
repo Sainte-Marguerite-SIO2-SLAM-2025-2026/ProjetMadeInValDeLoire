@@ -129,6 +129,163 @@ $routes->group('/gingembre/salle_6', ['namespace' => 'App\Controllers\admin\sall
     });
 });
 
+/*
+ * ROUTES POUR L'ADMINISTRATION SALLE 4
+ */
+$routes->group('/gingembre/salle_4', ['namespace' => 'App\Controllers\admin\salle_4'], function ($routes) {
+
+    // Dashboard Salle 4
+    $routes->get('/', 'AdminSalle4Controller::index');
+
+    // Gestion des Cartes
+    $routes->group('carte', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::carteList');
+        $routes->get('create', 'AdminSalle4Controller::carteCreate');
+        $routes->post('store', 'AdminSalle4Controller::carteStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::carteEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::carteUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::carteDelete/$1');
+    });
+
+    // Gestion des Questions
+    $routes->group('question', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::questionList');
+        $routes->get('create', 'AdminSalle4Controller::questionCreate');
+        $routes->post('store', 'AdminSalle4Controller::questionStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::questionEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::questionUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::questionDelete/$1');
+    });
+
+    // Gestion des Activités
+    $routes->group('activite', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::activiteList');
+        $routes->get('create', 'AdminSalle4Controller::activiteCreate');
+        $routes->post('store', 'AdminSalle4Controller::activiteStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::activiteEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::activiteUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::activiteDelete/$1');
+    });
+
+    // Gestion des Explications
+    $routes->group('explication', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::explicationList');
+        $routes->get('create', 'AdminSalle4Controller::explicationCreate');
+        $routes->post('store', 'AdminSalle4Controller::explicationStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::explicationEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::explicationUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::explicationDelete/$1');
+    });
+
+    // Gestion des Indices
+    $routes->group('indice', function ($routes) {
+        $routes->get('/', 'AdminSalle4Controller::indiceList');
+        $routes->get('create', 'AdminSalle4Controller::indiceCreate');
+        $routes->post('store', 'AdminSalle4Controller::indiceStore');
+        $routes->get('edit/(:num)', 'AdminSalle4Controller::indiceEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle4Controller::indiceUpdate/$1');
+        $routes->get('delete/(:num)', 'AdminSalle4Controller::indiceDelete/$1');
+    });
+});
+
+/*
+ * ROUTES POUR L'ADMINISTRATION SALLE 5
+ */
+$routes->group('/gingembre/salle_5', ['namespace' => 'App\Controllers\admin\salle_5'], function ($routes) {
+
+    // Dashboard Salle 5
+    $routes->get('/', 'AdminSalle5Controller::index');
+
+    // Gestion des Objets
+    $routes->group('objet', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::objetList');
+        $routes->get('create', 'AdminSalle5Controller::objetCreate');
+        $routes->post('store', 'AdminSalle5Controller::objetStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::objetEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::objetUpdate/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::objetDelete/$1');
+    });
+
+    $routes->group('objet_declencheur', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::objetDeclencheurList');
+        $routes->get('create', 'AdminSalle5Controller::objetDeclencheurCreate');
+        $routes->post('store', 'AdminSalle5Controller::objetDeclencheurStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::objetDeclencheurEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::objetDeclencheurUpdate/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::objetDeclencheurDelete/$1');
+    });
+
+    // Gestion des objets d'activité
+    $routes->group('objet_activite', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::objetActiviteList');
+        $routes->get('create', 'AdminSalle5Controller::objetActiviteCreate');
+        $routes->post('store', 'AdminSalle5Controller::objetActiviteStore');
+        $routes->get('edit/(:num)/(:num)', 'AdminSalle5Controller::objetActiviteEdit/$1/$2');
+        $routes->post('update/(:num)/(:num)', 'AdminSalle5Controller::objetActiviteUpdate/$1/$2');
+        $routes->post('delete/(:num)/(:num)', 'AdminSalle5Controller::objetActiviteDelete/$1/$2');
+    });
+
+    // Gestion des questions
+    $routes->group('question', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::questionList');
+        $routes->get('create', 'AdminSalle5Controller::questionCreate');
+        $routes->post('store', 'AdminSalle5Controller::questionStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::questionEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::questionUpdate/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::questionDelete/$1');
+    });
+
+    // Gestion des réponses
+    $routes->group('reponse', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::reponseList');
+        $routes->get('create', 'AdminSalle5Controller::reponseCreate');
+        $routes->post('store', 'AdminSalle5Controller::reponseStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::reponseEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::reponseUpdate/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::reponseDelete/$1');
+    });
+
+    // Gestion des objets réponses
+    $routes->group('avoir_rep', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::avoirRepList');
+        $routes->get('create', 'AdminSalle5Controller::avoirRepCreate');
+        $routes->post('store', 'AdminSalle5Controller::avoirRepStore');
+        $routes->get('edit/(:num)/(:num)', 'AdminSalle5Controller::avoirRepEdit/$1/$2');
+        $routes->post('update/(:num)/(:num)', 'AdminSalle5Controller::avoirRepUpdate/$1/$2');
+        $routes->post('delete/(:num)/(:num)', 'AdminSalle5Controller::avoirRepDelete/$1/$2');
+    });
+
+    // Gestion des Activités
+    $routes->group('activite', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::activiteList');
+        $routes->get('create', 'AdminSalle5Controller::activiteCreate');
+        $routes->post('store', 'AdminSalle5Controller::activiteStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::activiteEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::activiteUpdate/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::activiteDelete/$1');
+    });
+
+    // Gestion des Explications
+    $routes->group('explication', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::explicationList');
+        $routes->get('create', 'AdminSalle5Controller::explicationCreate');
+        $routes->post('store', 'AdminSalle5Controller::explicationStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::explicationEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::explicationUpdate/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::explicationDelete/$1');
+    });
+
+    // Gestion des Indices
+    $routes->group('indice', function ($routes) {
+        $routes->get('/', 'AdminSalle5Controller::indiceList');
+        $routes->get('create', 'AdminSalle5Controller::indiceCreate');
+        $routes->post('store', 'AdminSalle5Controller::indiceStore');
+        $routes->get('edit/(:num)', 'AdminSalle5Controller::indiceEdit/$1');
+        $routes->post('update/(:num)', 'AdminSalle5Controller::indiceUpdate/$1');
+        $routes->post('delete/(:num)', 'AdminSalle5Controller::indiceDelete/$1');
+    });
+
+});
 
 // Routes admin
 $routes->get('/gingembre', 'admin\AdminController::index');
@@ -209,6 +366,8 @@ $routes->get('/quizFin', 'salle_4\Salle4Controller::quizFinal');
 $routes->post('/verifierReponseQuiz', 'salle_4\Salle4Controller::verifierReponseQuiz');
 $routes->get('/resetQuiz', 'accueil\AccueilController::index');
 $routes->get('/resetSalle4', 'salle_4\Salle4Controller::resetSalle');
+$routes->post('verifierCarte402', 'salle_4\Salle4Controller::verifierCarte402');
+$routes->get('resetActivite402', 'salle_4\Salle4Controller::resetActivite402');
 
 
 // Routes pour la salle 5
@@ -217,10 +376,6 @@ $routes->post('/validerEnigme', 'salle_5\Salle5Controller::validerEnigme');
 $routes->get('/resetSalle5', 'salle_5\Salle5Controller::resetSalle');
 $routes->get('/finSalle5', 'salle_5\Salle5Controller::finSalle');
 
-// Routes admin pour la salle 5
-$routes->post('/admin/supprimerEnigme/(:num)', 'admin\AdminController::supprimerEnigme/$1');
-$routes->post('/admin/supprimerObjet/(:num)', 'admin\AdminController::supprimerObjet/$1');
-$routes->post('/admin/supprimerObjetDeclencheur/(:num)', 'admin\AdminController::supprimerObjetDeclencheur/$1');
 
 
 

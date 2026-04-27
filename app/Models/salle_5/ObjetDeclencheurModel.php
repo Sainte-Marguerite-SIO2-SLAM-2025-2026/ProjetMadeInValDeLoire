@@ -10,17 +10,13 @@ class ObjetDeclencheurModel extends Model
     protected $primaryKey = 'id';
 
     protected $allowedFields = [
+        'id', 'nom', 'x', 'y', 'image_path',
         'width', 'height', 'zone_path', 'clip_path_name',
         'visible_si_selectionnee', 'visible_si_non_reussie', 'numero_activite'
     ];
 
-    public function getObjetsDeclencheurs()
-        {
-           return $this->findAll();
-        }
-
     /**
-     * Récupère uniquement les objets pertinents pour une salle
+     * Récupère uniquement les objet pertinents pour une salle
      * selon les activités sélectionnées et réussies.
      */
     public function getObjetsPourSalle($activites_selectionnees, $activites_reussies)
@@ -53,10 +49,5 @@ class ObjetDeclencheurModel extends Model
         }
 
         return $resultat;
-    }
-
-    public function deleteObjetDeclencheur($id)
-    {
-        return $this->where('id', $id)->delete();
     }
 }

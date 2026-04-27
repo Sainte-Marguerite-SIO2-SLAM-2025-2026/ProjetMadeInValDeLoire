@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controllers\admin\salle_6;
 
 use App\Models\admin\commun\AvoirIndiceAdminModel;
@@ -12,6 +11,7 @@ class AvoirIndiceController extends AdminSalle6Controller
     protected AvoirIndiceAdminModel $avoirIndiceModel;
     protected ActiviteAdminModel $activiteModel;
     protected IndiceAdminModel $indiceModel;
+    protected const SALLE_NUMERO = 6;
 
     public function __construct()
     {
@@ -26,18 +26,18 @@ class AvoirIndiceController extends AdminSalle6Controller
             return $redirect;
         }
 
-        $salleNumero = $this->request->getGet('salle') ? (int)$this->request->getGet('salle') : null;
-
+        // Force la salle 6
         $data = $this->getPaginatedData(
             $this->avoirIndiceModel,
             'getAvoirIndiceListBuilder',
             'countAvoirIndices',
             'activite_numero',
-            $salleNumero
+            self::SALLE_NUMERO
         );
 
         $data['associations'] = $data['results'];
         unset($data['results']);
+        $data['current_salle'] = self::SALLE_NUMERO;
 
         return view('admin/salle_6/avoirIndice/index', $data);
     }
@@ -48,9 +48,14 @@ class AvoirIndiceController extends AdminSalle6Controller
             return $redirect;
         }
 
+        // Récupérer uniquement les activités et indices de la salle 6
+        $activites = $this->activiteModel->getActivitesBySalle(self::SALLE_NUMERO);
+        $indices = $this->indiceModel->getIndicesBySalle(self::SALLE_NUMERO);
+
         $data = [
-            'activites' => $this->activiteModel->findAll(),
-            'indices' => $this->indiceModel->findAll()
+            'activites' => $activites,
+            'indices' => $indices,
+            'current_salle' => self::SALLE_NUMERO
         ];
 
         return view('admin/salle_6/avoirIndice/create', $data);
@@ -71,9 +76,17 @@ class AvoirIndiceController extends AdminSalle6Controller
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
+        $activiteNumero = $this->request->getPost('activite_numero');
+        $indiceNumero = $this->request->getPost('indice_numero');
+
+        // Vérifier que l'activité et l'indice appartiennent à la salle 6 (600-699)
+        if ($activiteNumero < 600 || $activiteNumero > 699 || $indiceNumero < 600 || $indiceNumero > 699) {
+            return redirect()->back()->withInput()->with('error', 'Activité ou indice non accessible pour la salle 6');
+        }
+
         $data = [
-            'activite_numero' => $this->request->getPost('activite_numero'),
-            'indice_numero' => $this->request->getPost('indice_numero')
+            'activite_numero' => $activiteNumero,
+            'indice_numero' => $indiceNumero
         ];
 
         if ($this->avoirIndiceModel->createAvoirIndice($data)) {
@@ -87,6 +100,11 @@ class AvoirIndiceController extends AdminSalle6Controller
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
+        }
+
+        // Vérifier que l'activité et l'indice appartiennent à la salle 6
+        if ($activiteNumero < 600 || $activiteNumero > 699 || $indiceNumero < 600 || $indiceNumero > 699) {
+            return redirect()->to('/gingembre/salle_6/avoir-indice')->with('error', 'Association non accessible');
         }
 
         if ($this->avoirIndiceModel->deleteAvoirIndice($activiteNumero, $indiceNumero)) {

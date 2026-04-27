@@ -17,6 +17,9 @@ class ActiviteController extends AdminSalle6Controller
     protected TypeAdminModel $typeModel;
     protected ExplicationAdminModel $explicationModel;
 
+    // Constante pour forcer la salle 6
+    protected const SALLE_NUMERO = 6;
+
     public function __construct()
     {
         $this->activiteModel = new ActiviteAdminModel();
@@ -32,19 +35,19 @@ class ActiviteController extends AdminSalle6Controller
             return $redirect;
         }
 
-        $salleNumero = $this->request->getGet('salle') ? (int)$this->request->getGet('salle') : null;
-
+        // Force la salle 6
         $data = $this->getPaginatedData(
             $this->activiteModel,
             'getActiviteListBuilder',
             'countActivites',
             'numero',
-            $salleNumero
+            self::SALLE_NUMERO
         );
 
         $data['activites'] = $data['results'];
         unset($data['results']);
         $data['salles'] = $this->salleModel->getAllSalles();
+        $data['current_salle'] = self::SALLE_NUMERO;
 
         return view('admin/salle_6/activite/index', $data);
     }
@@ -59,7 +62,8 @@ class ActiviteController extends AdminSalle6Controller
             'salles' => $this->salleModel->getAllSalles(),
             'difficultes' => $this->difficulteModel->getAllDifficulties(),
             'types' => $this->typeModel->getAllTypes(),
-            'explications' => $this->explicationModel->getAllExplications()
+            'explications' => $this->explicationModel->getAllExplications(),
+            'current_salle' => self::SALLE_NUMERO
         ];
 
         return view('admin/salle_6/activite/create', $data);
@@ -92,7 +96,7 @@ class ActiviteController extends AdminSalle6Controller
             'image' => $this->request->getPost('image') ?: null,
             'malveillant' => $this->request->getPost('malveillant') ?: null,
             'difficulte_numero' => $this->request->getPost('difficulte_numero') ?: null,
-            'salle_numero' => $this->request->getPost('salle_numero') ?: null,
+            'salle_numero' => self::SALLE_NUMERO, // Force salle 6
             'type_numero' => $this->request->getPost('type_numero') ?: null,
             'explication_numero' => $this->request->getPost('explication_numero') ?: null,
             'width_img' => $this->request->getPost('width_img') ?: null,
@@ -113,8 +117,10 @@ class ActiviteController extends AdminSalle6Controller
         }
 
         $activite = $this->activiteModel->getActiviteByNumero($id);
-        if (!$activite) {
-            return redirect()->to('/gingembre/salle_6/activite')->with('error', 'Activité introuvable');
+
+        // Vérifier que l'activité appartient bien à la salle 6 (600-699)
+        if (!$activite || $id < 600 || $id > 699) {
+            return redirect()->to('/gingembre/salle_6/activite')->with('error', 'Activité introuvable ou non accessible');
         }
 
         $data = [
@@ -122,7 +128,8 @@ class ActiviteController extends AdminSalle6Controller
             'salles' => $this->salleModel->getAllSalles(),
             'difficultes' => $this->difficulteModel->getAllDifficulties(),
             'types' => $this->typeModel->getAllTypes(),
-            'explications' => $this->explicationModel->getAllExplications()
+            'explications' => $this->explicationModel->getAllExplications(),
+            'current_salle' => self::SALLE_NUMERO
         ];
 
         return view('admin/salle_6/activite/edit', $data);
@@ -132,6 +139,11 @@ class ActiviteController extends AdminSalle6Controller
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
+        }
+
+        // Vérifier que l'activité appartient bien à la salle 6
+        if ($id < 600 || $id > 699) {
+            return redirect()->to('/gingembre/salle_6/activite')->with('error', 'Activité non accessible');
         }
 
         $rules = [
@@ -155,7 +167,7 @@ class ActiviteController extends AdminSalle6Controller
             'image' => $this->request->getPost('image') ?: null,
             'malveillant' => $this->request->getPost('malveillant') ?: null,
             'difficulte_numero' => $this->request->getPost('difficulte_numero') ?: null,
-            'salle_numero' => $this->request->getPost('salle_numero') ?: null,
+            'salle_numero' => self::SALLE_NUMERO, // Force salle 6
             'type_numero' => $this->request->getPost('type_numero') ?: null,
             'explication_numero' => $this->request->getPost('explication_numero') ?: null,
             'width_img' => $this->request->getPost('width_img') ?: null,
@@ -173,6 +185,11 @@ class ActiviteController extends AdminSalle6Controller
     {
         if ($redirect = $this->checkAuth()) {
             return $redirect;
+        }
+
+        // Vérifier que l'activité appartient bien à la salle 6
+        if ($id < 600 || $id > 699) {
+            return redirect()->to('/gingembre/salle_6/activite')->with('error', 'Activité non accessible');
         }
 
         if ($this->activiteModel->deleteActivite($id)) {
