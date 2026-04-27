@@ -21,8 +21,8 @@ class IndicesModel extends Model
     {
         $builder = $this->db->table('indice');
         $builder->select('indice.libelle');
-        $builder->join('avoir_indice', 'indice.numero = avoir_indice.indice_numero');
-        $builder->where('avoir_indice.activite_numero', $numeroActivite);
+        $builder->join('avoirIndice', 'indice.numero = avoirIndice.indice_numero');
+        $builder->where('avoirIndice.activite_numero', $numeroActivite);
         $builder->distinct();
 
         $indices = $builder->get()->getResultArray();

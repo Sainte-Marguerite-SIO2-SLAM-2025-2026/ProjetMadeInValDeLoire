@@ -4,14 +4,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Post-It | Salle Mot de Passe</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preload" as="image" href="<?= base_url('/images/salle_2/Etape5_Salle3.png') ?>">
-    <link rel="stylesheet" href="<?= base_url('styles/salle_2/style_etape_S3.css') ?>?v=21">
+    <link rel="stylesheet" href="<?= base_url('styles/salle_2/Salle2Etapes.css') ?>?v=21">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url('styles/salle_2/Salle2Fin.css') ?>">
 </head>
 <body>
+<?php
+// Valeurs par défaut sûres
+$next_url = $next_url ?? '#';
+$success = $success ?? false;
+$success_message = $success_message ?? null;
+$error = $error ?? null;
+?>
 
 <?php if (session()->get('mode') === 'jour'): ?>
+    <!-- Bouton d’accueil vers le manoir de jour -->
     <div class="bouton-accueil-cluedo">
         <?= anchor('/manoirJour',
                 img([
@@ -22,13 +31,13 @@
         ) ?>
     </div>
 <?php else: ?>
+    <!-- Bouton d’accueil vers la racine -->
     <div class="bouton-accueil-cluedo">
         <?= anchor('/',
                 img([
                         'src' => base_url('images/commun/btn_retour/home_icone_7.webp'),
                         'alt' => 'Mascotte',
                         'class' => 'bouton-accueil-cluedo'
-
                 ])
         ) ?>
     </div>
@@ -36,15 +45,18 @@
 
 <div class="game-fixed-wrapper">
 
+    <!-- Arrière-plan de la scène -->
     <div class="accueil-bg" style="background-image:url('<?= base_url('/images/salle_2/Etape5_Salle3.png') ?>');"></div>
 
-    <div class="zone-drop zone-drop-valid" id="drop-valid" aria-label="Feuille (valide)">
+    <!-- Zones de dépôt pour classer les post-it -->
+    <div class="zone-drop zone-drop-valid" id="drop-valid" aria-label="Feuille valide">
         <div class="zone-valid" id="zone-feuille"></div>
     </div>
-    <div class="zone-drop zone-drop-invalid" id="drop-invalid" aria-label="Poubelle (invalide)">
+    <div class="zone-drop zone-drop-invalid" id="drop-invalid" aria-label="Poubelle invalide">
         <div class="zone-invalid" id="zone-poubelle"></div>
     </div>
 
+    <!-- Post-it draggable avec libellé et mot de passe associé -->
     <div class="draggable-postit postit-ep5-11" data-id="p11" data-password="Electroque10@a">
         <img src="<?= base_url('/images/salle_2/post_it/post_it_11_S3.svg') ?>" alt="Soleil">
         <span class="postit-label">Electroque10@a</span>
@@ -90,19 +102,31 @@
         <span class="postit-label">Secur3P@sse2004!</span>
     </div>
 
-    <div id="feedback-global" class="feedback-global" aria-live="polite"></div>
+    <!-- Zone de feedback global pour afficher l’erreur éventuelle -->
+    <div id="feedback-global" class="feedback-global" aria-live="polite">
+        <?php if (!empty($error)): ?>
+            <span class="feedback-error"><?= esc($error) ?></span>
+        <?php endif; ?>
+    </div>
 
+    <!-- Message d’introduction avec texte dynamique -->
     <aside id="message-intro" class="tip-panel tip-panel--top tip-panel--autohide" role="status" aria-live="polite">
         <p class="tip-desc">
             <?= $libelles->libelle ?>
         </p>
     </aside>
 
-    <div class="validate-container-left">
-        <button id="btn-collecte" class="btn btn-primary">Valider le classement</button>
-        <button id="btn-reset" class="btn btn--ghost" style="margin-left:8px;">Réinitialiser</button>
-    </div>
+    <!-- Formulaire de validation du classement et actions de collecte et reset -->
+    <form action="<?= current_url() ?>" method="post" id="form-jeu-validation">
+        <input type="hidden" name="resultat_jeu" id="input-resultat-jeu" value="0">
 
+        <div class="validate-container-left">
+            <button type="button" id="btn-collecte" class="btn btn-primary">Valider l'etape </button>
+            <button type="button" id="btn-reset" class="btn btn--ghost" style="margin-left:8px;">Réinitialiser</button>
+        </div>
+    </form>
+
+    <!-- Overlay de résultats avec récapitulatif du tri des post-it -->
     <div id="result-overlay" class="result-overlay is-hidden" aria-live="polite">
         <div class="result-panel">
             <h2>Classement des Post-it</h2>
@@ -128,22 +152,67 @@
         </div>
     </div>
 
-    <div id="code-success-overlay" class="code-success-overlay" role="dialog" aria-modal="true" aria-labelledby="code-success-titre" style="display:none">
-        <aside class="tip-panel code-success-panel" role="note" aria-live="polite">
-            <p id="code-success-titre" class="tip-desc" style="margin-bottom:14px;">
-                <?= esc($success_message ?? 'Bravo ! Le classement est correct. Vous avez fini la salle Mot de Passe.') ?>
-            </p>
-            <a href="<?= esc($next_url ?? site_url('/Etapef')) ?>"
-               class="tip-btn btn--xl"
-               id="go-next"
-               aria-label="Passer à la salle suivante">
-                Etape Final
-            </a>
-        </aside>
+    <!-- Overlay de succès avec navigation suivante selon le mode -->
+    <div id="code-success-overlay" class="final-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="final-title" style="display:<?= $success ? 'block' : 'none' ?>">
+        <style>
+            .final-popup-overlay[style*="display:block"],
+            .final-popup-overlay[style*="display: flex"] {
+                position: fixed !important;
+                inset: 0 !important;
+                z-index: 9999 !important;
+            }
+        </style>
+
+        <img src="<?= base_url('/images/salle_2/accueil_salle3.webp') ?>" alt="Fond" class="accueil-bg">
+
+        <main class="final-screen-wrapper">
+            <div class="particles-layer">
+                <div class="flying-item item-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </div>
+                <div class="flying-item item-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                </div>
+            </div>
+
+            <div class="final-popup-container">
+                <div class="mascot-final-wrapper">
+                    <img src="<?= base_url('/images/salle_2/mascotte/mascotte_contente.svg') ?>" alt="Mascotte Contente">
+                </div>
+
+                <h1 class="final-title" id="final-title">Félicitations !</h1>
+
+                <p class="final-text">
+                    <?= !empty($success_message) ? esc($success_message) : 'Bravo, détective. Le classement est correct.<br><br>Le manoir vous ouvre désormais ses secrets les plus profonds...' ?>
+                </p>
+
+                <div class="final-actions">
+                    <?php if (session()->get('mode') === 'nuit' && !empty($next_url) && $next_url !== '#'): ?>
+                        <!-- Bouton de continuation en mode nuit vers l’URL suivante -->
+                        <button type="button"
+                                id="btn-continuer-nuit"
+                                class="btn btn--xl btn-nuit"
+                                data-next-url="<?= esc($next_url) ?>">
+                            Continuer
+                        </button>
+                    <?php else: ?>
+                        <!-- Mode jour navigation directe vers la fin -->
+                        <a href="<?= esc(base_url('Salle2/Etapeb')) ?>"
+                           class="btn btn--xl btn-nuit"
+                           role="button">
+                            Continuer
+                        </a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </main>
     </div>
 
+    <!-- Mascotte d’aide et bulle d’information -->
     <div class="mascotte-container">
-        <img id="mascotte" src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Mascotte">
+        <img id="mascotte"
+             src="<?= base_url('images/salle_2/mascotte/mascotte_face.svg'); ?>"
+             alt="Mascotte">
     </div>
 
     <div id="mascotte-bulle">
@@ -152,23 +221,39 @@
         <div class="bulle-fleche"></div>
     </div>
 
-</div> <div class="scroll-flow">
+    <?php
+    // Préparation des données pour le script client
+    $indices_for_js = is_array($mascotte_i) ? $mascotte_i : [$mascotte_i];
+    $libelles_js = array_map(fn($item) => $item->libelle, $indices_for_js);
+    ?>
+
+    <!-- Injection des indices et base_url pour les scripts -->
+    <script>
+        const INDICES = <?= json_encode($libelles_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
+        const base_url = "<?= base_url() ?>";
+    </script>
+
+    <!-- Script de la mascotte pour l’aide contextuelle -->
+    <script src="<?= base_url('js/salle_2/Salle2Mascotte.js') ?>"></script>
+
+</div>
+<!-- Gestion du flux de défilement -->
+<div class="scroll-flow">
     <div class="scroll-spacer"></div>
 </div>
-<?php
-// Toujours transformer en tableau pour JS
-$indices_for_js = !empty($indice) ? [$indice] : ["Aucun indice disponible"];
-?>
-<script>
-    const BASE_URL = "<?= esc(base_url()) ?>";
-    const INDICES = <?= json_encode($indices_for_js, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
-</script>
 
-<script src="<?= base_url('js/salle_2/mascotte.js') ?>"></script>
+<!-- Script de drag and drop des post-it versionné -->
+<script src="<?= base_url('/js/salle_2/Salle2Postits.js') ?>?v=21"></script>
 
+<?php if (!empty($error)): ?>
+    <!-- Marque visuelle d’erreur globale -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fg = document.getElementById('feedback-global');
+            if (fg) fg.classList.add('is-error');
+        });
+    </script>
+<?php endif; ?>
 
-
-<script>const base_url = "<?= base_url() ?>";</script>
-<script src="<?= base_url('/js/salle_2/postits_drag.js') ?>?v=21"></script>
 </body>
 </html>

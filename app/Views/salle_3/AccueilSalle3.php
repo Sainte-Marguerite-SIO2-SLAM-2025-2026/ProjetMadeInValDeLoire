@@ -28,7 +28,7 @@
 </div>
 
 <div class="mascotte-container">
-    <?php $img = ['id' => 'mascotte', 'src' => 'images/commun/mascotte/mascotte_face.svg',  'alt' => 'Mascotte'];
+    <?php $img = ['id' => 'mascotte', 'src' => $mascotte['face'],  'alt' => 'Mascotte'];
     echo img($img);
     ?>
 

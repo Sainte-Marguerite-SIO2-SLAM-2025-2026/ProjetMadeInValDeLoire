@@ -7,10 +7,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const popupMessage = document.getElementById("popup-message");
     const popupFermer = document.getElementById("popup-fermer");
 
+    // Récupère le code généré dans la page Discussion
     const codeCorrect = sessionStorage.getItem("codePorte");
 
     // --- SI CODE NON GÉNÉRÉ ---
     if (!codeCorrect) {
+
         popupTitre.textContent = "⚠️ Attention";
         popupMessage.textContent = "Tu n'as pas encore trouvé tous les mots suspects ! Retourne dans la discussion.";
         popup.style.display = "flex";
@@ -29,9 +31,17 @@ document.addEventListener("DOMContentLoaded", function() {
         const codeEntre = codeInput.value.trim();
 
         if (codeEntre === codeCorrect) {
+            // Supprime le timer
             sessionStorage.removeItem("startTime");
+
             popupTitre.textContent = "🎉 Bravo !";
-            popupMessage.innerHTML = "Le code est correct !<br>Tu peux maintenant passer à la salle suivante.";
+            popupMessage.innerHTML = `
+                <strong>Le code est correct !</strong><br><br>
+                <div style="font-size: 1.5em; color: #27ae60; margin: 15px 0;">
+                    ✓ Accès autorisé
+                </div>
+                Tu peux maintenant passer à la salle suivante.
+            `;
             popup.style.display = "flex";
 
             popupFermer.textContent = "Continuer";
@@ -40,24 +50,29 @@ document.addEventListener("DOMContentLoaded", function() {
             popupFermer.onclick = null;
 
             popupFermer.onclick = function () {
+                // Supprime le code après utilisation
                 sessionStorage.removeItem("codePorte");
 
                 if (MODE === "jour") {
                     window.location.href = BASE_URL + "validerJour/1";
                 } else {
-                    console.log("→ Redirection mode NUIT");
                     window.location.href = BASE_URL + "valider/1";
                 }
             };
         } else {
-            console.log("❌ Code incorrect");
 
             // Afficher erreur
             popupTitre.textContent = "❌ Code incorrect";
-            popupMessage.textContent = "Le code que vous avez entré n'est pas correct. Réessayez !";
+            popupMessage.innerHTML = `
+                <strong>Le code que vous avez entré n'est pas correct.</strong><br><br>
+                <div style="color: #e74c3c; margin: 10px 0;">
+                    Code entré : <strong>${codeEntre}</strong>
+                </div>
+                Vérifiez le code trouvé dans la discussion et réessayez !
+            `;
             popup.style.display = "flex";
 
-            popupFermer.textContent = "Fermer";
+            popupFermer.textContent = "Réessayer";
             popupFermer.onclick = function() {
                 popup.style.display = "none";
                 codeInput.value = "";

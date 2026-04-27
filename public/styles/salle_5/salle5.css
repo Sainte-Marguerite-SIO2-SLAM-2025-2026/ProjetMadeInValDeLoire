@@ -28,45 +28,6 @@ body, html {
     z-index: 1;
 }
 
-.retour {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-}
-
-.retour button {
-    font-size: 1em;
-    background-color: #fff;
-    color: #121212;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.retour button:hover {
-    background-color: #e0e0e0;
-    transform: scale(1.05);
-}
-
-/* 🐧 Mascotte */
-.mascotte {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-}
-
-.mascotte-img {
-    width: 70px;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.mascotte-img:hover {
-
-}
-
 /* Footer en bas de page */
 .footer {
     height: 100px;
@@ -91,67 +52,195 @@ body, html {
     z-index: 9999;
 }
 
+/* ===========================
+   POPUP EXPLICATION – SURVEILLANCE
+=========================== */
+
 .popup {
     position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Centrage avec Flexbox */
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: center;
     align-items: center;
-    animation: fadeIn 0.5s ease forwards;
+    justify-content: center;
+    z-index: 5000;
+    animation: popupFadeIn 0.4s ease;
 }
 
-@keyframes fadeIn {
+/* CONTENEUR */
+.popup-content {
+    position: relative;
+    width: 90%;
+    max-width: 650px;
+    background: linear-gradient(
+            135deg,
+            rgba(15, 15, 15, 0.98),
+            rgba(30, 30, 30, 0.98)
+    );
+    border: 2px solid rgba(0, 255, 255, 0.35);
+    border-radius: 16px;
+    box-shadow:
+            0 0 30px rgba(0, 255, 255, 0.25),
+            inset 0 0 15px rgba(0, 255, 255, 0.1);
+    padding: 32px 36px;
+    color: #e6f7ff;
+    animation: popupScaleIn 0.35s ease;
+}
+
+/* TITRE */
+.popup-content h2 {
+    margin: 0 0 20px;
+    font-size: 1.6em;
+    font-weight: 800;
+    color: #7fffd4;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.25);
+    padding-bottom: 12px;
+}
+
+/* TEXTE */
+.popup-content p {
+    font-size: 1.6em;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #dff6ff;
+}
+
+/* ACTIONS */
+.popup-actions {
+    display: flex;
+    justify-content: center;
+}
+
+/* RADAR CIRCLE */
+.radar {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background:
+            radial-gradient(circle at center,
+            rgba(0,255,255,0.15) 2%,
+            rgba(0,255,255,0.05) 40%,
+            transparent 80%);
+    overflow: hidden;
+}
+
+/* SCAN LINE */
+.radar-scan {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+            from 0deg,
+            rgba(0,255,255,0.4),
+            rgba(0,255,255,0.05),
+            transparent 80%
+    );
+    animation: radar-rotate 4s linear infinite;
+}
+
+/* BLIPS */
+.blip {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #7fffd4;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #7fffd4;
+    animation: blip-pulse 2s infinite;
+}
+
+.blip-1 { top: 30%; left: 55%; animation-delay: 0s; }
+.blip-2 { top: 60%; left: 40%; animation-delay: 1s; }
+.blip-3 { top: 45%; left: 70%; animation-delay: 2s; }
+
+/* ANIMATIONS */
+@keyframes radar-rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+@keyframes blip-pulse {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.4); }
+}
+
+/* BOUTON */
+.btn-accueil {
+    background: linear-gradient(135deg, #00cfcf, #007f7f);
+    color: #021414;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 30px;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    box-shadow:
+            0 0 15px rgba(0, 255, 255, 0.5);
+    transition: all 0.25s ease;
+    z-index: 100;
+}
+
+.btn-accueil:hover {
+    background: linear-gradient(135deg, #00ffff, #00b3b3);
+    transform: scale(1.05);
+    box-shadow:
+            0 0 25px rgba(0, 255, 255, 0.8);
+}
+
+/* CROIX DE FERMETURE */
+.close-btn {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ff6b6b;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    color: #ff3b3b;
+}
+
+/* ANIMATIONS */
+@keyframes popupFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes popupScaleIn {
     from {
         opacity: 0;
+        transform: scale(0.85);
     }
     to {
         opacity: 1;
+        transform: scale(1);
     }
 }
 
-.popup-content {
-    background: linear-gradient(135deg, #1e1e2f, #2c2c3e);
-    color: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    width: 80%;
-    height: auto;
-    max-width: 700px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    position: relative;
-    font-family: 'Segoe UI', sans-serif;
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .popup-content {
+        padding: 24px 20px;
+    }
+
+    .popup-content h2 {
+        font-size: 1.3em;
+    }
+
+    .popup-content p {
+        font-size: 0.95em;
+    }
 }
 
-.popup-content h2 {
-    margin-top: 0;
-    text-align: center;
-    font-size: 24px;
-    color: #ffcc00;
-}
-
-.popup-content p {
-    font-size: 20px;
-    line-height: 1.5;
-    text-align: justify;
-}
-
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 22px;
-    color: #fff;
-    cursor: pointer;
-}
-
-#ecran_milieu_gauche image {
-    overflow: hidden;
-}
 
 /* Animations */
 @keyframes fadeInDown {
@@ -205,60 +294,14 @@ svg {
     z-index: 1;
 }
 
-/* Mascotte et bouton = superposés AU-DESSUS du SVG, mais dans le même flux */
-.retour, .mascotte {
-    position: absolute;
-    z-index: 2; /* au-dessus du SVG */
-}
-
-/* Bouton retour en haut à gauche */
-.retour-top {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 100;
-}
-
-.btn-retour {
-    background: linear-gradient(135deg, #d4af37, #f4d03f);
-    color: #2c1810;
-    border: 3px solid #8b6914;
-    border-radius: 8px;
-    padding: 12px 30px;
-    font-size: 1.1em;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.btn-retour:hover {
-    background: linear-gradient(135deg, #f4d03f, #d4af37);
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(212, 175, 55, 0.5);
-}
-
-.mascotte {
-    bottom: 30px;
-    right: 30px;
-}
-
-.mascotte-img {
-    width: 180px;
-    height: 180px;
-    animation: float 3s ease-in-out infinite;
-}
-
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
-
 /* Popup de succès */
 .popup-succes {
     z-index: 10000 !important;
-    background-color: rgba(0, 0, 0, 0.9);
     pointer-events: all !important;
 }
 
@@ -326,7 +369,6 @@ svg {
 /* Popup d'échec */
 .popup-echec {
     z-index: 10000 !important;
-    background-color: rgba(0, 0, 0, 0.9);
     pointer-events: all !important;
 }
 
@@ -371,7 +413,8 @@ svg {
 }
 
 .texte-indice{
-    color: #0a0a0a;
+    color: black;
+    font-size: 1.2em;
 }
 
 .lumi-image {

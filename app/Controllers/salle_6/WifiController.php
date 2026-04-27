@@ -3,6 +3,7 @@
 namespace App\Controllers\salle_6;
 
 use App\Controllers\BaseController;
+use App\Models\commun\MascotteModel;
 use App\Models\salle_6\ProposerWifiModel;
 use App\Models\salle_6\WifiModel;
 
@@ -10,11 +11,13 @@ class WifiController extends BaseController
 {
     protected $proposerWifiModel;
     protected $wifiModel;
+    protected MascotteModel $mascotteModel;
 
     public function __construct()
     {
         $this->proposerWifiModel = new ProposerWifiModel();
         $this->wifiModel = new WifiModel();
+        $this->mascotteModel = new MascotteModel();
     }
 
     public function Index(): string
@@ -25,6 +28,9 @@ class WifiController extends BaseController
         // Récupérer les WiFi depuis la base de données
         $data['wifis'] = $this->proposerWifiModel->getWifiMelanges($activite_numero);
         $data['intitule'] = "Clique sur les cartes pour commencer";
+
+        // recuperer les mascottes
+        $data['mascotte'] = $this->mascotteModel->getMascottes();
 
         return view('commun\header') .
             view('salle_6\WifiCartes', $data) .
@@ -65,6 +71,9 @@ class WifiController extends BaseController
         $data['zone_correcte'] = $zone_correcte; // Ajouter la zone correcte
         $data['activite_numero'] = $activite_numero;
         $data['intitule'] = "Clique sur les cartes a nouveau pour commencer";
+
+        // recuperer les mascottes
+        $data['mascotte'] = $this->mascotteModel->getMascottes();
 
         return view('commun\header') .
             view('salle_6\WifiInfos', $data) .

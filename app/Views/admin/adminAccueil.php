@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administration - Tableau de bord</title>
-    <?= link_tag('styles/admin/admin.css'); ?>
     <?= link_tag('styles/admin/adminAccueil.css'); ?>
 </head>
 <body>

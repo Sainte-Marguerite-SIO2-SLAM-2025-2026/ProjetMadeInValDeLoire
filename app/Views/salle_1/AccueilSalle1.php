@@ -7,6 +7,7 @@
     <?= link_tag(base_url().'styles/salle_1/salle1Global.css') ?>
     <?= link_tag(base_url().'styles/salle_1/salle1Accueil.css') ?>
     <?= script_tag(base_url().'js/salle_1/salle1Accueil.js') ?>
+    <?= script_tag(base_url().'js/salle_1/salle1Mascotte.js') ?>
 </head>
 <body>
 <div class="background-container">
@@ -14,7 +15,8 @@
     <div class="popup">
         <div class="popup-content">
             <?= img([
-                    'src' => base_url('images/commun/mascotte/mascotte_face.svg'),
+//                    'src' => base_url('images/commun/mascotte/mascotte_face.svg'),
+                    'src' => $mascotte['face'],
                     'alt' => 'Mascotte',
                     'class' => 'mascotte-popup'
             ]) ?>
@@ -62,10 +64,12 @@
     <div class="buttons">
 
         <?= img([
-                'src' => base_url('images/commun/mascotte/mascotte_face.svg'),
+                'src'=> $mascotte['face'],
                 'alt' => 'Mascotte',
                 'class' => 'mascotte-image'
         ])?>
+
+        <?= anchor(base_url('Salle1/Backend')) ?>
 
     </div>
 </div>

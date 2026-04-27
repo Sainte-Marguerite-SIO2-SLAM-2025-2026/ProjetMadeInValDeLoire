@@ -12,7 +12,7 @@ class ProposerVpnModel extends Model
     protected $returnType = 'array';
 
     /**
-     * Récupère UN bon VPN aléatoirement pour une activité donnée
+     * Récupère UN bon vpn aléatoirement pour une activité donnée
      * @param int $activite_numero
      * @return array|null
      */
@@ -27,9 +27,9 @@ class ProposerVpnModel extends Model
     }
 
     /**
-     * Récupère DEUX mauvais VPN aléatoirement pour une activité donnée
+     * Récupère DEUX mauvais vpn aléatoirement pour une activité donnée
      * @param int $activite_numero
-     * @param int $limit Nombre de mauvais VPN à récupérer (par défaut 2)
+     * @param int $limit Nombre de mauvais vpn à récupérer (par défaut 2)
      * @return array
      */
     public function getMauvaisVpnAlea($activite_numero, $limit = 2)
@@ -44,7 +44,7 @@ class ProposerVpnModel extends Model
     }
 
     /**
-     * Récupère 1 bon VPN + 2 mauvais VPN aléatoirement pour une activité
+     * Récupère 1 bon vpn + 2 mauvais vpn aléatoirement pour une activité
      * @param int $activite_numero
      * @return array ['bon' => array, 'mauvais' => array]
      */
@@ -60,7 +60,7 @@ class ProposerVpnModel extends Model
     }
 
     /**
-     * Vérifie si un VPN est la bonne réponse pour une activité
+     * Vérifie si un vpn est la bonne réponse pour une activité
      * @param int $vpn_numero
      * @param int $activite_numero
      * @return bool
@@ -76,7 +76,7 @@ class ProposerVpnModel extends Model
     }
 
     /**
-     * Récupère TOUS les VPN (bon + mauvais) pour une activité donnée
+     * Récupère TOUS les vpn (bon + mauvais) pour une activité donnée
      * @param int $activite_numero
      * @return array
      */
@@ -89,7 +89,7 @@ class ProposerVpnModel extends Model
     }
 
     /**
-     * Récupère tous les VPN mélangés aléatoirement pour une activité
+     * Récupère tous les vpn mélangés aléatoirement pour une activité
      * (pratique pour afficher les 3 cartes dans un ordre aléatoire)
      * @param int $activite_numero
      * @return array

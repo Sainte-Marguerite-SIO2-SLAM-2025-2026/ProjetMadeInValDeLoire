@@ -4,11 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Introduction | Salle Mot de Passe</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url('styles/salle_2/style_fin_S3.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('styles/salle_2/Salle2Fin.css') ?>">
 </head>
 <body>
 
@@ -20,20 +19,27 @@
         <div class="flying-item item-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
     </div>
 
+    <!-- Fenetre centrale avec mascotte, titre, texte et action -->
     <div class="final-popup-container">
+        <!-- Image de la mascotte chargee dynamiquement -->
         <div class="mascot-final-wrapper">
-            <img src="<?= base_url('/images/salle_2/mascotte/mascotte_face.svg') ?>" alt="Monsieur Fox">
-        </div>
+            <?= img([
+                    'src' => $mascotte['face'],
+                    'alt' => 'Mascotte',
+                    'class' => 'mascotte-popup'
+            ]) ?>        </div>
 
+        <!-- Titre de la section -->
         <h1 class="final-title">Explication !</h1>
 
+        <!-- Texte d introduction injecte dynamiquement -->
         <p class="final-text">
             <?= $introduction->libelle; ?>
             <br><br>
-            Mot de passe de la porte : <?= esc($libelles[0]['libelle'] ?? '') ?>
-
+            Si vous avez <strong>besoin d'aide</strong> cliquez sur la <strong> mascotte </strong>!
         </p>
 
+        <!-- Bouton pour commencer l etape suivante -->
         <div class="final-actions">
             <!-- le lien va directement à Etape1, plus besoin de popup -->
             <a href="<?= base_url('/Salle2/Etape1') ?>" class="btn btn--xl btn-nuit">

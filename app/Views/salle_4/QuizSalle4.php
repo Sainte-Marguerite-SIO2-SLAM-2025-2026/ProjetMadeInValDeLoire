@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Ransomware - Salle 4</title>
+    <title>Lockdown - Quiz</title>
     <?= link_tag('styles/salle_4/quizSalle4.css') ?>
 </head>
 <body>
@@ -127,34 +127,14 @@
     </div>
 
     <!-- Modal des règles -->
-    <div id="rulesModal" class="modal-lumi">
-        <div class="modal-content-lumi rules-modal-content">
+
+    <div id="rulesModal" class="modal">
+        <div class="modal-content rules-modal-content">
             <span class="close-rules">&times;</span>
-            <h2>Règles du Quiz</h2>
-            <div class="rules-content-lumi">
-                <h3>Objectif</h3>
-                <p>Répondre correctement à 6 questions sur les ransomwares.</p>
-
-                <h3>Comment jouer ?</h3>
-                <ol>
-                    <li><strong>Cliquez sur une carte</strong> pour révéler une question</li>
-                    <li><strong>Lisez attentivement</strong> la question affichée</li>
-                    <li><strong>Choisissez VRAI ou FAUX</strong> selon votre réponse</li>
-                    <li>Votre réponse est enregistrée automatiquement</li>
-                    <li><strong>Continuez</strong> jusqu'à répondre aux 6 questions</li>
-                    <li>Il vous faut au minimum 4 bonnes réponses pour valider la salle</li>
-                </ol>
-
-                <h3>Important</h3>
-                <ul>
-                    <li>Une fois répondue, une carte ne peut plus être cliquée</li>
-                    <li>Les questions restent les mêmes pendant toute la session</li>
-                    <li>Votre score s'affiche en temps réel</li>
-                    <li>Vous n'aurez pas d'indications car il s'agit d'un vrai ou faux pour tester vos connaissances</li>
-                </ul>
-
-                <h3>Astuce</h3>
-                <p>Réfléchissez bien avant de répondre, vous n'avez qu'une seule chance par question !</p>
+            <h2>Notes d'enquête</h2>
+            <div class="rules-content">
+                <h3>Règles du quiz :</h3>
+                <?= $indice->libelle;?>
             </div>
         </div>
     </div>

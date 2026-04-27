@@ -23,11 +23,13 @@ class MascotteModel extends Model
     /**
      * Retourne l'image de la mascotte correspondante à l'humeur mise en paramètre
      * @param $humeur l'humeur de la mascotte
-     * @return array
+     * @return string
      */
     public function getMascotteByHumeur($humeur) : string
     {
-        return $this->where('humeur', $humeur)
-            ->findAll();
+        $row = $this->where('humeur', $humeur)->first();
+
+        return $row['image'];
+
     }
 }

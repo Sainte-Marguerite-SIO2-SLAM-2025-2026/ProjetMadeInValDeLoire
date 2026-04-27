@@ -48,20 +48,55 @@ document.addEventListener("DOMContentLoaded", function() {
         return erreur ? erreur.explication : '';
     }
 
+    // FONCTION POUR GÉNÉRER UN CODE ALÉATOIRE À 4 CHIFFRES
+    function genererCodeAleatoire() {
+        // Génère un nombre entre 1000 et 9999
+        const code = Math.floor(1000 + Math.random() * 9000).toString();
+        return code;
+    }
+
     function verifierVictoire() {
         if (motsTrouves.size === motsSuspects.length && motsSuspects.length > 0) {
 
-            const code = 8294;
+            // Génère le code à 4 chiffres
+            const code = genererCodeAleatoire();
+
+            // Sauvegarde le code dans sessionStorage pour la page suivante
             sessionStorage.setItem("codePorte", code);
 
             popupTitre.textContent = "🎉 Félicitations !";
-            popupMessage.innerHTML = `Vous avez trouvé tous les mots suspects !<br><br>
-                                       <strong>Voici votre code : ${code}</strong>`;
+            popupMessage.innerHTML = `
+                <strong>Vous avez trouvé tous les mots suspects !</strong><br><br>
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                            padding: 20px; 
+                            border-radius: 15px; 
+                            margin: 20px 0;
+                            box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <div style="color: white; font-size: 1.1em; margin-bottom: 10px;">
+                        🔐 Votre code secret
+                    </div>
+                    <div style="background: white; 
+                                padding: 15px; 
+                                border-radius: 10px; 
+                                font-size: 2.5em; 
+                                font-weight: bold; 
+                                color: #667eea; 
+                                letter-spacing: 8px;
+                                text-align: center;
+                                font-family: 'Courier New', monospace;">
+                        ${code}
+                    </div>
+                </div>
+                <span style="font-size: 0.95em; color: #e74c3c; font-weight: bold;">
+                    ⚠️ Notez bien ce code, vous en aurez besoin pour ouvrir la porte !
+                </span>
+            `;
 
             if (popupExplication) popupExplication.style.display = "none";
 
             popup.style.display = "flex";
 
+            popupFermer.textContent = "J'ai noté le code !";
             popupFermer.onclick = function() {
                 popup.style.display = "none";
             };
@@ -97,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
             );
 
             if (estSuspect) {
-                // ✔ Mot suspect
+                // ✓ Mot suspect
                 span.style.color = "green";
                 span.style.fontWeight = "bold";
                 span.style.textDecoration = "underline";
@@ -126,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 popup.style.display = "flex";
 
+                popupFermer.textContent = "Fermer";
                 popupFermer.onclick = function() {
                     popup.style.display = "none";
                     popupExplication.style.display = "none";
@@ -133,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 };
 
             } else {
-                //  Mauvais mot
+                // ✗ Mauvais mot
                 span.style.color = "red";
                 span.style.textDecoration = "line-through";
                 span.style.backgroundColor = "#f8d7da";
@@ -148,6 +184,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 popupExplication.style.display = "none";
                 popup.style.display = "flex";
 
+                popupFermer.textContent = "Fermer";
                 popupFermer.onclick = function() {
                     popup.style.display = "none";
                 };

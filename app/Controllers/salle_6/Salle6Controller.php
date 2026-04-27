@@ -5,6 +5,7 @@ namespace App\Controllers\salle_6;
 use App\Controllers\BaseController;
 use App\Controllers\salle_6\WifiController;
 use App\Controllers\salle_6\VpnController;
+use App\Models\commun\MascotteModel;
 use App\Models\salle_6\ExplicationModel;
 use App\Models\salle_6\ProposerWifiModel;
 use App\Models\salle_6\ProposerVpnModel;
@@ -19,6 +20,7 @@ class Salle6Controller extends BaseController
     protected ProposerWifiModel $ProposerWifiModel;
     protected ProposerVpnModel $ProposerVpnModel;
     protected Salle6Model $Salle6Model;
+    protected MascotteModel $mascotteModel;
 
     public function __construct()
     {
@@ -28,6 +30,7 @@ class Salle6Controller extends BaseController
         $this->ProposerWifiModel = new ProposerWifiModel();
         $this->ProposerVpnModel = new ProposerVpnModel();
         $this->Salle6Model = new Salle6Model();
+        $this->mascotteModel = new MascotteModel();
     }
 
     public function Index(): string
@@ -47,6 +50,9 @@ class Salle6Controller extends BaseController
         $data['infosSalle'] = $infosSalle;
         $intitule = $this->ExplicationModel->getExplication(601);
         $data['intitule'] = $intitule['libelle'];
+
+        // recuperer les mascottes
+        $data['mascotte'] = $this->mascotteModel->getMascottes();
 
         // Passer l'explication à la vue
         $data['explication'] = $explication['libelle'] ?? 'Texte par défaut';
@@ -80,7 +86,7 @@ class Salle6Controller extends BaseController
 
         //Si l'utilisateur a fini wifi
         if ($wifiComplete && !$vpnComplete) {
-            return redirect()->to('/Salle6/VPN');
+            return redirect()->to('/Salle6/vpn');
         }
 
         // Si l'utilisateur a fini vpn
@@ -92,7 +98,7 @@ class Salle6Controller extends BaseController
         $numeroEnigme = random_int(1, 2);
 
         if ($numeroEnigme == 1) {
-            return redirect()->to('/Salle6/VPN');
+            return redirect()->to('/Salle6/vpn');
         } else {
             return redirect()->to('/Salle6/Wifi');
         }
@@ -125,7 +131,7 @@ class Salle6Controller extends BaseController
             if ($vpnComplete) {
                 return redirect()->to('/Salle6/Explication');
             } else {
-                return redirect()->to('/Salle6/VPN');
+                return redirect()->to('/Salle6/vpn');
             }
         }
 
@@ -139,7 +145,7 @@ class Salle6Controller extends BaseController
 
         // Récupérer le vpn_numero depuis POST
         $vpn_numero = $this->request->getPost('vpn_numero');
-        $activite_numero = 602; // VPN
+        $activite_numero = 602; // vpn
 
         // Vérifier si la réponse est correcte
         if ($vpn_numero) {
@@ -167,7 +173,7 @@ class Salle6Controller extends BaseController
     {
         // Récupérer l'explication pour la page de fin
         $explication = $this->ExplicationModel->getExplication(602);
-        $data['explication'] = $explication['libelle'] ?? 'Vous maîtrisez maintenant les concepts de sécurité WiFi et VPN.';
+        $data['explication'] = $explication['libelle'] ?? 'Vous maîtrisez maintenant les concepts de sécurité WiFi et vpn.';
 
         // Message de résultat optionnel (peut être personnalisé)
         $data['messageResultat'] = 'Vous avez brillamment résolu toutes les énigmes de cette salle !';
@@ -203,7 +209,7 @@ class Salle6Controller extends BaseController
 
             // Récupérer les félicitations de la BDD
             $explication = $this->ExplicationModel->getExplication(602);
-            $data['explication'] = $explication['libelle'] ?? 'Vous maîtrisez maintenant les concepts de sécurité WiFi et VPN.';
+            $data['explication'] = $explication['libelle'] ?? 'Vous maîtrisez maintenant les concepts de sécurité WiFi et vpn.';
             $data['messageResultat'] = 'Vous avez brillamment résolu toutes les énigmes de cette salle !';
             $data['intituleMessage'] = '🎉 Félicitations ! 🎉';
         }

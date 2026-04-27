@@ -128,12 +128,12 @@
 
     <!-- Mascotte avec anchor -->
     <?= anchor('#', img([
-            'src' => base_url() . 'images/commun/mascotte/mascotte_face.svg',
+            'src' => base_url() .$mascotte['face'],
             'alt' => 'Mascotte',
             'class' => 'mascotte',
             'id' => 'mascotte',
-            'data-hover' => base_url() . 'images/commun/mascotte/mascotte_exclamee.svg',
-            'data-default' => base_url() . 'images/commun/mascotte/mascotte_face.svg'
+            'data-hover' => base_url() . $mascotte['exclamee'],
+            'data-default' => base_url() . $mascotte['face']
     ]), [
             'id' => 'mascotteLink',
             'class' => 'mascotte-link'

@@ -70,15 +70,18 @@ class AccueilController extends BaseController
 
         // Initialiser les activités en session si nécessaire
         if (!session()->has('activites_salle5')) {
-            $activites = $activiteModel->getActivitesAleatoires(5, 2);
 
-            if (count($activites) >= 2) {
-                $activites_ids = array_column($activites, 'numero');
-                session()->set('activites_salle5', $activites_ids);
-                session()->set('activites_reussies', []);
-                session()->remove('popup_salle5_vue');
-            }
+            do {
+                $activites = $activiteModel->getActivitesAleatoires(5);
+            } while (count($activites) < 2);
+
+            $activites_ids = array_column($activites, 'numero');
+
+            session()->set('activites_salle5', $activites_ids);
+            session()->set('activites_reussies', []);
+            session()->remove('popup_salle5_vue');
         }
+
 
         // Vérifier si toutes les énigmes sont terminées
         $activites_ids = session()->get('activites_salle5') ?? [];
