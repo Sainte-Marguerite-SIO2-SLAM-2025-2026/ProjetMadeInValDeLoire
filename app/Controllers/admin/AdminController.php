@@ -5,6 +5,7 @@ namespace App\Controllers\admin;
 use App\Controllers\BaseController;
 use App\Models\admin\salle_2\Salle2Admin;
 use App\Models\admin\UserModel;
+use App\Models\salle_3\MailModel;
 use App\Models\salle_5\ActiviteModel;
 use App\Models\salle_5\ObjetDeclencheurModel;
 use App\Models\salle_5\ObjetsModel;
@@ -90,7 +91,9 @@ class AdminController extends BaseController
             return view('admin/salle_2/AccueilAdminSalle2', $data);
         }
         elseif ($numero == 3) {
-            return view('admin/salle_3/AccueilAdminSalle3');
+            $mailModel = new MailModel();
+            $data['mails'] = $mailModel->findAll();
+            return view('admin/salle_3/AccueilAdminSalle3', $data);
         }
         elseif ($numero == 4) {
             return view('admin/salle_4/AccueilAdminSalle4');

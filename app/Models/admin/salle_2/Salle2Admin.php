@@ -47,7 +47,7 @@ class Salle2Admin extends Model
     public function getMdps()
     {
         return $this->db->table('mot_de_passe')
-            ->select('numero as id, numero, motPasse, Valeur')
+            ->select('numero as id, numero, motPasse')
             ->orderBy('numero', 'ASC')
             ->get()
             ->getResultArray();
@@ -88,8 +88,7 @@ class Salle2Admin extends Model
             $table  = 'mot_de_passe';
             $dbData = [
                 'numero'   => (int) $data['numero'],
-                'motPasse' => (string) $data['description'],
-                'Valeur'   => (string) ($data['valeur'] ?? ''),
+                'motPasse' => (string) $data['description']
             ];
         } else {
             return false;

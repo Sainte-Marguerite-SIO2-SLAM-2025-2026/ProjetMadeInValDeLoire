@@ -49,7 +49,7 @@ class MailController extends BaseController
         ];
 
         if ($this->mailModel->insert($data)) {
-            return redirect()->to('/salle_3')->with('success', 'Mail enregistré avec succès');
+            return redirect()->to('gingembre/salle_3')->with('success', 'Mail enregistré avec succès');
         } else {
             return redirect()->back()
                 ->withInput()
@@ -61,7 +61,7 @@ class MailController extends BaseController
     public function index()
     {
         $data['mails'] = $this->mailModel->findAll();
-        return view('admin/salle_3/ListeMailsAdminSalle3', $data);
+        return view('admin/salle_3/AccueilAdminSalle3', $data);
     }
 
     // Afficher un mail spécifique
@@ -87,7 +87,7 @@ class MailController extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Mail non trouvé');
         }
 
-        return view('salle_3/EditMailSalle3', $data);
+        return view('admin/salle_3/ModifAdminSalle3', $data);
     }
 
     // Mettre à jour un mail
@@ -102,7 +102,7 @@ class MailController extends BaseController
         ];
 
         if ($this->mailModel->update($id, $data)) {
-            return redirect()->to('/salle_3/mails')->with('success', 'Mail mis à jour avec succès');
+            return redirect()->to('gingembre/salle_3')->with('success', 'Mail mis à jour avec succès');
         } else {
             return redirect()->back()
                 ->withInput()
@@ -114,7 +114,7 @@ class MailController extends BaseController
     public function delete($id)
     {
         if ($this->mailModel->delete($id)) {
-            return redirect()->to('/salle_3/mails')->with('success', 'Mail supprimé avec succès');
+            return redirect()->to('gingembre/salle_3')->with('success', 'Mail supprimé avec succès');
         } else {
             return redirect()->back()->with('error', 'Erreur lors de la suppression');
         }
