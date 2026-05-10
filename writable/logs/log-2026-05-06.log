@@ -1,0 +1,65 @@
+CRITICAL - 2026-05-06 10:09:38 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layout.php"
+[Method: GET, Route: gingembre/salle_1]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layout.php')
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layout', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 4 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-06 10:09:41 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layout.php"
+[Method: GET, Route: gingembre/salle_1]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layout.php')
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layout', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 4 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-06 10:09:43 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layout.php"
+[Method: GET, Route: gingembre/salle_1]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layout.php')
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layout', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 4 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-06 10:09:43 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layout.php"
+[Method: GET, Route: gingembre/salle_1]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layout.php')
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layout', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 4 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-06 10:09:43 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layout.php"
+[Method: GET, Route: gingembre/salle_1]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layout.php')
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layout', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 4 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

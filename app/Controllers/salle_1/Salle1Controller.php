@@ -79,10 +79,4 @@ class Salle1Controller extends BaseController
             'explication' => $explication
         ]);
     }
-
-    public function getBackend() : string
-    {
-        return view('admin/salle_1/AccueilAdminSalle1').
-            view('commun/footer');
-    }
 }

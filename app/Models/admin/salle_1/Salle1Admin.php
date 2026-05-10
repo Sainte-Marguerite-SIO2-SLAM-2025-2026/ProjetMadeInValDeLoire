@@ -6,104 +6,64 @@ use CodeIgniter\Model;
 
 class Salle1Admin extends Model
 {
-    protected $DBGroup = 'default';
+    protected $table = 'activite';
+    protected $primaryKey = 'numero';
+    protected $returnType = 'object';
 
-    /*
-    |--------------------------------------------------------------------------
-    | Récupération des données
-    |--------------------------------------------------------------------------
-    */
-
-    public function getAuteurs()
+    /**
+     * Récupère un message aléatoire de la salle 1 avec son auteur.
+     * @return object|null
+     */
+    public function getTousMessageSalle1()
     {
-        return $this->db->table('auteur')
-            ->orderBy('id', 'ASC')
+        return $this->db->table('activite a')
+            ->select('a.numero, a.libelle')
+            ->where('a.salle_numero', 1)
+            ->orderBy('RAND()')
             ->get()
             ->getResultArray();
     }
 
-    public function getMessages()
+    /**
+     * Récupère tous les mots suspects (erreurs) pour une activité donnée.
+     * @param int $activite_numero
+     * @return array
+     */
+    public function getTousMotsSuspects(int $activite_numero): array
     {
-        return $this->db->table('message')
-            ->orderBy('id', 'ASC')
+        $erreurs = $this->db->table('erreur')
+            ->select('mot_incorrect, explication')
+            ->get()
+            ->getResultArray();
+
+        // Retourne uniquement les mots incorrects
+        return array_column($erreurs, 'mot_incorrect');
+    }
+
+    /**
+     * Récupère toutes les erreurs avec leurs explications pour une activité.
+     * @param int $activite_numero
+     * @return array
+     */
+    public function getTousErreursAvecExplications(int $activite_numero): array
+    {
+        return $this->db->table('erreur')
+            ->select('numero, mot_incorrect, explication')
             ->get()
             ->getResultArray();
     }
 
-    public function getReponses()
+    /**
+     * Récupère les indices pour une activité donnée.
+     * @param int $activite_numero
+     * @return array
+     */
+    public function getTousIndices(int $activite_numero): array
     {
-        return $this->db->table('bonne_reponse')
-            ->orderBy('id', 'ASC')
+        return $this->db->table('avoir_indice ai')
+            ->select('i.numero, i.libelle')
+            ->join('indice i', 'i.numero = ai.indice_numero')
             ->get()
             ->getResultArray();
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Sauvegarde générique
-    |--------------------------------------------------------------------------
-    */
-
-    public function saveElement(string $type, array $data, ?int $id = null): bool
-    {
-        $table = $this->resolveTable($type);
-
-        if (!$table) {
-            return false;
-        }
-
-        // UPDATE
-        if ($id !== null) {
-            return $this->db->table($table)
-                ->where('id', $id)
-                ->update($data);
-        }
-
-        // INSERT
-        return $this->db->table($table)
-            ->insert($data);
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Suppression
-    |--------------------------------------------------------------------------
-    */
-
-    public function deleteElement(string $type, int $id): bool
-    {
-        $table = $this->resolveTable($type);
-
-        if (!$table) {
-            return false;
-        }
-
-        return $this->db->table($table)
-            ->where('id', $id)
-            ->delete();
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Résolution des tables SQL
-    |--------------------------------------------------------------------------
-    */
-
-    private function resolveTable(string $type): ?string
-    {
-        switch ($type) {
-
-            case 'auteur':
-                return 'auteur';
-
-            case 'message':
-                return 'message';
-
-            case 'reponse':
-                return 'bonne_reponse';
-
-            default:
-                return null;
-        }
     }
 }

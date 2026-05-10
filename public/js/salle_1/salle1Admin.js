@@ -1,51 +1,67 @@
-function showSection(section)
+/*
+|--------------------------------------------------------------------------
+| AFFICHAGE DES SECTIONS
+|--------------------------------------------------------------------------
+*/
+
+function showSection(section, element = null)
 {
     /*
     |--------------------------------------------------------------------------
-    | Sections
+    | CONTENT
     |--------------------------------------------------------------------------
     */
 
-    document.querySelectorAll('.content-section')
+    document
+        .querySelectorAll('.content-section')
         .forEach(el =>
         {
             el.classList.add('hidden');
         });
 
-    document.getElementById('section-' + section)
+    document
+        .getElementById('section-' + section)
         .classList.remove('hidden');
 
     /*
     |--------------------------------------------------------------------------
-    | Formulaires
+    | FORMULAIRES
     |--------------------------------------------------------------------------
     */
 
-    document.getElementById('form-auteur')
+    document
+        .getElementById('form-auteur')
         .classList.add('hidden');
 
-    document.getElementById('form-message')
+    document
+        .getElementById('form-message')
         .classList.add('hidden');
 
-    document.getElementById('form-reponse')
+    document
+        .getElementById('form-reponse')
         .classList.add('hidden');
 
-    document.getElementById('form-' + section)
+    document
+        .getElementById('form-' + section)
         .classList.remove('hidden');
 
     /*
     |--------------------------------------------------------------------------
-    | Sidebar active
+    | SIDEBAR ACTIVE
     |--------------------------------------------------------------------------
     */
 
-    document.querySelectorAll('.nav-card')
+    document
+        .querySelectorAll('.nav-card')
         .forEach(el =>
         {
             el.classList.remove('active');
         });
 
-    event.currentTarget.classList.add('active');
+    if (element)
+    {
+        element.classList.add('active');
+    }
 }
 
 /*
@@ -54,7 +70,7 @@ function showSection(section)
 |--------------------------------------------------------------------------
 */
 
-function openFormAuteur(mode, data)
+function openFormAuteur(data)
 {
     showSection('auteur');
 
@@ -90,7 +106,7 @@ function resetAuteurForm()
 |--------------------------------------------------------------------------
 */
 
-function openFormMessage(mode, data)
+function openFormMessage(data)
 {
     showSection('message');
 
@@ -111,6 +127,8 @@ function resetMessageForm()
     document.getElementById('message-id').value = '';
 
     document.getElementById('message-content').value = '';
+
+    document.getElementById('message-auteur').selectedIndex = 0;
 }
 
 /*
@@ -119,7 +137,7 @@ function resetMessageForm()
 |--------------------------------------------------------------------------
 */
 
-function openFormReponse(mode, data)
+function openFormReponse(data)
 {
     showSection('reponse');
 
@@ -143,6 +161,8 @@ function resetReponseForm()
     document.getElementById('reponse-id').value = '';
 
     document.getElementById('reponse-mot').value = '';
+
+    document.getElementById('reponse-message-id').selectedIndex = 0;
 
     document.getElementById('reponse-libelle').value = '';
 }
@@ -174,7 +194,7 @@ function confirmDelete(type, numero, nom)
         if (result.isConfirmed)
         {
             window.location.href =
-                `/gingembre/delete/${type}/${numero}`;
+                `/ProjetMadeInValDeLoire/public/index.php/gingembre/admin/delete/${type}/${numero}`;
         }
     });
 }

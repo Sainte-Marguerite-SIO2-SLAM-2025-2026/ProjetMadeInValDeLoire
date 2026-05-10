@@ -1,0 +1,224 @@
+CRITICAL - 2026-05-09 10:16:40 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:16:46 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:16:46 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:16:47 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:16:47 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:16:48 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:16:51 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:19:01 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:19:02 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:19:34 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:19:35 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:19:36 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:19:37 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:19:37 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:20:33 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 10:20:35 --> ErrorException: Undefined variable $auteurs
+[Method: GET, Route: gingembre/salle_1]
+in APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php on line 372.
+ 1 APPPATH\Views\admin\salle_1\AccueilAdminSalle1.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $auteurs', 'C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php', 372)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\wamp64\\www\\ProjetMadeInValDeLoire\\app\\Views\\admin\\salle_1\\AccueilAdminSalle1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/salle_1/AccueilAdminSalle1', [], true)
+ 5 APPPATH\Controllers\admin\AdminController.php(80): view('admin/salle_1/AccueilAdminSalle1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\admin\AdminController->salle('1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\admin\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

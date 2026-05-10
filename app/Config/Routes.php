@@ -74,6 +74,20 @@ $routes->get('gingembre/quiz', 'admin\AdminController::quiz');
 $routes->get('gingembre/mascotte', 'admin\AdminController::mascotte');
 
 // Admin Salle 1
+$routes->get(
+    'gingembre/salle_1',
+    'salle_1\Salle1AdminController::salle_1'
+);
+
+$routes->post(
+    'gingembre/admin/save',
+    'salle_1\Salle1AdminController::saveGeneric'
+);
+
+$routes->get(
+    'gingembre/admin/delete/(:any)/(:num)',
+    'salle_1\Salle1AdminController::deleteElement/$1/$2'
+);
 
 // Admin Salle 2
 $routes->get('gingembre/deleteElement/(:segment)/(:num)', 'salle_2\Salle2AdminController::deleteElement/$1/$2');
