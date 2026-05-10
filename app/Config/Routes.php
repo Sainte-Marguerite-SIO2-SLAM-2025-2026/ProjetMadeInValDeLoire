@@ -73,6 +73,8 @@ $routes->get('/gingembre/create-user', 'admin\AdminController::createUser');
 $routes->get('gingembre/quiz', 'admin\AdminController::quiz');
 $routes->get('gingembre/mascotte', 'admin\AdminController::mascotte');
 
+// Admin Salle 1
+
 // Admin Salle 2
 $routes->get('gingembre/deleteElement/(:segment)/(:num)', 'salle_2\Salle2AdminController::deleteElement/$1/$2');
 $routes->post('gingembre/saveGeneric', 'salle_2\Salle2AdminController::saveGeneric');

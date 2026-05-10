@@ -82,7 +82,7 @@ class Salle1Controller extends BaseController
 
     public function getBackend() : string
     {
-        return view('salle_1/BackSalle1').
+        return view('admin/salle_1/AccueilAdminSalle1').
             view('commun/footer');
     }
 }
