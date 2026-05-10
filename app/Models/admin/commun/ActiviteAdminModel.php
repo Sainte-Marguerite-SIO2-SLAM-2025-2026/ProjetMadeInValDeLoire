@@ -142,11 +142,11 @@ class ActiviteAdminModel extends Model
             return false;
         }
 
-        // Vérifier les dépendances
-        if ($this->hasRelatedRecords($numero)) {
-            log_message('warning', "Impossible de supprimer l'activité #{$numero} : utilisée dans d'autres tables");
-            return false;
-        }
+//        // Vérifier les dépendances
+//        if ($this->hasRelatedRecords($numero)) {
+//            log_message('warning', "Impossible de supprimer l'activité #{$numero} : utilisée dans d'autres tables");
+//            return false;
+//        }
 
         return $this->delete($numero);
     }

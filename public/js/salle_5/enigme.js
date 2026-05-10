@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         // Enigme terminée
                         if (data.completed) {
-                            feedback.innerHTML = `✅ ${data.message}<br>`;
+                            feedback.innerHTML = `${data.message}<br>`;
                             const btn = document.createElement('button');
                             btn.textContent = 'Suivant';
                             feedback.appendChild(btn);
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         // ================= MAUVAISE REPONSE =================
                     } else {
                         feedback.innerHTML =
-                            `❌ ${data.message}<br><button id="next-btn">Suivant</button>`;
+                            `${data.message}<br><button id="next-btn">Suivant</button>`;
                         feedback.className = 'feedback error show';
 
                         if (window.changerMascotte) {
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .catch(() => {
                     feedback.innerHTML =
-                        '❌ Erreur de connexion<br><button id="retry-btn">Réessayer</button>';
+                        'Erreur de connexion<br><button id="retry-btn">Réessayer</button>';
                     feedback.className = 'feedback error show';
 
                     document.getElementById('retry-btn').addEventListener('click', () => {
