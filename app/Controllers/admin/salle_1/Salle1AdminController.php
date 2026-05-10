@@ -66,15 +66,6 @@ class Salle1AdminController extends BaseController
 
         ];
 
-        /*
-        |--------------------------------------------------------------------------
-        | DEBUG
-        |--------------------------------------------------------------------------
-        | Décommente pour vérifier les données
-        |--------------------------------------------------------------------------
-        */
-
-        dd($data);
 
         /*
         |--------------------------------------------------------------------------
@@ -206,39 +197,6 @@ class Salle1AdminController extends BaseController
             }
         }
 
-        /*
-        |--------------------------------------------------------------------------
-        | INDICE
-        |--------------------------------------------------------------------------
-        */
-
-        elseif ($type === 'indice')
-        {
-            $numero = $this->request->getPost('numero');
-
-            $data = [
-
-                'libelle' => trim(
-                    (string)$this->request->getPost('libelle')
-                )
-
-            ];
-
-            if (!empty($numero))
-            {
-                $db->table('indice')
-
-                    ->where('numero', $numero)
-
-                    ->update($data);
-            }
-            else
-            {
-                $db->table('indice')
-
-                    ->insert($data);
-            }
-        }
 
         /*
         |--------------------------------------------------------------------------
@@ -260,65 +218,8 @@ class Salle1AdminController extends BaseController
     public function deleteElement(
         string $type,
         int $numero
-    ): RedirectResponse {
-
-        /*
-        |--------------------------------------------------------------------------
-        | SECURITE
-        |--------------------------------------------------------------------------
-        */
-
-        if (session()->get('admin_id') == null)
-        {
-            return redirect()->to('/gingembre');
-        }
-
-        /*
-        |--------------------------------------------------------------------------
-        | DB
-        |--------------------------------------------------------------------------
-        */
-
-        $db = \Config\Database::connect();
-
-        /*
-        |--------------------------------------------------------------------------
-        | DELETE
-        |--------------------------------------------------------------------------
-        */
-
-        switch ($type)
-        {
-            case 'activite':
-
-                $db->table('activite')
-
-                    ->where('numero', $numero)
-
-                    ->delete();
-
-                break;
-
-            case 'erreur':
-
-                $db->table('erreur')
-
-                    ->where('numero', $numero)
-
-                    ->delete();
-
-                break;
-
-            case 'indice':
-
-                $db->table('indice')
-
-                    ->where('numero', $numero)
-
-                    ->delete();
-
-                break;
-        }
+    ): RedirectResponse
+    {
 
         /*
         |--------------------------------------------------------------------------

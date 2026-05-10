@@ -57,14 +57,6 @@
 
             </div>
 
-            <div
-                    class="nav-card"
-                    onclick="showSection('indice', this)">
-
-                <h3>Indices</h3>
-
-            </div>
-
         </div>
 
         <!-- ===================================================== -->
@@ -208,71 +200,6 @@
                 </form>
 
             </div>
-
-
-
-            <!-- ===================================================== -->
-            <!-- FORM INDICE -->
-            <!-- ===================================================== -->
-
-            <div
-                    id="form-indice"
-                    class="admin-form-box hidden">
-
-                <h2>Ajouter / Modifier un indice</h2>
-
-                <?= form_open(
-                        'gingembre/admin/save',
-                        ['class' => 'form-container']
-                ) ?>
-
-                <input
-                        type="hidden"
-                        name="type"
-                        value="indice">
-
-                <input
-                        type="hidden"
-                        name="numero"
-                        id="indice-numero">
-
-                <div class="form-group">
-
-                    <label>Libellé</label>
-
-                    <textarea
-                            name="libelle"
-                            id="indice-libelle"
-                            required></textarea>
-
-                </div>
-
-                <div class="form-actions">
-
-                    <button
-                            type="submit"
-                            class="btn-add">
-
-                        Enregistrer
-
-                    </button>
-
-                    <button
-                            type="button"
-                            class="btn-delete"
-                            onclick="resetIndiceForm()">
-
-                        Vider
-
-                    </button>
-
-                </div>
-
-                </form>
-
-            </div>
-
-
 
             <!-- ===================================================== -->
             <!-- ACTIVITES -->
@@ -448,90 +375,6 @@
                 </div>
 
             </div>
-
-
-
-            <!-- ===================================================== -->
-            <!-- INDICES -->
-            <!-- ===================================================== -->
-
-            <div
-                    id="section-indice"
-                    class="content-section hidden">
-
-                <h2>Indices</h2>
-
-                <div class="table-responsive">
-
-                    <table class="data-table">
-
-                        <thead>
-
-                        <tr>
-
-                            <th>Numéro</th>
-                            <th>Libellé</th>
-                            <th>Actions</th>
-
-                        </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                        <?php if (!empty($indices)): ?>
-
-                            <?php foreach ($indices as $indice): ?>
-
-                                <tr>
-
-                                    <td>
-                                        <?= esc($indice['numero']) ?>
-                                    </td>
-
-                                    <td>
-                                        <?= esc($indice['libelle']) ?>
-                                    </td>
-
-                                    <td>
-
-                                        <button
-                                                class="btn-edit"
-
-                                                onclick='openFormIndice(
-                                                <?= json_encode($indice) ?>
-                                                        )'>
-
-                                            Modifier
-
-                                        </button>
-
-                                        <button
-                                                class="btn-delete"
-
-                                                onclick="confirmDelete(
-                                                        'indice',
-                                                <?= $indice['numero'] ?>,
-                                                        'Indice'
-                                                        )">
-
-                                            Supprimer
-
-                                        </button>
-
-                                    </td>
-
-                                </tr>
-
-                            <?php endforeach; ?>
-
-                        <?php endif; ?>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
 
             </div>
 
