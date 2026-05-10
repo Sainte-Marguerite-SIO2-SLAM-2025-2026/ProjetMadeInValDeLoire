@@ -1,6 +1,6 @@
 /*
 |--------------------------------------------------------------------------
-| AFFICHAGE DES SECTIONS
+| AFFICHAGE DES SECTIONS (SAFE VERSION)
 |--------------------------------------------------------------------------
 */
 
@@ -19,9 +19,16 @@ function showSection(section, element = null)
             el.classList.add('hidden');
         });
 
-    document
-        .getElementById('section-' + section)
-        .classList.remove('hidden');
+    const content = document.getElementById('section-' + section);
+
+    if (content)
+    {
+        content.classList.remove('hidden');
+    }
+    else
+    {
+        console.error("Section introuvable :", section);
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -29,21 +36,27 @@ function showSection(section, element = null)
     |--------------------------------------------------------------------------
     */
 
-    document
-        .getElementById('form-auteur')
-        .classList.add('hidden');
+    const forms = [
+        'form-auteur',
+        'form-message',
+        'form-reponse',
+        'form-activite',
+        'form-erreur',
+        'form-indice'
+    ];
 
-    document
-        .getElementById('form-message')
-        .classList.add('hidden');
+    forms.forEach(id =>
+    {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+    });
 
-    document
-        .getElementById('form-reponse')
-        .classList.add('hidden');
+    const form = document.getElementById('form-' + section);
 
-    document
-        .getElementById('form-' + section)
-        .classList.remove('hidden');
+    if (form)
+    {
+        form.classList.remove('hidden');
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -66,37 +79,91 @@ function showSection(section, element = null)
 
 /*
 |--------------------------------------------------------------------------
+| ACTIVITE
+|--------------------------------------------------------------------------
+*/
+
+window.openFormActivite = function (btn)
+{
+    showSection('activite');
+
+    document.getElementById('activite-numero').value =
+        btn.dataset.numero || '';
+
+    document.getElementById('activite-libelle').value =
+        btn.dataset.libelle || '';
+
+    scrollToTop();
+};
+
+function resetActiviteForm()
+{
+    document.getElementById('activite-numero').value = '';
+    document.getElementById('activite-libelle').value = '';
+    
+}
+
+/*
+|--------------------------------------------------------------------------
+| ERREUR
+|--------------------------------------------------------------------------
+*/
+
+
+window.openFormErreur = function (btn)
+{
+    showSection('erreur');
+
+    document.getElementById('erreur-numero').value =
+        btn.dataset.numero || '';
+
+    document.getElementById('erreur-mot').value =
+        btn.dataset.mot || '';
+    document.getElementById('erreur-explication').value =
+        btn.dataset.explication || '';
+
+    scrollToTop();
+};
+
+function resetErreurForm()
+{
+    document.getElementById('erreur-numero').value = '';
+
+    document.getElementById('erreur-mot').value = '';
+    document.getElementById('erreur-explication').value = '';
+    
+}
+
+/*
+|--------------------------------------------------------------------------
 | AUTEUR
 |--------------------------------------------------------------------------
 */
 
-function openFormAuteur(data)
+window.openFormAuteur = function (btn)
 {
     showSection('auteur');
 
     document.getElementById('auteur-numero').value =
-        data.numero;
+        btn.dataset.numero || '';
 
     document.getElementById('auteur-nom').value =
-        data.nom;
+        btn.dataset.nom || '';
 
     document.getElementById('auteur-prenom').value =
-        data.prenom;
+        btn.dataset.prenom || '';
 
     document.getElementById('auteur-fonction').value =
-        data.fonction_role;
+        btn.dataset.fonction || '';
 
     scrollToTop();
-}
+};
 
 function resetAuteurForm()
 {
     document.getElementById('auteur-numero').value = '';
-
     document.getElementById('auteur-nom').value = '';
-
     document.getElementById('auteur-prenom').value = '';
-
     document.getElementById('auteur-fonction').value = '';
 }
 
@@ -125,9 +192,7 @@ function openFormMessage(data)
 function resetMessageForm()
 {
     document.getElementById('message-id').value = '';
-
     document.getElementById('message-content').value = '';
-
     document.getElementById('message-auteur').selectedIndex = 0;
 }
 
@@ -159,11 +224,8 @@ function openFormReponse(data)
 function resetReponseForm()
 {
     document.getElementById('reponse-id').value = '';
-
     document.getElementById('reponse-mot').value = '';
-
     document.getElementById('reponse-message-id').selectedIndex = 0;
-
     document.getElementById('reponse-libelle').value = '';
 }
 
@@ -176,19 +238,12 @@ function resetReponseForm()
 function confirmDelete(type, numero, nom)
 {
     Swal.fire({
-
         title: 'Supprimer ?',
-
         text: nom,
-
         icon: 'warning',
-
         showCancelButton: true,
-
         confirmButtonText: 'Oui',
-
         cancelButtonText: 'Annuler'
-
     }).then((result) =>
     {
         if (result.isConfirmed)

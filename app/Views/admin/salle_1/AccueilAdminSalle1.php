@@ -57,6 +57,14 @@
 
             </div>
 
+            <div
+                    class="nav-card"
+                    onclick="showSection('auteur', this)">
+
+                <h3>Auteur</h3>
+
+            </div>
+
         </div>
 
         <!-- ===================================================== -->
@@ -201,6 +209,85 @@
 
             </div>
 
+
+
+            <!-- ===================================================== -->
+            <!-- FORM AUTEUR -->
+            <!-- ===================================================== -->
+
+            <div
+                    id="form-auteur"
+                    class="admin-form-box hidden">
+
+                <h2>Ajouter / Modifier un auteur</h2>
+
+                <?= form_open(
+                        'gingembre/admin/save',
+                        ['class' => 'form-container']
+                ) ?>
+
+                <input
+                        type="hidden"
+                        name="type"
+                        value="auteur">
+
+                <input
+                        type="hidden"
+                        name="numero"
+                        id="auteur-numero">
+
+                <div class="form-group">
+
+                    <label>Nom</label>
+
+                    <textarea
+                            name="nom"
+                            id="auteur-nom"
+                            required></textarea>
+
+                            <label>Prénom</label>
+
+                    <textarea
+                            name="prenom"
+                            id="auteur-prenom"
+                            required></textarea>
+
+                            <label>Fonction</label>
+
+                    <textarea
+                            name="fonction"
+                            id="auteur-fonction"
+                            required></textarea>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button
+                            type="submit"
+                            class="btn-add">
+
+                        Enregistrer
+
+                    </button>
+
+                    <button
+                            type="button"
+                            class="btn-delete"
+                            onclick="resetAuteurForm()">
+
+                        Vider
+
+                    </button>
+
+                </div>
+
+                </form>
+
+            </div>
+
+
+
             <!-- ===================================================== -->
             <!-- ACTIVITES -->
             <!-- ===================================================== -->
@@ -228,7 +315,6 @@
                         </thead>
 
                         <tbody>
-
                         <?php if (!empty($activites)): ?>
 
                             <?php foreach ($activites as $activite): ?>
@@ -246,14 +332,11 @@
                                     <td>
 
                                         <button
-                                                class="btn-edit"
-
-                                                onclick='openFormActivite(
-                                                <?= json_encode($activite) ?>
-                                                        )'>
-
+                                            class="btn-edit"
+                                            data-numero="<?= esc($activite['numero']) ?>"
+                                            data-libelle="<?= esc($activite['libelle']) ?>"
+                                            onclick="openFormActivite(this)">
                                             Modifier
-
                                         </button>
 
                                         <button
@@ -338,14 +421,16 @@
 
                                         <button
                                                 class="btn-edit"
-
-                                                onclick='openFormErreur(
-                                                <?= json_encode($erreur) ?>
-                                                        )'>
+                                                data-numero="<?= esc($erreur['numero']) ?>"
+                                                data-mot="<?= esc($erreur['mot_incorrect']) ?>"
+                                                data-explication="<?= esc($erreur['explication']) ?>"
+                                                onclick='openFormErreur(this)'>
+                                               
 
                                             Modifier
 
                                         </button>
+                                       
 
                                         <button
                                                 class="btn-delete"
@@ -375,6 +460,104 @@
                 </div>
 
             </div>
+
+
+
+            <!-- ===================================================== -->
+            <!-- AUTEUR -->
+            <!-- ===================================================== -->
+
+            <div
+                    id="section-auteur"
+                    class="content-section hidden">
+
+                <h2>Auteur</h2>
+
+                <div class="table-responsive">
+
+                    <table class="data-table">
+
+                        <thead>
+
+                        <tr>
+
+                            <th>Numéro</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Fonction</th>
+
+                        </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                        <?php if (!empty($auteurs)): ?>
+
+                            <?php foreach ($auteurs as $auteur): ?>
+
+                                <tr>
+
+                                    <td>
+                                        <?= esc($auteur['numero']) ?>
+                                    </td>
+
+                                    <td>
+                                        <?= esc($auteur['nom']) ?>
+                                    </td>
+
+                                    <td>
+                                        <?= esc($auteur['prenom']) ?>
+                                    </td>
+
+                                    <td>
+                                        <?= esc($auteur['fonction_role']) ?>
+                                    </td>
+
+                                    <td>
+
+                                        
+
+                                        <button
+                                                class="btn-edit"
+                                                data-numero="<?= esc($auteur['numero']) ?>"
+                                                data-nom="<?= esc($auteur['nom']) ?>"
+                                                data-prenom="<?= esc($auteur['prenom']) ?>"
+                                                data-fonction="<?= esc($auteur['fonction_role']) ?>"
+                                                onclick='openFormAuteur(this)'>
+                                               
+
+                                            Modifier
+
+                                        </button>
+
+                                      
+                                        <button
+                                                class="btn-delete"
+
+                                                onclick="confirmDelete(
+                                                        'auteur',
+                                                <?= $auteur['numero'] ?>,
+                                                        'Auteur'
+                                                        )">
+
+                                            Supprimer
+
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+                            <?php endforeach; ?>
+
+                        <?php endif; ?>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
 
             </div>
 

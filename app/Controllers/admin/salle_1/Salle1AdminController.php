@@ -47,8 +47,8 @@ class Salle1AdminController extends BaseController
         $erreurs = $adminModel
             ->getTousErreursAvecExplications(1);
 
-        $indices = $adminModel
-            ->getTousIndices(1);
+        $auteurs = $adminModel
+            ->getTousLesAuteurs();
 
         /*
         |--------------------------------------------------------------------------
@@ -62,10 +62,19 @@ class Salle1AdminController extends BaseController
 
             'erreurs' => $erreurs,
 
-            'indices' => $indices
+            'auteurs' => $auteurs
 
         ];
 
+        /*
+        |--------------------------------------------------------------------------
+        | DEBUG
+        |--------------------------------------------------------------------------
+        | Décommente pour vérifier les données
+        |--------------------------------------------------------------------------
+        */
+
+        //dd($data);
 
         /*
         |--------------------------------------------------------------------------
@@ -197,6 +206,43 @@ class Salle1AdminController extends BaseController
             }
         }
 
+        /*
+        |--------------------------------------------------------------------------
+        | INDICE
+        |--------------------------------------------------------------------------
+        */
+
+        elseif ($type === 'auteur')
+        {
+            $numero = $this->request->getPost('numero');
+
+            $nom = trim((string) $this->request->getPost('nom'));
+            $prenom = trim((string) $this->request->getPost('prenom'));
+            $fonction = trim((string) $this->request->getPost('fonction'));
+
+            if ($nom === '' || $prenom === '' || $fonction === '')
+            {
+                return redirect()->back()->with('error', 'Tous les champs sont obligatoires');
+            }
+
+            $data = [
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'fonction_role' => $fonction
+            ];
+
+            $table = $db->table('auteur');
+
+            if (!empty($numero))
+            {
+                $table->where('numero', $numero)
+                    ->update($data);
+            }
+            else
+            {
+                $table->insert($data);
+            }
+        }
 
         /*
         |--------------------------------------------------------------------------
@@ -218,8 +264,65 @@ class Salle1AdminController extends BaseController
     public function deleteElement(
         string $type,
         int $numero
-    ): RedirectResponse
-    {
+    ): RedirectResponse {
+
+        /*
+        |--------------------------------------------------------------------------
+        | SECURITE
+        |--------------------------------------------------------------------------
+        */
+
+        if (session()->get('admin_id') == null)
+        {
+            return redirect()->to('/gingembre');
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | DB
+        |--------------------------------------------------------------------------
+        */
+
+        $db = \Config\Database::connect();
+
+        /*
+        |--------------------------------------------------------------------------
+        | DELETE
+        |--------------------------------------------------------------------------
+        */
+
+        switch ($type)
+        {
+            case 'activite':
+
+                $db->table('activite')
+
+                    ->where('numero', $numero)
+
+                    ->delete();
+
+                break;
+
+            case 'erreur':
+
+                $db->table('erreur')
+
+                    ->where('numero', $numero)
+
+                    ->delete();
+
+                break;
+
+            case 'indice':
+
+                $db->table('indice')
+
+                    ->where('numero', $numero)
+
+                    ->delete();
+
+                break;
+        }
 
         /*
         |--------------------------------------------------------------------------

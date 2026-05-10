@@ -19,7 +19,6 @@ class Salle1Admin extends Model
         return $this->db->table('activite a')
             ->select('a.numero, a.libelle')
             ->where('a.salle_numero', 1)
-            ->orderBy('RAND()')
             ->get()
             ->getResultArray();
     }
@@ -52,6 +51,16 @@ class Salle1Admin extends Model
             ->get()
             ->getResultArray();
     }
+
+    public function getTousLesAuteurs(): array
+    {
+        return $this->db->table('auteur a')
+            ->select('a.numero, a.nom, a.prenom, a.fonction_role')
+            ->get()
+            ->getResultArray();
+    }
+
+
 
     /**
      * Récupère les indices pour une activité donnée.
