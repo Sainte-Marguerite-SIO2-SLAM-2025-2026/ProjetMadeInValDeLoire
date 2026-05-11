@@ -54,8 +54,6 @@ class AdminSalle4Controller extends BaseController
         return view('admin/salle_4/dashboard', $data);
     }
 
-    // ==================== GESTION CARTES ====================
-
     /**
      * Liste des cartes
      */
@@ -175,8 +173,6 @@ class AdminSalle4Controller extends BaseController
         return redirect()->to('/gingembre/salle_4/carte')->with('success', 'Carte supprimée avec succès');
     }
 
-    // ==================== GESTION QUESTIONS ====================
-
     /**
      * Liste des questions
      */
@@ -291,8 +287,6 @@ class AdminSalle4Controller extends BaseController
         $this->questionModel->delete($id);
         return redirect()->to('/gingembre/salle_4/question')->with('success', 'Question supprimée avec succès');
     }
-
-    // ==================== GESTION ACTIVITÉS ====================
 
     /**
      * Liste des activités de la salle 4
@@ -423,8 +417,6 @@ class AdminSalle4Controller extends BaseController
         return redirect()->to('/gingembre/salle_4/activite')->with('error', 'Impossible de supprimer cette activité (utilisée ailleurs)');
     }
 
-    // ==================== GESTION EXPLICATIONS ====================
-
     /**
      * Liste des explications de la salle 4
      */
@@ -541,8 +533,6 @@ class AdminSalle4Controller extends BaseController
 
         return redirect()->to('/gingembre/salle_4/explication')->with('error', 'Impossible de supprimer cette explication (utilisée ailleurs)');
     }
-
-    // ==================== GESTION INDICES ====================
 
     /**
      * Liste des indices de la salle 4

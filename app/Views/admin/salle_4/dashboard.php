@@ -12,7 +12,6 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
-    <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -21,71 +20,45 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="<?= base_url('/gingembre/accueil') ?>" class="nav-link">
-                    <i class="fas fa-home"></i> Accueil Admin
-                </a>
+                <?= anchor('/gingembre/accueil', '<i class="fas fa-home"></i> Accueil Admin', ['class' => 'nav-link']) ?>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url('/gingembre/logout') ?>" class="nav-link">
-                    <i class="fas fa-sign-out-alt"></i> Déconnexion
-                </a>
+                <?= anchor('/gingembre/logout', '<i class="fas fa-sign-out-alt"></i> Déconnexion', ['class' => 'nav-link']) ?>
             </li>
         </ul>
     </nav>
 
-    <!-- Sidebar -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="<?= base_url('/gingembre/salle_4') ?>" class="brand-link">
-            <span class="brand-text font-weight-light">Admin Salle 4</span>
-        </a>
+        <?= anchor('/gingembre/salle_4', '<span class="brand-text font-weight-light">Admin Salle 4</span>', ['class' => 'brand-link']) ?>
 
         <div class="sidebar">
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_4') ?>" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>Dashboard</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_4', '<i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p>', ['class' => 'nav-link active']) ?>
                     </li>
                     <li class="nav-header">DONNÉES RANSOMWARE</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_4/carte') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-id-card"></i>
-                            <p>Cartes</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_4/carte', '<i class="nav-icon fas fa-id-card"></i><p>Cartes</p>', ['class' => 'nav-link']) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_4/question') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Questions</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_4/question', '<i class="nav-icon fas fa-question-circle"></i><p>Questions</p>', ['class' => 'nav-link']) ?>
                     </li>
                     <li class="nav-header">DONNÉES COMMUNES</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_4/activite') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-tasks"></i>
-                            <p>Activités</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_4/activite', '<i class="nav-icon fas fa-tasks"></i><p>Activités</p>', ['class' => 'nav-link']) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_4/explication') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-info-circle"></i>
-                            <p>Explications</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_4/explication', '<i class="nav-icon fas fa-info-circle"></i><p>Explications</p>', ['class' => 'nav-link']) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_4/indice') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-lightbulb"></i>
-                            <p>Indices</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_4/indice', '<i class="nav-icon fas fa-lightbulb"></i><p>Indices</p>', ['class' => 'nav-link']) ?>
                     </li>
                 </ul>
             </nav>
         </div>
     </aside>
 
-    <!-- Content Wrapper -->
     <div class="content-wrapper">
         <section class="content-header">
             <div class="container-fluid">
@@ -96,7 +69,6 @@
         <section class="content">
             <div class="container-fluid">
 
-                <!-- Statistiques Ransomware -->
                 <div class="row">
                     <div class="col-12">
                         <h3 class="mb-3">Données Spécifiques Ransomware</h3>
@@ -110,9 +82,7 @@
                             <div class="icon">
                                 <i class="fas fa-id-card"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/carte') ?>" class="small-box-footer">
-                                Gérer <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor('/gingembre/salle_4/carte', 'Gérer <i class="fas fa-arrow-circle-right"></i>', ['class' => 'small-box-footer']) ?>
                         </div>
                     </div>
 
@@ -125,9 +95,7 @@
                             <div class="icon">
                                 <i class="fas fa-check-circle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/carte') ?>" class="small-box-footer">
-                                Voir <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor('/gingembre/salle_4/carte', 'Voir <i class="fas fa-arrow-circle-right"></i>', ['class' => 'small-box-footer']) ?>
                         </div>
                     </div>
 
@@ -140,9 +108,7 @@
                             <div class="icon">
                                 <i class="fas fa-exclamation-triangle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/carte') ?>" class="small-box-footer">
-                                Voir <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor('/gingembre/salle_4/carte', 'Voir <i class="fas fa-arrow-circle-right"></i>', ['class' => 'small-box-footer']) ?>
                         </div>
                     </div>
 
@@ -155,14 +121,11 @@
                             <div class="icon">
                                 <i class="fas fa-question-circle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/question') ?>" class="small-box-footer">
-                                Gérer <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor('/gingembre/salle_4/question', 'Gérer <i class="fas fa-arrow-circle-right"></i>', ['class' => 'small-box-footer']) ?>
                         </div>
                     </div>
                 </div>
 
-                <!-- Statistiques Données Communes -->
                 <div class="row">
                     <div class="col-12">
                         <h3 class="mb-3 mt-3">Données Communes (Plage 400-499)</h3>
@@ -176,9 +139,7 @@
                             <div class="icon">
                                 <i class="fas fa-tasks"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/activite') ?>" class="small-box-footer">
-                                Gérer <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor('/gingembre/salle_4/activite', 'Gérer <i class="fas fa-arrow-circle-right"></i>', ['class' => 'small-box-footer']) ?>
                         </div>
                     </div>
 
@@ -191,9 +152,7 @@
                             <div class="icon">
                                 <i class="fas fa-info-circle"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/explication') ?>" class="small-box-footer">
-                                Gérer <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor('/gingembre/salle_4/explication', 'Gérer <i class="fas fa-arrow-circle-right"></i>', ['class' => 'small-box-footer']) ?>
                         </div>
                     </div>
 
@@ -206,14 +165,11 @@
                             <div class="icon">
                                 <i class="fas fa-lightbulb"></i>
                             </div>
-                            <a href="<?= base_url('/gingembre/salle_4/indice') ?>" class="small-box-footer">
-                                Gérer <i class="fas fa-arrow-circle-right"></i>
-                            </a>
+                            <?= anchor('/gingembre/salle_4/indice', 'Gérer <i class="fas fa-arrow-circle-right"></i>', ['class' => 'small-box-footer']) ?>
                         </div>
                     </div>
                 </div>
 
-                <!-- Détails et Actions -->
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
@@ -247,15 +203,9 @@
                                 <h3 class="card-title">Actions rapides</h3>
                             </div>
                             <div class="card-body">
-                                <a href="<?= base_url('/gingembre/salle_4/carte/create') ?>" class="btn btn-success btn-block mb-2">
-                                    <i class="fas fa-plus"></i> Ajouter une Carte
-                                </a>
-                                <a href="<?= base_url('/gingembre/salle_4/question/create') ?>" class="btn btn-primary btn-block mb-2">
-                                    <i class="fas fa-plus"></i> Ajouter une Question
-                                </a>
-                                <a href="<?= base_url('/gingembre/salle_4/activite/create') ?>" class="btn btn-secondary btn-block">
-                                    <i class="fas fa-plus"></i> Ajouter une Activité
-                                </a>
+                                <?= anchor('/gingembre/salle_4/carte/create', '<i class="fas fa-plus"></i> Ajouter une Carte', ['class' => 'btn btn-success btn-block mb-2']) ?>
+                                <?= anchor('/gingembre/salle_4/question/create', '<i class="fas fa-plus"></i> Ajouter une Question', ['class' => 'btn btn-primary btn-block mb-2']) ?>
+                                <?= anchor('/gingembre/salle_4/activite/create', '<i class="fas fa-plus"></i> Ajouter une Activité', ['class' => 'btn btn-secondary btn-block']) ?>
                             </div>
                         </div>
                     </div>
@@ -265,7 +215,6 @@
         </section>
     </div>
 
-    <!-- Footer -->
     <footer class="main-footer">
         <strong>Administration Salle 4</strong> - Made in Val de Loire
     </footer>

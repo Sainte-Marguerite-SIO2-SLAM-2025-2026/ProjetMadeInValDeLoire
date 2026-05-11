@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,7 +12,6 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
-    <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -22,70 +20,45 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="<?= base_url('/gingembre/accueil') ?>" class="nav-link">
-                    <i class="fas fa-home"></i> Accueil Admin
-                </a>
+                <?= anchor('/gingembre/accueil', '<i class="fas fa-home"></i> Accueil Admin', ['class' => 'nav-link']) ?>
             </li>
             <li class="nav-item">
-                <a href="<?= base_url('/gingembre/logout') ?>" class="nav-link">
-                    <i class="fas fa-sign-out-alt"></i> Déconnexion
-                </a>
+                <?= anchor('/gingembre/logout', '<i class="fas fa-sign-out-alt"></i> Déconnexion', ['class' => 'nav-link']) ?>
             </li>
         </ul>
     </nav>
 
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="<?= base_url('/gingembre/salle_4') ?>" class="brand-link">
-            <span class="brand-text font-weight-light">Admin Salle 4</span>
-        </a>
+        <?= anchor('/gingembre/salle_4', '<span class="brand-text font-weight-light">Admin Salle 4</span>', ['class' => 'brand-link']) ?>
 
         <div class="sidebar">
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_4') ?>" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>Dashboard</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_4', '<i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p>', ['class' => 'nav-link']) ?>
                     </li>
                     <li class="nav-header">DONNÉES RANSOMWARE</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_4/carte') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-id-card"></i>
-                            <p>Cartes</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_4/carte', '<i class="nav-icon fas fa-id-card"></i><p>Cartes</p>', ['class' => 'nav-link active']) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_4/question') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-question-circle"></i>
-                            <p>Questions</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_4/question', '<i class="nav-icon fas fa-question-circle"></i><p>Questions</p>', ['class' => 'nav-link']) ?>
                     </li>
                     <li class="nav-header">DONNÉES COMMUNES</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_4/activite') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-tasks"></i>
-                            <p>Activités</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_4/activite', '<i class="nav-icon fas fa-tasks"></i><p>Activités</p>', ['class' => 'nav-link']) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_4/explication') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-info-circle"></i>
-                            <p>Explications</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_4/explication', '<i class="nav-icon fas fa-info-circle"></i><p>Explications</p>', ['class' => 'nav-link']) ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/gingembre/salle_4/indice') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-lightbulb"></i>
-                            <p>Indices</p>
-                        </a>
+                        <?= anchor('/gingembre/salle_4/indice', '<i class="nav-icon fas fa-lightbulb"></i><p>Indices</p>', ['class' => 'nav-link']) ?>
                     </li>
                 </ul>
             </nav>
         </div>
     </aside>
 
-    <!-- Content Wrapper -->
     <div class="content-wrapper">
         <section class="content-header">
             <div class="container-fluid">
@@ -94,9 +67,7 @@
                         <h1><?= isset($carte) ? 'Modifier' : 'Ajouter' ?> une Carte</h1>
                     </div>
                     <div class="col-sm-6">
-                        <a href="<?= base_url('/gingembre/salle_4/carte') ?>" class="btn btn-secondary float-right">
-                            <i class="fas fa-arrow-left"></i> Retour
-                        </a>
+                        <?= anchor('/gingembre/salle_4/carte', '<i class="fas fa-arrow-left"></i> Retour', ['class' => 'btn btn-secondary float-right']) ?>
                     </div>
                 </div>
             </div>
@@ -117,9 +88,7 @@
                 <?php endif; ?>
 
                 <div class="card">
-                    <form action="<?= isset($carte) ? base_url('/gingembre/salle_4/carte/update/' . $carte['numero']) : base_url('/gingembre/salle_4/carte/store') ?>"
-                          method="post">
-                        <?= csrf_field() ?>
+                    <?= form_open(isset($carte) ? '/gingembre/salle_4/carte/update/' . $carte['numero'] : '/gingembre/salle_4/carte/store') ?>
 
                         <div class="card-body">
 
@@ -186,11 +155,10 @@
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-save"></i> Enregistrer
                             </button>
-                            <a href="<?= base_url('/gingembre/salle_4/carte') ?>" class="btn btn-secondary">
-                                <i class="fas fa-times"></i> Annuler
-                            </a>
+                            <?= anchor('/gingembre/salle_4/carte', '<i class="fas fa-times"></i> Annuler', ['class' => 'btn btn-secondary']) ?>
                         </div>
-                    </form>
+
+                    <?= form_close() ?>
                 </div>
 
             </div>
@@ -207,7 +175,6 @@
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 <script>
     $(document).ready(function() {
-        // Afficher/cacher le champ explication_piege selon le type
         function toggleExplicationPiege() {
             if ($('#type_carte').val() === 'piege') {
                 $('#explication_piege_group').show();
